@@ -1,263 +1,234 @@
 unit PrimPrintDialogOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimPrintDialogOptions_Form.pas"
-// Начат: 30.07.2010 15:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimPrintDialogOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialogOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPrintDialogOptions" MUID: (4C52BA5D01A8)
+// Имя типа: "TPrimPrintDialogOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  vtComboBoxQS
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimPrintDialog_Form
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtSpinEdit,
-  vtCheckBox,
-  vtRadioButton,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimPrintDialog_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtRadioButton
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtSpinEdit
+ , vtCheckBox
+ , vtComboBoxQS
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimPrintDialogOptionsForm = {form} class(TPrimPrintDialogForm)
- private
- // private fields
-   f_poDocumentNames : TvtRadioButton;
-    {* Поле для свойства poDocumentNames}
-   f_rbPrintSelected : TvtRadioButton;
-    {* Поле для свойства rbPrintSelected}
-   f_rbPrintCurrent : TvtRadioButton;
-    {* Поле для свойства rbPrintCurrent}
-   f_edPrintInterval : TnscEditWithoutPlusMinusShortcut;
-    {* Поле для свойства edPrintInterval}
-   f_edCopyCount : TvtSpinEdit;
-    {* Поле для свойства edCopyCount}
-   f_CollateCheckBox : TvtCheckBox;
-    {* Поле для свойства CollateCheckBox}
-   f_cbOddEven : TvtComboBoxQS;
-    {* Поле для свойства cbOddEven}
-   f_poDocumentTexts : TvtRadioButton;
-    {* Поле для свойства poDocumentTexts}
-   f_rbPrintAll : TvtRadioButton;
-    {* Поле для свойства rbPrintAll}
-   f_rbPrintInterval : TvtRadioButton;
-    {* Поле для свойства rbPrintInterval}
-   f_cbPrinter : TvtComboBoxQS;
-    {* Поле для свойства cbPrinter}
-   f_cbPrintInfo : TvtCheckBox;
-    {* Поле для свойства cbPrintInfo}
- protected
-  procedure InitEntities; override;
- protected
- // property methods
-   function pm_GetPoDocumentNames: TvtRadioButton;
-   function pm_GetRbPrintSelected: TvtRadioButton;
-   function pm_GetRbPrintCurrent: TvtRadioButton;
-   function pm_GetEdPrintInterval: TnscEditWithoutPlusMinusShortcut;
-   function pm_GetEdCopyCount: TvtSpinEdit;
+ TPrimPrintDialogOptionsForm = class(TPrimPrintDialogForm)
+  private
+   f_poDocumentNames: TvtRadioButton;
+   f_rbPrintSelected: TvtRadioButton;
+   f_rbPrintCurrent: TvtRadioButton;
+   f_edPrintInterval: TnscEditWithoutPlusMinusShortcut;
+   f_edCopyCount: TvtSpinEdit;
+   f_CollateCheckBox: TvtCheckBox;
+   f_cbOddEven: TvtComboBoxQS;
+   f_poDocumentTexts: TvtRadioButton;
+   f_rbPrintAll: TvtRadioButton;
+   f_rbPrintInterval: TvtRadioButton;
+   f_cbPrinter: TvtComboBoxQS;
+   f_cbPrintInfo: TvtCheckBox;
+  protected
+   function pm_GetpoDocumentNames: TvtRadioButton;
+   function pm_GetrbPrintSelected: TvtRadioButton;
+   function pm_GetrbPrintCurrent: TvtRadioButton;
+   function pm_GetedPrintInterval: TnscEditWithoutPlusMinusShortcut;
+   function pm_GetedCopyCount: TvtSpinEdit;
    function pm_GetCollateCheckBox: TvtCheckBox;
-   function pm_GetCbOddEven: TvtComboBoxQS;
-   function pm_GetPoDocumentTexts: TvtRadioButton;
-   function pm_GetRbPrintAll: TvtRadioButton;
-   function pm_GetRbPrintInterval: TvtRadioButton;
-   function pm_GetCbPrinter: TvtComboBoxQS;
-   function pm_GetCbPrintInfo: TvtCheckBox;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+   function pm_GetcbOddEven: TvtComboBoxQS;
+   function pm_GetpoDocumentTexts: TvtRadioButton;
+   function pm_GetrbPrintAll: TvtRadioButton;
+   function pm_GetrbPrintInterval: TvtRadioButton;
+   function pm_GetcbPrinter: TvtComboBoxQS;
+   function pm_GetcbPrintInfo: TvtCheckBox;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
- public
- // public properties
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property poDocumentNames: TvtRadioButton
-     read pm_GetPoDocumentNames;
+    read pm_GetpoDocumentNames;
    property rbPrintSelected: TvtRadioButton
-     read pm_GetRbPrintSelected;
+    read pm_GetrbPrintSelected;
    property rbPrintCurrent: TvtRadioButton
-     read pm_GetRbPrintCurrent;
+    read pm_GetrbPrintCurrent;
    property edPrintInterval: TnscEditWithoutPlusMinusShortcut
-     read pm_GetEdPrintInterval;
+    read pm_GetedPrintInterval;
    property edCopyCount: TvtSpinEdit
-     read pm_GetEdCopyCount;
+    read pm_GetedCopyCount;
    property CollateCheckBox: TvtCheckBox
-     read pm_GetCollateCheckBox;
+    read pm_GetCollateCheckBox;
    property cbOddEven: TvtComboBoxQS
-     read pm_GetCbOddEven;
+    read pm_GetcbOddEven;
    property poDocumentTexts: TvtRadioButton
-     read pm_GetPoDocumentTexts;
+    read pm_GetpoDocumentTexts;
    property rbPrintAll: TvtRadioButton
-     read pm_GetRbPrintAll;
+    read pm_GetrbPrintAll;
    property rbPrintInterval: TvtRadioButton
-     read pm_GetRbPrintInterval;
+    read pm_GetrbPrintInterval;
    property cbPrinter: TvtComboBoxQS
-     read pm_GetCbPrinter;
+    read pm_GetcbPrinter;
    property cbPrintInfo: TvtCheckBox
-     read pm_GetCbPrintInfo;
+    read pm_GetcbPrintInfo;
  end;//TPrimPrintDialogOptionsForm
-
- TvcmEntityFormRef = TPrimPrintDialogOptionsForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsTrialSupport,
-  PreviewInterfaces,
-  evExcept,
-  afwInterfaces,
-  l3Interfaces,
-  l3RangeManager,
-  SysUtils,
-  nsConst,
-  afwFacade,
-  afwTypes,
-  l3Base,
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTrialSupport
+ , PreviewInterfaces
+ , evExcept
+ , afwInterfaces
+ , l3Interfaces
+ , l3RangeManager
+ , SysUtils
+ , nsConst
+ , afwFacade
+ , afwTypes
+ , l3Base
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C52BA5D01A8impl_uses*
+ //#UC END# *4C52BA5D01A8impl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TPrimPrintDialogOptionsForm
-
-function TPrimPrintDialogOptionsForm.pm_GetPoDocumentNames: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetpoDocumentNames: TvtRadioButton;
 begin
  if (f_poDocumentNames = nil) then
   f_poDocumentNames := FindComponent('poDocumentNames') As TvtRadioButton;
  Result := f_poDocumentNames;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetpoDocumentNames
 
-function TPrimPrintDialogOptionsForm.pm_GetRbPrintSelected: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetrbPrintSelected: TvtRadioButton;
 begin
  if (f_rbPrintSelected = nil) then
   f_rbPrintSelected := FindComponent('rbPrintSelected') As TvtRadioButton;
  Result := f_rbPrintSelected;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintSelected
 
-function TPrimPrintDialogOptionsForm.pm_GetRbPrintCurrent: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetrbPrintCurrent: TvtRadioButton;
 begin
  if (f_rbPrintCurrent = nil) then
   f_rbPrintCurrent := FindComponent('rbPrintCurrent') As TvtRadioButton;
  Result := f_rbPrintCurrent;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintCurrent
 
-function TPrimPrintDialogOptionsForm.pm_GetEdPrintInterval: TnscEditWithoutPlusMinusShortcut;
+function TPrimPrintDialogOptionsForm.pm_GetedPrintInterval: TnscEditWithoutPlusMinusShortcut;
 begin
  if (f_edPrintInterval = nil) then
   f_edPrintInterval := FindComponent('edPrintInterval') As TnscEditWithoutPlusMinusShortcut;
  Result := f_edPrintInterval;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetedPrintInterval
 
-function TPrimPrintDialogOptionsForm.pm_GetEdCopyCount: TvtSpinEdit;
+function TPrimPrintDialogOptionsForm.pm_GetedCopyCount: TvtSpinEdit;
 begin
  if (f_edCopyCount = nil) then
   f_edCopyCount := FindComponent('edCopyCount') As TvtSpinEdit;
  Result := f_edCopyCount;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetedCopyCount
 
 function TPrimPrintDialogOptionsForm.pm_GetCollateCheckBox: TvtCheckBox;
 begin
  if (f_CollateCheckBox = nil) then
   f_CollateCheckBox := FindComponent('CollateCheckBox') As TvtCheckBox;
  Result := f_CollateCheckBox;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetCollateCheckBox
 
-function TPrimPrintDialogOptionsForm.pm_GetCbOddEven: TvtComboBoxQS;
+function TPrimPrintDialogOptionsForm.pm_GetcbOddEven: TvtComboBoxQS;
 begin
  if (f_cbOddEven = nil) then
   f_cbOddEven := FindComponent('cbOddEven') As TvtComboBoxQS;
  Result := f_cbOddEven;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetcbOddEven
 
-function TPrimPrintDialogOptionsForm.pm_GetPoDocumentTexts: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetpoDocumentTexts: TvtRadioButton;
 begin
  if (f_poDocumentTexts = nil) then
   f_poDocumentTexts := FindComponent('poDocumentTexts') As TvtRadioButton;
  Result := f_poDocumentTexts;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetpoDocumentTexts
 
-function TPrimPrintDialogOptionsForm.pm_GetRbPrintAll: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetrbPrintAll: TvtRadioButton;
 begin
  if (f_rbPrintAll = nil) then
   f_rbPrintAll := FindComponent('rbPrintAll') As TvtRadioButton;
  Result := f_rbPrintAll;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintAll
 
-function TPrimPrintDialogOptionsForm.pm_GetRbPrintInterval: TvtRadioButton;
+function TPrimPrintDialogOptionsForm.pm_GetrbPrintInterval: TvtRadioButton;
 begin
  if (f_rbPrintInterval = nil) then
   f_rbPrintInterval := FindComponent('rbPrintInterval') As TvtRadioButton;
  Result := f_rbPrintInterval;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintInterval
 
-function TPrimPrintDialogOptionsForm.pm_GetCbPrinter: TvtComboBoxQS;
+function TPrimPrintDialogOptionsForm.pm_GetcbPrinter: TvtComboBoxQS;
 begin
  if (f_cbPrinter = nil) then
   f_cbPrinter := FindComponent('cbPrinter') As TvtComboBoxQS;
  Result := f_cbPrinter;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetcbPrinter
 
-function TPrimPrintDialogOptionsForm.pm_GetCbPrintInfo: TvtCheckBox;
+function TPrimPrintDialogOptionsForm.pm_GetcbPrintInfo: TvtCheckBox;
 begin
  if (f_cbPrintInfo = nil) then
   f_cbPrintInfo := FindComponent('cbPrintInfo') As TvtCheckBox;
  Result := f_cbPrintInfo;
-end;
+end;//TPrimPrintDialogOptionsForm.pm_GetcbPrintInfo
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPrintDialogOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4C52BA5D01A8exec_var*
 //#UC END# *4A8AD46D0226_4C52BA5D01A8exec_var*
 begin
@@ -265,10 +236,11 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4A8AD46D0226_4C52BA5D01A8exec_impl*
 end;//TPrimPrintDialogOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPrintDialogOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C52BA5D01A8test_var*
 //#UC END# *4A97EBE702F8_4C52BA5D01A8test_var*
 begin
@@ -283,21 +255,11 @@ begin
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A97EBE702F8_4C52BA5D01A8test_impl*
 end;//TPrimPrintDialogOptionsForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimPrintDialogOptionsForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_var*
-//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_var*
-begin
-//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
- State := st_user_Result_Ok_Print;
-//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
-end;//TPrimPrintDialogOptionsForm.Result_Ok_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPrintDialogOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C52BA5D01A8exec_var*
 var
  l_Preview  : IafwComplexDocumentPreview;
@@ -428,35 +390,51 @@ begin
  end;//f_Preview <> nil
 //#UC END# *4A97EBE702F8_4C52BA5D01A8exec_impl*
 end;//TPrimPrintDialogOptionsForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
+procedure TPrimPrintDialogOptionsForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_var*
+//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
+ State := st_user_Result_Ok_Print;
+//#UC END# *4A97EBE702F8_4C52BA5D01A8getstate_impl*
+end;//TPrimPrintDialogOptionsForm.Result_Ok_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimPrintDialogOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
-end;
+end;//TPrimPrintDialogOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin
+{$If NOT Defined(NoVCM)}
+procedure TPrimPrintDialogOptionsForm.MakeControls;
+begin
+ inherited;
+end;//TPrimPrintDialogOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimPrintDialogOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPrintDialogOptionsForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimPrintDialogOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

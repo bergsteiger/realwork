@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtFiltersLocalConstants }
+ str_slqtFiltersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtFiltersCaption'; rValue : 'Карточка Фильтров');
+  {* Заголовок пользовательского типа "Карточка Фильтров" }
  {* Константы для типа формы slqtFilters }
  slqtFiltersName = 'slqtFilters';
   {* Строковый идентификатор пользовательского типа "Карточка Фильтров" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtFilters.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtFiltersCaption.Init;
+ {* Инициализация str_slqtFiltersCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtFilters.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtFilters }

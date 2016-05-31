@@ -1,225 +1,170 @@
 unit PrimGroupList_Form;
+ {* Группы пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimGroupList_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimGroupList
-//
-// Группы пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupList_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimGroupList" MUID: (49EC75B5022C)
+// Имя типа: "TPrimGroupListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  l3ControlsTypes,
-  AdminInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Admin_Users_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  eeTreeViewExport
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  F1Like_InternalOperations_Controls,
-  vtOutliner,
-  PrimGroupList_admGroupList_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Admin_Users_Controls
+ , F1Like_InternalOperations_Controls
+ , AdminInterfaces
+ , vtPanel
+ , eeTreeView
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimGroupListForm = {form} class(TvcmEntityForm, IbsGroupListViewListener)
+ TPrimGroupListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsGroupListViewListener)
   {* Группы пользователей }
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_GroupsTree : TeeTreeView;
-    {* Поле для свойства GroupsTree}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_GroupsTree: TeeTreeView;
+  protected
+   ViewArea: IdsGroupsList;
+  private
    procedure GroupsTreeCountChanged(Sender: TObject;
-     NewCount: LongInt);
+    NewCount: LongInt);
    function GroupsTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure GroupsTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure GroupsTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    procedure GroupsTreeSelectCountChanged(aSender: TObject;
-     anOldCount: Integer;
-     aNewCount: Integer);
+    anOldCount: Integer;
+    aNewCount: Integer);
    procedure GroupsTreeFormatStatusInfo(aSender: TObject;
-     var Info: Il3CString;
-     aCurrent: Integer;
-     aCount: Integer;
-     aSelected: Integer);
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+    var Info: Il3CString;
+    aCurrent: Integer;
+    aCount: Integer;
+    aSelected: Integer);
+  protected
+   procedure UpdateCurrent;
+   function IsCurrentUsual: Boolean;
+   procedure TreeViewInvalidate;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Groups_Add_Test(const aParams: IvcmTestParamsPrim);
-     {* Добавить }
+    {* Добавить }
    procedure Groups_Add_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Добавить }
+    {* Добавить }
    procedure Groups_ChangeBaseAccess_Test(const aParams: IvcmTestParamsPrim);
    procedure Groups_ChangeBaseAccess_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Groups_Rename_Test(const aParams: IvcmTestParamsPrim);
-     {* Переименовать группу }
+    {* Переименовать группу }
    procedure Groups_Rename_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Переименовать группу }
+    {* Переименовать группу }
    procedure Switcher_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
    procedure Switcher_BecomeActive_Execute(const aForm: IvcmEntityForm);
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
-   procedure TreeViewInvalidate;
-     {* Сигнатура метода TreeViewInvalidate }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   ViewArea : IdsGroupsList;
- protected
- // protected methods
-   procedure UpdateCurrent;
-     {* Сигнатура метода UpdateCurrent }
-   function IsCurrentUsual: Boolean;
- public
- // public properties
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property GroupsTree: TeeTreeView
-     read f_GroupsTree;
+    read f_GroupsTree;
  end;//TPrimGroupListForm
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  nsTypes,
-  AdminRes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsUserNodes,
-  SecurityUnit
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , nsTypes
+ , AdminRes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUserNodes
+ , SecurityUnit
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimGroupList_admGroupList_UserType
+ , SysUtils
+ //#UC START# *49EC75B5022Cimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *49EC75B5022Cimpl_uses*
+;
 
-{$If defined(Admin)}
-
-var
-   { Локализуемые строки admGroupListLocalConstants }
-  str_admGroupListCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListCaption'; rValue : 'Группы пользователей');
-   { Заголовок пользовательского типа "Группы пользователей" }
-  str_admGroupListSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListSettingsCaption'; rValue : 'Группы пользователей (вкладка)');
-   { Заголовок пользовательского типа "Группы пользователей" для настройки панелей инструментов }
-
-// start class TPrimGroupListForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimGroupListForm.GroupsTreeCountChanged(Sender: TObject;
-  NewCount: LongInt);
+ NewCount: LongInt);
 //#UC START# *5236E2780163_49EC75B5022C_var*
 //#UC END# *5236E2780163_49EC75B5022C_var*
 begin
@@ -229,8 +174,8 @@ begin
 end;//TPrimGroupListForm.GroupsTreeCountChanged
 
 function TPrimGroupListForm.GroupsTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *5236E28202F7_49EC75B5022C_var*
 const
  cImageIndexMap: array [TbsGroupNodeType] of Integer = (
@@ -249,8 +194,8 @@ begin
 end;//TPrimGroupListForm.GroupsTreeGetItemImage
 
 procedure TPrimGroupListForm.GroupsTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *5236E28B0222_49EC75B5022C_var*
 //#UC END# *5236E28B0222_49EC75B5022C_var*
 begin
@@ -260,8 +205,8 @@ begin
 end;//TPrimGroupListForm.GroupsTreeCurrentChanged
 
 procedure TPrimGroupListForm.GroupsTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
 //#UC START# *5236E2940127_49EC75B5022C_var*
 //#UC END# *5236E2940127_49EC75B5022C_var*
 begin
@@ -271,8 +216,8 @@ begin
 end;//TPrimGroupListForm.GroupsTreeTreeChanged
 
 procedure TPrimGroupListForm.GroupsTreeSelectCountChanged(aSender: TObject;
-  anOldCount: Integer;
-  aNewCount: Integer);
+ anOldCount: Integer;
+ aNewCount: Integer);
 //#UC START# *5236E29C02A7_49EC75B5022C_var*
 //#UC END# *5236E29C02A7_49EC75B5022C_var*
 begin
@@ -282,10 +227,10 @@ begin
 end;//TPrimGroupListForm.GroupsTreeSelectCountChanged
 
 procedure TPrimGroupListForm.GroupsTreeFormatStatusInfo(aSender: TObject;
-  var Info: Il3CString;
-  aCurrent: Integer;
-  aCount: Integer;
-  aSelected: Integer);
+ var Info: Il3CString;
+ aCurrent: Integer;
+ aCount: Integer;
+ aSelected: Integer);
 //#UC START# *5236E2A600F9_49EC75B5022C_var*
 //#UC END# *5236E2A600F9_49EC75B5022C_var*
 begin
@@ -319,8 +264,8 @@ begin
 //#UC END# *5236F5CD009F_49EC75B5022C_impl*
 end;//TPrimGroupListForm.IsCurrentUsual
 
-{$If not defined(NoVCM)}
 procedure TPrimGroupListForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_49EC75B5022Ctest_var*
 //#UC END# *494F89C30197_49EC75B5022Ctest_var*
 begin
@@ -332,21 +277,9 @@ begin
    aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *494F89C30197_49EC75B5022Ctest_impl*
 end;//TPrimGroupListForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimGroupListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_49EC75B5022Cgetstate_var*
-//#UC END# *494F89C30197_49EC75B5022Cgetstate_var*
-begin
-//#UC START# *494F89C30197_49EC75B5022Cgetstate_impl*
- State := st_user_Edit_Delete_Group;
-//#UC END# *494F89C30197_49EC75B5022Cgetstate_impl*
-end;//TPrimGroupListForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimGroupListForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_49EC75B5022Cexec_var*
 var
  l_CurrentNode: Il3SimpleNode;
@@ -368,9 +301,19 @@ begin
   aParams.CallControl;
 //#UC END# *494F89C30197_49EC75B5022Cexec_impl*
 end;//TPrimGroupListForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+
+procedure TPrimGroupListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_var*
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_var*
+begin
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_impl*
+ State := st_user_Edit_Delete_Group;
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_impl*
+end;//TPrimGroupListForm.Edit_Delete_GetState
 
 procedure TPrimGroupListForm.Groups_Add_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить }
 //#UC START# *49EC7545036C_49EC75B5022Ctest_var*
 //#UC END# *49EC7545036C_49EC75B5022Ctest_var*
 begin
@@ -380,6 +323,7 @@ begin
 end;//TPrimGroupListForm.Groups_Add_Test
 
 procedure TPrimGroupListForm.Groups_Add_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить }
 //#UC START# *49EC7545036C_49EC75B5022Cexec_var*
 //#UC END# *49EC7545036C_49EC75B5022Cexec_var*
 begin
@@ -412,6 +356,7 @@ begin
 end;//TPrimGroupListForm.Groups_ChangeBaseAccess_Execute
 
 procedure TPrimGroupListForm.Groups_Rename_Test(const aParams: IvcmTestParamsPrim);
+ {* Переименовать группу }
 //#UC START# *49EEF22D004A_49EC75B5022Ctest_var*
 //#UC END# *49EEF22D004A_49EC75B5022Ctest_var*
 begin
@@ -421,6 +366,7 @@ begin
 end;//TPrimGroupListForm.Groups_Rename_Test
 
 procedure TPrimGroupListForm.Groups_Rename_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Переименовать группу }
 //#UC START# *49EEF22D004A_49EC75B5022Cexec_var*
 //#UC END# *49EEF22D004A_49EC75B5022Cexec_var*
 begin
@@ -455,8 +401,8 @@ end;//TPrimGroupListForm.Switcher_BecomeActive_Execute
 procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISwitcher_BecomeActive_Params) do
-  Switcher_BecomeActive_Execute(Form);
-end;
+  Self.Switcher_BecomeActive_Execute(Form);
+end;//TPrimGroupListForm.Switcher_BecomeActive
 
 procedure TPrimGroupListForm.TreeViewInvalidate;
 //#UC START# *5492EBB90042_49EC75B5022C_var*
@@ -467,9 +413,9 @@ begin
 //#UC END# *5492EBB90042_49EC75B5022C_impl*
 end;//TPrimGroupListForm.TreeViewInvalidate
 
-{$If not defined(NoVCM)}
 procedure TPrimGroupListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_49EC75B5022C_var*
 var
  l_Node: Il3SimpleNode;
@@ -499,10 +445,9 @@ begin
  end;
 //#UC END# *497469C90140_49EC75B5022C_impl*
 end;//TPrimGroupListForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimGroupListForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_49EC75B5022C_var*
 //#UC END# *4A8E8F2E0195_49EC75B5022C_var*
 begin
@@ -536,23 +481,24 @@ begin
  UpdateStatusInfo; 
 //#UC END# *4A8E8F2E0195_49EC75B5022C_impl*
 end;//TPrimGroupListForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimGroupListForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimGroupListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsGroupsList;
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsGroupsList;
+ end;//aNew = nil
+end;//TPrimGroupListForm.SignalDataSourceChanged
 
 procedure TPrimGroupListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -561,16 +507,13 @@ begin
   PublishFormEntity(en_Groups, nil);
   PublishFormEntity(en_Switcher, nil);
   MakeEntitySupportedByControl(en_Edit, GroupsTree);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_Groups, op_Add, Groups_Add_Execute, Groups_Add_Test, nil);
   PublishOp(en_Groups, op_ChangeBaseAccess, Groups_ChangeBaseAccess_Execute, Groups_ChangeBaseAccess_Test, nil);
   PublishOp(en_Groups, op_Rename, Groups_Rename_Execute, Groups_Rename_Test, nil);
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, Switcher_BecomeActive_Test, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimGroupListForm.InitEntities
 
 procedure TPrimGroupListForm.MakeControls;
 begin
@@ -578,7 +521,7 @@ begin
  with AddUsertype(admGroupListName,
   str_admGroupListCaption,
   str_admGroupListSettingsCaption,
-  true,
+  True,
   -1,
   10,
   '',
@@ -594,22 +537,14 @@ begin
  f_GroupsTree := TeeTreeView.Create(Self);
  f_GroupsTree.Name := 'GroupsTree';
  f_GroupsTree.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //Admin
+end;//TPrimGroupListForm.MakeControls
 
 initialization
-{$If defined(Admin)}
-// Инициализация str_admGroupListCaption
- str_admGroupListCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_admGroupListSettingsCaption
- str_admGroupListSettingsCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimGroupList
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimGroupListForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimGroupList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

@@ -62,7 +62,7 @@ type
  TPrimRightEditionForm = {abstract} class(TDiffOptionsForm)
   {* Текущая редакция }
   private
-   : IdsRightEdition;
+   ViewArea: IdsRightEdition;
    f_ParaForPositioning: IeePara;
   protected
    function EditionsChooseRoot: Il3Node; override;
@@ -130,17 +130,17 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3String
  , evdTypes
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , nsTypes
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , PrimRightEdition_utRightEdition_UserType
+ , SysUtils
  , Block_Const
  , k2Tags
  , Document_Const
@@ -148,8 +148,6 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , evSubImplementation
- , SysUtils
- , PrimRightEdition_utRightEdition_UserType
  , DataAdapter
  , Base_Operations_View_Controls
  , BaseSearchInterfaces
@@ -182,7 +180,8 @@ uses
  , nsConst
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -195,12 +194,10 @@ uses
  , nevNavigation
  , evCustomEditor
  , evEditorWithOperations
+ //#UC START# *4A6D5ABE020Aimpl_uses*
+ , l3Variant
+ //#UC END# *4A6D5ABE020Aimpl_uses*
 ;
-
-const
- {* Локализуемые строки utRightEditionLocalConstants }
- str_utRightEditionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRightEditionCaption'; rValue : 'Текущая редакция');
-  {* Заголовок пользовательского типа "Текущая редакция" }
 
 constructor TnsInitialParaWaiter.Create(aForm: TDiffOptionsForm;
  const aPara: IeeLeafPara);
@@ -563,6 +560,14 @@ procedure TPrimRightEditionForm.SignalDataSourceChanged(const anOld: IvcmFormDat
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsRightEdition;
+ end;//aNew = nil
 end;//TPrimRightEditionForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -591,7 +596,7 @@ begin
  with AddUsertype(utRightEditionName,
   str_utRightEditionCaption,
   str_utRightEditionCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -605,8 +610,6 @@ end;//TPrimRightEditionForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_utRightEditionCaption.Init;
- {* Инициализация str_utRightEditionCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRightEditionForm);
  {* Регистрация PrimRightEdition }

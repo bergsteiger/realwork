@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки astOneLevelLocalConstants }
+ str_astOneLevelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astOneLevelCaption'; rValue : 'Ситуации второго уровня');
+  {* Заголовок пользовательского типа "Ситуации второго уровня" }
  {* Константы для типа формы astOneLevel }
  astOneLevelName = 'astOneLevel';
   {* Строковый идентификатор пользовательского типа "Ситуации второго уровня" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_astOneLevel.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_astOneLevelCaption.Init;
+ {* Инициализация str_astOneLevelCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astOneLevel.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_astOneLevel }

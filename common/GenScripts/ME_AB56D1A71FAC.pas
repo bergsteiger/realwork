@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_DocNumberQueryLocalConstants }
+ str_ut_DocNumberQueryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DocNumberQueryCaption'; rValue : 'Открыть документ по номеру');
+  {* Заголовок пользовательского типа "Открыть документ по номеру" }
  {* Константы для типа формы ut_DocNumberQuery }
  ut_DocNumberQueryName = 'ut_DocNumberQuery';
   {* Строковый идентификатор пользовательского типа "Открыть документ по номеру" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_DocNumberQuery.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_DocNumberQueryCaption.Init;
+ {* Инициализация str_ut_DocNumberQueryCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_DocNumberQuery.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_DocNumberQuery }

@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки admGroupListLocalConstants }
+ str_admGroupListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListCaption'; rValue : 'Группы пользователей');
+  {* Заголовок пользовательского типа "Группы пользователей" }
+ str_admGroupListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListSettingsCaption'; rValue : 'Группы пользователей (вкладка)');
+  {* Заголовок пользовательского типа "Группы пользователей" для настройки панелей инструментов }
  {* Константы для типа формы admGroupList }
  admGroupListName = 'admGroupList';
   {* Строковый идентификатор пользовательского типа "Группы пользователей" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_admGroupList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_admGroupListCaption.Init;
+ {* Инициализация str_admGroupListCaption }
+ str_admGroupListSettingsCaption.Init;
+ {* Инициализация str_admGroupListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admGroupList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_admGroupList }

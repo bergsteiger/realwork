@@ -27,14 +27,14 @@ uses
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
  , eeTreeView
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Interfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -136,7 +136,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild: IbsContactList; reintroduce;
+   class function MakeSingleChild: IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -207,16 +207,17 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC4EF5600B4impl_uses*
+ //#UC END# *4AC4EF5600B4impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 type
- // ExcludeAddAndHistoryForAddContact
-
- // ExcludeOkAndCancelForContacts
-
  TContactListFormState = class(TvcmCacheableBase, IContactListFormState)
   private
    f_CurrentFlagFilter: TContactListFilterTypes;
@@ -228,12 +229,6 @@ type
  end;//TContactListFormState
 
 const
- {* Локализуемые строки chatContactsLocalConstants }
- str_chatContactsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'chatContactsCaption'; rValue : 'Совещание онлайн');
-  {* Заголовок пользовательского типа "Совещание онлайн" }
- {* Локализуемые строки chatAddContactLocalConstants }
- str_chatAddContactCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'chatAddContactCaption'; rValue : 'Добавить контакт');
-  {* Заголовок пользовательского типа "Добавить контакт" }
  {* Локализуемые строки ContactList Strings }
  str_SelectUser: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'SelectUser'; rValue : 'Выберите пользователей для переписки');
   {* 'Выберите пользователей для переписки' }
@@ -426,7 +421,7 @@ begin
 //#UC END# *5199DC98012F_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListFooterClick
 
-class function TPrimContactListForm.MakeSingleChild: IbsContactList;
+class function TPrimContactListForm.MakeSingleChild: IvcmEntityForm;
 var
  l_Inst : TPrimContactListForm;
 begin
@@ -817,15 +812,24 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_Chat, nil);
+  ToolbarAtBottom(en_Result);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, trContactList);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
   PublishOp(en_Chat, op_Add, Chat_Add_Execute, Chat_Add_Test, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
   PublishOp(en_Chat, op_History, Chat_History_Execute, Chat_History_Test, nil);
   PublishOp(en_Chat, op_UserFilter, Chat_UserFilter_Execute, Chat_UserFilter_Test, nil);
+  ShowInContextMenu(en_Chat, op_UserFilter, False);
+  ShowInToolbar(en_Chat, op_UserFilter, True);
   PublishOp(en_Chat, op_OpenChatWindow, Chat_OpenChatWindow_Execute, Chat_OpenChatWindow_Test, nil);
+  ShowInContextMenu(en_Chat, op_OpenChatWindow, True);
+  ShowInToolbar(en_Chat, op_OpenChatWindow, False);
  end;//with Entities.Entities
+ AddUserTypeExclude(chatAddContactName, en_Chat, op_Add, False);
+ AddUserTypeExclude(chatAddContactName, en_Chat, op_History, False);
+ AddUserTypeExclude(chatContactsName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(chatContactsName, en_Result, op_Ok, False);
 end;//TPrimContactListForm.InitEntities
 
 procedure TPrimContactListForm.MakeControls;
@@ -834,7 +838,7 @@ begin
  with AddUsertype(chatContactsName,
   str_chatContactsCaption,
   str_chatContactsCaption,
-  False,
+  True,
   195,
   -1,
   '',
@@ -847,7 +851,7 @@ begin
  with AddUsertype(chatAddContactName,
   str_chatAddContactCaption,
   str_chatAddContactCaption,
-  False,
+  True,
   196,
   -1,
   '',
@@ -869,10 +873,6 @@ begin
 end;//TPrimContactListForm.MakeControls
 
 initialization
- str_chatContactsCaption.Init;
- {* Инициализация str_chatContactsCaption }
- str_chatAddContactCaption.Init;
- {* Инициализация str_chatAddContactCaption }
  str_culfAllUsers.Init;
  {* Инициализация str_culfAllUsers }
  str_culfActiveUsers.Init;

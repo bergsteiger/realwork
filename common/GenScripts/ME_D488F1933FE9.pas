@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_RegistrationFormLocalConstants }
+ str_ut_RegistrationFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RegistrationFormCaption'; rValue : 'Регистрация');
+  {* Заголовок пользовательского типа "Регистрация" }
  {* Константы для типа формы ut_RegistrationForm }
  ut_RegistrationFormName = 'ut_RegistrationForm';
   {* Строковый идентификатор пользовательского типа "Регистрация" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_RegistrationFormCaption.Init;
+ {* Инициализация str_ut_RegistrationFormCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_RegistrationForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_RegistrationForm }

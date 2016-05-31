@@ -21,6 +21,7 @@ uses
  {$IfEnd} // NOT Defined(Admin)
  , l3Interfaces
  , vtProportionalPanel
+ , SearchUnit
  , vtSizeablePanel
  , vtPanel
  {$If NOT Defined(NoVCM)}
@@ -29,7 +30,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , SearchUnit
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -45,17 +45,13 @@ type
  )
   private
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
-   f_SelectedZone: TvtSizeablePanel;
-    {* Поле для свойства SelectedZone }
-   f_ValuesZone: TvtPanel;
-    {* Поле для свойства ValuesZone }
    {$If NOT Defined(Admin)}
    f_FormState: InsQueryFormState;
-    {* Поле для свойства FormState }
    {$IfEnd} // NOT Defined(Admin)
    f_Tag: Il3CString;
-    {* Поле для свойства Tag }
+    {* значение тега, которое можно выставить в vcmContainerFormChangedDataSource }
+   f_SelectedZone: TvtSizeablePanel;
+   f_ValuesZone: TvtPanel;
   protected
    dsAttributeSelect: IdsAttributeSelect;
   private
@@ -160,7 +156,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimAttributeSelect_utSingleSearch_UserType
  {$If NOT Defined(NoVCM)}
  , vcmBase
@@ -177,28 +172,23 @@ uses
  , DynamicTreeUnit
  , DataAdapter
  , tasSaveLoadProxy
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimAttributeSelect_utAttributeSelect_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EFC6002FCimpl_uses*
+ , l3Base
+ //#UC END# *497EFC6002FCimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-type
- // ExludeForSingleSearch
-
-const
- {* Локализуемые строки utAttributeSelectLocalConstants }
- str_utAttributeSelectCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAttributeSelectCaption'; rValue : 'Выбор значения атрибута');
-  {* Заголовок пользовательского типа "Выбор значения атрибута" }
- {* Локализуемые строки utSingleSearchLocalConstants }
- str_utSingleSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSingleSearchCaption'; rValue : 'Атомарный поиск');
-  {* Заголовок пользовательского типа "Атомарный поиск" }
-
 {$If NOT Defined(Admin)}
 function TPrimAttributeSelectForm.pm_GetFormState: InsQueryFormState;
 //#UC START# *5121EE47013D_497EFC6002FCget_var*
@@ -587,6 +577,14 @@ procedure TPrimAttributeSelectForm.SignalDataSourceChanged(const anOld: IvcmForm
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsAttributeSelect := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsAttributeSelect, dsAttributeSelect);
+ end;//aNew = nil
 end;//TPrimAttributeSelectForm.SignalDataSourceChanged
 
 procedure TPrimAttributeSelectForm.InitEntities;
@@ -599,6 +597,8 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_SearchParameters, nil);
   PublishFormEntity(en_AttributeTree, nil);
+  ToolbarAtBottom(en_Result);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
   PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
@@ -607,9 +607,10 @@ begin
   PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
   PublishOp(en_Result, op_ClearAll, Result_ClearAll_Execute, Result_ClearAll_Test, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
-  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
  end;//with Entities.Entities
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_ClearAll, False);
 end;//TPrimAttributeSelectForm.InitEntities
 
 procedure TPrimAttributeSelectForm.MakeControls;
@@ -647,22 +648,18 @@ begin
  f_SelectedZone := TvtSizeablePanel.Create(Self);
  f_SelectedZone.Name := 'SelectedZone';
  f_SelectedZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_SelectedZone) do
+ with DefineZone(vcm_ztChild, SelectedZone) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_ValuesZone := TvtPanel.Create(Self);
  f_ValuesZone.Name := 'ValuesZone';
  f_ValuesZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_ValuesZone) do
+ with DefineZone(vcm_ztParent, ValuesZone) do
  begin
  end;//with DefineZone(vcm_ztParent
 end;//TPrimAttributeSelectForm.MakeControls
 
 initialization
- str_utAttributeSelectCaption.Init;
- {* Инициализация str_utAttributeSelectCaption }
- str_utSingleSearchCaption.Init;
- {* Инициализация str_utSingleSearchCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAttributeSelectForm);
  {* Регистрация PrimAttributeSelect }

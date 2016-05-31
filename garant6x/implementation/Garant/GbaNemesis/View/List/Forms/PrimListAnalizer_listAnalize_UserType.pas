@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки listAnalizeLocalConstants }
+ str_listAnalizeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'listAnalizeCaption'; rValue : 'Анализ списка');
+  {* Заголовок пользовательского типа "Анализ списка" }
  {* Константы для типа формы listAnalize }
  listAnalizeName = 'listAnalize';
   {* Строковый идентификатор пользовательского типа "Анализ списка" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_listAnalize.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_listAnalizeCaption.Init;
+ {* Инициализация str_listAnalizeCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_listAnalize.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_listAnalize }

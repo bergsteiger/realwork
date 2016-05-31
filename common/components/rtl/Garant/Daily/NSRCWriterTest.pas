@@ -13,12 +13,12 @@ uses
  l3IntfUses
  , WriterTest
  , tstNSRCGenerator
+ , evdNSRCReader
  , l3Filer
  , evCustomTextFormatter
  , k2TagGen
  , k2CustomFileReader
  , evdNativeReader
- , evdNSRCReader
  , k2DocumentBuffer
 ;
 

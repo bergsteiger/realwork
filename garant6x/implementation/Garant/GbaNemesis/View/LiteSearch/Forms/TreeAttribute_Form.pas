@@ -1,79 +1,66 @@
 unit TreeAttribute_Form;
+ {* Форма выбора атрибутов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/TreeAttribute_Form.pas"
-// Начат: 19.01.2009 14:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::TreeAttribute
-//
-// Форма выбора атрибутов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\TreeAttribute_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "TreeAttribute" MUID: (4974652502DA)
+// Имя типа: "TTreeAttributeForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TTreeAttributeForm = {abstract form} class(TvcmEntityForm, IbsCurrentChangedListener)
+ TTreeAttributeForm = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsCurrentChangedListener)
   {* Форма выбора атрибутов }
- public
- // realized methods
-   procedure Process(const aNode: Il3SimpleNode);
-     {* обработать событие }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  protected
+   procedure CurrentChangedNotification(const aNode: Il3SimpleNode); virtual; abstract;
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure CurrentChangedNotification(const aNode: Il3SimpleNode); virtual; abstract;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Process(const aNode: Il3SimpleNode);
+    {* обработать событие }
  end;//TTreeAttributeForm
-
- TvcmEntityFormRef = TTreeAttributeForm;
 
 implementation
 
 uses
-  nsUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ , nsUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4974652502DAimpl_uses*
+ //#UC END# *4974652502DAimpl_uses*
+;
 
-// start class TTreeAttributeForm
-
+{$If NOT Defined(NoVCM)}
 procedure TTreeAttributeForm.Process(const aNode: Il3SimpleNode);
+ {* обработать событие }
 //#UC START# *49590D4802EE_4974652502DA_var*
 //#UC END# *49590D4802EE_4974652502DA_var*
 begin
@@ -82,9 +69,9 @@ begin
 //#UC END# *49590D4802EE_4974652502DA_impl*
 end;//TTreeAttributeForm.Process
 
-{$If not defined(NoVCM)}
 procedure TTreeAttributeForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4974652502DA_var*
 //#UC END# *497469C90140_4974652502DA_var*
 begin
@@ -95,12 +82,12 @@ begin
   aNew.Subscribe(IbsCurrentChangedListener(Self));
 //#UC END# *497469C90140_4974652502DA_impl*
 end;//TTreeAttributeForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TreeAttribute
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TTreeAttributeForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация TreeAttribute }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

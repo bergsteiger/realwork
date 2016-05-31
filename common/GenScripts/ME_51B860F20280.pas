@@ -20,6 +20,9 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -55,6 +58,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *51B860F20280impl_uses*
+ //#UC END# *51B860F20280impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

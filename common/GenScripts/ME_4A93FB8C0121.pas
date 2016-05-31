@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , EULAKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_EULALocalConstants }
- str_ut_EULACaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_EULACaption'; rValue : 'Условия использования');
-  {* Заголовок пользовательского типа "Условия использования" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TefEULA.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_EULACaption.Init;
- {* Инициализация str_ut_EULACaption }
  fm_efEULA.SetFactory(TefEULA.Make);
  {* Регистрация фабрики формы EULA }
 {$If NOT Defined(NoScripts)}

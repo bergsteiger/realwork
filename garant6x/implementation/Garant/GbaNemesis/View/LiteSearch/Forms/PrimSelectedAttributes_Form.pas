@@ -1,200 +1,189 @@
 unit PrimSelectedAttributes_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimSelectedAttributes_Form.pas"
-// Начат: 27.01.2009 11:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimSelectedAttributes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimSelectedAttributes" MUID: (497EC3B20359)
+// Имя типа: "TPrimSelectedAttributesForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicTreeUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  l3ControlsTypes,
-  SearchInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  SearchDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  SearchLite_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  nsNodeBaseList,
-  PrimSelectedAttributes_utSelectedAttributes_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Interfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchInterfaces
+ , SearchDomainInterfaces
+ , l3TreeInterfaces
+ , nscTreeViewWithAdapterDragDrop
+ , DynamicTreeUnit
+ , l3Tree_TLB
+ , nsNodeBaseList
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimSelectedAttributesForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_SelectedTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства SelectedTree}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimSelectedAttributesForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_SelectedTree: TnscTreeViewWithAdapterDragDrop;
+  protected
+   dsSelectedAttributes: IdsSelectedAttributes;
+    {* Выбранные атрибуты }
+   f_InternalOp: Boolean;
+  private
    function SelectedTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure SelectedTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure SelectedTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure SelectedTreeMakeTreeSource(out theTree: Il3SimpleTree);
    procedure SyncCurrent(aIndex: Integer);
    procedure AddChain(const aNode: INodeBase;
-     aNodePath: TnsNodeBaseList);
- protected
- // property methods
+    aNodePath: TnsNodeBaseList);
+  protected
    function pm_GetTaggedTreeInfo: InsTaggedTreeInfo; virtual;
- protected
- // realized methods
+   procedure DeleteElement(const aNode: Il3Node;
+    WithChildren: Boolean = False);
+   function GetTaggedTreeInfo: InsTaggedTreeInfo;
+   procedure AddNodes(aOp: TLogicOperation;
+    const aIterator: INodeIterator);
+   function GetTreeNode(const aNode: INodeBase): Il3SimpleNode; overload;
+   function GetTreeNode(const aNode: Il3SimpleNode): Il3SimpleNode; overload;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
    procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
    procedure SelectedList_RefreshValues_Execute(const aData: InsSelectedAttributesIterators);
    procedure SelectedList_RefreshValues(const aParams: IvcmExecuteParams);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsSelectedAttributes : IdsSelectedAttributes;
-    {* Выбранные атрибуты}
-   f_InternalOp : Boolean;
- protected
- // protected methods
-   procedure DeleteElement(const aNode: Il3Node;
-     WithChildren: Boolean = False);
-   function GetTaggedTreeInfo: InsTaggedTreeInfo;
-   procedure AddNodes(aOp: TLogicOperation;
-    const aIterator: INodeIterator);
-   function GetTreeNode(const aNode: INodeBase): Il3SimpleNode; overload; 
-   function GetTreeNode(const aNode: Il3SimpleNode): Il3SimpleNode; overload; 
- private
- // private properties
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property TaggedTreeInfo: InsTaggedTreeInfo
-     read pm_GetTaggedTreeInfo;
- public
- // public properties
+    read pm_GetTaggedTreeInfo;
+  public
    property SelectedTree: TnscTreeViewWithAdapterDragDrop
-     read f_SelectedTree;
+    read f_SelectedTree;
  end;//TPrimSelectedAttributesForm
 
 implementation
 
 uses
-  nsTreeAttributeNodesNew,
-  SearchRes,
-  nsSelectedTreeStruct,
-  l3Nodes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  SysUtils {a}
-  ;
+ l3ImplUses
+ , nsTreeAttributeNodesNew
+ , SearchRes
+ , nsSelectedTreeStruct
+ , l3Nodes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimSelectedAttributes_utSelectedAttributes_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EC3B20359impl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EC3B20359impl_uses*
+;
 
+{$If NOT Defined(NoVCM)}
+function TPrimSelectedAttributesForm.pm_GetTaggedTreeInfo: InsTaggedTreeInfo;
+//#UC START# *525FEC2A0302_497EC3B20359get_var*
+//#UC END# *525FEC2A0302_497EC3B20359get_var*
+begin
+//#UC START# *525FEC2A0302_497EC3B20359get_impl*
+ Supports(SelectedTree.TreeStruct, InsTaggedTreeInfo, Result);
+//#UC END# *525FEC2A0302_497EC3B20359get_impl*
+end;//TPrimSelectedAttributesForm.pm_GetTaggedTreeInfo
+
+procedure TPrimSelectedAttributesForm.DeleteElement(const aNode: Il3Node;
+ WithChildren: Boolean = False);
+//#UC START# *4C87B5D300B0_497EC3B20359_var*
 var
-   { Локализуемые строки utSelectedAttributesLocalConstants }
-  str_utSelectedAttributesCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSelectedAttributesCaption'; rValue : 'Поиск: Выбранные значения реквизита');
-   { Заголовок пользовательского типа "Поиск: Выбранные значения реквизита" }
-
-// start class TPrimSelectedAttributesForm
+ l_Parent: Il3SimpleNode;
+//#UC END# *4C87B5D300B0_497EC3B20359_var*
+begin
+//#UC START# *4C87B5D300B0_497EC3B20359_impl*
+ if (aNode <> nil) and
+    (WithChildren or not aNode.HasChild) then
+ begin
+  l_Parent := aNode.Parent;
+  try
+   aNode.Remove;
+   DeleteElement(l_Parent as Il3Node);
+  finally
+   l_Parent := nil;
+  end;
+ end;
+//#UC END# *4C87B5D300B0_497EC3B20359_impl*
+end;//TPrimSelectedAttributesForm.DeleteElement
 
 function TPrimSelectedAttributesForm.SelectedTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *525FEB0400DB_497EC3B20359_var*
 var
  l_l3Node: Il3SimpleNode;
@@ -225,8 +214,8 @@ begin
 end;//TPrimSelectedAttributesForm.SelectedTreeGetItemImage
 
 procedure TPrimSelectedAttributesForm.SelectedTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *525FEB0E0386_497EC3B20359_var*
 //#UC END# *525FEB0E0386_497EC3B20359_var*
 begin
@@ -237,7 +226,7 @@ begin
 end;//TPrimSelectedAttributesForm.SelectedTreeCurrentChanged
 
 procedure TPrimSelectedAttributesForm.SelectedTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *525FEB180374_497EC3B20359_var*
 //#UC END# *525FEB180374_497EC3B20359_var*
 begin
@@ -273,7 +262,7 @@ begin
 end;//TPrimSelectedAttributesForm.SyncCurrent
 
 procedure TPrimSelectedAttributesForm.AddChain(const aNode: INodeBase;
-  aNodePath: TnsNodeBaseList);
+ aNodePath: TnsNodeBaseList);
 //#UC START# *525FED16034D_497EC3B20359_var*
 var
  l_Parent: INodeBase;
@@ -330,37 +319,6 @@ begin
 //#UC END# *525FED16034D_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.AddChain
 
-procedure TPrimSelectedAttributesForm.DeleteElement(const aNode: Il3Node;
-  WithChildren: Boolean = False);
-//#UC START# *4C87B5D300B0_497EC3B20359_var*
-var
- l_Parent: Il3SimpleNode;
-//#UC END# *4C87B5D300B0_497EC3B20359_var*
-begin
-//#UC START# *4C87B5D300B0_497EC3B20359_impl*
- if (aNode <> nil) and
-    (WithChildren or not aNode.HasChild) then
- begin
-  l_Parent := aNode.Parent;
-  try
-   aNode.Remove;
-   DeleteElement(l_Parent as Il3Node);
-  finally
-   l_Parent := nil;
-  end;
- end;
-//#UC END# *4C87B5D300B0_497EC3B20359_impl*
-end;//TPrimSelectedAttributesForm.DeleteElement
-
-function TPrimSelectedAttributesForm.pm_GetTaggedTreeInfo: InsTaggedTreeInfo;
-//#UC START# *525FEC2A0302_497EC3B20359get_var*
-//#UC END# *525FEC2A0302_497EC3B20359get_var*
-begin
-//#UC START# *525FEC2A0302_497EC3B20359get_impl*
- Supports(SelectedTree.TreeStruct, InsTaggedTreeInfo, Result);
-//#UC END# *525FEC2A0302_497EC3B20359get_impl*
-end;//TPrimSelectedAttributesForm.pm_GetTaggedTreeInfo
-
 function TPrimSelectedAttributesForm.GetTaggedTreeInfo: InsTaggedTreeInfo;
 //#UC START# *4AF3F36700D7_497EC3B20359_var*
 //#UC END# *4AF3F36700D7_497EC3B20359_var*
@@ -371,7 +329,7 @@ begin
 end;//TPrimSelectedAttributesForm.GetTaggedTreeInfo
 
 procedure TPrimSelectedAttributesForm.AddNodes(aOp: TLogicOperation;
-  const aIterator: INodeIterator);
+ const aIterator: INodeIterator);
 //#UC START# *4AF40E300070_497EC3B20359_var*
 var
  l_LogicNode,
@@ -469,8 +427,8 @@ end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot_Execute
 procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
-  AttributeTree_SetRoot_Execute(Tag);
-end;
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot
 
 procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute(const aData: InsSelectedAttributesIterators);
 //#UC START# *4AF40D070123_497EC3B20359exec_var*
@@ -519,11 +477,11 @@ end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute
 procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISelectedList_RefreshValues_Params) do
-  SelectedList_RefreshValues_Execute(Data);
-end;
+  Self.SelectedList_RefreshValues_Execute(Data);
+end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues
 
-{$If not defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_497EC3B20359test_var*
 //#UC END# *4BDAF7880236_497EC3B20359test_var*
 begin
@@ -531,10 +489,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := SelectedTree.TreeStruct.RootNode.HasChild;
 //#UC END# *4BDAF7880236_497EC3B20359test_impl*
 end;//TPrimSelectedAttributesForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_497EC3B20359test_var*
 //#UC END# *4BDAF7A2005C_497EC3B20359test_var*
 begin
@@ -542,11 +499,10 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := SelectedTree.TreeStruct.RootNode.HasChild;
 //#UC END# *4BDAF7A2005C_497EC3B20359test_impl*
 end;//TPrimSelectedAttributesForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EC3B20359_var*
 var
  l_V : InsSelectedAttributesIterators;
@@ -572,10 +528,9 @@ begin
  end;//dsSelectedAttributes <> nil
 //#UC END# *497469C90140_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EC3B20359_var*
 //#UC END# *49803F5503AA_497EC3B20359_var*
 begin
@@ -585,10 +540,9 @@ begin
  f_InternalOp := False;
 //#UC END# *49803F5503AA_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimSelectedAttributesForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EC3B20359_var*
 //#UC END# *4A8E8F2E0195_497EC3B20359_var*
 begin
@@ -613,23 +567,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimSelectedAttributesForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimSelectedAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsSelectedAttributes := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsSelectedAttributes, dsSelectedAttributes);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsSelectedAttributes, dsSelectedAttributes);
+ end;//aNew = nil
+end;//TPrimSelectedAttributesForm.SignalDataSourceChanged
 
 procedure TPrimSelectedAttributesForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -642,27 +597,18 @@ begin
   MakeEntitySupportedByControl(en_Tree, SelectedTree);
   PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
   PublishOpWithResult(en_SelectedList, op_RefreshValues, SelectedList_RefreshValues, nil, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
+end;//TPrimSelectedAttributesForm.InitEntities
 
 procedure TPrimSelectedAttributesForm.MakeControls;
 begin
  inherited;
- f_SelectedTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
- f_SelectedTree.Name := 'SelectedTree';
- f_SelectedTree.Parent := Self;
  with AddUsertype(utSelectedAttributesName,
   str_utSelectedAttributesCaption,
   str_utSelectedAttributesCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -672,14 +618,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utSelectedAttributesName
-end;
+ f_SelectedTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_SelectedTree.Name := 'SelectedTree';
+ f_SelectedTree.Parent := Self;
+end;//TPrimSelectedAttributesForm.MakeControls
 
 initialization
-// Инициализация str_utSelectedAttributesCaption
- str_utSelectedAttributesCaption.Init;
-{$If not defined(NoScripts)}
-// Регистрация PrimSelectedAttributes
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSelectedAttributesForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimSelectedAttributes }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

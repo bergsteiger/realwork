@@ -21,12 +21,8 @@ uses
 const
  fm_efTreeAttributeSelect: TvcmFormDescriptor = (rFormID : (rName : 'efTreeAttributeSelect'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefTreeAttributeSelect }
-
-const
  fm_enSelectedAttributes: TvcmFormDescriptor = (rFormID : (rName : 'enSelectedAttributes'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenSelectedAttributes }
-
-const
  fm_cfAttributeSelect: TvcmFormDescriptor = (rFormID : (rName : 'cfAttributeSelect'; rID : 0); rFactory : nil);
   {* Идентификатор формы TcfAttributeSelect }
 

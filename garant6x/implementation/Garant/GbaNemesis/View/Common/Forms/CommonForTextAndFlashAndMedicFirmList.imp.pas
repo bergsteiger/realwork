@@ -1,53 +1,44 @@
 {$IfNDef CommonForTextAndFlashAndMedicFirmList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/CommonForTextAndFlashAndMedicFirmList.imp.pas"
-// Начат: 02.02.2009 15:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::CommonForTextAndFlashAndMedicFirmList
-//
-// Общие операции для текста, флеш-схем и списков медфирм
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "CommonForTextAndFlashAndMedicFirmList" MUID: (4986EB4D0179)
+// Имя типа: "_CommonForTextAndFlashAndMedicFirmList_"
 
 {$Define CommonForTextAndFlashAndMedicFirmList_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _CommonForTextAndFlashAndMedicFirmList_ = {abstract form} class(_CommonForTextAndFlashAndMedicFirmList_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _CommonForTextAndFlashAndMedicFirmList_ = {abstract} class(_CommonForTextAndFlashAndMedicFirmList_Parent_)
   {* Общие операции для текста, флеш-схем и списков медфирм }
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
- protected
- // protected fields
-   sdsBaseDocumentWithAttributes : IsdsBaseDocumentWithAttributes;
- protected
- // protected methods
+  protected
+   sdsBaseDocumentWithAttributes: IsdsBaseDocumentWithAttributes;
+  protected
    procedure OpenAttributesOpTest(const aParams: IvcmTestParamsPrim);
-     {* Операция информация о документе. Тестирование }
+    {* Операция информация о документе. Тестирование }
    procedure OpenAttributesOpExecute;
-     {* Операция информация о документе. Выполнение }
+    {* Операция информация о документе. Выполнение }
    function OpenAttributesOpCanBeClosed: Boolean;
-     {* возможность закрытия вкладки информация о документе }
+    {* возможность закрытия вкладки информация о документе }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_CommonForTextAndFlashAndMedicFirmList_
-{$Else}
 
- _CommonForTextAndFlashAndMedicFirmList_ = _CommonForTextAndFlashAndMedicFirmList_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_CommonForTextAndFlashAndMedicFirmList_ = _CommonForTextAndFlashAndMedicFirmList_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else CommonForTextAndFlashAndMedicFirmList_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef CommonForTextAndFlashAndMedicFirmList_imp_impl}
 
-// start class _CommonForTextAndFlashAndMedicFirmList_
+{$Define CommonForTextAndFlashAndMedicFirmList_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpTest(const aParams: IvcmTestParamsPrim);
+ {* Операция информация о документе. Тестирование }
 //#UC START# *4986F55B0274_4986EB4D0179_var*
 //#UC END# *4986F55B0274_4986EB4D0179_var*
 begin
@@ -58,6 +49,7 @@ begin
 end;//_CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpTest
 
 procedure _CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpExecute;
+ {* Операция информация о документе. Выполнение }
 //#UC START# *4986F8870069_4986EB4D0179_var*
 //#UC END# *4986F8870069_4986EB4D0179_var*
 begin
@@ -68,6 +60,7 @@ begin
 end;//_CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpExecute
 
 function _CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpCanBeClosed: Boolean;
+ {* возможность закрытия вкладки информация о документе }
 //#UC START# *4986FA1D003E_4986EB4D0179_var*
 //#UC END# *4986FA1D003E_4986EB4D0179_var*
 begin
@@ -77,20 +70,24 @@ begin
 //#UC END# *4986FA1D003E_4986EB4D0179_impl*
 end;//_CommonForTextAndFlashAndMedicFirmList_.OpenAttributesOpCanBeClosed
 
-procedure _CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   sdsBaseDocumentWithAttributes := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  aDsNew.CastUCC(IsdsBaseDocumentWithAttributes, sdsBaseDocumentWithAttributes);
- end;//aDsNew = nil
-end;
+  aNew.CastUCC(IsdsBaseDocumentWithAttributes, sdsBaseDocumentWithAttributes);
+ end;//aNew = nil
+end;//_CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf CommonForTextAndFlashAndMedicFirmList_imp_impl}
 
 {$EndIf CommonForTextAndFlashAndMedicFirmList_imp}
+

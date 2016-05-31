@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utNavigatorLocalConstants }
+ str_utNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorCaption'; rValue : 'Меню');
+  {* Заголовок пользовательского типа "Меню" }
+ str_utNavigatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorSettingsCaption'; rValue : 'Меню (вкладка)');
+  {* Заголовок пользовательского типа "Меню" для настройки панелей инструментов }
  {* Константы для типа формы utNavigator }
  utNavigatorName = 'utNavigator';
   {* Строковый идентификатор пользовательского типа "Меню" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utNavigator.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utNavigatorCaption.Init;
+ {* Инициализация str_utNavigatorCaption }
+ str_utNavigatorSettingsCaption.Init;
+ {* Инициализация str_utNavigatorSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utNavigator.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utNavigator }

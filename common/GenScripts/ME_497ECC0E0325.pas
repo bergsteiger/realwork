@@ -18,30 +18,30 @@ uses
  , SearchDomainInterfaces
  , L10nInterfaces
  , vtPanel
+ , l3TreeInterfaces
+ , DynamicTreeUnit
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
- , l3TreeInterfaces
  , nsTypes
  , Classes
- , l3Interfaces
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCL)}
- , ImgList
- {$IfEnd} // NOT Defined(NoVCL)
  , SearchUnit
- , DynamicTreeUnit
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -57,11 +57,8 @@ type
    f_Painted: Boolean;
    f_LockCurrentChange: Integer;
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_AttributeTree: TnscTreeViewHotTruck;
-    {* Поле для свойства AttributeTree }
   protected
    dsTreeAttributeSelect: IdsTreeAttributeSelect;
    f_NeedRefilterTree: Boolean;
@@ -245,7 +242,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimTreeAttributeSelect_astOneLevel_UserType
  , l3String
  , SysUtils
@@ -280,43 +276,27 @@ uses
  {$IfEnd} // NOT Defined(Admin)
  , SearchLite_FormDefinitions_Controls
  , tasSaveLoadProxy
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscContextFilterState
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimTreeAttributeSelect_astNone_UserType
  , PrimTreeAttributeSelect_astFirstLevel_UserType
  , PrimTreeAttributeSelect_astTaxesPublishSearch_UserType
  , PrimTreeAttributeSelect_astPharmPublishSearch_UserType
+ //#UC START# *497ECC0E0325impl_uses*
+ , l3ControlsTypes
+ , vtOutliner
+ //#UC END# *497ECC0E0325impl_uses*
 ;
-
-type
- // ExcludeExternalCharPressedForOneLevel
-
- // ExludeFindFirstSelectedForOneLevel
-
-const
- {* Локализуемые строки astNoneLocalConstants }
- str_astNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astNoneCaption'; rValue : 'Поиск: Выбор реквизита');
-  {* Заголовок пользовательского типа "Поиск: Выбор реквизита" }
- {* Локализуемые строки astOneLevelLocalConstants }
- str_astOneLevelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astOneLevelCaption'; rValue : 'Ситуации второго уровня');
-  {* Заголовок пользовательского типа "Ситуации второго уровня" }
- {* Локализуемые строки astFirstLevelLocalConstants }
- str_astFirstLevelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astFirstLevelCaption'; rValue : 'Ситуации первого уровня');
-  {* Заголовок пользовательского типа "Ситуации первого уровня" }
- {* Локализуемые строки astTaxesPublishSearchLocalConstants }
- str_astTaxesPublishSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astTaxesPublishSearchCaption'; rValue : 'СМИ по налогам и бухучету');
-  {* Заголовок пользовательского типа "СМИ по налогам и бухучету" }
- {* Локализуемые строки astPharmPublishSearchLocalConstants }
- str_astPharmPublishSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astPharmPublishSearchCaption'; rValue : 'СМИ по медицине и здравоохранению');
-  {* Заголовок пользовательского типа "СМИ по медицине и здравоохранению" }
 
 function TPrimTreeAttributeSelectForm.pm_GetDS: IdsTreeAttributeSelect;
 //#UC START# *52774DA600FD_497ECC0E0325get_var*
@@ -1999,6 +1979,14 @@ procedure TPrimTreeAttributeSelectForm.SignalDataSourceChanged(const anOld: Ivcm
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsTreeAttributeSelect := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsTreeAttributeSelect, dsTreeAttributeSelect);
+ end;//aNew = nil
 end;//TPrimTreeAttributeSelectForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -2012,9 +2000,14 @@ begin
  begin
   PublishFormEntity(en_AttributeTree, nil);
   PublishFormEntity(en_SearchParameters, nil);
-  PublishFormEntity(en_Attribute, nil);
+  PublishFormEntity(en_Attribute, EntitiesenAttributeGetTarget);
   PublishFormEntity(en_Context, nil);
   PublishFormEntity(en_Folder, nil);
+  PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Selection, nil);
+  MakeEntitySupportedByControl(en_Attribute, AttributeTree);
+  MakeEntitySupportedByControl(en_Tree, AttributeTree);
+  MakeEntitySupportedByControl(en_Selection, AttributeTree);
   PublishOpWithResult(en_AttributeTree, op_ExternalCharPressed, AttributeTree_ExternalCharPressed, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_SetCurrent, AttributeTree_SetCurrent, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_DropAllLogicSelection, AttributeTree_DropAllLogicSelection, nil, nil);
@@ -2033,7 +2026,11 @@ begin
   PublishOpWithResult(en_AttributeTree, op_AddNodeIfEmpty, AttributeTree_AddNodeIfEmpty, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
   PublishOp(en_Folder, op_FindFirstSelected, Folder_FindFirstSelected_Execute, Folder_FindFirstSelected_Test, nil);
+  ShowInContextMenu(en_Folder, op_FindFirstSelected, True);
+  ShowInToolbar(en_Folder, op_FindFirstSelected, False);
  end;//with Entities.Entities
+ AddUserTypeExclude(astOneLevelName, en_AttributeTree, op_ExternalCharPressed, False);
+ AddUserTypeExclude(astOneLevelName, en_Folder, op_FindFirstSelected, False);
 end;//TPrimTreeAttributeSelectForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -2044,7 +2041,7 @@ begin
  with AddUsertype(astNoneName,
   str_astNoneCaption,
   str_astNoneCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -2119,16 +2116,6 @@ end;//TPrimTreeAttributeSelectForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_astNoneCaption.Init;
- {* Инициализация str_astNoneCaption }
- str_astOneLevelCaption.Init;
- {* Инициализация str_astOneLevelCaption }
- str_astFirstLevelCaption.Init;
- {* Инициализация str_astFirstLevelCaption }
- str_astTaxesPublishSearchCaption.Init;
- {* Инициализация str_astTaxesPublishSearchCaption }
- str_astPharmPublishSearchCaption.Init;
- {* Инициализация str_astPharmPublishSearchCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTreeAttributeSelectForm);
  {* Регистрация PrimTreeAttributeSelect }

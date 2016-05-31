@@ -1,86 +1,70 @@
 unit PrimNavigatorOptions_Form;
+ {* Меню }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimNavigatorOptions_Form.pas"
-// Начат: 09.0.2010 18:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimNavigatorOptions
-//
-// Меню
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigatorOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimNavigatorOptions" MUID: (4C87A47E0036)
+// Имя типа: "TPrimNavigatorOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimNavigator_Form,
-  Common_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimNavigator_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimNavigatorOptionsForm = {form} class(TPrimNavigatorForm)
+ TPrimNavigatorOptionsForm = class(TPrimNavigatorForm)
   {* Меню }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
    procedure NavigatorElement_Info_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure NavigatorElement_Execute_Test(const aParams: IvcmTestParamsPrim);
    procedure NavigatorElement_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimNavigatorOptionsForm
-
- TvcmEntityFormRef = TPrimNavigatorOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  nsNodes,
-  SysUtils,
-  nsNavigatorTreeStruct
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimNavigatorOptionsForm
+ l3ImplUses
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , nsNodes
+ , SysUtils
+ , nsNavigatorTreeStruct
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87A47E0036impl_uses*
+ //#UC END# *4C87A47E0036impl_uses*
+;
 
 procedure TPrimNavigatorOptionsForm.NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C87A50402CC_4C87A47E0036test_var*
@@ -134,76 +118,55 @@ begin
 //#UC END# *4C87A52E02F7_4C87A47E0036exec_impl*
 end;//TPrimNavigatorOptionsForm.NavigatorElement_Execute_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimNavigatorOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_NavigatorElement, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Cut, true);
-  ShowInToolbar(en_Edit, op_Cut, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Cut, True);
+  ShowInToolbar(en_Edit, op_Cut, True);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Paste, true);
-  ShowInToolbar(en_Edit, op_Paste, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Undo, true);
-  ShowInToolbar(en_Edit, op_Undo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Undo, True);
+  ShowInToolbar(en_Edit, op_Undo, False);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Redo, true);
-  ShowInToolbar(en_Edit, op_Redo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Redo, True);
+  ShowInToolbar(en_Edit, op_Redo, False);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_SelectAll, true);
-  ShowInToolbar(en_Edit, op_SelectAll, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_SelectAll, True);
+  ShowInToolbar(en_Edit, op_SelectAll, False);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Deselect, true);
-  ShowInToolbar(en_Edit, op_Deselect, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Deselect, True);
+  ShowInToolbar(en_Edit, op_Deselect, False);
   PublishOp(en_Edit, op_Copy, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Delete, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
   PublishOp(en_NavigatorElement, op_Info, NavigatorElement_Info_Execute, NavigatorElement_Info_Test, nil);
-  ShowInContextMenu(en_NavigatorElement, op_Info, true);
-  ShowInToolbar(en_NavigatorElement, op_Info, false);
+  ShowInContextMenu(en_NavigatorElement, op_Info, True);
+  ShowInToolbar(en_NavigatorElement, op_Info, False);
   PublishOp(en_NavigatorElement, op_Execute, NavigatorElement_Execute_Execute, NavigatorElement_Execute_Test, nil);
-  ShowInContextMenu(en_NavigatorElement, op_Execute, true);
-  ShowInToolbar(en_NavigatorElement, op_Execute, false);
+  ShowInContextMenu(en_NavigatorElement, op_Execute, True);
+  ShowInToolbar(en_NavigatorElement, op_Execute, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimNavigatorOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimNavigatorOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNavigatorOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimNavigatorOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -34,7 +34,6 @@ uses
  , nsTypes
  , nsConst
  , DynamicTreeUnit
- , l3MessageID
 ;
 
 const

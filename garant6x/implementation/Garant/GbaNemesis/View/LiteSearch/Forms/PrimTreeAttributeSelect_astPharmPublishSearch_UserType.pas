@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки astPharmPublishSearchLocalConstants }
+ str_astPharmPublishSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astPharmPublishSearchCaption'; rValue : 'СМИ по медицине и здравоохранению');
+  {* Заголовок пользовательского типа "СМИ по медицине и здравоохранению" }
  {* Константы для типа формы astPharmPublishSearch }
  astPharmPublishSearchName = 'astPharmPublishSearch';
   {* Строковый идентификатор пользовательского типа "СМИ по медицине и здравоохранению" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_astPharmPublishSearchCaption.Init;
+ {* Инициализация str_astPharmPublishSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astPharmPublishSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_astPharmPublishSearch }

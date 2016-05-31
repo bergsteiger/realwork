@@ -26,6 +26,7 @@ uses
  , eeInterfaces
  , nsFormCoordinates
  , FoldersDomainInterfaces
+ , FoldersInterfaces
  , l3Interfaces
  , nsTypes
  , BaseTypesUnit
@@ -123,6 +124,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , sdsFolders
  , DataAdapter
  {$If NOT Defined(NoVCM)}
  , vcmItems
@@ -344,7 +346,7 @@ function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer
  anOp: TListLogicOperation = LLO_NONE): Integer;
 var l_Params: IvcmMakeParams;
 var l_Container: IvcmEntityForm;
-var l_Folders: ;
+var l_Folders: IsdsFolders;
 //#UC START# *4AC0B80702DE_4A96B68A03B1_var*
 //#UC END# *4AC0B80702DE_4A96B68A03B1_var*
 begin
@@ -456,7 +458,7 @@ function TPrimFoldersModule.SaveOpen(const aForm: IvcmEntityForm;
  anElementType: TFoldersElementType;
  const anEntity: IEntityBase;
  aSaveAs: Boolean): Integer;
-var l_Folders: ;
+var l_Folders: IsdsFolders;
 var l_Container: IvcmEntityForm;
 var l_Params: IvcmMakeParams;
 var l_Form: IvcmEntityForm;

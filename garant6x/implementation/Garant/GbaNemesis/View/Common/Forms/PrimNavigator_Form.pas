@@ -1,179 +1,127 @@
 unit PrimNavigator_Form;
+ {* Меню }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimNavigator_Form.pas"
-// Начат: 02.11.2009 16:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimNavigator
-//
-// Меню
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimNavigator" MUID: (4AEEE269033F)
+// Имя типа: "TPrimNavigatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  Classes,
-  l3ControlsTypes,
-  bsInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Common_Strange_Controls,
-  l3StringIDEx,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop,
-  PrimNavigator_utNavigator_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsInterfaces
+ , Common_Strange_Controls
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimNavigatorForm = {form} class(TvcmEntityForm, InsTreeDataListener)
+ TPrimNavigatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsTreeDataListener)
   {* Меню }
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_NavigatorTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства NavigatorTree}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_ContextFilter: TnscContextFilter;
+   f_NavigatorTree: TnscTreeViewWithAdapterDragDrop;
+  protected
+   f_Lock: Integer;
+  private
    procedure NavigatorTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    function NavigatorTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure NavigatorTreeNewCharPressed(aChar: AnsiChar);
-     {* событие для внешней обработки WMChar }
    procedure NavigatorTreeMakeTreeSource(out theTree: Il3SimpleTree);
    procedure ContextFilterChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NavigatorTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    procedure ContextFilterWrongContext(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
+  protected
+   procedure ExecuteCurrentElement;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Navigator_SetCurrent_Execute(const aNode: Il3SimpleNode);
    procedure Navigator_SetCurrent(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_Lock : Integer;
- protected
- // protected methods
-   procedure ExecuteCurrentElement;
- public
- // public properties
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
    property NavigatorTree: TnscTreeViewWithAdapterDragDrop
-     read f_NavigatorTree;
+    read f_NavigatorTree;
  end;//TPrimNavigatorForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  NavigatorUtils,
-  DynamicTreeUnit,
-  nsUtils,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  NavigatorRes,
-  nsNavigatorTreeStruct,
-  BaseTypesUnit,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , NavigatorUtils
+ , DynamicTreeUnit
+ , nsUtils
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , NavigatorRes
+ , nsNavigatorTreeStruct
+ , BaseTypesUnit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimNavigator_utNavigator_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AEEE269033Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *4AEEE269033Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utNavigatorLocalConstants }
-  str_utNavigatorCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorCaption'; rValue : 'Меню');
-   { Заголовок пользовательского типа "Меню" }
-  str_utNavigatorSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorSettingsCaption'; rValue : 'Меню (вкладка)');
-   { Заголовок пользовательского типа "Меню" для настройки панелей инструментов }
-
-// start class TPrimNavigatorForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimNavigatorForm.NavigatorTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *5240075C038B_4AEEE269033F_var*
 //#UC END# *5240075C038B_4AEEE269033F_var*
 begin
@@ -191,8 +139,8 @@ begin
 end;//TPrimNavigatorForm.NavigatorTreeActionElement
 
 function TPrimNavigatorForm.NavigatorTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *524007670210_4AEEE269033F_var*
 var
  l_l3Node: Il3SimpleNode;
@@ -272,8 +220,8 @@ begin
 end;//TPrimNavigatorForm.ContextFilterChange
 
 procedure TPrimNavigatorForm.NavigatorTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
 //#UC START# *5240079601A2_4AEEE269033F_var*
 //#UC END# *5240079601A2_4AEEE269033F_var*
 begin
@@ -323,10 +271,11 @@ end;//TPrimNavigatorForm.Navigator_SetCurrent_Execute
 procedure TPrimNavigatorForm.Navigator_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As INavigator_SetCurrent_Params) do
-  Navigator_SetCurrent_Execute(Node);
-end;
+  Self.Navigator_SetCurrent_Execute(Node);
+end;//TPrimNavigatorForm.Navigator_SetCurrent
 
 procedure TPrimNavigatorForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AEEE269033F_var*
 //#UC END# *479731C50290_4AEEE269033F_var*
 begin
@@ -337,8 +286,8 @@ begin
 //#UC END# *479731C50290_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimNavigatorForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AEEE269033F_var*
 //#UC END# *4A8E8F2E0195_4AEEE269033F_var*
 begin
@@ -380,9 +329,10 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AEEE269033F_impl*
 end;//TPrimNavigatorForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimNavigatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -390,7 +340,7 @@ begin
   PublishFormEntity(en_Navigator, nil);
   PublishOpWithResult(en_Navigator, op_SetCurrent, Navigator_SetCurrent, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimNavigatorForm.InitEntities
 
 procedure TPrimNavigatorForm.MakeControls;
 begin
@@ -398,7 +348,7 @@ begin
  with AddUsertype(utNavigatorName,
   str_utNavigatorCaption,
   str_utNavigatorSettingsCaption,
-  true,
+  True,
   44,
   10,
   '',
@@ -417,22 +367,14 @@ begin
  f_NavigatorTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_NavigatorTree.Name := 'NavigatorTree';
  f_NavigatorTree.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimNavigatorForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utNavigatorCaption
- str_utNavigatorCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utNavigatorSettingsCaption
- str_utNavigatorSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimNavigator
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNavigatorForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimNavigator }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

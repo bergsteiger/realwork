@@ -28,6 +28,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,25 +43,16 @@ type
   {* Предупреждение }
   private
    f_ShutdownTimer: TTimer;
-    {* Поле для свойства ShutdownTimer }
    f_vtPanel1: TvtPanel;
-    {* Поле для свойства vtPanel1 }
-   f_LeftPanel: TvtPanel;
-    {* Поле для свойства LeftPanel }
-   f_Image: TImage;
-    {* Поле для свойства Image }
-   f_CenterPanel: TvtPanel;
-    {* Поле для свойства CenterPanel }
-   f_TopSpacerPanel: TvtPanel;
-    {* Поле для свойства TopSpacerPanel }
-   f_WarningText: TvtLabel;
-    {* Поле для свойства WarningText }
-   f_RightSpacerPanel: TvtPanel;
-    {* Поле для свойства RightSpacerPanel }
    f_pnlBottom: TvtPanel;
-    {* Поле для свойства pnlBottom }
+   f_LeftPanel: TvtPanel;
+   f_Image: TImage;
+   f_CenterPanel: TvtPanel;
+   f_TopSpacerPanel: TvtPanel;
+   f_WarningText: TvtLabel;
+   f_RightSpacerPanel: TvtPanel;
    f_CloseButton: TvtButton;
-    {* Поле для свойства CloseButton }
+    {* Выход }
   protected
    f_InShutdown: Boolean;
    f_CloseInterval: Integer;
@@ -133,7 +127,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -152,25 +145,19 @@ uses
  , f1NotificationManager
  , Messages
  , l3ListenersManager
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimShutDown_sftNone_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A8EC8AC02EEimpl_uses*
+ , SysUtils
+ //#UC END# *4A8EC8AC02EEimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки sftNoneLocalConstants }
- str_sftNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'sftNoneCaption'; rValue : 'Предупреждение о закрытии приложения');
-  {* Заголовок пользовательского типа "Предупреждение о закрытии приложения" }
-
 procedure TPrimShutDownForm.ShutdownTimerTimer(Sender: TObject);
 //#UC START# *5267AF7901AC_4A8EC8AC02EE_var*
 //#UC END# *5267AF7901AC_4A8EC8AC02EE_var*
@@ -468,7 +455,7 @@ begin
  with AddUsertype(sftNoneName,
   str_sftNoneCaption,
   str_sftNoneCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -511,8 +498,6 @@ begin
 end;//TPrimShutDownForm.MakeControls
 
 initialization
- str_sftNoneCaption.Init;
- {* Инициализация str_sftNoneCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimShutDownForm);
  {* Регистрация PrimShutDown }

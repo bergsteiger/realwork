@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки admUsePropertiesLocalConstants }
+ str_admUsePropertiesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUsePropertiesCaption'; rValue : 'Свойства пользователя');
+  {* Заголовок пользовательского типа "Свойства пользователя" }
  {* Константы для типа формы admUseProperties }
  admUsePropertiesName = 'admUseProperties';
   {* Строковый идентификатор пользовательского типа "Свойства пользователя" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_admUseProperties.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_admUsePropertiesCaption.Init;
+ {* Инициализация str_admUsePropertiesCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admUseProperties.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_admUseProperties }

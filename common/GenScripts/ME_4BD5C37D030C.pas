@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utqcSendConsultationLocalConstants }
+ str_utqcSendConsultationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcSendConsultationCaption'; rValue : 'Правовая поддержка онлайн');
+  {* Заголовок пользовательского типа "Правовая поддержка онлайн" }
  {* Константы для типа формы utqcSendConsultation }
  utqcSendConsultationName = 'utqcSendConsultation';
   {* Строковый идентификатор пользовательского типа "Правовая поддержка онлайн" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_utqcSendConsultation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utqcSendConsultationCaption.Init;
+ {* Инициализация str_utqcSendConsultationCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utqcSendConsultation.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utqcSendConsultation }

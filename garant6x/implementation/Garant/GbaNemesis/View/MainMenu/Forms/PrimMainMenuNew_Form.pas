@@ -1,167 +1,95 @@
 unit PrimMainMenuNew_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/Forms/PrimMainMenuNew_Form.pas"
-// Начат: 29.12.2008 17:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::PrimMainMenuNew
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuNew_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimMainMenuNew" MUID: (4958E1F700C0)
+// Имя типа: "TPrimMainMenuNewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  IOUnit,
-  BaseTypesUnit,
-  ExternalObjectUnit,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  PrimMainMenu_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  ,
-  PrimLegalMainMenu_Form,
-  BannerUnit
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  l3StringIDEx
-  {$If defined(Nemesis)}
-  ,
-  nscFocusLabel
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimMainMenuNew_utMainMenuNew_UserType,
-  MainMenuUnit,
-  vtHideField
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimLegalMainMenu_Form
+ , BannerUnit
+ , MainMenuUnit
+ , vtPanel
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscFocusLabel
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoImageEn)}
+ , imageenview
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , ExternalObjectUnit
+ , Classes
+ , IOUnit
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtHideField
+ {$If Defined(Nemesis)}
+ , nscInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _vcmChromeLikeTabCaptionProvider_Parent_ = TPrimLegalMainMenuForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimMainMenuNewForm = {abstract form} class(_vcmChromeLikeTabIconUpdater_)
- private
- // private fields
-   f_Banner : IBanner;
-   f_CurrentSection : TSectionType;
-   f_pnlBaseSearch : TvtPanel;
-    {* Поле для свойства pnlBaseSearch}
-   f_pnlBaseSearchZone : TvtPanel;
-    {* Поле для свойства pnlBaseSearchZone}
-   f_pnlLogo : TvtPanel;
-    {* Поле для свойства pnlLogo}
-   f_pbLogo : TPaintBox;
-    {* Поле для свойства pbLogo}
-   f_pnlSearches : TvtPanel;
-    {* Поле для свойства pnlSearches}
-   f_flAttributeSearch : TnscFocusLabel;
-    {* Поле для свойства flAttributeSearch}
-   f_flSituationSearch : TnscFocusLabel;
-    {* Поле для свойства flSituationSearch}
-   f_flPublishedSourceSearch : TnscFocusLabel;
-    {* Поле для свойства flPublishedSourceSearch}
-   f_flDictionSearch : TnscFocusLabel;
-    {* Поле для свойства flDictionSearch}
-   f_pnlExpert : TvtPanel;
-    {* Поле для свойства pnlExpert}
-   f_pbExpert : TPaintBox;
-    {* Поле для свойства pbExpert}
-   f_pnlOnLine : TvtPanel;
-    {* Поле для свойства pnlOnLine}
-   f_pbOnLine : TPaintBox;
-    {* Поле для свойства pbOnLine}
-   f_pbIntranet : TPaintBox;
-    {* Поле для свойства pbIntranet}
-   f_pbCourtsOnline : TPaintBox;
-    {* Поле для свойства pbCourtsOnline}
-   f_hfTaxes : TnscHideField;
-    {* Поле для свойства hfTaxes}
-   f_tvTaxes : TnscTreeViewHotTruck;
-    {* Поле для свойства tvTaxes}
-   f_pnlBanner : TvtPanel;
-    {* Поле для свойства pnlBanner}
-   f_ieBanner : TImageEnView;
-    {* Поле для свойства ieBanner}
-   f_hfLastOpenDocsRightEdge : TvtPanel;
-    {* Поле для свойства hfLastOpenDocsRightEdge}
-   f_ieIO : TImageEnIO;
-    {* Поле для свойства ieIO}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimMainMenuNewForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
+  private
+   f_Banner: IBanner;
+   f_CurrentSection: TSectionType;
+   f_ieIO: TImageEnIO;
+   f_pnlBaseSearch: TvtPanel;
+   f_pnlBaseSearchZone: TvtPanel;
+   f_pnlLogo: TvtPanel;
+   f_pbLogo: TPaintBox;
+   f_pnlSearches: TvtPanel;
+   f_flAttributeSearch: TnscFocusLabel;
+    {* • По реквизитам }
+   f_flSituationSearch: TnscFocusLabel;
+    {* • По ситуации }
+   f_flPublishedSourceSearch: TnscFocusLabel;
+    {* • По источнику опубликования }
+   f_flDictionSearch: TnscFocusLabel;
+    {* • По Толковому словарю }
+   f_pnlExpert: TvtPanel;
+   f_pbExpert: TPaintBox;
+   f_pnlOnLine: TvtPanel;
+   f_pbOnLine: TPaintBox;
+   f_pbIntranet: TPaintBox;
+   f_pbCourtsOnline: TPaintBox;
+    {* Онлайн-архив }
+   f_hfTaxes: TnscHideField;
+    {* Налоги, финансы }
+   f_tvTaxes: TnscTreeViewHotTruck;
+   f_pnlBanner: TvtPanel;
+   f_ieBanner: TImageEnView;
+   f_hfLastOpenDocsRightEdge: TvtPanel;
+  private
    procedure BaseSearchPanelResize(aSender: TObject);
    procedure PaintLogo(aSender: TObject);
    procedure PaintButton(aSender: TObject);
@@ -176,7 +104,7 @@ type
    procedure UpdateSearchLabels;
    procedure IntranetClick(aSender: TObject);
    procedure TaxesStateChanged(aSender: TObject;
-     var theState: ThfState);
+    var theState: ThfState);
    procedure UpdateTaxesTree;
    procedure TaxesNextTree(aSender: TObject);
    procedure UpdateTaxesTreeCaption;
@@ -184,241 +112,203 @@ type
    procedure CourtsOnlineClick(aSender: TObject);
    function GetSearchLabelsLineFullWidth: Integer;
    procedure UpdatePbExpertPosition;
-     {* Сигнатура метода UpdatePbExpertPosition }
- protected
- // realized methods
+  protected
    function DoBuildGrid: InscArrangeGrid; override;
- protected
- // overridden property methods
-   function pm_GetContainerForBaseSearch: IvcmContainer; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoInitKeyboardNavigation(const aTable: InscTabTable); override;
    procedure LoadLastOpenDocs; override;
    procedure LoadTrees; override;
+   function pm_GetContainerForBaseSearch: IvcmContainer; override;
    function NewSchool: Boolean; override;
-     {* Определяет, что основное меню вида 2009 - [$164601183] }
+    {* Определяет, что основное меню вида 2009 - [$164601183] }
    procedure DoRecalcGrid(const aGrid: InscArrangeGrid); override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function InsertForm(const aForm: IvcmEntityForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure SetControlsResources; override;
-     {* Установить контролам ресурсы для интернационализации }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Установить контролам ресурсы для интернационализации }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure RestoreControlSize; override;
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetFormSetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- public
- // public properties
-
-   property pnlBaseSearch: TvtPanel
-     read f_pnlBaseSearch;
-   property pnlBaseSearchZone: TvtPanel
-     read f_pnlBaseSearchZone;
-   property pnlLogo: TvtPanel
-     read f_pnlLogo;
-   property pbLogo: TPaintBox
-     read f_pbLogo;
-   property pnlSearches: TvtPanel
-     read f_pnlSearches;
-   property flAttributeSearch: TnscFocusLabel
-     read f_flAttributeSearch;
-     {* • По реквизитам }
-   property flSituationSearch: TnscFocusLabel
-     read f_flSituationSearch;
-     {* • По ситуации }
-   property flPublishedSourceSearch: TnscFocusLabel
-     read f_flPublishedSourceSearch;
-     {* • По источнику опубликования }
-   property flDictionSearch: TnscFocusLabel
-     read f_flDictionSearch;
-     {* • По Толковому словарю }
-   property pnlExpert: TvtPanel
-     read f_pnlExpert;
-   property pbExpert: TPaintBox
-     read f_pbExpert;
-   property pnlOnLine: TvtPanel
-     read f_pnlOnLine;
-   property pbOnLine: TPaintBox
-     read f_pbOnLine;
-   property pbIntranet: TPaintBox
-     read f_pbIntranet;
-   property pbCourtsOnline: TPaintBox
-     read f_pbCourtsOnline;
-     {* Онлайн-архив }
-   property hfTaxes: TnscHideField
-     read f_hfTaxes;
-     {* Налоги, финансы }
-   property tvTaxes: TnscTreeViewHotTruck
-     read f_tvTaxes;
-   property pnlBanner: TvtPanel
-     read f_pnlBanner;
-   property ieBanner: TImageEnView
-     read f_ieBanner;
-
-   property hfLastOpenDocsRightEdge: TvtPanel
-     read f_hfLastOpenDocsRightEdge;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property ieIO: TImageEnIO
-     read f_ieIO;
+    read f_ieIO;
+   property pnlBaseSearch: TvtPanel
+    read f_pnlBaseSearch;
+   property pnlBaseSearchZone: TvtPanel
+    read f_pnlBaseSearchZone;
+   property pnlLogo: TvtPanel
+    read f_pnlLogo;
+   property pbLogo: TPaintBox
+    read f_pbLogo;
+   property pnlSearches: TvtPanel
+    read f_pnlSearches;
+   property flAttributeSearch: TnscFocusLabel
+    read f_flAttributeSearch;
+    {* • По реквизитам }
+   property flSituationSearch: TnscFocusLabel
+    read f_flSituationSearch;
+    {* • По ситуации }
+   property flPublishedSourceSearch: TnscFocusLabel
+    read f_flPublishedSourceSearch;
+    {* • По источнику опубликования }
+   property flDictionSearch: TnscFocusLabel
+    read f_flDictionSearch;
+    {* • По Толковому словарю }
+   property pnlExpert: TvtPanel
+    read f_pnlExpert;
+   property pbExpert: TPaintBox
+    read f_pbExpert;
+   property pnlOnLine: TvtPanel
+    read f_pnlOnLine;
+   property pbOnLine: TPaintBox
+    read f_pbOnLine;
+   property pbIntranet: TPaintBox
+    read f_pbIntranet;
+   property pbCourtsOnline: TPaintBox
+    read f_pbCourtsOnline;
+    {* Онлайн-архив }
+   property hfTaxes: TnscHideField
+    read f_hfTaxes;
+    {* Налоги, финансы }
+   property tvTaxes: TnscTreeViewHotTruck
+    read f_tvTaxes;
+   property pnlBanner: TvtPanel
+    read f_pnlBanner;
+   property ieBanner: TImageEnView
+    read f_ieBanner;
+   property hfLastOpenDocsRightEdge: TvtPanel
+    read f_hfLastOpenDocsRightEdge;
  end;//TPrimMainMenuNewForm
-
- TvcmContainerFormRef = TPrimMainMenuNewForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsQueryInterfaces,
-  DataAdapter
-  {$If not defined(NoImageEn)}
-  ,
-  hyiedefs
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  iemview
-  {$IfEnd} //not NoImageEn
-  ,
-  nsExternalObjectPrim,
-  SysUtils,
-  nsTypes,
-  l3String
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGrid
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGridCell
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscFixedHeightControlCell
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscFixedWidthControlCell
-  {$IfEnd} //Nemesis
-  ,
-  nsConst,
-  Graphics
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  nsLastOpenDocTree,
-  l3ControlsTypes,
-  l3MinMax
-  {$If defined(Nemesis)}
-  ,
-  nscTabTableCell
-  {$IfEnd} //Nemesis
-  ,
-  afwFacade
-  {$If not defined(NoImageEn)}
-  ,
-  hyieutils
-  {$IfEnd} //not NoImageEn
-  ,
-  afwInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  ,
-  smChangeableTree,
-  DocumentRes,
-  vtPngImgList,
-  StartUnit,
-  MainMenuNewRes,
-  nsTabbedInterfaceTypes,
-  bsTypesNew,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , PrimMainMenuNew_utMainMenuNew_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscArrangeGrid
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscArrangeGridCell
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscFixedHeightControlCell
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscFixedWidthControlCell
+ {$IfEnd} // Defined(Nemesis)
+ , nsTypes
+ , nsConst
+ , Graphics
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , nsLastOpenDocTree
+ , l3ControlsTypes
+ , l3MinMax
+ {$If Defined(Nemesis)}
+ , nscTabTableCell
+ {$IfEnd} // Defined(Nemesis)
+ , afwFacade
+ {$If NOT Defined(NoImageEn)}
+ , hyieutils
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , afwInterfaces
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , smChangeableTree
+ , DocumentRes
+ , vtPngImgList
+ , StartUnit
+ , MainMenuNewRes
+ , nsTabbedInterfaceTypes
+ , bsTypesNew
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsQueryInterfaces
+ , DataAdapter
+ {$If NOT Defined(NoImageEn)}
+ , hyiedefs
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoImageEn)}
+ , iemview
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , nsExternalObjectPrim
+ , SysUtils
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *4958E1F700C0impl_uses*
+ //#UC END# *4958E1F700C0impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ c_SearchLabelDistance = 18;
 
 type _Instance_R_ = TPrimMainMenuNewForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
-
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
-
-const
-   { SearchLabelsLayout }
-  c_SearchLabelDistance = 18;
-
-var
-   { Локализуемые строки utMainMenuNewLocalConstants }
-  str_utMainMenuNewCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuNewCaption'; rValue : 'Основное меню');
-   { Заголовок пользовательского типа "Основное меню" }
-
-// start class TPrimMainMenuNewForm
 
 procedure TPrimMainMenuNewForm.BaseSearchPanelResize(aSender: TObject);
 //#UC START# *4ACB20380272_4958E1F700C0_var*
@@ -539,12 +429,11 @@ begin
 end;//TPrimMainMenuNewForm.SearchClick
 
 procedure TPrimMainMenuNewForm.LoadBanner;
+var l_EO: IExternalObject;
+var l_Stream: TStream;
+var l_Name: IString;
 //#UC START# *4ACDC1AE00C1_4958E1F700C0_var*
 //#UC END# *4ACDC1AE00C1_4958E1F700C0_var*
-var
- l_EO : IExternalObject;
- l_Stream : TStream;
- l_Name : IString;
 begin
 //#UC START# *4ACDC1AE00C1_4958E1F700C0_impl*
  with ieIO do
@@ -588,12 +477,11 @@ begin
 end;//TPrimMainMenuNewForm.LoadBanner
 
 procedure TPrimMainMenuNewForm.BannerClick(aSender: TObject);
+var l_Link: IExternalLink;
+var l_Entity: IEntityBase;
+var l_Ref: IUnknown;
 //#UC START# *4ACF0DEC02DE_4958E1F700C0_var*
 //#UC END# *4ACF0DEC02DE_4958E1F700C0_var*
-var
- l_Link : IExternalLink;
- l_Entity : IEntityBase;
- l_Ref : IUnknown;
 begin
 //#UC START# *4ACF0DEC02DE_4958E1F700C0_impl*
  if (f_Banner <> nil) then
@@ -689,7 +577,7 @@ begin
 end;//TPrimMainMenuNewForm.IntranetClick
 
 procedure TPrimMainMenuNewForm.TaxesStateChanged(aSender: TObject;
-  var theState: ThfState);
+ var theState: ThfState);
 //#UC START# *4E733318014A_4958E1F700C0_var*
 //#UC END# *4E733318014A_4958E1F700C0_var*
 begin
@@ -854,6 +742,7 @@ begin
 end;//TPrimMainMenuNewForm.DoBuildGrid
 
 procedure TPrimMainMenuNewForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4958E1F700C0_var*
 //#UC END# *479731C50290_4958E1F700C0_var*
 begin
@@ -875,8 +764,9 @@ begin
 //#UC END# *47EA4E9002C6_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4958E1F700C0_var*
 //#UC END# *49803F5503AA_4958E1F700C0_var*
 begin
@@ -889,11 +779,12 @@ begin
  UpdateTabCaption(DoGetTabCaption);
 //#UC END# *49803F5503AA_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimMainMenuNewForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4958E1F700C0_var*
 //#UC END# *49807428008C_4958E1F700C0_var*
 begin
@@ -902,10 +793,11 @@ begin
  UpdatePbExpertPosition;
 //#UC END# *49807428008C_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoLoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4958E1F700C0_var*
 var
  l_Index : Integer;
@@ -1251,7 +1143,7 @@ begin
   end;
 //#UC END# *4A8E8F2E0195_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimMainMenuNewForm.DoInitKeyboardNavigation(const aTable: InscTabTable);
 //#UC START# *4AC9CB8B01D3_4958E1F700C0_var*
@@ -1310,6 +1202,7 @@ begin
 end;//TPrimMainMenuNewForm.pm_GetContainerForBaseSearch
 
 function TPrimMainMenuNewForm.NewSchool: Boolean;
+ {* Определяет, что основное меню вида 2009 - [$164601183] }
 //#UC START# *4ACB2F98002B_4958E1F700C0_var*
 //#UC END# *4ACB2F98002B_4958E1F700C0_var*
 begin
@@ -1345,7 +1238,7 @@ begin
 //#UC END# *4AD3468102DB_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoRecalcGrid
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimMainMenuNewForm.InsertForm(const aForm: IvcmEntityForm): Boolean;
 //#UC START# *4AD44CA20001_4958E1F700C0_var*
 //#UC END# *4AD44CA20001_4958E1F700C0_var*
@@ -1359,10 +1252,11 @@ begin
  end;//Result..
 //#UC END# *4AD44CA20001_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.InsertForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.SetControlsResources;
+ {* Установить контролам ресурсы для интернационализации }
 //#UC START# *4B62D10B031B_4958E1F700C0_var*
 //#UC END# *4B62D10B031B_4958E1F700C0_var*
 begin
@@ -1379,9 +1273,9 @@ begin
  flDictionSearch.ShowHint := true;
 //#UC END# *4B62D10B031B_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.SetControlsResources
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.RestoreControlSize;
 //#UC START# *4C934E5F0035_4958E1F700C0_var*
 //#UC END# *4C934E5F0035_4958E1F700C0_var*
@@ -1391,9 +1285,9 @@ begin
  BaseSearchPanelResize(pnlBaseSearch);
 //#UC END# *4C934E5F0035_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.RestoreControlSize
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimMainMenuNewForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4958E1F700C0_var*
 //#UC END# *53F1C6EF02C9_4958E1F700C0_var*
@@ -1402,9 +1296,9 @@ begin
  Result := vcmCStr(str_utMainMenuNewCaption);
 //#UC END# *53F1C6EF02C9_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimMainMenuNewForm.DoGetFormSetTabCaption: IvcmCString;
 //#UC START# *54058CBC0182_4958E1F700C0_var*
 //#UC END# *54058CBC0182_4958E1F700C0_var*
@@ -1413,9 +1307,9 @@ begin
  Result := DoGetTabCaption;
 //#UC END# *54058CBC0182_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoGetFormSetTabCaption
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimMainMenuNewForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4958E1F700C0_var*
 //#UC END# *543E3AA801D0_4958E1F700C0_var*
@@ -1424,25 +1318,37 @@ begin
  Result := nsTabIconIndex(titMain);
 //#UC END# *543E3AA801D0_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utMainMenuNewName, en_Tree, op_ExpandAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utMainMenuNewName, en_Tree, op_CollapseAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utMainMenuNewName, en_Tree, op_Wrap, false);
- {$IfEnd} //not NoVCM
-end;
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_CollapseAll, False);
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_Wrap, False);
+end;//TPrimMainMenuNewForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimMainMenuNewForm.MakeControls;
 begin
  inherited;
+ with AddUsertype(utMainMenuNewName,
+  str_utMainMenuNewCaption,
+  str_utMainMenuNewCaption,
+  False,
+  44,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(utMainMenuNewName
  pnlMain.Parent := Self;
  f_pnlBaseSearch := TvtPanel.Create(Self);
  f_pnlBaseSearch.Name := 'pnlBaseSearch';
@@ -1450,9 +1356,9 @@ begin
  f_pnlBaseSearchZone := TvtPanel.Create(Self);
  f_pnlBaseSearchZone.Name := 'pnlBaseSearchZone';
  f_pnlBaseSearchZone.Parent := pnlBaseSearch;
- with DefineZone(vcm_ztMain, f_pnlBaseSearchZone) do
+ with DefineZone(vcm_ztMain, pnlBaseSearchZone) do
  begin
- end;//with DefineZone(vcm_ztMain, f_pnlBaseSearchZone)
+ end;//with DefineZone(vcm_ztMain
  f_pnlLogo := TvtPanel.Create(Self);
  f_pnlLogo.Name := 'pnlLogo';
  f_pnlLogo.Parent := pnlMain;
@@ -1513,33 +1419,16 @@ begin
  f_hfLastOpenDocsRightEdge := TvtPanel.Create(Self);
  f_hfLastOpenDocsRightEdge.Name := 'hfLastOpenDocsRightEdge';
  f_hfLastOpenDocsRightEdge.Parent := hfLastOpenDocs;
- with AddUsertype(utMainMenuNewName,
-  str_utMainMenuNewCaption,
-  str_utMainMenuNewCaption,
-  false,
-  44,
-  -1,
-  '',
-  nil,
-  nil,
-  nil,
-  vcm_ccNone) do
- begin
- end;//with AddUsertype(utMainMenuNewName
  f_ieIO := TImageEnIO.Create(Self);
  f_ieIO.Name := 'ieIO';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimMainMenuNewForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utMainMenuNewCaption
- str_utMainMenuNewCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimMainMenuNew
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMainMenuNewForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimMainMenuNew }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

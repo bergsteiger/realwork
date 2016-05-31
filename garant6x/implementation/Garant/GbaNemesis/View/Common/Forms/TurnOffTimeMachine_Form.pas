@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , TurnOffTimeMachineKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_TurnOffTimeMachineLocalConstants }
- str_ut_TurnOffTimeMachineCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOffTimeMachineCaption'; rValue : 'Выключить Машину времени / Изменить дату');
-  {* Заголовок пользовательского типа "Выключить Машину времени / Изменить дату" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//Ten_TurnOffTimeMachine.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_TurnOffTimeMachineCaption.Init;
- {* Инициализация str_ut_TurnOffTimeMachineCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_TurnOffTimeMachine);
  {* Регистрация TurnOffTimeMachine }

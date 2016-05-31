@@ -53,6 +53,7 @@ uses
  , DictionInterfaces
  , DictionInterfacesPrim
  , DynamicTreeUnit
+ , QueryCardInterfaces
  , AttributesUserTypes_fDocAttribute_UserType
  , BaseDocumentWithAttributesInterfaces
 ;

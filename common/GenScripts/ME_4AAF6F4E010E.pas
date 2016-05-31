@@ -27,15 +27,15 @@ uses
  {$If Defined(Nemesis)}
  , nscPreviewPanel
  {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
@@ -76,7 +76,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
+   class function Make(const aData: IafwDocumentPreview): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
@@ -141,13 +141,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAF6F4E010Eimpl_uses*
+ //#UC END# *4AAF6F4E010Eimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки utPrintPreviewLocalConstants }
- str_utPrintPreviewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utPrintPreviewCaption'; rValue : 'Предварительный просмотр печати');
-  {* Заголовок пользовательского типа "Предварительный просмотр печати" }
  {* Локализуемые строки Local }
  str_PrintPreviewTabCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintPreviewTabCaption'; rValue : 'Предварительный просмотр');
   {* 'Предварительный просмотр' }
@@ -179,7 +178,7 @@ begin
 //#UC END# *4AC612AF032F_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.Preview
 
-class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview): BadFactoryType;
+class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview): IvcmEntityForm;
 var
  l_Inst : TPrimPreviewForm;
 begin
@@ -405,21 +404,48 @@ begin
   PublishFormEntity(en_Scalable, nil);
   PublishFormEntity(en_Preview, nil);
   PublishFormEntity(en_Document, nil);
+  ToolbarAtBottom(en_Result);
+  ToolbarAtBottom(en_Result);
+  ContextMenuWeight(en_File, -1);
+  ContextMenuWeight(en_Result, 10);
   PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
+  ShowInToolbar(en_File, op_Print, True);
   PublishOp(en_File, op_PrintDialog, nil, File_PrintDialog_Test, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOpWithResult(en_Scalable, op_ChangeScale, Scalable_ChangeScale, nil, nil);
   PublishOpWithResult(en_Scalable, op_CanChangeScale, Scalable_CanChangeScale, nil, nil);
   PublishOp(en_Preview, op_ZoomIn, nil, nil, nil);
+  ShowInContextMenu(en_Preview, op_ZoomIn, True);
+  ShowInToolbar(en_Preview, op_ZoomIn, True);
+  ContextMenuWeight(en_Preview, op_ZoomIn, 1);
   PublishOp(en_Preview, op_ZoomOut, nil, nil, nil);
+  ShowInContextMenu(en_Preview, op_ZoomOut, True);
+  ShowInToolbar(en_Preview, op_ZoomOut, True);
+  ContextMenuWeight(en_Preview, op_ZoomOut, 2);
   PublishOp(en_Preview, op_ZoomWidth, nil, nil, nil);
+  ShowInContextMenu(en_Preview, op_ZoomWidth, True);
+  ShowInToolbar(en_Preview, op_ZoomWidth, True);
+  ContextMenuWeight(en_Preview, op_ZoomWidth, 3);
   PublishOp(en_Preview, op_ZoomPage, nil, nil, nil);
+  ShowInContextMenu(en_Preview, op_ZoomPage, True);
+  ShowInToolbar(en_Preview, op_ZoomPage, True);
+  ContextMenuWeight(en_Preview, op_ZoomPage, 4);
   PublishOp(en_Document, op_FullSelectedSwitch, nil, nil, nil);
+  ShowInContextMenu(en_Document, op_FullSelectedSwitch, True);
+  ShowInToolbar(en_Document, op_FullSelectedSwitch, True);
   PublishOp(en_Document, op_RGBGrayscaleSwitch, nil, nil, nil);
+  ShowInContextMenu(en_Document, op_RGBGrayscaleSwitch, True);
+  ShowInToolbar(en_Document, op_RGBGrayscaleSwitch, True);
   PublishOp(en_Document, op_PrintInfoSwitch, nil, nil, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInContextMenu(en_Document, op_PrintInfoSwitch, True);
+  ShowInToolbar(en_Document, op_PrintInfoSwitch, True);
  end;//with Entities.Entities
 end;//TPrimPreviewForm.InitEntities
 
@@ -429,7 +455,7 @@ begin
  with AddUsertype(utPrintPreviewName,
   str_utPrintPreviewCaption,
   str_utPrintPreviewCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -445,8 +471,6 @@ begin
 end;//TPrimPreviewForm.MakeControls
 
 initialization
- str_utPrintPreviewCaption.Init;
- {* Инициализация str_utPrintPreviewCaption }
  str_PrintPreviewTabCaption.Init;
  {* Инициализация str_PrintPreviewTabCaption }
 {$If NOT Defined(NoScripts)}

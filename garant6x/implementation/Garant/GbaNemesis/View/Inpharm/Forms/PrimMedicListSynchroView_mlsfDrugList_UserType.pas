@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки mlsfDrugListLocalConstants }
+ str_mlsfDrugListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mlsfDrugListCaption'; rValue : 'Синхронный просмотр');
+  {* Заголовок пользовательского типа "Синхронный просмотр" }
  {* Константы для типа формы mlsfDrugList }
  mlsfDrugListName = 'mlsfDrugList';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_mlsfDrugListCaption.Init;
+ {* Инициализация str_mlsfDrugListCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_mlsfDrugList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_mlsfDrugList }

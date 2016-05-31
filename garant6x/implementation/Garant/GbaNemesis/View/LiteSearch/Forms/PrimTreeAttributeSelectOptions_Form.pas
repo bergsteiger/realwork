@@ -1,149 +1,130 @@
 unit PrimTreeAttributeSelectOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimTreeAttributeSelectOptions_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimTreeAttributeSelectOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelectOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTreeAttributeSelectOptions" MUID: (4C443A570168)
+// Имя типа: "TPrimTreeAttributeSelectOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimTreeAttributeSelect_Form
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  SearchLite_Strange_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimTreeAttributeSelect_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimTreeAttributeSelectOptionsForm = {form} class(TPrimTreeAttributeSelectForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimTreeAttributeSelectOptionsForm = class(TPrimTreeAttributeSelectForm)
+  protected
+   function EntitiesenSelectionGetTarget(aControl: TComponent;
+    aX: Integer;
+    aY: Integer;
+    out theTarget: IUnknown): Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Attribute_LogicOr_Test(const aParams: IvcmTestParamsPrim);
    procedure Attribute_LogicOr_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Attribute_LogicAnd_Test(const aParams: IvcmTestParamsPrim);
    procedure Attribute_LogicAnd_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Attribute_LogicNot_Test(const aParams: IvcmTestParamsPrim);
    procedure Attribute_LogicNot_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Attribute_LogicOrShortcut_Test(const aParams: IvcmTestParamsPrim);
    procedure Attribute_LogicOrShortcut_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Selection_DropSelection_Test(const aParams: IvcmTestParamsPrim);
    procedure Selection_DropSelection_Execute(const aParams: IvcmExecuteParamsPrim);
- public
- // overridden public methods
    constructor Create(AOwner: TComponent); override;
- protected
- // protected methods
-   function EntitiesenSelectionGetTarget(aControl: TComponent;
-     aX: Integer;
-     aY: Integer;
-     out theTarget: IUnknown): Boolean;
  end;//TPrimTreeAttributeSelectOptionsForm
-
- TvcmEntityFormRef = TPrimTreeAttributeSelectOptionsForm;
 
 implementation
 
 uses
-  DynamicTreeUnit,
-  SysUtils,
-  SearchDomainInterfaces,
-  nsLogicOperationToFlags
-  {$If not defined(NoVCM)}
-  ,
-  vcmBaseOperationsCollectionItem
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimTreeAttributeSelect_astFirstLevel_UserType
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-
-// start class TPrimTreeAttributeSelectOptionsForm
+ l3ImplUses
+ , DynamicTreeUnit
+ , SysUtils
+ , SearchDomainInterfaces
+ , nsLogicOperationToFlags
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseOperationsCollectionItem
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimTreeAttributeSelect_astFirstLevel_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C443A570168impl_uses*
+ //#UC END# *4C443A570168impl_uses*
+;
 
 function TPrimTreeAttributeSelectOptionsForm.EntitiesenSelectionGetTarget(aControl: TComponent;
-  aX: Integer;
-  aY: Integer;
-  out theTarget: IUnknown): Boolean;
+ aX: Integer;
+ aY: Integer;
+ out theTarget: IUnknown): Boolean;
 //#UC START# *4F88607901F5_4C443A570168_var*
 //#UC END# *4F88607901F5_4C443A570168_var*
 begin
@@ -156,8 +137,9 @@ begin
 //#UC END# *4F88607901F5_4C443A570168_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.EntitiesenSelectionGetTarget
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4C443A570168test_var*
 //#UC END# *494F89C30197_4C443A570168test_var*
 begin
@@ -169,21 +151,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *494F89C30197_4C443A570168test_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_4C443A570168getstate_var*
-//#UC END# *494F89C30197_4C443A570168getstate_var*
-begin
-//#UC START# *494F89C30197_4C443A570168getstate_impl*
- // - ничего не делаем
-//#UC END# *494F89C30197_4C443A570168getstate_impl*
-end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4C443A570168exec_var*
 var
  l_Current: INodeBase;
@@ -215,10 +187,23 @@ begin
   aParams.CallControl;
 //#UC END# *494F89C30197_4C443A570168exec_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4C443A570168getstate_var*
+//#UC END# *494F89C30197_4C443A570168getstate_var*
+begin
+//#UC START# *494F89C30197_4C443A570168getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4C443A570168getstate_impl*
+end;//TPrimTreeAttributeSelectOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_4C443A570168test_var*
 //#UC END# *4951284902BD_4C443A570168test_var*
 begin
@@ -230,10 +215,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4951284902BD_4C443A570168test_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_4C443A570168exec_var*
 //#UC END# *4951284902BD_4C443A570168exec_var*
 begin
@@ -242,10 +228,11 @@ begin
   aParams.CallControl;
 //#UC END# *4951284902BD_4C443A570168exec_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Edit_Copy_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C443A570168test_var*
 //#UC END# *4A97EBE702F8_4C443A570168test_var*
 begin
@@ -253,10 +240,11 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4A97EBE702F8_4C443A570168test_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C443A570168exec_var*
 //#UC END# *4A97EBE702F8_4C443A570168exec_var*
 begin
@@ -266,7 +254,7 @@ begin
   Aggregate.Operation(TdmStdRes.opcode_Result_OkExt);
 //#UC END# *4A97EBE702F8_4C443A570168exec_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOr_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AFAFB4602D9_4C443A570168test_var*
@@ -367,8 +355,9 @@ begin
 //#UC END# *4AFAFB7002B5_4C443A570168exec_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Attribute_LogicNot_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C443A570168test_var*
 //#UC END# *4BDAF7880236_4C443A570168test_var*
 begin
@@ -377,10 +366,11 @@ begin
   aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4BDAF7880236_4C443A570168test_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C443A570168test_var*
 //#UC END# *4BDAF7A2005C_4C443A570168test_var*
 begin
@@ -389,7 +379,7 @@ begin
   aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4BDAF7A2005C_4C443A570168test_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimTreeAttributeSelectOptionsForm.Attribute_LogicOrShortcut_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C44444E0066_4C443A570168test_var*
@@ -476,7 +466,10 @@ begin
 //#UC END# *47D1602000C6_4C443A570168_impl*
 end;//TPrimTreeAttributeSelectOptionsForm.Create
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeSelectOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -486,88 +479,47 @@ begin
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_Selection, EntitiesenSelectionGetTarget);
   ContextMenuWeight(en_Tree, 50);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Delete, True);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Cut, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Cut, True);
   PublishOp(en_Edit, op_FindContext, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_FindNext, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Paste, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Paste, True);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_SelectAll, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_SelectAll, True);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Deselect, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Deselect, True);
   PublishOp(en_Edit, op_FindPrev, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
   PublishOp(en_Attribute, op_LogicOr, Attribute_LogicOr_Execute, Attribute_LogicOr_Test, nil);
   PublishOp(en_Attribute, op_LogicAnd, Attribute_LogicAnd_Execute, Attribute_LogicAnd_Test, nil);
   PublishOp(en_Attribute, op_LogicNot, Attribute_LogicNot_Execute, Attribute_LogicNot_Test, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_Attribute, op_LogicOrShortcut, Attribute_LogicOrShortcut_Execute, Attribute_LogicOrShortcut_Test, nil);
-  ShowInContextMenu(en_Attribute, op_LogicOrShortcut, true);
+  ShowInContextMenu(en_Attribute, op_LogicOrShortcut, True);
   PublishOp(en_Selection, op_DropSelection, Selection_DropSelection_Execute, Selection_DropSelection_Test, nil);
-  ShowInContextMenu(en_Selection, op_DropSelection, true);
-  ShowInToolbar(en_Selection, op_DropSelection, false);
-  ShowInContextMenu(en_Folder, op_FindFirstSelected, true);
-  ShowInToolbar(en_Folder, op_FindFirstSelected, false);
+  ShowInContextMenu(en_Selection, op_DropSelection, True);
+  ShowInToolbar(en_Selection, op_DropSelection, False);
+  ShowInContextMenu(en_Folder, op_FindFirstSelected, True);
+  ShowInToolbar(en_Folder, op_FindFirstSelected, False);
  end;//with Entities.Entities
-end;
+end;//TPrimTreeAttributeSelectOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация PrimTreeAttributeSelectOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTreeAttributeSelectOptionsForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimTreeAttributeSelectOptions }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

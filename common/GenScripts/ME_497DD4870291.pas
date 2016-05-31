@@ -16,8 +16,9 @@ uses
  , l3Interfaces
  , FoldersDomainInterfaces
  , Folders_Strange_Controls
- , nscTreeViewWithAdapterDragDrop
+ , FoldersInterfaces
  , nsTypes
+ , nscTreeViewWithAdapterDragDrop
  , eeInterfaces
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
@@ -44,11 +45,10 @@ type
   {* Дерево папок }
   private
    f_FoldersTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FoldersTree }
   protected
-   dsFoldersTree: ;
-    {* Дерево папок }
    f_OldFilter: Integer;
+   dsFoldersTree: IdsFoldersTree;
+    {* Дерево папок }
   private
    function FoldersTreeGetItemIconHint(Sender: TObject;
     Index: LongInt): Il3CString;
@@ -151,7 +151,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , SysUtils
  , nsTreeUtils
  {$If NOT Defined(NoVCM)}
@@ -183,7 +182,6 @@ uses
  , Graphics
  , nsQuestionsWithChoices
  , bsTypes
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -192,17 +190,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497DD4870291impl_uses*
+ , vtLister
+ , l3ControlsTypes
+ //#UC END# *497DD4870291impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utFoldersTreeLocalConstants }
- str_utFoldersTreeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersTreeCaption'; rValue : 'Мои документы (вкладка)');
-  {* Заголовок пользовательского типа "Мои документы (вкладка)" }
- {* Локализуемые строки utSaveOpenLocalConstants }
- str_utSaveOpenCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSaveOpenCaption'; rValue : 'Мои документы');
-  {* Заголовок пользовательского типа "Мои документы" }
-
 function TPrimFoldersTreeForm.pm_GetFoldersInfo: InsFoldersInfo;
 //#UC START# *4C7E75040189_497DD4870291get_var*
 //#UC END# *4C7E75040189_497DD4870291get_var*
@@ -854,6 +848,14 @@ procedure TPrimFoldersTreeForm.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsFoldersTree := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsFoldersTree, dsFoldersTree);
+ end;//aNew = nil
 end;//TPrimFoldersTreeForm.SignalDataSourceChanged
 
 procedure TPrimFoldersTreeForm.InitEntities;
@@ -898,7 +900,7 @@ begin
  with AddUsertype(utSaveOpenName,
   str_utSaveOpenCaption,
   str_utSaveOpenCaption,
-  False,
+  True,
   65,
   -1,
   '',
@@ -914,10 +916,6 @@ begin
 end;//TPrimFoldersTreeForm.MakeControls
 
 initialization
- str_utFoldersTreeCaption.Init;
- {* Инициализация str_utFoldersTreeCaption }
- str_utSaveOpenCaption.Init;
- {* Инициализация str_utSaveOpenCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersTreeForm);
  {* Регистрация PrimFoldersTree }

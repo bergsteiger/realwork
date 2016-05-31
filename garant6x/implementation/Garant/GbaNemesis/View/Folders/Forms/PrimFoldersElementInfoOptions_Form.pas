@@ -1,99 +1,86 @@
 unit PrimFoldersElementInfoOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/Forms/PrimFoldersElementInfoOptions_Form.pas"
-// Начат: 01.09.2010 21:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFoldersElementInfoOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersElementInfoOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersElementInfoOptions" MUID: (4C7E91560315)
+// Имя типа: "TPrimFoldersElementInfoOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Folders_Result_Controls,
-  PrimFoldersElementInfo_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimFoldersElementInfo_Form
+ , Folders_Result_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimFoldersElementInfoOptionsForm = {form} class(TPrimFoldersElementInfoForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+ TPrimFoldersElementInfoOptionsForm = class(TPrimFoldersElementInfoForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure ResultExt_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
+    {* Отмена }
    procedure ResultExt_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
+    {* Отмена }
    procedure ResultExt_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   procedure ResultExt_Ok_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
+    {* OK }
    procedure ResultExt_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
+    {* OK }
+   procedure ResultExt_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
    procedure ResultExt_Append_Test(const aParams: IvcmTestParamsPrim);
-     {* Добавить }
-   procedure ResultExt_Append_GetState(var State: TvcmOperationStateIndex);
-     {* Добавить }
+    {* Добавить }
    procedure ResultExt_Append_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Добавить }
+    {* Добавить }
+   procedure ResultExt_Append_GetState(var State: TvcmOperationStateIndex);
+    {* Добавить }
  end;//TPrimFoldersElementInfoOptionsForm
-
- TvcmEntityFormRef = TPrimFoldersElementInfoOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTreeSupportUnit,
-  SysUtils,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Folders_Strange_Controls,
-  FoldersUnit,
-  eeInterfaces,
-  nsFolders
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  BaseTypesUnit
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimFoldersElementInfoOptionsForm
+ l3ImplUses
+ , BaseTreeSupportUnit
+ , SysUtils
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Folders_Strange_Controls
+ , FoldersUnit
+ , eeInterfaces
+ , nsFolders
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , BaseTypesUnit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E91560315impl_uses*
+ //#UC END# *4C7E91560315impl_uses*
+;
 
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4AFAEBEA0018_4C7E91560315test_var*
 //#UC END# *4AFAEBEA0018_4C7E91560315test_var*
 begin
@@ -103,6 +90,7 @@ begin
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Test
 
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4AFAEBEA0018_4C7E91560315exec_var*
 var
  l_OperationType : TFoldersInfoType;
@@ -126,6 +114,7 @@ begin
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Execute
 
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4C765D0002E2_4C7E91560315test_var*
 var
  l_AdapterNode : INode;
@@ -186,25 +175,8 @@ begin
 //#UC END# *4C765D0002E2_4C7E91560315test_impl*
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_Test
 
-procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C765D0002E2_4C7E91560315getstate_var*
-//#UC END# *4C765D0002E2_4C7E91560315getstate_var*
-begin
-//#UC START# *4C765D0002E2_4C7E91560315getstate_impl*
- case f_CurType of
-  fiNone : State := st_user_ResultExt_Ok_None;
-  fiNewFolder : State := st_user_ResultExt_Ok_NewFolder;
-  fiEdit : State := st_user_ResultExt_Ok_Edit;
-  fiLoad : State := st_user_ResultExt_Ok_Load;
-  fiSelect : State := st_user_ResultExt_Ok_Select;
-  fiSave : State := st_user_ResultExt_Ok_FolderSave;
- else
-  State := vcm_DefaultOperationState;
- end;
-//#UC END# *4C765D0002E2_4C7E91560315getstate_impl*
-end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_GetState
-
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4C765D0002E2_4C7E91560315exec_var*
 var
  l_OpsResult : Boolean;
@@ -236,7 +208,27 @@ begin
 //#UC END# *4C765D0002E2_4C7E91560315exec_impl*
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_Execute
 
+procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4C765D0002E2_4C7E91560315getstate_var*
+//#UC END# *4C765D0002E2_4C7E91560315getstate_var*
+begin
+//#UC START# *4C765D0002E2_4C7E91560315getstate_impl*
+ case f_CurType of
+  fiNone : State := st_user_ResultExt_Ok_None;
+  fiNewFolder : State := st_user_ResultExt_Ok_NewFolder;
+  fiEdit : State := st_user_ResultExt_Ok_Edit;
+  fiLoad : State := st_user_ResultExt_Ok_Load;
+  fiSelect : State := st_user_ResultExt_Ok_Select;
+  fiSave : State := st_user_ResultExt_Ok_FolderSave;
+ else
+  State := vcm_DefaultOperationState;
+ end;
+//#UC END# *4C765D0002E2_4C7E91560315getstate_impl*
+end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Ok_GetState
+
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Append_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить }
 //#UC START# *4C7672F903BF_4C7E91560315test_var*
 var
  l_AdapterNode : INode;
@@ -275,29 +267,8 @@ begin
 //#UC END# *4C7672F903BF_4C7E91560315test_impl*
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Append_Test
 
-procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Append_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C7672F903BF_4C7E91560315getstate_var*
-//#UC END# *4C7672F903BF_4C7E91560315getstate_var*
-begin
-//#UC START# *4C7672F903BF_4C7E91560315getstate_impl*
- State := vcm_DefaultOperationState;
- if (f_CurType = fiSave) then
- begin
-  case f_SavedObjType of
-   fetBookmark, fetDrugBookmark:
-    State := st_user_ResultExt_Append_Bookmark;
-   fetList, fetDrugList:
-    State := st_user_ResultExt_Append_List;
-   fetQuery{, fetFilter}:
-    State := st_user_ResultExt_Append_Query;
-   else
-    Assert(false); 
-  end;//case f_SavedObjType
- end;//f_CurType = fiSave
-//#UC END# *4C7672F903BF_4C7E91560315getstate_impl*
-end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Append_GetState
-
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Append_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить }
 //#UC START# *4C7672F903BF_4C7E91560315exec_var*
 var
  l_AdapterNode: INode;
@@ -346,7 +317,33 @@ begin
 //#UC END# *4C7672F903BF_4C7E91560315exec_impl*
 end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Append_Execute
 
+procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Append_GetState(var State: TvcmOperationStateIndex);
+ {* Добавить }
+//#UC START# *4C7672F903BF_4C7E91560315getstate_var*
+//#UC END# *4C7672F903BF_4C7E91560315getstate_var*
+begin
+//#UC START# *4C7672F903BF_4C7E91560315getstate_impl*
+ State := vcm_DefaultOperationState;
+ if (f_CurType = fiSave) then
+ begin
+  case f_SavedObjType of
+   fetBookmark, fetDrugBookmark:
+    State := st_user_ResultExt_Append_Bookmark;
+   fetList, fetDrugList:
+    State := st_user_ResultExt_Append_List;
+   fetQuery{, fetFilter}:
+    State := st_user_ResultExt_Append_Query;
+   else
+    Assert(false); 
+  end;//case f_SavedObjType
+ end;//f_CurType = fiSave
+//#UC END# *4C7672F903BF_4C7E91560315getstate_impl*
+end;//TPrimFoldersElementInfoOptionsForm.ResultExt_Append_GetState
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersElementInfoOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -354,23 +351,23 @@ begin
   PublishFormEntity(en_ResultExt, nil);
   ToolbarAtBottom(en_ResultExt);
   PublishOp(en_ResultExt, op_Cancel, ResultExt_Cancel_Execute, ResultExt_Cancel_Test, nil);
-  ShowInContextMenu(en_ResultExt, op_Cancel, false);
-  ShowInToolbar(en_ResultExt, op_Cancel, true);
+  ShowInContextMenu(en_ResultExt, op_Cancel, False);
+  ShowInToolbar(en_ResultExt, op_Cancel, True);
   PublishOp(en_ResultExt, op_Ok, ResultExt_Ok_Execute, ResultExt_Ok_Test, ResultExt_Ok_GetState);
-  ShowInContextMenu(en_ResultExt, op_Ok, false);
-  ShowInToolbar(en_ResultExt, op_Ok, false);
+  ShowInContextMenu(en_ResultExt, op_Ok, False);
+  ShowInToolbar(en_ResultExt, op_Ok, False);
   PublishOp(en_ResultExt, op_Append, ResultExt_Append_Execute, ResultExt_Append_Test, ResultExt_Append_GetState);
-  ShowInContextMenu(en_ResultExt, op_Append, false);
-  ShowInToolbar(en_ResultExt, op_Append, false);
+  ShowInContextMenu(en_ResultExt, op_Append, False);
+  ShowInToolbar(en_ResultExt, op_Append, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFoldersElementInfoOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFoldersElementInfoOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersElementInfoOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFoldersElementInfoOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

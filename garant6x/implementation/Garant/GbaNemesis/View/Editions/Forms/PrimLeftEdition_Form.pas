@@ -1,195 +1,127 @@
 unit PrimLeftEdition_Form;
+ {* Текущая редакция }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/Forms/PrimLeftEdition_Form.pas"
-// Начат: 27.07.2009 11:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::PrimLeftEdition
-//
-// Текущая редакция
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimLeftEdition" MUID: (4A6D5A80013C)
+// Имя типа: "TPrimLeftEditionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  EditionsInterfaces,
-  Diff_Form,
-  l3StringIDEx,
-  DiffOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimLeftEdition_utLeftEdition_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Tree_TLB,
-  DocumentUnit,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DiffOptions_Form
+ , EditionsInterfaces
+ , vtPanel
+ , l3Tree_TLB
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimLeftEditionForm = {abstract form} class(TDiffOptionsForm)
+ TPrimLeftEditionForm = {abstract} class(TDiffOptionsForm)
   {* Текущая редакция }
- private
- // private fields
-   ViewArea : IdsLeftEdition;
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   ViewArea: IdsLeftEdition;
+  protected
    function EditionsChooseRoot: Il3Node; override;
    procedure DoEditionChanged(anEditionID: TRedactionID); override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimLeftEditionForm
-
- TvcmEntityFormRef = TPrimLeftEditionForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  CompareEditions_Controls,
-  Base_Operations_Editions_Controls,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  Base_Operations_View_Controls,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  k2Tags,
-  BitmapPara_Const,
-  BaseSearchInterfaces,
-  SysUtils,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  vcmBase {a},
-  evdBlockNameAdder,
-  l3Variant,
-  nsDocumentTools,
-  Windows,
-  PresentationInterfaces,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Stream,
-  l3Types,
-  nsToMSWordOp,
-  l3String,
-  nsTrialSupport,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  Printers,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  l3Interfaces,
-  evTypes,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  bsDocumentContextSearcher,
-  nsSearchInDocumentEvent,
-  BaseTypesUnit,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager,
-  Base_Operations_Strange_Controls,
-  Common_FormDefinitions_Controls,
-  evOp
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  StyledLeafPara_Const,
-  evCustomEditorWindow
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evdTypes,
-  nevNavigation,
-  eeInterfaces,
-  nevTools,
-  evCustomEditor,
-  evEditorWithOperations
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utLeftEditionLocalConstants }
-  str_utLeftEditionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utLeftEditionCaption'; rValue : 'Предыдущая редакция');
-   { Заголовок пользовательского типа "Предыдущая редакция" }
-
-// start class TPrimLeftEditionForm
+ l3ImplUses
+ , CompareEditions_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimLeftEdition_utLeftEdition_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , Base_Operations_View_Controls
+ , BaseSearchInterfaces
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , nsTrialSupport
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Printers
+ , nsExportToFileEvent
+ , nsExportToWordEvent
+ , nsSendDocumentByEMailEvent
+ , nsDocumentPrintPreviewEvent
+ , nsBaseTextOperationsConst
+ , f1MultilinkResolver
+ , Windows
+ , l3Interfaces
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsConst
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , bsDocumentContextSearcher
+ , nsSearchInDocumentEvent
+ , BaseTypesUnit
+ , nsSearchInDocumentDoneEvent
+ , nsSearchInDocumentNextEvent
+ , nsSearchInDocumentPrevEvent
+ , nsSearchWindowManager
+ , l3String
+ , Base_Operations_Strange_Controls
+ , Common_FormDefinitions_Controls
+ , nevNavigation
+ , eeInterfaces
+ , nevTools
+ , evCustomEditor
+ , evEditorWithOperations
+ //#UC START# *4A6D5A80013Cimpl_uses*
+ //#UC END# *4A6D5A80013Cimpl_uses*
+;
 
 function TPrimLeftEditionForm.EditionsChooseRoot: Il3Node;
 //#UC START# *4B55ADAD0005_4A6D5A80013C_var*
@@ -224,9 +156,10 @@ begin
 //#UC END# *4B55BB7F0172_4A6D5A80013C_impl*
 end;//TPrimLeftEditionForm.DoEditionChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimLeftEditionForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4A6D5A80013C_var*
 //#UC END# *497469C90140_4A6D5A80013C_var*
 begin
@@ -235,10 +168,11 @@ begin
  //UpdateEditionsChoose;
 //#UC END# *497469C90140_4A6D5A80013C_impl*
 end;//TPrimLeftEditionForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimLeftEditionForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6D5A80013C_var*
 //#UC END# *4A8E8F2E0195_4A6D5A80013C_var*
 begin
@@ -250,29 +184,32 @@ begin
  end;//with EditionChoose*)
 //#UC END# *4A8E8F2E0195_4A6D5A80013C_impl*
 end;//TPrimLeftEditionForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimLeftEditionForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure TPrimLeftEditionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsLeftEdition;
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsLeftEdition;
+ end;//aNew = nil
+end;//TPrimLeftEditionForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimLeftEditionForm.MakeControls;
 begin
  inherited;
  with AddUsertype(utLeftEditionName,
   str_utLeftEditionCaption,
   str_utLeftEditionCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -282,18 +219,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utLeftEditionName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimLeftEditionForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utLeftEditionCaption
- str_utLeftEditionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimLeftEdition
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimLeftEditionForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimLeftEdition }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

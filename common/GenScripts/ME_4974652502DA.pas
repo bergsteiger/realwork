@@ -54,6 +54,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4974652502DAimpl_uses*
+ //#UC END# *4974652502DAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

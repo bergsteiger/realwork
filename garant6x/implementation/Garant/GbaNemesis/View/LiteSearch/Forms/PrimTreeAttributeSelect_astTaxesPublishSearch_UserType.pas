@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки astTaxesPublishSearchLocalConstants }
+ str_astTaxesPublishSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astTaxesPublishSearchCaption'; rValue : 'СМИ по налогам и бухучету');
+  {* Заголовок пользовательского типа "СМИ по налогам и бухучету" }
  {* Константы для типа формы astTaxesPublishSearch }
  astTaxesPublishSearchName = 'astTaxesPublishSearch';
   {* Строковый идентификатор пользовательского типа "СМИ по налогам и бухучету" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_astTaxesPublishSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_astTaxesPublishSearchCaption.Init;
+ {* Инициализация str_astTaxesPublishSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astTaxesPublishSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_astTaxesPublishSearch }

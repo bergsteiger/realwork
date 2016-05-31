@@ -36,7 +36,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , l3StringIDEx
  , nsLogEvent
  , DynamicDocListUnit
  {$If NOT Defined(NoVCM)}
@@ -58,9 +57,7 @@ type
   {* Информация о списке }
   private
    f_ListInfoViewer: TnscEditor;
-    {* Поле для свойства ListInfoViewer }
    f_TextSource: TnscTextSource;
-    {* Поле для свойства TextSource }
   protected
    dsListInfo: IdsListInfo;
    sdsListPrim: IsdsListPrim;
@@ -71,7 +68,7 @@ type
    function MakePreview: IafwComplexDocumentPreview; virtual;
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
-   procedure liListInfoQueryClose(aSender: TObject); override;
+   procedure LiListInfoQueryClose(aSender: TObject); override;
     {* Обработчик события liListInfo.OnQueryClose }
    {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -132,15 +129,18 @@ uses
  , TextPara_Const
  , evFormatHAFMacroReplacer
  , l3Variant
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
+ , ListInfoUserTypes_liListInfo_UserType
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ //#UC START# *497DEC900012impl_uses*
+ //#UC END# *497DEC900012impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -248,7 +248,7 @@ begin
  Self.ListInfo_BecomeActive_Execute;
 end;//TPrimListInfoForm.ListInfo_BecomeActive
 
-procedure TPrimListInfoForm.liListInfoQueryClose(aSender: TObject);
+procedure TPrimListInfoForm.LiListInfoQueryClose(aSender: TObject);
  {* Обработчик события liListInfo.OnQueryClose }
 //#UC START# *E4208250FA5A_497DEC900012_var*
 //#UC END# *E4208250FA5A_497DEC900012_var*
@@ -256,7 +256,7 @@ begin
 //#UC START# *E4208250FA5A_497DEC900012_impl*
  op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *E4208250FA5A_497DEC900012_impl*
-end;//TPrimListInfoForm.liListInfoQueryClose
+end;//TPrimListInfoForm.LiListInfoQueryClose
 
 constructor TPrimListInfoForm.Create(AOwner: TComponent);
 //#UC START# *47D1602000C6_497DEC900012_var*
@@ -313,6 +313,16 @@ procedure TPrimListInfoForm.SignalDataSourceChanged(const anOld: IvcmFormDataSou
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsListInfo := nil;
+  sdsListPrim := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsListInfo, dsListInfo);
+  aNew.CastUCC(IsdsListPrim, sdsListPrim);
+ end;//aNew = nil
 end;//TPrimListInfoForm.SignalDataSourceChanged
 
 procedure TPrimListInfoForm.InitEntities;

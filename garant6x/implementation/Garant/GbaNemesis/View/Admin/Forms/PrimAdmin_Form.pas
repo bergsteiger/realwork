@@ -1,129 +1,89 @@
 unit PrimAdmin_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimAdmin_Form.pas"
-// Начат: 11.11.2009 21:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Администратор::Admin::View::Admin::PrimAdmin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimAdmin" MUID: (4AFB0146035B)
+// Имя типа: "TPrimAdminForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimAdmin_utAdmin_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimAdminForm = {form} class(TvcmContainerForm)
- private
- // private fields
-   f_BackgroundPanel : TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_PropertyZone : TvtSizeablePanel;
-    {* Поле для свойства PropertyZone}
-   f_TreeZone : TvtPanel;
-    {* Поле для свойства TreeZone}
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
+ TPrimAdminForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_BackgroundPanel: TvtProportionalPanel;
+   f_PropertyZone: TvtSizeablePanel;
+   f_TreeZone: TvtPanel;
+  protected
    procedure InitFields; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property BackgroundPanel: TvtProportionalPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property PropertyZone: TvtSizeablePanel
-     read f_PropertyZone;
+    read f_PropertyZone;
    property TreeZone: TvtPanel
-     read f_TreeZone;
+    read f_TreeZone;
  end;//TPrimAdminForm
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Admin_Users_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , Admin_Users_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimAdmin_utAdmin_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AFB0146035Bimpl_uses*
+ //#UC END# *4AFB0146035Bimpl_uses*
+;
 
-{$If defined(Admin)}
-
-var
-   { Локализуемые строки utAdminLocalConstants }
-  str_utAdminCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAdminCaption'; rValue : 'Администрирование пользователей');
-   { Заголовок пользовательского типа "Администрирование пользователей" }
-
-// start class TPrimAdminForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimAdminForm.InitFields;
 //#UC START# *47A042E100E2_4AFB0146035B_var*
 //#UC END# *47A042E100E2_4AFB0146035B_var*
@@ -134,8 +94,8 @@ begin
 //#UC END# *47A042E100E2_4AFB0146035B_impl*
 end;//TPrimAdminForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimAdminForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AFB0146035B_var*
 //#UC END# *4A8E8F2E0195_4AFB0146035B_var*
 begin
@@ -163,30 +123,14 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AFB0146035B_impl*
 end;//TPrimAdminForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimAdminForm.MakeControls;
 begin
  inherited;
- f_BackgroundPanel := TvtProportionalPanel.Create(Self);
- f_BackgroundPanel.Name := 'BackgroundPanel';
- f_BackgroundPanel.Parent := Self;
- f_PropertyZone := TvtSizeablePanel.Create(Self);
- f_PropertyZone.Name := 'PropertyZone';
- f_PropertyZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_PropertyZone) do
- begin
- end;//with DefineZone(vcm_ztChild, f_PropertyZone)
- f_TreeZone := TvtPanel.Create(Self);
- f_TreeZone.Name := 'TreeZone';
- f_TreeZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_TreeZone) do
- begin
- end;//with DefineZone(vcm_ztParent, f_TreeZone)
  with AddUsertype(utAdminName,
   str_utAdminCaption,
   str_utAdminCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -196,18 +140,29 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utAdminName
-end;
-
-{$IfEnd} //Admin
+ f_BackgroundPanel := TvtProportionalPanel.Create(Self);
+ f_BackgroundPanel.Name := 'BackgroundPanel';
+ f_BackgroundPanel.Parent := Self;
+ f_PropertyZone := TvtSizeablePanel.Create(Self);
+ f_PropertyZone.Name := 'PropertyZone';
+ f_PropertyZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztChild, PropertyZone) do
+ begin
+ end;//with DefineZone(vcm_ztChild
+ f_TreeZone := TvtPanel.Create(Self);
+ f_TreeZone.Name := 'TreeZone';
+ f_TreeZone.Parent := BackgroundPanel;
+ with DefineZone(vcm_ztParent, TreeZone) do
+ begin
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimAdminForm.MakeControls
 
 initialization
-{$If defined(Admin)}
-// Инициализация str_utAdminCaption
- str_utAdminCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimAdmin
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAdminForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimAdmin }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

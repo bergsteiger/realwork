@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtAttributeLocalConstants }
+ str_slqtAttributeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtAttributeCaption'; rValue : 'Поиск: По реквизитам');
+  {* Заголовок пользовательского типа "Поиск: По реквизитам" }
  {* Константы для типа формы slqtAttribute }
  slqtAttributeName = 'slqtAttribute';
   {* Строковый идентификатор пользовательского типа "Поиск: По реквизитам" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_slqtAttribute.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtAttributeCaption.Init;
+ {* Инициализация str_slqtAttributeCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtAttribute.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtAttribute }

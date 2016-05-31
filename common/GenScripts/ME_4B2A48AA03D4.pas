@@ -233,13 +233,6 @@ uses
  , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
@@ -821,6 +814,13 @@ uses
  , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
  , evStylesPrintAndExportSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
  , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
+ , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
+ {$If NOT Defined(NoVCL)}
+ , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , evFontInterface in 'w:\common\components\gui\Garant\Everest\evFontInterface.pas'
  , l3Nodes in 'w:\common\components\rtl\Garant\L3\l3Nodes.pas'
  , k2SimpleTagList in 'w:\common\components\rtl\Garant\K2\k2SimpleTagList.pas'
@@ -1806,9 +1806,9 @@ uses
  , vcmUserTypeDefList in 'w:\common\components\gui\Garant\VCM\implementation\vcmUserTypeDefList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , IafwMenuUnlockedPostBuildPtrList in 'w:\common\components\gui\Garant\AFW\implementation\IafwMenuUnlockedPostBuildPtrList.pas'
- {$If NOT Defined(NoTB97)}
- , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
- {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCM)}
+ , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoTB97)}
  , TB97 in 'w:\common\components\rtl\external\tb97\TB97.pas'
  {$IfEnd} // NOT Defined(NoTB97)
@@ -1817,9 +1817,9 @@ uses
  {$IfEnd} // NOT Defined(NoTB97)
  , afwCustomCommonControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
  , afwCustomCommonControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
- {$If NOT Defined(NoVCM)}
- , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
- {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
+ {$IfEnd} // NOT Defined(NoTB97)
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces in 'w:\common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas'
  {$IfEnd} // NOT Defined(NoVCM)

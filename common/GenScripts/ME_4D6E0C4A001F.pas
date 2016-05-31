@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , nsF1DocumentTagNode
- , DocumentUnit
  , l3Variant
+ , DocumentUnit
 ;
 
 type

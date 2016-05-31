@@ -16,15 +16,14 @@ uses
  , F1Like_InternalOperations_Controls
  , vtProportionalPanel
  , vtSizeablePanel
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , Classes
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , vtPanel
 ;
 
 type
@@ -33,13 +32,9 @@ type
  TPrimDictionContainerForm = class(_DictionContainerUserTypes_)
   private
    f_pnBackground: TvtProportionalPanel;
-    {* Поле для свойства pnBackground }
    f_NavigatorZone: TvtSizeablePanel;
-    {* Поле для свойства NavigatorZone }
    f_pnWorkArea: TvtProportionalPanel;
-    {* Поле для свойства pnWorkArea }
    f_ChildZone: TvtSizeablePanel;
-    {* Поле для свойства ChildZone }
   private
    procedure ChildZoneQueryResize(ALeft: Integer;
     ATop: Integer;
@@ -109,17 +104,18 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4D7A69F9028Cimpl_uses*
+ //#UC END# *4D7A69F9028Cimpl_uses*
 ;
-
-type
- // ExcludeAll
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
 
@@ -262,6 +258,46 @@ begin
   PublishFormEntity(en_Common, nil);
   PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
  end;//with Entities.Entities
+ AddUserTypeExclude(slqtDictionName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtDictionName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtDictionName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtDictionName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_GetListType, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_GetListType, False);
 end;//TPrimDictionContainerForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -275,7 +311,7 @@ begin
  f_NavigatorZone := TvtSizeablePanel.Create(Self);
  f_NavigatorZone.Name := 'NavigatorZone';
  f_NavigatorZone.Parent := pnBackground;
- with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ with DefineZone(vcm_ztNavigator, NavigatorZone) do
  begin
  end;//with DefineZone(vcm_ztNavigator
  f_pnWorkArea := TvtProportionalPanel.Create(Self);
@@ -285,7 +321,7 @@ begin
  f_ChildZone := TvtSizeablePanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := pnWorkArea;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
 end;//TPrimDictionContainerForm.MakeControls

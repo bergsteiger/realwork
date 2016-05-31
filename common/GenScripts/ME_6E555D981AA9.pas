@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_TurnOnTimeMachineLocalConstants }
+ str_ut_TurnOnTimeMachineCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOnTimeMachineCaption'; rValue : 'Включить Машину времени');
+  {* Заголовок пользовательского типа "Включить Машину времени" }
  {* Константы для типа формы ut_TurnOnTimeMachine }
  ut_TurnOnTimeMachineName = 'ut_TurnOnTimeMachine';
   {* Строковый идентификатор пользовательского типа "Включить Машину времени" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_TurnOnTimeMachine.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_TurnOnTimeMachineCaption.Init;
+ {* Инициализация str_ut_TurnOnTimeMachineCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TurnOnTimeMachine.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_TurnOnTimeMachine }

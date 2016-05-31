@@ -54,6 +54,9 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , nsTrialSupport
  , FoldersDomainInterfaces
  {$If NOT Defined(NoVCM)}
@@ -80,7 +83,8 @@ uses
  , nsConst
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit

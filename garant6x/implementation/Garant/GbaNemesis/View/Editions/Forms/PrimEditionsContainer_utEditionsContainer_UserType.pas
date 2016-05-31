@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utEditionsContainerLocalConstants }
+ str_utEditionsContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEditionsContainerCaption'; rValue : 'Сравнение редакций документа');
+  {* Заголовок пользовательского типа "Сравнение редакций документа" }
  {* Константы для типа формы utEditionsContainer }
  utEditionsContainerName = 'utEditionsContainer';
   {* Строковый идентификатор пользовательского типа "Сравнение редакций документа" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utEditionsContainerCaption.Init;
+ {* Инициализация str_utEditionsContainerCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utEditionsContainer.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utEditionsContainer }

@@ -36,8 +36,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -52,11 +50,6 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 ;
-
-const
- {* Локализуемые строки ut_CompInfoLocalConstants }
- str_ut_CompInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CompInfoCaption'; rValue : 'Информация о комплекте');
-  {* Заголовок пользовательского типа "Информация о комплекте" }
 
 {$R *.DFM}
 
@@ -81,8 +74,6 @@ end;//TenCompInfo.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_CompInfoCaption.Init;
- {* Инициализация str_ut_CompInfoCaption }
  fm_enCompInfo.SetFactory(TenCompInfo.Make);
  {* Регистрация фабрики формы CompInfo }
 {$If NOT Defined(NoScripts)}

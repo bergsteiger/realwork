@@ -26,6 +26,9 @@ uses
  , vtPanel
  , Messages
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -35,13 +38,9 @@ type
   {* Переписка }
   private
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
    f_BottomPanel: TvtSizeablePanel;
-    {* Поле для свойства BottomPanel }
    f_BottomEditor: TnscChatMemo;
-    {* Поле для свойства BottomEditor }
    f_TopPanel: TvtPanel;
-    {* Поле для свойства TopPanel }
   private
    procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
   protected
@@ -94,7 +93,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , Windows
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -110,20 +108,16 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , evdAllDocumentSubsEliminator
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , BaseChatWindow_cwChat_UserType
+ //#UC START# *4A6EA44C0038impl_uses*
+ //#UC END# *4A6EA44C0038impl_uses*
 ;
-
-const
- {* Локализуемые строки cwChatLocalConstants }
- str_cwChatCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cwChatCaption'; rValue : 'Переписка');
-  {* Заголовок пользовательского типа "Переписка" }
 
 procedure TBaseChatWindowForm.WMActivate(var Message: TWMActivate);
 //#UC START# *4B34C0B801B1_4A6EA44C0038_var*
@@ -334,7 +328,8 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, BottomEditor);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
  end;//with Entities.Entities
 end;//TBaseChatWindowForm.InitEntities
@@ -347,7 +342,7 @@ begin
  with AddUsertype(cwChatName,
   str_cwChatCaption,
   str_cwChatCaption,
-  False,
+  True,
   198,
   -1,
   '',
@@ -363,7 +358,7 @@ begin
  f_BottomPanel := TvtSizeablePanel.Create(Self);
  f_BottomPanel.Name := 'BottomPanel';
  f_BottomPanel.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_BottomPanel) do
+ with DefineZone(vcm_ztChild, BottomPanel) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_BottomEditor := TnscChatMemo.Create(Self);
@@ -372,7 +367,7 @@ begin
  f_TopPanel := TvtPanel.Create(Self);
  f_TopPanel.Name := 'TopPanel';
  f_TopPanel.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_TopPanel) do
+ with DefineZone(vcm_ztParent, TopPanel) do
  begin
  end;//with DefineZone(vcm_ztParent
  HistoryEditor.Parent := TopPanel;
@@ -380,8 +375,6 @@ end;//TBaseChatWindowForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_cwChatCaption.Init;
- {* Инициализация str_cwChatCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBaseChatWindowForm);
  {* Регистрация BaseChatWindow }

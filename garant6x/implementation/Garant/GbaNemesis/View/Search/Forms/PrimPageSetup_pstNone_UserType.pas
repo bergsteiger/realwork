@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки pstNoneLocalConstants }
+ str_pstNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pstNoneCaption'; rValue : 'Настройка страницы');
+  {* Заголовок пользовательского типа "Настройка страницы" }
  {* Константы для типа формы pstNone }
  pstNoneName = 'pstNone';
   {* Строковый идентификатор пользовательского типа "Настройка страницы" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_pstNoneCaption.Init;
+ {* Инициализация str_pstNoneCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_pstNone.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_pstNone }

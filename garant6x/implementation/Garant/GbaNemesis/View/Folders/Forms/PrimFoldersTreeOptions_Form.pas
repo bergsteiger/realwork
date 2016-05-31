@@ -1,69 +1,55 @@
 unit PrimFoldersTreeOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/Forms/PrimFoldersTreeOptions_Form.pas"
-// Начат: 01.09.2010 18:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFoldersTreeOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTreeOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersTreeOptions" MUID: (4C7E651B0179)
+// Имя типа: "TPrimFoldersTreeOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  eeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimFoldersTree_Form,
-  L10nInterfaces,
-  Folders_Strange_Controls,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  nsTypes,
-  FoldersDomainInterfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimFoldersTree_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Strange_Controls
+ , Folders_Strange_Controls
+ , L10nInterfaces
+ , eeInterfaces
+ , l3Interfaces
+ , nsTypes
+ , FoldersDomainInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimFoldersTreeOptionsForm = {form} class(TPrimFoldersTreeForm)
- private
- // private fields
-   f_FilterMap : InsIntegerValueMap;
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+ TPrimFoldersTreeOptionsForm = class(TPrimFoldersTreeForm)
+  private
+   f_FilterMap: InsIntegerValueMap;
+  protected
+   function IsInSaveLoadState: Boolean;
+   function GetCurrentFolder(const aNode: IeeNode): IeeNode;
+   function CreateUniqName(const aNode: IeeNode): Il3CString;
+   procedure DoSetShare(const aNode: IeeNode);
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    procedure ChildNodeAdded(const aNode: Il3SimpleNode);
-     {* был добавлен дочерний узел }
+    {* был добавлен дочерний узел }
    function BeginEdit(const aNode: IeeNode;
     WithPositioning: Boolean = False;
     IsNewFolder: Boolean = False): Boolean; override;
@@ -71,30 +57,44 @@ type
    function DeleteNode(const aNode: IeeNode;
     aAskConfirmation: Boolean): TnsDeleteResult; override;
    function GetFoldersInfo: InsFoldersInfo; override;
-   {$If not defined(NoVCM)}
+   procedure DoFoldersTreeCurrentChanged(Sender: TObject;
+    NewCurrent: Integer;
+    OldCurrent: Integer); override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
    procedure SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
    procedure SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Folders_Filtrate_Test(const aParams: IvcmTestParamsPrim);
    procedure Folders_Filtrate_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Folder_New_Test(const aParams: IvcmTestParamsPrim);
@@ -129,102 +129,71 @@ type
    procedure Consultation_ShowConsultationInfo_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Consultation_ImportConsultation_Test(const aParams: IvcmTestParamsPrim);
    procedure Consultation_ImportConsultation_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure DoFoldersTreeCurrentChanged(Sender: TObject;
-     NewCurrent: Integer;
-     OldCurrent: Integer); override;
    procedure SavedQuery_CreateFilter_Test(const aParams: IvcmTestParamsPrim);
-     {* Создать фильтр... }
+    {* Создать фильтр... }
    procedure SavedQuery_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Создать фильтр... }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+    {* Создать фильтр... }
+   {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
-     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function IsInSaveLoadState: Boolean;
-   function GetCurrentFolder(const aNode: IeeNode): IeeNode;
-   function CreateUniqName(const aNode: IeeNode): Il3CString;
-   procedure DoSetShare(const aNode: IeeNode);
+    {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimFoldersTreeOptionsForm
-
- TvcmEntityFormRef = TPrimFoldersTreeOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTreeSupportUnit,
-  SysUtils,
-  FoldersUnit,
-  BaseTypesUnit,
-  nsOpenUtils,
-  SearchUnit,
-  nsValueMapsIDs,
-  nsValueMaps,
-  Graphics,
-  nsConst
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  nsFolders,
-  l3Tree_TLB,
-  nsFolderNodes
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  vtSaveDialog,
-  l3Base,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsExternalObjectPrim,
-  DataAdapter,
-  nsUtils,
-  Windows,
-  l3InterfacesMisc,
-  IOUnit,
-  nsFormCoordinates
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  bsTypes,
-  nsFiltersContainer,
-  UnderControlUnit,
-  nsQuestionsWithChoices,
-  nsQueryUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimFoldersTreeOptionsForm
+ l3ImplUses
+ , BaseTreeSupportUnit
+ , SysUtils
+ , FoldersUnit
+ , BaseTypesUnit
+ , nsOpenUtils
+ , SearchUnit
+ , nsValueMapsIDs
+ , nsValueMaps
+ , Graphics
+ , nsConst
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsFolders
+ , l3Tree_TLB
+ , nsFolderNodes
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , vtSaveDialog
+ , l3Base
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsExternalObjectPrim
+ , DataAdapter
+ , nsUtils
+ , Windows
+ , l3InterfacesMisc
+ , IOUnit
+ , nsFormCoordinates
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , bsTypes
+ , nsFiltersContainer
+ , UnderControlUnit
+ , nsQuestionsWithChoices
+ , nsQueryUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E651B0179impl_uses*
+ //#UC END# *4C7E651B0179impl_uses*
+;
 
 function TPrimFoldersTreeOptionsForm.IsInSaveLoadState: Boolean;
 //#UC START# *4C7E73BD019F_4C7E651B0179_var*
@@ -298,8 +267,9 @@ begin
 end;//TPrimFoldersTreeOptionsForm.DoSetShare
 
 procedure TPrimFoldersTreeOptionsForm.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_4C7E651B0179_var*
 //#UC END# *46A4504B03C4_4C7E651B0179_var*
 begin
@@ -315,6 +285,7 @@ begin
 end;//TPrimFoldersTreeOptionsForm.Notify
 
 procedure TPrimFoldersTreeOptionsForm.ChildNodeAdded(const aNode: Il3SimpleNode);
+ {* был добавлен дочерний узел }
 //#UC START# *49901C9600DD_4C7E651B0179_var*
 //#UC END# *49901C9600DD_4C7E651B0179_var*
 begin
@@ -325,8 +296,8 @@ begin
 end;//TPrimFoldersTreeOptionsForm.ChildNodeAdded
 
 function TPrimFoldersTreeOptionsForm.BeginEdit(const aNode: IeeNode;
-  WithPositioning: Boolean = False;
-  IsNewFolder: Boolean = False): Boolean;
+ WithPositioning: Boolean = False;
+ IsNewFolder: Boolean = False): Boolean;
 //#UC START# *4AE718F90254_4C7E651B0179_var*
 var
  l_Coord  : TRect;
@@ -382,7 +353,7 @@ begin
 end;//TPrimFoldersTreeOptionsForm.EndEdit
 
 function TPrimFoldersTreeOptionsForm.DeleteNode(const aNode: IeeNode;
-  aAskConfirmation: Boolean): TnsDeleteResult;
+ aAskConfirmation: Boolean): TnsDeleteResult;
 //#UC START# *4AE71F530142_4C7E651B0179_var*
 var
  l_OldCurrent     : Integer;
@@ -489,8 +460,9 @@ begin
 //#UC END# *4AF2F5E50289_4C7E651B0179_impl*
 end;//TPrimFoldersTreeOptionsForm.GetFoldersInfo
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C7E651B0179test_var*
 //#UC END# *4BDAF7880236_4C7E651B0179test_var*
 begin
@@ -498,10 +470,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := FoldersTree.TreeView.Current >= 0;
 //#UC END# *4BDAF7880236_4C7E651B0179test_impl*
 end;//TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C7E651B0179exec_var*
 //#UC END# *4BDAF7880236_4C7E651B0179exec_var*
 begin
@@ -514,10 +487,11 @@ begin
  end;
 //#UC END# *4BDAF7880236_4C7E651B0179exec_impl*
 end;//TPrimFoldersTreeOptionsForm.Tree_ExpandAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C7E651B0179test_var*
 //#UC END# *4BDAF7A2005C_4C7E651B0179test_var*
 begin
@@ -525,7 +499,7 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := FoldersTree.TreeView.Current >= 0;
 //#UC END# *4BDAF7A2005C_4C7E651B0179test_impl*
 end;//TPrimFoldersTreeOptionsForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersTreeOptionsForm.SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3F3421036A_4C7E651B0179test_var*
@@ -631,8 +605,9 @@ begin
 //#UC END# *4C3F342E02AF_4C7E651B0179exec_impl*
 end;//TPrimFoldersTreeOptionsForm.SavedQuery_ExecuteQuery_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7E651B0179test_var*
 //#UC END# *4C7D0CC90052_4C7E651B0179test_var*
 begin
@@ -640,10 +615,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (dsFoldersTree <> nil) and dsFoldersTree.CanDelete(FoldersTree.GetCurrentNode);
 //#UC END# *4C7D0CC90052_4C7E651B0179test_impl*
 end;//TPrimFoldersTreeOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7E651B0179exec_var*
 //#UC END# *4C7D0CC90052_4C7E651B0179exec_var*
 begin
@@ -651,7 +627,7 @@ begin
  FolderElement_InternalDelete_Execute(nil);
 //#UC END# *4C7D0CC90052_4C7E651B0179exec_impl*
 end;//TPrimFoldersTreeOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersTreeOptionsForm.Folders_Filtrate_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C7E65DF016E_4C7E651B0179test_var*
@@ -1297,8 +1273,8 @@ begin
 end;//TPrimFoldersTreeOptionsForm.Consultation_ImportConsultation_Execute
 
 procedure TPrimFoldersTreeOptionsForm.DoFoldersTreeCurrentChanged(Sender: TObject;
-  NewCurrent: Integer;
-  OldCurrent: Integer);
+ NewCurrent: Integer;
+ OldCurrent: Integer);
 //#UC START# *4C7E808A035E_4C7E651B0179_var*
 var
  l_eeNode : IeeNode;
@@ -1319,6 +1295,7 @@ begin
 end;//TPrimFoldersTreeOptionsForm.DoFoldersTreeCurrentChanged
 
 procedure TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Test(const aParams: IvcmTestParamsPrim);
+ {* Создать фильтр... }
 //#UC START# *4CB5802D00CB_4C7E651B0179test_var*
 //#UC END# *4CB5802D00CB_4C7E651B0179test_var*
 begin
@@ -1328,6 +1305,7 @@ begin
 end;//TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Test
 
 procedure TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать фильтр... }
 //#UC START# *4CB5802D00CB_4C7E651B0179exec_var*
 var
  l_eeNode      : IeeNode;
@@ -1366,8 +1344,9 @@ begin
 //#UC END# *4CB5802D00CB_4C7E651B0179exec_impl*
 end;//TPrimFoldersTreeOptionsForm.SavedQuery_CreateFilter_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4C7E651B0179_var*
 //#UC END# *49803F5503AA_4C7E651B0179_var*
 begin
@@ -1376,10 +1355,11 @@ begin
  f_FilterMap := nsIntegerMapManager.Map[imap_FolderFilters];
 //#UC END# *49803F5503AA_4C7E651B0179_impl*
 end;//TPrimFoldersTreeOptionsForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.SetActiveControl;
+ {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_4C7E651B0179_var*
 //#UC END# *4AC3803A03CD_4C7E651B0179_var*
 begin
@@ -1387,18 +1367,18 @@ begin
  Windows.SetFocus(FoldersTree.Handle);
 //#UC END# *4AC3803A03CD_4C7E651B0179_impl*
 end;//TPrimFoldersTreeOptionsForm.SetActiveControl
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFoldersTreeOptionsForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FilterMap := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimFoldersTreeOptionsForm.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimFoldersTreeOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1413,92 +1393,83 @@ begin
   ContextMenuWeight(en_Tree, 30);
   ContextMenuWeight(en_FolderElement, 20);
   ContextMenuWeight(en_Folder, 10);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
-  ShowInContextMenu(en_Tree, op_ExpandAll, true);
-  ShowInToolbar(en_Tree, op_ExpandAll, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Tree, op_ExpandAll, True);
+  ShowInToolbar(en_Tree, op_ExpandAll, False);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
-  ShowInContextMenu(en_SavedQuery, op_OpenQuery, true);
-  ShowInToolbar(en_SavedQuery, op_OpenQuery, false);
+  ShowInContextMenu(en_SavedQuery, op_OpenQuery, True);
+  ShowInToolbar(en_SavedQuery, op_OpenQuery, False);
   PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
-  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, true);
-  ShowInToolbar(en_SavedQuery, op_ExecuteQuery, false);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, True);
+  ShowInToolbar(en_SavedQuery, op_ExecuteQuery, False);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   PublishOp(en_Folders, op_Filtrate, Folders_Filtrate_Execute, Folders_Filtrate_Test, nil);
-  ShowInContextMenu(en_Folders, op_Filtrate, false);
-  ShowInToolbar(en_Folders, op_Filtrate, true);
+  ShowInContextMenu(en_Folders, op_Filtrate, False);
+  ShowInToolbar(en_Folders, op_Filtrate, True);
   PublishOp(en_Folder, op_New, Folder_New_Execute, Folder_New_Test, nil);
-  ShowInContextMenu(en_Folder, op_New, true);
-  ShowInToolbar(en_Folder, op_New, true);
+  ShowInContextMenu(en_Folder, op_New, True);
+  ShowInToolbar(en_Folder, op_New, True);
   ContextMenuWeight(en_Folder, op_New, 10);
   PublishOp(en_Folder, op_AddToControl, Folder_AddToControl_Execute, Folder_AddToControl_Test, nil);
-  ShowInContextMenu(en_Folder, op_AddToControl, true);
-  ShowInToolbar(en_Folder, op_AddToControl, false);
+  ShowInContextMenu(en_Folder, op_AddToControl, True);
+  ShowInToolbar(en_Folder, op_AddToControl, False);
   PublishOp(en_Folder, op_DelFromControl, Folder_DelFromControl_Execute, Folder_DelFromControl_Test, nil);
-  ShowInContextMenu(en_Folder, op_DelFromControl, true);
-  ShowInToolbar(en_Folder, op_DelFromControl, false);
+  ShowInContextMenu(en_Folder, op_DelFromControl, True);
+  ShowInToolbar(en_Folder, op_DelFromControl, False);
   PublishOp(en_Folder, op_SetShare, Folder_SetShare_Execute, Folder_SetShare_Test, nil);
-  ShowInContextMenu(en_Folder, op_SetShare, true);
-  ShowInToolbar(en_Folder, op_SetShare, false);
+  ShowInContextMenu(en_Folder, op_SetShare, True);
+  ShowInToolbar(en_Folder, op_SetShare, False);
   PublishOp(en_Folder, op_ExportToXML, Folder_ExportToXML_Execute, Folder_ExportToXML_Test, nil);
-  ShowInContextMenu(en_Folder, op_ExportToXML, true);
-  ShowInToolbar(en_Folder, op_ExportToXML, false);
+  ShowInContextMenu(en_Folder, op_ExportToXML, True);
+  ShowInToolbar(en_Folder, op_ExportToXML, False);
   PublishOp(en_Folder, op_ImportFromXML, Folder_ImportFromXML_Execute, Folder_ImportFromXML_Test, nil);
-  ShowInContextMenu(en_Folder, op_ImportFromXML, true);
-  ShowInToolbar(en_Folder, op_ImportFromXML, false);
+  ShowInContextMenu(en_Folder, op_ImportFromXML, True);
+  ShowInToolbar(en_Folder, op_ImportFromXML, False);
   ContextMenuWeight(en_Folder, op_ImportFromXML, 20);
   PublishOp(en_FolderElement, op_Edit, FolderElement_Edit_Execute, FolderElement_Edit_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_Edit, false);
-  ShowInToolbar(en_FolderElement, op_Edit, true);
+  ShowInContextMenu(en_FolderElement, op_Edit, False);
+  ShowInToolbar(en_FolderElement, op_Edit, True);
   PublishOp(en_FolderElement, op_EditExt, FolderElement_EditExt_Execute, FolderElement_EditExt_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_EditExt, true);
-  ShowInToolbar(en_FolderElement, op_EditExt, false);
+  ShowInContextMenu(en_FolderElement, op_EditExt, True);
+  ShowInToolbar(en_FolderElement, op_EditExt, False);
   PublishOp(en_FolderElement, op_Open, FolderElement_Open_Execute, FolderElement_Open_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_Open, true);
-  ShowInToolbar(en_FolderElement, op_Open, false);
+  ShowInContextMenu(en_FolderElement, op_Open, True);
+  ShowInToolbar(en_FolderElement, op_Open, False);
   PublishOp(en_FolderElement, op_OpenNewWindow, FolderElement_OpenNewWindow_Execute, FolderElement_OpenNewWindow_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_OpenNewWindow, true);
-  ShowInToolbar(en_FolderElement, op_OpenNewWindow, false);
+  ShowInContextMenu(en_FolderElement, op_OpenNewWindow, True);
+  ShowInToolbar(en_FolderElement, op_OpenNewWindow, False);
   PublishOp(en_FolderElement, op_ControlStatus, FolderElement_ControlStatus_Execute, FolderElement_ControlStatus_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_ControlStatus, true);
-  ShowInToolbar(en_FolderElement, op_ControlStatus, false);
+  ShowInContextMenu(en_FolderElement, op_ControlStatus, True);
+  ShowInToolbar(en_FolderElement, op_ControlStatus, False);
   PublishOp(en_FolderElement, op_ExportForIntegration, FolderElement_ExportForIntegration_Execute, FolderElement_ExportForIntegration_Test, nil);
-  ShowInContextMenu(en_FolderElement, op_ExportForIntegration, true);
-  ShowInToolbar(en_FolderElement, op_ExportForIntegration, false);
+  ShowInContextMenu(en_FolderElement, op_ExportForIntegration, True);
+  ShowInToolbar(en_FolderElement, op_ExportForIntegration, False);
   PublishOp(en_Consultation, op_Open, Consultation_Open_Execute, Consultation_Open_Test, nil);
-  ShowInContextMenu(en_Consultation, op_Open, true);
-  ShowInToolbar(en_Consultation, op_Open, false);
+  ShowInContextMenu(en_Consultation, op_Open, True);
+  ShowInToolbar(en_Consultation, op_Open, False);
   PublishOp(en_Consultation, op_GiveMark, Consultation_GiveMark_Execute, Consultation_GiveMark_Test, nil);
-  ShowInContextMenu(en_Consultation, op_GiveMark, true);
-  ShowInToolbar(en_Consultation, op_GiveMark, false);
+  ShowInContextMenu(en_Consultation, op_GiveMark, True);
+  ShowInToolbar(en_Consultation, op_GiveMark, False);
   PublishOp(en_Consultation, op_ShowConsultationInfo, Consultation_ShowConsultationInfo_Execute, Consultation_ShowConsultationInfo_Test, nil);
-  ShowInContextMenu(en_Consultation, op_ShowConsultationInfo, true);
-  ShowInToolbar(en_Consultation, op_ShowConsultationInfo, false);
+  ShowInContextMenu(en_Consultation, op_ShowConsultationInfo, True);
+  ShowInToolbar(en_Consultation, op_ShowConsultationInfo, False);
   PublishOp(en_Consultation, op_ImportConsultation, Consultation_ImportConsultation_Execute, Consultation_ImportConsultation_Test, nil);
-  ShowInContextMenu(en_Consultation, op_ImportConsultation, true);
-  ShowInToolbar(en_Consultation, op_ImportConsultation, false);
+  ShowInContextMenu(en_Consultation, op_ImportConsultation, True);
+  ShowInToolbar(en_Consultation, op_ImportConsultation, False);
   PublishOp(en_SavedQuery, op_CreateFilter, SavedQuery_CreateFilter_Execute, SavedQuery_CreateFilter_Test, nil);
-  ShowInContextMenu(en_SavedQuery, op_CreateFilter, true);
+  ShowInContextMenu(en_SavedQuery, op_CreateFilter, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFoldersTreeOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFoldersTreeOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersTreeOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFoldersTreeOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

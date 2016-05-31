@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки chatContactsLocalConstants }
+ str_chatContactsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'chatContactsCaption'; rValue : 'Совещание онлайн');
+  {* Заголовок пользовательского типа "Совещание онлайн" }
  {* Константы для типа формы chatContacts }
  chatContactsName = 'chatContacts';
   {* Строковый идентификатор пользовательского типа "Совещание онлайн" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_chatContacts.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_chatContactsCaption.Init;
+ {* Инициализация str_chatContactsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_chatContacts.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_chatContacts }

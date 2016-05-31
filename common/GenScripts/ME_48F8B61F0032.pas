@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , evTreeStorable
  , DocumentUnit
- , nevBase
  , nevTools
+ , nevBase
 ;
 
 type

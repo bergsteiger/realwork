@@ -174,7 +174,6 @@ uses
  , l3String
  , evdTypes
  , ControlsBlock_Const
- , l3MessageID
  {$If Defined(Nemesis)}
  , f1TextStyle_Const
  {$IfEnd} // Defined(Nemesis)

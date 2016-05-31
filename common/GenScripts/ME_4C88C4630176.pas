@@ -14,6 +14,9 @@ uses
  l3IntfUses
  , PrimSaveLoad_Form
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -34,6 +37,14 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , Search_Strange_Controls
+ , SearchLite_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -46,13 +57,12 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , l3String
+ //#UC START# *4C88C4630176impl_uses*
+ //#UC END# *4C88C4630176impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -61,6 +71,27 @@ procedure TPrimSaveLoadOptionsForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_File, op_SaveToFolder, True);
+  ShowInToolbar(en_File, op_SaveToFolder, True);
+  ShowInContextMenu(en_File, op_LoadFromFolder, True);
+  ShowInToolbar(en_File, op_LoadFromFolder, True);
+  ShowInContextMenu(en_Result, op_ClearAll, True);
+  ShowInToolbar(en_Result, op_ClearAll, True);
+  ShowInContextMenu(en_Query, op_GetOldQuery, True);
+  ShowInToolbar(en_Query, op_GetOldQuery, True);
+  ShowInContextMenu(en_Query, op_SearchType, False);
+  ShowInToolbar(en_Query, op_SearchType, True);
+  ShowInContextMenu(en_LogicOperation, op_LogicOr, True);
+  ShowInToolbar(en_LogicOperation, op_LogicOr, True);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ShowInContextMenu(en_Result, op_OkExt, True);
+  ShowInToolbar(en_Result, op_OkExt, True);
+  ShowInContextMenu(en_Filters, op_FiltersListOpen, False);
+  ShowInToolbar(en_Filters, op_FiltersListOpen, True);
+ end;//with Entities.Entities
 end;//TPrimSaveLoadOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

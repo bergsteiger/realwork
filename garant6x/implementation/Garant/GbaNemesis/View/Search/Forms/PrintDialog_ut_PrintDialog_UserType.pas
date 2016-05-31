@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_PrintDialogLocalConstants }
+ str_ut_PrintDialogCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PrintDialogCaption'; rValue : 'PrintDialog');
+  {* Заголовок пользовательского типа "PrintDialog" }
  {* Константы для типа формы ut_PrintDialog }
  ut_PrintDialogName = 'ut_PrintDialog';
   {* Строковый идентификатор пользовательского типа "PrintDialog" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_PrintDialogCaption.Init;
+ {* Инициализация str_ut_PrintDialogCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_PrintDialog.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_PrintDialog }

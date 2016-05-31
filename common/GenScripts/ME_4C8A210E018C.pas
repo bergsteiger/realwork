@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_PrimMainOptions_Form;
+unit PrimMainOptions_Form;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_PrimMainOptions_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimMainOptions_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "PrimMainOptions" MUID: (4C8A210E018C)
 // Имя типа: "TPrimMainOptionsForm"
@@ -13,13 +13,16 @@ uses
  l3IntfUses
  , PrimMain_Form
  , F1_Application_Template_InternalOperations_Controls
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
  {$If Defined(Nemesis)}
  , nscNavigator
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -53,11 +56,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A210E018Cimpl_uses*
+ //#UC END# *4C8A210E018Cimpl_uses*
 ;
 
 procedure TPrimMainOptionsForm.Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
@@ -89,6 +91,8 @@ begin
  begin
   PublishFormEntity(en_Help, nil);
   PublishOp(en_Help, op_HelpTopics, Help_HelpTopics_Execute, Help_HelpTopics_Test, nil);
+  ShowInContextMenu(en_Help, op_HelpTopics, False);
+  ShowInToolbar(en_Help, op_HelpTopics, False);
  end;//with Entities.Entities
 end;//TPrimMainOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

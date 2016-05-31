@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtLegislationReviewLocalConstants }
+ str_slqtLegislationReviewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtLegislationReviewCaption'; rValue : 'Поиск: ПРАЙМ. Обзор изменений законодательства');
+  {* Заголовок пользовательского типа "Поиск: ПРАЙМ. Обзор изменений законодательства" }
  {* Константы для типа формы slqtLegislationReview }
  slqtLegislationReviewName = 'slqtLegislationReview';
   {* Строковый идентификатор пользовательского типа "Поиск: ПРАЙМ. Обзор изменений законодательства" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtLegislationReviewCaption.Init;
+ {* Инициализация str_slqtLegislationReviewCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtLegislationReview.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtLegislationReview }

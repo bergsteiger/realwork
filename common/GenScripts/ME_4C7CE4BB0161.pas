@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки admUserListLocalConstants }
+ str_admUserListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUserListCaption'; rValue : 'Список пользователей');
+  {* Заголовок пользовательского типа "Список пользователей" }
  {* Константы для типа формы admUserList }
  admUserListName = 'admUserList';
   {* Строковый идентификатор пользовательского типа "Список пользователей" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_admUserList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_admUserListCaption.Init;
+ {* Инициализация str_admUserListCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admUserList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_admUserList }

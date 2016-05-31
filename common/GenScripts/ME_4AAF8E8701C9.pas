@@ -18,6 +18,9 @@ uses
  , Search_Strange_Controls
  , afwInterfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,7 +43,7 @@ type
              Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IafwDocumentPreview): BadFactoryType; reintroduce;
+   class function Make(const aData: IafwDocumentPreview): IvcmEntityForm; reintroduce;
    procedure PrintParams_UpdatePrinter_Execute;
    procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
  end;//TPrimPrintDialogForm
@@ -57,10 +60,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAF8E8701C9impl_uses*
+ //#UC END# *4AAF8E8701C9impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): BadFactoryType;
+class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): IvcmEntityForm;
 var
  l_Inst : TPrimPrintDialogForm;
 begin

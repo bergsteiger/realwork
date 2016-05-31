@@ -35,8 +35,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -50,11 +48,6 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки ut_LogoLocalConstants }
- str_ut_LogoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LogoCaption'; rValue : 'Logo');
-  {* Заголовок пользовательского типа "Logo" }
-
 {$R *.DFM}
 
 procedure TLogoForm.MakeControls;
@@ -76,8 +69,6 @@ begin
 end;//TLogoForm.MakeControls
 
 initialization
- str_ut_LogoCaption.Init;
- {* Инициализация str_ut_LogoCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TLogoForm);
  {* Регистрация Logo }

@@ -13,9 +13,9 @@ uses
  , l3ProtoObject
  , evCustomStyleManager
  , evdTypes
+ , afwNavigation
  , l3Variant
  , nevTools
- , afwNavigation
 ;
 
 type

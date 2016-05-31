@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cwChatLocalConstants }
+ str_cwChatCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cwChatCaption'; rValue : 'Переписка');
+  {* Заголовок пользовательского типа "Переписка" }
  {* Константы для типа формы cwChat }
  cwChatName = 'cwChat';
   {* Строковый идентификатор пользовательского типа "Переписка" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_cwChat.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cwChatCaption.Init;
+ {* Инициализация str_cwChatCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cwChat.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cwChat }

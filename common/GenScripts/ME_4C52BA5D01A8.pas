@@ -24,6 +24,9 @@ uses
  , vtCheckBox
  , vtComboBoxQS
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -32,29 +35,17 @@ type
  TPrimPrintDialogOptionsForm = class(TPrimPrintDialogForm)
   private
    f_poDocumentNames: TvtRadioButton;
-    {* Поле для свойства poDocumentNames }
    f_rbPrintSelected: TvtRadioButton;
-    {* Поле для свойства rbPrintSelected }
    f_rbPrintCurrent: TvtRadioButton;
-    {* Поле для свойства rbPrintCurrent }
    f_edPrintInterval: TnscEditWithoutPlusMinusShortcut;
-    {* Поле для свойства edPrintInterval }
    f_edCopyCount: TvtSpinEdit;
-    {* Поле для свойства edCopyCount }
    f_CollateCheckBox: TvtCheckBox;
-    {* Поле для свойства CollateCheckBox }
    f_cbOddEven: TvtComboBoxQS;
-    {* Поле для свойства cbOddEven }
    f_poDocumentTexts: TvtRadioButton;
-    {* Поле для свойства poDocumentTexts }
    f_rbPrintAll: TvtRadioButton;
-    {* Поле для свойства rbPrintAll }
    f_rbPrintInterval: TvtRadioButton;
-    {* Поле для свойства rbPrintInterval }
    f_cbPrinter: TvtComboBoxQS;
-    {* Поле для свойства cbPrinter }
    f_cbPrintInfo: TvtCheckBox;
-    {* Поле для свойства cbPrintInfo }
   protected
    function pm_GetpoDocumentNames: TvtRadioButton;
    function pm_GetrbPrintSelected: TvtRadioButton;
@@ -145,119 +136,94 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C52BA5D01A8impl_uses*
+ //#UC END# *4C52BA5D01A8impl_uses*
 ;
 
 function TPrimPrintDialogOptionsForm.pm_GetpoDocumentNames: TvtRadioButton;
-//#UC START# *4C52BEA0000B_4C52BA5D01A8get_var*
-//#UC END# *4C52BEA0000B_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52BEA0000B_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52BEA0000B_4C52BA5D01A8get_impl*
+ if (f_poDocumentNames = nil) then
+  f_poDocumentNames := FindComponent('poDocumentNames') As TvtRadioButton;
+ Result := f_poDocumentNames;
 end;//TPrimPrintDialogOptionsForm.pm_GetpoDocumentNames
 
 function TPrimPrintDialogOptionsForm.pm_GetrbPrintSelected: TvtRadioButton;
-//#UC START# *4C52BEBC03B4_4C52BA5D01A8get_var*
-//#UC END# *4C52BEBC03B4_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52BEBC03B4_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52BEBC03B4_4C52BA5D01A8get_impl*
+ if (f_rbPrintSelected = nil) then
+  f_rbPrintSelected := FindComponent('rbPrintSelected') As TvtRadioButton;
+ Result := f_rbPrintSelected;
 end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintSelected
 
 function TPrimPrintDialogOptionsForm.pm_GetrbPrintCurrent: TvtRadioButton;
-//#UC START# *4C52BEE5007D_4C52BA5D01A8get_var*
-//#UC END# *4C52BEE5007D_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52BEE5007D_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52BEE5007D_4C52BA5D01A8get_impl*
+ if (f_rbPrintCurrent = nil) then
+  f_rbPrintCurrent := FindComponent('rbPrintCurrent') As TvtRadioButton;
+ Result := f_rbPrintCurrent;
 end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintCurrent
 
 function TPrimPrintDialogOptionsForm.pm_GetedPrintInterval: TnscEditWithoutPlusMinusShortcut;
-//#UC START# *4C52BF3302F2_4C52BA5D01A8get_var*
-//#UC END# *4C52BF3302F2_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52BF3302F2_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52BF3302F2_4C52BA5D01A8get_impl*
+ if (f_edPrintInterval = nil) then
+  f_edPrintInterval := FindComponent('edPrintInterval') As TnscEditWithoutPlusMinusShortcut;
+ Result := f_edPrintInterval;
 end;//TPrimPrintDialogOptionsForm.pm_GetedPrintInterval
 
 function TPrimPrintDialogOptionsForm.pm_GetedCopyCount: TvtSpinEdit;
-//#UC START# *4C52C07C0169_4C52BA5D01A8get_var*
-//#UC END# *4C52C07C0169_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C07C0169_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C07C0169_4C52BA5D01A8get_impl*
+ if (f_edCopyCount = nil) then
+  f_edCopyCount := FindComponent('edCopyCount') As TvtSpinEdit;
+ Result := f_edCopyCount;
 end;//TPrimPrintDialogOptionsForm.pm_GetedCopyCount
 
 function TPrimPrintDialogOptionsForm.pm_GetCollateCheckBox: TvtCheckBox;
-//#UC START# *4C52C0A900DB_4C52BA5D01A8get_var*
-//#UC END# *4C52C0A900DB_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C0A900DB_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C0A900DB_4C52BA5D01A8get_impl*
+ if (f_CollateCheckBox = nil) then
+  f_CollateCheckBox := FindComponent('CollateCheckBox') As TvtCheckBox;
+ Result := f_CollateCheckBox;
 end;//TPrimPrintDialogOptionsForm.pm_GetCollateCheckBox
 
 function TPrimPrintDialogOptionsForm.pm_GetcbOddEven: TvtComboBoxQS;
-//#UC START# *4C52C0E1003A_4C52BA5D01A8get_var*
-//#UC END# *4C52C0E1003A_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C0E1003A_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C0E1003A_4C52BA5D01A8get_impl*
+ if (f_cbOddEven = nil) then
+  f_cbOddEven := FindComponent('cbOddEven') As TvtComboBoxQS;
+ Result := f_cbOddEven;
 end;//TPrimPrintDialogOptionsForm.pm_GetcbOddEven
 
 function TPrimPrintDialogOptionsForm.pm_GetpoDocumentTexts: TvtRadioButton;
-//#UC START# *4C52C8B30325_4C52BA5D01A8get_var*
-//#UC END# *4C52C8B30325_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C8B30325_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C8B30325_4C52BA5D01A8get_impl*
+ if (f_poDocumentTexts = nil) then
+  f_poDocumentTexts := FindComponent('poDocumentTexts') As TvtRadioButton;
+ Result := f_poDocumentTexts;
 end;//TPrimPrintDialogOptionsForm.pm_GetpoDocumentTexts
 
 function TPrimPrintDialogOptionsForm.pm_GetrbPrintAll: TvtRadioButton;
-//#UC START# *4C52C8ED034E_4C52BA5D01A8get_var*
-//#UC END# *4C52C8ED034E_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C8ED034E_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C8ED034E_4C52BA5D01A8get_impl*
+ if (f_rbPrintAll = nil) then
+  f_rbPrintAll := FindComponent('rbPrintAll') As TvtRadioButton;
+ Result := f_rbPrintAll;
 end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintAll
 
 function TPrimPrintDialogOptionsForm.pm_GetrbPrintInterval: TvtRadioButton;
-//#UC START# *4C52C90A0262_4C52BA5D01A8get_var*
-//#UC END# *4C52C90A0262_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52C90A0262_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52C90A0262_4C52BA5D01A8get_impl*
+ if (f_rbPrintInterval = nil) then
+  f_rbPrintInterval := FindComponent('rbPrintInterval') As TvtRadioButton;
+ Result := f_rbPrintInterval;
 end;//TPrimPrintDialogOptionsForm.pm_GetrbPrintInterval
 
 function TPrimPrintDialogOptionsForm.pm_GetcbPrinter: TvtComboBoxQS;
-//#UC START# *4C52CC9300E7_4C52BA5D01A8get_var*
-//#UC END# *4C52CC9300E7_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52CC9300E7_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52CC9300E7_4C52BA5D01A8get_impl*
+ if (f_cbPrinter = nil) then
+  f_cbPrinter := FindComponent('cbPrinter') As TvtComboBoxQS;
+ Result := f_cbPrinter;
 end;//TPrimPrintDialogOptionsForm.pm_GetcbPrinter
 
 function TPrimPrintDialogOptionsForm.pm_GetcbPrintInfo: TvtCheckBox;
-//#UC START# *4C52CCC003AB_4C52BA5D01A8get_var*
-//#UC END# *4C52CCC003AB_4C52BA5D01A8get_var*
 begin
-//#UC START# *4C52CCC003AB_4C52BA5D01A8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C52CCC003AB_4C52BA5D01A8get_impl*
+ if (f_cbPrintInfo = nil) then
+  f_cbPrintInfo := FindComponent('cbPrintInfo') As TvtCheckBox;
+ Result := f_cbPrintInfo;
 end;//TPrimPrintDialogOptionsForm.pm_GetcbPrintInfo
 
 {$If NOT Defined(NoVCM)}
@@ -448,9 +414,11 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
 end;//TPrimPrintDialogOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

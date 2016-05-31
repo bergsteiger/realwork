@@ -33,8 +33,8 @@ uses
  , afwInterfaces
  , FoldersDomainInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , ListUserTypes_lftProducedDrugs_UserType
  , MedicInterfaces
  , DynamicDocListUnit

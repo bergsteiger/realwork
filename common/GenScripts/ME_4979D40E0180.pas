@@ -50,13 +50,9 @@ type
   private
    f_InternalChange: Integer;
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
-   f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
-   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства WordsTree }
    f_ContextMap: InsLangToContextMap;
-    {* Поле для свойства ContextMap }
+   f_ContextFilter: TnscContextFilter;
+   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
   protected
    CommonDiction: IdsCommonDiction;
    Diction: IdsDiction;
@@ -165,7 +161,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , BaseTypesUnit
  , l3String
  , DictionRes
@@ -183,7 +178,7 @@ uses
  , Common_FormDefinitions_Controls
  , nsDictCache
  , nsDictionTree
- , l3MessageID
+ , SysUtils
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -191,16 +186,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979D40E0180impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4979D40E0180impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utDictionLocalConstants }
- str_utDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionCaption'; rValue : 'Толковый словарь');
-  {* Заголовок пользовательского типа "Толковый словарь" }
- str_utDictionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionSettingsCaption'; rValue : 'Толковый словарь: Список терминов (вкладка)');
-  {* Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов }
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
 function TPrimDictionForm.pm_GetContextMap: InsLangToContextMap;
@@ -822,6 +813,16 @@ procedure TPrimDictionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSour
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  CommonDiction := nil;
+  Diction := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsCommonDiction, CommonDiction);
+  Supports(aNew, IdsDiction, Diction);
+ end;//aNew = nil
 end;//TPrimDictionForm.SignalDataSourceChanged
 
 procedure TPrimDictionForm.InitEntities;
@@ -832,12 +833,25 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Lang, nil);
+  ToolbarAtBottom(en_Lang);
   PublishOp(en_Lang, op_Russian, Lang_Russian_Execute, Lang_Russian_Test, nil);
+  ShowInContextMenu(en_Lang, op_Russian, False);
+  ShowInToolbar(en_Lang, op_Russian, True);
   PublishOp(en_Lang, op_English, Lang_English_Execute, Lang_English_Test, nil);
+  ShowInContextMenu(en_Lang, op_English, False);
+  ShowInToolbar(en_Lang, op_English, True);
   PublishOp(en_Lang, op_French, Lang_French_Execute, Lang_French_Test, nil);
+  ShowInContextMenu(en_Lang, op_French, False);
+  ShowInToolbar(en_Lang, op_French, True);
   PublishOp(en_Lang, op_Deutch, Lang_Deutch_Execute, Lang_Deutch_Test, nil);
+  ShowInContextMenu(en_Lang, op_Deutch, False);
+  ShowInToolbar(en_Lang, op_Deutch, True);
   PublishOp(en_Lang, op_Italian, Lang_Italian_Execute, Lang_Italian_Test, nil);
+  ShowInContextMenu(en_Lang, op_Italian, False);
+  ShowInToolbar(en_Lang, op_Italian, True);
   PublishOp(en_Lang, op_Spanish, Lang_Spanish_Execute, Lang_Spanish_Test, nil);
+  ShowInContextMenu(en_Lang, op_Spanish, False);
+  ShowInToolbar(en_Lang, op_Spanish, True);
  end;//with Entities.Entities
 end;//TPrimDictionForm.InitEntities
 
@@ -847,7 +861,7 @@ begin
  with AddUsertype(utDictionName,
   str_utDictionCaption,
   str_utDictionSettingsCaption,
-  False,
+  True,
   60,
   -1,
   '',
@@ -869,10 +883,6 @@ begin
 end;//TPrimDictionForm.MakeControls
 
 initialization
- str_utDictionCaption.Init;
- {* Инициализация str_utDictionCaption }
- str_utDictionSettingsCaption.Init;
- {* Инициализация str_utDictionSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDictionForm);
  {* Регистрация PrimDiction }

@@ -22,12 +22,8 @@ uses
 const
  fm_LeftEditionForm: TvcmFormDescriptor = (rFormID : (rName : 'LeftEditionForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TLeftEditionForm }
-
-const
  fm_RightEditionForm: TvcmFormDescriptor = (rFormID : (rName : 'RightEditionForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TRightEditionForm }
-
-const
  fm_EditionsContainerForm: TvcmFormDescriptor = (rFormID : (rName : 'EditionsContainerForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TEditionsContainerForm }
 

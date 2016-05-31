@@ -37,6 +37,14 @@ procedure _BaseDocument_.SignalDataSourceChanged(const anOld: IvcmFormDataSource
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  sdsBaseDocument := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IsdsBaseDocument, sdsBaseDocument);
+ end;//aNew = nil
 end;//_BaseDocument_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 

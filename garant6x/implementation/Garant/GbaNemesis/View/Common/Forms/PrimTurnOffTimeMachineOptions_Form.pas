@@ -1,96 +1,78 @@
 unit PrimTurnOffTimeMachineOptions_Form;
+ {* Выключить Машину времени / Изменить дату }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimTurnOffTimeMachineOptions_Form.pas"
-// Начат: 10.09.2010 15:31
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimTurnOffTimeMachineOptions
-//
-// Выключить Машину времени / Изменить дату
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachineOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTurnOffTimeMachineOptions" MUID: (4C8A171801CA)
+// Имя типа: "TPrimTurnOffTimeMachineOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimTurnOffTimeMachine_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimTurnOffTimeMachine_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimTurnOffTimeMachineOptionsForm = {form} class(TPrimTurnOffTimeMachineForm)
+ TPrimTurnOffTimeMachineOptionsForm = class(TPrimTurnOffTimeMachineForm)
   {* Выключить Машину времени / Изменить дату }
- protected
-  procedure InitEntities; override;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimTurnOffTimeMachineOptionsForm
-
- TvcmEntityFormRef = TPrimTurnOffTimeMachineOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A171801CAimpl_uses*
+ //#UC END# *4C8A171801CAimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimTurnOffTimeMachineOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimTurnOffTimeMachineOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimTurnOffTimeMachineOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimTurnOffTimeMachineOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTurnOffTimeMachineOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimTurnOffTimeMachineOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

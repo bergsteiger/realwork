@@ -1,254 +1,182 @@
 unit InpharmMainMenu_Form;
+ {* Основное меню Инфарм }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Inpharm/Forms/InpharmMainMenu_Form.pas"
-// Начат: 29.12.2008 18:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Inpharm::View::Inpharm::InpharmMainMenu
-//
-// Основное меню Инфарм
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "InpharmMainMenu" MUID: (4958E868009C)
+// Имя типа: "TInpharmMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimMainMenu_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  ,
-  l3StringIDEx
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  InpharmMainMenu_ut_mmmMain_UserType
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  MainMenuDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimMainMenu_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , MainMenuDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TPrimMainMenuForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TInpharmMainMenuForm = {abstract form} class(_vcmChromeLikeTabIconUpdater_)
+ TInpharmMainMenuForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   {* Основное меню Инфарм }
- private
- // private fields
-   f_hfReferencesAndDictionaries : TnscHideField;
-    {* Поле для свойства hfReferencesAndDictionaries}
-   f_tvReferencesAndDictionaries : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvReferencesAndDictionaries}
-   f_hfReferencePharmaceuticalInformation : TnscHideField;
-    {* Поле для свойства hfReferencePharmaceuticalInformation}
-   f_tvReferencePharmaceuticalInformation : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvReferencePharmaceuticalInformation}
-   f_hfMainFeatures : TnscHideField;
-    {* Поле для свойства hfMainFeatures}
-   f_tvMainFeatures : TnscTreeViewHotTruck;
-    {* Поле для свойства tvMainFeatures}
-   f_hfRegulatoryInformation : TnscHideField;
-    {* Поле для свойства hfRegulatoryInformation}
-   f_tvRegulatoryInformation : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvRegulatoryInformation}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   f_hfReferencesAndDictionaries: TnscHideField;
+    {* Справочники и словари }
+   f_tvReferencesAndDictionaries: TnscTreeViewWithAdapterDragDrop;
+   f_hfReferencePharmaceuticalInformation: TnscHideField;
+    {* Справочная фармацевтическая информация }
+   f_tvReferencePharmaceuticalInformation: TnscTreeViewWithAdapterDragDrop;
+   f_hfMainFeatures: TnscHideField;
+    {* Основные возможности }
+   f_tvMainFeatures: TnscTreeViewHotTruck;
+   f_hfRegulatoryInformation: TnscHideField;
+    {* Нормативная информация }
+   f_tvRegulatoryInformation: TnscTreeViewWithAdapterDragDrop;
+  protected
    function DoBuildGrid: InscArrangeGrid; override;
- protected
- // overridden protected methods
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoInitKeyboardNavigation(const aTable: InscTabTable); override;
    procedure LoadLastOpenDocs; override;
    procedure DoActionElement(const aNode: InsMainMenuNode); override;
    procedure LoadTrees; override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- public
- // public properties
-
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property hfReferencesAndDictionaries: TnscHideField
-     read f_hfReferencesAndDictionaries;
-     {* Справочники и словари }
+    read f_hfReferencesAndDictionaries;
+    {* Справочники и словари }
    property tvReferencesAndDictionaries: TnscTreeViewWithAdapterDragDrop
-     read f_tvReferencesAndDictionaries;
+    read f_tvReferencesAndDictionaries;
    property hfReferencePharmaceuticalInformation: TnscHideField
-     read f_hfReferencePharmaceuticalInformation;
-     {* Справочная фармацевтическая информация }
+    read f_hfReferencePharmaceuticalInformation;
+    {* Справочная фармацевтическая информация }
    property tvReferencePharmaceuticalInformation: TnscTreeViewWithAdapterDragDrop
-     read f_tvReferencePharmaceuticalInformation;
+    read f_tvReferencePharmaceuticalInformation;
    property hfMainFeatures: TnscHideField
-     read f_hfMainFeatures;
-     {* Основные возможности }
+    read f_hfMainFeatures;
+    {* Основные возможности }
    property tvMainFeatures: TnscTreeViewHotTruck
-     read f_tvMainFeatures;
+    read f_tvMainFeatures;
    property hfRegulatoryInformation: TnscHideField
-     read f_hfRegulatoryInformation;
-     {* Нормативная информация }
+    read f_hfRegulatoryInformation;
+    {* Нормативная информация }
    property tvRegulatoryInformation: TnscTreeViewWithAdapterDragDrop
-     read f_tvRegulatoryInformation;
+    read f_tvRegulatoryInformation;
  end;//TInpharmMainMenuForm
-
- TvcmEntityFormRef = TInpharmMainMenuForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGrid
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwFacade
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGridCell
-  {$IfEnd} //Nemesis
-  ,
-  nsConst,
-  Graphics
-  {$If defined(Nemesis)}
-  ,
-  nscTabTableCell
-  {$IfEnd} //Nemesis
-  ,
-  deDocInfo,
-  SysUtils,
-  MedicMainMenuRes,
-  bsDataContainer,
-  MainMenuNewRes,
-  l3ControlsTypes,
-  nsTypes,
-  nsLastOpenDocTree,
-  vtOutliner,
-  mmmMainFeatures,
-  mmmReferencePharmaceuticalInformation,
-  nsOpenUtils,
-  mmmRegulatoryInformation,
-  mmmReferencesAndDictionaries,
-  nsTabbedInterfaceTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  Common_FormDefinitions_Controls,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , InpharmMainMenu_ut_mmmMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
+ {$If Defined(Nemesis)}
+ , nscArrangeGrid
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscArrangeGridCell
+ {$IfEnd} // Defined(Nemesis)
+ , nsConst
+ , Graphics
+ {$If Defined(Nemesis)}
+ , nscTabTableCell
+ {$IfEnd} // Defined(Nemesis)
+ , deDocInfo
+ , SysUtils
+ , MedicMainMenuRes
+ , bsDataContainer
+ , MainMenuNewRes
+ , l3ControlsTypes
+ , nsTypes
+ , nsLastOpenDocTree
+ , vtOutliner
+ , mmmMainFeatures
+ , mmmReferencePharmaceuticalInformation
+ , nsOpenUtils
+ , mmmRegulatoryInformation
+ , mmmReferencesAndDictionaries
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , Common_FormDefinitions_Controls
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *4958E868009Cimpl_uses*
+ //#UC END# *4958E868009Cimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Локализуемые строки InpharmMainMenu Local Const }
+ str_hfLasOpenDocsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'hfLasOpenDocsCaption'; rValue : 'Последние открытые препараты');
+  {* 'Последние открытые препараты' }
 
 type _Instance_R_ = TInpharmMainMenuForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
-
-var
-   { Локализуемые строки ut_mmmMainLocalConstants }
-  str_ut_mmmMainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_mmmMainCaption'; rValue : 'ГАРАНТ-ИнФарм');
-   { Заголовок пользовательского типа "ГАРАНТ-ИнФарм" }
-
-var
-   { Локализуемые строки InpharmMainMenu Local Const }
-  str_hfLasOpenDocsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'hfLasOpenDocsCaption'; rValue : 'Последние открытые препараты');
-   { 'Последние открытые препараты' }
-
-// start class TInpharmMainMenuForm
 
 function TInpharmMainMenuForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_4958E868009C_var*
@@ -288,8 +216,9 @@ begin
 //#UC END# *47EA4E9002C6_4958E868009C_impl*
 end;//TInpharmMainMenuForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TInpharmMainMenuForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4958E868009C_var*
 //#UC END# *49803F5503AA_4958E868009C_var*
 begin
@@ -300,10 +229,11 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=564734118
 //#UC END# *49803F5503AA_4958E868009C_impl*
 end;//TInpharmMainMenuForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TInpharmMainMenuForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4958E868009C_var*
 //#UC END# *4A8E8F2E0195_4958E868009C_var*
 begin
@@ -463,7 +393,7 @@ begin
    end;
 //#UC END# *4A8E8F2E0195_4958E868009C_impl*
 end;//TInpharmMainMenuForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TInpharmMainMenuForm.DoInitKeyboardNavigation(const aTable: InscTabTable);
 //#UC START# *4AC9CB8B01D3_4958E868009C_var*
@@ -555,7 +485,7 @@ begin
 //#UC END# *4AC9E9EC0064_4958E868009C_impl*
 end;//TInpharmMainMenuForm.LoadTrees
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TInpharmMainMenuForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4958E868009C_var*
 //#UC END# *53F1C6EF02C9_4958E868009C_var*
@@ -565,9 +495,9 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=564734118
 //#UC END# *53F1C6EF02C9_4958E868009C_impl*
 end;//TInpharmMainMenuForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TInpharmMainMenuForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4958E868009C_var*
 //#UC END# *543E3AA801D0_4958E868009C_var*
@@ -576,29 +506,28 @@ begin
  Result := nsTabIconIndex(titInpharmMainMenu);
 //#UC END# *543E3AA801D0_4958E868009C_impl*
 end;//TInpharmMainMenuForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
+{$If NOT Defined(NoVCM)}
 procedure TInpharmMainMenuForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
- {$If not defined(NoVCM)}
- AddUserTypeExclude(ut_mmmMainName, en_Tree, op_ExpandAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(ut_mmmMainName, en_Tree, op_CollapseAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(ut_mmmMainName, en_Tree, op_Wrap, false);
- {$IfEnd} //not NoVCM
-end;
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_CollapseAll, False);
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_Wrap, False);
+end;//TInpharmMainMenuForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TInpharmMainMenuForm.MakeControls;
 begin
  inherited;
  with AddUsertype(ut_mmmMainName,
   str_ut_mmmMainCaption,
   str_ut_mmmMainCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -639,22 +568,16 @@ begin
  f_tvRegulatoryInformation := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvRegulatoryInformation.Name := 'tvRegulatoryInformation';
  f_tvRegulatoryInformation.Parent := hfRegulatoryInformation;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TInpharmMainMenuForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ut_mmmMainCaption
- str_ut_mmmMainCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_hfLasOpenDocsCaption
  str_hfLasOpenDocsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация InpharmMainMenu
+ {* Инициализация str_hfLasOpenDocsCaption }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TInpharmMainMenuForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация InpharmMainMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

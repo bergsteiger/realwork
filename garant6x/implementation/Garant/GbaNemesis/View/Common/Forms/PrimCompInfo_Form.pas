@@ -1,199 +1,169 @@
 unit PrimCompInfo_Form;
+ {* Информация о комплекте }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimCompInfo_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimCompInfo
-//
-// Информация о комплекте
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimCompInfo_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimCompInfo" MUID: (516FC52E034F)
+// Имя типа: "TPrimCompInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3ObjectList,
-  l3ControlsTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  vtLabel,
-  l3StringIDEx,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ObjectList
+ , nscTreeViewWithAdapterDragDrop
+ , vtPanel
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimCompInfoForm = {abstract form} class(_vcmChromeLikeTabIconUpdater_)
+ TPrimCompInfoForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   {* Информация о комплекте }
- private
- // private fields
-   f_tvComplectInfo : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvComplectInfo}
-   f_pnBottom : TvtPanel;
-    {* Поле для свойства pnBottom}
-   f_pnVisualRepresentationData : TvtPanel;
-    {* Поле для свойства pnVisualRepresentationData}
-   f_pnVisualRepresentationDataCaption : TvtPanel;
-    {* Поле для свойства pnVisualRepresentationDataCaption}
-   f_lblVisualRepresentationData : TvtLabel;
-    {* Поле для свойства lblVisualRepresentationData}
-   f_ControlsToFree : Tl3ObjectList;
-    {* Поле для свойства ControlsToFree}
- protected
-  procedure MakeControls; override;
- private
- // private methods
-   function TvComplectInfoGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
-   procedure VcmEntityFormSetLocalizationInfo(Sender: TObject;
-     const theInfo: AnsiString);
-   procedure VcmEntityFormGetLocalizationInfo(Sender: TObject;
-     var theInfo: AnsiString);
+  private
+   f_tvComplectInfo: TnscTreeViewWithAdapterDragDrop;
+   f_pnBottom: TvtPanel;
+   f_ControlsToFree: Tl3ObjectList;
+    {* Все динамически создаваемые контролы. }
+   f_pnVisualRepresentationData: TvtPanel;
+   f_pnVisualRepresentationDataCaption: TvtPanel;
+   f_lblVisualRepresentationData: TvtLabel;
+    {* Ваш комплект системы ГАРАНТ: }
+  private
+   function tvComplectInfoGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+   procedure vcmEntityFormSetLocalizationInfo(Sender: TObject;
+    const theInfo: AnsiString);
+   procedure vcmEntityFormGetLocalizationInfo(Sender: TObject;
+    var theInfo: AnsiString);
    procedure InitVisualRepresentationData;
-     {* Сигнатура метода InitVisualRepresentationData }
    procedure ReleaseResources;
-     {* Сигнатура метода ReleaseResources }
- protected
- // property methods
+  protected
    function pm_GetControlsToFree: Tl3ObjectList;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- private
- // private properties
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property ControlsToFree: Tl3ObjectList
-     read pm_GetControlsToFree;
-     {* Все динамически создаваемые контролы. }
- public
- // public properties
+    read pm_GetControlsToFree;
+    {* Все динамически создаваемые контролы. }
+  public
    property tvComplectInfo: TnscTreeViewWithAdapterDragDrop
-     read f_tvComplectInfo;
+    read f_tvComplectInfo;
    property pnBottom: TvtPanel
-     read f_pnBottom;
+    read f_pnBottom;
    property pnVisualRepresentationData: TvtPanel
-     read f_pnVisualRepresentationData;
+    read f_pnVisualRepresentationData;
    property pnVisualRepresentationDataCaption: TvtPanel
-     read f_pnVisualRepresentationDataCaption;
+    read f_pnVisualRepresentationDataCaption;
    property lblVisualRepresentationData: TvtLabel
-     read f_lblVisualRepresentationData;
-     {* Ваш комплект системы ГАРАНТ: }
+    read f_lblVisualRepresentationData;
+    {* Ваш комплект системы ГАРАНТ: }
  end;//TPrimCompInfoForm
-
- TvcmEntityFormRef = TPrimCompInfoForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  nsUtils,
-  nsTreeUtils,
-  nsComplectInfoTreeStruct,
-  nsSettings,
-  ComplectInfoRes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Gauges,
-  nsTypes,
-  ComplectUnit,
-  DataAdapter
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  Classes,
-  SysUtils,
-  vtGauge,
-  nsTabbedInterfaceTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3Base
+ , nsUtils
+ , nsTreeUtils
+ , nsComplectInfoTreeStruct
+ , nsSettings
+ , ComplectInfoRes
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Gauges
+ , nsTypes
+ , ComplectUnit
+ , DataAdapter
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , Classes
+ , SysUtils
+ , vtGauge
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *516FC52E034Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *516FC52E034Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки CompInfo Header Strings }
+ str_Name: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'Name'; rValue : 'Название');
+  {* 'Название' }
+ str_Value: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'Value'; rValue : 'Значение');
+  {* 'Значение' }
 
 type _Instance_R_ = TPrimCompInfoForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
-var
-   { Локализуемые строки CompInfo Header Strings }
-  str_Name : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'Name'; rValue : 'Название');
-   { 'Название' }
-  str_Value : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'Value'; rValue : 'Значение');
-   { 'Значение' }
+function TPrimCompInfoForm.pm_GetControlsToFree: Tl3ObjectList;
+//#UC START# *53E49B0D02C4_516FC52E034Fget_var*
+//#UC END# *53E49B0D02C4_516FC52E034Fget_var*
+begin
+//#UC START# *53E49B0D02C4_516FC52E034Fget_impl*
+ if not Assigned(f_ControlsToFree) then
+  f_ControlsToFree := Tl3ObjectList.Create;
+ Result := f_ControlsToFree;
+//#UC END# *53E49B0D02C4_516FC52E034Fget_impl*
+end;//TPrimCompInfoForm.pm_GetControlsToFree
 
-// start class TPrimCompInfoForm
-
-function TPrimCompInfoForm.TvComplectInfoGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+function TPrimCompInfoForm.tvComplectInfoGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *516FC7390348_516FC52E034F_var*
 var
  l_Node: Il3SimpleNode;
@@ -220,10 +190,10 @@ begin
   l_Node := nil;
  end;{try..finally}
 //#UC END# *516FC7390348_516FC52E034F_impl*
-end;//TPrimCompInfoForm.TvComplectInfoGetItemImage
+end;//TPrimCompInfoForm.tvComplectInfoGetItemImage
 
-procedure TPrimCompInfoForm.VcmEntityFormSetLocalizationInfo(Sender: TObject;
-  const theInfo: AnsiString);
+procedure TPrimCompInfoForm.vcmEntityFormSetLocalizationInfo(Sender: TObject;
+ const theInfo: AnsiString);
 //#UC START# *516FC8600180_516FC52E034F_var*
 //#UC END# *516FC8600180_516FC52E034F_var*
 begin
@@ -231,10 +201,10 @@ begin
  if Sender = tvComplectInfo then
   nsSetListHeaderLocalizationInfo(tvComplectInfo.Header, theInfo);
 //#UC END# *516FC8600180_516FC52E034F_impl*
-end;//TPrimCompInfoForm.VcmEntityFormSetLocalizationInfo
+end;//TPrimCompInfoForm.vcmEntityFormSetLocalizationInfo
 
-procedure TPrimCompInfoForm.VcmEntityFormGetLocalizationInfo(Sender: TObject;
-  var theInfo: AnsiString);
+procedure TPrimCompInfoForm.vcmEntityFormGetLocalizationInfo(Sender: TObject;
+ var theInfo: AnsiString);
 //#UC START# *516FC885021E_516FC52E034F_var*
 //#UC END# *516FC885021E_516FC52E034F_var*
 begin
@@ -242,7 +212,7 @@ begin
  if Sender = tvComplectInfo then
   theInfo := nsGetListHeaderLocalizationInfo(tvComplectInfo.Header);
 //#UC END# *516FC885021E_516FC52E034F_impl*
-end;//TPrimCompInfoForm.VcmEntityFormGetLocalizationInfo
+end;//TPrimCompInfoForm.vcmEntityFormGetLocalizationInfo
 
 procedure TPrimCompInfoForm.InitVisualRepresentationData;
 //#UC START# *53E0F4FA00B8_516FC52E034F_var*
@@ -371,18 +341,8 @@ begin
 //#UC END# *53E4A7FA0026_516FC52E034F_impl*
 end;//TPrimCompInfoForm.ReleaseResources
 
-function TPrimCompInfoForm.pm_GetControlsToFree: Tl3ObjectList;
-//#UC START# *53E49B0D02C4_516FC52E034Fget_var*
-//#UC END# *53E49B0D02C4_516FC52E034Fget_var*
-begin
-//#UC START# *53E49B0D02C4_516FC52E034Fget_impl*
- if not Assigned(f_ControlsToFree) then
-  f_ControlsToFree := Tl3ObjectList.Create;
- Result := f_ControlsToFree;
-//#UC END# *53E49B0D02C4_516FC52E034Fget_impl*
-end;//TPrimCompInfoForm.pm_GetControlsToFree
-
 procedure TPrimCompInfoForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_516FC52E034F_var*
 //#UC END# *479731C50290_516FC52E034F_var*
 begin
@@ -403,8 +363,8 @@ begin
 //#UC END# *47EA4E9002C6_516FC52E034F_impl*
 end;//TPrimCompInfoForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimCompInfoForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_516FC52E034F_var*
 //#UC END# *49803F5503AA_516FC52E034F_var*
 begin
@@ -413,10 +373,9 @@ begin
  TvcmTabbedContainerFormDispatcher.Instance.UpdateTabCaption(As_IvcmEntityForm, DoGetTabCaption);
 //#UC END# *49803F5503AA_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCompInfoForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_516FC52E034F_var*
 //#UC END# *4A8E8F2E0195_516FC52E034F_var*
 begin
@@ -486,9 +445,7 @@ begin
  InitVisualRepresentationData;
 //#UC END# *4A8E8F2E0195_516FC52E034F_impl*
 end;//TPrimCompInfoForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimCompInfoForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_516FC52E034F_var*
 //#UC END# *53F1C6EF02C9_516FC52E034F_var*
@@ -497,9 +454,8 @@ begin
  Result := l3CStr(CurUserType.Caption);
 //#UC END# *53F1C6EF02C9_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimCompInfoForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_516FC52E034F_var*
 //#UC END# *543E3AA801D0_516FC52E034F_var*
@@ -508,7 +464,7 @@ begin
  Result := NsTabIconIndex(titComplectInfo);
 //#UC END# *543E3AA801D0_516FC52E034F_impl*
 end;//TPrimCompInfoForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TPrimCompInfoForm.MakeControls;
 begin
@@ -529,22 +485,18 @@ begin
  f_lblVisualRepresentationData.Name := 'lblVisualRepresentationData';
  f_lblVisualRepresentationData.Parent := pnVisualRepresentationDataCaption;
  f_lblVisualRepresentationData.Caption := 'Ваш комплект системы ГАРАНТ:';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimCompInfoForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_Name
  str_Name.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_Value
+ {* Инициализация str_Name }
  str_Value.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimCompInfo
+ {* Инициализация str_Value }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimCompInfoForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimCompInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

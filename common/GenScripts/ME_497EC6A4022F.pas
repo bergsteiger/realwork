@@ -21,10 +21,10 @@ uses
  , TreeInterfaces
  , QueryCardInterfaces
  , nscTreeViewWithAdapterDragDrop
+ , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , l3TreeInterfaces
  , DynamicTreeUnit
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
@@ -43,7 +43,6 @@ type
   {* Первый уровень дерева атрибутов }
   private
    f_FirstLevelContent: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FirstLevelContent }
   protected
    dsSimpleTree: IdsSimpleTree;
    dsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
@@ -107,7 +106,6 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3Base
  , nsAttributeOneLevelTreeStruct
  , SearchRes
@@ -118,22 +116,18 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimTreeAttributeFirstLevel_flSituation_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EC6A4022Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EC6A4022Fimpl_uses*
 ;
-
-const
- {* Локализуемые строки flSituationLocalConstants }
- str_flSituationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationCaption'; rValue : 'Ситуации первого уровня (вкладка)');
-  {* Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" }
- str_flSituationSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationSettingsCaption'; rValue : 'Поиск: Ситуации первого уровня (вкладка)');
-  {* Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" для настройки панелей инструментов }
 
 function TPrimTreeAttributeFirstLevelForm.FirstLevelContentGetItemImage(Sender: TObject;
  Index: Integer;
@@ -373,6 +367,16 @@ procedure TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged(const anOld: 
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsSimpleTree := nil;
+  dsTreeAttributeFirstLevel := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsSimpleTree, dsSimpleTree);
+  Supports(aNew, IdsTreeAttributeFirstLevel, dsTreeAttributeFirstLevel);
+ end;//aNew = nil
 end;//TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -386,6 +390,7 @@ begin
  begin
   PublishFormEntity(en_AttributeTree, nil);
   PublishFormEntity(en_Tree, nil);
+  MakeEntitySupportedByControl(en_Tree, FirstLevelContent);
   PublishOpWithResult(en_AttributeTree, op_SetParent, AttributeTree_SetParent, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_ExtSetRoot, AttributeTree_ExtSetRoot, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
@@ -402,7 +407,7 @@ begin
  with AddUsertype(flSituationName,
   str_flSituationCaption,
   str_flSituationSettingsCaption,
-  False,
+  True,
   29,
   40,
   '',
@@ -419,10 +424,6 @@ end;//TPrimTreeAttributeFirstLevelForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_flSituationCaption.Init;
- {* Инициализация str_flSituationCaption }
- str_flSituationSettingsCaption.Init;
- {* Инициализация str_flSituationSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTreeAttributeFirstLevelForm);
  {* Регистрация PrimTreeAttributeFirstLevel }

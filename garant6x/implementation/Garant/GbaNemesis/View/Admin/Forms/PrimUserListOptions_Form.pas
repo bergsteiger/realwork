@@ -1,115 +1,93 @@
 unit PrimUserListOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimUserListOptions_Form.pas"
-// Начат: 31.08.2010 15:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimUserListOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserListOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimUserListOptions" MUID: (4C7CE50101B3)
+// Имя типа: "TPrimUserListOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  PrimUserList_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimUserList_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimUserListOptionsForm = {form} class(TPrimUserListForm)
- protected
-  procedure InitEntities; override;
+ TPrimUserListOptionsForm = class(TPrimUserListForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimUserListOptionsForm
-
- TvcmEntityFormRef = TPrimUserListOptionsForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Admin_Users_Controls
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Admin_Users_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7CE50101B3impl_uses*
+ //#UC END# *4C7CE50101B3impl_uses*
+;
 
-{$If defined(Admin)}
-
-// start class TPrimUserListOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimUserListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, false);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_Users, op_Add, false);
-  ShowInToolbar(en_Users, op_Add, true);
-  
-  ShowInContextMenu(en_Users, op_LogoutUser, false);
-  ShowInToolbar(en_Users, op_LogoutUser, true);
-  
-  ShowInContextMenu(en_Users, op_ConsultingStateForNewbie, false);
-  ShowInToolbar(en_Users, op_ConsultingStateForNewbie, true);
-  
-  ShowInContextMenu(en_Users, op_Autoregistration, false);
-  ShowInToolbar(en_Users, op_Autoregistration, true);
-  
-  ShowInContextMenu(en_Users, op_AddPrivelegedRight, true);
-  ShowInToolbar(en_Users, op_AddPrivelegedRight, false);
-  
-  ShowInContextMenu(en_Users, op_RemovePrivelegedRight, true);
-  ShowInToolbar(en_Users, op_RemovePrivelegedRight, false);
-  
-  ShowInContextMenu(en_Users, op_UserFilter, false);
-  ShowInToolbar(en_Users, op_UserFilter, true);
-  
-  ShowInContextMenu(en_Users, op_DisableConsulting, true);
-  ShowInToolbar(en_Users, op_DisableConsulting, true);
-  
-  ShowInContextMenu(en_Users, op_EnableConsulting, true);
-  ShowInToolbar(en_Users, op_EnableConsulting, true);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
+  ShowInContextMenu(en_Users, op_Add, False);
+  ShowInToolbar(en_Users, op_Add, True);
+  ShowInContextMenu(en_Users, op_LogoutUser, False);
+  ShowInToolbar(en_Users, op_LogoutUser, True);
+  ShowInContextMenu(en_Users, op_ConsultingStateForNewbie, False);
+  ShowInToolbar(en_Users, op_ConsultingStateForNewbie, True);
+  ShowInContextMenu(en_Users, op_Autoregistration, False);
+  ShowInToolbar(en_Users, op_Autoregistration, True);
+  ShowInContextMenu(en_Users, op_AddPrivelegedRight, True);
+  ShowInToolbar(en_Users, op_AddPrivelegedRight, False);
+  ShowInContextMenu(en_Users, op_RemovePrivelegedRight, True);
+  ShowInToolbar(en_Users, op_RemovePrivelegedRight, False);
+  ShowInContextMenu(en_Users, op_UserFilter, False);
+  ShowInToolbar(en_Users, op_UserFilter, True);
+  ShowInContextMenu(en_Users, op_DisableConsulting, True);
+  ShowInToolbar(en_Users, op_DisableConsulting, True);
+  ShowInContextMenu(en_Users, op_EnableConsulting, True);
+  ShowInToolbar(en_Users, op_EnableConsulting, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //Admin
+end;//TPrimUserListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimUserListOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUserListOptionsForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimUserListOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

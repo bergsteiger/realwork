@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utRightEditionLocalConstants }
+ str_utRightEditionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRightEditionCaption'; rValue : 'Текущая редакция');
+  {* Заголовок пользовательского типа "Текущая редакция" }
  {* Константы для типа формы utRightEdition }
  utRightEditionName = 'utRightEdition';
   {* Строковый идентификатор пользовательского типа "Текущая редакция" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utRightEdition.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utRightEditionCaption.Init;
+ {* Инициализация str_utRightEditionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utRightEdition.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utRightEdition }

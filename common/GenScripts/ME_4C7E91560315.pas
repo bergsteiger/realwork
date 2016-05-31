@@ -15,6 +15,9 @@ uses
  , PrimFoldersElementInfo_Form
  , Folders_Result_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -72,6 +75,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E91560315impl_uses*
+ //#UC END# *4C7E91560315impl_uses*
 ;
 
 procedure TPrimFoldersElementInfoOptionsForm.ResultExt_Cancel_Test(const aParams: IvcmTestParamsPrim);
@@ -344,9 +349,16 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_ResultExt, nil);
+  ToolbarAtBottom(en_ResultExt);
   PublishOp(en_ResultExt, op_Cancel, ResultExt_Cancel_Execute, ResultExt_Cancel_Test, nil);
+  ShowInContextMenu(en_ResultExt, op_Cancel, False);
+  ShowInToolbar(en_ResultExt, op_Cancel, True);
   PublishOp(en_ResultExt, op_Ok, ResultExt_Ok_Execute, ResultExt_Ok_Test, ResultExt_Ok_GetState);
+  ShowInContextMenu(en_ResultExt, op_Ok, False);
+  ShowInToolbar(en_ResultExt, op_Ok, False);
   PublishOp(en_ResultExt, op_Append, ResultExt_Append_Execute, ResultExt_Append_Test, ResultExt_Append_GetState);
+  ShowInContextMenu(en_ResultExt, op_Append, False);
+  ShowInToolbar(en_ResultExt, op_Append, False);
  end;//with Entities.Entities
 end;//TPrimFoldersElementInfoOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

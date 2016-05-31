@@ -22,6 +22,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -88,6 +91,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C88D233003Eimpl_uses*
+ //#UC END# *4C88D233003Eimpl_uses*
 ;
 
 procedure TPrimPageSetupOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
@@ -302,23 +307,59 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_ColontitulMacro, nil);
   PublishOp(en_File, op_Print, nil, nil, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
   PublishOp(en_File, op_PrintDialog, nil, nil, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, True);
   PublishOp(en_File, op_PrintPreview, nil, nil, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
   PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
+  ShowInContextMenu(en_Result, op_Restore, False);
+  ShowInToolbar(en_Result, op_Restore, True);
   PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
+  ShowInContextMenu(en_Result, op_SaveAsDefault, False);
+  ShowInToolbar(en_Result, op_SaveAsDefault, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_ColontitulMacro, op_AppTitle, ColontitulMacro_AppTitle_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_AppTitle, True);
+  ShowInToolbar(en_ColontitulMacro, op_AppTitle, False);
   PublishOp(en_ColontitulMacro, op_DocName, ColontitulMacro_DocName_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocName, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocName, False);
   PublishOp(en_ColontitulMacro, op_DocFullName, ColontitulMacro_DocFullName_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocFullName, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocFullName, True);
   PublishOp(en_ColontitulMacro, op_DocRedactionDate, ColontitulMacro_DocRedactionDate_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocRedactionDate, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocRedactionDate, False);
   PublishOp(en_ColontitulMacro, op_DocCurrentPage, ColontitulMacro_DocCurrentPage_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocCurrentPage, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocCurrentPage, False);
   PublishOp(en_ColontitulMacro, op_DocPagesCount, ColontitulMacro_DocPagesCount_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocPagesCount, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocPagesCount, False);
   PublishOp(en_ColontitulMacro, op_CurrentDate, ColontitulMacro_CurrentDate_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_CurrentDate, True);
+  ShowInToolbar(en_ColontitulMacro, op_CurrentDate, False);
   PublishOp(en_ColontitulMacro, op_CurrentTime, ColontitulMacro_CurrentTime_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_CurrentTime, True);
+  ShowInToolbar(en_ColontitulMacro, op_CurrentTime, False);
   PublishOp(en_ColontitulMacro, op_InternalDocNumber, ColontitulMacro_InternalDocNumber_Execute, ColontitulMacro_InternalDocNumber_Test, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_InternalDocNumber, True);
+  ShowInToolbar(en_ColontitulMacro, op_InternalDocNumber, False);
   PublishOp(en_ColontitulMacro, op_DocumentSIze, ColontitulMacro_DocumentSIze_Execute, nil, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_DocumentSIze, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocumentSIze, False);
   PublishOp(en_ColontitulMacro, op_FilePosition, ColontitulMacro_FilePosition_Execute, ColontitulMacro_FilePosition_Test, nil);
+  ShowInContextMenu(en_ColontitulMacro, op_FilePosition, True);
+  ShowInToolbar(en_ColontitulMacro, op_FilePosition, False);
  end;//with Entities.Entities
 end;//TPrimPageSetupOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtPostingOrderLocalConstants }
+ str_slqtPostingOrderCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtPostingOrderCaption'; rValue : 'Настройка индивидуальной ленты новостей');
+  {* Заголовок пользовательского типа "Настройка индивидуальной ленты новостей" }
  {* Константы для типа формы slqtPostingOrder }
  slqtPostingOrderName = 'slqtPostingOrder';
   {* Строковый идентификатор пользовательского типа "Настройка индивидуальной ленты новостей" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtPostingOrder.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtPostingOrderCaption.Init;
+ {* Инициализация str_slqtPostingOrderCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtPostingOrder.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtPostingOrder }

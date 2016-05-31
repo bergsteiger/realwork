@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_LoginLocalConstants }
+ str_ut_LoginCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LoginCaption'; rValue : 'Вход в систему ГАРАНТ');
+  {* Заголовок пользовательского типа "Вход в систему ГАРАНТ" }
  {* Константы для типа формы ut_Login }
  ut_LoginName = 'ut_Login';
   {* Строковый идентификатор пользовательского типа "Вход в систему ГАРАНТ" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_ut_Login.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_LoginCaption.Init;
+ {* Инициализация str_ut_LoginCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Login.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_Login }

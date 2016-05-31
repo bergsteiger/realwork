@@ -27,18 +27,18 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsQuery
  , SimpleListInterfaces
+ , bsTypes
  , vtPanel
+ {$If NOT Defined(Monitorings)}
+ , FoldersDomainInterfaces
+ {$IfEnd} // NOT Defined(Monitorings)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtLabel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
- , bsTypes
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(Monitorings)}
- , FoldersDomainInterfaces
- {$IfEnd} // NOT Defined(Monitorings)
  , SearchUnit
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
@@ -64,17 +64,11 @@ type
    f_LastQueryIndex: Integer;
    Filters: IucpFilters;
    f_pnHeader: TvtPanel;
-    {* Поле для свойства pnHeader }
-   f_lbHeader: TvtLabel;
-    {* Поле для свойства lbHeader }
-   f_pbHeader: TPaintBox;
-    {* Поле для свойства pbHeader }
    f_ParentZone: TvtPanel;
-    {* Поле для свойства ParentZone }
    f_QueryHistory: TvcmItems;
-    {* Поле для свойства QueryHistory }
    f_SearchState: InsSearchTypeState;
-    {* Поле для свойства SearchState }
+   f_lbHeader: TvtLabel;
+   f_pbHeader: TPaintBox;
   private
    procedure UpdateLabel(aSender: TObject);
    procedure pbHeaderPaint(aSender: TObject);
@@ -131,7 +125,6 @@ type
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -139,6 +132,7 @@ type
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -251,9 +245,9 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3MessageID
- , l3StringIDEx
  , nsLogEvent
+ , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(Monitorings)}
  , nsFolders
  {$IfEnd} // NOT Defined(Monitorings)
@@ -295,12 +289,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SearchLite_FormDefinitions_Controls
  , nsQueryUtils
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , afwFacade
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
@@ -313,7 +301,27 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ConsultingUnit
  , nsPostingsTreeSingle
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimSaveLoadUserTypes_slqtAttribute_UserType
+ , PrimSaveLoadUserTypes_slqtKW_UserType
+ , PrimSaveLoadUserTypes_slqtOldKW_UserType
+ , PrimSaveLoadUserTypes_slqtPublishSource_UserType
+ , PrimSaveLoadUserTypes_slqtFilters_UserType
+ , PrimSaveLoadUserTypes_slqtLegislationReview_UserType
+ , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
+ , PrimSaveLoadUserTypes_slqtConsult_UserType
+ , PrimSaveLoadUserTypes_slqtInpharmSearch_UserType
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
  , LoggingUnit
+ //#UC START# *4958E3AB0247impl_uses*
+ //#UC END# *4958E3AB0247impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -347,12 +355,12 @@ type
 
 const
  {* Локализуемые строки Local }
+ str_FilterCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'FilterCaption'; rValue : 'Фильтр');
+  {* 'Фильтр' }
  str_WellDone: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'WellDone'; rValue : 'Ваша анкета ПРАЙМ успешно изменена!');
   {* 'Ваша анкета ПРАЙМ успешно изменена!' }
  str_QueryIsEmptyMessage: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'QueryIsEmptyMessage'; rValue : 'Пожалуйста, уточните запрос.');
   {* 'Пожалуйста, уточните запрос.' }
- str_FilterCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'FilterCaption'; rValue : 'Фильтр');
-  {* 'Фильтр' }
 
 {$If NOT Defined(Monitorings)}
 class procedure TnsLoadQueryEvent.Log(const aQuery: IQuery);
@@ -2023,12 +2031,6 @@ begin
 //#UC END# *4D78E2BB0211_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.NotifyUserTypeSet
 
-procedure TPrimSaveLoadForm.ClearFields;
-begin
- f_SearchState := nil;
- inherited;
-end;//TPrimSaveLoadForm.ClearFields
-
 function TPrimSaveLoadForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4958E3AB0247_var*
 //#UC END# *53F1C6EF02C9_4958E3AB0247_var*
@@ -2058,10 +2060,24 @@ begin
 //#UC END# *55127A5401DE_4958E3AB0247_impl*
 end;//TPrimSaveLoadForm.IsAcceptable
 
+procedure TPrimSaveLoadForm.ClearFields;
+begin
+ f_SearchState := nil;
+ inherited;
+end;//TPrimSaveLoadForm.ClearFields
+
 procedure TPrimSaveLoadForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  Filters := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IucpFilters, Filters);
+ end;//aNew = nil
 end;//TPrimSaveLoadForm.SignalDataSourceChanged
 
 procedure TPrimSaveLoadForm.InitEntities;
@@ -2078,6 +2094,7 @@ begin
   PublishFormEntity(en_Filterable, nil);
   PublishFormEntity(en_Filters, nil);
   PublishFormEntity(en_LogicOperation, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
   PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
   PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
@@ -2096,8 +2113,6 @@ begin
   PublishOp(en_LogicOperation, op_LogicOr, LogicOperation_LogicOr_Execute, LogicOperation_LogicOr_Test, nil);
   PublishOp(en_LogicOperation, op_LogicAnd, LogicOperation_LogicAnd_Execute, LogicOperation_LogicAnd_Test, nil);
   PublishOp(en_LogicOperation, op_LogicNot, LogicOperation_LogicNot_Execute, LogicOperation_LogicNot_Test, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
-  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
   PublishOp(en_Filters, op_FiltersListOpen, Filters_FiltersListOpen_Execute, Filters_FiltersListOpen_Test, nil);
   PublishOpWithResult(en_Filterable, op_GetListType, Filterable_GetListType, nil, nil);
  end;//with Entities.Entities
@@ -2118,21 +2133,21 @@ begin
  f_ParentZone := TvtPanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := Self;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
   FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
  end;//with DefineZone(vcm_ztParent
 end;//TPrimSaveLoadForm.MakeControls
 
 initialization
+ str_FilterCaption.Init;
+ {* Инициализация str_FilterCaption }
  str_WellDone.Init;
  str_WellDone.SetDlgType(mtInformation);
  {* Инициализация str_WellDone }
  str_QueryIsEmptyMessage.Init;
  str_QueryIsEmptyMessage.SetDlgType(mtWarning);
  {* Инициализация str_QueryIsEmptyMessage }
- str_FilterCaption.Init;
- {* Инициализация str_FilterCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSaveLoadForm);
  {* Регистрация PrimSaveLoad }

@@ -1,135 +1,105 @@
 unit PrimSaveLoadOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimSaveLoadOptions_Form.pas"
-// Начат: 09.09.2010 15:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimSaveLoadOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimSaveLoadOptions" MUID: (4C88C4630176)
+// Имя типа: "TPrimSaveLoadOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  PrimSaveLoad_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimSaveLoad_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimSaveLoadOptionsForm = {form} class(TPrimSaveLoadForm)
- protected
-  procedure InitEntities; override;
+ TPrimSaveLoadOptionsForm = class(TPrimSaveLoadForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSaveLoadOptionsForm
-
- TvcmContainerFormRef = TPrimSaveLoadOptionsForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  afwFacade
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3Interfaces,
-  l3String,
-  StdRes {a},
-  Search_Strange_Controls,
-  SearchLite_Strange_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , Search_Strange_Controls
+ , SearchLite_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , afwFacade
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3String
+ //#UC START# *4C88C4630176impl_uses*
+ //#UC END# *4C88C4630176impl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TPrimSaveLoadOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  
-  ShowInContextMenu(en_File, op_SaveToFolder, true);
-  ShowInToolbar(en_File, op_SaveToFolder, true);
-  
-  ShowInContextMenu(en_File, op_LoadFromFolder, true);
-  ShowInToolbar(en_File, op_LoadFromFolder, true);
-  
-  ShowInContextMenu(en_Result, op_ClearAll, true);
-  ShowInToolbar(en_Result, op_ClearAll, true);
-  
-  ShowInContextMenu(en_Query, op_GetOldQuery, true);
-  ShowInToolbar(en_Query, op_GetOldQuery, true);
-  
-  ShowInContextMenu(en_Query, op_SearchType, false);
-  ShowInToolbar(en_Query, op_SearchType, true);
-  
-  ShowInContextMenu(en_LogicOperation, op_LogicOr, true);
-  ShowInToolbar(en_LogicOperation, op_LogicOr, true);
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Cancel, true);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_OkExt, true);
-  ShowInToolbar(en_Result, op_OkExt, true);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_Filters, op_FiltersListOpen, false);
-  ShowInToolbar(en_Filters, op_FiltersListOpen, true);
+  ShowInContextMenu(en_File, op_SaveToFolder, True);
+  ShowInToolbar(en_File, op_SaveToFolder, True);
+  ShowInContextMenu(en_File, op_LoadFromFolder, True);
+  ShowInToolbar(en_File, op_LoadFromFolder, True);
+  ShowInContextMenu(en_Result, op_ClearAll, True);
+  ShowInToolbar(en_Result, op_ClearAll, True);
+  ShowInContextMenu(en_Query, op_GetOldQuery, True);
+  ShowInToolbar(en_Query, op_GetOldQuery, True);
+  ShowInContextMenu(en_Query, op_SearchType, False);
+  ShowInToolbar(en_Query, op_SearchType, True);
+  ShowInContextMenu(en_LogicOperation, op_LogicOr, True);
+  ShowInToolbar(en_LogicOperation, op_LogicOr, True);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ShowInContextMenu(en_Result, op_OkExt, True);
+  ShowInToolbar(en_Result, op_OkExt, True);
+  ShowInContextMenu(en_Filters, op_FiltersListOpen, False);
+  ShowInToolbar(en_Filters, op_FiltersListOpen, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimSaveLoadOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimSaveLoadOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSaveLoadOptionsForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimSaveLoadOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

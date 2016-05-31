@@ -1,232 +1,229 @@
 unit PrimListOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/PrimListOptions_Form.pas"
-// Начат: 21.07.2010 12:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::PrimListOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimListOptions" MUID: (4C46AA3401DB)
+// Имя типа: "TPrimListOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  bsTypes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  ,
-  Base_Operations_F1Specific_Controls,
-  PrimList_Form,
-  afwNavigation,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  BaseSearchInterfaces,
-  Common_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  WorkWithList_ListOperations_Controls,
-  Hypertext_Controls_Controls,
-  l3Variant
-  {$If defined(Nemesis)}
-  ,
-  nscReminder
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscRemindersLine
-  {$IfEnd} //Nemesis
-  ,
-  PrimPrimListInterfaces,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Interfaces,
-  DynamicDocListUnit,
-  l3TreeInterfaces,
-  FiltersUnit,
-  FoldersDomainInterfaces,
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimList_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ , BaseSearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_Strange_Controls
+ , Base_Operations_Strange_Controls
+ , WorkWithList_ListOperations_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypes
+ {$If Defined(Nemesis)}
+ , nscRemindersLine
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscReminder
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , afwInterfaces
+ , afwNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicDocListUnit
+ , FoldersDomainInterfaces
+ , l3TreeInterfaces
+ , FiltersUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3StringIDEx
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-var
-  { Локализуемые строки Reminders' Hints }
- str_remListModifiedHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remListModifiedHint'; rValue : 'Список был изменен');
-  { 'Список был изменен' }
- str_remListFilteredHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remListFilteredHint'; rValue : 'Список отфильтрован');
-  { 'Список отфильтрован' }
- str_remTimeMachineWarningHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remTimeMachineWarningHint'; rValue : 'Машина времени включена');
-  { 'Машина времени включена' }
-
-var
-  { Локализуемые строки List constants }
- str_DocumentList : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentList'; rValue : 'Список документов');
-  { 'Список документов' }
- str_DrugList : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DrugList'; rValue : 'Список препаратов');
-  { 'Список препаратов' }
- str_MedicinalPlantList : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MedicinalPlantList'; rValue : 'Список лекарственных растений');
-  { 'Список лекарственных растений' }
+const
+ {* Локализуемые строки Reminders' Hints }
+ str_remListModifiedHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remListModifiedHint'; rValue : 'Список был изменен');
+  {* 'Список был изменен' }
+ str_remListFilteredHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remListFilteredHint'; rValue : 'Список отфильтрован');
+  {* 'Список отфильтрован' }
+ str_remTimeMachineWarningHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remTimeMachineWarningHint'; rValue : 'Машина времени включена');
+  {* 'Машина времени включена' }
+ {* Локализуемые строки List constants }
+ str_DocumentList: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentList'; rValue : 'Список документов');
+  {* 'Список документов' }
+ str_DrugList: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DrugList'; rValue : 'Список препаратов');
+  {* 'Список препаратов' }
+ str_MedicinalPlantList: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MedicinalPlantList'; rValue : 'Список лекарственных растений');
+  {* 'Список лекарственных растений' }
 
 type
- TPrimListOptionsForm = {form} class(TPrimListForm, InsBaseSearchListSource)
- private
- // private fields
-   f_RemindersLine : TnscRemindersLine;
-    {* Поле для свойства RemindersLine}
-   f_remListFiltered : TnscReminder;
-    {* Поле для свойства remListFiltered}
-   f_remListModified : TnscReminder;
-    {* Поле для свойства remListModified}
-   f_remTimeMachineWarning : TnscReminder;
-    {* Поле для свойства remTimeMachineWarning}
-   f_EmptyListEditor : TnscEditor;
-    {* Поле для свойства EmptyListEditor}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimListOptionsForm = class(TPrimListForm, InsBaseSearchListSource)
+  private
+   f_RemindersLine: TnscRemindersLine;
+   f_remListFiltered: TnscReminder;
+   f_remListModified: TnscReminder;
+   f_remTimeMachineWarning: TnscReminder;
+   f_EmptyListEditor: TnscEditor;
+  protected
+   f_ListOpsList: IvcmItems;
+   f_ValidSortTypes: TbsValidSortTypes;
+  private
    procedure GenerateText(const aGen: Ik2TagGenerator);
-     {* генерирует текст, в случае когда списка корреспондентов/
+    {* генерирует текст, в случае когда списка корреспондентов/
           респоспондентов заданного типа нет. }
    procedure ChangeControlsVisible(aShowList: Boolean);
-     {* редактор и список могут подменять друг друга, редактор показывается
+    {* редактор и список могут подменять друг друга, редактор показывается
            для пустого списка с разъяснением почему список пустой }
    function EditorJumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
    procedure OpenSelectedDocumentInContainer(aOpenKind: TvcmMainFormOpenKind;
-     aNoActivate: Boolean = False);
+    aNoActivate: Boolean = False);
    function MakeCaption: IvcmCString;
    procedure UpdateStatusBar;
-     {* Сигнатура метода UpdateStatusBar }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
-     {* Экспорт в Word }
-   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Экспорт в Word }
-   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
-     {* Послать по e-mail }
-   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Послать по e-mail }
-   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
-     {* Добавить закладку }
-   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Добавить закладку }
+  protected
+   function CurrentImageIndex: Integer;
+   procedure DefineCaption;
    function Get_SearchList: IDynList;
-   {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Выделить всё }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Выделить всё }
-   {$IfEnd} //not NoVCM
    procedure ShowEditorOrList(const aTree: Il3SimpleTree); override;
    function ApplyFilter(const aFilter: IFilterFromQuery;
     aAdd: Boolean = False): Boolean; override;
    function IsListEmpty: Boolean; override;
    procedure QueryMaximized; override;
    procedure QueryOpen; override;
-   {$If not defined(NoVCM)}
-   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
-     {* Перенос по словам }
-   {$IfEnd} //not NoVCM
    procedure SaveToFolders(aOperation: Integer = 0); override;
    function MakeFilterInfo(aType: TnsFolderFilter): InsFolderFilterInfo; override;
    procedure ResetSaveToFolderOperations; override;
    function CheckValidSortTypes(aSortType: TbsValidSortTypes): Boolean; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure FinishDataUpdate; override;
+   procedure SettingsReplaceFinish; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure EntitiesInited; override;
+    {* Вызывается после того как все операции зарегистрированы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ReleaseResources; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+    {* Экспорт в Word }
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+    {* Послать по e-mail }
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Послать по e-mail }
+   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить закладку }
+   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить закладку }
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure List_OrAnotherList_Test(const aParams: IvcmTestParamsPrim);
    procedure List_OrAnotherList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure List_AndAnotherList_Test(const aParams: IvcmTestParamsPrim);
@@ -248,26 +245,26 @@ type
    procedure Document_Print_Test(const aParams: IvcmTestParamsPrim);
    procedure Document_Print_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure WarnListFiltered_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отменить все фильтры }
+    {* Отменить все фильтры }
    procedure Reminder_RemListModified_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_RemListModified_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_RemListFiltered_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_RemListFiltered_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_RemListTimeMachineWarning_Test(const aParams: IvcmTestParamsPrim);
    procedure List_WorkWithList_Test(const aParams: IvcmTestParamsPrim);
-     {* Работа со списком }
+    {* Работа со списком }
    procedure DocumentInList_OpenDocumentInNewTab_Test(const aParams: IvcmTestParamsPrim);
-     {* Открыть документ в новой вкладке }
+    {* Открыть документ в новой вкладке }
    procedure DocumentInList_OpenDocumentInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть документ в новой вкладке }
+    {* Открыть документ в новой вкладке }
    procedure DocumentInList_OpenDocumentInNewWindow_Test(const aParams: IvcmTestParamsPrim);
-     {* Открыть документ в новом окне }
+    {* Открыть документ в новом окне }
    procedure DocumentInList_OpenDocumentInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть документ в новом окне }
+    {* Открыть документ в новом окне }
    procedure SelectedDocuments_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
-     {* Создать ссылку на документ }
+    {* Создать ссылку на документ }
    procedure SelectedDocuments_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Создать ссылку на документ }
+    {* Создать ссылку на документ }
    procedure List_OrAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
    procedure List_OrAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure List_AndAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
@@ -275,195 +272,163 @@ type
    procedure List_AndNotAnotherListForReminders_Test(const aParams: IvcmTestParamsPrim);
    procedure List_AndNotAnotherListForReminders_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SelectedDocuments_AddToControl_Test(const aParams: IvcmTestParamsPrim);
-     {* Поставить на контроль }
-   procedure SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
-     {* Поставить на контроль }
+    {* Поставить на контроль }
    procedure SelectedDocuments_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Поставить на контроль }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure FinishDataUpdate; override;
-   procedure SettingsReplaceFinish; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure EntitiesInited; override;
-     {* Вызывается после того как все операции зарегистрированы }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure ReleaseResources; override;
-     {* Сигнатура метода ReleaseResources }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+    {* Поставить на контроль }
+   procedure SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить на контроль }
+   {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
-     {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_ListOpsList : IvcmItems;
-   f_ValidSortTypes : TbsValidSortTypes;
- protected
- // protected methods
-   function CurrentImageIndex: Integer;
-   procedure DefineCaption;
- public
- // public properties
+    {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property RemindersLine: TnscRemindersLine
-     read f_RemindersLine;
+    read f_RemindersLine;
    property remListFiltered: TnscReminder
-     read f_remListFiltered;
+    read f_remListFiltered;
    property remListModified: TnscReminder
-     read f_remListModified;
+    read f_remListModified;
    property remTimeMachineWarning: TnscReminder
-     read f_remTimeMachineWarning;
-
+    read f_remTimeMachineWarning;
    property EmptyListEditor: TnscEditor
-     read f_EmptyListEditor;
+    read f_EmptyListEditor;
  end;//TPrimListOptionsForm
-
- TvcmContainerFormRef = TPrimListOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  nsToMSWordOp,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsExternalObjectPrim,
-  nsTypes,
-  bsUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentUnit,
-  nsUtils,
-  DocumentInterfaces,
-  PresentationInterfaces,
-  BaseTypesUnit,
-  nsDocumentTools,
-  l3String,
-  DataAdapter,
-  nsConst,
-  resWarnImages,
-  SysUtils,
-  TextPara_Const,
-  Document_Const,
-  k2Tags,
-  l3Chars,
-  nevNavigation,
-  Windows,
-  nsListSortTypeMap,
-  nsFolderFilterInfo,
-  ListUserTypes_lftConsultation_UserType,
-  ListUserTypes_lftCorrespondent_UserType,
-  ListUserTypes_lftCorrespondentsSynchroForm_UserType,
-  ListUserTypes_lftDrugInternationalNameSynonyms_UserType,
-  ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType,
-  ListUserTypes_lftRespondent_UserType,
-  ListUserTypes_lftSynchroView_UserType,
-  ListUserTypes_lftUserCR1_UserType,
-  ListUserTypes_lftUserCR2_UserType,
-  ListUserTypes_lftCToPart_UserType,
-  nsValueMaps,
-  Common_FormDefinitions_Controls,
-  ListUserTypes_lftSimilarDocumentsSynchroView_UserType,
-  ListUserTypes_lftProducedDrugsSynchroForm_UserType,
-  ListUserTypes_lftNone_UserType,
-  ListUserTypes_lftProducedDrugs_UserType,
-  ListUserTypes_lftSimilarDocuments_UserType,
-  nsValueMapsIDs,
-  ListUserTypes_lftDrugList_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmItems
-  {$IfEnd} //not NoVCM
-  ,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  ListUserTypes_lftRToPart_UserType,
-  BaloonWarningUserTypes_remListModified_UserType,
-  BaloonWarningUserTypes_remListFiltered_UserType,
-  BaloonWarningUserTypes_remTimeMachineWarning_UserType,
-  ListUserTypes_lftSimilarDocumentsToFragment_UserType,
-  nsListExceptions,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  nsManagers,
-  LoggingUnit
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDefsList
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDef
-  {$IfEnd} //Nemesis
-  ,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  evConstStringData,
-  evdHyperlinkInfo,
-  nsHyperlinkToDocumentProducerConst
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Search_Strange_Controls,
-  WorkWithList_StatusBar_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsToMSWordOp
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsExternalObjectPrim
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , bsUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , nsUtils
+ , DocumentInterfaces
+ , PresentationInterfaces
+ , BaseTypesUnit
+ , nsDocumentTools
+ , l3String
+ , DataAdapter
+ , l3Base
+ , nsConst
+ , resWarnImages
+ , SysUtils
+ , TextPara_Const
+ , Document_Const
+ , k2Tags
+ , l3Chars
+ , nevNavigation
+ , Windows
+ , nsListSortTypeMap
+ , nsFolderFilterInfo
+ , ListUserTypes_lftConsultation_UserType
+ , ListUserTypes_lftCorrespondent_UserType
+ , ListUserTypes_lftCorrespondentsSynchroForm_UserType
+ , ListUserTypes_lftDrugInternationalNameSynonyms_UserType
+ , ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType
+ , ListUserTypes_lftRespondent_UserType
+ , ListUserTypes_lftSynchroView_UserType
+ , ListUserTypes_lftUserCR1_UserType
+ , ListUserTypes_lftUserCR2_UserType
+ , ListUserTypes_lftCToPart_UserType
+ , nsValueMaps
+ , Common_FormDefinitions_Controls
+ , ListUserTypes_lftSimilarDocumentsSynchroView_UserType
+ , ListUserTypes_lftProducedDrugsSynchroForm_UserType
+ , ListUserTypes_lftNone_UserType
+ , ListUserTypes_lftProducedDrugs_UserType
+ , ListUserTypes_lftSimilarDocuments_UserType
+ , nsValueMapsIDs
+ , ListUserTypes_lftDrugList_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmItems
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , WorkWithList_StatusBar_Controls
+ , ListUserTypes_lftRToPart_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , ListUserTypes_lftSimilarDocumentsToFragment_UserType
+ , nsListExceptions
+ , nsSaveDialogExecutor
+ , l3BatchService
+ {$If NOT Defined(NoScripts)}
+ , nscTreeViewForDocumentListWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Hypertext_Controls_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , nsManagers
+ , LoggingUnit
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , evConstStringData
+ , evdHyperlinkInfo
+ , nsHyperlinkToDocumentProducerConst
+ //#UC START# *4C46AA3401DBimpl_uses*
+ , Document_F1Lite_Controls
+ //#UC END# *4C46AA3401DBimpl_uses*
+;
 
 const
-   { LinkHandles }
-  c_nsClearFiltersLink = 1;
-   { ссылка в документе очистить все фильтры }
-  c_nsOpenReferenceLink = 2;
-   { ссылка в списке справка к списку }
+ c_nsClearFiltersLink = 1;
+  {* ссылка в документе очистить все фильтры }
+ c_nsOpenReferenceLink = 2;
+  {* ссылка в списке справка к списку }
 
-// start class TPrimListOptionsForm
+function TPrimListOptionsForm.CurrentImageIndex: Integer;
+//#UC START# *4F82B02C00CC_4C46AA3401DB_var*
+//#UC END# *4F82B02C00CC_4C46AA3401DB_var*
+begin
+//#UC START# *4F82B02C00CC_4C46AA3401DB_impl*
+ Result := UserTypes[UserType].ImageIndex;
+ if (UserType in [lftSynchroView,
+                  lftRToPart,
+                  lftCToPart,
+                  lftUserCR1,
+                  lftUserCR2]) then
+ begin
+  if (Container <> nil) and Assigned(dsDocumentList) then
+   case dsDocumentList.DocumentListType of
+    crtRespondents:
+     Result := UserTypes[Integer(lftRespondent)].ImageIndex;
+    crtCorrespondents:
+     Result := UserTypes[Integer(lftCorrespondent)].ImageIndex;
+   end;//case dsDocumentList.DocumentListType of
+ end;//if (UserType in [lftSynchroView,
+//#UC END# *4F82B02C00CC_4C46AA3401DB_impl*
+end;//TPrimListOptionsForm.CurrentImageIndex
 
 procedure TPrimListOptionsForm.GenerateText(const aGen: Ik2TagGenerator);
+ {* генерирует текст, в случае когда списка корреспондентов/
+          респоспондентов заданного типа нет. }
 //#UC START# *4F82B4C6025F_4C46AA3401DB_var*
 
   procedure lpOutString(const aValue: Il3CString);
@@ -620,6 +585,8 @@ begin
 end;//TPrimListOptionsForm.GenerateText
 
 procedure TPrimListOptionsForm.ChangeControlsVisible(aShowList: Boolean);
+ {* редактор и список могут подменять друг друга, редактор показывается
+           для пустого списка с разъяснением почему список пустой }
 //#UC START# *4F82B4EE0330_4C46AA3401DB_var*
 
 (* procedure lp_Show(const aControl: TWinControl);
@@ -652,8 +619,8 @@ begin
 end;//TPrimListOptionsForm.ChangeControlsVisible
 
 function TPrimListOptionsForm.EditorJumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
 //#UC START# *4F82B51B0333_4C46AA3401DB_var*
 var
  l_HL   : IevHyperlink;
@@ -681,8 +648,17 @@ begin
 //#UC END# *4F82B51B0333_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.EditorJumpTo
 
+procedure TPrimListOptionsForm.DefineCaption;
+//#UC START# *4F82BF6E011A_4C46AA3401DB_var*
+//#UC END# *4F82BF6E011A_4C46AA3401DB_var*
+begin
+//#UC START# *4F82BF6E011A_4C46AA3401DB_impl*
+ CCaption := MakeCaption;
+//#UC END# *4F82BF6E011A_4C46AA3401DB_impl*
+end;//TPrimListOptionsForm.DefineCaption
+
 procedure TPrimListOptionsForm.OpenSelectedDocumentInContainer(aOpenKind: TvcmMainFormOpenKind;
-  aNoActivate: Boolean = False);
+ aNoActivate: Boolean = False);
 //#UC START# *53DB3D9100F3_4C46AA3401DB_var*
 var
  l_DataInfo: IdeDocInfo;
@@ -787,40 +763,9 @@ begin
 //#UC END# *558010F802FC_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.UpdateStatusBar
 
-function TPrimListOptionsForm.CurrentImageIndex: Integer;
-//#UC START# *4F82B02C00CC_4C46AA3401DB_var*
-//#UC END# *4F82B02C00CC_4C46AA3401DB_var*
-begin
-//#UC START# *4F82B02C00CC_4C46AA3401DB_impl*
- Result := UserTypes[UserType].ImageIndex;
- if (UserType in [lftSynchroView,
-                  lftRToPart,
-                  lftCToPart,
-                  lftUserCR1,
-                  lftUserCR2]) then
- begin
-  if (Container <> nil) and Assigned(dsDocumentList) then
-   case dsDocumentList.DocumentListType of
-    crtRespondents:
-     Result := UserTypes[Integer(lftRespondent)].ImageIndex;
-    crtCorrespondents:
-     Result := UserTypes[Integer(lftCorrespondent)].ImageIndex;
-   end;//case dsDocumentList.DocumentListType of
- end;//if (UserType in [lftSynchroView,
-//#UC END# *4F82B02C00CC_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.CurrentImageIndex
-
-procedure TPrimListOptionsForm.DefineCaption;
-//#UC START# *4F82BF6E011A_4C46AA3401DB_var*
-//#UC END# *4F82BF6E011A_4C46AA3401DB_var*
-begin
-//#UC START# *4F82BF6E011A_4C46AA3401DB_impl*
- CCaption := MakeCaption;
-//#UC END# *4F82BF6E011A_4C46AA3401DB_impl*
-end;//TPrimListOptionsForm.DefineCaption
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4C46AA3401DBtest_var*
 //#UC END# *494F89C30197_4C46AA3401DBtest_var*
 begin
@@ -828,21 +773,11 @@ begin
  SelectionOpsTest(aParams);
 //#UC END# *494F89C30197_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_4C46AA3401DBgetstate_var*
-//#UC END# *494F89C30197_4C46AA3401DBgetstate_var*
-begin
-//#UC START# *494F89C30197_4C46AA3401DBgetstate_impl*
- // - ничего не делаем
-//#UC END# *494F89C30197_4C46AA3401DBgetstate_impl*
-end;//TPrimListOptionsForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4C46AA3401DBexec_var*
 //#UC END# *494F89C30197_4C46AA3401DBexec_var*
 begin
@@ -853,10 +788,23 @@ begin
   aParams.CallControl;
 //#UC END# *494F89C30197_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+procedure TPrimListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4C46AA3401DBgetstate_var*
+//#UC END# *494F89C30197_4C46AA3401DBgetstate_var*
+begin
+//#UC START# *494F89C30197_4C46AA3401DBgetstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4C46AA3401DBgetstate_impl*
+end;//TPrimListOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C46AA3401DBtest_var*
 //#UC END# *49521D8E0295_4C46AA3401DBtest_var*
 begin
@@ -865,10 +813,11 @@ begin
  ListOpsTest(aParams);
 //#UC END# *49521D8E0295_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_Print_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C46AA3401DBexec_var*
 var
  l_Preview : IafwComplexDocumentPreview;
@@ -882,10 +831,11 @@ begin
  end;//if (l_Preview <> nil) then
 //#UC END# *49521D8E0295_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.File_Print_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C46AA3401DBtest_var*
 //#UC END# *495220DE0298_4C46AA3401DBtest_var*
 begin
@@ -894,10 +844,11 @@ begin
  ListOpsTest(aParams);
 //#UC END# *495220DE0298_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C46AA3401DBexec_var*
 var
  l_Preview : IafwComplexDocumentPreview;
@@ -925,10 +876,11 @@ begin
  end;//if (afw.Application <> nil)...
 //#UC END# *495220DE0298_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C46AA3401DBtest_var*
 //#UC END# *495220F2033A_4C46AA3401DBtest_var*
 begin
@@ -936,10 +888,11 @@ begin
  ListopPrintTest(aParams);
 //#UC END# *495220F2033A_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C46AA3401DBexec_var*
 var
  l_Preview: IafwComplexDocumentPreview;
@@ -952,10 +905,11 @@ begin
  TdmStdRes.MakePreview(l_Preview);
 //#UC END# *495220F2033A_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4C46AA3401DBtest_var*
 //#UC END# *495235F401C0_4C46AA3401DBtest_var*
 begin
@@ -964,10 +918,11 @@ begin
  ListOpsTest(aParams);
 //#UC END# *495235F401C0_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.File_Save_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4C46AA3401DBexec_var*
 //#UC END# *495235F401C0_4C46AA3401DBexec_var*
 begin
@@ -975,9 +930,10 @@ begin
  SaveList(True);
 //#UC END# *495235F401C0_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.File_Save_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimListOptionsForm.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4C46AA3401DBtest_var*
 //#UC END# *495238EB0160_4C46AA3401DBtest_var*
 begin
@@ -989,6 +945,7 @@ begin
 end;//TPrimListOptionsForm.File_ToMSWord_Test
 
 procedure TPrimListOptionsForm.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4C46AA3401DBexec_var*
 var
  //l_PathName   : Il3CString;
@@ -1050,6 +1007,7 @@ begin
 end;//TPrimListOptionsForm.File_ToMSWord_Execute
 
 procedure TPrimListOptionsForm.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_4C46AA3401DBtest_var*
 //#UC END# *495253870002_4C46AA3401DBtest_var*
 begin
@@ -1060,6 +1018,7 @@ begin
 end;//TPrimListOptionsForm.File_SendMailAsAttachment_Test
 
 procedure TPrimListOptionsForm.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_4C46AA3401DBexec_var*
 var
  //l_PathName   : Il3CString;
@@ -1116,6 +1075,7 @@ begin
 end;//TPrimListOptionsForm.File_SendMailAsAttachment_Execute
 
 procedure TPrimListOptionsForm.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить закладку }
 //#UC START# *4989D06D014E_4C46AA3401DBtest_var*
 //#UC END# *4989D06D014E_4C46AA3401DBtest_var*
 begin
@@ -1125,6 +1085,7 @@ begin
 end;//TPrimListOptionsForm.Document_AddBookmark_Test
 
 procedure TPrimListOptionsForm.Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить закладку }
 //#UC START# *4989D06D014E_4C46AA3401DBexec_var*
 
   function lp_FolderElementType: TFoldersElementType;
@@ -1172,8 +1133,9 @@ begin
 //#UC END# *49916C1E001D_4C46AA3401DBget_impl*
 end;//TPrimListOptionsForm.Get_SearchList
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_4C46AA3401DBtest_var*
 //#UC END# *49EE01AA02BE_4C46AA3401DBtest_var*
 begin
@@ -1181,10 +1143,11 @@ begin
  aParams.CallControl;
 //#UC END# *49EE01AA02BE_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Edit_SelectAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_4C46AA3401DBexec_var*
 //#UC END# *49EE01AA02BE_4C46AA3401DBexec_var*
 begin
@@ -1192,7 +1155,7 @@ begin
  aParams.CallControl;
 //#UC END# *49EE01AA02BE_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Edit_SelectAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimListOptionsForm.ShowEditorOrList(const aTree: Il3SimpleTree);
 //#UC START# *4AEAD69A0151_4C46AA3401DB_var*
@@ -1218,7 +1181,7 @@ begin
 end;//TPrimListOptionsForm.ShowEditorOrList
 
 function TPrimListOptionsForm.ApplyFilter(const aFilter: IFilterFromQuery;
-  aAdd: Boolean = False): Boolean;
+ aAdd: Boolean = False): Boolean;
 //#UC START# *4AEF0A9403DD_4C46AA3401DB_var*
 
  procedure lp_ResetTree;
@@ -1315,8 +1278,9 @@ begin
 //#UC END# *4BD5913B0204_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.QueryOpen
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C46AA3401DBexec_var*
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_var*
 begin
@@ -1332,10 +1296,11 @@ begin
  end;
 //#UC END# *4BDAF7880236_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_ExpandAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C46AA3401DBexec_var*
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_var*
 begin
@@ -1351,10 +1316,11 @@ begin
  end;
 //#UC END# *4BDAF7A2005C_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.Tree_CollapseAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_4C46AA3401DBtest_var*
 //#UC END# *4BDAF7B803CF_4C46AA3401DBtest_var*
 begin
@@ -1363,7 +1329,7 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4BDAF7B803CF_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Tree_Wrap_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimListOptionsForm.SaveToFolders(aOperation: Integer = 0);
 //#UC START# *4C3418190372_4C46AA3401DB_var*
@@ -1731,6 +1697,7 @@ begin
 end;//TPrimListOptionsForm.Document_Print_Execute
 
 procedure TPrimListOptionsForm.WarnListFiltered_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отменить все фильтры }
 //#UC START# *4C5290E2008C_4C46AA3401DBexec_var*
 //#UC END# *4C5290E2008C_4C46AA3401DBexec_var*
 begin
@@ -1790,6 +1757,7 @@ begin
 end;//TPrimListOptionsForm.Reminder_RemListTimeMachineWarning_Test
 
 procedure TPrimListOptionsForm.List_WorkWithList_Test(const aParams: IvcmTestParamsPrim);
+ {* Работа со списком }
 //#UC START# *4F82C5D50033_4C46AA3401DBtest_var*
 
  function lp_MakeAvailableOps: IvcmItems;
@@ -1820,6 +1788,7 @@ begin
 end;//TPrimListOptionsForm.List_WorkWithList_Test
 
 procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Test(const aParams: IvcmTestParamsPrim);
+ {* Открыть документ в новой вкладке }
 //#UC START# *53DB36DC031F_4C46AA3401DBtest_var*
 //#UC END# *53DB36DC031F_4C46AA3401DBtest_var*
 begin
@@ -1831,6 +1800,7 @@ begin
 end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Test
 
 procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть документ в новой вкладке }
 //#UC START# *53DB36DC031F_4C46AA3401DBexec_var*
 //#UC END# *53DB36DC031F_4C46AA3401DBexec_var*
 begin
@@ -1840,6 +1810,7 @@ begin
 end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewTab_Execute
 
 procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Test(const aParams: IvcmTestParamsPrim);
+ {* Открыть документ в новом окне }
 //#UC START# *53DB36F40164_4C46AA3401DBtest_var*
 //#UC END# *53DB36F40164_4C46AA3401DBtest_var*
 begin
@@ -1850,6 +1821,7 @@ begin
 end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Test
 
 procedure TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть документ в новом окне }
 //#UC START# *53DB36F40164_4C46AA3401DBexec_var*
 //#UC END# *53DB36F40164_4C46AA3401DBexec_var*
 begin
@@ -1859,6 +1831,7 @@ begin
 end;//TPrimListOptionsForm.DocumentInList_OpenDocumentInNewWindow_Execute
 
 procedure TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Test(const aParams: IvcmTestParamsPrim);
+ {* Создать ссылку на документ }
 //#UC START# *53DB37280279_4C46AA3401DBtest_var*
 //#UC END# *53DB37280279_4C46AA3401DBtest_var*
 begin
@@ -1872,6 +1845,7 @@ begin
 end;//TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Test
 
 procedure TPrimListOptionsForm.SelectedDocuments_MakeHyperlinkToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Создать ссылку на документ }
 //#UC START# *53DB37280279_4C46AA3401DBexec_var*
 //#UC END# *53DB37280279_4C46AA3401DBexec_var*
 begin
@@ -1941,6 +1915,7 @@ begin
 end;//TPrimListOptionsForm.List_AndNotAnotherListForReminders_Execute
 
 procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+ {* Поставить на контроль }
 //#UC START# *551D2A900072_4C46AA3401DBtest_var*
 //#UC END# *551D2A900072_4C46AA3401DBtest_var*
 begin
@@ -1949,16 +1924,8 @@ begin
 //#UC END# *551D2A900072_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_Test
 
-procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *551D2A900072_4C46AA3401DBgetstate_var*
-//#UC END# *551D2A900072_4C46AA3401DBgetstate_var*
-begin
-//#UC START# *551D2A900072_4C46AA3401DBgetstate_impl*
- Document_AddToControl_GetState(State);
-//#UC END# *551D2A900072_4C46AA3401DBgetstate_impl*
-end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState
-
 procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить на контроль }
 //#UC START# *551D2A900072_4C46AA3401DBexec_var*
 //#UC END# *551D2A900072_4C46AA3401DBexec_var*
 begin
@@ -1967,7 +1934,18 @@ begin
 //#UC END# *551D2A900072_4C46AA3401DBexec_impl*
 end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_Execute
 
+procedure TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить на контроль }
+//#UC START# *551D2A900072_4C46AA3401DBgetstate_var*
+//#UC END# *551D2A900072_4C46AA3401DBgetstate_var*
+begin
+//#UC START# *551D2A900072_4C46AA3401DBgetstate_impl*
+ Document_AddToControl_GetState(State);
+//#UC END# *551D2A900072_4C46AA3401DBgetstate_impl*
+end;//TPrimListOptionsForm.SelectedDocuments_AddToControl_GetState
+
 procedure TPrimListOptionsForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C46AA3401DB_var*
 //#UC END# *479731C50290_4C46AA3401DB_var*
 begin
@@ -2009,9 +1987,10 @@ begin
 //#UC END# *47EA8B9601FE_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.SettingsReplaceFinish
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4C46AA3401DB_var*
 
  procedure lp_NodeForPositioning;
@@ -2075,10 +2054,11 @@ begin
  end;//dsList <> nil
 //#UC END# *497469C90140_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4C46AA3401DB_var*
 //#UC END# *49803F5503AA_4C46AA3401DB_var*
 begin
@@ -2091,10 +2071,11 @@ begin
  cfList.Images := dmStdRes.SmallImageList;
 //#UC END# *49803F5503AA_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4C46AA3401DB_var*
 //#UC END# *4A8E8F2E0195_4C46AA3401DB_var*
 begin
@@ -2139,11 +2120,12 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimListOptionsForm.DoGetTabInfo(out theCaption: Il3CString;
-  out theItemIndex: Integer): Boolean;
+ out theItemIndex: Integer): Boolean;
+ {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
 //#UC START# *4AC497FD00A2_4C46AA3401DB_var*
 //#UC END# *4AC497FD00A2_4C46AA3401DB_var*
 begin
@@ -2153,10 +2135,11 @@ begin
  theItemIndex := CurrentImageIndex;
 //#UC END# *4AC497FD00A2_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoGetTabInfo
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.EntitiesInited;
+ {* Вызывается после того как все операции зарегистрированы }
 //#UC START# *4AE1948900DE_4C46AA3401DB_var*
 //#UC END# *4AE1948900DE_4C46AA3401DB_var*
 begin
@@ -2183,18 +2166,9 @@ begin
  f_RemindersLine.Visible := True;
 //#UC END# *4AE1948900DE_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.EntitiesInited
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_ListOpsList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimListOptionsForm.ClearFields
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.ReleaseResources;
 //#UC START# *538C374A00B7_4C46AA3401DB_var*
 var
@@ -2207,9 +2181,9 @@ begin
   l_RH.ReleaseResources;
 //#UC END# *538C374A00B7_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.ReleaseResources
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimListOptionsForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4C46AA3401DB_var*
 //#UC END# *53F1C6EF02C9_4C46AA3401DB_var*
@@ -2225,9 +2199,18 @@ begin
  end;
 //#UC END# *53F1C6EF02C9_4C46AA3401DB_impl*
 end;//TPrimListOptionsForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+procedure TPrimListOptionsForm.ClearFields;
+begin
+ f_ListOpsList := nil;
+ inherited;
+end;//TPrimListOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -2258,258 +2241,192 @@ begin
   MakeEntitySupportedByControl(en_List, remTimeMachineWarning);
   PublishFormEntity(en_Text, nil);
   MakeEntitySupportedByControl(en_Text, EmptyListEditor);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   ContextMenuWeight(en_Edit, op_Delete, 20);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, True);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  ShowInContextMenu(en_File, op_Save, false);
-  ShowInToolbar(en_File, op_Save, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_File, op_Save, False);
+  ShowInToolbar(en_File, op_Save, True);
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
-  ShowInContextMenu(en_File, op_ToMSWord, false);
-  ShowInToolbar(en_File, op_ToMSWord, true);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, True);
   PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
-  ShowInContextMenu(en_File, op_SendMailAsAttachment, false, true);
-  ShowInToolbar(en_File, op_SendMailAsAttachment, false, true);
+  ShowInContextMenu(en_File, op_SendMailAsAttachment, False, true);
+  ShowInToolbar(en_File, op_SendMailAsAttachment, False, true);
   PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
-  ShowInContextMenu(en_Document, op_AddBookmark, false);
+  ShowInContextMenu(en_Document, op_AddBookmark, False);
   ContextMenuWeight(en_Document, op_AddBookmark, 70);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Paste, true);
-  ShowInToolbar(en_Edit, op_Paste, true);
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, True);
   ContextMenuWeight(en_Edit, op_Paste, 15);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_SelectAll, Edit_SelectAll_Execute, Edit_SelectAll_Test, nil);
   ContextMenuWeight(en_Edit, op_SelectAll, 30);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, nil, nil);
-  ShowInContextMenu(en_Tree, op_ExpandAll, false);
+  ShowInContextMenu(en_Tree, op_ExpandAll, False);
   ContextMenuWeight(en_Tree, op_ExpandAll, 10);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, nil, nil);
-  ShowInContextMenu(en_Tree, op_CollapseAll, false);
+  ShowInContextMenu(en_Tree, op_CollapseAll, False);
   ContextMenuWeight(en_Tree, op_CollapseAll, 20);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_Wrap, nil, Tree_Wrap_Test, nil);
-  ShowInContextMenu(en_Tree, op_Wrap, false);
-  ShowInToolbar(en_Tree, op_Wrap, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Tree, op_Wrap, False);
+  ShowInToolbar(en_Tree, op_Wrap, False);
   PublishOp(en_List, op_OrAnotherList, List_OrAnotherList_Execute, List_OrAnotherList_Test, nil);
-  ShowInContextMenu(en_List, op_OrAnotherList, false);
-  ShowInToolbar(en_List, op_OrAnotherList, true);
+  ShowInContextMenu(en_List, op_OrAnotherList, False);
+  ShowInToolbar(en_List, op_OrAnotherList, True);
   ContextMenuWeight(en_List, op_OrAnotherList, 40);
   PublishOp(en_List, op_AndAnotherList, List_AndAnotherList_Execute, List_AndAnotherList_Test, nil);
-  ShowInContextMenu(en_List, op_AndAnotherList, false);
-  ShowInToolbar(en_List, op_AndAnotherList, true);
+  ShowInContextMenu(en_List, op_AndAnotherList, False);
+  ShowInToolbar(en_List, op_AndAnotherList, True);
   ContextMenuWeight(en_List, op_AndAnotherList, 50);
   PublishOp(en_List, op_AndNotAnotherList, List_AndNotAnotherList_Execute, List_AndNotAnotherList_Test, nil);
-  ShowInContextMenu(en_List, op_AndNotAnotherList, false);
-  ShowInToolbar(en_List, op_AndNotAnotherList, true);
+  ShowInContextMenu(en_List, op_AndNotAnotherList, False);
+  ShowInToolbar(en_List, op_AndNotAnotherList, True);
   ContextMenuWeight(en_List, op_AndNotAnotherList, 60);
   PublishOp(en_Document, op_Open, Document_Open_Execute, Document_Open_Test, nil);
-  ShowInContextMenu(en_Document, op_Open, false);
+  ShowInContextMenu(en_Document, op_Open, False);
   ContextMenuWeight(en_Document, op_Open, 10);
   PublishOp(en_Document, op_OpenNewWindow, Document_OpenNewWindow_Execute, Document_OpenNewWindow_Test, nil);
-  ShowInContextMenu(en_Document, op_OpenNewWindow, false);
+  ShowInContextMenu(en_Document, op_OpenNewWindow, False);
   ContextMenuWeight(en_Document, op_OpenNewWindow, 20);
   PublishOp(en_Openable, op_OpenInNewWindow, Openable_OpenInNewWindow_Execute, Openable_OpenInNewWindow_Test, nil);
   PublishOp(en_Document, op_PrintDialog, Document_PrintDialog_Execute, Document_PrintDialog_Test, nil);
-  ShowInContextMenu(en_Document, op_PrintDialog, false);
+  ShowInContextMenu(en_Document, op_PrintDialog, False);
   ContextMenuWeight(en_Document, op_PrintDialog, 40);
   PublishOp(en_Document, op_PrintPreview, Document_PrintPreview_Execute, Document_PrintPreview_Test, nil);
-  ShowInContextMenu(en_Document, op_PrintPreview, false);
+  ShowInContextMenu(en_Document, op_PrintPreview, False);
   ContextMenuWeight(en_Document, op_PrintPreview, 50);
   PublishOp(en_Document, op_Save, Document_Save_Execute, Document_Save_Test, nil);
-  ShowInContextMenu(en_Document, op_Save, false);
+  ShowInContextMenu(en_Document, op_Save, False);
   ContextMenuWeight(en_Document, op_Save, 60);
   PublishOp(en_Document, op_Print, Document_Print_Execute, Document_Print_Test, nil);
-  ShowInContextMenu(en_Document, op_Print, false);
+  ShowInContextMenu(en_Document, op_Print, False);
   PublishOp(en_WarnListFiltered, op_ClearAll, WarnListFiltered_ClearAll_Execute, nil, nil);
-  ShowInContextMenu(en_WarnListFiltered, op_ClearAll, true);
+  ShowInContextMenu(en_WarnListFiltered, op_ClearAll, True);
   PublishOp(en_Reminder, op_RemListModified, Reminder_RemListModified_Execute, Reminder_RemListModified_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemListModified, true);
-  ShowInToolbar(en_Reminder, op_RemListModified, true);
+  ShowInContextMenu(en_Reminder, op_RemListModified, True);
+  ShowInToolbar(en_Reminder, op_RemListModified, True);
   PublishOp(en_Reminder, op_RemListFiltered, Reminder_RemListFiltered_Execute, Reminder_RemListFiltered_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemListFiltered, true);
-  ShowInToolbar(en_Reminder, op_RemListFiltered, true);
+  ShowInContextMenu(en_Reminder, op_RemListFiltered, True);
+  ShowInToolbar(en_Reminder, op_RemListFiltered, True);
   PublishOp(en_Reminder, op_RemListTimeMachineWarning, nil, Reminder_RemListTimeMachineWarning_Test, nil);
   PublishOp(en_List, op_WorkWithList, nil, List_WorkWithList_Test, nil);
   PublishOp(en_DocumentInList, op_OpenDocumentInNewTab, DocumentInList_OpenDocumentInNewTab_Execute, DocumentInList_OpenDocumentInNewTab_Test, nil);
-  ShowInContextMenu(en_DocumentInList, op_OpenDocumentInNewTab, true);
+  ShowInContextMenu(en_DocumentInList, op_OpenDocumentInNewTab, True);
   ContextMenuWeight(en_DocumentInList, op_OpenDocumentInNewTab, 5);
   PublishOp(en_DocumentInList, op_OpenDocumentInNewWindow, DocumentInList_OpenDocumentInNewWindow_Execute, DocumentInList_OpenDocumentInNewWindow_Test, nil);
-  ShowInContextMenu(en_DocumentInList, op_OpenDocumentInNewWindow, true);
+  ShowInContextMenu(en_DocumentInList, op_OpenDocumentInNewWindow, True);
   ContextMenuWeight(en_DocumentInList, op_OpenDocumentInNewWindow, 10);
   PublishOp(en_SelectedDocuments, op_MakeHyperlinkToDocument, SelectedDocuments_MakeHyperlinkToDocument_Execute, SelectedDocuments_MakeHyperlinkToDocument_Test, nil);
-  ShowInContextMenu(en_SelectedDocuments, op_MakeHyperlinkToDocument, true);
+  ShowInContextMenu(en_SelectedDocuments, op_MakeHyperlinkToDocument, True);
   ContextMenuWeight(en_SelectedDocuments, op_MakeHyperlinkToDocument, 10);
   PublishOp(en_List, op_OrAnotherListForReminders, List_OrAnotherListForReminders_Execute, List_OrAnotherListForReminders_Test, nil);
-  ShowInContextMenu(en_List, op_OrAnotherListForReminders, true);
-  ShowInToolbar(en_List, op_OrAnotherListForReminders, false);
+  ShowInContextMenu(en_List, op_OrAnotherListForReminders, True);
+  ShowInToolbar(en_List, op_OrAnotherListForReminders, False);
   ContextMenuWeight(en_List, op_OrAnotherListForReminders, 40);
   PublishOp(en_List, op_AndAnotherListForReminders, List_AndAnotherListForReminders_Execute, List_AndAnotherListForReminders_Test, nil);
-  ShowInContextMenu(en_List, op_AndAnotherListForReminders, true);
-  ShowInToolbar(en_List, op_AndAnotherListForReminders, false);
+  ShowInContextMenu(en_List, op_AndAnotherListForReminders, True);
+  ShowInToolbar(en_List, op_AndAnotherListForReminders, False);
   ContextMenuWeight(en_List, op_AndAnotherListForReminders, 50);
   PublishOp(en_List, op_AndNotAnotherListForReminders, List_AndNotAnotherListForReminders_Execute, List_AndNotAnotherListForReminders_Test, nil);
-  ShowInContextMenu(en_List, op_AndNotAnotherListForReminders, true);
-  ShowInToolbar(en_List, op_AndNotAnotherListForReminders, false);
+  ShowInContextMenu(en_List, op_AndNotAnotherListForReminders, True);
+  ShowInToolbar(en_List, op_AndNotAnotherListForReminders, False);
   ContextMenuWeight(en_List, op_AndNotAnotherListForReminders, 60);
   PublishOp(en_SelectedDocuments, op_AddToControl, SelectedDocuments_AddToControl_Execute, SelectedDocuments_AddToControl_Test, SelectedDocuments_AddToControl_GetState);
-  ShowInContextMenu(en_SelectedDocuments, op_AddToControl, true);
-  ContextMenuWeight(en_SelectedDocuments, op_AddToControl, 20);{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, true);
+  ShowInContextMenu(en_SelectedDocuments, op_AddToControl, True);
+  ContextMenuWeight(en_SelectedDocuments, op_AddToControl, 20);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
   ContextMenuWeight(en_Edit, op_Copy, 10);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_FindContext, false);
-  ShowInToolbar(en_Edit, op_FindContext, true);
+  ShowInContextMenu(en_Edit, op_FindContext, False);
+  ShowInToolbar(en_Edit, op_FindContext, True);
   ContextMenuWeight(en_Edit, op_FindContext, 50);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_File, op_SaveToFolder, false);
-  ShowInToolbar(en_File, op_SaveToFolder, true);
-  
-  ShowInContextMenu(en_File, op_LoadFromFolder, false);
-  ShowInToolbar(en_File, op_LoadFromFolder, true);
-  
-  ShowInContextMenu(en_Document, op_AddToControl, false);
+  ShowInContextMenu(en_File, op_SaveToFolder, False);
+  ShowInToolbar(en_File, op_SaveToFolder, True);
+  ShowInContextMenu(en_File, op_LoadFromFolder, False);
+  ShowInToolbar(en_File, op_LoadFromFolder, True);
+  ShowInContextMenu(en_Document, op_AddToControl, False);
   ContextMenuWeight(en_Document, op_AddToControl, 90);
-  
-  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, true);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, True);
   ContextMenuWeight(en_Document, op_GetAttributesFrmAct, 30);
-  
-  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, false);
+  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, False);
   ContextMenuWeight(en_Document, op_GetRelatedDocFrmAct, 35);
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Deselect, false);
+  ShowInContextMenu(en_Edit, op_Deselect, False);
   ContextMenuWeight(en_Edit, op_Deselect, 40);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_TimeMachine, op_TimeMachineOnOffNew, false);
-  ShowInToolbar(en_TimeMachine, op_TimeMachineOnOffNew, false);
-  
+  ShowInContextMenu(en_TimeMachine, op_TimeMachineOnOffNew, False);
+  ShowInToolbar(en_TimeMachine, op_TimeMachineOnOffNew, False);
   ContextMenuWeight(en_List, op_SwitchToFullList, 100);
-  
-  ShowInContextMenu(en_List, op_ListInfo, true);
-  ShowInToolbar(en_List, op_ListInfo, true);
+  ShowInContextMenu(en_List, op_ListInfo, True);
+  ShowInToolbar(en_List, op_ListInfo, True);
   ContextMenuWeight(en_List, op_ListInfo, 10);
-  
-  ShowInContextMenu(en_List, op_Sort, false);
+  ShowInContextMenu(en_List, op_Sort, False);
   ContextMenuWeight(en_List, op_Sort, 20);
-  
-  ShowInContextMenu(en_List, op_SortDirection, false);
+  ShowInContextMenu(en_List, op_SortDirection, False);
   ContextMenuWeight(en_List, op_SortDirection, 30);
-  
-  ShowInContextMenu(en_List, op_SpecifyList, false);
-  ShowInToolbar(en_List, op_SpecifyList, true);
+  ShowInContextMenu(en_List, op_SpecifyList, False);
+  ShowInToolbar(en_List, op_SpecifyList, True);
   ContextMenuWeight(en_List, op_SpecifyList, 70);
-  
-  ShowInContextMenu(en_List, op_ExportToXML, true);
+  ShowInContextMenu(en_List, op_ExportToXML, True);
   ContextMenuWeight(en_List, op_ExportToXML, 90);
-  
-  ShowInContextMenu(en_Filters, op_FiltersList, false);
-  ShowInToolbar(en_Filters, op_FiltersList, false);
-  
-  ShowInContextMenu(en_LocalList, op_PublishSourceSearchInList, false);
-  ShowInToolbar(en_LocalList, op_PublishSourceSearchInList, true);
+  ShowInContextMenu(en_Filters, op_FiltersList, False);
+  ShowInToolbar(en_Filters, op_FiltersList, False);
+  ShowInContextMenu(en_LocalList, op_PublishSourceSearchInList, False);
+  ShowInToolbar(en_LocalList, op_PublishSourceSearchInList, True);
   ContextMenuWeight(en_LocalList, op_PublishSourceSearchInList, 30);
-  
-  ShowInContextMenu(en_LocalList, op_SearchDrugInList, true);
-  ShowInToolbar(en_LocalList, op_SearchDrugInList, true);
+  ShowInContextMenu(en_LocalList, op_SearchDrugInList, True);
+  ShowInToolbar(en_LocalList, op_SearchDrugInList, True);
   ContextMenuWeight(en_LocalList, op_SearchDrugInList, 15);
-  
-  ShowInContextMenu(en_Document, op_GetAnnotationDocFrmAct, false);
+  ShowInContextMenu(en_Document, op_GetAnnotationDocFrmAct, False);
   ContextMenuWeight(en_Document, op_GetAnnotationDocFrmAct, 92);
-  
-  ShowInContextMenu(en_Document, op_SimilarDocuments, false);
+  ShowInContextMenu(en_Document, op_SimilarDocuments, False);
   ContextMenuWeight(en_Document, op_SimilarDocuments, 95);
-  
-  ShowInContextMenu(en_CRList, op_SetType, false, true);
-  ShowInToolbar(en_CRList, op_SetType, true, true);
-  
-  ShowInContextMenu(en_LocalList, op_OpenNewWindow, false);
+  ShowInContextMenu(en_CRList, op_SetType, False, true);
+  ShowInToolbar(en_CRList, op_SetType, True, true);
+  ShowInContextMenu(en_LocalList, op_OpenNewWindow, False);
   ContextMenuWeight(en_LocalList, op_OpenNewWindow, 10);
-  
-  ShowInContextMenu(en_Selection, op_CopyToNewList, false);
+  ShowInContextMenu(en_Selection, op_CopyToNewList, False);
   ContextMenuWeight(en_Selection, op_CopyToNewList, 10);
-  
-  ShowInContextMenu(en_Selection, op_Analize, false);
-  ShowInToolbar(en_Selection, op_Analize, false);
-  
-  ShowInContextMenu(en_LocalList, op_SearchInList, false);
-  ShowInToolbar(en_LocalList, op_SearchInList, true);
+  ShowInContextMenu(en_Selection, op_Analize, False);
+  ShowInToolbar(en_Selection, op_Analize, False);
+  ShowInContextMenu(en_LocalList, op_SearchInList, False);
+  ShowInToolbar(en_LocalList, op_SearchInList, True);
   ContextMenuWeight(en_LocalList, op_SearchInList, 20);
-  
-  ShowInContextMenu(en_Filters, op_FiltersListOpen, false);
-  ShowInToolbar(en_Filters, op_FiltersListOpen, false);
-  
-  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, false);
-  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, false);
-  
-  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, false);
-  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, false);
+  ShowInContextMenu(en_Filters, op_FiltersListOpen, False);
+  ShowInToolbar(en_Filters, op_FiltersListOpen, False);
+  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, False);
+  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, False);
+  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, False);
+  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, False);
   ContextMenuWeight(en_Document, op_MakeHyperlinkToDocument, 80);
-  
-  ShowInContextMenu(en_List, op_Analize, false);
+  ShowInContextMenu(en_List, op_Analize, False);
   ContextMenuWeight(en_List, op_Analize, 30);
-  
-  ShowInContextMenu(en_List, op_AnalizeList, true);
-  ShowInToolbar(en_List, op_AnalizeList, false);
+  ShowInContextMenu(en_List, op_AnalizeList, True);
+  ShowInToolbar(en_List, op_AnalizeList, False);
   ContextMenuWeight(en_List, op_AnalizeList, 100);
  end;//with Entities.Entities
-end;
+end;//TPrimListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimListOptionsForm.MakeControls;
 begin
  inherited;
  f_RemindersLine := TnscRemindersLine.Create(Self);
  f_RemindersLine.Name := 'RemindersLine';
  f_RemindersLine.Parent := Self;
- with DefineZone(vcm_ztChild, f_RemindersLine) do
+ with DefineZone(vcm_ztChild, RemindersLine) do
  begin
- end;//with DefineZone(vcm_ztChild, f_RemindersLine)
+ end;//with DefineZone(vcm_ztChild
  f_remListFiltered := TnscReminder.Create(RemindersLine);
  f_remListFiltered.Name := 'remListFiltered';
  f_remListModified := TnscReminder.Create(RemindersLine);
@@ -2520,38 +2437,26 @@ begin
  f_EmptyListEditor := TnscEditor.Create(Self);
  f_EmptyListEditor.Name := 'EmptyListEditor';
  f_EmptyListEditor.Parent := ListPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimListOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_remListModifiedHint
  str_remListModifiedHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_remListFilteredHint
+ {* Инициализация str_remListModifiedHint }
  str_remListFilteredHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_remTimeMachineWarningHint
+ {* Инициализация str_remListFilteredHint }
  str_remTimeMachineWarningHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DocumentList
+ {* Инициализация str_remTimeMachineWarningHint }
  str_DocumentList.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DrugList
+ {* Инициализация str_DocumentList }
  str_DrugList.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_MedicinalPlantList
+ {* Инициализация str_DrugList }
  str_MedicinalPlantList.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimListOptions
+ {* Инициализация str_MedicinalPlantList }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimListOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

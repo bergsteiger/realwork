@@ -46,8 +46,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -56,11 +54,6 @@ uses
  , LoginKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_LoginLocalConstants }
- str_ut_LoginCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LoginCaption'; rValue : 'Вход в систему ГАРАНТ');
-  {* Заголовок пользовательского типа "Вход в систему ГАРАНТ" }
 
 {$R *.DFM}
 
@@ -85,8 +78,6 @@ end;//TLoginForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_LoginCaption.Init;
- {* Инициализация str_ut_LoginCaption }
  fm_LoginForm.SetFactory(TLoginForm.Make);
  {* Регистрация фабрики формы Login }
 {$If NOT Defined(NoScripts)}

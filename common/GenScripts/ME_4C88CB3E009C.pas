@@ -20,6 +20,9 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -69,6 +72,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C88CB3E009Cimpl_uses*
+ //#UC END# *4C88CB3E009Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -144,10 +149,18 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_File, nil);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, nil, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, nil, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, True);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
  end;//with Entities.Entities
 end;//TPrimListInfoOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

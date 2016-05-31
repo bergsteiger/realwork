@@ -19,13 +19,13 @@ uses
 ;
 
 const
+ {* Локализуемые строки ChangeableMainMenuTypeName }
+ str_ChangeableMainMenuType: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangeableMainMenuType'; rValue : 'Тип изменяемой части основного меню');
+  {* Тип изменяемой части основного меню }
  pi_MainMenu_ChangeableMainMenuType = '/Тип изменяемой части основного меню';
   {* Идентификатор настройки "Тип изменяемой части основного меню" }
  dv_MainMenu_ChangeableMainMenuType = 0;
   {* Значение по-умолчанию настройки "Тип изменяемой части основного меню" }
- {* Локализуемые строки ChangeableMainMenuTypeName }
- str_ChangeableMainMenuType: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangeableMainMenuType'; rValue : 'Тип изменяемой части основного меню');
-  {* Тип изменяемой части основного меню }
  {* Локализуемые строки ChangeableMainMenuTypeValues }
  str_ChangeableMainMenuType_ST_FINANCE: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangeableMainMenuType_ST_FINANCE'; rValue : 'Налоги и финансы');
   {* Налоги и финансы }

@@ -14,16 +14,16 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicDocListUnit
+ , l3Interfaces
+ , nsTypes
  , ContextHistoryInterfaces
  , SearchUnit
- , DynamicDocListUnit
  , Windows
  , FiltersUnit
  , PrimBaseSearchInterfaces
- , l3Interfaces
  , l3TreeInterfaces
  , nsQueryAttribute
- , nsTypes
  , nsQueryInterfaces
 ;
 

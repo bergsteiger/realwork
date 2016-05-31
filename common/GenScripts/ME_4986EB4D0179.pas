@@ -75,6 +75,14 @@ procedure _CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged(const 
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  sdsBaseDocumentWithAttributes := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IsdsBaseDocumentWithAttributes, sdsBaseDocumentWithAttributes);
+ end;//aNew = nil
 end;//_CommonForTextAndFlashAndMedicFirmList_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 

@@ -110,6 +110,7 @@ uses
  , SPHTMLHelp
  , GblAdapter
  , SysUtils
+ , Logo_ut_Logo_UserType
  , LoggingUnit
  , PrimMain_Form
  , PrimMainOptions_Form

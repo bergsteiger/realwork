@@ -1,103 +1,71 @@
 unit BaseHistoryWindow_Form;
+ {* История переписки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/BaseHistoryWindow_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Встроенные продукты::Chat::View::Chat::BaseHistoryWindow
-//
-// История переписки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "BaseHistoryWindow" MUID: (4A6EA45C01C4)
+// Имя типа: "TBaseHistoryWindowForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ChatInterfaces,
-  AbstractHistory_Form,
-  Base_Operations_Chat_Controls,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  BaseHistoryWindow_utChatHistory_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , AbstractHistory_Form
+ , ChatInterfaces
+ , Base_Operations_Chat_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TBaseHistoryWindowForm = {form} class(TAbstractHistoryForm, IbsChatHistoryWindow)
+ TBaseHistoryWindowForm = class(TAbstractHistoryForm, IbsChatHistoryWindow)
   {* История переписки }
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  protected
    procedure RegisterInDispatcher; override;
    procedure UnRegisterInDispatcher; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Chat_ClearHistory_Test(const aParams: IvcmTestParamsPrim);
-     {* Очистить историю }
+    {* Очистить историю }
    procedure Chat_ClearHistory_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Очистить историю }
+    {* Очистить историю }
  end;//TBaseHistoryWindowForm
-
- TvcmContainerFormRef = TBaseHistoryWindowForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utChatHistoryLocalConstants }
-  str_utChatHistoryCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utChatHistoryCaption'; rValue : 'История переписки');
-   { Заголовок пользовательского типа "История переписки" }
-
-// start class TBaseHistoryWindowForm
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , BaseHistoryWindow_utChatHistory_UserType
+ //#UC START# *4A6EA45C01C4impl_uses*
+ //#UC END# *4A6EA45C01C4impl_uses*
+;
 
 procedure TBaseHistoryWindowForm.RegisterInDispatcher;
 //#UC START# *4A6EA5EA00CD_4A6EA45C01C4_var*
@@ -118,6 +86,7 @@ begin
 end;//TBaseHistoryWindowForm.UnRegisterInDispatcher
 
 procedure TBaseHistoryWindowForm.Chat_ClearHistory_Test(const aParams: IvcmTestParamsPrim);
+ {* Очистить историю }
 //#UC START# *4A8AE24D003F_4A6EA45C01C4test_var*
 //#UC END# *4A8AE24D003F_4A6EA45C01C4test_var*
 begin
@@ -128,6 +97,7 @@ begin
 end;//TBaseHistoryWindowForm.Chat_ClearHistory_Test
 
 procedure TBaseHistoryWindowForm.Chat_ClearHistory_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Очистить историю }
 //#UC START# *4A8AE24D003F_4A6EA45C01C4exec_var*
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_var*
 begin
@@ -137,7 +107,10 @@ begin
 //#UC END# *4A8AE24D003F_4A6EA45C01C4exec_impl*
 end;//TBaseHistoryWindowForm.Chat_ClearHistory_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure TBaseHistoryWindowForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -145,15 +118,17 @@ begin
   PublishFormEntity(en_Chat, nil);
   PublishOp(en_Chat, op_ClearHistory, Chat_ClearHistory_Execute, Chat_ClearHistory_Test, nil);
  end;//with Entities.Entities
-end;
+end;//TBaseHistoryWindowForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TBaseHistoryWindowForm.MakeControls;
 begin
  inherited;
  with AddUsertype(utChatHistoryName,
   str_utChatHistoryCaption,
   str_utChatHistoryCaption,
-  true,
+  True,
   197,
   -1,
   '',
@@ -163,18 +138,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utChatHistoryName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TBaseHistoryWindowForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utChatHistoryCaption
- str_utChatHistoryCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация BaseHistoryWindow
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBaseHistoryWindowForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация BaseHistoryWindow }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_LogoLocalConstants }
+ str_ut_LogoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LogoCaption'; rValue : 'Logo');
+  {* Заголовок пользовательского типа "Logo" }
  {* Константы для типа формы ut_Logo }
  ut_LogoName = 'ut_Logo';
   {* Строковый идентификатор пользовательского типа "Logo" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_ut_Logo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_LogoCaption.Init;
+ {* Инициализация str_ut_LogoCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_Logo.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_Logo }

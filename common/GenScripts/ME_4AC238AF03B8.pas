@@ -19,8 +19,8 @@ uses
  , afwInterfaces
  , FoldersDomainInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

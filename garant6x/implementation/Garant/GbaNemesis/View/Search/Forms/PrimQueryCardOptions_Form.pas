@@ -1,120 +1,105 @@
 unit PrimQueryCardOptions_Form;
+ {* Карточка запросов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimQueryCardOptions_Form.pas"
-// Начат: 08.09.2010 21:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimQueryCardOptions
-//
-// Карточка запросов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCardOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimQueryCardOptions" MUID: (4C87C62302CF)
+// Имя типа: "TPrimQueryCardOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimQueryCard_Form,
-  Search_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimQueryCard_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimQueryCardOptionsForm = {form} class(TPrimQueryCardForm)
+ TPrimQueryCardOptionsForm = class(TPrimQueryCardForm)
   {* Карточка запросов }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
-     {* Вставка }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
-     {* Возврат }
-   {$IfEnd} //not NoVCM
+    {* Возврат }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
-     {* Показывать спецсимволы }
+    {* Показывать спецсимволы }
    procedure SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показывать спецсимволы }
-   {$If not defined(NoVCM)}
+    {* Показывать спецсимволы }
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimQueryCardOptionsForm
-
- TvcmEntityFormRef = TPrimQueryCardOptionsForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  DataAdapter,
-  SysUtils,
-  nsQueryInterfaces,
-  evControlParaTools,
-  l3String,
-  evControlParaConst,
-  evQueryCardInt,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , DataAdapter
+ , SysUtils
+ , nsQueryInterfaces
+ , evControlParaTools
+ , l3String
+ , evControlParaConst
+ , evQueryCardInt
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87C62302CFimpl_uses*
+ //#UC END# *4C87C62302CFimpl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TPrimQueryCardOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C87C62302CFtest_var*
 //#UC END# *49521D8E0295_4C87C62302CFtest_var*
 begin
@@ -128,10 +113,11 @@ begin
  {$ENDIF Monitorings}
 //#UC END# *49521D8E0295_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.File_Print_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_4C87C62302CFtest_var*
 var
  l_CustControl: IevCustomEditorControl;
@@ -150,10 +136,11 @@ begin
  end;
 //#UC END# *49EDFA3701B0_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Paste_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *49EDFCA2006D_4C87C62302CFtest_var*
 var
  l_CustControl: IevCustomEditorControl;
@@ -172,10 +159,11 @@ begin
  end;
 //#UC END# *49EDFCA2006D_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Undo_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
+ {* Возврат }
 //#UC START# *49EDFCB100BC_4C87C62302CFtest_var*
 var
  l_CustControl: IevCustomEditorControl;
@@ -194,9 +182,10 @@ begin
  end;
 //#UC END# *49EDFCB100BC_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Redo_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimQueryCardOptionsForm.SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
+ {* Показывать спецсимволы }
 //#UC START# *4A7C18B20241_4C87C62302CFtest_var*
 //#UC END# *4A7C18B20241_4C87C62302CFtest_var*
 begin
@@ -207,6 +196,7 @@ begin
 end;//TPrimQueryCardOptionsForm.SubPanelSettings_ShowSpecial_Test
 
 procedure TPrimQueryCardOptionsForm.SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показывать спецсимволы }
 //#UC START# *4A7C18B20241_4C87C62302CFexec_var*
 //#UC END# *4A7C18B20241_4C87C62302CFexec_var*
 begin
@@ -215,8 +205,9 @@ begin
 //#UC END# *4A7C18B20241_4C87C62302CFexec_impl*
 end;//TPrimQueryCardOptionsForm.SubPanelSettings_ShowSpecial_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4C7D0C7B0185_4C87C62302CFtest_var*
 var
  l_Control : IevCustomEditorControl;
@@ -234,10 +225,11 @@ begin
  end;//if Assigned(f_MgrSearch) then
 //#UC END# *4C7D0C7B0185_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C87C62302CFtest_var*
 var
  l_Req: IqaReq; 
@@ -300,10 +292,11 @@ begin
  end;//if Assigned(f_MgrSearch) then   
 //#UC END# *4C7D0CC90052_4C87C62302CFtest_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C87C62302CFexec_var*
 //#UC END# *4C7D0CC90052_4C87C62302CFexec_var*
 begin
@@ -312,76 +305,50 @@ begin
   f_MgrSearch.DeleteValue(Editor.View);
 //#UC END# *4C7D0CC90052_4C87C62302CFexec_impl*
 end;//TPrimQueryCardOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimQueryCardOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_SubPanelSettings, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Undo, nil, Edit_Undo_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Redo, nil, Edit_Redo_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_SubPanelSettings, op_ShowSpecial, SubPanelSettings_ShowSpecial_Execute, SubPanelSettings_ShowSpecial_Test, nil);
-  ShowInContextMenu(en_SubPanelSettings, op_ShowSpecial, true);
-  ShowInToolbar(en_SubPanelSettings, op_ShowSpecial, false);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_SubPanelSettings, op_ShowSpecial, True);
+  ShowInToolbar(en_SubPanelSettings, op_ShowSpecial, False);
   PublishOp(en_Edit, op_Copy, nil, Edit_Copy_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, false);
-  {$IfEnd} //not NoVCM
-{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, true);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_CardOperation, op_ExpandCollapse, true);
-  ShowInToolbar(en_CardOperation, op_ExpandCollapse, false);
-  
-  ShowInContextMenu(en_CardOperation, op_DeleteAll, true);
-  ShowInToolbar(en_CardOperation, op_DeleteAll, false);
-  
-  ShowInContextMenu(en_CardOperation, op_CreateAttr, true);
-  ShowInToolbar(en_CardOperation, op_CreateAttr, false);
-  
-  ShowInContextMenu(en_CardOperation, op_OpenTreeSelection, true);
-  ShowInToolbar(en_CardOperation, op_OpenTreeSelection, false);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, True);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
+  ShowInContextMenu(en_CardOperation, op_ExpandCollapse, True);
+  ShowInToolbar(en_CardOperation, op_ExpandCollapse, False);
+  ShowInContextMenu(en_CardOperation, op_DeleteAll, True);
+  ShowInToolbar(en_CardOperation, op_DeleteAll, False);
+  ShowInContextMenu(en_CardOperation, op_CreateAttr, True);
+  ShowInToolbar(en_CardOperation, op_CreateAttr, False);
+  ShowInContextMenu(en_CardOperation, op_OpenTreeSelection, True);
+  ShowInToolbar(en_CardOperation, op_OpenTreeSelection, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimQueryCardOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimQueryCardOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimQueryCardOptionsForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimQueryCardOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

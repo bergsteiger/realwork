@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utAdminLocalConstants }
+ str_utAdminCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAdminCaption'; rValue : 'Администрирование пользователей');
+  {* Заголовок пользовательского типа "Администрирование пользователей" }
  {* Константы для типа формы utAdmin }
  utAdminName = 'utAdmin';
   {* Строковый идентификатор пользовательского типа "Администрирование пользователей" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utAdmin.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utAdminCaption.Init;
+ {* Инициализация str_utAdminCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utAdmin.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utAdmin }

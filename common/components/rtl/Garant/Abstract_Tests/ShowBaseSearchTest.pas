@@ -63,6 +63,9 @@ uses
  , Windows
  , TestFrameWork
  {$If NOT Defined(NoVCM)}
+ , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils

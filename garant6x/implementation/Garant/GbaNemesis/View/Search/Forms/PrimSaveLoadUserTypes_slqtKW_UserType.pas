@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtKWLocalConstants }
+ str_slqtKWCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtKWCaption'; rValue : 'Поиск: По ситуации');
+  {* Заголовок пользовательского типа "Поиск: По ситуации" }
  {* Константы для типа формы slqtKW }
  slqtKWName = 'slqtKW';
   {* Строковый идентификатор пользовательского типа "Поиск: По ситуации" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtKW.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtKWCaption.Init;
+ {* Инициализация str_slqtKWCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtKW.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtKW }

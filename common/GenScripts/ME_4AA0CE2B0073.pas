@@ -21,6 +21,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
  , eeTreeView
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -70,7 +73,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: Il3SimpleTree): BadFactoryType; reintroduce;
+   class function Make(const aData: Il3SimpleTree): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -104,7 +107,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , DynamicDocListUnit
  , BaseTypesUnit
  , nsUtils
@@ -118,25 +120,18 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimListAnalizer_listAnalize_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AA0CE2B0073impl_uses*
+ //#UC END# *4AA0CE2B0073impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки listAnalizeLocalConstants }
- str_listAnalizeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'listAnalizeCaption'; rValue : 'Анализ списка');
-  {* Заголовок пользовательского типа "Анализ списка" }
-
 procedure TPrimListAnalizerForm.ListTreeActionElement(Sender: TObject;
  Index: LongInt);
 //#UC START# *51C06313011B_4AA0CE2B0073_var*
@@ -219,7 +214,7 @@ begin
 //#UC END# *4AA0CE940142_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.TryOpen
 
-class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree): BadFactoryType;
+class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree): IvcmEntityForm;
 var
  l_Inst : TPrimListAnalizerForm;
 begin
@@ -344,9 +339,11 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
 end;//TPrimListAnalizerForm.InitEntities
 
@@ -356,7 +353,7 @@ begin
  with AddUsertype(listAnalizeName,
   str_listAnalizeCaption,
   str_listAnalizeCaption,
-  False,
+  True,
   -1,
   0,
   '',
@@ -375,8 +372,6 @@ begin
 end;//TPrimListAnalizerForm.MakeControls
 
 initialization
- str_listAnalizeCaption.Init;
- {* Инициализация str_listAnalizeCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListAnalizerForm);
  {* Регистрация PrimListAnalizer }

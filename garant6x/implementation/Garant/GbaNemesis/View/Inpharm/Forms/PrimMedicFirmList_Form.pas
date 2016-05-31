@@ -1,96 +1,54 @@
 unit PrimMedicFirmList_Form;
+ {* Список фирм-производителей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Inpharm/Forms/PrimMedicFirmList_Form.pas"
-// Начат: 27.01.2009 13:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Inpharm::View::Inpharm::PrimMedicFirmList
-//
-// Список фирм-производителей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicFirmList_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimMedicFirmList" MUID: (497EE4EB00CB)
+// Имя типа: "TPrimMedicFirmListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  Classes,
-  l3ControlsTypes,
-  MedicInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_F1Specific_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  eeTreeViewExport
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  nsTypes,
-  vtPanel,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Common_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop,
-  BaseDocumentWithAttributesInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a},
-  DocumentAndListInterfaces,
-  PrimMedicFirmList_mflMain_UserType
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , MedicInterfaces
+ , vtPanel
+ , afwInterfaces
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentAndListInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _CommonForTextAndFlashAndMedicFirmList_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
@@ -98,221 +56,210 @@ type
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _BaseDocument_;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimMedicFirmListForm = {form} class(_vcmChromeLikeTabIconUpdater_)
+ TPrimMedicFirmListForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Список фирм-производителей }
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_ListTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства ListTree}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_ContextFilter: TnscContextFilter;
+   f_ListTree: TnscTreeViewWithAdapterDragDrop;
+  protected
+   dsMedicFirmList: IdsMedicFirmList;
+  private
    procedure ListTreeNewCharPressed(aChar: AnsiChar);
-     {* событие для внешней обработки WMChar }
    procedure ListTreeSelectCountChanged(aSender: TObject;
-     anOldCount: Integer;
-     aNewCount: Integer);
+    anOldCount: Integer;
+    aNewCount: Integer);
    procedure ListTreeCountChanged(Sender: TObject;
-     NewCount: LongInt);
+    NewCount: LongInt);
    procedure ListTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure ListTreeFormatStatusInfo(aSender: TObject;
-     var Info: Il3CString;
-     aCurrent: Integer;
-     aCount: Integer;
-     aSelected: Integer);
+    var Info: Il3CString;
+    aCurrent: Integer;
+    aCount: Integer;
+    aSelected: Integer);
    procedure ContextFilterChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ListTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    function ListTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure ListTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure ContextFilterWrongContext(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
-     {* Экспорт в Word }
-   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Экспорт в Word }
-   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
-     {* Послать по e-mail }
-   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Послать по e-mail }
-   {$If not defined(NoVCM)}
-   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FocusIsSetToUs; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoVCM)}
-   function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
-     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsMedicFirmList : IdsMedicFirmList;
- protected
- // protected methods
+  protected
    function HasCurrent: Boolean;
    procedure ListExport(anExportKind: TnsExportKind;
-     aExportSelection: Boolean);
+    aExportSelection: Boolean);
    procedure ListOpsWithTrialModeTest(const aParams: IvcmTestParamsPrim);
    procedure ListOpsTest(const aParams: IvcmTestParamsPrim);
    function MakePreview(WithTexts: Boolean): IafwComplexDocumentPreview;
    procedure SaveDialogCanClose(Sender: TObject;
-     var CanClose: Boolean);
+    var CanClose: Boolean);
    function HasSelection: Boolean;
    function ApproxExportCount(aUseSelection: Boolean): Integer;
- public
- // public properties
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FocusIsSetToUs; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetTabImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
+    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+    {* Экспорт в Word }
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+    {* Послать по e-mail }
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Послать по e-mail }
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
    property ListTree: TnscTreeViewWithAdapterDragDrop
-     read f_ListTree;
+    read f_ListTree;
  end;//TPrimMedicFirmListForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3BaseStream,
-  k2CustomFileGenerator,
-  nevTools,
-  Windows,
-  l3String,
-  PresentationInterfaces,
-  afwFacade,
-  bsUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsExternalObjectPrim,
-  l3Stream,
-  evTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  evTreeStorable,
-  k2Const,
-  DynamicTreeUnit,
-  BaseTypesUnit,
-  l3Types,
-  nsTrialSupport,
-  PreviewInterfaces,
-  nsSaveDialog,
-  nsConst,
-  nsToMSWordOp
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  k2TagGen,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  nsUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsTabbedInterfaceTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a}
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsToMSWordOp
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , k2TagGen
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTabbedInterfaceTypes
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , SysUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , l3BaseStream
+ , k2CustomFileGenerator
+ , nevTools
+ , Windows
+ , l3String
+ , PresentationInterfaces
+ , afwFacade
+ , bsUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsExternalObjectPrim
+ , l3Stream
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evTreeStorable
+ , k2Const
+ , DynamicTreeUnit
+ , Classes
+ , BaseTypesUnit
+ , l3Types
+ , nsTrialSupport
+ , PreviewInterfaces
+ , nsSaveDialog
+ , nsConst
+ , Base_Operations_Strange_Controls
+ , Common_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimMedicFirmList_mflMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EE4EB00CBimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EE4EB00CBimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
@@ -320,137 +267,6 @@ uses
 type _Instance_R_ = TPrimMedicFirmListForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
-
-var
-   { Локализуемые строки mflMainLocalConstants }
-  str_mflMainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mflMainCaption'; rValue : 'Фармацевтические фирмы (полный список)');
-   { Заголовок пользовательского типа "Фармацевтические фирмы (полный список)" }
-
-// start class TPrimMedicFirmListForm
-
-procedure TPrimMedicFirmListForm.ListTreeNewCharPressed(aChar: AnsiChar);
-//#UC START# *51CC283001B4_497EE4EB00CB_var*
-//#UC END# *51CC283001B4_497EE4EB00CB_var*
-begin
-//#UC START# *51CC283001B4_497EE4EB00CB_impl*
- ContextFilter.PressChar(aChar);
-//#UC END# *51CC283001B4_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeNewCharPressed
-
-procedure TPrimMedicFirmListForm.ListTreeSelectCountChanged(aSender: TObject;
-  anOldCount: Integer;
-  aNewCount: Integer);
-//#UC START# *51CC28E300C7_497EE4EB00CB_var*
-//#UC END# *51CC28E300C7_497EE4EB00CB_var*
-begin
-//#UC START# *51CC28E300C7_497EE4EB00CB_impl*
- UpdateStatusInfo;
-//#UC END# *51CC28E300C7_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeSelectCountChanged
-
-procedure TPrimMedicFirmListForm.ListTreeCountChanged(Sender: TObject;
-  NewCount: LongInt);
-//#UC START# *51CC28F00163_497EE4EB00CB_var*
-//#UC END# *51CC28F00163_497EE4EB00CB_var*
-begin
-//#UC START# *51CC28F00163_497EE4EB00CB_impl*
- UpdateStatusInfo;
-//#UC END# *51CC28F00163_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeCountChanged
-
-procedure TPrimMedicFirmListForm.ListTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
-//#UC START# *51CC28FB00C1_497EE4EB00CB_var*
-//#UC END# *51CC28FB00C1_497EE4EB00CB_var*
-begin
-//#UC START# *51CC28FB00C1_497EE4EB00CB_impl*
- UpdateStatusInfo;
- dsMedicFirmList.CurrentChanged(ListTree.GetCurrentNode);
-//#UC END# *51CC28FB00C1_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeCurrentChanged
-
-procedure TPrimMedicFirmListForm.ListTreeFormatStatusInfo(aSender: TObject;
-  var Info: Il3CString;
-  aCurrent: Integer;
-  aCount: Integer;
-  aSelected: Integer);
-//#UC START# *51CC290E033F_497EE4EB00CB_var*
-//#UC END# *51CC290E033F_497EE4EB00CB_var*
-begin
-//#UC START# *51CC290E033F_497EE4EB00CB_impl*
- Info := vcmFmt(str_MedicFirmListStatusInfoFormat,[aCurrent, aCount]);
-//#UC END# *51CC290E033F_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeFormatStatusInfo
-
-procedure TPrimMedicFirmListForm.ContextFilterChange(Sender: TObject);
-//#UC START# *51CC292100EF_497EE4EB00CB_var*
-var
- l_TreeSource: Il3SimpleTree;
- l_Current: Integer;
-//#UC END# *51CC292100EF_497EE4EB00CB_var*
-begin
-//#UC START# *51CC292100EF_497EE4EB00CB_impl*
- with ListTree do
- begin
-  l_TreeSource := dsMedicFirmList.FiltrateByContext(TreeStruct, GetCurrentNode,
-   ContextFilter.MakeState, l_Current);
-  if Assigned(l_TreeSource) and (l_TreeSource.CountView > 0) then
-  begin
-   Changing;
-   try
-    TreeStruct := l_TreeSource;
-    vlbMakeItemVisible(Current);
-   finally
-    Changed;
-   end;{try..finally}
-  end;
- end;
-//#UC END# *51CC292100EF_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ContextFilterChange
-
-procedure TPrimMedicFirmListForm.ListTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
-//#UC START# *51CC2931009B_497EE4EB00CB_var*
-//#UC END# *51CC2931009B_497EE4EB00CB_var*
-begin
-//#UC START# *51CC2931009B_497EE4EB00CB_impl*
- if not Dispatcher.History.InBF then
-  dsMedicFirmList.CurrentChanged(ListTree.GetCurrentNode);
-//#UC END# *51CC2931009B_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeTreeChanged
-
-function TPrimMedicFirmListForm.ListTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *51CC294901A6_497EE4EB00CB_var*
-//#UC END# *51CC294901A6_497EE4EB00CB_var*
-begin
-//#UC START# *51CC294901A6_497EE4EB00CB_impl*
- Result := cMedicFirmImage;
-//#UC END# *51CC294901A6_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeGetItemImage
-
-procedure TPrimMedicFirmListForm.ListTreeActionElement(Sender: TObject;
-  Index: LongInt);
-//#UC START# *51CC2956000E_497EE4EB00CB_var*
-//#UC END# *51CC2956000E_497EE4EB00CB_var*
-begin
-//#UC START# *51CC2956000E_497EE4EB00CB_impl*
- if HasCurrent and Assigned(dsMedicFirmList) then
-  TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, nil);
-//#UC END# *51CC2956000E_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ListTreeActionElement
-
-procedure TPrimMedicFirmListForm.ContextFilterWrongContext(Sender: TObject);
-//#UC START# *51CC29600188_497EE4EB00CB_var*
-//#UC END# *51CC29600188_497EE4EB00CB_var*
-begin
-//#UC START# *51CC29600188_497EE4EB00CB_impl*
- nsBeepWrongContext;
-//#UC END# *51CC29600188_497EE4EB00CB_impl*
-end;//TPrimMedicFirmListForm.ContextFilterWrongContext
 
 function TPrimMedicFirmListForm.HasCurrent: Boolean;
 //#UC START# *4C52FA220387_497EE4EB00CB_var*
@@ -462,7 +278,7 @@ begin
 end;//TPrimMedicFirmListForm.HasCurrent
 
 procedure TPrimMedicFirmListForm.ListExport(anExportKind: TnsExportKind;
-  aExportSelection: Boolean);
+ aExportSelection: Boolean);
 //#UC START# *4C52FB46037A_497EE4EB00CB_var*
 var
  l_Ext        : String;
@@ -662,7 +478,7 @@ begin
 end;//TPrimMedicFirmListForm.MakePreview
 
 procedure TPrimMedicFirmListForm.SaveDialogCanClose(Sender: TObject;
-  var CanClose: Boolean);
+ var CanClose: Boolean);
 //#UC START# *4C52FD2B0136_497EE4EB00CB_var*
 //#UC END# *4C52FD2B0136_497EE4EB00CB_var*
 begin
@@ -705,8 +521,132 @@ begin
 //#UC END# *4C764E150319_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.ApproxExportCount
 
-{$If not defined(NoVCM)}
+procedure TPrimMedicFirmListForm.ListTreeNewCharPressed(aChar: AnsiChar);
+//#UC START# *51CC283001B4_497EE4EB00CB_var*
+//#UC END# *51CC283001B4_497EE4EB00CB_var*
+begin
+//#UC START# *51CC283001B4_497EE4EB00CB_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *51CC283001B4_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeNewCharPressed
+
+procedure TPrimMedicFirmListForm.ListTreeSelectCountChanged(aSender: TObject;
+ anOldCount: Integer;
+ aNewCount: Integer);
+//#UC START# *51CC28E300C7_497EE4EB00CB_var*
+//#UC END# *51CC28E300C7_497EE4EB00CB_var*
+begin
+//#UC START# *51CC28E300C7_497EE4EB00CB_impl*
+ UpdateStatusInfo;
+//#UC END# *51CC28E300C7_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeSelectCountChanged
+
+procedure TPrimMedicFirmListForm.ListTreeCountChanged(Sender: TObject;
+ NewCount: LongInt);
+//#UC START# *51CC28F00163_497EE4EB00CB_var*
+//#UC END# *51CC28F00163_497EE4EB00CB_var*
+begin
+//#UC START# *51CC28F00163_497EE4EB00CB_impl*
+ UpdateStatusInfo;
+//#UC END# *51CC28F00163_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeCountChanged
+
+procedure TPrimMedicFirmListForm.ListTreeCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
+//#UC START# *51CC28FB00C1_497EE4EB00CB_var*
+//#UC END# *51CC28FB00C1_497EE4EB00CB_var*
+begin
+//#UC START# *51CC28FB00C1_497EE4EB00CB_impl*
+ UpdateStatusInfo;
+ dsMedicFirmList.CurrentChanged(ListTree.GetCurrentNode);
+//#UC END# *51CC28FB00C1_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeCurrentChanged
+
+procedure TPrimMedicFirmListForm.ListTreeFormatStatusInfo(aSender: TObject;
+ var Info: Il3CString;
+ aCurrent: Integer;
+ aCount: Integer;
+ aSelected: Integer);
+//#UC START# *51CC290E033F_497EE4EB00CB_var*
+//#UC END# *51CC290E033F_497EE4EB00CB_var*
+begin
+//#UC START# *51CC290E033F_497EE4EB00CB_impl*
+ Info := vcmFmt(str_MedicFirmListStatusInfoFormat,[aCurrent, aCount]);
+//#UC END# *51CC290E033F_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeFormatStatusInfo
+
+procedure TPrimMedicFirmListForm.ContextFilterChange(Sender: TObject);
+//#UC START# *51CC292100EF_497EE4EB00CB_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+//#UC END# *51CC292100EF_497EE4EB00CB_var*
+begin
+//#UC START# *51CC292100EF_497EE4EB00CB_impl*
+ with ListTree do
+ begin
+  l_TreeSource := dsMedicFirmList.FiltrateByContext(TreeStruct, GetCurrentNode,
+   ContextFilter.MakeState, l_Current);
+  if Assigned(l_TreeSource) and (l_TreeSource.CountView > 0) then
+  begin
+   Changing;
+   try
+    TreeStruct := l_TreeSource;
+    vlbMakeItemVisible(Current);
+   finally
+    Changed;
+   end;{try..finally}
+  end;
+ end;
+//#UC END# *51CC292100EF_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ContextFilterChange
+
+procedure TPrimMedicFirmListForm.ListTreeTreeChanged(aSender: TObject;
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
+//#UC START# *51CC2931009B_497EE4EB00CB_var*
+//#UC END# *51CC2931009B_497EE4EB00CB_var*
+begin
+//#UC START# *51CC2931009B_497EE4EB00CB_impl*
+ if not Dispatcher.History.InBF then
+  dsMedicFirmList.CurrentChanged(ListTree.GetCurrentNode);
+//#UC END# *51CC2931009B_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeTreeChanged
+
+function TPrimMedicFirmListForm.ListTreeGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *51CC294901A6_497EE4EB00CB_var*
+//#UC END# *51CC294901A6_497EE4EB00CB_var*
+begin
+//#UC START# *51CC294901A6_497EE4EB00CB_impl*
+ Result := cMedicFirmImage;
+//#UC END# *51CC294901A6_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeGetItemImage
+
+procedure TPrimMedicFirmListForm.ListTreeActionElement(Sender: TObject;
+ Index: LongInt);
+//#UC START# *51CC2956000E_497EE4EB00CB_var*
+//#UC END# *51CC2956000E_497EE4EB00CB_var*
+begin
+//#UC START# *51CC2956000E_497EE4EB00CB_impl*
+ if HasCurrent and Assigned(dsMedicFirmList) then
+  TdmStdRes.OpenDocument(dsMedicFirmList.MakeNewDocInfo, nil);
+//#UC END# *51CC2956000E_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ListTreeActionElement
+
+procedure TPrimMedicFirmListForm.ContextFilterWrongContext(Sender: TObject);
+//#UC START# *51CC29600188_497EE4EB00CB_var*
+//#UC END# *51CC29600188_497EE4EB00CB_var*
+begin
+//#UC START# *51CC29600188_497EE4EB00CB_impl*
+ nsBeepWrongContext;
+//#UC END# *51CC29600188_497EE4EB00CB_impl*
+end;//TPrimMedicFirmListForm.ContextFilterWrongContext
+
 procedure TPrimMedicFirmListForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_497EE4EB00CBtest_var*
 //#UC END# *49521D8E0295_497EE4EB00CBtest_var*
 begin
@@ -715,10 +655,9 @@ begin
  ListOpsTest(aParams);
 //#UC END# *49521D8E0295_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_Print_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_497EE4EB00CBexec_var*
 var
  l_Preview : IafwComplexDocumentPreview;
@@ -730,10 +669,9 @@ begin
   l_Preview.Print;
 //#UC END# *49521D8E0295_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_Print_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_497EE4EB00CBtest_var*
 //#UC END# *495220DE0298_497EE4EB00CBtest_var*
 begin
@@ -742,10 +680,9 @@ begin
  ListOpsTest(aParams);
 //#UC END# *495220DE0298_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_497EE4EB00CBexec_var*
 var
  l_Preview : IafwComplexDocumentPreview;
@@ -771,10 +708,9 @@ begin
  end;//if (afw.Application <> nil)...
 //#UC END# *495220DE0298_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EE4EB00CBtest_var*
 //#UC END# *495220F2033A_497EE4EB00CBtest_var*
 begin
@@ -783,10 +719,9 @@ begin
  ListOpsTest(aParams);
 //#UC END# *495220F2033A_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EE4EB00CBexec_var*
 //#UC END# *495220F2033A_497EE4EB00CBexec_var*
 begin
@@ -794,10 +729,9 @@ begin
  TdmStdRes.MakePreview(MakePreview(false));
 //#UC END# *495220F2033A_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_497EE4EB00CBtest_var*
 //#UC END# *495235F401C0_497EE4EB00CBtest_var*
 begin
@@ -806,10 +740,9 @@ begin
  ListOpsTest(aParams);
 //#UC END# *495235F401C0_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.File_Save_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_497EE4EB00CBexec_var*
 //#UC END# *495235F401C0_497EE4EB00CBexec_var*
 begin
@@ -817,9 +750,9 @@ begin
  ListExport(ekDisk, HasSelection);
 //#UC END# *495235F401C0_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_Save_Execute
-{$IfEnd} //not NoVCM
 
 procedure TPrimMedicFirmListForm.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_497EE4EB00CBtest_var*
 //#UC END# *495238EB0160_497EE4EB00CBtest_var*
 begin
@@ -831,6 +764,7 @@ begin
 end;//TPrimMedicFirmListForm.File_ToMSWord_Test
 
 procedure TPrimMedicFirmListForm.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_497EE4EB00CBexec_var*
 var
  l_ExportSelection : Boolean;
@@ -864,6 +798,7 @@ begin
 end;//TPrimMedicFirmListForm.File_ToMSWord_Execute
 
 procedure TPrimMedicFirmListForm.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_497EE4EB00CBtest_var*
 //#UC END# *495253870002_497EE4EB00CBtest_var*
 begin
@@ -874,6 +809,7 @@ begin
 end;//TPrimMedicFirmListForm.File_SendMailAsAttachment_Test
 
 procedure TPrimMedicFirmListForm.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_497EE4EB00CBexec_var*
 var
  l_ExportSelection : Boolean;
@@ -895,8 +831,8 @@ begin
 //#UC END# *495253870002_497EE4EB00CBexec_impl*
 end;//TPrimMedicFirmListForm.File_SendMailAsAttachment_Execute
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_497EE4EB00CBtest_var*
 //#UC END# *4BDAF7880236_497EE4EB00CBtest_var*
 begin
@@ -904,10 +840,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_497EE4EB00CBtest_var*
 //#UC END# *4BDAF7A2005C_497EE4EB00CBtest_var*
 begin
@@ -915,7 +850,6 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_497EE4EB00CBtest_impl*
 end;//TPrimMedicFirmListForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
 
 procedure TPrimMedicFirmListForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_497EE4EB00CB_var*
@@ -930,9 +864,9 @@ begin
 //#UC END# *47EA4E9002C6_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EE4EB00CB_var*
 //#UC END# *497469C90140_497EE4EB00CB_var*
 begin
@@ -951,10 +885,9 @@ begin
  ContextFilter.UpdateIsContextWrong;
 //#UC END# *497469C90140_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EE4EB00CB_var*
 //#UC END# *49803F5503AA_497EE4EB00CB_var*
 begin
@@ -965,10 +898,9 @@ begin
  UpdateStatusInfo;
 //#UC END# *49803F5503AA_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EE4EB00CB_var*
 //#UC END# *4A8E8F2E0195_497EE4EB00CB_var*
 begin
@@ -1005,9 +937,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMedicFirmListForm.FocusIsSetToUs;
 //#UC START# *4F7C6D6801F4_497EE4EB00CB_var*
 //#UC END# *4F7C6D6801F4_497EE4EB00CB_var*
@@ -1017,9 +947,8 @@ begin
   ListTree.SetFocus;
 //#UC END# *4F7C6D6801F4_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.FocusIsSetToUs
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimMedicFirmListForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_497EE4EB00CB_var*
 //#UC END# *543E3AA801D0_497EE4EB00CB_var*
@@ -1028,10 +957,10 @@ begin
  Result := nsTabIconIndex(titMedicFirm);
 //#UC END# *543E3AA801D0_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoVCM)}
 function TPrimMedicFirmListForm.IsAcceptable(aDataUpdate: Boolean): Boolean;
+ {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127A5401DE_497EE4EB00CB_var*
 //#UC END# *55127A5401DE_497EE4EB00CB_var*
 begin
@@ -1039,23 +968,24 @@ begin
  Result := dsMedicFirmList.IsDataAvailable;
 //#UC END# *55127A5401DE_497EE4EB00CB_impl*
 end;//TPrimMedicFirmListForm.IsAcceptable
-{$IfEnd} //not NoVCM
 
-procedure TPrimMedicFirmListForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimMedicFirmListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsMedicFirmList := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsMedicFirmList, dsMedicFirmList);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsMedicFirmList, dsMedicFirmList);
+ end;//aNew = nil
+end;//TPrimMedicFirmListForm.SignalDataSourceChanged
 
 procedure TPrimMedicFirmListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1066,46 +996,28 @@ begin
   MakeEntitySupportedByControl(en_Document, ListTree);
   MakeEntitySupportedByControl(en_Tree, ListTree);
   MakeEntitySupportedByControl(en_Document, ListTree);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  ShowInContextMenu(en_File, op_Save, false);
-  ShowInToolbar(en_File, op_Save, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_File, op_Save, False);
+  ShowInToolbar(en_File, op_Save, False);
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
-  ShowInContextMenu(en_File, op_ToMSWord, false);
-  ShowInToolbar(en_File, op_ToMSWord, true);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, True);
   PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
-  ShowInContextMenu(en_File, op_SendMailAsAttachment, false, true);
-  ShowInToolbar(en_File, op_SendMailAsAttachment, false, true);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_SendMailAsAttachment, False, true);
+  ShowInToolbar(en_File, op_SendMailAsAttachment, False, true);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
+end;//TPrimMedicFirmListForm.InitEntities
 
 procedure TPrimMedicFirmListForm.MakeControls;
 begin
@@ -1113,7 +1025,7 @@ begin
  with AddUsertype(mflMainName,
   str_mflMainCaption,
   str_mflMainCaption,
-  true,
+  True,
   178,
   -1,
   '',
@@ -1132,18 +1044,14 @@ begin
  f_ListTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_ListTree.Name := 'ListTree';
  f_ListTree.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimMedicFirmListForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_mflMainCaption
- str_mflMainCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimMedicFirmList
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMedicFirmListForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimMedicFirmList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,89 +1,51 @@
 unit PrimListInfo_Form;
+ {* Информация о списке }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/PrimListInfo_Form.pas"
-// Начат: 26.01.2009 20:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::PrimListInfo
-//
-// Информация о списке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfo_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimListInfo" MUID: (497DEC900012)
+// Имя типа: "TPrimListInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  afwInterfaces
-  {$If defined(Nemesis)}
-  ,
-  eeTextSourceExport
-  {$IfEnd} //Nemesis
-  ,
-  nevTools
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  nsLogEvent,
-  WorkWithListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  ListInfoUserTypes_liListInfo_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Strange_Controls
+ , WorkWithListInterfaces
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , afwInterfaces
+ , nevTools
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , nsLogEvent
+ , DynamicDocListUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsListReferenceActivateEvent = class(TnsLogEvent)
- private
- // private methods
+  private
    class procedure Log(const aList: IDynList); virtual;
  end;//TnsListReferenceActivateEvent
 
@@ -91,121 +53,131 @@ type
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas}
  _PageControlNotification_Parent_ = _ListInfoUserTypes_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
- TPrimListInfoForm = {form} class(_PageControlNotification_)
+ TPrimListInfoForm = class(_PageControlNotification_)
   {* Информация о списке }
- private
- // private fields
-   f_ListInfoViewer : TnscEditor;
-    {* Поле для свойства ListInfoViewer}
-   f_TextSource : TnscTextSource;
-    {* Поле для свойства TextSource}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_ListInfoViewer: TnscEditor;
+   f_TextSource: TnscTextSource;
+  protected
+   dsListInfo: IdsListInfo;
+   sdsListPrim: IsdsListPrim;
+  private
    procedure TextSourceMakeDocumentContainer(Sender: TObject;
-     var aMade: InevDocumentContainer);
- protected
- // realized methods
+    var aMade: InevDocumentContainer);
+  protected
+   function MakePreview: IafwComplexDocumentPreview; virtual;
    procedure DoTabActivate; override;
-     {* Реакция на переключение вкладки }
-   procedure ListInfo_BecomeActive_Execute;
-   procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParams);
+    {* Реакция на переключение вкладки }
    procedure LiListInfoQueryClose(aSender: TObject); override;
-     {* Обработчик события liListInfo.OnQueryClose }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+    {* Обработчик события liListInfo.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure ListInfo_BecomeActive_Execute;
+   procedure ListInfo_BecomeActive(const aParams: IvcmExecuteParams);
    constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   dsListInfo : IdsListInfo;
-   sdsListPrim : IsdsListPrim;
- protected
- // protected methods
-   function MakePreview: IafwComplexDocumentPreview; virtual;
- public
- // public properties
+  public
    property ListInfoViewer: TnscEditor
-     read f_ListInfoViewer;
+    read f_ListInfoViewer;
    property TextSource: TnscTextSource
-     read f_TextSource;
+    read f_TextSource;
  end;//TPrimListInfoForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  F1Like_InternalOperations_Controls,
-  k2Prim,
-  l3Memory,
-  l3String,
-  evTypes,
-  l3Base,
-  Document_Const,
-  Windows,
-  Messages,
-  nsListHAFMacroReplacer,
-  nevInterfaces,
-  DataAdapter
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  TextPara_Const,
-  evFormatHAFMacroReplacer,
-  l3Variant
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
-  nsManagers
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  vcmBase {a},
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , F1Like_InternalOperations_Controls
+ , k2Prim
+ , l3Memory
+ , l3String
+ , evTypes
+ , l3Base
+ , Document_Const
+ , Windows
+ , Messages
+ , nsListHAFMacroReplacer
+ , nevInterfaces
+ , DataAdapter
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , TextPara_Const
+ , evFormatHAFMacroReplacer
+ , l3Variant
+ , ListInfoUserTypes_liListInfo_UserType
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ //#UC START# *497DEC900012impl_uses*
+ //#UC END# *497DEC900012impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+class procedure TnsListReferenceActivateEvent.Log(const aList: IDynList);
+//#UC START# *4B14E35A0092_4B14E32102A2_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *4B14E35A0092_4B14E32102A2_var*
+begin
+//#UC START# *4B14E35A0092_4B14E32102A2_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aList);
+ GetLogger.AddEvent(LE_LIST_REFERENCE_ACTIVATE, l_Data);
+//#UC END# *4B14E35A0092_4B14E32102A2_impl*
+end;//TnsListReferenceActivateEvent.Log
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-// start class TPrimListInfoForm
+function TPrimListInfoForm.MakePreview: IafwComplexDocumentPreview;
+//#UC START# *4C88CF0C0337_497DEC900012_var*
+var
+ l_HAF: IafwHAFMacroReplacer;
+//#UC END# *4C88CF0C0337_497DEC900012_var*
+begin
+//#UC START# *4C88CF0C0337_497DEC900012_impl*
+ if (sdsListPrim <> nil) then
+  l_HAF := TnsListHAFMacroReplacer.Make(nil, sdsListPrim.dsListPrim.List)
+ else
+  l_HAF := nil;
+ Result := ListInfoViewer.Preview(TevFormatHAFMacroReplacer.Make(l_HAF, str_nevmmReference.AsCStr));
+//#UC END# *4C88CF0C0337_497DEC900012_impl*
+end;//TPrimListInfoForm.MakePreview
 
 procedure TPrimListInfoForm.TextSourceMakeDocumentContainer(Sender: TObject;
-  var aMade: InevDocumentContainer);
+ var aMade: InevDocumentContainer);
 //#UC START# *51C1A3A902F1_497DEC900012_var*
 var
  l_eeGenerator: Ik2TagGenerator;
@@ -251,36 +223,8 @@ begin
 //#UC END# *51C1A3A902F1_497DEC900012_impl*
 end;//TPrimListInfoForm.TextSourceMakeDocumentContainer
 
-function TPrimListInfoForm.MakePreview: IafwComplexDocumentPreview;
-//#UC START# *4C88CF0C0337_497DEC900012_var*
-var
- l_HAF: IafwHAFMacroReplacer;
-//#UC END# *4C88CF0C0337_497DEC900012_var*
-begin
-//#UC START# *4C88CF0C0337_497DEC900012_impl*
- if (sdsListPrim <> nil) then
-  l_HAF := TnsListHAFMacroReplacer.Make(nil, sdsListPrim.dsListPrim.List)
- else
-  l_HAF := nil;
- Result := ListInfoViewer.Preview(TevFormatHAFMacroReplacer.Make(l_HAF, str_nevmmReference.AsCStr));
-//#UC END# *4C88CF0C0337_497DEC900012_impl*
-end;//TPrimListInfoForm.MakePreview
-// start class TnsListReferenceActivateEvent
-
-class procedure TnsListReferenceActivateEvent.Log(const aList: IDynList);
-//#UC START# *4B14E35A0092_4B14E32102A2_var*
-var
- l_Data: InsLogEventData;
-//#UC END# *4B14E35A0092_4B14E32102A2_var*
-begin
-//#UC START# *4B14E35A0092_4B14E32102A2_impl*
- l_Data := MakeParamsList;
- l_Data.AddObject(aList);
- GetLogger.AddEvent(LE_LIST_REFERENCE_ACTIVATE, l_Data);
-//#UC END# *4B14E35A0092_4B14E32102A2_impl*
-end;//TnsListReferenceActivateEvent.Log
-
 procedure TPrimListInfoForm.DoTabActivate;
+ {* Реакция на переключение вкладки }
 //#UC START# *497F16AC015A_497DEC900012_var*
 //#UC END# *497F16AC015A_497DEC900012_var*
 begin
@@ -301,10 +245,11 @@ end;//TPrimListInfoForm.ListInfo_BecomeActive_Execute
 
 procedure TPrimListInfoForm.ListInfo_BecomeActive(const aParams: IvcmExecuteParams);
 begin
- ListInfo_BecomeActive_Execute;
-end;
+ Self.ListInfo_BecomeActive_Execute;
+end;//TPrimListInfoForm.ListInfo_BecomeActive
 
 procedure TPrimListInfoForm.LiListInfoQueryClose(aSender: TObject);
+ {* Обработчик события liListInfo.OnQueryClose }
 //#UC START# *E4208250FA5A_497DEC900012_var*
 //#UC END# *E4208250FA5A_497DEC900012_var*
 begin
@@ -328,9 +273,9 @@ begin
 //#UC END# *47D1602000C6_497DEC900012_impl*
 end;//TPrimListInfoForm.Create
 
-{$If not defined(NoVCM)}
 procedure TPrimListInfoForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497DEC900012_var*
 //#UC END# *497469C90140_497DEC900012_var*
 begin
@@ -339,10 +284,9 @@ begin
   TextSource.DocumentContainer := nil;
 //#UC END# *497469C90140_497DEC900012_impl*
 end;//TPrimListInfoForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimListInfoForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DEC900012_var*
 //#UC END# *4A8E8F2E0195_497DEC900012_var*
 begin
@@ -364,25 +308,26 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DEC900012_impl*
 end;//TPrimListInfoForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimListInfoForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimListInfoForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsListInfo := nil;
   sdsListPrim := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsListInfo, dsListInfo);
-  aDsNew.CastUCC(IsdsListPrim, sdsListPrim);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsListInfo, dsListInfo);
+  aNew.CastUCC(IsdsListPrim, sdsListPrim);
+ end;//aNew = nil
+end;//TPrimListInfoForm.SignalDataSourceChanged
 
 procedure TPrimListInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -390,7 +335,7 @@ begin
   PublishFormEntity(en_ListInfo, nil);
   PublishOpWithResult(en_ListInfo, op_BecomeActive, ListInfo_BecomeActive, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimListInfoForm.InitEntities
 
 procedure TPrimListInfoForm.MakeControls;
 begin
@@ -400,17 +345,14 @@ begin
  f_ListInfoViewer.Parent := Self;
  f_TextSource := TnscTextSource.Create(Self);
  f_TextSource.Name := 'TextSource';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimListInfoForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimListInfo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListInfoForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimListInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

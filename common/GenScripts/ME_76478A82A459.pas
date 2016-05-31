@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_RememberPasswordLocalConstants }
+ str_ut_RememberPasswordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RememberPasswordCaption'; rValue : 'Забыли пароль?');
+  {* Заголовок пользовательского типа "Забыли пароль?" }
  {* Константы для типа формы ut_RememberPassword }
  ut_RememberPasswordName = 'ut_RememberPassword';
   {* Строковый идентификатор пользовательского типа "Забыли пароль?" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_RememberPasswordCaption.Init;
+ {* Инициализация str_ut_RememberPasswordCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_RememberPassword.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_RememberPassword }

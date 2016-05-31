@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , RememberPasswordKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_RememberPasswordLocalConstants }
- str_ut_RememberPasswordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RememberPasswordCaption'; rValue : 'Забыли пароль?');
-  {* Заголовок пользовательского типа "Забыли пароль?" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TRememberPasswordForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_RememberPasswordCaption.Init;
- {* Инициализация str_ut_RememberPasswordCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TRememberPasswordForm);
  {* Регистрация RememberPassword }

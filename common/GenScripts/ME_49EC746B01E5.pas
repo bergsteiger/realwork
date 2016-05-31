@@ -52,7 +52,7 @@ type
    f_NavigateErrorCode: HResult;
     {* Содержит код ошибки, если мы "прошли" через обработчик ошибки навигации. }
   protected
-   : IdsInternetAgent;
+   ViewArea: IdsInternetAgent;
   private
    {$If NOT Defined(XE)}
    procedure BeforeNavigate(Sender: TObject;
@@ -282,7 +282,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3ProtoObject
  , SysUtils
  {$If NOT Defined(NoVCL)}
@@ -302,10 +301,6 @@ uses
  , nsSettingsConst
  , nsQuestionsWithChoices
  , nsTabbedInterfaceTypes
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -320,7 +315,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmForm
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimInternetAgent_utInternetAgent_UserType
+ //#UC START# *49EC746B01E5impl_uses*
+ //#UC END# *49EC746B01E5impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -367,9 +367,6 @@ const
  {* Идентификаторы настроек }
  pi_InternetAgent_Scale = gi_Internal + '/Новости онлайн/Масштаб';
   {* Идентификатор натройки "Масштаб" }
- {* Локализуемые строки utInternetAgentLocalConstants }
- str_utInternetAgentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utInternetAgentCaption'; rValue : 'Новости онлайн');
-  {* Заголовок пользовательского типа "Новости онлайн" }
 
 constructor TnsInternetAgentState.Create(const anURL: WideString;
  aScrollPos: Integer);
@@ -1181,6 +1178,14 @@ procedure TPrimInternetAgentForm.SignalDataSourceChanged(const anOld: IvcmFormDa
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsInternetAgent;
+ end;//aNew = nil
 end;//TPrimInternetAgentForm.SignalDataSourceChanged
 
 procedure TPrimInternetAgentForm.InitEntities;
@@ -1210,8 +1215,6 @@ begin
   PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
   PublishOpWithResult(en_Scalable, op_ChangeScale, Scalable_ChangeScale, nil, nil);
   PublishOpWithResult(en_Scalable, op_CanChangeScale, Scalable_CanChangeScale, nil, nil);
-  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
-  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
  end;//with Entities.Entities
 end;//TPrimInternetAgentForm.InitEntities
 
@@ -1221,7 +1224,7 @@ begin
  with AddUsertype(utInternetAgentName,
   str_utInternetAgentCaption,
   str_utInternetAgentCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -1234,8 +1237,6 @@ begin
 end;//TPrimInternetAgentForm.MakeControls
 
 initialization
- str_utInternetAgentCaption.Init;
- {* Инициализация str_utInternetAgentCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimInternetAgentForm);
  {* Регистрация PrimInternetAgent }

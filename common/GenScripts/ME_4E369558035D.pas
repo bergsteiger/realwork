@@ -20,7 +20,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -61,13 +60,16 @@ uses
  {$If NOT Defined(NoVCL)}
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
+ , ListAnalizeUserTypes_Analize_UserType
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4E369558035Dimpl_uses*
+ //#UC END# *4E369558035Dimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -130,6 +132,16 @@ procedure TPrimListAnalizeForm.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+  sdsList := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsListAnalize, ViewArea);
+  aNew.CastUCC(IsdsList, sdsList);
+ end;//aNew = nil
 end;//TPrimListAnalizeForm.SignalDataSourceChanged
 
 initialization

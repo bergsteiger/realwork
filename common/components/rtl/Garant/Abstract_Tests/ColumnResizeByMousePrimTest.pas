@@ -18,8 +18,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , PrimTextLoad_Form
  {$IfEnd} // NOT Defined(NoVCM)
- , evCustomEditorWindow
  , Classes
+ , evCustomEditorWindow
  , nevTools
  , l3Units
  , nevGUIInterfaces

@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utLeftEditionLocalConstants }
+ str_utLeftEditionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utLeftEditionCaption'; rValue : 'Предыдущая редакция');
+  {* Заголовок пользовательского типа "Предыдущая редакция" }
  {* Константы для типа формы utLeftEdition }
  utLeftEditionName = 'utLeftEdition';
   {* Строковый идентификатор пользовательского типа "Предыдущая редакция" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utLeftEdition.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utLeftEditionCaption.Init;
+ {* Инициализация str_utLeftEditionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utLeftEdition.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utLeftEdition }

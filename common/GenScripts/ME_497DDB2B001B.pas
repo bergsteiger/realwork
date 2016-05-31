@@ -32,13 +32,16 @@ uses
  , SimpleListInterfaces
  , L10nInterfaces
  , l3Interfaces
+ , FoldersDomainInterfaces
  , vtPanel
+ , DocumentUnit
+ , afwInterfaces
+ , bsTypes
  , nscDocumentListTreeView
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
  , vtStyledFocusLabel
- , FoldersDomainInterfaces
  , l3TreeInterfaces
  , FiltersUnit
  , DocumentInterfaces
@@ -48,11 +51,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , bsTypes
- , DocumentUnit
  , DynamicTreeUnit
  , PreviewInterfaces
- , afwInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
@@ -68,15 +68,14 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , Hypertext_Controls_Controls
- , l3StringIDEx
  , nsLogEvent
  , DynamicDocListUnit
  , bsInterfaces
  , l3ProtoObject
+ , l3StringIDEx
 ;
 
 const
- c_SelectionMap: array [Boolean] of Integer = (0, 1);
  {* Локализуемые строки DocumentListHintConst }
  str_lntAAC: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lntAAC'; rValue : 'Энциклопедия решений');
   {* 'Энциклопедия решений' }
@@ -108,6 +107,7 @@ const
   {* 'Форма препарата российского производства' }
  str_lntFormNoRussianNoImportant: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lntFormNoRussianNoImportant'; rValue : 'Действующая форма препарата');
   {* 'Действующая форма препарата' }
+ c_SelectionMap: array [Boolean] of Integer = (0, 1);
 
 type
  TnsDeleteFromListEvent = class(TnsLogEvent)
@@ -238,17 +238,12 @@ type
    f_AllowCallCurrentChangedOnTest: Boolean;
    f_SearchContext: Il3CString;
    f_ListPanel: TvtPanel;
-    {* Поле для свойства ListPanel }
-   f_tvList: TnscDocumentListTreeView;
-    {* Поле для свойства tvList }
-   f_cfList: TnscContextFilter;
-    {* Поле для свойства cfList }
-   f_ExSearchPanel: TvtPanel;
-    {* Поле для свойства ExSearchPanel }
-   f_ExSearchLabel: TvtStyledFocusLabel;
-    {* Поле для свойства ExSearchLabel }
    f_CanSwithToFullList: Boolean;
-    {* Поле для свойства CanSwithToFullList }
+   f_tvList: TnscDocumentListTreeView;
+   f_cfList: TnscContextFilter;
+   f_ExSearchPanel: TvtPanel;
+   f_ExSearchLabel: TvtStyledFocusLabel;
+    {* Продолжить поиск в онлайн-архивах ГАРАНТа }
   protected
    dsSimpleTree: IdsSimpleTree;
    dsList: IdsList;
@@ -349,17 +344,17 @@ type
    function MakeFilterInfo(aType: TnsFolderFilter): InsFolderFilterInfo; virtual; abstract;
    procedure ResetSaveToFolderOperations; virtual; abstract;
    function CheckValidSortTypes(aSortType: TbsValidSortTypes): Boolean; virtual; abstract;
-   procedure lftRespondentsSynchroFormQueryMaximized(aSender: TObject); override;
+   procedure LftRespondentsSynchroFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftRespondentsSynchroForm.OnQueryMaximized }
-   procedure lftRToPartQueryOpen(aSender: TObject); override;
+   procedure LftRToPartQueryOpen(aSender: TObject); override;
     {* Обработчик события lftRToPart.OnQueryOpen }
-   procedure lftCorrespondentsSynchroFormQueryOpen(aSender: TObject); override;
+   procedure LftCorrespondentsSynchroFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftCorrespondentsSynchroForm.OnQueryOpen }
-   procedure lftUserCR2QueryOpen(aSender: TObject); override;
+   procedure LftUserCR2QueryOpen(aSender: TObject); override;
     {* Обработчик события lftUserCR2.OnQueryOpen }
-   procedure lftSimilarDocumentsQueryOpen(aSender: TObject); override;
+   procedure LftSimilarDocumentsQueryOpen(aSender: TObject); override;
     {* Обработчик события lftSimilarDocuments.OnQueryOpen }
-   procedure lftSimilarDocumentsQueryMaximized(aSender: TObject); override;
+   procedure LftSimilarDocumentsQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftSimilarDocuments.OnQueryMaximized }
    function pm_GetArea: TnsSearchArea;
    procedure pm_SetArea(aValue: TnsSearchArea);
@@ -402,92 +397,92 @@ type
    function Get_ContainerForBaseSearch: TnsContainerForBaseSearchInfo;
    function Get_VisibleWatcher: InsBaseSearchVisibleWatcher;
    function Get_ContextSearcher: InsContextSearcher;
-   procedure lftUserCRList2_SynchorFormQueryOpen(aSender: TObject); override;
+   procedure LftUserCRList2SynchorFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftUserCRList2_SynchorForm.OnQueryOpen }
    function SwitchToTextIfPossible: Boolean;
    function pm_GetHyperlinkDocID: Integer; override;
    function pm_GetHyperlinkDocumentName: Il3CString; override;
    function Get_NeedSaveActiveClassBeforeSearch: Boolean;
-   procedure lftUserCRList1_SynchorFormQueryMaximized(aSender: TObject); override;
+   procedure LftUserCRList1SynchorFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftUserCRList1_SynchorForm.OnQueryMaximized }
-   procedure lftProducedDrugsQueryClose(aSender: TObject); override;
+   procedure LftProducedDrugsQueryClose(aSender: TObject); override;
     {* Обработчик события lftProducedDrugs.OnQueryClose }
    function IsSearchLocked: Boolean;
-   procedure lftUserCR2QueryClose(aSender: TObject); override;
+   procedure LftUserCR2QueryClose(aSender: TObject); override;
     {* Обработчик события lftUserCR2.OnQueryClose }
-   procedure lftConsultationQueryOpen(aSender: TObject); override;
+   procedure LftConsultationQueryOpen(aSender: TObject); override;
     {* Обработчик события lftConsultation.OnQueryOpen }
-   procedure lftRespondentQueryMaximized(aSender: TObject); override;
+   procedure LftRespondentQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftRespondent.OnQueryMaximized }
-   procedure lftUserCR1QueryOpen(aSender: TObject); override;
+   procedure LftUserCR1QueryOpen(aSender: TObject); override;
     {* Обработчик события lftUserCR1.OnQueryOpen }
-   procedure lftProducedDrugsQueryMaximized(aSender: TObject); override;
+   procedure LftProducedDrugsQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftProducedDrugs.OnQueryMaximized }
-   procedure lftRespondentQueryClose(aSender: TObject); override;
+   procedure LftRespondentQueryClose(aSender: TObject); override;
     {* Обработчик события lftRespondent.OnQueryClose }
-   procedure lftUserCR2QueryMaximized(aSender: TObject); override;
+   procedure LftUserCR2QueryMaximized(aSender: TObject); override;
     {* Обработчик события lftUserCR2.OnQueryMaximized }
-   procedure lftSimilarDocumentsSynchroViewQueryMaximized(aSender: TObject); override;
+   procedure LftSimilarDocumentsSynchroViewQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftSimilarDocumentsSynchroView.OnQueryMaximized }
-   procedure lftCorrespondentQueryOpen(aSender: TObject); override;
+   procedure LftCorrespondentQueryOpen(aSender: TObject); override;
     {* Обработчик события lftCorrespondent.OnQueryOpen }
-   procedure lftCorrespondentsSynchroFormQueryMaximized(aSender: TObject); override;
+   procedure LftCorrespondentsSynchroFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftCorrespondentsSynchroForm.OnQueryMaximized }
-   procedure lftUserCR1QueryMaximized(aSender: TObject); override;
+   procedure LftUserCR1QueryMaximized(aSender: TObject); override;
     {* Обработчик события lftUserCR1.OnQueryMaximized }
-   procedure lftUserCR1QueryClose(aSender: TObject); override;
+   procedure LftUserCR1QueryClose(aSender: TObject); override;
     {* Обработчик события lftUserCR1.OnQueryClose }
-   procedure lftDrugInternationalNameSynonymsQueryClose(aSender: TObject); override;
+   procedure LftDrugInternationalNameSynonymsQueryClose(aSender: TObject); override;
     {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryClose }
-   procedure lftSynchroViewQueryOpen(aSender: TObject); override;
+   procedure LftSynchroViewQueryOpen(aSender: TObject); override;
     {* Обработчик события lftSynchroView.OnQueryOpen }
-   procedure lftDrugInternationalNameSynonymsQueryOpen(aSender: TObject); override;
+   procedure LftDrugInternationalNameSynonymsQueryOpen(aSender: TObject); override;
     {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryOpen }
-   procedure lftConsultationQueryClose(aSender: TObject); override;
+   procedure LftConsultationQueryClose(aSender: TObject); override;
     {* Обработчик события lftConsultation.OnQueryClose }
-   procedure lftRToPartQueryMaximized(aSender: TObject); override;
+   procedure LftRToPartQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftRToPart.OnQueryMaximized }
-   procedure lftSimilarDocumentsQueryClose(aSender: TObject); override;
+   procedure LftSimilarDocumentsQueryClose(aSender: TObject); override;
     {* Обработчик события lftSimilarDocuments.OnQueryClose }
-   procedure lftSimilarDocumentsToFragmentQueryMaximized(aSender: TObject); override;
+   procedure LftSimilarDocumentsToFragmentQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftSimilarDocumentsToFragment.OnQueryMaximized }
-   procedure lftRespondentQueryOpen(aSender: TObject); override;
+   procedure LftRespondentQueryOpen(aSender: TObject); override;
     {* Обработчик события lftRespondent.OnQueryOpen }
-   procedure lftCorrespondentQueryMaximized(aSender: TObject); override;
+   procedure LftCorrespondentQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftCorrespondent.OnQueryMaximized }
-   procedure lftSimilarDocumentsToFragmentQueryOpen(aSender: TObject); override;
+   procedure LftSimilarDocumentsToFragmentQueryOpen(aSender: TObject); override;
     {* Обработчик события lftSimilarDocumentsToFragment.OnQueryOpen }
-   procedure lftProducedDrugsSynchroFormQueryOpen(aSender: TObject); override;
+   procedure LftProducedDrugsSynchroFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftProducedDrugsSynchroForm.OnQueryOpen }
-   procedure lftConsultationQueryMaximized(aSender: TObject); override;
+   procedure LftConsultationQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftConsultation.OnQueryMaximized }
-   procedure lftCorrespondentQueryClose(aSender: TObject); override;
+   procedure LftCorrespondentQueryClose(aSender: TObject); override;
     {* Обработчик события lftCorrespondent.OnQueryClose }
-   procedure lftSynchroViewQueryMaximized(aSender: TObject); override;
+   procedure LftSynchroViewQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftSynchroView.OnQueryMaximized }
-   procedure lftRespondentsSynchroFormQueryOpen(aSender: TObject); override;
+   procedure LftRespondentsSynchroFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftRespondentsSynchroForm.OnQueryOpen }
-   procedure lftUserCRList2_SynchorFormQueryMaximized(aSender: TObject); override;
+   procedure LftUserCRList2SynchorFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftUserCRList2_SynchorForm.OnQueryMaximized }
-   procedure lftUserCRList1_SynchorFormQueryOpen(aSender: TObject); override;
+   procedure LftUserCRList1SynchorFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftUserCRList1_SynchorForm.OnQueryOpen }
-   procedure lftSimilarDocumentsSynchroViewQueryOpen(aSender: TObject); override;
+   procedure LftSimilarDocumentsSynchroViewQueryOpen(aSender: TObject); override;
     {* Обработчик события lftSimilarDocumentsSynchroView.OnQueryOpen }
-   procedure lftProducedDrugsQueryOpen(aSender: TObject); override;
+   procedure LftProducedDrugsQueryOpen(aSender: TObject); override;
     {* Обработчик события lftProducedDrugs.OnQueryOpen }
-   procedure lftDrugInternationalNameSynonymsQueryMaximized(aSender: TObject); override;
+   procedure LftDrugInternationalNameSynonymsQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryMaximized }
-   procedure lftSimilarDocumentsToFragmentQueryClose(aSender: TObject); override;
+   procedure LftSimilarDocumentsToFragmentQueryClose(aSender: TObject); override;
     {* Обработчик события lftSimilarDocumentsToFragment.OnQueryClose }
-   procedure lftDrugInternationalNameSynonymsSynchroFormQueryOpen(aSender: TObject); override;
+   procedure LftDrugInternationalNameSynonymsSynchroFormQueryOpen(aSender: TObject); override;
     {* Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryOpen }
-   procedure lftDrugInternationalNameSynonymsSynchroFormQueryMaximized(aSender: TObject); override;
+   procedure LftDrugInternationalNameSynonymsSynchroFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryMaximized }
-   procedure lftProducedDrugsSynchroFormQueryMaximized(aSender: TObject); override;
+   procedure LftProducedDrugsSynchroFormQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftProducedDrugsSynchroForm.OnQueryMaximized }
-   procedure lftCToPartQueryMaximized(aSender: TObject); override;
+   procedure LftCToPartQueryMaximized(aSender: TObject); override;
     {* Обработчик события lftCToPart.OnQueryMaximized }
-   procedure lftCToPartQueryOpen(aSender: TObject); override;
+   procedure LftCToPartQueryOpen(aSender: TObject); override;
     {* Обработчик события lftCToPart.OnQueryOpen }
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
@@ -515,7 +510,6 @@ type
    {$If NOT Defined(NoVCM)}
    procedure PageActive; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    function NeedMakeHyperlinkToDocument: Boolean; override;
    {$If NOT Defined(NoVCM)}
    function IsAcceptable(aDataUpdate: Boolean): Boolean; override;
@@ -525,6 +519,7 @@ type
    function NeedLoadFormStateForClone(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -796,11 +791,15 @@ uses
  , vtLister
  , Graphics
  , IOUnit
- , l3DialogService
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , ListUserTypes_lftUserCR1_UserType
+ , ListUserTypes_lftUserCR2_UserType
+ , ListUserTypes_lftSimilarDocuments_UserType
+ , ListUserTypes_lftRespondentsSynchroForm_UserType
+ , ListUserTypes_lftUserCRList1_SynchorForm_UserType
+ , ListUserTypes_lftUserCRList2_SynchorForm_UserType
+ , ListUserTypes_lftSimilarDocumentsToFragment_UserType
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -809,10 +808,10 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ , SysUtils
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDefsList
  {$IfEnd} // Defined(Nemesis)
- , SysUtils
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDef
  {$IfEnd} // Defined(Nemesis)
@@ -829,38 +828,14 @@ uses
  , nsExternalObjectPrim
  , nsSaveDialog
  , Printers
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *497DDB2B001Bimpl_uses*
+ //#UC END# *497DDB2B001Bimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-type
- // IncludeForNoneAndConsultation
-
- // IncludeTimeMachineOffAndReset
-
- // IncludeSetCurrentVisible
-
- // IncludeListInfo
-
- // ExcludeExportToXML
-
- // ExcludeListForInpharm
-
- // IncludeFiltersListOpen
-
- // IncludeLoadFromFolder
-
- // IncludeFiltersList
-
- // IncludeForInpharm
-
- // ExcludeLocalListOpen
-
- // IncludeAnalize
-
- // IncludeFrmAct
-
- // IncludeCRList
-
 const
  {* Локализуемые строки Local }
  str_ListFooterCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListFooterCaption'; rValue : 'Полный список документов по запросу');
@@ -2120,7 +2095,7 @@ begin
 //#UC END# *4B5580C902B0_497DDB2B001B_impl*
 end;//TPrimListForm.ListOpsTest
 
-procedure TPrimListForm.lftRespondentsSynchroFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftRespondentsSynchroFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftRespondentsSynchroForm.OnQueryMaximized }
 //#UC START# *068F6EC47A8A_497DDB2B001B_var*
 //#UC END# *068F6EC47A8A_497DDB2B001B_var*
@@ -2128,9 +2103,9 @@ begin
 //#UC START# *068F6EC47A8A_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *068F6EC47A8A_497DDB2B001B_impl*
-end;//TPrimListForm.lftRespondentsSynchroFormQueryMaximized
+end;//TPrimListForm.LftRespondentsSynchroFormQueryMaximized
 
-procedure TPrimListForm.lftRToPartQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftRToPartQueryOpen(aSender: TObject);
  {* Обработчик события lftRToPart.OnQueryOpen }
 //#UC START# *0984ADDC3D53_497DDB2B001B_var*
 //#UC END# *0984ADDC3D53_497DDB2B001B_var*
@@ -2138,9 +2113,9 @@ begin
 //#UC START# *0984ADDC3D53_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *0984ADDC3D53_497DDB2B001B_impl*
-end;//TPrimListForm.lftRToPartQueryOpen
+end;//TPrimListForm.LftRToPartQueryOpen
 
-procedure TPrimListForm.lftCorrespondentsSynchroFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftCorrespondentsSynchroFormQueryOpen(aSender: TObject);
  {* Обработчик события lftCorrespondentsSynchroForm.OnQueryOpen }
 //#UC START# *10133243E89D_497DDB2B001B_var*
 //#UC END# *10133243E89D_497DDB2B001B_var*
@@ -2148,9 +2123,9 @@ begin
 //#UC START# *10133243E89D_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *10133243E89D_497DDB2B001B_impl*
-end;//TPrimListForm.lftCorrespondentsSynchroFormQueryOpen
+end;//TPrimListForm.LftCorrespondentsSynchroFormQueryOpen
 
-procedure TPrimListForm.lftUserCR2QueryOpen(aSender: TObject);
+procedure TPrimListForm.LftUserCR2QueryOpen(aSender: TObject);
  {* Обработчик события lftUserCR2.OnQueryOpen }
 //#UC START# *1095984F87C1_497DDB2B001B_var*
 //#UC END# *1095984F87C1_497DDB2B001B_var*
@@ -2158,9 +2133,9 @@ begin
 //#UC START# *1095984F87C1_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *1095984F87C1_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR2QueryOpen
+end;//TPrimListForm.LftUserCR2QueryOpen
 
-procedure TPrimListForm.lftSimilarDocumentsQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsQueryOpen(aSender: TObject);
  {* Обработчик события lftSimilarDocuments.OnQueryOpen }
 //#UC START# *3D942CB394A8_497DDB2B001B_var*
 //#UC END# *3D942CB394A8_497DDB2B001B_var*
@@ -2168,9 +2143,9 @@ begin
 //#UC START# *3D942CB394A8_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *3D942CB394A8_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsQueryOpen
+end;//TPrimListForm.LftSimilarDocumentsQueryOpen
 
-procedure TPrimListForm.lftSimilarDocumentsQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsQueryMaximized(aSender: TObject);
  {* Обработчик события lftSimilarDocuments.OnQueryMaximized }
 //#UC START# *3E3ACC41CC2A_497DDB2B001B_var*
 //#UC END# *3E3ACC41CC2A_497DDB2B001B_var*
@@ -2178,7 +2153,7 @@ begin
 //#UC START# *3E3ACC41CC2A_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *3E3ACC41CC2A_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsQueryMaximized
+end;//TPrimListForm.LftSimilarDocumentsQueryMaximized
 
 procedure TPrimListForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
  {* Копировать }
@@ -2911,7 +2886,7 @@ begin
 //#UC END# *4AD6EAA3034A_497DDB2B001Bget_impl*
 end;//TPrimListForm.Get_ContextSearcher
 
-procedure TPrimListForm.lftUserCRList2_SynchorFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftUserCRList2SynchorFormQueryOpen(aSender: TObject);
  {* Обработчик события lftUserCRList2_SynchorForm.OnQueryOpen }
 //#UC START# *4AE19D392515_497DDB2B001B_var*
 //#UC END# *4AE19D392515_497DDB2B001B_var*
@@ -2919,7 +2894,7 @@ begin
 //#UC START# *4AE19D392515_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *4AE19D392515_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCRList2_SynchorFormQueryOpen
+end;//TPrimListForm.LftUserCRList2SynchorFormQueryOpen
 
 function TPrimListForm.Filterable_Add_Execute(const aFilter: IFilterFromQuery): Boolean;
 //#UC START# *4AEF0BF70306_497DDB2B001Bexec_var*
@@ -3786,7 +3761,7 @@ begin
   ResultValue := Self.List_GetDsList_Execute;
 end;//TPrimListForm.List_GetDsList
 
-procedure TPrimListForm.lftUserCRList1_SynchorFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftUserCRList1SynchorFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftUserCRList1_SynchorForm.OnQueryMaximized }
 //#UC START# *536B8B1C39F1_497DDB2B001B_var*
 //#UC END# *536B8B1C39F1_497DDB2B001B_var*
@@ -3794,7 +3769,7 @@ begin
 //#UC START# *536B8B1C39F1_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *536B8B1C39F1_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCRList1_SynchorFormQueryMaximized
+end;//TPrimListForm.LftUserCRList1SynchorFormQueryMaximized
 
 procedure TPrimListForm.List_Analize_Test(const aParams: IvcmTestParamsPrim);
  {* Анализ списка }
@@ -3920,7 +3895,7 @@ begin
 //#UC END# *545B954A035E_497DDB2B001Bexec_impl*
 end;//TPrimListForm.List_SpecifyListForReminders_Execute
 
-procedure TPrimListForm.lftProducedDrugsQueryClose(aSender: TObject);
+procedure TPrimListForm.LftProducedDrugsQueryClose(aSender: TObject);
  {* Обработчик события lftProducedDrugs.OnQueryClose }
 //#UC START# *5487A60000CE_497DDB2B001B_var*
 //#UC END# *5487A60000CE_497DDB2B001B_var*
@@ -3928,7 +3903,7 @@ begin
 //#UC START# *5487A60000CE_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *5487A60000CE_497DDB2B001B_impl*
-end;//TPrimListForm.lftProducedDrugsQueryClose
+end;//TPrimListForm.LftProducedDrugsQueryClose
 
 function TPrimListForm.IsSearchLocked: Boolean;
 //#UC START# *561641EE03D8_497DDB2B001B_var*
@@ -3939,7 +3914,7 @@ begin
 //#UC END# *561641EE03D8_497DDB2B001B_impl*
 end;//TPrimListForm.IsSearchLocked
 
-procedure TPrimListForm.lftUserCR2QueryClose(aSender: TObject);
+procedure TPrimListForm.LftUserCR2QueryClose(aSender: TObject);
  {* Обработчик события lftUserCR2.OnQueryClose }
 //#UC START# *5B815CDD8F87_497DDB2B001B_var*
 //#UC END# *5B815CDD8F87_497DDB2B001B_var*
@@ -3947,9 +3922,9 @@ begin
 //#UC START# *5B815CDD8F87_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *5B815CDD8F87_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR2QueryClose
+end;//TPrimListForm.LftUserCR2QueryClose
 
-procedure TPrimListForm.lftConsultationQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftConsultationQueryOpen(aSender: TObject);
  {* Обработчик события lftConsultation.OnQueryOpen }
 //#UC START# *5E40E10FD4BD_497DDB2B001B_var*
 //#UC END# *5E40E10FD4BD_497DDB2B001B_var*
@@ -3957,9 +3932,9 @@ begin
 //#UC START# *5E40E10FD4BD_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *5E40E10FD4BD_497DDB2B001B_impl*
-end;//TPrimListForm.lftConsultationQueryOpen
+end;//TPrimListForm.LftConsultationQueryOpen
 
-procedure TPrimListForm.lftRespondentQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftRespondentQueryMaximized(aSender: TObject);
  {* Обработчик события lftRespondent.OnQueryMaximized }
 //#UC START# *631A220E9075_497DDB2B001B_var*
 //#UC END# *631A220E9075_497DDB2B001B_var*
@@ -3967,9 +3942,9 @@ begin
 //#UC START# *631A220E9075_497DDB2B001B_impl*
  QueryMaximized;
 //#UC END# *631A220E9075_497DDB2B001B_impl*
-end;//TPrimListForm.lftRespondentQueryMaximized
+end;//TPrimListForm.LftRespondentQueryMaximized
 
-procedure TPrimListForm.lftUserCR1QueryOpen(aSender: TObject);
+procedure TPrimListForm.LftUserCR1QueryOpen(aSender: TObject);
  {* Обработчик события lftUserCR1.OnQueryOpen }
 //#UC START# *63544B6D4A1B_497DDB2B001B_var*
 //#UC END# *63544B6D4A1B_497DDB2B001B_var*
@@ -3977,9 +3952,9 @@ begin
 //#UC START# *63544B6D4A1B_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *63544B6D4A1B_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR1QueryOpen
+end;//TPrimListForm.LftUserCR1QueryOpen
 
-procedure TPrimListForm.lftProducedDrugsQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftProducedDrugsQueryMaximized(aSender: TObject);
  {* Обработчик события lftProducedDrugs.OnQueryMaximized }
 //#UC START# *66C365C924D6_497DDB2B001B_var*
 //#UC END# *66C365C924D6_497DDB2B001B_var*
@@ -3987,9 +3962,9 @@ begin
 //#UC START# *66C365C924D6_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *66C365C924D6_497DDB2B001B_impl*
-end;//TPrimListForm.lftProducedDrugsQueryMaximized
+end;//TPrimListForm.LftProducedDrugsQueryMaximized
 
-procedure TPrimListForm.lftRespondentQueryClose(aSender: TObject);
+procedure TPrimListForm.LftRespondentQueryClose(aSender: TObject);
  {* Обработчик события lftRespondent.OnQueryClose }
 //#UC START# *6784C69651CE_497DDB2B001B_var*
 //#UC END# *6784C69651CE_497DDB2B001B_var*
@@ -4004,9 +3979,9 @@ begin
  else
   SafeClose;
 //#UC END# *6784C69651CE_497DDB2B001B_impl*
-end;//TPrimListForm.lftRespondentQueryClose
+end;//TPrimListForm.LftRespondentQueryClose
 
-procedure TPrimListForm.lftUserCR2QueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftUserCR2QueryMaximized(aSender: TObject);
  {* Обработчик события lftUserCR2.OnQueryMaximized }
 //#UC START# *68123CAC609E_497DDB2B001B_var*
 //#UC END# *68123CAC609E_497DDB2B001B_var*
@@ -4014,9 +3989,9 @@ begin
 //#UC START# *68123CAC609E_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *68123CAC609E_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR2QueryMaximized
+end;//TPrimListForm.LftUserCR2QueryMaximized
 
-procedure TPrimListForm.lftSimilarDocumentsSynchroViewQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsSynchroViewQueryMaximized(aSender: TObject);
  {* Обработчик события lftSimilarDocumentsSynchroView.OnQueryMaximized }
 //#UC START# *7662726E4743_497DDB2B001B_var*
 //#UC END# *7662726E4743_497DDB2B001B_var*
@@ -4024,9 +3999,9 @@ begin
 //#UC START# *7662726E4743_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *7662726E4743_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsSynchroViewQueryMaximized
+end;//TPrimListForm.LftSimilarDocumentsSynchroViewQueryMaximized
 
-procedure TPrimListForm.lftCorrespondentQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftCorrespondentQueryOpen(aSender: TObject);
  {* Обработчик события lftCorrespondent.OnQueryOpen }
 //#UC START# *7984D701603A_497DDB2B001B_var*
 //#UC END# *7984D701603A_497DDB2B001B_var*
@@ -4034,9 +4009,9 @@ begin
 //#UC START# *7984D701603A_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *7984D701603A_497DDB2B001B_impl*
-end;//TPrimListForm.lftCorrespondentQueryOpen
+end;//TPrimListForm.LftCorrespondentQueryOpen
 
-procedure TPrimListForm.lftCorrespondentsSynchroFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftCorrespondentsSynchroFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftCorrespondentsSynchroForm.OnQueryMaximized }
 //#UC START# *79CA491C075A_497DDB2B001B_var*
 //#UC END# *79CA491C075A_497DDB2B001B_var*
@@ -4044,9 +4019,9 @@ begin
 //#UC START# *79CA491C075A_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *79CA491C075A_497DDB2B001B_impl*
-end;//TPrimListForm.lftCorrespondentsSynchroFormQueryMaximized
+end;//TPrimListForm.LftCorrespondentsSynchroFormQueryMaximized
 
-procedure TPrimListForm.lftUserCR1QueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftUserCR1QueryMaximized(aSender: TObject);
  {* Обработчик события lftUserCR1.OnQueryMaximized }
 //#UC START# *79E93ABBEBFC_497DDB2B001B_var*
 //#UC END# *79E93ABBEBFC_497DDB2B001B_var*
@@ -4054,9 +4029,9 @@ begin
 //#UC START# *79E93ABBEBFC_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *79E93ABBEBFC_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR1QueryMaximized
+end;//TPrimListForm.LftUserCR1QueryMaximized
 
-procedure TPrimListForm.lftUserCR1QueryClose(aSender: TObject);
+procedure TPrimListForm.LftUserCR1QueryClose(aSender: TObject);
  {* Обработчик события lftUserCR1.OnQueryClose }
 //#UC START# *7C26AE9268E7_497DDB2B001B_var*
 //#UC END# *7C26AE9268E7_497DDB2B001B_var*
@@ -4064,9 +4039,9 @@ begin
 //#UC START# *7C26AE9268E7_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *7C26AE9268E7_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCR1QueryClose
+end;//TPrimListForm.LftUserCR1QueryClose
 
-procedure TPrimListForm.lftDrugInternationalNameSynonymsQueryClose(aSender: TObject);
+procedure TPrimListForm.LftDrugInternationalNameSynonymsQueryClose(aSender: TObject);
  {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryClose }
 //#UC START# *7CA1B2391F94_497DDB2B001B_var*
 //#UC END# *7CA1B2391F94_497DDB2B001B_var*
@@ -4074,9 +4049,9 @@ begin
 //#UC START# *7CA1B2391F94_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *7CA1B2391F94_497DDB2B001B_impl*
-end;//TPrimListForm.lftDrugInternationalNameSynonymsQueryClose
+end;//TPrimListForm.LftDrugInternationalNameSynonymsQueryClose
 
-procedure TPrimListForm.lftSynchroViewQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события lftSynchroView.OnQueryOpen }
 //#UC START# *7D78C9A85314_497DDB2B001B_var*
 //#UC END# *7D78C9A85314_497DDB2B001B_var*
@@ -4084,9 +4059,9 @@ begin
 //#UC START# *7D78C9A85314_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *7D78C9A85314_497DDB2B001B_impl*
-end;//TPrimListForm.lftSynchroViewQueryOpen
+end;//TPrimListForm.LftSynchroViewQueryOpen
 
-procedure TPrimListForm.lftDrugInternationalNameSynonymsQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftDrugInternationalNameSynonymsQueryOpen(aSender: TObject);
  {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryOpen }
 //#UC START# *8829BBB9E33F_497DDB2B001B_var*
 //#UC END# *8829BBB9E33F_497DDB2B001B_var*
@@ -4094,9 +4069,9 @@ begin
 //#UC START# *8829BBB9E33F_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *8829BBB9E33F_497DDB2B001B_impl*
-end;//TPrimListForm.lftDrugInternationalNameSynonymsQueryOpen
+end;//TPrimListForm.LftDrugInternationalNameSynonymsQueryOpen
 
-procedure TPrimListForm.lftConsultationQueryClose(aSender: TObject);
+procedure TPrimListForm.LftConsultationQueryClose(aSender: TObject);
  {* Обработчик события lftConsultation.OnQueryClose }
 //#UC START# *89247CD8E38D_497DDB2B001B_var*
 //#UC END# *89247CD8E38D_497DDB2B001B_var*
@@ -4104,9 +4079,9 @@ begin
 //#UC START# *89247CD8E38D_497DDB2B001B_impl*
  op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *89247CD8E38D_497DDB2B001B_impl*
-end;//TPrimListForm.lftConsultationQueryClose
+end;//TPrimListForm.LftConsultationQueryClose
 
-procedure TPrimListForm.lftRToPartQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftRToPartQueryMaximized(aSender: TObject);
  {* Обработчик события lftRToPart.OnQueryMaximized }
 //#UC START# *910DF1C1598C_497DDB2B001B_var*
 //#UC END# *910DF1C1598C_497DDB2B001B_var*
@@ -4114,9 +4089,9 @@ begin
 //#UC START# *910DF1C1598C_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *910DF1C1598C_497DDB2B001B_impl*
-end;//TPrimListForm.lftRToPartQueryMaximized
+end;//TPrimListForm.LftRToPartQueryMaximized
 
-procedure TPrimListForm.lftSimilarDocumentsQueryClose(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsQueryClose(aSender: TObject);
  {* Обработчик события lftSimilarDocuments.OnQueryClose }
 //#UC START# *9144562E25FB_497DDB2B001B_var*
 //#UC END# *9144562E25FB_497DDB2B001B_var*
@@ -4124,9 +4099,9 @@ begin
 //#UC START# *9144562E25FB_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *9144562E25FB_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsQueryClose
+end;//TPrimListForm.LftSimilarDocumentsQueryClose
 
-procedure TPrimListForm.lftSimilarDocumentsToFragmentQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsToFragmentQueryMaximized(aSender: TObject);
  {* Обработчик события lftSimilarDocumentsToFragment.OnQueryMaximized }
 //#UC START# *9CAFD9A7C3BD_497DDB2B001B_var*
 //#UC END# *9CAFD9A7C3BD_497DDB2B001B_var*
@@ -4134,9 +4109,9 @@ begin
 //#UC START# *9CAFD9A7C3BD_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *9CAFD9A7C3BD_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsToFragmentQueryMaximized
+end;//TPrimListForm.LftSimilarDocumentsToFragmentQueryMaximized
 
-procedure TPrimListForm.lftRespondentQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftRespondentQueryOpen(aSender: TObject);
  {* Обработчик события lftRespondent.OnQueryOpen }
 //#UC START# *9FBF6C4D3127_497DDB2B001B_var*
 //#UC END# *9FBF6C4D3127_497DDB2B001B_var*
@@ -4144,9 +4119,9 @@ begin
 //#UC START# *9FBF6C4D3127_497DDB2B001B_impl*
  QueryOpen;
 //#UC END# *9FBF6C4D3127_497DDB2B001B_impl*
-end;//TPrimListForm.lftRespondentQueryOpen
+end;//TPrimListForm.LftRespondentQueryOpen
 
-procedure TPrimListForm.lftCorrespondentQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftCorrespondentQueryMaximized(aSender: TObject);
  {* Обработчик события lftCorrespondent.OnQueryMaximized }
 //#UC START# *AC1A36740EA8_497DDB2B001B_var*
 //#UC END# *AC1A36740EA8_497DDB2B001B_var*
@@ -4154,9 +4129,9 @@ begin
 //#UC START# *AC1A36740EA8_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *AC1A36740EA8_497DDB2B001B_impl*
-end;//TPrimListForm.lftCorrespondentQueryMaximized
+end;//TPrimListForm.LftCorrespondentQueryMaximized
 
-procedure TPrimListForm.lftSimilarDocumentsToFragmentQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsToFragmentQueryOpen(aSender: TObject);
  {* Обработчик события lftSimilarDocumentsToFragment.OnQueryOpen }
 //#UC START# *B3625EBE1EED_497DDB2B001B_var*
 //#UC END# *B3625EBE1EED_497DDB2B001B_var*
@@ -4164,9 +4139,9 @@ begin
 //#UC START# *B3625EBE1EED_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *B3625EBE1EED_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsToFragmentQueryOpen
+end;//TPrimListForm.LftSimilarDocumentsToFragmentQueryOpen
 
-procedure TPrimListForm.lftProducedDrugsSynchroFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftProducedDrugsSynchroFormQueryOpen(aSender: TObject);
  {* Обработчик события lftProducedDrugsSynchroForm.OnQueryOpen }
 //#UC START# *B74FCF7BEB24_497DDB2B001B_var*
 //#UC END# *B74FCF7BEB24_497DDB2B001B_var*
@@ -4174,9 +4149,9 @@ begin
 //#UC START# *B74FCF7BEB24_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *B74FCF7BEB24_497DDB2B001B_impl*
-end;//TPrimListForm.lftProducedDrugsSynchroFormQueryOpen
+end;//TPrimListForm.LftProducedDrugsSynchroFormQueryOpen
 
-procedure TPrimListForm.lftConsultationQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftConsultationQueryMaximized(aSender: TObject);
  {* Обработчик события lftConsultation.OnQueryMaximized }
 //#UC START# *B8F5E8ADF26A_497DDB2B001B_var*
 //#UC END# *B8F5E8ADF26A_497DDB2B001B_var*
@@ -4184,9 +4159,9 @@ begin
 //#UC START# *B8F5E8ADF26A_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *B8F5E8ADF26A_497DDB2B001B_impl*
-end;//TPrimListForm.lftConsultationQueryMaximized
+end;//TPrimListForm.LftConsultationQueryMaximized
 
-procedure TPrimListForm.lftCorrespondentQueryClose(aSender: TObject);
+procedure TPrimListForm.LftCorrespondentQueryClose(aSender: TObject);
  {* Обработчик события lftCorrespondent.OnQueryClose }
 //#UC START# *BAF9A43F64B1_497DDB2B001B_var*
 //#UC END# *BAF9A43F64B1_497DDB2B001B_var*
@@ -4194,9 +4169,9 @@ begin
 //#UC START# *BAF9A43F64B1_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *BAF9A43F64B1_497DDB2B001B_impl*
-end;//TPrimListForm.lftCorrespondentQueryClose
+end;//TPrimListForm.LftCorrespondentQueryClose
 
-procedure TPrimListForm.lftSynchroViewQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftSynchroViewQueryMaximized(aSender: TObject);
  {* Обработчик события lftSynchroView.OnQueryMaximized }
 //#UC START# *BC1EF73BE90E_497DDB2B001B_var*
 //#UC END# *BC1EF73BE90E_497DDB2B001B_var*
@@ -4204,9 +4179,9 @@ begin
 //#UC START# *BC1EF73BE90E_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *BC1EF73BE90E_497DDB2B001B_impl*
-end;//TPrimListForm.lftSynchroViewQueryMaximized
+end;//TPrimListForm.LftSynchroViewQueryMaximized
 
-procedure TPrimListForm.lftRespondentsSynchroFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftRespondentsSynchroFormQueryOpen(aSender: TObject);
  {* Обработчик события lftRespondentsSynchroForm.OnQueryOpen }
 //#UC START# *C576738B9A98_497DDB2B001B_var*
 //#UC END# *C576738B9A98_497DDB2B001B_var*
@@ -4214,9 +4189,9 @@ begin
 //#UC START# *C576738B9A98_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *C576738B9A98_497DDB2B001B_impl*
-end;//TPrimListForm.lftRespondentsSynchroFormQueryOpen
+end;//TPrimListForm.LftRespondentsSynchroFormQueryOpen
 
-procedure TPrimListForm.lftUserCRList2_SynchorFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftUserCRList2SynchorFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftUserCRList2_SynchorForm.OnQueryMaximized }
 //#UC START# *D22B2108D1D7_497DDB2B001B_var*
 //#UC END# *D22B2108D1D7_497DDB2B001B_var*
@@ -4224,9 +4199,9 @@ begin
 //#UC START# *D22B2108D1D7_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *D22B2108D1D7_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCRList2_SynchorFormQueryMaximized
+end;//TPrimListForm.LftUserCRList2SynchorFormQueryMaximized
 
-procedure TPrimListForm.lftUserCRList1_SynchorFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftUserCRList1SynchorFormQueryOpen(aSender: TObject);
  {* Обработчик события lftUserCRList1_SynchorForm.OnQueryOpen }
 //#UC START# *D51A85B5EA94_497DDB2B001B_var*
 //#UC END# *D51A85B5EA94_497DDB2B001B_var*
@@ -4234,9 +4209,9 @@ begin
 //#UC START# *D51A85B5EA94_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *D51A85B5EA94_497DDB2B001B_impl*
-end;//TPrimListForm.lftUserCRList1_SynchorFormQueryOpen
+end;//TPrimListForm.LftUserCRList1SynchorFormQueryOpen
 
-procedure TPrimListForm.lftSimilarDocumentsSynchroViewQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события lftSimilarDocumentsSynchroView.OnQueryOpen }
 //#UC START# *D7AA4578D2D1_497DDB2B001B_var*
 //#UC END# *D7AA4578D2D1_497DDB2B001B_var*
@@ -4244,9 +4219,9 @@ begin
 //#UC START# *D7AA4578D2D1_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *D7AA4578D2D1_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsSynchroViewQueryOpen
+end;//TPrimListForm.LftSimilarDocumentsSynchroViewQueryOpen
 
-procedure TPrimListForm.lftProducedDrugsQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftProducedDrugsQueryOpen(aSender: TObject);
  {* Обработчик события lftProducedDrugs.OnQueryOpen }
 //#UC START# *DD3CF6B9A1FE_497DDB2B001B_var*
 //#UC END# *DD3CF6B9A1FE_497DDB2B001B_var*
@@ -4254,9 +4229,9 @@ begin
 //#UC START# *DD3CF6B9A1FE_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *DD3CF6B9A1FE_497DDB2B001B_impl*
-end;//TPrimListForm.lftProducedDrugsQueryOpen
+end;//TPrimListForm.LftProducedDrugsQueryOpen
 
-procedure TPrimListForm.lftDrugInternationalNameSynonymsQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftDrugInternationalNameSynonymsQueryMaximized(aSender: TObject);
  {* Обработчик события lftDrugInternationalNameSynonyms.OnQueryMaximized }
 //#UC START# *DF8DF3016AAE_497DDB2B001B_var*
 //#UC END# *DF8DF3016AAE_497DDB2B001B_var*
@@ -4264,9 +4239,9 @@ begin
 //#UC START# *DF8DF3016AAE_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *DF8DF3016AAE_497DDB2B001B_impl*
-end;//TPrimListForm.lftDrugInternationalNameSynonymsQueryMaximized
+end;//TPrimListForm.LftDrugInternationalNameSynonymsQueryMaximized
 
-procedure TPrimListForm.lftSimilarDocumentsToFragmentQueryClose(aSender: TObject);
+procedure TPrimListForm.LftSimilarDocumentsToFragmentQueryClose(aSender: TObject);
  {* Обработчик события lftSimilarDocumentsToFragment.OnQueryClose }
 //#UC START# *E15AA3CCAAFD_497DDB2B001B_var*
 //#UC END# *E15AA3CCAAFD_497DDB2B001B_var*
@@ -4274,9 +4249,9 @@ begin
 //#UC START# *E15AA3CCAAFD_497DDB2B001B_impl*
  LftRespondentQueryClose(aSender);
 //#UC END# *E15AA3CCAAFD_497DDB2B001B_impl*
-end;//TPrimListForm.lftSimilarDocumentsToFragmentQueryClose
+end;//TPrimListForm.LftSimilarDocumentsToFragmentQueryClose
 
-procedure TPrimListForm.lftDrugInternationalNameSynonymsSynchroFormQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftDrugInternationalNameSynonymsSynchroFormQueryOpen(aSender: TObject);
  {* Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryOpen }
 //#UC START# *E163385C2B4E_497DDB2B001B_var*
 //#UC END# *E163385C2B4E_497DDB2B001B_var*
@@ -4284,9 +4259,9 @@ begin
 //#UC START# *E163385C2B4E_497DDB2B001B_impl*
  LftRespondentQueryOpen(aSender);
 //#UC END# *E163385C2B4E_497DDB2B001B_impl*
-end;//TPrimListForm.lftDrugInternationalNameSynonymsSynchroFormQueryOpen
+end;//TPrimListForm.LftDrugInternationalNameSynonymsSynchroFormQueryOpen
 
-procedure TPrimListForm.lftDrugInternationalNameSynonymsSynchroFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftDrugInternationalNameSynonymsSynchroFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryMaximized }
 //#UC START# *F57A05E9D1E3_497DDB2B001B_var*
 //#UC END# *F57A05E9D1E3_497DDB2B001B_var*
@@ -4294,9 +4269,9 @@ begin
 //#UC START# *F57A05E9D1E3_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *F57A05E9D1E3_497DDB2B001B_impl*
-end;//TPrimListForm.lftDrugInternationalNameSynonymsSynchroFormQueryMaximized
+end;//TPrimListForm.LftDrugInternationalNameSynonymsSynchroFormQueryMaximized
 
-procedure TPrimListForm.lftProducedDrugsSynchroFormQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftProducedDrugsSynchroFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftProducedDrugsSynchroForm.OnQueryMaximized }
 //#UC START# *F8F8E6852550_497DDB2B001B_var*
 //#UC END# *F8F8E6852550_497DDB2B001B_var*
@@ -4304,9 +4279,9 @@ begin
 //#UC START# *F8F8E6852550_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *F8F8E6852550_497DDB2B001B_impl*
-end;//TPrimListForm.lftProducedDrugsSynchroFormQueryMaximized
+end;//TPrimListForm.LftProducedDrugsSynchroFormQueryMaximized
 
-procedure TPrimListForm.lftCToPartQueryMaximized(aSender: TObject);
+procedure TPrimListForm.LftCToPartQueryMaximized(aSender: TObject);
  {* Обработчик события lftCToPart.OnQueryMaximized }
 //#UC START# *FA04A3642350_497DDB2B001B_var*
 //#UC END# *FA04A3642350_497DDB2B001B_var*
@@ -4314,9 +4289,9 @@ begin
 //#UC START# *FA04A3642350_497DDB2B001B_impl*
  LftRespondentQueryMaximized(aSender);
 //#UC END# *FA04A3642350_497DDB2B001B_impl*
-end;//TPrimListForm.lftCToPartQueryMaximized
+end;//TPrimListForm.LftCToPartQueryMaximized
 
-procedure TPrimListForm.lftCToPartQueryOpen(aSender: TObject);
+procedure TPrimListForm.LftCToPartQueryOpen(aSender: TObject);
  {* Обработчик события lftCToPart.OnQueryOpen }
 //#UC START# *FEE09FA84BC5_497DDB2B001B_var*
 //#UC END# *FEE09FA84BC5_497DDB2B001B_var*
@@ -4324,7 +4299,7 @@ begin
 //#UC START# *FEE09FA84BC5_497DDB2B001B_impl*
  LftCorrespondentQueryOpen(aSender);
 //#UC END# *FEE09FA84BC5_497DDB2B001B_impl*
-end;//TPrimListForm.lftCToPartQueryOpen
+end;//TPrimListForm.LftCToPartQueryOpen
 
 procedure TPrimListForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_497DDB2B001B_var*
@@ -4550,13 +4525,6 @@ begin
 //#UC END# *4C52E8030278_497DDB2B001B_impl*
 end;//TPrimListForm.PageActive
 
-procedure TPrimListForm.ClearFields;
-begin
- f_SortTypeMap := nil;
- f_SearchContext := nil;
- inherited;
-end;//TPrimListForm.ClearFields
-
 function TPrimListForm.NeedMakeHyperlinkToDocument: Boolean;
 //#UC START# *53EB17EF0306_497DDB2B001B_var*
 //#UC END# *53EB17EF0306_497DDB2B001B_var*
@@ -4590,10 +4558,37 @@ begin
 //#UC END# *561CB1350027_497DDB2B001B_impl*
 end;//TPrimListForm.NeedLoadFormStateForClone
 
+procedure TPrimListForm.ClearFields;
+begin
+ f_SortTypeMap := nil;
+ f_SearchContext := nil;
+ inherited;
+end;//TPrimListForm.ClearFields
+
 procedure TPrimListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsSimpleTree := nil;
+  dsList := nil;
+  dsDocumentList := nil;
+  sdsList := nil;
+  BaseSearchSupportQuery := nil;
+  WarningLocker := nil;
+  ucpFilters := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsSimpleTree, dsSimpleTree);
+  Supports(aNew, IdsList, dsList);
+  Supports(aNew, IdsDocumentList, dsDocumentList);
+  aNew.CastUCC(IsdsList, sdsList);
+  Supports(aNew, IucbBaseSearchSupportQuery, BaseSearchSupportQuery);
+  aNew.CastUCC(InsWarningLocker, WarningLocker);
+  aNew.CastUCC(IucpFilters, ucpFilters);
+ end;//aNew = nil
 end;//TPrimListForm.SignalDataSourceChanged
 
 procedure TPrimListForm.InitEntities;
@@ -4614,6 +4609,16 @@ begin
   PublishFormEntity(en_LocalList, nil);
   PublishFormEntity(en_Filters, nil);
   PublishFormEntity(en_CRList, nil);
+  PublishFormEntity(en_DocumentInList, nil);
+  PublishFormEntity(en_SelectedDocuments, nil);
+  MakeEntitySupportedByControl(en_Edit, tvList);
+  MakeEntitySupportedByControl(en_File, tvList);
+  MakeEntitySupportedByControl(en_List, tvList);
+  MakeEntitySupportedByControl(en_Selection, tvList);
+  MakeEntitySupportedByControl(en_LocalList, tvList);
+  MakeEntitySupportedByControl(en_Document, tvList);
+  MakeEntitySupportedByControl(en_DocumentInList, tvList);
+  MakeEntitySupportedByControl(en_SelectedDocuments, tvList);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
   PublishOp(en_Edit, op_FindContext, Edit_FindContext_Execute, Edit_FindContext_Test, nil);
   PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
@@ -4635,39 +4640,345 @@ begin
   PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
   PublishOp(en_List, op_SwitchToFullList, List_SwitchToFullList_Execute, List_SwitchToFullList_Test, nil);
   PublishOp(en_List, op_ListInfo, List_ListInfo_Execute, List_ListInfo_Test, nil);
+  ShowInContextMenu(en_List, op_ListInfo, True);
   PublishOp(en_List, op_Sort, List_Sort_Execute, List_Sort_Test, nil);
+  ShowInContextMenu(en_List, op_Sort, True);
   PublishOp(en_List, op_SortDirection, List_SortDirection_Execute, List_SortDirection_Test, List_SortDirection_GetState);
+  ShowInContextMenu(en_List, op_SortDirection, True);
   PublishOp(en_List, op_SpecifyList, List_SpecifyList_Execute, List_SpecifyList_Test, nil);
+  ShowInContextMenu(en_List, op_SpecifyList, True);
   PublishOp(en_List, op_ExportToXML, List_ExportToXML_Execute, List_ExportToXML_Test, nil);
+  ShowInContextMenu(en_List, op_ExportToXML, True);
   PublishOp(en_Filters, op_FiltersList, Filters_FiltersList_Execute, Filters_FiltersList_Test, nil);
   PublishOp(en_LocalList, op_PublishSourceSearchInList, LocalList_PublishSourceSearchInList_Execute, LocalList_PublishSourceSearchInList_Test, nil);
+  ShowInContextMenu(en_LocalList, op_PublishSourceSearchInList, True);
+  ShowInToolbar(en_LocalList, op_PublishSourceSearchInList, True);
   PublishOp(en_LocalList, op_Open, LocalList_Open_Execute, LocalList_Open_Test, nil);
+  ShowInContextMenu(en_LocalList, op_Open, False);
   PublishOp(en_LocalList, op_SearchDrugInList, LocalList_SearchDrugInList_Execute, LocalList_SearchDrugInList_Test, nil);
+  ShowInContextMenu(en_LocalList, op_SearchDrugInList, True);
+  ShowInToolbar(en_LocalList, op_SearchDrugInList, True);
   PublishOp(en_Document, op_GetAnnotationDocFrmAct, Document_GetAnnotationDocFrmAct_Execute, Document_GetAnnotationDocFrmAct_Test, nil);
   PublishOp(en_Document, op_SimilarDocuments, Document_SimilarDocuments_Execute, Document_SimilarDocuments_Test, nil);
   PublishOp(en_CRList, op_SetType, CRList_SetType_Execute, CRList_SetType_Test, nil, true);
   PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
   PublishOp(en_LocalList, op_OpenNewWindow, LocalList_OpenNewWindow_Execute, nil, nil);
+  ShowInContextMenu(en_LocalList, op_OpenNewWindow, True);
   PublishOp(en_Selection, op_CopyToNewList, Selection_CopyToNewList_Execute, Selection_CopyToNewList_Test, nil);
+  ShowInContextMenu(en_Selection, op_CopyToNewList, True);
   PublishOp(en_Filters, op_Clear, Filters_Clear_Execute, nil, nil);
-  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
-  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
-  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
-  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
-  PublishOp(en_List, op_SortDirection, List_SortDirection_Execute, List_SortDirection_Test, List_SortDirection_GetState);
+  ShowInContextMenu(en_Filters, op_Clear, False);
+  ShowInToolbar(en_Filters, op_Clear, False);
   PublishOp(en_Selection, op_Analize, Selection_Analize_Execute, Selection_Analize_Test, nil);
   PublishOp(en_LocalList, op_SearchInList, LocalList_SearchInList_Execute, LocalList_SearchInList_Test, nil);
+  ShowInContextMenu(en_LocalList, op_SearchInList, True);
+  ShowInToolbar(en_LocalList, op_SearchInList, True);
   PublishOp(en_Filters, op_FiltersListOpen, Filters_FiltersListOpen_Execute, Filters_FiltersListOpen_Test, nil);
-  PublishOp(en_List, op_Sort, List_Sort_Execute, List_Sort_Test, List_Sort_GetState);
   PublishOpWithResult(en_Filters, op_InternalClear, Filters_InternalClear, nil, nil);
   PublishOpWithResult(en_Filterable, op_GetListType, Filterable_GetListType, nil, nil);
   PublishOpWithResult(en_List, op_GetDsList, List_GetDsList, nil, nil);
   PublishOp(en_List, op_Analize, List_Analize_Execute, List_Analize_Test, nil);
+  ShowInContextMenu(en_List, op_Analize, True);
   PublishOp(en_List, op_AnalizeList, List_AnalizeList_Execute, List_AnalizeList_Test, nil);
   PublishOp(en_List, op_SortForReminders, List_SortForReminders_Execute, List_SortForReminders_Test, nil);
+  ShowInContextMenu(en_List, op_SortForReminders, True);
+  ShowInToolbar(en_List, op_SortForReminders, False);
+  ContextMenuWeight(en_List, op_SortForReminders, 20);
   PublishOp(en_List, op_SortDirectionForReminders, List_SortDirectionForReminders_Execute, List_SortDirectionForReminders_Test, List_SortDirectionForReminders_GetState);
+  ContextMenuWeight(en_List, op_SortDirectionForReminders, 30);
   PublishOp(en_List, op_SpecifyListForReminders, List_SpecifyListForReminders_Execute, List_SpecifyListForReminders_Test, nil);
+  ShowInContextMenu(en_List, op_SpecifyListForReminders, True);
+  ShowInToolbar(en_List, op_SpecifyListForReminders, False);
+  ContextMenuWeight(en_List, op_SpecifyListForReminders, 70);
  end;//with Entities.Entities
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_ExportToXML, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_ExportToXML, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_ExportToXML, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_ExportToXML, False);
+ AddUserTypeExclude(lftDrugListName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(lftDrugListName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(lftDrugListName, en_List, op_Sort, False);
+ AddUserTypeExclude(lftDrugListName, en_List, op_SortDirection, False);
+ AddUserTypeExclude(lftDrugListName, en_List, op_SpecifyList, False);
+ AddUserTypeExclude(lftDrugListName, en_LocalList, op_PublishSourceSearchInList, False);
+ AddUserTypeExclude(lftDrugListName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(lftDrugListName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(lftDrugListName, en_LocalList, op_SearchInList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_Sort, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_SortDirection, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_SpecifyList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_LocalList, op_PublishSourceSearchInList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_LocalList, op_SearchInList, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_Sort, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_SortDirection, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_SpecifyList, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_LocalList, op_PublishSourceSearchInList, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_LocalList, op_SearchInList, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_Sort, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_SortDirection, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_SpecifyList, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_LocalList, op_PublishSourceSearchInList, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_LocalList, op_SearchInList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_Sort, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_SortDirection, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_SpecifyList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_LocalList, op_PublishSourceSearchInList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_LocalList, op_SearchInList, False);
+ AddUserTypeExclude(lftNoneName, en_LocalList, op_Open, False);
+ AddUserTypeExclude(lftRespondentName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftCorrespondentName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftCToPartName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftUserCR1Name, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftUserCR2Name, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftConsultationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftDrugListName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftRToPartName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(lftRespondentName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftCorrespondentName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftSynchroViewName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftCToPartName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftUserCR1Name, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftUserCR2Name, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftDrugListName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftRToPartName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_List, op_SetCurrentVisible, False);
+ AddUserTypeExclude(lftRespondentName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftCorrespondentName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftSynchroViewName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftCToPartName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftUserCR1Name, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftUserCR2Name, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftConsultationName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftDrugListName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftRToPartName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_List, op_ListInfo, False);
+ AddUserTypeExclude(lftRespondentName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftCToPartName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftRToPartName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(lftRespondentName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftCorrespondentName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftCToPartName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftUserCR1Name, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftUserCR2Name, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftDrugListName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftRToPartName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(lftRespondentName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftRespondentName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftRespondentName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftCToPartName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftCToPartName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftCToPartName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftRToPartName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftRToPartName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftRToPartName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Filters, op_FiltersList, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Filters, op_Clear, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Filters, op_InternalClear, False);
+ AddUserTypeExclude(lftNoneName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftRespondentName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftCorrespondentName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftSynchroViewName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftCToPartName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftUserCR1Name, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftUserCR2Name, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftConsultationName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftRToPartName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_LocalList, op_SearchDrugInList, False);
+ AddUserTypeExclude(lftRespondentName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftCToPartName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftConsultationName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftDrugListName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftRToPartName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Selection, op_Analize, False);
+ AddUserTypeExclude(lftRespondentName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftRespondentName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftCorrespondentName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftCToPartName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftCToPartName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftUserCR1Name, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftUserCR2Name, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftConsultationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftConsultationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftCorrespondentsSynchroFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftRToPartName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftRToPartName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(lftNoneName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftUserCR1Name, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftUserCR2Name, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftConsultationName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftSimilarDocumentsName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftRespondentsSynchroFormName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftUserCRList1_SynchorFormName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftUserCRList2_SynchorFormName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftDrugListName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftProducedDrugsName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftProducedDrugsSynchroFormName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftDrugInternationalNameSynonymsSynchroFormName, en_CRList, op_SetType, True);
+ AddUserTypeExclude(lftSimilarDocumentsToFragmentName, en_CRList, op_SetType, True);
 end;//TPrimListForm.InitEntities
 
 procedure TPrimListForm.MakeControls;

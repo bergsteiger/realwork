@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки mflMainLocalConstants }
+ str_mflMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mflMainCaption'; rValue : 'Фармацевтические фирмы (полный список)');
+  {* Заголовок пользовательского типа "Фармацевтические фирмы (полный список)" }
  {* Константы для типа формы mflMain }
  mflMainName = 'mflMain';
   {* Строковый идентификатор пользовательского типа "Фармацевтические фирмы (полный список)" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_mflMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_mflMainCaption.Init;
+ {* Инициализация str_mflMainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_mflMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_mflMain }

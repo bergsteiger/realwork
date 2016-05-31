@@ -21,14 +21,18 @@ uses
  , CompareEditions_Controls
  , Base_Operations_Editions_Controls
  , nevTools
+ , l3Tree_TLB
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , vtPanel
+ , DocumentUnit
+ , bsTypesNew
  , vtFocusLabel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtComboBoxQS
- , l3Tree_TLB
- , DocumentUnit
  , evEditorInterfaces
  , eeInterfaces
  {$If NOT Defined(NoVCL)}
@@ -36,7 +40,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
  , l3Variant
- , bsTypesNew
  , NavigationInterfaces
  , evCustomEditorWindow
  {$If NOT Defined(NoVCM)}
@@ -57,15 +60,12 @@ uses
  , Base_Operations_F1Specific_Controls
  , DocumentAndListInterfaces
  {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3Interfaces
  , l3BaseStream
  , nsTypesNew
  , k2CustomFileGenerator
@@ -126,17 +126,13 @@ type
     {* Момент присвоения ForceDrawFocusRect в true }
    f_WasInitedByChangedPara: Boolean;
    f_Header: TvtPanel;
-    {* Поле для свойства Header }
+    {* Место для имени редакции }
    f_pnLeft: TvtPanel;
-    {* Поле для свойства pnLeft }
    f_EditionLink: TvtFocusLabel;
-    {* Поле для свойства EditionLink }
+    {* Ссылка на редакцию }
    f_pbIcon: TPaintBox;
-    {* Поле для свойства pbIcon }
    f_pnCaption: TvtPanel;
-    {* Поле для свойства pnCaption }
    f_EditionChoose: TvtComboBoxQS;
-    {* Поле для свойства EditionChoose }
   protected
    EditionDiff: IdsEditionDiff;
     {* Результат сравнения редакций }
@@ -345,9 +341,6 @@ uses
  , afwVCL
  , TableCell_Const
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , DiffFormWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
@@ -390,7 +383,8 @@ uses
  , evTypes
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara
@@ -407,6 +401,7 @@ uses
  , l3Types
  , nsToMSWordOp
  , l3String
+ , Common_Strange_Controls
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -429,6 +424,11 @@ uses
  , l3Nodes
  , nsEditionNodes
  , LeafPara_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A6EBE900233impl_uses*
+ //#UC END# *4A6EBE900233impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -518,39 +518,31 @@ type _Instance_R_ = TDiffForm;
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
 function TDiffForm.pm_GetHeader: TvtPanel;
-//#UC START# *4A83EEAC00B7_4A6EBE900233get_var*
-//#UC END# *4A83EEAC00B7_4A6EBE900233get_var*
 begin
-//#UC START# *4A83EEAC00B7_4A6EBE900233get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A83EEAC00B7_4A6EBE900233get_impl*
+ if (f_Header = nil) then
+  f_Header := FindComponent('Header') As TvtPanel;
+ Result := f_Header;
 end;//TDiffForm.pm_GetHeader
 
 function TDiffForm.pm_GetpnLeft: TvtPanel;
-//#UC START# *4A9BA16C016D_4A6EBE900233get_var*
-//#UC END# *4A9BA16C016D_4A6EBE900233get_var*
 begin
-//#UC START# *4A9BA16C016D_4A6EBE900233get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9BA16C016D_4A6EBE900233get_impl*
+ if (f_pnLeft = nil) then
+  f_pnLeft := FindComponent('pnLeft') As TvtPanel;
+ Result := f_pnLeft;
 end;//TDiffForm.pm_GetpnLeft
 
 function TDiffForm.pm_GetEditionLink: TvtFocusLabel;
-//#UC START# *4A9B9C33032D_4A6EBE900233get_var*
-//#UC END# *4A9B9C33032D_4A6EBE900233get_var*
 begin
-//#UC START# *4A9B9C33032D_4A6EBE900233get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9B9C33032D_4A6EBE900233get_impl*
+ if (f_EditionLink = nil) then
+  f_EditionLink := FindComponent('EditionLink') As TvtFocusLabel;
+ Result := f_EditionLink;
 end;//TDiffForm.pm_GetEditionLink
 
 function TDiffForm.pm_GetpnCaption: TvtPanel;
-//#UC START# *4A9BA17E02F0_4A6EBE900233get_var*
-//#UC END# *4A9BA17E02F0_4A6EBE900233get_var*
 begin
-//#UC START# *4A9BA17E02F0_4A6EBE900233get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A9BA17E02F0_4A6EBE900233get_impl*
+ if (f_pnCaption = nil) then
+  f_pnCaption := FindComponent('pnCaption') As TvtPanel;
+ Result := f_pnCaption;
 end;//TDiffForm.pm_GetpnCaption
 
 procedure TDiffForm.MakeDocumentContainer(Sender: TObject;
@@ -1901,6 +1893,18 @@ procedure TDiffForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  EditionDiff := nil;
+  VScrollController := nil;
+  CompareEditions := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsEditionDiff, EditionDiff);
+  aNew.CastUCC(InsVScrollController, VScrollController);
+  aNew.CastUCC(IsdsCompareEditions, CompareEditions);
+ end;//aNew = nil
 end;//TDiffForm.SignalDataSourceChanged
 
 procedure TDiffForm.InitEntities;
@@ -1912,6 +1916,7 @@ begin
  begin
   PublishFormEntity(en_Finder, nil);
   PublishFormEntity(en_Document, nil);
+  ContextMenuWeight(en_HyperLink, -5);
   PublishOpWithResult(en_Finder, op_GotoPara, Finder_GotoPara, nil, nil);
   PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
   PublishOpWithResult(en_Document, op_OpenEditionLocalLink, Document_OpenEditionLocalLink, nil, nil);

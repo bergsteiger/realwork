@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utFoldersInfoContainerLocalConstants }
+ str_utFoldersInfoContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersInfoContainerCaption'; rValue : 'Свойства папок (модальный диалог)');
+  {* Заголовок пользовательского типа "Свойства папок (модальный диалог)" }
  {* Константы для типа формы utFoldersInfoContainer }
  utFoldersInfoContainerName = 'utFoldersInfoContainer';
   {* Строковый идентификатор пользовательского типа "Свойства папок (модальный диалог)" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utFoldersInfoContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utFoldersInfoContainerCaption.Init;
+ {* Инициализация str_utFoldersInfoContainerCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFoldersInfoContainer.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utFoldersInfoContainer }

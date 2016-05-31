@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utSaveOpenLocalConstants }
+ str_utSaveOpenCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSaveOpenCaption'; rValue : 'Мои документы');
+  {* Заголовок пользовательского типа "Мои документы" }
  {* Константы для типа формы utSaveOpen }
  utSaveOpenName = 'utSaveOpen';
   {* Строковый идентификатор пользовательского типа "Мои документы" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utSaveOpenCaption.Init;
+ {* Инициализация str_utSaveOpenCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSaveOpen.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utSaveOpen }

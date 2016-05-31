@@ -1,274 +1,252 @@
 unit PrimLogin_Form;
+ {* Вход в систему ГАРАНТ }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimCommon/Forms/PrimLogin_Form.pas"
-// Начат: 25.08.2009 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimCommon::PrimLogin
-//
-// Вход в систему ГАРАНТ
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLogin_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimLogin" MUID: (4A93D80F014F)
+// Имя типа: "TPrimLoginForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  vtFocusLabel,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBoxWithReadOnly
-  {$IfEnd} //Nemesis
-  ,
-  vtCheckBox,
-  ElPopBtn,
-  Messages,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Windows
+ , l3Interfaces
+ , vtGroupBox
+ , vtPanel
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtFocusLabel
+ , vtCheckBox
+ , ElPopBtn
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TnsLoginAction = function (aSender: TCustomForm): TModalResult of object;
+ TnsLoginAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimLoginForm = {form} class(TvcmEntityForm)
+ TPrimLoginForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Вход в систему ГАРАНТ }
- private
- // private fields
-   f_NeedRelogin : Boolean;
-   f_RegisteredGroupBox : TvtGroupBox;
-    {* Поле для свойства RegisteredGroupBox}
-   f_lblLogin : TvtLabel;
-    {* Поле для свойства lblLogin}
-   f_lblPassword : TvtLabel;
-    {* Поле для свойства lblPassword}
-   f_EnterPaintBox : TPaintBox;
-    {* Поле для свойства EnterPaintBox}
-   f_edUserName : TnscComboBoxWithReadOnly;
-    {* Поле для свойства edUserName}
-   f_edPassword : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword}
-   f_lblForgetPassword : TvtFocusLabel;
-    {* Поле для свойства lblForgetPassword}
-   f_cbAutoLogin : TvtCheckBox;
-    {* Поле для свойства cbAutoLogin}
-   f_btnOk : TElPopupButton;
-    {* Поле для свойства btnOk}
-   f_NewUserGroupBox : TvtGroupBox;
-    {* Поле для свойства NewUserGroupBox}
-   f_NewUserLabel : TvtLabel;
-    {* Поле для свойства NewUserLabel}
-   f_NewUserPaintBox : TPaintBox;
-    {* Поле для свойства NewUserPaintBox}
-   f_lblNewUser : TvtFocusLabel;
-    {* Поле для свойства lblNewUser}
-   f_HelpPanel : TvtPanel;
-    {* Поле для свойства HelpPanel}
-   f_HelpPaintBox : TPaintBox;
-    {* Поле для свойства HelpPaintBox}
-   f_HelpLabel : TvtFocusLabel;
-    {* Поле для свойства HelpLabel}
-   f_ForgetPasswordChosen : Boolean;
-    {* Поле для свойства ForgetPasswordChosen}
-   f_NewUserChosen : Boolean;
-    {* Поле для свойства NewUserChosen}
-   f_LoginAction : TnsLoginAction;
-    {* Поле для свойства LoginAction}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_NeedRelogin: Boolean;
+   f_RegisteredGroupBox: TvtGroupBox;
+    {* Зарегистрированный пользователь }
+   f_NewUserGroupBox: TvtGroupBox;
+    {* Новый пользователь }
+   f_HelpPanel: TvtPanel;
+   f_ForgetPasswordChosen: Boolean;
+   f_NewUserChosen: Boolean;
+   f_LoginAction: TnsLoginAction;
+   f_lblLogin: TvtLabel;
+    {* Регистрационное имя: }
+   f_lblPassword: TvtLabel;
+    {* Пароль: }
+   f_EnterPaintBox: TPaintBox;
+   f_edUserName: TnscComboBoxWithReadOnly;
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_lblForgetPassword: TvtFocusLabel;
+    {* Забыли пароль? }
+   f_cbAutoLogin: TvtCheckBox;
+    {* Запомнить пароль }
+   f_btnOk: TElPopupButton;
+    {* Войти в систему }
+   f_NewUserLabel: TvtLabel;
+    {* Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы. }
+   f_NewUserPaintBox: TPaintBox;
+   f_lblNewUser: TvtFocusLabel;
+    {* Зарегистрировать нового пользователя }
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
+  private
    procedure FormShow(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FormHide(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ForgetPasswordLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure LoginEditChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NewUserLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure BtnOkClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure btnOkClick(Sender: TObject);
    procedure HelpPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure HelpLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NewUserPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure EnterPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure VcmEntityFormRefPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure vcmEntityFormRefPaint(Sender: TObject);
    procedure Save;
-     {* Сигнатура метода Save }
    procedure RepositionControls;
-     {* Сигнатура метода RepositionControls }
    procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
- protected
- // property methods
+  protected
    function pm_GetLogin: Il3CString;
    function pm_GetPassword: Il3CString;
    function pm_GetIsAutoLogin: Boolean;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
-   function IsRealInstance: Boolean; override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCL)}
-   function ShowModal: Integer; override;
-    {$IfEnd} //not NoVCL
- public
- // public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    constructor Create(aOwner: TComponent;
-     const aLogin: Il3CString;
-     aIsAutoLogin: Boolean); reintroduce;
+    const aLogin: Il3CString;
+    aIsAutoLogin: Boolean); reintroduce;
    constructor CreateForRelogin(aOwner: TComponent;
-     const aLogin: Il3CString;
-     const aPassword: Il3CString;
-     aIsAutoLogin: Boolean);
- public
- // public properties
+    const aLogin: Il3CString;
+    const aPassword: Il3CString;
+    aIsAutoLogin: Boolean); reintroduce;
+   {$If NOT Defined(NoVCL)}
+   function IsRealInstance: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   function ShowModal: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property RegisteredGroupBox: TvtGroupBox
-     read f_RegisteredGroupBox;
-     {* Зарегистрированный пользователь }
-   property lblLogin: TvtLabel
-     read f_lblLogin;
-     {* Регистрационное имя: }
-   property lblPassword: TvtLabel
-     read f_lblPassword;
-     {* Пароль: }
-   property EnterPaintBox: TPaintBox
-     read f_EnterPaintBox;
-   property edUserName: TnscComboBoxWithReadOnly
-     read f_edUserName;
-   property edPassword: TnscComboBoxWithPwdChar
-     read f_edPassword;
-   property lblForgetPassword: TvtFocusLabel
-     read f_lblForgetPassword;
-     {* Забыли пароль? }
-   property cbAutoLogin: TvtCheckBox
-     read f_cbAutoLogin;
-     {* Запомнить пароль }
-   property btnOk: TElPopupButton
-     read f_btnOk;
-     {* Войти в систему }
+    read f_RegisteredGroupBox;
+    {* Зарегистрированный пользователь }
    property NewUserGroupBox: TvtGroupBox
-     read f_NewUserGroupBox;
-     {* Новый пользователь }
-   property NewUserLabel: TvtLabel
-     read f_NewUserLabel;
-     {* Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы. }
-   property NewUserPaintBox: TPaintBox
-     read f_NewUserPaintBox;
-   property lblNewUser: TvtFocusLabel
-     read f_lblNewUser;
-     {* Зарегистрировать нового пользователя }
+    read f_NewUserGroupBox;
+    {* Новый пользователь }
    property HelpPanel: TvtPanel
-     read f_HelpPanel;
-   property HelpPaintBox: TPaintBox
-     read f_HelpPaintBox;
-   property HelpLabel: TvtFocusLabel
-     read f_HelpLabel;
-     {* Помощь }
+    read f_HelpPanel;
    property Login: Il3CString
-     read pm_GetLogin;
+    read pm_GetLogin;
    property Password: Il3CString
-     read pm_GetPassword;
+    read pm_GetPassword;
    property IsAutoLogin: Boolean
-     read pm_GetIsAutoLogin;
+    read pm_GetIsAutoLogin;
    property ForgetPasswordChosen: Boolean
-     read f_ForgetPasswordChosen;
+    read f_ForgetPasswordChosen;
    property NewUserChosen: Boolean
-     read f_NewUserChosen;
+    read f_NewUserChosen;
    property LoginAction: TnsLoginAction
-     read f_LoginAction
-     write f_LoginAction;
+    read f_LoginAction
+    write f_LoginAction;
+   property lblLogin: TvtLabel
+    read f_lblLogin;
+    {* Регистрационное имя: }
+   property lblPassword: TvtLabel
+    read f_lblPassword;
+    {* Пароль: }
+   property EnterPaintBox: TPaintBox
+    read f_EnterPaintBox;
+   property edUserName: TnscComboBoxWithReadOnly
+    read f_edUserName;
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property lblForgetPassword: TvtFocusLabel
+    read f_lblForgetPassword;
+    {* Забыли пароль? }
+   property cbAutoLogin: TvtCheckBox
+    read f_cbAutoLogin;
+    {* Запомнить пароль }
+   property btnOk: TElPopupButton
+    read f_btnOk;
+    {* Войти в систему }
+   property NewUserLabel: TvtLabel
+    read f_NewUserLabel;
+    {* Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы. }
+   property NewUserPaintBox: TPaintBox
+    read f_NewUserPaintBox;
+   property lblNewUser: TvtFocusLabel
+    read f_lblNewUser;
+    {* Зарегистрировать нового пользователя }
+   property HelpPaintBox: TPaintBox
+    read f_HelpPaintBox;
+   property HelpLabel: TvtFocusLabel
+    read f_HelpLabel;
+    {* Помощь }
  end;//TPrimLoginForm
-
- TvcmEntityFormRef = TPrimLoginForm;
 
 implementation
 
 uses
-  SysUtils,
-  Graphics,
-  nsStartupSupport,
-  nsFlashWindow,
-  DataAdapter,
-  SearchRes,
-  nsConst,
-  l3String,
-  afwFacade,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , Graphics
+ , nsStartupSupport
+ , nsFlashWindow
+ , DataAdapter
+ , SearchRes
+ , nsConst
+ , l3String
+ , afwFacade
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93D80F014Fimpl_uses*
+ //#UC END# *4A93D80F014Fimpl_uses*
+;
 
-var
-   g_Relogin : THandle;
+{$If NOT Defined(NoVCM)}
+var g_Relogin: THandle;
 
-// start class TPrimLoginForm
+function TPrimLoginForm.pm_GetLogin: Il3CString;
+//#UC START# *520B40DD01F1_4A93D80F014Fget_var*
+//#UC END# *520B40DD01F1_4A93D80F014Fget_var*
+begin
+//#UC START# *520B40DD01F1_4A93D80F014Fget_impl*
+ Result := edUserName.Text;
+//#UC END# *520B40DD01F1_4A93D80F014Fget_impl*
+end;//TPrimLoginForm.pm_GetLogin
+
+function TPrimLoginForm.pm_GetPassword: Il3CString;
+//#UC START# *520B410301A6_4A93D80F014Fget_var*
+//#UC END# *520B410301A6_4A93D80F014Fget_var*
+begin
+//#UC START# *520B410301A6_4A93D80F014Fget_impl*
+ Result := edPassword.Text;
+//#UC END# *520B410301A6_4A93D80F014Fget_impl*
+end;//TPrimLoginForm.pm_GetPassword
+
+function TPrimLoginForm.pm_GetIsAutoLogin: Boolean;
+//#UC START# *520B41310164_4A93D80F014Fget_var*
+//#UC END# *520B41310164_4A93D80F014Fget_var*
+begin
+//#UC START# *520B41310164_4A93D80F014Fget_impl*
+ Result := cbAutoLogin.Checked;
+//#UC END# *520B41310164_4A93D80F014Fget_impl*
+end;//TPrimLoginForm.pm_GetIsAutoLogin
 
 procedure TPrimLoginForm.FormShow(Sender: TObject);
 //#UC START# *520B3FAB012D_4A93D80F014F_var*
@@ -344,14 +322,14 @@ begin
 //#UC END# *520B3FF10172_4A93D80F014F_impl*
 end;//TPrimLoginForm.NewUserLabelClick
 
-procedure TPrimLoginForm.BtnOkClick(Sender: TObject);
+procedure TPrimLoginForm.btnOkClick(Sender: TObject);
 //#UC START# *520B3FFC00F0_4A93D80F014F_var*
 //#UC END# *520B3FFC00F0_4A93D80F014F_var*
 begin
 //#UC START# *520B3FFC00F0_4A93D80F014F_impl*
  Save;
 //#UC END# *520B3FFC00F0_4A93D80F014F_impl*
-end;//TPrimLoginForm.BtnOkClick
+end;//TPrimLoginForm.btnOkClick
 
 procedure TPrimLoginForm.HelpPaintBoxPaint(Sender: TObject);
 //#UC START# *520B4005028E_4A93D80F014F_var*
@@ -392,7 +370,7 @@ begin
 //#UC END# *520B406702B5_4A93D80F014F_impl*
 end;//TPrimLoginForm.EnterPaintBoxPaint
 
-procedure TPrimLoginForm.VcmEntityFormRefPaint(Sender: TObject);
+procedure TPrimLoginForm.vcmEntityFormRefPaint(Sender: TObject);
 //#UC START# *520B4075004C_4A93D80F014F_var*
 //#UC END# *520B4075004C_4A93D80F014F_var*
 begin
@@ -402,7 +380,7 @@ begin
   Save;
  {$EndIf InsiderTest}
 //#UC END# *520B4075004C_4A93D80F014F_impl*
-end;//TPrimLoginForm.VcmEntityFormRefPaint
+end;//TPrimLoginForm.vcmEntityFormRefPaint
 
 procedure TPrimLoginForm.Save;
 //#UC START# *520B41BE00B4_4A93D80F014F_var*
@@ -617,8 +595,8 @@ begin
 end;//TPrimLoginForm.RepositionControls
 
 constructor TPrimLoginForm.Create(aOwner: TComponent;
-  const aLogin: Il3CString;
-  aIsAutoLogin: Boolean);
+ const aLogin: Il3CString;
+ aIsAutoLogin: Boolean);
 //#UC START# *520B432601B1_4A93D80F014F_var*
 //#UC END# *520B432601B1_4A93D80F014F_var*
 begin
@@ -682,9 +660,9 @@ begin
 end;//TPrimLoginForm.Create
 
 constructor TPrimLoginForm.CreateForRelogin(aOwner: TComponent;
-  const aLogin: Il3CString;
-  const aPassword: Il3CString;
-  aIsAutoLogin: Boolean);
+ const aLogin: Il3CString;
+ const aPassword: Il3CString;
+ aIsAutoLogin: Boolean);
 //#UC START# *520B43670172_4A93D80F014F_var*
 //#UC END# *520B43670172_4A93D80F014F_var*
 begin
@@ -694,33 +672,6 @@ begin
  f_NeedRelogin := True;
 //#UC END# *520B43670172_4A93D80F014F_impl*
 end;//TPrimLoginForm.CreateForRelogin
-
-function TPrimLoginForm.pm_GetLogin: Il3CString;
-//#UC START# *520B40DD01F1_4A93D80F014Fget_var*
-//#UC END# *520B40DD01F1_4A93D80F014Fget_var*
-begin
-//#UC START# *520B40DD01F1_4A93D80F014Fget_impl*
- Result := edUserName.Text;
-//#UC END# *520B40DD01F1_4A93D80F014Fget_impl*
-end;//TPrimLoginForm.pm_GetLogin
-
-function TPrimLoginForm.pm_GetPassword: Il3CString;
-//#UC START# *520B410301A6_4A93D80F014Fget_var*
-//#UC END# *520B410301A6_4A93D80F014Fget_var*
-begin
-//#UC START# *520B410301A6_4A93D80F014Fget_impl*
- Result := edPassword.Text;
-//#UC END# *520B410301A6_4A93D80F014Fget_impl*
-end;//TPrimLoginForm.pm_GetPassword
-
-function TPrimLoginForm.pm_GetIsAutoLogin: Boolean;
-//#UC START# *520B41310164_4A93D80F014Fget_var*
-//#UC END# *520B41310164_4A93D80F014Fget_var*
-begin
-//#UC START# *520B41310164_4A93D80F014Fget_impl*
- Result := cbAutoLogin.Checked;
-//#UC END# *520B41310164_4A93D80F014Fget_impl*
-end;//TPrimLoginForm.pm_GetIsAutoLogin
 
 procedure TPrimLoginForm.CMDialogKey(var Message: TCMDialogKey);
 //#UC START# *520B41D70270_4A93D80F014F_var*
@@ -737,7 +688,7 @@ begin
 //#UC END# *520B41D70270_4A93D80F014F_impl*
 end;//TPrimLoginForm.CMDialogKey
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimLoginForm.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_4A93D80F014F_var*
 //#UC END# *47E136A80191_4A93D80F014F_var*
@@ -752,9 +703,9 @@ begin
   inherited;
 //#UC END# *47E136A80191_4A93D80F014F_impl*
 end;//TPrimLoginForm.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimLoginForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4A93D80F014F_var*
 //#UC END# *48C7925A02E5_4A93D80F014F_var*
@@ -768,10 +719,10 @@ begin
  end;
 //#UC END# *48C7925A02E5_4A93D80F014F_impl*
 end;//TPrimLoginForm.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
 procedure TPrimLoginForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93D80F014F_var*
 //#UC END# *4A8E8F2E0195_4A93D80F014F_var*
 begin
@@ -779,9 +730,8 @@ begin
 
 //#UC END# *4A8E8F2E0195_4A93D80F014F_impl*
 end;//TPrimLoginForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TPrimLoginForm.IsRealInstance: Boolean;
 //#UC START# *4B0E846D022B_4A93D80F014F_var*
 //#UC END# *4B0E846D022B_4A93D80F014F_var*
@@ -790,9 +740,9 @@ begin
  Result := True;
 //#UC END# *4B0E846D022B_4A93D80F014F_impl*
 end;//TPrimLoginForm.IsRealInstance
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TPrimLoginForm.ShowModal: Integer;
 //#UC START# *520B42AF0115_4A93D80F014F_var*
 //#UC END# *520B42AF0115_4A93D80F014F_var*
@@ -803,7 +753,7 @@ begin
  Result := inherited ShowModal;
 //#UC END# *520B42AF0115_4A93D80F014F_impl*
 end;//TPrimLoginForm.ShowModal
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimLoginForm.MakeControls;
 begin
@@ -866,15 +816,16 @@ begin
  f_HelpLabel.Name := 'HelpLabel';
  f_HelpLabel.Parent := HelpPanel;
  f_HelpLabel.Caption := 'Помощь';
-end;
+end;//TPrimLoginForm.MakeControls
 
 initialization
 //#UC START# *520B5769020F*
  g_Relogin := RegisterWindowMessage('{47DA09C5-4047-4A4F-983F-83F787A5E3E0}');
 //#UC END# *520B5769020F*
-{$If not defined(NoScripts)}
-// Регистрация PrimLogin
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimLoginForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimLogin }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

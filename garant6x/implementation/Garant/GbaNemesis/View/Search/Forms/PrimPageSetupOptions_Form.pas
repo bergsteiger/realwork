@@ -1,72 +1,64 @@
 unit PrimPageSetupOptions_Form;
+ {* Настройка страницы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimPageSetupOptions_Form.pas"
-// Начат: 09.09.2010 16:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimPageSetupOptions
-//
-// Настройка страницы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetupOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPageSetupOptions" MUID: (4C88D233003E)
+// Имя типа: "TPrimPageSetupOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimPageSetup_Form,
-  Search_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimPageSetup_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimPageSetupOptionsForm = {form} class(TPrimPageSetupForm)
+ TPrimPageSetupOptionsForm = class(TPrimPageSetupForm)
   {* Настройка страницы }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+  protected
+   procedure Save(SaveAsDefault: Boolean = False); virtual; abstract;
+   procedure SetPageFormat(aOrientation: Integer); virtual; abstract;
+   procedure MacroAdd(const aString: AnsiString); virtual; abstract;
+   procedure ToGUIColontituls; virtual; abstract;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Result_Restore_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ColontitulMacro_AppTitle_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ColontitulMacro_DocName_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ColontitulMacro_DocFullName_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -80,40 +72,28 @@ type
    procedure ColontitulMacro_DocumentSIze_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ColontitulMacro_FilePosition_Test(const aParams: IvcmTestParamsPrim);
    procedure ColontitulMacro_FilePosition_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // protected methods
-   procedure Save(SaveAsDefault: Boolean = False); virtual; abstract;
-   procedure SetPageFormat(aOrientation: Integer); virtual; abstract;
-   procedure MacroAdd(const aString: AnsiString); virtual; abstract;
-   procedure ToGUIColontituls; virtual; abstract;
  end;//TPrimPageSetupOptionsForm
-
- TvcmEntityFormRef = TPrimPageSetupOptionsForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evHAFPainterMacros
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-// start class TPrimPageSetupOptionsForm
+ l3ImplUses
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evHAFPainterMacros
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C88D233003Eimpl_uses*
+ //#UC END# *4C88D233003Eimpl_uses*
+;
 
 procedure TPrimPageSetupOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C52B34E0125_4C88D233003Etest_var*
@@ -159,8 +139,9 @@ begin
 //#UC END# *4C52B36B01B3_4C88D233003Eexec_impl*
 end;//TPrimPageSetupOptionsForm.Result_SaveAsDefault_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPageSetupOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4C762A1501FC_4C88D233003Etest_var*
 //#UC END# *4C762A1501FC_4C88D233003Etest_var*
 begin
@@ -168,10 +149,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := f_PageSetup.Modified;
 //#UC END# *4C762A1501FC_4C88D233003Etest_impl*
 end;//TPrimPageSetupOptionsForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPageSetupOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4C762A1501FC_4C88D233003Eexec_var*
 //#UC END# *4C762A1501FC_4C88D233003Eexec_var*
 begin
@@ -180,10 +162,11 @@ begin
  ModalResult := mrOk;
 //#UC END# *4C762A1501FC_4C88D233003Eexec_impl*
 end;//TPrimPageSetupOptionsForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPageSetupOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4C88D233003Eexec_var*
 //#UC END# *4C762C910358_4C88D233003Eexec_var*
 begin
@@ -191,7 +174,7 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4C762C910358_4C88D233003Eexec_impl*
 end;//TPrimPageSetupOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimPageSetupOptionsForm.ColontitulMacro_AppTitle_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C88D40C0029_4C88D233003Eexec_var*
@@ -312,7 +295,10 @@ begin
 //#UC END# *4C88D4E8007C_4C88D233003Eexec_impl*
 end;//TPrimPageSetupOptionsForm.ColontitulMacro_FilePosition_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimPageSetupOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -320,84 +306,69 @@ begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_ColontitulMacro, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, nil, nil, nil);
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
   PublishOp(en_File, op_PrintDialog, nil, nil, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, True);
   PublishOp(en_File, op_PrintPreview, nil, nil, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
   PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
-  ShowInContextMenu(en_Result, op_Restore, false);
-  ShowInToolbar(en_Result, op_Restore, true);
+  ShowInContextMenu(en_Result, op_Restore, False);
+  ShowInToolbar(en_Result, op_Restore, True);
   PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
-  ShowInContextMenu(en_Result, op_SaveAsDefault, false);
-  ShowInToolbar(en_Result, op_SaveAsDefault, true);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_SaveAsDefault, False);
+  ShowInToolbar(en_Result, op_SaveAsDefault, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_ColontitulMacro, op_AppTitle, ColontitulMacro_AppTitle_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_AppTitle, true);
-  ShowInToolbar(en_ColontitulMacro, op_AppTitle, false);
+  ShowInContextMenu(en_ColontitulMacro, op_AppTitle, True);
+  ShowInToolbar(en_ColontitulMacro, op_AppTitle, False);
   PublishOp(en_ColontitulMacro, op_DocName, ColontitulMacro_DocName_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocName, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocName, false);
+  ShowInContextMenu(en_ColontitulMacro, op_DocName, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocName, False);
   PublishOp(en_ColontitulMacro, op_DocFullName, ColontitulMacro_DocFullName_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocFullName, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocFullName, true);
+  ShowInContextMenu(en_ColontitulMacro, op_DocFullName, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocFullName, True);
   PublishOp(en_ColontitulMacro, op_DocRedactionDate, ColontitulMacro_DocRedactionDate_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocRedactionDate, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocRedactionDate, false);
+  ShowInContextMenu(en_ColontitulMacro, op_DocRedactionDate, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocRedactionDate, False);
   PublishOp(en_ColontitulMacro, op_DocCurrentPage, ColontitulMacro_DocCurrentPage_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocCurrentPage, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocCurrentPage, false);
+  ShowInContextMenu(en_ColontitulMacro, op_DocCurrentPage, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocCurrentPage, False);
   PublishOp(en_ColontitulMacro, op_DocPagesCount, ColontitulMacro_DocPagesCount_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocPagesCount, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocPagesCount, false);
+  ShowInContextMenu(en_ColontitulMacro, op_DocPagesCount, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocPagesCount, False);
   PublishOp(en_ColontitulMacro, op_CurrentDate, ColontitulMacro_CurrentDate_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_CurrentDate, true);
-  ShowInToolbar(en_ColontitulMacro, op_CurrentDate, false);
+  ShowInContextMenu(en_ColontitulMacro, op_CurrentDate, True);
+  ShowInToolbar(en_ColontitulMacro, op_CurrentDate, False);
   PublishOp(en_ColontitulMacro, op_CurrentTime, ColontitulMacro_CurrentTime_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_CurrentTime, true);
-  ShowInToolbar(en_ColontitulMacro, op_CurrentTime, false);
+  ShowInContextMenu(en_ColontitulMacro, op_CurrentTime, True);
+  ShowInToolbar(en_ColontitulMacro, op_CurrentTime, False);
   PublishOp(en_ColontitulMacro, op_InternalDocNumber, ColontitulMacro_InternalDocNumber_Execute, ColontitulMacro_InternalDocNumber_Test, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_InternalDocNumber, true);
-  ShowInToolbar(en_ColontitulMacro, op_InternalDocNumber, false);
+  ShowInContextMenu(en_ColontitulMacro, op_InternalDocNumber, True);
+  ShowInToolbar(en_ColontitulMacro, op_InternalDocNumber, False);
   PublishOp(en_ColontitulMacro, op_DocumentSIze, ColontitulMacro_DocumentSIze_Execute, nil, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_DocumentSIze, true);
-  ShowInToolbar(en_ColontitulMacro, op_DocumentSIze, false);
+  ShowInContextMenu(en_ColontitulMacro, op_DocumentSIze, True);
+  ShowInToolbar(en_ColontitulMacro, op_DocumentSIze, False);
   PublishOp(en_ColontitulMacro, op_FilePosition, ColontitulMacro_FilePosition_Execute, ColontitulMacro_FilePosition_Test, nil);
-  ShowInContextMenu(en_ColontitulMacro, op_FilePosition, true);
-  ShowInToolbar(en_ColontitulMacro, op_FilePosition, false);
+  ShowInContextMenu(en_ColontitulMacro, op_FilePosition, True);
+  ShowInToolbar(en_ColontitulMacro, op_FilePosition, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimPageSetupOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimPageSetupOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPageSetupOptionsForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimPageSetupOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

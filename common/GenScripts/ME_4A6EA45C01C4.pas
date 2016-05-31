@@ -17,6 +17,9 @@ uses
  , ChatInterfaces
  , Base_Operations_Chat_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -48,7 +51,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , Windows
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -57,20 +59,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , BaseHistoryWindow_utChatHistory_UserType
+ //#UC START# *4A6EA45C01C4impl_uses*
+ //#UC END# *4A6EA45C01C4impl_uses*
 ;
-
-const
- {* Локализуемые строки utChatHistoryLocalConstants }
- str_utChatHistoryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utChatHistoryCaption'; rValue : 'История переписки');
-  {* Заголовок пользовательского типа "История переписки" }
 
 procedure TBaseHistoryWindowForm.RegisterInDispatcher;
 //#UC START# *4A6EA5EA00CD_4A6EA45C01C4_var*
@@ -133,7 +128,7 @@ begin
  with AddUsertype(utChatHistoryName,
   str_utChatHistoryCaption,
   str_utChatHistoryCaption,
-  False,
+  True,
   197,
   -1,
   '',
@@ -147,8 +142,6 @@ end;//TBaseHistoryWindowForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_utChatHistoryCaption.Init;
- {* Инициализация str_utChatHistoryCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBaseHistoryWindowForm);
  {* Регистрация BaseHistoryWindow }

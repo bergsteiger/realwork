@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtConsultLocalConstants }
+ str_slqtConsultCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtConsultCaption'; rValue : 'Правовая поддержка онлайн');
+  {* Заголовок пользовательского типа "Правовая поддержка онлайн" }
  {* Константы для типа формы slqtConsult }
  slqtConsultName = 'slqtConsult';
   {* Строковый идентификатор пользовательского типа "Правовая поддержка онлайн" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtConsult.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtConsultCaption.Init;
+ {* Инициализация str_slqtConsultCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtConsult.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtConsult }

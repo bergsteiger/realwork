@@ -13,10 +13,29 @@ uses
  l3IntfUses
  , PrimMain_Form
  , F1_Application_Template_InternalOperations_Controls
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscNavigator
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TPrimMainOptionsForm = class(TPrimMainForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    procedure Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
    procedure Help_HelpTopics_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -36,6 +55,11 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A210E018Cimpl_uses*
+ //#UC END# *4C8A210E018Cimpl_uses*
 ;
 
 procedure TPrimMainOptionsForm.Help_HelpTopics_Test(const aParams: IvcmTestParamsPrim);
@@ -56,6 +80,35 @@ begin
  Application.HelpSystem.ShowTopicHelp(cHelpStartPage, '');
 //#UC END# *4C8A27DA0087_4C8A210E018Cexec_impl*
 end;//TPrimMainOptionsForm.Help_HelpTopics_Execute
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+begin
+ inherited;
+ with Entities.Entities do
+ begin
+  PublishFormEntity(en_Help, nil);
+  PublishOp(en_Help, op_HelpTopics, Help_HelpTopics_Execute, Help_HelpTopics_Test, nil);
+  ShowInContextMenu(en_Help, op_HelpTopics, False);
+  ShowInToolbar(en_Help, op_HelpTopics, False);
+ end;//with Entities.Entities
+end;//TPrimMainOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimMainOptionsForm.MakeControls;
+begin
+ inherited;
+ ClientZone.Parent := Self;
+ LeftNavigator.Parent := ClientZone;
+{$If Defined(HasRightNavigator)}
+ RightNavigator.Parent := ClientZone;
+{$IfEnd} // Defined(HasRightNavigator)
+
+end;//TPrimMainOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
 {$If NOT Defined(NoScripts)}

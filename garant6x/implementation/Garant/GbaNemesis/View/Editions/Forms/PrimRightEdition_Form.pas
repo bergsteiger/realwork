@@ -1,275 +1,206 @@
 unit PrimRightEdition_Form;
+ {* Текущая редакция }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/Forms/PrimRightEdition_Form.pas"
-// Начат: 27.07.2009 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::PrimRightEdition
-//
-// Текущая редакция
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimRightEdition" MUID: (4A6D5ABE020A)
+// Имя типа: "TPrimRightEditionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nevTools,
-  eeInterfaces,
-  evSubWaiter
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  EditionsInterfaces,
-  Base_Operations_Editions_Controls,
-  CompareEditions_Controls,
-  l3StringIDEx,
-  bsTypesNew,
-  DiffOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimRightEdition_utRightEdition_UserType,
-  l3Variant
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Tree_TLB,
-  DocumentUnit,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DiffOptions_Form
+ , CompareEditions_Controls
+ , Base_Operations_Editions_Controls
+ , EditionsInterfaces
+ , eeInterfaces
+ , l3Tree_TLB
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evSubWaiter
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsInitialParaWaiter = class(TevSubWaiter)
   {* http://mdp.garant.ru/pages/viewpage.action?pageId=259163500
 похож на http://mdp.garant.ru/pages/viewpage.action?pageId=217679169
 по-хорошему - надо бы отрефакторить }
- private
- // private fields
-   f_Para : IeeLeafPara;
-   f_Form : TDiffOptionsForm;
-   f_Position : TbsDocPos;
- protected
- // overridden protected methods
+  private
+   f_Para: IeeLeafPara;
+   f_Form: TDiffOptionsForm;
+   f_Position: TbsDocPos;
+  protected
    function TrySelectPara(const aContainer: InevDocumentContainer;
-   const aSel: InevSelection;
-   aParaID: Integer): Boolean; override;
+    const aSel: InevSelection;
+    aParaID: Integer): Boolean; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aForm: TDiffOptionsForm;
-     const aPara: IeeLeafPara); reintroduce; overload; 
+    const aPara: IeeLeafPara); reintroduce; overload;
    class function Make(aForm: TDiffOptionsForm;
-     const aPara: IeeLeafPara): InevWaiter; reintroduce; overload; 
-     {* Сигнатура фабрики TnsInitialParaWaiter.Make }
+    const aPara: IeeLeafPara): InevWaiter; reintroduce; overload;
    constructor Create(aForm: TDiffOptionsForm;
-     const aPosition: TbsDocPos); overload; 
+    const aPosition: TbsDocPos); reintroduce; overload;
    class function Make(aForm: TDiffOptionsForm;
-     const aPosition: TbsDocPos): InevWaiter; reintroduce; overload; 
-     {* Сигнатура фабрики TnsInitialParaWaiter.Make$1 }
+    const aPosition: TbsDocPos): InevWaiter; reintroduce; overload;
  end;//TnsInitialParaWaiter
 
- TPrimRightEditionForm = {abstract form} class(TDiffOptionsForm)
+ TPrimRightEditionForm = {abstract} class(TDiffOptionsForm)
   {* Текущая редакция }
- private
- // private fields
-   ViewArea : IdsRightEdition;
-   f_ParaForPositioning : IeePara;
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   ViewArea: IdsRightEdition;
+   f_ParaForPositioning: IeePara;
+  protected
+   function EditionsChooseRoot: Il3Node; override;
+   procedure DoEditionChanged(anEditionID: TRedactionID); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure LinkWaiter(const aMade: InevDocumentContainer); override;
+    {* Прикрепить Waiter'а к контейнеру документа }
+   procedure SignalEditionChanged; override;
+    {* Сообщение о смене редакции }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeVisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure RightEdition_ReturnToDocument_Execute;
-     {* Вернуться в текст документа }
+    {* Вернуться в текст документа }
    procedure RightEdition_ReturnToDocument(const aParams: IvcmExecuteParams);
-     {* Вернуться в текст документа }
+    {* Вернуться в текст документа }
    procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetParaForPositionning_Execute: IeeLeafPara;
    procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
-   function EditionsChooseRoot: Il3Node; override;
-   procedure DoEditionChanged(anEditionID: TRedactionID); override;
    procedure RightEdition_SetFocusToText_Execute;
-     {* Устанавливает фокус тексту }
+    {* Устанавливает фокус тексту }
    procedure RightEdition_SetFocusToText(const aParams: IvcmExecuteParams);
-     {* Устанавливает фокус тексту }
+    {* Устанавливает фокус тексту }
    function RightEdition_IsCurrentPara_Execute(aPara: Integer): Boolean;
-     {* Является ли параграф текущим }
+    {* Является ли параграф текущим }
    procedure RightEdition_IsCurrentPara(const aParams: IvcmExecuteParams);
-     {* Является ли параграф текущим }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure LinkWaiter(const aMade: InevDocumentContainer); override;
-     {* Прикрепить Waiter'а к контейнеру документа }
-   procedure SignalEditionChanged; override;
-     {* Сообщение о смене редакции }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure BecomeVisible; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+    {* Является ли параграф текущим }
+   {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsMainObjectForm: Boolean; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimRightEditionForm
-
- TvcmEntityFormRef = TPrimRightEditionForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Block_Const,
-  k2Tags,
-  evdTypes,
-  Document_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSubImplementation,
-  SysUtils,
-  l3String
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  DataAdapter,
-  Base_Operations_View_Controls,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  BitmapPara_Const,
-  BaseSearchInterfaces,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  vcmBase {a},
-  evdBlockNameAdder,
-  nsDocumentTools,
-  Windows,
-  PresentationInterfaces,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Stream,
-  l3Types,
-  nsToMSWordOp,
-  nsTrialSupport,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  Printers,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  l3Interfaces,
-  evTypes,
-  afwFacade,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  bsDocumentContextSearcher,
-  nsSearchInDocumentEvent,
-  BaseTypesUnit,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager,
-  Base_Operations_Strange_Controls,
-  Common_FormDefinitions_Controls,
-  evOp
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  StyledLeafPara_Const,
-  evCustomEditorWindow
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  nevNavigation,
-  evCustomEditor,
-  evEditorWithOperations
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utRightEditionLocalConstants }
-  str_utRightEditionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRightEditionCaption'; rValue : 'Текущая редакция');
-   { Заголовок пользовательского типа "Текущая редакция" }
-
-// start class TnsInitialParaWaiter
+ l3ImplUses
+ , l3String
+ , evdTypes
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimRightEdition_utRightEdition_UserType
+ , SysUtils
+ , Block_Const
+ , k2Tags
+ , Document_Const
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSubImplementation
+ , DataAdapter
+ , Base_Operations_View_Controls
+ , BaseSearchInterfaces
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , nsTrialSupport
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Printers
+ , nsExportToFileEvent
+ , nsExportToWordEvent
+ , nsSendDocumentByEMailEvent
+ , nsDocumentPrintPreviewEvent
+ , nsBaseTextOperationsConst
+ , f1MultilinkResolver
+ , Windows
+ , l3Interfaces
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsConst
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , bsDocumentContextSearcher
+ , nsSearchInDocumentEvent
+ , BaseTypesUnit
+ , nsSearchInDocumentDoneEvent
+ , nsSearchInDocumentNextEvent
+ , nsSearchInDocumentPrevEvent
+ , nsSearchWindowManager
+ , Base_Operations_Strange_Controls
+ , Common_FormDefinitions_Controls
+ , nevNavigation
+ , evCustomEditor
+ , evEditorWithOperations
+ //#UC START# *4A6D5ABE020Aimpl_uses*
+ , l3Variant
+ //#UC END# *4A6D5ABE020Aimpl_uses*
+;
 
 constructor TnsInitialParaWaiter.Create(aForm: TDiffOptionsForm;
-  const aPara: IeeLeafPara);
+ const aPara: IeeLeafPara);
 //#UC START# *4D91D9A70258_4D91D8EB00AD_var*
 //#UC END# *4D91D9A70258_4D91D8EB00AD_var*
 begin
@@ -281,7 +212,7 @@ begin
 end;//TnsInitialParaWaiter.Create
 
 class function TnsInitialParaWaiter.Make(aForm: TDiffOptionsForm;
-  const aPara: IeeLeafPara): InevWaiter;
+ const aPara: IeeLeafPara): InevWaiter;
 var
  l_Inst : TnsInitialParaWaiter;
 begin
@@ -291,10 +222,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsInitialParaWaiter.Make
 
 constructor TnsInitialParaWaiter.Create(aForm: TDiffOptionsForm;
-  const aPosition: TbsDocPos);
+ const aPosition: TbsDocPos);
 //#UC START# *5215B94503C0_4D91D8EB00AD_var*
 //#UC END# *5215B94503C0_4D91D8EB00AD_var*
 begin
@@ -306,7 +237,7 @@ begin
 end;//TnsInitialParaWaiter.Create
 
 class function TnsInitialParaWaiter.Make(aForm: TDiffOptionsForm;
-  const aPosition: TbsDocPos): InevWaiter;
+ const aPosition: TbsDocPos): InevWaiter;
 var
  l_Inst : TnsInitialParaWaiter;
 begin
@@ -316,11 +247,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsInitialParaWaiter.Make
 
 function TnsInitialParaWaiter.TrySelectPara(const aContainer: InevDocumentContainer;
-  const aSel: InevSelection;
-  aParaID: Integer): Boolean;
+ const aSel: InevSelection;
+ aParaID: Integer): Boolean;
 //#UC START# *4BFFA0FF01D2_4D91D8EB00AD_var*
 var
  l_Para  : InevPara;
@@ -372,15 +303,13 @@ begin
 end;//TnsInitialParaWaiter.TrySelectPara
 
 procedure TnsInitialParaWaiter.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Para := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsInitialParaWaiter.ClearFields
 
 procedure TPrimRightEditionForm.RightEdition_ReturnToDocument_Execute;
+ {* Вернуться в текст документа }
 //#UC START# *4B1E3833024A_4A6D5ABE020Aexec_var*
 //#UC END# *4B1E3833024A_4A6D5ABE020Aexec_var*
 begin
@@ -390,9 +319,10 @@ begin
 end;//TPrimRightEditionForm.RightEdition_ReturnToDocument_Execute
 
 procedure TPrimRightEditionForm.RightEdition_ReturnToDocument(const aParams: IvcmExecuteParams);
+ {* Вернуться в текст документа }
 begin
- RightEdition_ReturnToDocument_Execute;
-end;
+ Self.RightEdition_ReturnToDocument_Execute;
+end;//TPrimRightEditionForm.RightEdition_ReturnToDocument
 
 procedure TPrimRightEditionForm.Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4B506F4D0196_4A6D5ABE020Atest_var*
@@ -415,8 +345,8 @@ end;//TPrimRightEditionForm.Document_GetParaForPositionning_Execute
 procedure TPrimRightEditionForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
-  ResultValue := Document_GetParaForPositionning_Execute;
-end;
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TPrimRightEditionForm.Document_GetParaForPositionning
 
 function TPrimRightEditionForm.EditionsChooseRoot: Il3Node;
 //#UC START# *4B55ADAD0005_4A6D5ABE020A_var*
@@ -459,6 +389,7 @@ begin
 end;//TPrimRightEditionForm.DoEditionChanged
 
 procedure TPrimRightEditionForm.RightEdition_SetFocusToText_Execute;
+ {* Устанавливает фокус тексту }
 //#UC START# *4B69B5A802C2_4A6D5ABE020Aexec_var*
 //#UC END# *4B69B5A802C2_4A6D5ABE020Aexec_var*
 begin
@@ -468,11 +399,13 @@ begin
 end;//TPrimRightEditionForm.RightEdition_SetFocusToText_Execute
 
 procedure TPrimRightEditionForm.RightEdition_SetFocusToText(const aParams: IvcmExecuteParams);
+ {* Устанавливает фокус тексту }
 begin
- RightEdition_SetFocusToText_Execute;
-end;
+ Self.RightEdition_SetFocusToText_Execute;
+end;//TPrimRightEditionForm.RightEdition_SetFocusToText
 
 function TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute(aPara: Integer): Boolean;
+ {* Является ли параграф текущим }
 //#UC START# *4B6AF2A502AE_4A6D5ABE020Aexec_var*
 var
  l_Form : IvcmEntityForm;
@@ -491,12 +424,14 @@ begin
 end;//TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute
 
 procedure TPrimRightEditionForm.RightEdition_IsCurrentPara(const aParams: IvcmExecuteParams);
+ {* Является ли параграф текущим }
 begin
  with (aParams.Data As IRightEdition_IsCurrentPara_Params) do
-  ResultValue := RightEdition_IsCurrentPara_Execute(Para);
-end;
+  ResultValue := Self.RightEdition_IsCurrentPara_Execute(Para);
+end;//TPrimRightEditionForm.RightEdition_IsCurrentPara
 
 procedure TPrimRightEditionForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A6D5ABE020A_var*
 //#UC END# *479731C50290_4A6D5ABE020A_var*
 begin
@@ -506,9 +441,10 @@ begin
 //#UC END# *479731C50290_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4A6D5ABE020A_var*
 //#UC END# *497469C90140_4A6D5ABE020A_var*
 begin
@@ -517,9 +453,10 @@ begin
  //pnCaption.CCaption := l3Cat('  ', Self.CCaption);
 //#UC END# *497469C90140_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimRightEditionForm.LinkWaiter(const aMade: InevDocumentContainer);
+ {* Прикрепить Waiter'а к контейнеру документа }
 //#UC START# *4A85585102D2_4A6D5ABE020A_var*
 //#UC END# *4A85585102D2_4A6D5ABE020A_var*
 begin
@@ -546,6 +483,7 @@ begin
 end;//TPrimRightEditionForm.LinkWaiter
 
 procedure TPrimRightEditionForm.SignalEditionChanged;
+ {* Сообщение о смене редакции }
 //#UC START# *4A8559B0013B_4A6D5ABE020A_var*
 //#UC END# *4A8559B0013B_4A6D5ABE020A_var*
 begin
@@ -557,8 +495,9 @@ begin
 //#UC END# *4A8559B0013B_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.SignalEditionChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6D5ABE020A_var*
 //#UC END# *4A8E8F2E0195_4A6D5ABE020A_var*
 begin
@@ -568,9 +507,9 @@ begin
  pnCaption.FixW2kWMSize := True;
 //#UC END# *4A8E8F2E0195_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimRightEditionForm.NeedSetMyFocus: Boolean;
 //#UC START# *4B4F13E80365_4A6D5ABE020A_var*
 //#UC END# *4B4F13E80365_4A6D5ABE020A_var*
@@ -579,9 +518,9 @@ begin
  Result := true;
 //#UC END# *4B4F13E80365_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.NeedSetMyFocus
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4A6D5ABE020A_var*
 //#UC END# *4F7C65380244_4A6D5ABE020A_var*
@@ -591,9 +530,9 @@ begin
  SetFocusToText;
 //#UC END# *4F7C65380244_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.BecomeVisible;
 //#UC START# *4F7C808A0349_4A6D5ABE020A_var*
 //#UC END# *4F7C808A0349_4A6D5ABE020A_var*
@@ -603,9 +542,9 @@ begin
  SetFocusToText;
 //#UC END# *4F7C808A0349_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.BecomeVisible
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimRightEditionForm.GetIsMainObjectForm: Boolean;
 //#UC START# *501174B10018_4A6D5ABE020A_var*
 //#UC END# *501174B10018_4A6D5ABE020A_var*
@@ -614,23 +553,28 @@ begin
  Result := true;
 //#UC END# *501174B10018_4A6D5ABE020A_impl*
 end;//TPrimRightEditionForm.GetIsMainObjectForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimRightEditionForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure TPrimRightEditionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsRightEdition;
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsRightEdition;
+ end;//aNew = nil
+end;//TPrimRightEditionForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -642,15 +586,17 @@ begin
   PublishOpWithResult(en_RightEdition, op_SetFocusToText, RightEdition_SetFocusToText, nil, nil);
   PublishOpWithResult(en_RightEdition, op_IsCurrentPara, RightEdition_IsCurrentPara, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimRightEditionForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimRightEditionForm.MakeControls;
 begin
  inherited;
  with AddUsertype(utRightEditionName,
   str_utRightEditionCaption,
   str_utRightEditionCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -660,18 +606,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utRightEditionName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimRightEditionForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utRightEditionCaption
- str_utRightEditionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimRightEdition
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRightEditionForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimRightEdition }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

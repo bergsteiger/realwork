@@ -54,9 +54,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3RangeManager
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -68,11 +66,6 @@ uses
  , PrintDialogKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_PrintDialogLocalConstants }
- str_ut_PrintDialogCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PrintDialogCaption'; rValue : 'PrintDialog');
-  {* Заголовок пользовательского типа "PrintDialog" }
 
 {$R *.DFM}
 
@@ -115,8 +108,6 @@ end;//Ten_PrintDialog.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_PrintDialogCaption.Init;
- {* Инициализация str_ut_PrintDialogCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ten_PrintDialog);
  {* Регистрация PrintDialog }

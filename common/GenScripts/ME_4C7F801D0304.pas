@@ -22,17 +22,17 @@ uses
  {$If Defined(Nemesis)}
  , nscRemindersLine
  {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ , nevTools
+ , bsTypesNew
  {$If Defined(Nemesis)}
  , nscReminder
  {$IfEnd} // Defined(Nemesis)
- , l3Interfaces
  , l3Variant
  , DataAdapterInterfaces
  , eeInterfaces
  , l3Units
- , nevTools
  , afwInterfaces
- , bsTypesNew
  , Classes
  , nsTypes
  , DocumentUnit
@@ -46,6 +46,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , DocumentAndListInterfaces
  , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const
@@ -59,25 +62,15 @@ type
  TExTextOptionsForm = class(TExTextForm)
   private
    f_RemindersLine: TnscRemindersLine;
-    {* Поле для свойства RemindersLine }
    f_WarnTimeMachineException: TnscReminder;
-    {* Поле для свойства WarnTimeMachineException }
    f_WarnIsAbolished: TnscReminder;
-    {* Поле для свойства WarnIsAbolished }
    f_WarnPreActive: TnscReminder;
-    {* Поле для свойства WarnPreActive }
    f_WarnTimeMachineWarning: TnscReminder;
-    {* Поле для свойства WarnTimeMachineWarning }
    f_WarnOnControl: TnscReminder;
-    {* Поле для свойства WarnOnControl }
    f_WarnJuror: TnscReminder;
-    {* Поле для свойства WarnJuror }
    f_WarnRedaction: TnscReminder;
-    {* Поле для свойства WarnRedaction }
    f_WarnInactualDocument: TnscReminder;
-    {* Поле для свойства WarnInactualDocument }
    f_WarnTimeMachineOn: TnscReminder;
-    {* Поле для свойства WarnTimeMachineOn }
   protected
    f_DocOpsList: IvcmItems;
   private
@@ -187,10 +180,10 @@ type
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
@@ -341,18 +334,28 @@ uses
  , BaloonWarningUserTypes_WarnInactualDocument_UserType
  , nsUseDocumentSubPanelOperationEvent
  , bsUtilsConst
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3Memory
  , k2DocumentBuffer
  , evCustomWikiReader
  , ParaList_Const
  , k2Tags
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ , Common_Strange_Controls
+ , Base_Operations_View_Controls
+ , Document_F1Lite_Controls
+ , Base_Operations_Editions_Controls
+ , Hypertext_Controls_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C7F801D0304impl_uses*
+ //#UC END# *4C7F801D0304impl_uses*
 ;
 
 const
@@ -1950,12 +1953,6 @@ begin
 end;//TExTextOptionsForm.SaveOwnFormState
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextOptionsForm.ClearFields;
-begin
- f_DocOpsList := nil;
- inherited;
-end;//TExTextOptionsForm.ClearFields
-
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.ReleaseResources;
 //#UC START# *538C374A00B7_4C7F801D0304_var*
@@ -1971,6 +1968,12 @@ begin
 end;//TExTextOptionsForm.ReleaseResources
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure TExTextOptionsForm.ClearFields;
+begin
+ f_DocOpsList := nil;
+ inherited;
+end;//TExTextOptionsForm.ClearFields
+
 {$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.InitEntities;
  {* инициализирует сущности не из dfm.
@@ -1984,20 +1987,222 @@ begin
   PublishFormEntity(en_Reminder, nil);
   PublishFormEntity(en_Document, nil);
   PublishFormEntity(en_SubsPanel, nil);
+  ContextMenuWeight(en_SubsPanel, -10);
+  ContextMenuWeight(en_SubPanelSettings, 40);
+  ContextMenuWeight(en_SubPanelSettings, 50);
+  ContextMenuWeight(en_WarnTimeMachine, 35);
+  ContextMenuWeight(en_WarnRedaction, 35);
+  ContextMenuWeight(en_WarnJuror, 35);
+  ContextMenuWeight(en_WarnOnControl, 35);
+  PublishFormEntity(en_WarnOnControl, nil);
+  MakeEntitySupportedByControl(en_WarnOnControl, WarnOnControl);
+  PublishFormEntity(en_WarnJuror, nil);
+  PublishFormEntity(en_Picture, nil);
+  MakeEntitySupportedByControl(en_WarnJuror, WarnJuror);
+  MakeEntitySupportedByControl(en_Picture, WarnJuror);
+  PublishFormEntity(en_WarnRedaction, nil);
+  MakeEntitySupportedByControl(en_WarnRedaction, WarnRedaction);
+  PublishFormEntity(en_WarnTimeMachine, nil);
+  MakeEntitySupportedByControl(en_WarnTimeMachine, WarnTimeMachineOn);
   PublishOp(en_Openable, op_OpenInNewWindow, Openable_OpenInNewWindow_Execute, Openable_OpenInNewWindow_Test, nil);
   PublishOp(en_SubPanelSettings, op_Show, SubPanelSettings_Show_Execute, SubPanelSettings_Show_Test, nil);
+  ShowInContextMenu(en_SubPanelSettings, op_Show, True);
+  ShowInToolbar(en_SubPanelSettings, op_Show, False);
   PublishOp(en_Reminder, op_RemWarnJuror, Reminder_RemWarnJuror_Execute, Reminder_RemWarnJuror_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnJuror, True);
+  ShowInToolbar(en_Reminder, op_RemWarnJuror, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineOn, Reminder_RemWarnTimeMachineOn_Execute, Reminder_RemWarnTimeMachineOn_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineOn, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineOn, False);
   PublishOp(en_Reminder, op_RemWarnRedaction, Reminder_RemWarnRedaction_Execute, Reminder_RemWarnRedaction_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnRedaction, True);
+  ShowInToolbar(en_Reminder, op_RemWarnRedaction, False);
   PublishOp(en_Reminder, op_RemWarnOnControl, Reminder_RemWarnOnControl_Execute, Reminder_RemWarnOnControl_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnOnControl, True);
+  ShowInToolbar(en_Reminder, op_RemWarnOnControl, False);
   PublishOp(en_Reminder, op_RemWarnIsAbolished, Reminder_RemWarnIsAbolished_Execute, Reminder_RemWarnIsAbolished_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnIsAbolished, True);
+  ShowInToolbar(en_Reminder, op_RemWarnIsAbolished, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineException, Reminder_RemWarnTimeMachineException_Execute, Reminder_RemWarnTimeMachineException_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineException, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineException, False);
   PublishOp(en_Reminder, op_RemWarnPreActive, Reminder_RemWarnPreActive_Execute, Reminder_RemWarnPreActive_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnPreActive, True);
+  ShowInToolbar(en_Reminder, op_RemWarnPreActive, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineWarning, Reminder_RemWarnTimeMachineWarning_Execute, Reminder_RemWarnTimeMachineWarning_Test, nil);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineWarning, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineWarning, False);
   PublishOp(en_Reminder, op_ViewInactualDocument, Reminder_ViewInactualDocument_Execute, Reminder_ViewInactualDocument_Test, nil);
+  ShowInContextMenu(en_Reminder, op_ViewInactualDocument, True);
+  ShowInToolbar(en_Reminder, op_ViewInactualDocument, False);
   PublishOp(en_Document, op_ChangesButton, nil, Document_ChangesButton_Test, nil);
   PublishOp(en_SubsPanel, op_CopySubNumber, SubsPanel_CopySubNumber_Execute, SubsPanel_CopySubNumber_Test, nil);
+  ShowInContextMenu(en_SubsPanel, op_CopySubNumber, True);
+  ShowInToolbar(en_SubsPanel, op_CopySubNumber, False);
   PublishOp(en_SubPanelSettings, op_ShowByShortCut, SubPanelSettings_ShowByShortCut_Execute, nil, nil);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowByShortCut, False);
+  ShowInToolbar(en_SubPanelSettings, op_ShowByShortCut, False);
+  ShowInContextMenu(en_Edit, op_FindContext, True);
+  ShowInToolbar(en_Edit, op_FindContext, True);
+  ShowInContextMenu(en_Edit, op_FindNext, True);
+  ShowInToolbar(en_Edit, op_FindNext, False);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
+  ShowInContextMenu(en_File, op_Save, False);
+  ShowInToolbar(en_File, op_Save, True);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, True);
+  ShowInContextMenu(en_File, op_SendMailAsAttachment, False, true);
+  ShowInToolbar(en_File, op_SendMailAsAttachment, False, true);
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, True);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, True);
+  ShowInContextMenu(en_File, op_SaveToFolder, False);
+  ShowInToolbar(en_File, op_SaveToFolder, True);
+  ShowInContextMenu(en_File, op_LoadFromFolder, False);
+  ShowInToolbar(en_File, op_LoadFromFolder, True);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddBookmark, False);
+  ShowInToolbar(en_Document, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentList, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_Document, op_GetRespondentList, False);
+  ShowInToolbar(en_Document, op_GetRespondentList, False);
+  ShowInContextMenu(en_Edit, op_Undo, False);
+  ShowInToolbar(en_Edit, op_Undo, False);
+  ShowInContextMenu(en_Edit, op_Redo, False);
+  ShowInToolbar(en_Edit, op_Redo, False);
+  ShowInContextMenu(en_Edit, op_FindPrev, True);
+  ShowInToolbar(en_Edit, op_FindPrev, False);
+  ShowInContextMenu(en_Document, op_ShowJurorComments, False);
+  ShowInToolbar(en_Document, op_ShowJurorComments, True);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowSpecial, True);
+  ShowInToolbar(en_SubPanelSettings, op_ShowSpecial, False);
+  ContextMenuWeight(en_SubPanelSettings, op_ShowSpecial, 2);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowInfo, True);
+  ShowInToolbar(en_SubPanelSettings, op_ShowInfo, False);
+  ContextMenuWeight(en_SubPanelSettings, op_ShowInfo, 1);
+  ContextMenuWeight(en_Selection, op_FindInDict, 10);
+  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, True);
+  ShowInContextMenu(en_Redactions, op_ActualRedaction, False);
+  ShowInToolbar(en_Redactions, op_ActualRedaction, False);
+  ContextMenuWeight(en_Redactions, op_ActualRedaction, 1);
+  ShowInContextMenu(en_Redactions, op_OpenRedactionListFrmAct, False);
+  ShowInToolbar(en_Redactions, op_OpenRedactionListFrmAct, True);
+  ContextMenuWeight(en_DocumentBlock, op_GetCorrespondentList, 110);
+  ContextMenuWeight(en_DocumentBlock, op_GetRespondentList, 120);
+  ShowInContextMenu(en_Document, op_GetAnnotationDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAnnotationDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_SimilarDocuments, False);
+  ShowInToolbar(en_Document, op_SimilarDocuments, True);
+  ShowInContextMenu(en_Redactions, op_PrevRedaction, False);
+  ShowInToolbar(en_Redactions, op_PrevRedaction, False);
+  ShowInContextMenu(en_Redactions, op_NextRedaction, False);
+  ShowInToolbar(en_Redactions, op_NextRedaction, False);
+  ContextMenuWeight(en_Text, op_AddToControl, 1);
+  ShowInContextMenu(en_Selection, op_ShowCorrespondentListToPart, True);
+  ShowInToolbar(en_Selection, op_ShowCorrespondentListToPart, False);
+  ShowInContextMenu(en_Selection, op_ShowRespondentListToPart, True);
+  ShowInToolbar(en_Selection, op_ShowRespondentListToPart, False);
+  ShowInContextMenu(en_WarnOnControl, op_ClearStatusSettings, True);
+  ShowInToolbar(en_WarnOnControl, op_ClearStatusSettings, False);
+  ContextMenuWeight(en_WarnOnControl, op_ClearStatusSettings, 3);
+  ShowInContextMenu(en_DocumentBlockHeader, op_Print, False);
+  ShowInToolbar(en_DocumentBlockHeader, op_Print, False);
+  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, True);
+  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_OpenContentsFrmAct, False);
+  ShowInToolbar(en_Document, op_OpenContentsFrmAct, True);
+  ShowInContextMenu(en_Document, op_ShowDocumentPicture, True);
+  ShowInToolbar(en_Document, op_ShowDocumentPicture, True);
+  ShowInContextMenu(en_WarnRedaction, op_OpenActualRedaction, True, true);
+  ShowInToolbar(en_WarnRedaction, op_OpenActualRedaction, False, true);
+  ContextMenuWeight(en_WarnRedaction, op_OpenActualRedaction, 1, true);
+  ShowInContextMenu(en_WarnOnControl, op_ShowChanges, True);
+  ShowInToolbar(en_WarnOnControl, op_ShowChanges, False);
+  ContextMenuWeight(en_WarnOnControl, op_ShowChanges, 1);
+  ShowInContextMenu(en_WarnOnControl, op_ClearStatus, True);
+  ShowInToolbar(en_WarnOnControl, op_ClearStatus, False);
+  ContextMenuWeight(en_WarnOnControl, op_ClearStatus, 2);
+  ContextMenuWeight(en_Text, op_AddUserComment, 5);
+  ShowInContextMenu(en_Document, op_GetGraphicImage, False);
+  ShowInToolbar(en_Document, op_GetGraphicImage, True);
+  ShowInContextMenu(en_Document, op_DocumentSynchroOpenWindow, False, true);
+  ShowInToolbar(en_Document, op_DocumentSynchroOpenWindow, False, true);
+  ShowInContextMenu(en_Document, op_DocumentSynchroOpenNewWindow, False, true);
+  ShowInToolbar(en_Document, op_DocumentSynchroOpenNewWindow, False, true);
+  ShowInContextMenu(en_Document, op_DictListOpenFrmAct, True);
+  ShowInToolbar(en_Document, op_DictListOpenFrmAct, True);
+  ShowInContextMenu(en_Document, op_GotoBookmark, False);
+  ShowInToolbar(en_Document, op_GotoBookmark, True);
+  ShowInContextMenu(en_Document, op_LiteratureListForDictionary, False);
+  ShowInToolbar(en_Document, op_LiteratureListForDictionary, True);
+  ContextMenuWeight(en_Text, op_AddBookmark, 3);
+  ShowInContextMenu(en_Text, op_OpenNewWindow, False);
+  ShowInToolbar(en_Text, op_OpenNewWindow, False);
+  ContextMenuWeight(en_Text, op_OpenNewWindow, 2);
+  ShowInContextMenu(en_Document, op_OpenProducedDrugList, False);
+  ShowInToolbar(en_Document, op_OpenProducedDrugList, False);
+  ShowInContextMenu(en_Document, op_OpenSimilarDrugList, False);
+  ShowInToolbar(en_Document, op_OpenSimilarDrugList, False);
+  ShowInContextMenu(en_Document, op_ShowJurorComments, False);
+  ShowInToolbar(en_Document, op_ShowJurorComments, True);
+  ShowInContextMenu(en_Document, op_ShowUserComments, False);
+  ShowInToolbar(en_Document, op_ShowUserComments, True);
+  ShowInContextMenu(en_Document, op_ShowTechComments, True);
+  ShowInToolbar(en_Document, op_ShowTechComments, False);
+  ShowInContextMenu(en_Document, op_AddToControl, False);
+  ShowInToolbar(en_Document, op_AddToControl, True);
+  ShowInContextMenu(en_Document, op_UserCR1, False);
+  ShowInToolbar(en_Document, op_UserCR1, True);
+  ShowInContextMenu(en_Document, op_UserCR2, False);
+  ShowInToolbar(en_Document, op_UserCR2, True);
+  ShowInContextMenu(en_Document, op_ShowVersionComments, False);
+  ShowInToolbar(en_Document, op_ShowVersionComments, True);
+  ShowInContextMenu(en_Document, op_CompareEditions, False);
+  ShowInToolbar(en_Document, op_CompareEditions, True);
+  ShowInContextMenu(en_TimeMachine, op_TimeMachineOnOffNew, True);
+  ShowInToolbar(en_TimeMachine, op_TimeMachineOnOffNew, False);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
+  ShowInContextMenu(en_WarnJuror, op_ShowInfo, True, true);
+  ShowInToolbar(en_WarnJuror, op_ShowInfo, False, true);
+  ShowInContextMenu(en_WarnTimeMachine, op_ShowInfo, True);
+  ShowInToolbar(en_WarnTimeMachine, op_ShowInfo, False);
+  ShowInContextMenu(en_WarnTimeMachine, op_TimeMachineOnOffNew, True);
+  ShowInToolbar(en_WarnTimeMachine, op_TimeMachineOnOffNew, False);
+  ShowInContextMenu(en_WarnRedaction, op_ShowInfo, True, true);
+  ShowInToolbar(en_WarnRedaction, op_ShowInfo, False, true);
+  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR1, True);
+  ShowInToolbar(en_DocumentBlockHeader, op_UserCR1, False);
+  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR2, True);
+  ShowInToolbar(en_DocumentBlockHeader, op_UserCR2, False);
+  ContextMenuWeight(en_Text, op_AddToControl, 1);
+  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, True);
+  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, False);
+  ContextMenuWeight(en_Text, op_MakeHyperlinkToDocument, 4);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
+  ShowInContextMenu(en_Text, op_SelectWord, False);
+  ContextMenuWeight(en_Text, op_SelectWord, 6);
+  ShowInContextMenu(en_Text, op_SelectPara, False);
+  ContextMenuWeight(en_Text, op_SelectPara, 7);
+  ContextMenuWeight(en_DocumentBlock, op_GetSimilarDocsToBlock, 130);
  end;//with Entities.Entities
 end;//TExTextOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
@@ -2009,7 +2214,7 @@ begin
  f_RemindersLine := TnscRemindersLine.Create(Self);
  f_RemindersLine.Name := 'RemindersLine';
  f_RemindersLine.Parent := Self;
- with DefineZone(vcm_ztChild, f_RemindersLine) do
+ with DefineZone(vcm_ztChild, RemindersLine) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_WarnTimeMachineException := TnscReminder.Create(RemindersLine);

@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Admin_Users_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -59,6 +62,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A0B4500F0impl_uses*
+ //#UC END# *4C8A0B4500F0impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -132,8 +137,13 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Save, Result_Save_Execute, Result_Save_Test, Result_Save_GetState);
+  ShowInContextMenu(en_Result, op_Save, False);
+  ShowInToolbar(en_Result, op_Save, True);
  end;//with Entities.Entities
 end;//TPrimUserPropertyOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

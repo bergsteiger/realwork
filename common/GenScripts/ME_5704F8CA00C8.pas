@@ -20,12 +20,14 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , AbsSubTree
  , Graphics
  , Messages
+ , vtLister
 ;
 
 type
- TnscLabelSubTree = class
+ TnscLabelSubTree = class(TAbsSubTree)
   private
    f_HighLightItem: Integer;
     {* Подсвеченный мышью элемент }
@@ -40,6 +42,28 @@ type
   protected
    procedure pm_SetHighLightItem(aValue: Integer);
    procedure CloseUp(anAccept: Boolean);
+   function IsSizeableTree: Boolean; override;
+   function IsShowGripper: Boolean; override;
+   function IsList: Boolean; override;
+   function IsInvert: Boolean; override;
+   function IsOwnerAssigned: Boolean; override;
+   function GetWidth: Integer; override;
+   {$If NOT Defined(NoVCL)}
+   procedure CreateParams(var Params: TCreateParams); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure DoOnGetItemStyle(aItemIndex: Integer;
+    const aFont: Il3Font;
+    var aTextBackColor: TColor;
+    var aItemBackColor: TColor;
+    var aVJustify: TvtVJustify;
+    var aFocused: Boolean;
+    var theImageVertOffset: Integer); override;
+   procedure NCDraw(aDC: hDC); override;
+  public
+   constructor Create(AOwner: TComponent); override;
+   {$If NOT Defined(NoVCL)}
+   procedure MouseWheelHandler(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
   protected
    property OnCloseup: TNotifyEvent
     read f_OnCloseup
@@ -222,6 +246,171 @@ begin
  inherited;
 //#UC END# *5710FAC701BB_5704FC1A0398_impl*
 end;//TnscLabelSubTree.WMKillFocus
+
+function TnscLabelSubTree.IsSizeableTree: Boolean;
+//#UC START# *5298BEBA032D_5704FC1A0398_var*
+//#UC END# *5298BEBA032D_5704FC1A0398_var*
+begin
+//#UC START# *5298BEBA032D_5704FC1A0398_impl*
+ Result := False;
+//#UC END# *5298BEBA032D_5704FC1A0398_impl*
+end;//TnscLabelSubTree.IsSizeableTree
+
+function TnscLabelSubTree.IsShowGripper: Boolean;
+//#UC START# *5298BF130022_5704FC1A0398_var*
+//#UC END# *5298BF130022_5704FC1A0398_var*
+begin
+//#UC START# *5298BF130022_5704FC1A0398_impl*
+ Result := False;
+//#UC END# *5298BF130022_5704FC1A0398_impl*
+end;//TnscLabelSubTree.IsShowGripper
+
+function TnscLabelSubTree.IsList: Boolean;
+//#UC START# *5298BF4D00FE_5704FC1A0398_var*
+//#UC END# *5298BF4D00FE_5704FC1A0398_var*
+begin
+//#UC START# *5298BF4D00FE_5704FC1A0398_impl*
+ Result := False;
+//#UC END# *5298BF4D00FE_5704FC1A0398_impl*
+end;//TnscLabelSubTree.IsList
+
+function TnscLabelSubTree.IsInvert: Boolean;
+//#UC START# *5298BF8700B0_5704FC1A0398_var*
+//#UC END# *5298BF8700B0_5704FC1A0398_var*
+begin
+//#UC START# *5298BF8700B0_5704FC1A0398_impl*
+ Result := False;
+//#UC END# *5298BF8700B0_5704FC1A0398_impl*
+end;//TnscLabelSubTree.IsInvert
+
+function TnscLabelSubTree.IsOwnerAssigned: Boolean;
+//#UC START# *5298BFDF0035_5704FC1A0398_var*
+//#UC END# *5298BFDF0035_5704FC1A0398_var*
+begin
+//#UC START# *5298BFDF0035_5704FC1A0398_impl*
+ Result := Assigned(Owner);
+//#UC END# *5298BFDF0035_5704FC1A0398_impl*
+end;//TnscLabelSubTree.IsOwnerAssigned
+
+function TnscLabelSubTree.GetWidth: Integer;
+//#UC START# *5298BFFA014B_5704FC1A0398_var*
+//#UC END# *5298BFFA014B_5704FC1A0398_var*
+begin
+//#UC START# *5298BFFA014B_5704FC1A0398_impl*
+ if Assigned(Owner) and (Owner is TControl) then
+  Result := TControl(Owner).Width
+ else
+  Result := 200;
+//#UC END# *5298BFFA014B_5704FC1A0398_impl*
+end;//TnscLabelSubTree.GetWidth
+
+constructor TnscLabelSubTree.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_5704FC1A0398_var*
+//#UC END# *47D1602000C6_5704FC1A0398_var*
+begin
+//#UC START# *47D1602000C6_5704FC1A0398_impl*
+ inherited;
+ ControlStyle := ControlStyle - [csCaptureMouse];
+ Visible := False;
+ BorderStyle := bsSingle;
+ ActionElementMode := l3_amSingleClick;
+ IsShowLines := False;
+
+ ViewOptions := [voShowInterRowSpace, voDoNotShowFocusRect];
+ MultiStrokeItem := False;
+ SelectColor.TextColor := clWhite;
+ SelectColor.BackColor := $b87140;
+ SelectNonFocusColor.TextColor := clWhite;
+ SelectNonFocusColor.BackColor := $b87140;
+ f_HighLightItem := -1;
+ HighlightColor := $fac88c;
+//#UC END# *47D1602000C6_5704FC1A0398_impl*
+end;//TnscLabelSubTree.Create
+
+{$If NOT Defined(NoVCL)}
+procedure TnscLabelSubTree.CreateParams(var Params: TCreateParams);
+//#UC START# *48C7925A02E5_5704FC1A0398_var*
+//#UC END# *48C7925A02E5_5704FC1A0398_var*
+begin
+//#UC START# *48C7925A02E5_5704FC1A0398_impl*
+ inherited;
+ Params.Style := Params.Style and not WS_BORDER;
+//#UC END# *48C7925A02E5_5704FC1A0398_impl*
+end;//TnscLabelSubTree.CreateParams
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TnscLabelSubTree.DoOnGetItemStyle(aItemIndex: Integer;
+ const aFont: Il3Font;
+ var aTextBackColor: TColor;
+ var aItemBackColor: TColor;
+ var aVJustify: TvtVJustify;
+ var aFocused: Boolean;
+ var theImageVertOffset: Integer);
+//#UC START# *508F825303E4_5704FC1A0398_var*
+//#UC END# *508F825303E4_5704FC1A0398_var*
+begin
+//#UC START# *508F825303E4_5704FC1A0398_impl*
+ inherited;
+ aVJustify := vt_vjBottom;
+ if (aItemIndex <> Current) then
+ begin
+  aFont.ForeColor := $030303;
+  if (aItemIndex = f_HighlightItem) then
+  begin
+   aTextBackColor := f_HighlightColor;
+   aItemBackColor := f_HighlightColor;
+  end;
+ end;
+//#UC END# *508F825303E4_5704FC1A0398_impl*
+end;//TnscLabelSubTree.DoOnGetItemStyle
+
+{$If NOT Defined(NoVCL)}
+procedure TnscLabelSubTree.MouseWheelHandler(var Message: TMessage);
+//#UC START# *515317860183_5704FC1A0398_var*
+//#UC END# *515317860183_5704FC1A0398_var*
+begin
+//#UC START# *515317860183_5704FC1A0398_impl*
+ inherited;
+ if (Current >= 0) then
+  InvalidateItem(Current);
+ if (f_HighLightItem >= 0) then
+  InvalidateItem(f_HighLightItem);
+//#UC END# *515317860183_5704FC1A0398_impl*
+end;//TnscLabelSubTree.MouseWheelHandler
+{$IfEnd} // NOT Defined(NoVCL)
+
+procedure TnscLabelSubTree.NCDraw(aDC: hDC);
+//#UC START# *5298C02D03B3_5704FC1A0398_var*
+var
+ l_OldDC: THandle;
+//#UC END# *5298C02D03B3_5704FC1A0398_var*
+begin
+//#UC START# *5298C02D03B3_5704FC1A0398_impl*
+ inherited;
+ with Il3Canvas(Canvas)do
+ begin
+  l_OldDC := DC;
+  DC := aDC;
+  try
+   DrawEnabled := True;
+   try
+    Canvas.Pen.Width := 3;
+    Canvas.Pen.Color := $d0ba9d;
+    Canvas.Pen.Style := psSolid;
+    MoveTo(l3SPoint(1, 1));
+    LineTo(l3SPoint(1, Height - 2));
+    LineTo(l3SPoint(Width - 2, Height - 2));
+    LineTo(l3SPoint(Width - 2, 1));
+    LineTo(l3SPoint(1, 1));
+   finally
+    DrawEnabled := False;
+   end;
+  finally
+   DC := l_OldDC;
+  end;
+ end;
+//#UC END# *5298C02D03B3_5704FC1A0398_impl*
+end;//TnscLabelSubTree.NCDraw
 
 function TnscComboLabel.pm_GetTree: TnscLabelSubTree;
 //#UC START# *5704FCF60069_5704F8CA00C8get_var*

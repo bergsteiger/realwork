@@ -48,11 +48,9 @@ type
   {* Группы пользователей }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_GroupsTree: TeeTreeView;
-    {* Поле для свойства GroupsTree }
   protected
-   : IdsGroupsList;
+   ViewArea: IdsGroupsList;
   private
    procedure GroupsTreeCountChanged(Sender: TObject;
     NewCount: LongInt);
@@ -137,7 +135,6 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -155,21 +152,17 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimGroupList_admGroupList_UserType
+ , SysUtils
+ //#UC START# *49EC75B5022Cimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *49EC75B5022Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки admGroupListLocalConstants }
- str_admGroupListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListCaption'; rValue : 'Группы пользователей');
-  {* Заголовок пользовательского типа "Группы пользователей" }
- str_admGroupListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admGroupListSettingsCaption'; rValue : 'Группы пользователей (вкладка)');
-  {* Заголовок пользовательского типа "Группы пользователей" для настройки панелей инструментов }
-
 procedure TPrimGroupListForm.GroupsTreeCountChanged(Sender: TObject;
  NewCount: LongInt);
 //#UC START# *5236E2780163_49EC75B5022C_var*
@@ -493,6 +486,14 @@ procedure TPrimGroupListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSo
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsGroupsList;
+ end;//aNew = nil
 end;//TPrimGroupListForm.SignalDataSourceChanged
 
 procedure TPrimGroupListForm.InitEntities;
@@ -505,12 +506,12 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Groups, nil);
   PublishFormEntity(en_Switcher, nil);
+  MakeEntitySupportedByControl(en_Edit, GroupsTree);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
   PublishOp(en_Groups, op_Add, Groups_Add_Execute, Groups_Add_Test, nil);
   PublishOp(en_Groups, op_ChangeBaseAccess, Groups_ChangeBaseAccess_Execute, Groups_ChangeBaseAccess_Test, nil);
   PublishOp(en_Groups, op_Rename, Groups_Rename_Execute, Groups_Rename_Test, nil);
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, Switcher_BecomeActive_Test, nil);
-  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
  end;//with Entities.Entities
 end;//TPrimGroupListForm.InitEntities
 
@@ -520,7 +521,7 @@ begin
  with AddUsertype(admGroupListName,
   str_admGroupListCaption,
   str_admGroupListSettingsCaption,
-  False,
+  True,
   -1,
   10,
   '',
@@ -539,10 +540,6 @@ begin
 end;//TPrimGroupListForm.MakeControls
 
 initialization
- str_admGroupListCaption.Init;
- {* Инициализация str_admGroupListCaption }
- str_admGroupListSettingsCaption.Init;
- {* Инициализация str_admGroupListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimGroupListForm);
  {* Регистрация PrimGroupList }

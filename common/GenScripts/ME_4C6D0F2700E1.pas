@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utPrintPreviewLocalConstants }
+ str_utPrintPreviewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utPrintPreviewCaption'; rValue : 'Предварительный просмотр печати');
+  {* Заголовок пользовательского типа "Предварительный просмотр печати" }
  {* Константы для типа формы utPrintPreview }
  utPrintPreviewName = 'utPrintPreview';
   {* Строковый идентификатор пользовательского типа "Предварительный просмотр печати" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utPrintPreview.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utPrintPreviewCaption.Init;
+ {* Инициализация str_utPrintPreviewCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utPrintPreview.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utPrintPreview }

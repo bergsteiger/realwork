@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utMainMenuNewLocalConstants }
+ str_utMainMenuNewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuNewCaption'; rValue : 'Основное меню');
+  {* Заголовок пользовательского типа "Основное меню" }
  {* Константы для типа формы utMainMenuNew }
  utMainMenuNewName = 'utMainMenuNew';
   {* Строковый идентификатор пользовательского типа "Основное меню" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utMainMenuNew.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utMainMenuNewCaption.Init;
+ {* Инициализация str_utMainMenuNewCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utMainMenuNew.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utMainMenuNew }

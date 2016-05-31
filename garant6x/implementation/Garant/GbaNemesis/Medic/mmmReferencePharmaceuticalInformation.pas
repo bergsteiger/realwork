@@ -32,7 +32,6 @@ uses
  l3ImplUses
  , l3StringIDEx
  , nsTypes
- , l3MessageID
 ;
 
 const

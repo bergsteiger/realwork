@@ -17,6 +17,9 @@ uses
  , OfficeLike_ResultEx_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -55,14 +58,16 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , StdRes
+ , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C88E37B0049impl_uses*
+ //#UC END# *4C88E37B0049impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -163,7 +168,11 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, nil);
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, True);
  end;//with Entities.Entities
 end;//TPrimAdminOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

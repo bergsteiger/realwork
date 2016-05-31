@@ -32,8 +32,8 @@ uses
  , afwInterfaces
  , FoldersDomainInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , BaloonWarningUserTypes_WarnJuror_UserType
  , WorkWithDocumentInterfaces
  , nsTypes

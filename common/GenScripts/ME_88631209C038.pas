@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_EULALocalConstants }
+ str_ut_EULACaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_EULACaption'; rValue : 'Условия использования');
+  {* Заголовок пользовательского типа "Условия использования" }
  {* Константы для типа формы ut_EULA }
  ut_EULAName = 'ut_EULA';
   {* Строковый идентификатор пользовательского типа "Условия использования" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_EULA.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_EULACaption.Init;
+ {* Инициализация str_ut_EULACaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_EULA.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_EULA }

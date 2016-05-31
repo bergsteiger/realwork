@@ -30,11 +30,10 @@ type
  )
   private
    f_ShellCaptionLabel: TvtLabel;
-    {* Поле для свойства ShellCaptionLabel }
+    {* Прочтите внимательно }
    f_OkButton: TvtButton;
-    {* Поле для свойства OkButton }
+    {* Ок }
    f_eeMemoWithEditOperations1: TeeMemoWithEditOperations;
-    {* Поле для свойства eeMemoWithEditOperations1 }
   private
    procedure OkButtonClick(Sender: TObject);
   protected
@@ -73,7 +72,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -83,6 +81,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93FB6B018Fimpl_uses*
+ //#UC END# *4A93FB6B018Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

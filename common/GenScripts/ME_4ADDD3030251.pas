@@ -16,6 +16,7 @@ uses
  , OfficeLike_Usual_Controls
  , vcmExternalInterfaces
  , Classes
+ , vcmInterfaces
 ;
 
 type
@@ -55,6 +56,8 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , StdRes
+ //#UC START# *4ADDD3030251impl_uses*
+ //#UC END# *4ADDD3030251impl_uses*
 ;
 
 procedure TOfficeLikeMainForm.DoBack(const aParams: IvcmExecuteParamsPrim);

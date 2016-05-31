@@ -13,6 +13,8 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , DynamicTreeUnit
+ , AdapterFacade
  , SearchInterfaces
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
@@ -20,7 +22,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , ConfigInterfaces
  , l3PrinterInterfaces
- , DynamicTreeUnit
  , BaseTypesUnit
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -28,7 +29,6 @@ uses
  , l3Tree_TLB
  , UnderControlUnit
  , DocumentUnit
- , AdapterFacade
  , PresentationInterfaces
 ;
 

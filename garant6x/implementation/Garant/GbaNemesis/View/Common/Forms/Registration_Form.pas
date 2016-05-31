@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , RegistrationFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_RegistrationFormLocalConstants }
- str_ut_RegistrationFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_RegistrationFormCaption'; rValue : 'Регистрация');
-  {* Заголовок пользовательского типа "Регистрация" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TnsRegistrationForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_RegistrationFormCaption.Init;
- {* Инициализация str_ut_RegistrationFormCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TnsRegistrationForm);
  {* Регистрация RegistrationForm }

@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utFoldersTreeLocalConstants }
+ str_utFoldersTreeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersTreeCaption'; rValue : 'Мои документы (вкладка)');
+  {* Заголовок пользовательского типа "Мои документы (вкладка)" }
  {* Константы для типа формы utFoldersTree }
  utFoldersTreeName = 'utFoldersTree';
   {* Строковый идентификатор пользовательского типа "Мои документы (вкладка)" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utFoldersTree.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utFoldersTreeCaption.Init;
+ {* Инициализация str_utFoldersTreeCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFoldersTree.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utFoldersTree }

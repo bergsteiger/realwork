@@ -22,16 +22,10 @@ uses
 const
  fm_cfAdminForm: TvcmFormDescriptor = (rFormID : (rName : 'cfAdminForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TcfAdminForm }
-
-const
  fm_efGroupList: TvcmFormDescriptor = (rFormID : (rName : 'efGroupList'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefGroupList }
-
-const
  fm_efUserList: TvcmFormDescriptor = (rFormID : (rName : 'efUserList'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefUserList }
-
-const
  fm_efUserProperty: TvcmFormDescriptor = (rFormID : (rName : 'efUserProperty'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefUserProperty }
 

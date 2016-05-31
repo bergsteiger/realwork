@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки tpMainLocalConstants }
+ str_tpMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'tpMainCaption'; rValue : 'Панель задач');
+  {* Заголовок пользовательского типа "Панель задач" }
  {* Константы для типа формы tpMain }
  tpMainName = 'tpMain';
   {* Строковый идентификатор пользовательского типа "Панель задач" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_tpMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_tpMainCaption.Init;
+ {* Инициализация str_tpMainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_tpMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_tpMain }

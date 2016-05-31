@@ -1,137 +1,132 @@
 unit PrimDiction_Form;
+ {* Толковый словарь }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/Forms/PrimDiction_Form.pas"
-// Начат: 23.01.2009 17:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Diction::View::Diction::PrimDiction
-//
-// Толковый словарь
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDiction_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDiction" MUID: (4979D40E0180)
+// Имя типа: "TPrimDictionForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  Classes,
-  l3ControlsTypes,
-  bsTypes,
-  DictionInterfaces,
-  CommonDictionInterfaces,
-  eeTreeView,
-  eeTreeViewExport
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  Diction_Strange_Controls,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop,
-  DocumentAndListInterfaces,
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmControllers {a},
-  PrimDiction_utDiction_UserType
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DictionInterfaces
+ , Diction_Strange_Controls
+ , CommonDictionInterfaces
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ , bsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _BaseDocument_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
- TPrimDictionForm = {form} class(_BaseDocument_, IbsDictionListener)
+ TPrimDictionForm = class(_BaseDocument_, IbsDictionListener)
   {* Толковый словарь }
- private
- // private fields
-   f_InternalChange : Integer;
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_WordsTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства WordsTree}
-   f_ContextMap : InsLangToContextMap;
-    {* Поле для свойства ContextMap}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_InternalChange: Integer;
+   f_BackgroundPanel: TvtPanel;
+   f_ContextMap: InsLangToContextMap;
+   f_ContextFilter: TnscContextFilter;
+   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
+  protected
+   CommonDiction: IdsCommonDiction;
+   Diction: IdsDiction;
+  private
    procedure ContextFilterChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ContextFilterWrongContext(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function WordsTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure WordsTreeNewCharPressed(aChar: AnsiChar);
-     {* событие для внешней обработки WMChar }
    procedure WordsTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure WordsTreeMakeTreeSource(out theTree: Il3SimpleTree);
    procedure WordsTreeSelectCountChanged(aSender: TObject;
-     anOldCount: Integer;
-     aNewCount: Integer);
+    anOldCount: Integer;
+    aNewCount: Integer);
    procedure WordsTreeCountChanged(Sender: TObject;
-     NewCount: LongInt);
+    NewCount: LongInt);
    procedure WordsTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure WordsTreeFormatStatusInfo(aSender: TObject;
-     var Info: Il3CString;
-     aCurrent: Integer;
-     aCount: Integer;
-     aSelected: Integer);
+    var Info: Il3CString;
+    aCurrent: Integer;
+    aCount: Integer;
+    aSelected: Integer);
    procedure RestoreContextFilter;
- protected
- // property methods
+  protected
    function pm_GetContextMap: InsLangToContextMap;
- protected
- // realized methods
+   procedure ChangeLang(aLang: TbsLanguage);
+    {* изменить язык списка толкований }
+   procedure CheckLang(aLang: TbsLanguage;
+    const aParams: IvcmTestParamsPrim);
+    {* проверим наличие толкований языка }
+   procedure ChangeDiction(aItem: Integer;
+    aUpdateWithDelay: Boolean = True);
+    {* изменить текущее толкование }
    procedure CurrentUpdated;
-     {* текущее значение изменилось }
+    {* текущее значение изменилось }
    procedure UpdateLanguage(aLanguage: TbsLanguage);
-     {* обновить язык списка толкований }
+    {* обновить язык списка толкований }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Lang_Russian_Test(const aParams: IvcmTestParamsPrim);
    procedure Lang_Russian_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Lang_English_Test(const aParams: IvcmTestParamsPrim);
@@ -144,271 +139,74 @@ type
    procedure Lang_Italian_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Lang_Spanish_Test(const aParams: IvcmTestParamsPrim);
    procedure Lang_Spanish_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
-     {* Нужно ли рисовать заголовок зоны }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   CommonDiction : IdsCommonDiction;
-   Diction : IdsDiction;
- protected
- // protected methods
-   procedure ChangeLang(aLang: TbsLanguage);
-     {* изменить язык списка толкований }
-   procedure CheckLang(aLang: TbsLanguage;
-     const aParams: IvcmTestParamsPrim);
-     {* проверим наличие толкований языка }
-   procedure ChangeDiction(aItem: Integer;
-     aUpdateWithDelay: Boolean = True);
-     {* изменить текущее толкование }
- private
- // private properties
+    {* Нужно ли рисовать заголовок зоны }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property ContextMap: InsLangToContextMap
-     read pm_GetContextMap;
- public
- // public properties
+    read pm_GetContextMap;
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
    property WordsTree: TnscTreeViewWithAdapterDragDrop
-     read f_WordsTree;
+    read f_WordsTree;
  end;//TPrimDictionForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  l3String,
-  DictionRes,
-  nsUtils,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Common_FormDefinitions_Controls,
-  nsDictCache,
-  nsDictionTree,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , BaseTypesUnit
+ , l3String
+ , DictionRes
+ , nsUtils
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Common_FormDefinitions_Controls
+ , nsDictCache
+ , nsDictionTree
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimDiction_utDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979D40E0180impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4979D40E0180impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
-var
-   { Локализуемые строки utDictionLocalConstants }
-  str_utDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionCaption'; rValue : 'Толковый словарь');
-   { Заголовок пользовательского типа "Толковый словарь" }
-  str_utDictionSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionSettingsCaption'; rValue : 'Толковый словарь: Список терминов (вкладка)');
-   { Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов }
-
-// start class TPrimDictionForm
-
-procedure TPrimDictionForm.ContextFilterChange(Sender: TObject);
-//#UC START# *51B72C1D0310_4979D40E0180_var*
-var
- l_Tree: Il3FilterableTree;
- l_Filtered: Il3SimpleTree;
- l_Node: Il3SimpleNode;
- l_NewNodeIndex: Integer;
-//#UC END# *51B72C1D0310_4979D40E0180_var*
+function TPrimDictionForm.pm_GetContextMap: InsLangToContextMap;
+//#UC START# *51B7302E015F_4979D40E0180get_var*
+//#UC END# *51B7302E015F_4979D40E0180get_var*
 begin
-//#UC START# *51B72C1D0310_4979D40E0180_impl*
- if Assigned(Diction) and
-    Supports(WordsTree.TreeStruct, Il3FilterableTree, l_Tree) then
- begin
-  // Сохраним параметры контекстной фильтрации для данного языка
-  ContextMap.ByLang[Diction.Language] := ContextFilter.MakeState;
-  l_Filtered := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilter.ActiveContext),
-                                    l_Node,
-                                    l_NewNodeIndex,
-                                    True,
-                                    ContextFilter.NeedRefilterTree);
-  if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
-   with WordsTree do
-   begin
-    Changing;
-    try
-     TreeStruct := l_Filtered;
-     vlbMakeItemVisible(Current);
-    finally
-     if not ContextFilter.Active then
-      Inc(f_InternalChange);
-     try
-      Changed;
-     finally
-      if not ContextFilter.Active then
-       Dec(f_InternalChange);
-     end;
-    end;{try..finally}
-   end;//with WordsTree do
- end;//if Supports(WordsTree.TreeStruct,
-//#UC END# *51B72C1D0310_4979D40E0180_impl*
-end;//TPrimDictionForm.ContextFilterChange
-
-procedure TPrimDictionForm.ContextFilterWrongContext(Sender: TObject);
-//#UC START# *51B72C29024A_4979D40E0180_var*
-//#UC END# *51B72C29024A_4979D40E0180_var*
-begin
-//#UC START# *51B72C29024A_4979D40E0180_impl*
- nsBeepWrongContext;
-//#UC END# *51B72C29024A_4979D40E0180_impl*
-end;//TPrimDictionForm.ContextFilterWrongContext
-
-function TPrimDictionForm.WordsTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *51B72D1B027D_4979D40E0180_var*
-//#UC END# *51B72D1B027D_4979D40E0180_var*
-begin
-//#UC START# *51B72D1B027D_4979D40E0180_impl*
- Result := cDictItemIcon;
-//#UC END# *51B72D1B027D_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeGetItemImage
-
-procedure TPrimDictionForm.WordsTreeNewCharPressed(aChar: AnsiChar);
-//#UC START# *51B72D240241_4979D40E0180_var*
-//#UC END# *51B72D240241_4979D40E0180_var*
-begin
-//#UC START# *51B72D240241_4979D40E0180_impl*
- ContextFilter.PressChar(aChar);
-//#UC END# *51B72D240241_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeNewCharPressed
-
-procedure TPrimDictionForm.WordsTreeActionElement(Sender: TObject;
-  Index: LongInt);
-//#UC START# *51B72D300088_4979D40E0180_var*
-//#UC END# *51B72D300088_4979D40E0180_var*
-begin
-//#UC START# *51B72D300088_4979D40E0180_impl*
- ChangeDiction(Index, False);
-//#UC END# *51B72D300088_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeActionElement
-
-procedure TPrimDictionForm.WordsTreeMakeTreeSource(out theTree: Il3SimpleTree);
-//#UC START# *51B72D3B02F2_4979D40E0180_var*
-//#UC END# *51B72D3B02F2_4979D40E0180_var*
-begin
-//#UC START# *51B72D3B02F2_4979D40E0180_impl*
- theTree := nil;
- if Assigned(Diction) and TnsDictCache.Instance.ContainsLang(Diction.Language) then
-  with DefDataAdapter do
-   theTree := TnsDictionTree.Make(ns_dkDiction, Diction.Language, ContextMap.ByLang[Diction.Language].ActiveContext);
-//#UC END# *51B72D3B02F2_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeMakeTreeSource
-
-procedure TPrimDictionForm.WordsTreeSelectCountChanged(aSender: TObject;
-  anOldCount: Integer;
-  aNewCount: Integer);
-//#UC START# *51B72D4603E7_4979D40E0180_var*
-//#UC END# *51B72D4603E7_4979D40E0180_var*
-begin
-//#UC START# *51B72D4603E7_4979D40E0180_impl*
- UpdateStatusInfo;
-//#UC END# *51B72D4603E7_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeSelectCountChanged
-
-procedure TPrimDictionForm.WordsTreeCountChanged(Sender: TObject;
-  NewCount: LongInt);
-//#UC START# *51B72D520161_4979D40E0180_var*
-//#UC END# *51B72D520161_4979D40E0180_var*
-begin
-//#UC START# *51B72D520161_4979D40E0180_impl*
- UpdateStatusInfo;
-//#UC END# *51B72D520161_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeCountChanged
-
-procedure TPrimDictionForm.WordsTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
-//#UC START# *51B72D5E02DC_4979D40E0180_var*
-//#UC END# *51B72D5E02DC_4979D40E0180_var*
-begin
-//#UC START# *51B72D5E02DC_4979D40E0180_impl*
- UpdateStatusInfo;
- // Если происходит переключения языка толкований обновлять текущий нельзя, т.к.
- // в процессе переключения произойдет поиск текущего в новом списке толкований
- // и если толкование не будет найдено, то в новом списке толкования не будет
- // устновлен текущий:
- if f_InternalChange = 0 then
-  ChangeDiction(aNewCurrent);
-//#UC END# *51B72D5E02DC_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeCurrentChanged
-
-procedure TPrimDictionForm.WordsTreeFormatStatusInfo(aSender: TObject;
-  var Info: Il3CString;
-  aCurrent: Integer;
-  aCount: Integer;
-  aSelected: Integer);
-//#UC START# *51B72D6C0297_4979D40E0180_var*
-//#UC END# *51B72D6C0297_4979D40E0180_var*
-begin
-//#UC START# *51B72D6C0297_4979D40E0180_impl*
- Info := vcmFmt(str_DictionStatusInfoFormat,[aCurrent, aCount]);
-//#UC END# *51B72D6C0297_4979D40E0180_impl*
-end;//TPrimDictionForm.WordsTreeFormatStatusInfo
-
-procedure TPrimDictionForm.RestoreContextFilter;
-//#UC START# *52A5A17003E1_4979D40E0180_var*
-//#UC END# *52A5A17003E1_4979D40E0180_var*
-begin
-//#UC START# *52A5A17003E1_4979D40E0180_impl*
- // http://mdp.garant.ru/pages/viewpage.action?pageId=382410166
- if (Diction <> nil) then
-  ContextFilter.AssignState(Diction.ContextMap.ByLang[Diction.Language]);
-//#UC END# *52A5A17003E1_4979D40E0180_impl*
-end;//TPrimDictionForm.RestoreContextFilter
+//#UC START# *51B7302E015F_4979D40E0180get_impl*
+ if f_ContextMap = nil then
+  f_ContextMap := Diction.ContextMap;
+ Result := f_ContextMap;
+//#UC END# *51B7302E015F_4979D40E0180get_impl*
+end;//TPrimDictionForm.pm_GetContextMap
 
 procedure TPrimDictionForm.ChangeLang(aLang: TbsLanguage);
+ {* изменить язык списка толкований }
 //#UC START# *4C85134102E7_4979D40E0180_var*
 var
  l_Index: Integer;
@@ -467,7 +265,8 @@ begin
 end;//TPrimDictionForm.ChangeLang
 
 procedure TPrimDictionForm.CheckLang(aLang: TbsLanguage;
-  const aParams: IvcmTestParamsPrim);
+ const aParams: IvcmTestParamsPrim);
+ {* проверим наличие толкований языка }
 //#UC START# *4C8513680142_4979D40E0180_var*
 //#UC END# *4C8513680142_4979D40E0180_var*
 begin
@@ -483,8 +282,153 @@ begin
 //#UC END# *4C8513680142_4979D40E0180_impl*
 end;//TPrimDictionForm.CheckLang
 
+procedure TPrimDictionForm.ContextFilterChange(Sender: TObject);
+//#UC START# *51B72C1D0310_4979D40E0180_var*
+var
+ l_Tree: Il3FilterableTree;
+ l_Filtered: Il3SimpleTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+//#UC END# *51B72C1D0310_4979D40E0180_var*
+begin
+//#UC START# *51B72C1D0310_4979D40E0180_impl*
+ if Assigned(Diction) and
+    Supports(WordsTree.TreeStruct, Il3FilterableTree, l_Tree) then
+ begin
+  // Сохраним параметры контекстной фильтрации для данного языка
+  ContextMap.ByLang[Diction.Language] := ContextFilter.MakeState;
+  l_Filtered := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilter.ActiveContext),
+                                    l_Node,
+                                    l_NewNodeIndex,
+                                    True,
+                                    ContextFilter.NeedRefilterTree);
+  if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
+   with WordsTree do
+   begin
+    Changing;
+    try
+     TreeStruct := l_Filtered;
+     vlbMakeItemVisible(Current);
+    finally
+     if not ContextFilter.Active then
+      Inc(f_InternalChange);
+     try
+      Changed;
+     finally
+      if not ContextFilter.Active then
+       Dec(f_InternalChange);
+     end;
+    end;{try..finally}
+   end;//with WordsTree do
+ end;//if Supports(WordsTree.TreeStruct,
+//#UC END# *51B72C1D0310_4979D40E0180_impl*
+end;//TPrimDictionForm.ContextFilterChange
+
+procedure TPrimDictionForm.ContextFilterWrongContext(Sender: TObject);
+//#UC START# *51B72C29024A_4979D40E0180_var*
+//#UC END# *51B72C29024A_4979D40E0180_var*
+begin
+//#UC START# *51B72C29024A_4979D40E0180_impl*
+ nsBeepWrongContext;
+//#UC END# *51B72C29024A_4979D40E0180_impl*
+end;//TPrimDictionForm.ContextFilterWrongContext
+
+function TPrimDictionForm.WordsTreeGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *51B72D1B027D_4979D40E0180_var*
+//#UC END# *51B72D1B027D_4979D40E0180_var*
+begin
+//#UC START# *51B72D1B027D_4979D40E0180_impl*
+ Result := cDictItemIcon;
+//#UC END# *51B72D1B027D_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeGetItemImage
+
+procedure TPrimDictionForm.WordsTreeNewCharPressed(aChar: AnsiChar);
+//#UC START# *51B72D240241_4979D40E0180_var*
+//#UC END# *51B72D240241_4979D40E0180_var*
+begin
+//#UC START# *51B72D240241_4979D40E0180_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *51B72D240241_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeNewCharPressed
+
+procedure TPrimDictionForm.WordsTreeActionElement(Sender: TObject;
+ Index: LongInt);
+//#UC START# *51B72D300088_4979D40E0180_var*
+//#UC END# *51B72D300088_4979D40E0180_var*
+begin
+//#UC START# *51B72D300088_4979D40E0180_impl*
+ ChangeDiction(Index, False);
+//#UC END# *51B72D300088_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeActionElement
+
+procedure TPrimDictionForm.WordsTreeMakeTreeSource(out theTree: Il3SimpleTree);
+//#UC START# *51B72D3B02F2_4979D40E0180_var*
+//#UC END# *51B72D3B02F2_4979D40E0180_var*
+begin
+//#UC START# *51B72D3B02F2_4979D40E0180_impl*
+ theTree := nil;
+ if Assigned(Diction) and TnsDictCache.Instance.ContainsLang(Diction.Language) then
+  with DefDataAdapter do
+   theTree := TnsDictionTree.Make(ns_dkDiction, Diction.Language, ContextMap.ByLang[Diction.Language].ActiveContext);
+//#UC END# *51B72D3B02F2_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeMakeTreeSource
+
+procedure TPrimDictionForm.WordsTreeSelectCountChanged(aSender: TObject;
+ anOldCount: Integer;
+ aNewCount: Integer);
+//#UC START# *51B72D4603E7_4979D40E0180_var*
+//#UC END# *51B72D4603E7_4979D40E0180_var*
+begin
+//#UC START# *51B72D4603E7_4979D40E0180_impl*
+ UpdateStatusInfo;
+//#UC END# *51B72D4603E7_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeSelectCountChanged
+
+procedure TPrimDictionForm.WordsTreeCountChanged(Sender: TObject;
+ NewCount: LongInt);
+//#UC START# *51B72D520161_4979D40E0180_var*
+//#UC END# *51B72D520161_4979D40E0180_var*
+begin
+//#UC START# *51B72D520161_4979D40E0180_impl*
+ UpdateStatusInfo;
+//#UC END# *51B72D520161_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeCountChanged
+
+procedure TPrimDictionForm.WordsTreeCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
+//#UC START# *51B72D5E02DC_4979D40E0180_var*
+//#UC END# *51B72D5E02DC_4979D40E0180_var*
+begin
+//#UC START# *51B72D5E02DC_4979D40E0180_impl*
+ UpdateStatusInfo;
+ // Если происходит переключения языка толкований обновлять текущий нельзя, т.к.
+ // в процессе переключения произойдет поиск текущего в новом списке толкований
+ // и если толкование не будет найдено, то в новом списке толкования не будет
+ // устновлен текущий:
+ if f_InternalChange = 0 then
+  ChangeDiction(aNewCurrent);
+//#UC END# *51B72D5E02DC_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeCurrentChanged
+
+procedure TPrimDictionForm.WordsTreeFormatStatusInfo(aSender: TObject;
+ var Info: Il3CString;
+ aCurrent: Integer;
+ aCount: Integer;
+ aSelected: Integer);
+//#UC START# *51B72D6C0297_4979D40E0180_var*
+//#UC END# *51B72D6C0297_4979D40E0180_var*
+begin
+//#UC START# *51B72D6C0297_4979D40E0180_impl*
+ Info := vcmFmt(str_DictionStatusInfoFormat,[aCurrent, aCount]);
+//#UC END# *51B72D6C0297_4979D40E0180_impl*
+end;//TPrimDictionForm.WordsTreeFormatStatusInfo
+
 procedure TPrimDictionForm.ChangeDiction(aItem: Integer;
-  aUpdateWithDelay: Boolean = True);
+ aUpdateWithDelay: Boolean = True);
+ {* изменить текущее толкование }
 //#UC START# *50056A9D02BE_4979D40E0180_var*
 var
  l_l3Node : Il3SimpleNode;
@@ -504,18 +448,19 @@ begin
 //#UC END# *50056A9D02BE_4979D40E0180_impl*
 end;//TPrimDictionForm.ChangeDiction
 
-function TPrimDictionForm.pm_GetContextMap: InsLangToContextMap;
-//#UC START# *51B7302E015F_4979D40E0180get_var*
-//#UC END# *51B7302E015F_4979D40E0180get_var*
+procedure TPrimDictionForm.RestoreContextFilter;
+//#UC START# *52A5A17003E1_4979D40E0180_var*
+//#UC END# *52A5A17003E1_4979D40E0180_var*
 begin
-//#UC START# *51B7302E015F_4979D40E0180get_impl*
- if f_ContextMap = nil then
-  f_ContextMap := Diction.ContextMap;
- Result := f_ContextMap;
-//#UC END# *51B7302E015F_4979D40E0180get_impl*
-end;//TPrimDictionForm.pm_GetContextMap
+//#UC START# *52A5A17003E1_4979D40E0180_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=382410166
+ if (Diction <> nil) then
+  ContextFilter.AssignState(Diction.ContextMap.ByLang[Diction.Language]);
+//#UC END# *52A5A17003E1_4979D40E0180_impl*
+end;//TPrimDictionForm.RestoreContextFilter
 
 procedure TPrimDictionForm.CurrentUpdated;
+ {* текущее значение изменилось }
 //#UC START# *493402BC0160_4979D40E0180_var*
 //#UC END# *493402BC0160_4979D40E0180_var*
 begin
@@ -525,6 +470,7 @@ begin
 end;//TPrimDictionForm.CurrentUpdated
 
 procedure TPrimDictionForm.UpdateLanguage(aLanguage: TbsLanguage);
+ {* обновить язык списка толкований }
 //#UC START# *4934035F013E_4979D40E0180_var*
 //#UC END# *4934035F013E_4979D40E0180_var*
 begin
@@ -642,6 +588,7 @@ begin
 end;//TPrimDictionForm.Lang_Spanish_Execute
 
 procedure TPrimDictionForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4979D40E0180_var*
 //#UC END# *479731C50290_4979D40E0180_var*
 begin
@@ -678,9 +625,9 @@ begin
 //#UC END# *47EA4E9002C6_4979D40E0180_impl*
 end;//TPrimDictionForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimDictionForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4979D40E0180_var*
  function lp_IsInit: Boolean;
  begin
@@ -765,10 +712,9 @@ begin
  end;//Diction <> nil
 //#UC END# *497469C90140_4979D40E0180_impl*
 end;//TPrimDictionForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimDictionForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4979D40E0180_var*
 //#UC END# *49803F5503AA_4979D40E0180_var*
 begin
@@ -787,10 +733,9 @@ begin
  UpdateStatusInfo;
 //#UC END# *49803F5503AA_4979D40E0180_impl*
 end;//TPrimDictionForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimDictionForm.NeedDrawCaption: Boolean;
+ {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4979D40E0180_var*
 //#UC END# *4A84183701B9_4979D40E0180_var*
 begin
@@ -798,10 +743,9 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4979D40E0180_impl*
 end;//TPrimDictionForm.NeedDrawCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimDictionForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979D40E0180_var*
 //#UC END# *4A8E8F2E0195_4979D40E0180_var*
 begin
@@ -848,9 +792,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979D40E0180_impl*
 end;//TPrimDictionForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimDictionForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4979D40E0180_var*
 //#UC END# *4F7C65380244_4979D40E0180_var*
@@ -860,34 +802,32 @@ begin
  WordsTree.Width := MaxInt; // без этого не появляется скролл в дереве почему-то
 //#UC END# *4F7C65380244_4979D40E0180_impl*
 end;//TPrimDictionForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
 
 procedure TPrimDictionForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContextMap := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimDictionForm.ClearFields
 
-procedure TPrimDictionForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimDictionForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   CommonDiction := nil;
   Diction := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsCommonDiction, CommonDiction);
-  Supports(aDsNew, IdsDiction, Diction);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsCommonDiction, CommonDiction);
+  Supports(aNew, IdsDiction, Diction);
+ end;//aNew = nil
+end;//TPrimDictionForm.SignalDataSourceChanged
 
 procedure TPrimDictionForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -895,25 +835,25 @@ begin
   PublishFormEntity(en_Lang, nil);
   ToolbarAtBottom(en_Lang);
   PublishOp(en_Lang, op_Russian, Lang_Russian_Execute, Lang_Russian_Test, nil);
-  ShowInContextMenu(en_Lang, op_Russian, false);
-  ShowInToolbar(en_Lang, op_Russian, true);
+  ShowInContextMenu(en_Lang, op_Russian, False);
+  ShowInToolbar(en_Lang, op_Russian, True);
   PublishOp(en_Lang, op_English, Lang_English_Execute, Lang_English_Test, nil);
-  ShowInContextMenu(en_Lang, op_English, false);
-  ShowInToolbar(en_Lang, op_English, true);
+  ShowInContextMenu(en_Lang, op_English, False);
+  ShowInToolbar(en_Lang, op_English, True);
   PublishOp(en_Lang, op_French, Lang_French_Execute, Lang_French_Test, nil);
-  ShowInContextMenu(en_Lang, op_French, false);
-  ShowInToolbar(en_Lang, op_French, true);
+  ShowInContextMenu(en_Lang, op_French, False);
+  ShowInToolbar(en_Lang, op_French, True);
   PublishOp(en_Lang, op_Deutch, Lang_Deutch_Execute, Lang_Deutch_Test, nil);
-  ShowInContextMenu(en_Lang, op_Deutch, false);
-  ShowInToolbar(en_Lang, op_Deutch, true);
+  ShowInContextMenu(en_Lang, op_Deutch, False);
+  ShowInToolbar(en_Lang, op_Deutch, True);
   PublishOp(en_Lang, op_Italian, Lang_Italian_Execute, Lang_Italian_Test, nil);
-  ShowInContextMenu(en_Lang, op_Italian, false);
-  ShowInToolbar(en_Lang, op_Italian, true);
+  ShowInContextMenu(en_Lang, op_Italian, False);
+  ShowInToolbar(en_Lang, op_Italian, True);
   PublishOp(en_Lang, op_Spanish, Lang_Spanish_Execute, Lang_Spanish_Test, nil);
-  ShowInContextMenu(en_Lang, op_Spanish, false);
-  ShowInToolbar(en_Lang, op_Spanish, true);
+  ShowInContextMenu(en_Lang, op_Spanish, False);
+  ShowInToolbar(en_Lang, op_Spanish, True);
  end;//with Entities.Entities
-end;
+end;//TPrimDictionForm.InitEntities
 
 procedure TPrimDictionForm.MakeControls;
 begin
@@ -921,7 +861,7 @@ begin
  with AddUsertype(utDictionName,
   str_utDictionCaption,
   str_utDictionSettingsCaption,
-  true,
+  True,
   60,
   -1,
   '',
@@ -940,22 +880,14 @@ begin
  f_WordsTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_WordsTree.Name := 'WordsTree';
  f_WordsTree.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDictionForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utDictionCaption
- str_utDictionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utDictionSettingsCaption
- str_utDictionSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDiction
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDictionForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDiction }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

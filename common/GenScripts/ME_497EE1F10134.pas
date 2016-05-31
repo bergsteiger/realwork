@@ -38,13 +38,12 @@ type
   {* Синхронный просмотр }
   private
    f_ztChild: TvtPanel;
-    {* Поле для свойства ztChild }
   protected
    dsSimpleListSynchroView: IdsSimpleListSynchroView;
   protected
-   procedure mlsfDrugListQueryClose(aSender: TObject);
+   procedure MlsfDrugListQueryClose(aSender: TObject);
     {* Обработчик события mlsfDrugList.OnQueryClose }
-   procedure mlsfMedicFirmQueryClose(aSender: TObject);
+   procedure MlsfMedicFirmQueryClose(aSender: TObject);
     {* Обработчик события mlsfMedicFirm.OnQueryClose }
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
@@ -95,33 +94,26 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , F1Like_InternalOperations_Controls
  , afwFacade
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimMedicListSynchroView_mlsfDrugList_UserType
  , PrimMedicListSynchroView_mlsfMedicFirm_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EE1F10134impl_uses*
+ //#UC END# *497EE1F10134impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки mlsfDrugListLocalConstants }
- str_mlsfDrugListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mlsfDrugListCaption'; rValue : 'Синхронный просмотр');
-  {* Заголовок пользовательского типа "Синхронный просмотр" }
- {* Локализуемые строки mlsfMedicFirmLocalConstants }
- str_mlsfMedicFirmCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mlsfMedicFirmCaption'; rValue : 'Описание');
-  {* Заголовок пользовательского типа "Описание" }
-
-procedure TPrimMedicListSynchroViewForm.mlsfDrugListQueryClose(aSender: TObject);
+procedure TPrimMedicListSynchroViewForm.MlsfDrugListQueryClose(aSender: TObject);
  {* Обработчик события mlsfDrugList.OnQueryClose }
 //#UC START# *65F272629DB8_497EE1F10134_var*
 //#UC END# *65F272629DB8_497EE1F10134_var*
@@ -129,9 +121,9 @@ begin
 //#UC START# *65F272629DB8_497EE1F10134_impl*
  op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *65F272629DB8_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.mlsfDrugListQueryClose
+end;//TPrimMedicListSynchroViewForm.MlsfDrugListQueryClose
 
-procedure TPrimMedicListSynchroViewForm.mlsfMedicFirmQueryClose(aSender: TObject);
+procedure TPrimMedicListSynchroViewForm.MlsfMedicFirmQueryClose(aSender: TObject);
  {* Обработчик события mlsfMedicFirm.OnQueryClose }
 //#UC START# *C155D2625A02_497EE1F10134_var*
 //#UC END# *C155D2625A02_497EE1F10134_var*
@@ -139,7 +131,7 @@ begin
 //#UC START# *C155D2625A02_497EE1F10134_impl*
  op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *C155D2625A02_497EE1F10134_impl*
-end;//TPrimMedicListSynchroViewForm.mlsfMedicFirmQueryClose
+end;//TPrimMedicListSynchroViewForm.MlsfMedicFirmQueryClose
 
 procedure TPrimMedicListSynchroViewForm.SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
 //#UC START# *4AE9E3CC03C7_497EE1F10134exec_var*
@@ -309,6 +301,14 @@ procedure TPrimMedicListSynchroViewForm.SignalDataSourceChanged(const anOld: Ivc
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsSimpleListSynchroView := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsSimpleListSynchroView, dsSimpleListSynchroView);
+ end;//aNew = nil
 end;//TPrimMedicListSynchroViewForm.SignalDataSourceChanged
 
 procedure TPrimMedicListSynchroViewForm.InitEntities;
@@ -322,10 +322,14 @@ begin
   PublishFormEntity(en_MedicListSynchroView, nil);
   PublishOpWithResult(en_SynchroView, op_BecomeActive, SynchroView_BecomeActive, nil, nil);
   PublishOp(en_MedicListSynchroView, op_OpenDocument, MedicListSynchroView_OpenDocument_Execute, MedicListSynchroView_OpenDocument_Test, MedicListSynchroView_OpenDocument_GetState);
+  ShowInContextMenu(en_MedicListSynchroView, op_OpenDocument, False);
+  ShowInToolbar(en_MedicListSynchroView, op_OpenDocument, True);
   PublishOp(en_MedicListSynchroView, op_OpenAttributesForm, MedicListSynchroView_OpenAttributesForm_Execute, MedicListSynchroView_OpenAttributesForm_Test, nil);
+  ShowInContextMenu(en_MedicListSynchroView, op_OpenAttributesForm, False);
+  ShowInToolbar(en_MedicListSynchroView, op_OpenAttributesForm, True);
   PublishOp(en_MedicListSynchroView, op_OpenList, MedicListSynchroView_OpenList_Execute, MedicListSynchroView_OpenList_Test, MedicListSynchroView_OpenList_GetState);
-  PublishOp(en_MedicListSynchroView, op_OpenDocument, MedicListSynchroView_OpenDocument_Execute, MedicListSynchroView_OpenDocument_Test, MedicListSynchroView_OpenDocument_GetState);
-  PublishOp(en_MedicListSynchroView, op_OpenList, MedicListSynchroView_OpenList_Execute, MedicListSynchroView_OpenList_Test, MedicListSynchroView_OpenList_GetState);
+  ShowInContextMenu(en_MedicListSynchroView, op_OpenList, False);
+  ShowInToolbar(en_MedicListSynchroView, op_OpenList, True);
  end;//with Entities.Entities
 end;//TPrimMedicListSynchroViewForm.InitEntities
 
@@ -341,7 +345,7 @@ begin
   '',
   nil,
   nil,
-  mlsfDrugListQueryClose,
+  MlsfDrugListQueryClose,
   vcm_ccNone) do
  begin
  end;//with AddUsertype(mlsfDrugListName
@@ -354,24 +358,20 @@ begin
   '',
   nil,
   nil,
-  mlsfMedicFirmQueryClose,
+  MlsfMedicFirmQueryClose,
   vcm_ccNone) do
  begin
  end;//with AddUsertype(mlsfMedicFirmName
  f_ztChild := TvtPanel.Create(Self);
  f_ztChild.Name := 'ztChild';
  f_ztChild.Parent := Self;
- with DefineZone(vcm_ztChild, f_ztChild) do
+ with DefineZone(vcm_ztChild, ztChild) do
  begin
   FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
  end;//with DefineZone(vcm_ztChild
 end;//TPrimMedicListSynchroViewForm.MakeControls
 
 initialization
- str_mlsfDrugListCaption.Init;
- {* Инициализация str_mlsfDrugListCaption }
- str_mlsfMedicFirmCaption.Init;
- {* Инициализация str_mlsfMedicFirmCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMedicListSynchroViewForm);
  {* Регистрация PrimMedicListSynchroView }

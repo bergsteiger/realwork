@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_AboutLocalConstants }
+ str_ut_AboutCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
+  {* Заголовок пользовательского типа "О программе" }
  {* Константы для типа формы ut_About }
  ut_AboutName = 'ut_About';
   {* Строковый идентификатор пользовательского типа "О программе" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_About.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_AboutCaption.Init;
+ {* Инициализация str_ut_AboutCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_About.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_About }

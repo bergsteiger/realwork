@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_ForbidAutoregistrationLocalConstants }
+ str_ut_ForbidAutoregistrationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_ForbidAutoregistrationCaption'; rValue : 'Запретить авторегистрацию');
+  {* Заголовок пользовательского типа "Запретить авторегистрацию" }
  {* Константы для типа формы ut_ForbidAutoregistration }
  ut_ForbidAutoregistrationName = 'ut_ForbidAutoregistration';
   {* Строковый идентификатор пользовательского типа "Запретить авторегистрацию" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_ForbidAutoregistrationCaption.Init;
+ {* Инициализация str_ut_ForbidAutoregistrationCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_ForbidAutoregistration.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_ForbidAutoregistration }

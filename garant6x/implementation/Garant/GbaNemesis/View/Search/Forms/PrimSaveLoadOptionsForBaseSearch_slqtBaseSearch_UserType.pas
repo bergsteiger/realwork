@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtBaseSearchLocalConstants }
+ str_slqtBaseSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtBaseSearchCaption'; rValue : 'Базовый поиск');
+  {* Заголовок пользовательского типа "Базовый поиск" }
  {* Константы для типа формы slqtBaseSearch }
  slqtBaseSearchName = 'slqtBaseSearch';
   {* Строковый идентификатор пользовательского типа "Базовый поиск" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_slqtBaseSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtBaseSearchCaption.Init;
+ {* Инициализация str_slqtBaseSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtBaseSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtBaseSearch }

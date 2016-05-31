@@ -27,6 +27,9 @@ uses
  , SearchLite_Strange_Controls
  , Classes
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -114,6 +117,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C443A570168impl_uses*
+ //#UC END# *4C443A570168impl_uses*
 ;
 
 function TPrimTreeAttributeSelectOptionsForm.EntitiesenSelectionGetTarget(aControl: TComponent;
@@ -472,27 +477,41 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_Tree, nil);
-  PublishFormEntity(en_Selection, nil);
+  PublishFormEntity(en_Selection, EntitiesenSelectionGetTarget);
+  ContextMenuWeight(en_Tree, 50);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  ShowInContextMenu(en_Edit, op_Delete, True);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Cut, True);
   PublishOp(en_Edit, op_FindContext, nil, nil, nil);
   PublishOp(en_Edit, op_FindNext, nil, nil, nil);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, True);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_SelectAll, True);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Deselect, True);
   PublishOp(en_Edit, op_FindPrev, nil, nil, nil);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
   PublishOp(en_Attribute, op_LogicOr, Attribute_LogicOr_Execute, Attribute_LogicOr_Test, nil);
   PublishOp(en_Attribute, op_LogicAnd, Attribute_LogicAnd_Execute, Attribute_LogicAnd_Test, nil);
   PublishOp(en_Attribute, op_LogicNot, Attribute_LogicNot_Execute, Attribute_LogicNot_Test, nil);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
   PublishOp(en_Attribute, op_LogicOrShortcut, Attribute_LogicOrShortcut_Execute, Attribute_LogicOrShortcut_Test, nil);
+  ShowInContextMenu(en_Attribute, op_LogicOrShortcut, True);
   PublishOp(en_Selection, op_DropSelection, Selection_DropSelection_Execute, Selection_DropSelection_Test, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInContextMenu(en_Selection, op_DropSelection, True);
+  ShowInToolbar(en_Selection, op_DropSelection, False);
+  ShowInContextMenu(en_Folder, op_FindFirstSelected, True);
+  ShowInToolbar(en_Folder, op_FindFirstSelected, False);
  end;//with Entities.Entities
 end;//TPrimTreeAttributeSelectOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

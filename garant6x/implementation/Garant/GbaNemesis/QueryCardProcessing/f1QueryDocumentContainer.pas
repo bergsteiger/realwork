@@ -13,13 +13,13 @@ uses
  l3IntfUses
  , evQueryDocumentContainer
  , nsQueryInterfaces
+ , nevTools
  , ActiveX
  , SearchUnit
  , evQueryCardInt
  , IOUnit
  , l3Interfaces
  , l3Variant
- , nevTools
 ;
 
 type

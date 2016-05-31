@@ -29,6 +29,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ElPopBtn
  , vtFocusLabel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -133,7 +136,7 @@ type
   public
    procedure IncreaseLogin;
    class function Make(aIsAutoLogin: Boolean;
-    aCanRelogin: Boolean): BadFactoryType; reintroduce;
+    aCanRelogin: Boolean): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function IsRealInstance: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -247,9 +250,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *525AE04E0326impl_uses*
+ //#UC END# *525AE04E0326impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -617,7 +619,7 @@ begin
 end;//TPrimRegistrationForm.CMDialogKey
 
 class function TPrimRegistrationForm.Make(aIsAutoLogin: Boolean;
- aCanRelogin: Boolean): BadFactoryType;
+ aCanRelogin: Boolean): IvcmEntityForm;
 var
  l_Inst : TPrimRegistrationForm;
 begin

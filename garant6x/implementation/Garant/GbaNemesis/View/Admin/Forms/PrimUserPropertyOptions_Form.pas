@@ -1,86 +1,74 @@
 unit PrimUserPropertyOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimUserPropertyOptions_Form.pas"
-// Начат: 10.09.2010 14:41
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimUserPropertyOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserPropertyOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimUserPropertyOptions" MUID: (4C8A0B4500F0)
+// Имя типа: "TPrimUserPropertyOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Admin_Users_Controls,
-  PrimUserProperty_Form
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimUserProperty_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Admin_Users_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimUserPropertyOptionsForm = {form} class(TPrimUserPropertyForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimUserPropertyOptionsForm = class(TPrimUserPropertyForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Result_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   procedure Result_Save_GetState(var State: TvcmOperationStateIndex);
-     {* Сохранить }
+    {* Сохранить }
    procedure Result_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
+    {* Сохранить }
+   procedure Result_Save_GetState(var State: TvcmOperationStateIndex);
+    {* Сохранить }
  end;//TPrimUserPropertyOptionsForm
-
- TvcmEntityFormRef = TPrimUserPropertyOptionsForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A0B4500F0impl_uses*
+ //#UC END# *4C8A0B4500F0impl_uses*
+;
 
-{$If defined(Admin)}
-
-// start class TPrimUserPropertyOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyOptionsForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4C8A0B4500F0test_var*
 //#UC END# *4C762C910358_4C8A0B4500F0test_var*
 begin
@@ -88,10 +76,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := Assigned(dsUserProperty) and dsUserProperty.IsChanged;
 //#UC END# *4C762C910358_4C8A0B4500F0test_impl*
 end;//TPrimUserPropertyOptionsForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4C8A0B4500F0exec_var*
 var
  l_NeedNotify: Boolean;
@@ -104,9 +93,10 @@ begin
   dsUserProperty.CreateUserFinished(False);
 //#UC END# *4C762C910358_4C8A0B4500F0exec_impl*
 end;//TPrimUserPropertyOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimUserPropertyOptionsForm.Result_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *4C7BB8DD0057_4C8A0B4500F0test_var*
 //#UC END# *4C7BB8DD0057_4C8A0B4500F0test_var*
 begin
@@ -115,7 +105,18 @@ begin
 //#UC END# *4C7BB8DD0057_4C8A0B4500F0test_impl*
 end;//TPrimUserPropertyOptionsForm.Result_Save_Test
 
+procedure TPrimUserPropertyOptionsForm.Result_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_var*
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_var*
+begin
+//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
+ SaveChangedProfile(dsUserProperty);
+//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
+end;//TPrimUserPropertyOptionsForm.Result_Save_Execute
+
 procedure TPrimUserPropertyOptionsForm.Result_Save_GetState(var State: TvcmOperationStateIndex);
+ {* Сохранить }
 //#UC START# *4C7BB8DD0057_4C8A0B4500F0getstate_var*
 //#UC END# *4C7BB8DD0057_4C8A0B4500F0getstate_var*
 begin
@@ -127,40 +128,31 @@ begin
 //#UC END# *4C7BB8DD0057_4C8A0B4500F0getstate_impl*
 end;//TPrimUserPropertyOptionsForm.Result_Save_GetState
 
-procedure TPrimUserPropertyOptionsForm.Result_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_var*
-//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_var*
-begin
-//#UC START# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
- SaveChangedProfile(dsUserProperty);
-//#UC END# *4C7BB8DD0057_4C8A0B4500F0exec_impl*
-end;//TPrimUserPropertyOptionsForm.Result_Save_Execute
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimUserPropertyOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Save, Result_Save_Execute, Result_Save_Test, Result_Save_GetState);
-  ShowInContextMenu(en_Result, op_Save, false);
-  ShowInToolbar(en_Result, op_Save, true);
+  ShowInContextMenu(en_Result, op_Save, False);
+  ShowInToolbar(en_Result, op_Save, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //Admin
+end;//TPrimUserPropertyOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimUserPropertyOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUserPropertyOptionsForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimUserPropertyOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

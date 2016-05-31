@@ -61,7 +61,6 @@ uses
  , l3Types
  , SysUtils
  , nevBase
- , l3MessageID
 ;
 
 const

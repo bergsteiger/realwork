@@ -14,6 +14,9 @@ uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -38,7 +41,6 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
  , Search_Strange_Controls
  {$If NOT Defined(NoVCM)}
@@ -50,25 +52,18 @@ uses
  , eeInterfaces
  , nsTypes
  , FiltersUnit
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F5DA09300C5impl_uses*
+ //#UC END# *4F5DA09300C5impl_uses*
 ;
-
-type
- // ExcludeAll
-
-const
- {* Локализуемые строки slqtBaseSearchLocalConstants }
- str_slqtBaseSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtBaseSearchCaption'; rValue : 'Базовый поиск');
-  {* Заголовок пользовательского типа "Базовый поиск" }
 
 class function TPrimSaveLoadOptionsForBaseSearchForm.IsBaseSearchLike: Boolean;
 //#UC START# *502289FB008D_4F5DA09300C5_var*
@@ -85,6 +80,26 @@ procedure TPrimSaveLoadOptionsForBaseSearchForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ AddUserTypeExclude(slqtBaseSearchName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_GetListType, False);
 end;//TPrimSaveLoadOptionsForBaseSearchForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -95,7 +110,7 @@ begin
  with AddUsertype(slqtBaseSearchName,
   str_slqtBaseSearchCaption,
   str_slqtBaseSearchCaption,
-  False,
+  True,
   102,
   -1,
   '',
@@ -109,8 +124,6 @@ end;//TPrimSaveLoadOptionsForBaseSearchForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_slqtBaseSearchCaption.Init;
- {* Инициализация str_slqtBaseSearchCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSaveLoadOptionsForBaseSearchForm);
  {* Регистрация PrimSaveLoadOptionsForBaseSearch }

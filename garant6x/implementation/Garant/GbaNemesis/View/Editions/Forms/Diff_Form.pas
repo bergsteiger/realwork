@@ -1,121 +1,93 @@
 unit Diff_Form;
+ {* Форма для отображения результатов сравнения }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/Forms/Diff_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::Diff
-//
-// Форма для отображения результатов сравнения
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\Diff_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "Diff" MUID: (4A6EBE900233)
+// Имя типа: "TDiffForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  nevTools
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  evEditorInterfaces,
-  eeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  evSubWaiter,
-  EditionsInterfaces,
-  Base_Operations_Editions_Controls,
-  vtPanel,
-  vtComboBoxQS,
-  CompareEditions_Controls,
-  vtFocusLabel,
-  BaseSearchInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  NavigationInterfaces,
-  bsTypesNew,
-  l3Variant,
-  Base_Operations_View_Controls,
-  Search_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  nevBase,
-  evCustomEditorWindow,
-  ExternalOperationUnit,
-  afwInterfaces,
-  nevGUIInterfaces,
-  afwNavigation,
-  nevNavigation,
-  DocumentInterfaces,
-  l3Interfaces,
-  l3InternalInterfaces,
-  k2TagGen,
-  k2CustomFileGenerator,
-  l3BaseStream,
-  DocumentAndListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  ,
-  Base_Operations_F1Specific_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  Base_Operations_Strange_Controls,
-  Common_Strange_Controls,
-  vcmControllers {a}
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearchInterfaces,
-  UnderControlInterfaces,
-  l3LongintList,
-  nsFoundBlocksList,
-  evdTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseSearchInterfaces
+ , EditionsInterfaces
+ , CompareEditions_Controls
+ , Base_Operations_Editions_Controls
+ , nevTools
+ , l3Tree_TLB
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , DocumentUnit
+ , bsTypesNew
+ , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtComboBoxQS
+ , evEditorInterfaces
+ , eeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ , l3Variant
+ , NavigationInterfaces
+ , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_View_Controls
+ , Search_Strange_Controls
+ , nevBase
+ , ExternalOperationUnit
+ , DocumentInterfaces
+ , nevGUIInterfaces
+ , afwInterfaces
+ , nevNavigation
+ , afwNavigation
+ , Base_Operations_F1Specific_Controls
+ , DocumentAndListInterfaces
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3BaseStream
+ , nsTypesNew
+ , k2CustomFileGenerator
+ , k2TagGen
+ , nsTypes
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimBaseSearchInterfaces
+ , UnderControlInterfaces
+ , l3LongintList
+ , nsFoundBlocksList
+ , Base_Operations_Strange_Controls
+ , evdTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsCompareEditionKind = (
-   cekOld
- , cekActual
- , cekNew
+  cekOld
+  , cekActual
+  , cekNew
  );//TnsCompareEditionKind
 
  _DocumentPresentation_Parent_ = TvcmEntityForm;
@@ -138,80 +110,91 @@ type
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
  _HyperlinkOperations_Parent_ = _HyperlinkProcessorForDocumentCompare_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
- TDiffForm = {abstract form} class(_HyperlinkOperations_, InsBaseSearchPresentation, InsVScrollListener, InsEditionListener)
+ TDiffForm = {abstract} class(_HyperlinkOperations_, InsBaseSearchPresentation, InsVScrollListener, InsEditionListener)
   {* Форма для отображения результатов сравнения }
- private
- // private fields
-   f_InVScroll : Boolean;
-   VScrollController : InsVScrollController;
-   f_PrevPara : Integer;
-    {* Предыдущий верхний параграф}
-   f_PrevBlock : IevDocumentPart;
-   f_InSearch : Boolean;
-    {* Находимся внутри процесса поиска}
-   f_InOpenEditionLink : Boolean;
-   f_PrevLine : Integer;
-   f_ForceDrawFocusRectMoment : Cardinal;
-    {* Момент присвоения ForceDrawFocusRect в true}
-   f_WasInitedByChangedPara : Boolean;
-   f_Header : TvtPanel;
-    {* Поле для свойства Header}
-   f_pnLeft : TvtPanel;
-    {* Поле для свойства pnLeft}
-   f_EditionLink : TvtFocusLabel;
-    {* Поле для свойства EditionLink}
-   f_pbIcon : TPaintBox;
-    {* Поле для свойства pbIcon}
-   f_pnCaption : TvtPanel;
-    {* Поле для свойства pnCaption}
-   f_EditionChoose : TvtComboBoxQS;
-    {* Поле для свойства EditionChoose}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_InVScroll: Boolean;
+   VScrollController: InsVScrollController;
+   f_PrevPara: Integer;
+    {* Предыдущий верхний параграф }
+   f_PrevBlock: IevDocumentPart;
+   f_InSearch: Boolean;
+    {* Находимся внутри процесса поиска }
+   f_InOpenEditionLink: Boolean;
+   f_PrevLine: Integer;
+   f_ForceDrawFocusRectMoment: Cardinal;
+    {* Момент присвоения ForceDrawFocusRect в true }
+   f_WasInitedByChangedPara: Boolean;
+   f_Header: TvtPanel;
+    {* Место для имени редакции }
+   f_pnLeft: TvtPanel;
+   f_EditionLink: TvtFocusLabel;
+    {* Ссылка на редакцию }
+   f_pbIcon: TPaintBox;
+   f_pnCaption: TvtPanel;
+   f_EditionChoose: TvtComboBoxQS;
+  protected
+   EditionDiff: IdsEditionDiff;
+    {* Результат сравнения редакций }
+   f_InChoosenEditionChanged: Boolean;
+   CompareEditions: IsdsCompareEditions;
+    {* Прецедент Сравнение редакций }
+   f_WasInitedByDocPos: Boolean;
+  private
    procedure MakeDocumentContainer(Sender: TObject;
-     var aMade: InevDocumentContainer);
-     {* Создаёт контейнер документа }
+    var aMade: InevDocumentContainer);
+    {* Создаёт контейнер документа }
    procedure VScroll(aSender: TObject);
-     {* Обработчик вертикального скроллера }
+    {* Обработчик вертикального скроллера }
    procedure UpdateCaptionFromDS;
-     {* Обновляет заголовок формы }
+    {* Обновляет заголовок формы }
    procedure OpenEditionInFullWindow(aSender: TObject);
-     {* Открыть редакцию в полном окне }
+    {* Открыть редакцию в полном окне }
    function GotoPara(aPara: Integer): TGotoParaResult;
    procedure PaintIcon(aSender: TObject);
    procedure ParaChange(aSender: TObject;
-     const aTextPara: IedTextParagraph);
-     {* Текущий параграф сменился }
+    const aTextPara: IedTextParagraph);
+    {* Текущий параграф сменился }
    procedure SignalParaChange;
    function EditionChooseGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): integer;
+    Index: Integer;
+    var aImages: TCustomImageList): integer;
    procedure UpdateEditionsChoose;
-     {* Обновляет список редакций }
+    {* Обновляет список редакций }
    procedure ChoosenEditionChanged(aSender: TObject);
-     {* Выбрали другую редакцию }
+    {* Выбрали другую редакцию }
    procedure CaptionResize(aSender: TObject);
    function CalcEditionKind: TnsCompareEditionKind;
    procedure UpdateIconHint;
    procedure SyncWithCursor(const aCursor: InevBasePoint;
-     NeedCheckLine: Boolean);
-     {* Синхронизировать другое окно с указанным курсором }
+    NeedCheckLine: Boolean);
+    {* Синхронизировать другое окно с указанным курсором }
    procedure DocumentTextChanged(aSender: TObject;
-     anOldDocument: Tl3Tag;
-     aNewDocument: Tl3Tag);
- protected
- // property methods
+    anOldDocument: Tl3Tag;
+    aNewDocument: Tl3Tag);
+  protected
    function pm_GetHeader: TvtPanel;
-   function pm_GetPnLeft: TvtPanel;
+   function pm_GetpnLeft: TvtPanel;
    function pm_GetEditionLink: TvtFocusLabel;
-   function pm_GetPnCaption: TvtPanel;
- protected
- // realized methods
+   function pm_GetpnCaption: TvtPanel;
+   procedure ReturnToDocument;
+    {* Вернуться в документ }
+   function IsRight: Boolean;
+    {* Форма является текущей редакцией (правой) }
+   procedure SetFocusToText;
+    {* Устанавливает фокус тексту }
+   function IsParaCurrent(aPara: Integer): Boolean;
+    {* Параграф является текущим }
+   function Document: IDocument;
+   function GetInitialDocumentPosition: TbsDocPos; virtual;
+   procedure OpenDiffInNewContainer(const aPos: TbsDocPos;
+    aBehaviour: TbsProcessHyperLinkBehaviour);
+   procedure LinkWaiter(const aMade: InevDocumentContainer); virtual;
+    {* Прикрепить Waiter'а к контейнеру документа }
+   procedure SignalEditionChanged; virtual;
+    {* Сообщение о смене редакции }
+   function EditionsChooseRoot: Il3Node; virtual; abstract;
+   procedure DoEditionChanged(anEditionID: TRedactionID); virtual; abstract;
    function WindowRequired: Boolean;
    function WindowCloseable: Boolean;
    function CanCloseWindow: Boolean;
@@ -219,316 +202,266 @@ type
    function TreatSuccessSearchAsManualOpen: Boolean;
    function AutoActivateWindow: Boolean;
    function DocumentIsValid: Boolean; override;
-     {* Есть ли документ, готовый к работе }
+    {* Есть ли документ, готовый к работе }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); override;
-     {* Переход на точку в документе }
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
-     {* Документ ИЗ которого ведёт ссылка }
+    {* Документ ИЗ которого ведёт ссылка }
    function pm_GetHyperlinkText: TevCustomEditorWindow; override;
    procedure EditionChanged;
    function IsFloating: Boolean; override;
-     {* Форма плавающая }
+    {* Форма плавающая }
    function pm_GetTextWithComments: TevCustomEditorWindow; override;
    function Get_ContainerForBaseSearch: TnsContainerForBaseSearchInfo;
    function Get_ContextSearcher: InsContextSearcher;
-   function Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
-     {* Перейти к параграфу по номеру }
-   procedure Finder_GotoPara(const aParams: IvcmExecuteParams);
-     {* Перейти к параграфу по номеру }
    function DocumentForExport: IDocument; override;
    function pm_GetHasDoc: Boolean; override;
    function IsDrug: Boolean; override;
+   function DocumentForSearch: IDocument; override;
+   function CanUnControl: Boolean; override;
+   function NeedGotoNeighbours: Boolean; override;
+    {* Надо ли переходить на соседей блока }
+   function Get_NeedSaveActiveClassBeforeSearch: Boolean;
+   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure Loaded; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function DoProcessLocalLink(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
+    {* Обработка локальных ссылок }
+   procedure OpenRedactionLocalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); override;
+    {* Открывает локальную ссылку на другую редакцию }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function ContinueSearchInWholeBase: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   function NeedNotifyContainerOnCaptionChanged: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Sync(const aPara: TnsParaCoord);
+    {* Синхронизировать позицию }
+   function Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
+    {* Перейти к параграфу по номеру }
+   procedure Finder_GotoPara(const aParams: IvcmExecuteParams);
+    {* Перейти к параграфу по номеру }
    function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
    procedure Document_SetPosition(const aParams: IvcmExecuteParams);
    procedure Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour);
-     {* Переход по локальной ссылке на редакцию }
+    {* Переход по локальной ссылке на редакцию }
    procedure Document_OpenEditionLocalLink(const aParams: IvcmExecuteParams);
-     {* Переход по локальной ссылке на редакцию }
-   function DocumentForSearch: IDocument; override;
-   procedure Finder_DisableForceDrawFocusRect_Execute;
-     {* Запрещает рисование фокусной рамки }
-   procedure Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParams);
-     {* Запрещает рисование фокусной рамки }
-   function CanUnControl: Boolean; override;
-   function NeedGotoNeighbours: Boolean; override;
-     {* Надо ли переходить на соседей блока }
-   function Get_NeedSaveActiveClassBeforeSearch: Boolean;
-   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); override;
- public
- // realized methods
-   procedure Sync(const aPara: TnsParaCoord);
-     {* Синхронизировать позицию }
+    {* Переход по локальной ссылке на редакцию }
    procedure CurrentChangedFragmentChanged(aParaID: Integer);
-     {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure Loaded; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   function DoProcessLocalLink(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
-     {* Обработка локальных ссылок }
-   procedure OpenRedactionLocalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); override;
-     {* Открывает локальную ссылку на другую редакцию }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   function ContinueSearchInWholeBase: Boolean; override;
-    {$If not defined(NoVCM)}
-   function NeedNotifyContainerOnCaptionChanged: Boolean; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+    {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
+   procedure Finder_DisableForceDrawFocusRect_Execute;
+    {* Запрещает рисование фокусной рамки }
+   procedure Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParams);
+    {* Запрещает рисование фокусной рамки }
+   {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
-     {* Нужно ли рисовать заголовок зоны }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   EditionDiff : IdsEditionDiff;
-    {* Результат сравнения редакций}
-   f_InChoosenEditionChanged : Boolean;
-   CompareEditions : IsdsCompareEditions;
-    {* Прецедент Сравнение редакций}
-   f_WasInitedByDocPos : Boolean;
- protected
- // protected methods
-   procedure ReturnToDocument;
-     {* Вернуться в документ }
-   function IsRight: Boolean;
-     {* Форма является текущей редакцией (правой) }
-   procedure SetFocusToText;
-     {* Устанавливает фокус тексту }
-   function IsParaCurrent(aPara: Integer): Boolean;
-     {* Параграф является текущим }
-   function Document: IDocument;
-   function GetInitialDocumentPosition: TbsDocPos; virtual;
-   procedure OpenDiffInNewContainer(const aPos: TbsDocPos;
-     aBehaviour: TbsProcessHyperLinkBehaviour);
-   procedure LinkWaiter(const aMade: InevDocumentContainer); virtual;
-     {* Прикрепить Waiter'а к контейнеру документа }
-   procedure SignalEditionChanged; virtual;
-     {* Сообщение о смене редакции }
-   function EditionsChooseRoot: Il3Node; virtual; abstract;
-   procedure DoEditionChanged(anEditionID: TRedactionID); virtual; abstract;
- public
- // public properties
-   property Header: TvtPanel
-     read pm_GetHeader;
-     {* Место для имени редакции }
-   property pnLeft: TvtPanel
-     read pm_GetPnLeft;
-   property EditionLink: TvtFocusLabel
-     read pm_GetEditionLink;
-     {* Ссылка на редакцию }
-   property pbIcon: TPaintBox
-     read f_pbIcon;
-   property pnCaption: TvtPanel
-     read pm_GetPnCaption;
+    {* Нужно ли рисовать заголовок зоны }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property EditionChoose: TvtComboBoxQS
-     read f_EditionChoose;
+    read f_EditionChoose;
+  public
+   property Header: TvtPanel
+    read pm_GetHeader;
+    {* Место для имени редакции }
+   property pnLeft: TvtPanel
+    read pm_GetpnLeft;
+   property EditionLink: TvtFocusLabel
+    read pm_GetEditionLink;
+    {* Ссылка на редакцию }
+   property pbIcon: TPaintBox
+    read f_pbIcon;
+   property pnCaption: TvtPanel
+    read pm_GetpnCaption;
  end;//TDiffForm
-
- TvcmEntityFormRef = TDiffForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  evTypes,
-  deDocInfo,
-  EditionsRes_Form,
-  nsEditionsUtils,
-  l3Nodes,
-  nsEditionNodes,
-  LeafPara_Const,
-  k2Tags
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  evEditorWithOperations,
-  Graphics,
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  evOp,
-  Block_Const,
-  DocumentRes,
-  l3ControlsTypes,
-  ctTypes,
-  Document_Const,
-  afwVCL,
-  TableCell_Const
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  DataAdapter,
-  vtUtils,
-  evdStyles,
-  BitmapPara_Const,
-  nsConst,
-  afwFacade,
-  SysUtils,
-  nsHyperLinkProcessor,
-  nsOpenUtils,
-  nsTabbedContainerUtils
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsHyperlinkProcessorTypes,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  evdBlockNameAdder,
-  nsDocumentTools,
-  Windows,
-  PresentationInterfaces,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Stream,
-  l3Types,
-  nsToMSWordOp,
-  l3String,
-  nsTrialSupport,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  Printers,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  eeInterfacesEx
-  {$If defined(Nemesis)}
-  ,
-  eeParaTools
-  {$IfEnd} //Nemesis
-  ,
-  bsDocumentContextSearcher,
-  nsSearchInDocumentEvent,
-  BaseTypesUnit,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager,
-  Common_FormDefinitions_Controls
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  StyledLeafPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evCustomEditor
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , evSubWaiter
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evEditorWithOperations
+ , deDocInfo
+ , Graphics
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evOp
+ , Block_Const
+ , DocumentRes
+ , l3ControlsTypes
+ , ctTypes
+ , Document_Const
+ , afwVCL
+ , TableCell_Const
+ {$If NOT Defined(NoScripts)}
+ , DiffFormWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsHyperLinkProcessor
+ , nsOpenUtils
+ , nsConst
+ , afwFacade
+ , nsTabbedContainerUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsHyperlinkProcessorTypes
+ , SysUtils
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , nsTrialSupport
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Printers
+ , nsExportToFileEvent
+ , nsExportToWordEvent
+ , nsSendDocumentByEMailEvent
+ , nsDocumentPrintPreviewEvent
+ , nsBaseTextOperationsConst
+ , f1MultilinkResolver
+ , Windows
+ , evTypes
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , evdBlockNameAdder
+ , nsDocumentTools
+ , PresentationInterfaces
+ , nsExternalObjectPrim
+ , bsUtils
+ , l3Stream
+ , l3Types
+ , nsToMSWordOp
+ , l3String
+ , Common_Strange_Controls
+ , bsDocumentContextSearcher
+ , nsSearchInDocumentEvent
+ , BaseTypesUnit
+ , nsSearchInDocumentDoneEvent
+ , nsSearchInDocumentNextEvent
+ , nsSearchInDocumentPrevEvent
+ , nsSearchWindowManager
+ , Common_FormDefinitions_Controls
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , TextSegment_Const
+ , StyledLeafPara_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , evCustomEditor
+ , EditionsRes_Form
+ , nsEditionsUtils
+ , l3Nodes
+ , nsEditionNodes
+ , LeafPara_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A6EBE900233impl_uses*
+ //#UC END# *4A6EBE900233impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TDiffForm;
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
-
-const
-   { Constants }
-  cWaitDelta = 300;
-
+{$If NOT Defined(NoVCM)}
 type
-  TnsChangedParaWaiter = class(TevSubWaiter)
-   {* Объект, обрабатывающий переход на изменённый параграф }
+ TnsChangedParaWaiter = class(TevSubWaiter)
+  {* Объект, обрабатывающий переход на изменённый параграф }
   private
-  // private fields
-   f_Form : TDiffForm;
+   f_Form: TDiffForm;
   protected
-  // overridden protected methods
    function TrySelectPara(const aContainer: InevDocumentContainer;
     const aSel: InevSelection;
     aParaID: Integer): Boolean; override;
   public
-  // public methods
    constructor Create(aForm: TDiffForm;
-      aParaID: Integer); reintroduce;
+    aParaID: Integer); reintroduce;
    class function Make(aForm: TDiffForm;
-      aParaID: Integer): InevWaiter; reintroduce;
-     {* Сигнатура фабрики TnsChangedParaWaiter.Make }
-  end;//TnsChangedParaWaiter
+    aParaID: Integer): InevWaiter; reintroduce;
+ end;//TnsChangedParaWaiter
 
-// start class TnsChangedParaWaiter
+ THackWinControl = {abstract} class({$If NOT Defined(NoVCL)}
+ TWinControl
+ {$IfEnd} // NOT Defined(NoVCL)
+ )
+ end;//THackWinControl
+
+ TvtComboBoxQSHack = {abstract} class(TvtComboBoxQS)
+ end;//TvtComboBoxQSHack
+
+const
+ cWaitDelta = 300;
 
 constructor TnsChangedParaWaiter.Create(aForm: TDiffForm;
-  aParaID: Integer);
+ aParaID: Integer);
 //#UC START# *4BFFA1990245_4BFFA13500E1_var*
 //#UC END# *4BFFA1990245_4BFFA13500E1_var*
 begin
@@ -539,7 +472,7 @@ begin
 end;//TnsChangedParaWaiter.Create
 
 class function TnsChangedParaWaiter.Make(aForm: TDiffForm;
-  aParaID: Integer): InevWaiter;
+ aParaID: Integer): InevWaiter;
 var
  l_Inst : TnsChangedParaWaiter;
 begin
@@ -549,11 +482,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsChangedParaWaiter.Make
 
 function TnsChangedParaWaiter.TrySelectPara(const aContainer: InevDocumentContainer;
-  const aSel: InevSelection;
-  aParaID: Integer): Boolean;
+ const aSel: InevSelection;
+ aParaID: Integer): Boolean;
 //#UC START# *4BFFA0FF01D2_4BFFA13500E1_var*
 //#UC END# *4BFFA0FF01D2_4BFFA13500E1_var*
 begin
@@ -562,17 +495,59 @@ begin
 //#UC END# *4BFFA0FF01D2_4BFFA13500E1_impl*
 end;//TnsChangedParaWaiter.TrySelectPara
 
-type
-  THackWinControl = {abstract} class(TWinControl)
-  end;//THackWinControl
+type _Instance_R_ = TDiffForm;
 
-  TvtComboBoxQSHack = {abstract} class(TvtComboBoxQS)
-  end;//TvtComboBoxQSHack
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
 
-// start class TDiffForm
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
+
+function TDiffForm.pm_GetHeader: TvtPanel;
+begin
+ if (f_Header = nil) then
+  f_Header := FindComponent('Header') As TvtPanel;
+ Result := f_Header;
+end;//TDiffForm.pm_GetHeader
+
+function TDiffForm.pm_GetpnLeft: TvtPanel;
+begin
+ if (f_pnLeft = nil) then
+  f_pnLeft := FindComponent('pnLeft') As TvtPanel;
+ Result := f_pnLeft;
+end;//TDiffForm.pm_GetpnLeft
+
+function TDiffForm.pm_GetEditionLink: TvtFocusLabel;
+begin
+ if (f_EditionLink = nil) then
+  f_EditionLink := FindComponent('EditionLink') As TvtFocusLabel;
+ Result := f_EditionLink;
+end;//TDiffForm.pm_GetEditionLink
+
+function TDiffForm.pm_GetpnCaption: TvtPanel;
+begin
+ if (f_pnCaption = nil) then
+  f_pnCaption := FindComponent('pnCaption') As TvtPanel;
+ Result := f_pnCaption;
+end;//TDiffForm.pm_GetpnCaption
 
 procedure TDiffForm.MakeDocumentContainer(Sender: TObject;
-  var aMade: InevDocumentContainer);
+ var aMade: InevDocumentContainer);
+ {* Создаёт контейнер документа }
 //#UC START# *4A785B8E009B_4A6EBE900233_var*
 //#UC END# *4A785B8E009B_4A6EBE900233_var*
 begin
@@ -583,12 +558,13 @@ begin
 end;//TDiffForm.MakeDocumentContainer
 
 procedure TDiffForm.VScroll(aSender: TObject);
+ {* Обработчик вертикального скроллера }
+var l_Cursor: InevBasePoint;
+ {* Курсор по обрезу экрана }
 //#UC START# *4A798D740347_4A6EBE900233_var*
 var
  l_D : Cardinal;
 //#UC END# *4A798D740347_4A6EBE900233_var*
-var
- l_Cursor : InevBasePoint; // Курсор по обрезу экрана
 begin
 //#UC START# *4A798D740347_4A6EBE900233_impl*
  if not f_InVScroll AND (VScrollController <> nil) then
@@ -613,6 +589,7 @@ begin
 end;//TDiffForm.VScroll
 
 procedure TDiffForm.UpdateCaptionFromDS;
+ {* Обновляет заголовок формы }
 //#UC START# *4A83CDB902C2_4A6EBE900233_var*
 //#UC END# *4A83CDB902C2_4A6EBE900233_var*
 begin
@@ -623,6 +600,7 @@ begin
 end;//TDiffForm.UpdateCaptionFromDS
 
 procedure TDiffForm.OpenEditionInFullWindow(aSender: TObject);
+ {* Открыть редакцию в полном окне }
 //#UC START# *4A9BAFD300BB_4A6EBE900233_var*
 var
  l_Doc: IDocument;
@@ -688,6 +666,22 @@ begin
 //#UC END# *4AE0421A018E_4A6EBE900233_impl*
 end;//TDiffForm.GotoPara
 
+procedure TDiffForm.ReturnToDocument;
+ {* Вернуться в документ }
+//#UC START# *4B1E39750337_4A6EBE900233_var*
+//#UC END# *4B1E39750337_4A6EBE900233_var*
+begin
+//#UC START# *4B1E39750337_4A6EBE900233_impl*
+ Assert(EditionDiff.DocumentForReturn.rDoc <> nil);
+ if (EditionDiff.DocumentForReturn.rPara <> nil) then
+  TdmStdRes.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
+                                         TbsDocPos_P(EditionDiff.DocumentForReturn.rPara)),
+                         nil)
+ else
+  TdmStdRes.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
+//#UC END# *4B1E39750337_4A6EBE900233_impl*
+end;//TDiffForm.ReturnToDocument
+
 procedure TDiffForm.PaintIcon(aSender: TObject);
 //#UC START# *4B50A2E100B8_4A6EBE900233_var*
 
@@ -706,7 +700,8 @@ begin
 end;//TDiffForm.PaintIcon
 
 procedure TDiffForm.ParaChange(aSender: TObject;
-  const aTextPara: IedTextParagraph);
+ const aTextPara: IedTextParagraph);
+ {* Текущий параграф сменился }
 //#UC START# *4B547CBF0182_4A6EBE900233_var*
 //#UC END# *4B547CBF0182_4A6EBE900233_var*
 begin
@@ -719,10 +714,9 @@ begin
 end;//TDiffForm.ParaChange
 
 procedure TDiffForm.SignalParaChange;
+var l_Para: IeeLeafPara;
 //#UC START# *4B547F9F029F_4A6EBE900233_var*
 //#UC END# *4B547F9F029F_4A6EBE900233_var*
-var
- l_Para : IeeLeafPara;
 begin
 //#UC START# *4B547F9F029F_4A6EBE900233_impl*
  if (VScrollController <> nil) then
@@ -736,8 +730,8 @@ begin
 end;//TDiffForm.SignalParaChange
 
 function TDiffForm.EditionChooseGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): integer;
+ Index: Integer;
+ var aImages: TCustomImageList): integer;
 //#UC START# *4B2890E30181_4A6EBE900233_var*
 //#UC END# *4B2890E30181_4A6EBE900233_var*
 begin
@@ -750,6 +744,7 @@ begin
 end;//TDiffForm.EditionChooseGetItemImage
 
 procedure TDiffForm.UpdateEditionsChoose;
+ {* Обновляет список редакций }
 //#UC START# *4A84022E02F7_4A6EBE900233_var*
 
 var
@@ -801,10 +796,10 @@ begin
 end;//TDiffForm.UpdateEditionsChoose
 
 procedure TDiffForm.ChoosenEditionChanged(aSender: TObject);
+ {* Выбрали другую редакцию }
+var l_Node: Il3SimpleNode;
 //#UC START# *4A8405A30085_4A6EBE900233_var*
 //#UC END# *4A8405A30085_4A6EBE900233_var*
-var
- l_Node : Il3SimpleNode;
 begin
 //#UC START# *4A8405A30085_4A6EBE900233_impl*
  if not f_InChoosenEditionChanged then
@@ -878,16 +873,68 @@ begin
 //#UC END# *4B67F2200021_4A6EBE900233_impl*
 end;//TDiffForm.UpdateIconHint
 
+function TDiffForm.IsRight: Boolean;
+ {* Форма является текущей редакцией (правой) }
+//#UC START# *4B69970A0029_4A6EBE900233_var*
+//#UC END# *4B69970A0029_4A6EBE900233_var*
+begin
+//#UC START# *4B69970A0029_4A6EBE900233_impl*
+ Result := NeedSetMyFocus;
+//#UC END# *4B69970A0029_4A6EBE900233_impl*
+end;//TDiffForm.IsRight
+
+procedure TDiffForm.SetFocusToText;
+ {* Устанавливает фокус тексту }
+//#UC START# *4B69A6BC0125_4A6EBE900233_var*
+//#UC END# *4B69A6BC0125_4A6EBE900233_var*
+begin
+//#UC START# *4B69A6BC0125_4A6EBE900233_impl*
+ if Text.CanFocus then
+  Text.SetFocus;
+//#UC END# *4B69A6BC0125_4A6EBE900233_impl*
+end;//TDiffForm.SetFocusToText
+
+function TDiffForm.IsParaCurrent(aPara: Integer): Boolean;
+ {* Параграф является текущим }
+//#UC START# *4B6AE8B90254_4A6EBE900233_var*
+var
+ l_Tag : Tl3Variant;
+//#UC END# *4B6AE8B90254_4A6EBE900233_var*
+begin
+//#UC START# *4B6AE8B90254_4A6EBE900233_impl*
+ if (Text.Selection = nil) OR (Text.Selection.Cursor = nil) then
+  Result := false
+ else
+  with Text.Selection.Cursor.MostInner do
+  begin
+   Result := Obj.AsObject.IsKindOf(k2_typLeafPara) AND (AsObject.IntA[k2_tiHandle] = aPara);
+   if Result then
+   // - по номеру такой параграф - текущий, надо будет стиль проверить
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=208701209
+   begin
+    l_Tag := Obj.AsObject.rAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slDiff)]);
+    if not l_Tag.IsValid OR (l_Tag.ChildrenCount <= 0) then
+     Result := false;
+   end;//Result
+  end;//Text.Selection.Cursor.MostInner
+//#UC END# *4B6AE8B90254_4A6EBE900233_impl*
+end;//TDiffForm.IsParaCurrent
+
 procedure TDiffForm.SyncWithCursor(const aCursor: InevBasePoint;
-  NeedCheckLine: Boolean);
+ NeedCheckLine: Boolean);
+ {* Синхронизировать другое окно с указанным курсором }
+var l_MI: InevBasePoint;
+ {* Самый вложенный курсор }
+var l_Line: Integer;
+ {* Строка внутри параграфа }
+var l_Para: Tl3Tag;
+ {* Текущий верхний параграф }
+var l_ParaID: Integer;
+ {* Идентификатор текущего верхнего параграфа }
+var l_Block: IevDocumentPart;
+ {* Блок под обрез экрана }
 //#UC START# *4BDADD4101E1_4A6EBE900233_var*
 //#UC END# *4BDADD4101E1_4A6EBE900233_var*
-var
- l_MI : InevBasePoint; // Самый вложенный курсор
- l_Line : Integer; // Строка внутри параграфа
- l_Para : Tl3Tag; // Текущий верхний параграф
- l_ParaID : Integer; // Идентификатор текущего верхнего параграфа
- l_Block : IevDocumentPart; // Блок под обрез экрана
 begin
 //#UC START# *4BDADD4101E1_4A6EBE900233_impl*
 //http://mdp.garant.ru/pages/viewpage.action?pageId=481458489
@@ -942,8 +989,8 @@ begin
 end;//TDiffForm.SyncWithCursor
 
 procedure TDiffForm.DocumentTextChanged(aSender: TObject;
-  anOldDocument: Tl3Tag;
-  aNewDocument: Tl3Tag);
+ anOldDocument: Tl3Tag;
+ aNewDocument: Tl3Tag);
 //#UC START# *4C93246B01B8_4A6EBE900233_var*
 //#UC END# *4C93246B01B8_4A6EBE900233_var*
 begin
@@ -951,93 +998,6 @@ begin
  TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
 //#UC END# *4C93246B01B8_4A6EBE900233_impl*
 end;//TDiffForm.DocumentTextChanged
-
-function TDiffForm.pm_GetHeader: TvtPanel;
-begin
- if (f_Header = nil) then
-  f_Header := FindComponent('Header') As TvtPanel;
- Result := f_Header;
-end;
-
-function TDiffForm.pm_GetPnLeft: TvtPanel;
-begin
- if (f_pnLeft = nil) then
-  f_pnLeft := FindComponent('pnLeft') As TvtPanel;
- Result := f_pnLeft;
-end;
-
-function TDiffForm.pm_GetEditionLink: TvtFocusLabel;
-begin
- if (f_EditionLink = nil) then
-  f_EditionLink := FindComponent('EditionLink') As TvtFocusLabel;
- Result := f_EditionLink;
-end;
-
-function TDiffForm.pm_GetPnCaption: TvtPanel;
-begin
- if (f_pnCaption = nil) then
-  f_pnCaption := FindComponent('pnCaption') As TvtPanel;
- Result := f_pnCaption;
-end;
-
-procedure TDiffForm.ReturnToDocument;
-//#UC START# *4B1E39750337_4A6EBE900233_var*
-//#UC END# *4B1E39750337_4A6EBE900233_var*
-begin
-//#UC START# *4B1E39750337_4A6EBE900233_impl*
- Assert(EditionDiff.DocumentForReturn.rDoc <> nil);
- if (EditionDiff.DocumentForReturn.rPara <> nil) then
-  TdmStdRes.OpenDocument(TdeDocInfo.Make(EditionDiff.DocumentForReturn.rDoc,
-                                         TbsDocPos_P(EditionDiff.DocumentForReturn.rPara)),
-                         nil)
- else
-  TdmStdRes.OpenEntityAsDocument(EditionDiff.DocumentForReturn.rDoc, nil);
-//#UC END# *4B1E39750337_4A6EBE900233_impl*
-end;//TDiffForm.ReturnToDocument
-
-function TDiffForm.IsRight: Boolean;
-//#UC START# *4B69970A0029_4A6EBE900233_var*
-//#UC END# *4B69970A0029_4A6EBE900233_var*
-begin
-//#UC START# *4B69970A0029_4A6EBE900233_impl*
- Result := NeedSetMyFocus;
-//#UC END# *4B69970A0029_4A6EBE900233_impl*
-end;//TDiffForm.IsRight
-
-procedure TDiffForm.SetFocusToText;
-//#UC START# *4B69A6BC0125_4A6EBE900233_var*
-//#UC END# *4B69A6BC0125_4A6EBE900233_var*
-begin
-//#UC START# *4B69A6BC0125_4A6EBE900233_impl*
- if Text.CanFocus then
-  Text.SetFocus;
-//#UC END# *4B69A6BC0125_4A6EBE900233_impl*
-end;//TDiffForm.SetFocusToText
-
-function TDiffForm.IsParaCurrent(aPara: Integer): Boolean;
-//#UC START# *4B6AE8B90254_4A6EBE900233_var*
-var
- l_Tag : Tl3Variant;
-//#UC END# *4B6AE8B90254_4A6EBE900233_var*
-begin
-//#UC START# *4B6AE8B90254_4A6EBE900233_impl*
- if (Text.Selection = nil) OR (Text.Selection.Cursor = nil) then
-  Result := false
- else
-  with Text.Selection.Cursor.MostInner do
-  begin
-   Result := Obj.AsObject.IsKindOf(k2_typLeafPara) AND (AsObject.IntA[k2_tiHandle] = aPara);
-   if Result then
-   // - по номеру такой параграф - текущий, надо будет стиль проверить
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=208701209
-   begin
-    l_Tag := Obj.AsObject.rAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slDiff)]);
-    if not l_Tag.IsValid OR (l_Tag.ChildrenCount <= 0) then
-     Result := false;
-   end;//Result
-  end;//Text.Selection.Cursor.MostInner
-//#UC END# *4B6AE8B90254_4A6EBE900233_impl*
-end;//TDiffForm.IsParaCurrent
 
 function TDiffForm.Document: IDocument;
 //#UC START# *4F14091F01F1_4A6EBE900233_var*
@@ -1058,7 +1018,7 @@ begin
 end;//TDiffForm.GetInitialDocumentPosition
 
 procedure TDiffForm.OpenDiffInNewContainer(const aPos: TbsDocPos;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *55B081D50048_4A6EBE900233_var*
 var
  l_LeftDocument: IDocument;
@@ -1079,6 +1039,7 @@ begin
 end;//TDiffForm.OpenDiffInNewContainer
 
 procedure TDiffForm.LinkWaiter(const aMade: InevDocumentContainer);
+ {* Прикрепить Waiter'а к контейнеру документа }
 //#UC START# *4A85585102D2_4A6EBE900233_var*
 var
  l_ChangedParas : IDiffIterator;
@@ -1103,6 +1064,7 @@ begin
 end;//TDiffForm.LinkWaiter
 
 procedure TDiffForm.SignalEditionChanged;
+ {* Сообщение о смене редакции }
 //#UC START# *4A8559B0013B_4A6EBE900233_var*
 //#UC END# *4A8559B0013B_4A6EBE900233_var*
 begin
@@ -1165,6 +1127,7 @@ begin
 end;//TDiffForm.AutoActivateWindow
 
 procedure TDiffForm.Sync(const aPara: TnsParaCoord);
+ {* Синхронизировать позицию }
 //#UC START# *4A79AB290196_4A6EBE900233_var*
 
  function GotoTableCell : Boolean;
@@ -1375,6 +1338,7 @@ begin
 end;//TDiffForm.Sync
 
 function TDiffForm.DocumentIsValid: Boolean;
+ {* Есть ли документ, готовый к работе }
 //#UC START# *4A7C0E1A005C_4A6EBE900233_var*
 //#UC END# *4A7C0E1A005C_4A6EBE900233_var*
 begin
@@ -1384,7 +1348,8 @@ begin
 end;//TDiffForm.DocumentIsValid
 
 procedure TDiffForm.GotoPoint(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EBE900233_var*
 var
  l_Sub : IevSub;
@@ -1409,6 +1374,7 @@ begin
 end;//TDiffForm.GotoPoint
 
 function TDiffForm.HyperlinkDocument: IDocument;
+ {* Документ ИЗ которого ведёт ссылка }
 //#UC START# *4A8168BB0217_4A6EBE900233_var*
 //#UC END# *4A8168BB0217_4A6EBE900233_var*
 begin
@@ -1447,6 +1413,7 @@ begin
 end;//TDiffForm.EditionChanged
 
 function TDiffForm.IsFloating: Boolean;
+ {* Форма плавающая }
 //#UC START# *4A8A9DB0001A_4A6EBE900233_var*
 //#UC END# *4A8A9DB0001A_4A6EBE900233_var*
 begin
@@ -1484,6 +1451,7 @@ begin
 end;//TDiffForm.Get_ContextSearcher
 
 function TDiffForm.Finder_GotoPara_Execute(aPara: Integer): TGotoParaResult;
+ {* Перейти к параграфу по номеру }
 //#UC START# *4AE042520302_4A6EBE900233exec_var*
 //#UC END# *4AE042520302_4A6EBE900233exec_var*
 begin
@@ -1493,10 +1461,11 @@ begin
 end;//TDiffForm.Finder_GotoPara_Execute
 
 procedure TDiffForm.Finder_GotoPara(const aParams: IvcmExecuteParams);
+ {* Перейти к параграфу по номеру }
 begin
  with (aParams.Data As IFinder_GotoPara_Params) do
-  ResultValue := Finder_GotoPara_Execute(Para);
-end;
+  ResultValue := Self.Finder_GotoPara_Execute(Para);
+end;//TDiffForm.Finder_GotoPara
 
 function TDiffForm.DocumentForExport: IDocument;
 //#UC START# *4AE1B48A0120_4A6EBE900233_var*
@@ -1526,8 +1495,8 @@ begin
 end;//TDiffForm.IsDrug
 
 function TDiffForm.Document_SetPosition_Execute(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub;
-  aUserType: Integer = 0): Boolean;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_4A6EBE900233exec_var*
 //#UC END# *4AE9D38A02DA_4A6EBE900233exec_var*
 begin
@@ -1540,12 +1509,13 @@ end;//TDiffForm.Document_SetPosition_Execute
 procedure TDiffForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
-  ResultValue := Document_SetPosition_Execute(PointID, PointType, UserType);
-end;
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TDiffForm.Document_SetPosition
 
 procedure TDiffForm.Document_OpenEditionLocalLink_Execute(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
+ {* Переход по локальной ссылке на редакцию }
 //#UC START# *4B0650D4035A_4A6EBE900233exec_var*
 //#UC END# *4B0650D4035A_4A6EBE900233exec_var*
 begin
@@ -1566,10 +1536,11 @@ begin
 end;//TDiffForm.Document_OpenEditionLocalLink_Execute
 
 procedure TDiffForm.Document_OpenEditionLocalLink(const aParams: IvcmExecuteParams);
+ {* Переход по локальной ссылке на редакцию }
 begin
  with (aParams.Data As IDocument_OpenEditionLocalLink_Params) do
-  Document_OpenEditionLocalLink_Execute(Document, Sub, Behaviour);
-end;
+  Self.Document_OpenEditionLocalLink_Execute(Document, Sub, Behaviour);
+end;//TDiffForm.Document_OpenEditionLocalLink
 
 function TDiffForm.DocumentForSearch: IDocument;
 //#UC START# *4B4EF0A200BD_4A6EBE900233_var*
@@ -1581,6 +1552,7 @@ begin
 end;//TDiffForm.DocumentForSearch
 
 procedure TDiffForm.CurrentChangedFragmentChanged(aParaID: Integer);
+ {* Изменилось положение текущего изменённого фрагмента. Дёрнули у редактора курсор или скроллер. aParaID == GetParaForPositionning }
 //#UC START# *4B54676B0132_4A6EBE900233_var*
 //#UC END# *4B54676B0132_4A6EBE900233_var*
 begin
@@ -1590,6 +1562,7 @@ begin
 end;//TDiffForm.CurrentChangedFragmentChanged
 
 procedure TDiffForm.Finder_DisableForceDrawFocusRect_Execute;
+ {* Запрещает рисование фокусной рамки }
 //#UC START# *4B59C1F401F8_4A6EBE900233exec_var*
 //#UC END# *4B59C1F401F8_4A6EBE900233exec_var*
 begin
@@ -1599,9 +1572,10 @@ begin
 end;//TDiffForm.Finder_DisableForceDrawFocusRect_Execute
 
 procedure TDiffForm.Finder_DisableForceDrawFocusRect(const aParams: IvcmExecuteParams);
+ {* Запрещает рисование фокусной рамки }
 begin
- Finder_DisableForceDrawFocusRect_Execute;
-end;
+ Self.Finder_DisableForceDrawFocusRect_Execute;
+end;//TDiffForm.Finder_DisableForceDrawFocusRect
 
 function TDiffForm.CanUnControl: Boolean;
 //#UC START# *4BA0ACB501DA_4A6EBE900233_var*
@@ -1613,6 +1587,7 @@ begin
 end;//TDiffForm.CanUnControl
 
 function TDiffForm.NeedGotoNeighbours: Boolean;
+ {* Надо ли переходить на соседей блока }
 //#UC START# *4C068AB5026A_4A6EBE900233_var*
 //#UC END# *4C068AB5026A_4A6EBE900233_var*
 begin
@@ -1632,8 +1607,8 @@ begin
 end;//TDiffForm.Get_NeedSaveActiveClassBeforeSearch
 
 procedure TDiffForm.OpenRedactionGlobalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *53A303BE03A8_4A6EBE900233_var*
 //#UC END# *53A303BE03A8_4A6EBE900233_var*
 begin
@@ -1643,6 +1618,7 @@ begin
 end;//TDiffForm.OpenRedactionGlobalLink
 
 procedure TDiffForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A6EBE900233_var*
 //#UC END# *479731C50290_4A6EBE900233_var*
 begin
@@ -1677,9 +1653,9 @@ begin
 //#UC END# *484516C00214_4A6EBE900233_impl*
 end;//TDiffForm.Loaded
 
-{$If not defined(NoVCM)}
 procedure TDiffForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4A6EBE900233_var*
 //#UC END# *497469C90140_4A6EBE900233_var*
 begin
@@ -1706,12 +1682,12 @@ begin
  pbIcon.Invalidate; 
 //#UC END# *497469C90140_4A6EBE900233_impl*
 end;//TDiffForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
 function TDiffForm.DoProcessLocalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ {* Обработка локальных ссылок }
 //#UC START# *4A8160720125_4A6EBE900233_var*
 //#UC END# *4A8160720125_4A6EBE900233_var*
 begin
@@ -1736,8 +1712,9 @@ begin
 end;//TDiffForm.DoProcessLocalLink
 
 procedure TDiffForm.OpenRedactionLocalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
+ {* Открывает локальную ссылку на другую редакцию }
 //#UC START# *4A81650B014A_4A6EBE900233_var*
 //#UC END# *4A81650B014A_4A6EBE900233_var*
 begin
@@ -1751,8 +1728,8 @@ begin
 //#UC END# *4A81650B014A_4A6EBE900233_impl*
 end;//TDiffForm.OpenRedactionLocalLink
 
-{$If not defined(NoVCM)}
 function TDiffForm.NeedDrawCaption: Boolean;
+ {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4A6EBE900233_var*
 //#UC END# *4A84183701B9_4A6EBE900233_var*
 begin
@@ -1760,10 +1737,9 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4A6EBE900233_impl*
 end;//TDiffForm.NeedDrawCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TDiffForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6EBE900233_var*
 const
  cIconW = 32;
@@ -1894,7 +1870,6 @@ begin
  inherited;
 //#UC END# *4A8E8F2E0195_4A6EBE900233_impl*
 end;//TDiffForm.InitControls
-{$IfEnd} //not NoVCM
 
 function TDiffForm.ContinueSearchInWholeBase: Boolean;
 //#UC START# *4B4EF0D2016A_4A6EBE900233_var*
@@ -1905,7 +1880,6 @@ begin
 //#UC END# *4B4EF0D2016A_4A6EBE900233_impl*
 end;//TDiffForm.ContinueSearchInWholeBase
 
-{$If not defined(NoVCM)}
 function TDiffForm.NeedNotifyContainerOnCaptionChanged: Boolean;
 //#UC START# *546304500231_4A6EBE900233_var*
 //#UC END# *546304500231_4A6EBE900233_var*
@@ -1914,27 +1888,28 @@ begin
  Result := False;
 //#UC END# *546304500231_4A6EBE900233_impl*
 end;//TDiffForm.NeedNotifyContainerOnCaptionChanged
-{$IfEnd} //not NoVCM
 
-procedure TDiffForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TDiffForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   EditionDiff := nil;
   VScrollController := nil;
   CompareEditions := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsEditionDiff, EditionDiff);
-  aDsNew.CastUCC(InsVScrollController, VScrollController);
-  aDsNew.CastUCC(IsdsCompareEditions, CompareEditions);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsEditionDiff, EditionDiff);
+  aNew.CastUCC(InsVScrollController, VScrollController);
+  aNew.CastUCC(IsdsCompareEditions, CompareEditions);
+ end;//aNew = nil
+end;//TDiffForm.SignalDataSourceChanged
 
 procedure TDiffForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1947,7 +1922,7 @@ begin
   PublishOpWithResult(en_Document, op_OpenEditionLocalLink, Document_OpenEditionLocalLink, nil, nil);
   PublishOpWithResult(en_Finder, op_DisableForceDrawFocusRect, Finder_DisableForceDrawFocusRect, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TDiffForm.InitEntities
 
 procedure TDiffForm.MakeControls;
 begin
@@ -1959,14 +1934,14 @@ begin
  f_EditionChoose := TvtComboBoxQS.Create(Self);
  f_EditionChoose.Name := 'EditionChoose';
  f_EditionChoose.Parent := pnCaption;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TDiffForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Diff
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDiffForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация Diff }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

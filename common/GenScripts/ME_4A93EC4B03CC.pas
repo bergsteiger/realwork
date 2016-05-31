@@ -22,6 +22,9 @@ uses
  {$If Defined(Nemesis)}
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -72,7 +75,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make: BadFactoryType; reintroduce;
+   class function Make: IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function IsRealInstance: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -112,11 +115,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93EC4B03CCimpl_uses*
+ //#UC END# *4A93EC4B03CCimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -161,7 +163,7 @@ begin
 //#UC END# *525D13F30292_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.DoSend
 
-class function TPrimRememberPasswordForm.Make: BadFactoryType;
+class function TPrimRememberPasswordForm.Make: IvcmEntityForm;
 var
  l_Inst : TPrimRememberPasswordForm;
 begin

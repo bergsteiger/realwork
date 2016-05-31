@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки admRenameGroupLocalConstants }
+ str_admRenameGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admRenameGroupCaption'; rValue : 'Переименовать группу');
+  {* Заголовок пользовательского типа "Переименовать группу" }
  {* Константы для типа формы admRenameGroup }
  admRenameGroupName = 'admRenameGroup';
   {* Строковый идентификатор пользовательского типа "Переименовать группу" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_admRenameGroup.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_admRenameGroupCaption.Init;
+ {* Инициализация str_admRenameGroupCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admRenameGroup.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_admRenameGroup }

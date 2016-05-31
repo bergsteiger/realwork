@@ -1,153 +1,161 @@
 unit PrimFoldersElementInfo_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/Forms/PrimFoldersElementInfo_Form.pas"
-// Начат: 27.10.2009 17:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFoldersElementInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersElementInfo_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersElementInfo" MUID: (4AE706BB029F)
+// Имя типа: "TPrimFoldersElementInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FoldersUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  ,
-  nsFolders
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  eeInterfaces,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  vtPanel,
-  Folders_Strange_Controls,
-  eeMemoWithEditOperations,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBoxWithReadOnly
-  {$IfEnd} //Nemesis
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox,
-  PrimFoldersElementInfo_utFoldersProperty_UserType,
-  BaseTypesUnit,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Folders_Strange_Controls
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , nsTypes
+ , nsFolders
+ , vtPanel
+ , vtLabel
+ , eeMemoWithEditOperations
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
+ , FoldersUnit
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , BaseTypesUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TTypeMap = array [TFoldersElementType] of TFoldersItemType;
 
-const
-  { cTypeMap }
- FIT_BOOKMARK = FoldersUnit.FIT_BOOKMARK;
- cTypeMap : TTypeMap = (FIT_BOOKMARK, FIT_BOOKMARK, FIT_LIST, FIT_QUERY, {FIT_QUERY, }FIT_PHARM_BOOKMARK, FIT_PHARM_LIST);
-
-type
- TPrimFoldersElementInfoForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_EDoChangedAlreadyDoneFired : Boolean;
-    {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обрабиотки переподнять его}
-   f_CommentPanel : TvtPanel;
-    {* Поле для свойства CommentPanel}
-   f_ElementComment : TeeMemoWithEditOperations;
-    {* Поле для свойства ElementComment}
-   f_CaptionPanel : TvtPanel;
-    {* Поле для свойства CaptionPanel}
-   f_lblComment : TvtLabel;
-    {* Поле для свойства lblComment}
-   f_TopPanel : TvtPanel;
-    {* Поле для свойства TopPanel}
-   f_NamePanel : TvtPanel;
-    {* Поле для свойства NamePanel}
-   f_lblElementName : TvtLabel;
-    {* Поле для свойства lblElementName}
-   f_ElementName : TnscComboBoxWithReadOnly;
-    {* Поле для свойства ElementName}
-   f_cbShared : TvtCheckBox;
-    {* Поле для свойства cbShared}
-   f_InfoName : TvtLabel;
-    {* Поле для свойства InfoName}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimFoldersElementInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_EDoChangedAlreadyDoneFired: Boolean;
+    {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обрабиотки переподнять его }
+   f_CommentPanel: TvtPanel;
+   f_TopPanel: TvtPanel;
+   f_InfoName: TvtLabel;
+    {* Название }
+   f_ElementComment: TeeMemoWithEditOperations;
+   f_CaptionPanel: TvtPanel;
+   f_lblComment: TvtLabel;
+    {* Примечание: }
+   f_NamePanel: TvtPanel;
+   f_lblElementName: TvtLabel;
+    {* Имя: }
+   f_ElementName: TnscComboBoxWithReadOnly;
+   f_cbShared: TvtCheckBox;
+    {* Общий доступ }
+  protected
+   f_CurType: TFoldersInfoType;
+   f_UserLoadParam: IUnknown;
+   f_RequestingForm: IvcmEntityForm;
+   f_CurNode: IeeNode;
+   f_SaveControlState: TCheckBoxState;
+   f_SavedObjType: TFoldersElementType;
+   f_SavedName: Il3CString;
+   f_SavedComment: Il3CString;
+   f_SavedObject: IUnknown;
+   f_SaveAsFlag: Boolean;
+   f_Op: TListLogicOperation;
+   f_FolderSecurity: TFolderSecurity;
+  private
    procedure NamePanelResize(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure VcmEntityFormCloseQueryEx(Sender: TObject;
-     var CanClose: Boolean;
-     aCaller: TCustomForm);
+   procedure vcmEntityFormCloseQueryEx(Sender: TObject;
+    var CanClose: Boolean;
+    aCaller: TCustomForm);
    procedure RegisterSaveOperation;
-     {* операция сохранения регистрируется в логе пользователя }
+    {* операция сохранения регистрируется в логе пользователя }
    procedure BeginSetCurInfo;
-     {* Сигнатура метода BeginSetCurInfo }
    procedure EndSetCurInfo;
-     {* Сигнатура метода EndSetCurInfo }
    function IsDocumentAlive: Boolean;
- protected
- // realized methods
+  protected
+   function SendChosenObject: Boolean;
+   function SaveCurInfo(aCheckNameModifiers: Boolean = True;
+    aNamesOnly: Boolean = False;
+    const aNode: IeeNode = nil): Boolean;
+    {* После вызова делаем всю необходимую обработку и после нее ОБЯЗАТЕЛЬНО надо вызвать AfterSaveExceptionCheck, чтобы при необходимости переподнять EDoChangedAlreadyDone }
+   function SaveOrOverrideCurObj: Boolean;
+   function DoSaveCurObj(const aFolderNode: IeeNode): Boolean;
+   function DoOverrideCurObj(const aNode: IeeNode): Boolean;
+   function CheckAdapterNodeType(const aNode: IeeNode;
+    aType: TFoldersItemType): Boolean;
+   function FindCorrespondingFolder(const aNode: IeeNode): IeeNode;
+   function FindNodeByName(const aFolderNode: IeeNode;
+    const aName: Il3CString;
+    aType: TFoldersItemType): IeeNode;
+   procedure AfterSaveExceptionCheck;
+    {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обработки переподнять его }
+   procedure ShowCurInfo(NeedSuppressComment: Boolean = False);
+   procedure SetSavedInfo;
+   procedure ShowSavedInfo;
+   function SetSavedObjectName: Boolean;
+   function CheckModifiedState: Boolean;
+   procedure DropModifiedState;
+   procedure SetReadOnlyState(aState: Boolean);
+   procedure LoadFolderRights(const aTreeNode: IeeNode);
+   function CheckUnsaved: Boolean;
+    {* Проверить сохраннность изменений. Возвращает признак того, что не сохраненных изменений нет (при необходимости спрашивая пользователя и сохраняя изменения) }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function FolderElement_GetState_Execute: TFoldersInfoType;
-     {* Возвращает статус элемента }
+    {* Возвращает статус элемента }
    procedure FolderElement_GetState(const aParams: IvcmExecuteParams);
-     {* Возвращает статус элемента }
+    {* Возвращает статус элемента }
    procedure FolderElement_SetLoadInfo_Execute(const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
     const aCaption: Il3CString;
     const aData: IUnknown;
     anOp: TListLogicOperation);
-     {* Устанавливает параметры элемента }
+    {* Устанавливает параметры элемента }
    procedure FolderElement_SetLoadInfo(const aParams: IvcmExecuteParams);
-     {* Устанавливает параметры элемента }
+    {* Устанавливает параметры элемента }
    procedure FolderElement_SetContent_Execute(const aNode: IeeNode;
-    aIsNewFolder: Boolean = false);
-     {* SetContent }
+    aIsNewFolder: Boolean = False);
+    {* SetContent }
    procedure FolderElement_SetContent(const aParams: IvcmExecuteParams);
-     {* SetContent }
+    {* SetContent }
    procedure FolderElement_SetSaveInfo_Execute(const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
@@ -170,156 +178,94 @@ type
    procedure UsersRights_FolderShareChanged(const aParams: IvcmExecuteParams);
    procedure FolderElement_DisableSecurityPage_Execute;
    procedure FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
-     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_CurType : TFoldersInfoType;
-   f_UserLoadParam : IUnknown;
-   f_RequestingForm : IvcmEntityForm;
-   f_CurNode : IeeNode;
-   f_SaveControlState : TCheckBoxState;
-   f_SavedObjType : TFoldersElementType;
-   f_SavedName : Il3CString;
-   f_SavedComment : Il3CString;
-   f_SavedObject : IUnknown;
-   f_SaveAsFlag : Boolean;
-   f_Op : TListLogicOperation;
-   f_FolderSecurity : TFolderSecurity;
- protected
- // protected methods
-   function SendChosenObject: Boolean;
-   function SaveCurInfo(aCheckNameModifiers: Boolean = True;
-     aNamesOnly: Boolean = False;
-     const aNode: IeeNode = nil): Boolean;
-     {* После вызова делаем всю необходимую обработку и после нее ОБЯЗАТЕЛЬНО надо вызвать AfterSaveExceptionCheck, чтобы при необходимости переподнять EDoChangedAlreadyDone }
-   function SaveOrOverrideCurObj: Boolean;
-   function DoSaveCurObj(const aFolderNode: IeeNode): Boolean;
-   function DoOverrideCurObj(const aNode: IeeNode): Boolean;
-   function CheckAdapterNodeType(const aNode: IeeNode;
-     aType: TFoldersItemType): Boolean;
-   function FindCorrespondingFolder(const aNode: IeeNode): IeeNode;
-   function FindNodeByName(const aFolderNode: IeeNode;
-     const aName: Il3CString;
-     aType: TFoldersItemType): IeeNode;
-   procedure AfterSaveExceptionCheck;
-     {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обработки переподнять его }
-   procedure ShowCurInfo(NeedSuppressComment: Boolean = False);
-   procedure SetSavedInfo;
-     {* Сигнатура метода SetSavedInfo }
-   procedure ShowSavedInfo;
-     {* Сигнатура метода ShowSavedInfo }
-   function SetSavedObjectName: Boolean;
-   function CheckModifiedState: Boolean;
-   procedure DropModifiedState;
-     {* Сигнатура метода DropModifiedState }
-   procedure SetReadOnlyState(aState: Boolean);
-   procedure LoadFolderRights(const aTreeNode: IeeNode);
-   function CheckUnsaved: Boolean;
-     {* Проверить сохраннность изменений. Возвращает признак того, что не сохраненных изменений нет (при необходимости спрашивая пользователя и сохраняя изменения) }
- public
- // public properties
+    {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property CommentPanel: TvtPanel
-     read f_CommentPanel;
-   property ElementComment: TeeMemoWithEditOperations
-     read f_ElementComment;
-   property CaptionPanel: TvtPanel
-     read f_CaptionPanel;
-   property lblComment: TvtLabel
-     read f_lblComment;
-     {* Примечание: }
+    read f_CommentPanel;
    property TopPanel: TvtPanel
-     read f_TopPanel;
-   property NamePanel: TvtPanel
-     read f_NamePanel;
-   property lblElementName: TvtLabel
-     read f_lblElementName;
-     {* Имя: }
-   property ElementName: TnscComboBoxWithReadOnly
-     read f_ElementName;
-   property cbShared: TvtCheckBox
-     read f_cbShared;
-     {* Общий доступ }
+    read f_TopPanel;
    property InfoName: TvtLabel
-     read f_InfoName;
-     {* Название }
+    read f_InfoName;
+    {* Название }
+   property ElementComment: TeeMemoWithEditOperations
+    read f_ElementComment;
+   property CaptionPanel: TvtPanel
+    read f_CaptionPanel;
+   property lblComment: TvtLabel
+    read f_lblComment;
+    {* Примечание: }
+   property NamePanel: TvtPanel
+    read f_NamePanel;
+   property lblElementName: TvtLabel
+    read f_lblElementName;
+    {* Имя: }
+   property ElementName: TnscComboBoxWithReadOnly
+    read f_ElementName;
+   property cbShared: TvtCheckBox
+    read f_cbShared;
+    {* Общий доступ }
  end;//TPrimFoldersElementInfoForm
-{$IfEnd} //not Admin AND not Monitorings
+
+const
+ FIT_BOOKMARK = FoldersUnit.FIT_BOOKMARK;
+ cTypeMap: TTypeMap = (FIT_BOOKMARK, FIT_BOOKMARK, FIT_LIST, FIT_QUERY, {FIT_QUERY, }FIT_PHARM_BOOKMARK, FIT_PHARM_LIST);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  Search_Strange_Controls,
-  l3InterfacesMisc,
-  BaseTreeSupportUnit,
-  DocumentUnit,
-  DynamicDocListUnit,
-  SearchUnit,
-  nsDocumentTools,
-  bsUtils,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  DataAdapter,
-  l3String,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  l3Types,
-  nsFolderNodes,
-  nsNodes,
-  LoggingUnit,
-  Graphics,
-  nsQueryUtils,
-  nsSaveQueryEvent,
-  nsSaveDocumentToFoldersEvent,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , Search_Strange_Controls
+ , l3InterfacesMisc
+ , BaseTreeSupportUnit
+ , DocumentUnit
+ , DynamicDocListUnit
+ , SearchUnit
+ , nsDocumentTools
+ , bsUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , l3String
+ , Base_Operations_Strange_Controls
+ , l3Types
+ , nsFolderNodes
+ , nsNodes
+ , LoggingUnit
+ , Graphics
+ , nsQueryUtils
+ , nsSaveQueryEvent
+ , nsSaveDocumentToFoldersEvent
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimFoldersElementInfo_utFoldersProperty_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AE706BB029Fimpl_uses*
+ //#UC END# *4AE706BB029Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utFoldersPropertyLocalConstants }
-  str_utFoldersPropertyCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersPropertyCaption'; rValue : 'Панель свойств');
-   { Заголовок пользовательского типа "Панель свойств" }
-
-// start class TPrimFoldersElementInfoForm
+{$If NOT Defined(NoVCM)}
+function TPrimFoldersElementInfoForm.SendChosenObject: Boolean;
+//#UC START# *4AE75C84001D_4AE706BB029F_var*
+//#UC END# *4AE75C84001D_4AE706BB029F_var*
+begin
+//#UC START# *4AE75C84001D_4AE706BB029F_impl*
+ Result := Op_Loadable_Load.Call(f_RequestingForm, f_CurNode, f_UserLoadParam, f_Op);
+//#UC END# *4AE75C84001D_4AE706BB029F_impl*
+end;//TPrimFoldersElementInfoForm.SendChosenObject
 
 procedure TPrimFoldersElementInfoForm.NamePanelResize(Sender: TObject);
 //#UC START# *51BECEAD0398_4AE706BB029F_var*
@@ -332,9 +278,9 @@ begin
 //#UC END# *51BECEAD0398_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.NamePanelResize
 
-procedure TPrimFoldersElementInfoForm.VcmEntityFormCloseQueryEx(Sender: TObject;
-  var CanClose: Boolean;
-  aCaller: TCustomForm);
+procedure TPrimFoldersElementInfoForm.vcmEntityFormCloseQueryEx(Sender: TObject;
+ var CanClose: Boolean;
+ aCaller: TCustomForm);
 //#UC START# *51BECFEB023A_4AE706BB029F_var*
 //#UC END# *51BECFEB023A_4AE706BB029F_var*
 begin
@@ -342,9 +288,10 @@ begin
  if not defDataAdapter.InTerminateProcess then
   CheckUnsaved;
 //#UC END# *51BECFEB023A_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.VcmEntityFormCloseQueryEx
+end;//TPrimFoldersElementInfoForm.vcmEntityFormCloseQueryEx
 
 procedure TPrimFoldersElementInfoForm.RegisterSaveOperation;
+ {* операция сохранения регистрируется в логе пользователя }
 //#UC START# *51BED096010D_4AE706BB029F_var*
 var
  l_Bookmark: IBookmark;
@@ -410,18 +357,10 @@ begin
 //#UC END# *51BED12403CA_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.IsDocumentAlive
 
-function TPrimFoldersElementInfoForm.SendChosenObject: Boolean;
-//#UC START# *4AE75C84001D_4AE706BB029F_var*
-//#UC END# *4AE75C84001D_4AE706BB029F_var*
-begin
-//#UC START# *4AE75C84001D_4AE706BB029F_impl*
- Result := Op_Loadable_Load.Call(f_RequestingForm, f_CurNode, f_UserLoadParam, f_Op);
-//#UC END# *4AE75C84001D_4AE706BB029F_impl*
-end;//TPrimFoldersElementInfoForm.SendChosenObject
-
 function TPrimFoldersElementInfoForm.SaveCurInfo(aCheckNameModifiers: Boolean = True;
-  aNamesOnly: Boolean = False;
-  const aNode: IeeNode = nil): Boolean;
+ aNamesOnly: Boolean = False;
+ const aNode: IeeNode = nil): Boolean;
+ {* После вызова делаем всю необходимую обработку и после нее ОБЯЗАТЕЛЬНО надо вызвать AfterSaveExceptionCheck, чтобы при необходимости переподнять EDoChangedAlreadyDone }
 //#UC START# *51BED14D03C0_4AE706BB029F_var*
 var
  l_Node: INode;
@@ -721,7 +660,7 @@ begin
 end;//TPrimFoldersElementInfoForm.DoOverrideCurObj
 
 function TPrimFoldersElementInfoForm.CheckAdapterNodeType(const aNode: IeeNode;
-  aType: TFoldersItemType): Boolean;
+ aType: TFoldersItemType): Boolean;
 //#UC START# *51BED2C201CC_4AE706BB029F_var*
 var
  l_Node: INode;
@@ -746,8 +685,8 @@ begin
 end;//TPrimFoldersElementInfoForm.FindCorrespondingFolder
 
 function TPrimFoldersElementInfoForm.FindNodeByName(const aFolderNode: IeeNode;
-  const aName: Il3CString;
-  aType: TFoldersItemType): IeeNode;
+ const aName: Il3CString;
+ aType: TFoldersItemType): IeeNode;
 //#UC START# *51BED32D01C5_4AE706BB029F_var*
 //#UC END# *51BED32D01C5_4AE706BB029F_var*
 begin
@@ -764,6 +703,7 @@ begin
 end;//TPrimFoldersElementInfoForm.FindNodeByName
 
 procedure TPrimFoldersElementInfoForm.AfterSaveExceptionCheck;
+ {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обработки переподнять его }
 //#UC START# *51BED38C01FC_4AE706BB029F_var*
 //#UC END# *51BED38C01FC_4AE706BB029F_var*
 begin
@@ -949,6 +889,7 @@ begin
 end;//TPrimFoldersElementInfoForm.LoadFolderRights
 
 function TPrimFoldersElementInfoForm.CheckUnsaved: Boolean;
+ {* Проверить сохраннность изменений. Возвращает признак того, что не сохраненных изменений нет (при необходимости спрашивая пользователя и сохраняя изменения) }
 //#UC START# *51BED56C0178_4AE706BB029F_var*
 //#UC END# *51BED56C0178_4AE706BB029F_var*
 begin
@@ -968,6 +909,7 @@ begin
 end;//TPrimFoldersElementInfoForm.CheckUnsaved
 
 function TPrimFoldersElementInfoForm.FolderElement_GetState_Execute: TFoldersInfoType;
+ {* Возвращает статус элемента }
 //#UC START# *4AE7073F0388_4AE706BB029Fexec_var*
 //#UC END# *4AE7073F0388_4AE706BB029Fexec_var*
 begin
@@ -980,16 +922,18 @@ begin
 end;//TPrimFoldersElementInfoForm.FolderElement_GetState_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_GetState(const aParams: IvcmExecuteParams);
+ {* Возвращает статус элемента }
 begin
  with (aParams.Data As IFolderElement_GetState_Params) do
-  ResultValue := FolderElement_GetState_Execute;
-end;
+  ResultValue := Self.FolderElement_GetState_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_GetState
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute(const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation);
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation);
+ {* Устанавливает параметры элемента }
 //#UC START# *4AE74E1C007F_4AE706BB029Fexec_var*
 //#UC END# *4AE74E1C007F_4AE706BB029Fexec_var*
 begin
@@ -1012,13 +956,15 @@ begin
 end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo(const aParams: IvcmExecuteParams);
+ {* Устанавливает параметры элемента }
 begin
  with (aParams.Data As IFolderElement_SetLoadInfo_Params) do
-  FolderElement_SetLoadInfo_Execute(Form, FolderFilterInfo, Caption, Data, nOp);
-end;
+  Self.FolderElement_SetLoadInfo_Execute(Form, FolderFilterInfo, Caption, Data, nOp);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute(const aNode: IeeNode;
-  aIsNewFolder: Boolean = false);
+ aIsNewFolder: Boolean = False);
+ {* SetContent }
 //#UC START# *4AE85279013B_4AE706BB029Fexec_var*
 var
  l_AdapterNode: INode;
@@ -1068,16 +1014,17 @@ begin
 end;//TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetContent(const aParams: IvcmExecuteParams);
+ {* SetContent }
 begin
  with (aParams.Data As IFolderElement_SetContent_Params) do
-  FolderElement_SetContent_Execute(Node, IsNewFolder);
-end;
+  Self.FolderElement_SetContent_Execute(Node, IsNewFolder);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetContent
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean);
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean);
 //#UC START# *4AE857EF0085_4AE706BB029Fexec_var*
 
  procedure lp_FoldersFiltrate;
@@ -1175,8 +1122,8 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute
 procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_SetSaveInfo_Params) do
-  FolderElement_SetSaveInfo_Execute(Form, FilterInfo, nElementType, nEntity, SaveAs);
-end;
+  Self.FolderElement_SetSaveInfo_Execute(Form, FilterInfo, nElementType, nEntity, SaveAs);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetState_Execute(aInfoType: TFoldersInfoType);
 //#UC START# *4AE9C01201BA_4AE706BB029Fexec_var*
@@ -1199,8 +1146,8 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetState_Execute
 procedure TPrimFoldersElementInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_SetState_Params) do
-  FolderElement_SetState_Execute(InfoType);
-end;
+  Self.FolderElement_SetState_Execute(InfoType);
+end;//TPrimFoldersElementInfoForm.FolderElement_SetState
 
 procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute(const aNode: IeeNode);
 //#UC START# *4AEEC5EA03DC_4AE706BB029Fexec_var*
@@ -1214,8 +1161,8 @@ end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute
 procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IUsersRights_UpdateRights_Params) do
-  UsersRights_UpdateRights_Execute(Node);
-end;
+  Self.UsersRights_UpdateRights_Execute(Node);
+end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights
 
 procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execute(const aNode: IeeNode);
 //#UC START# *4AEEC8810299_4AE706BB029Fexec_var*
@@ -1233,8 +1180,8 @@ end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execut
 procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_ResetModificationOnDelete_Params) do
-  FolderElement_ResetModificationOnDelete_Execute(Node);
-end;
+  Self.FolderElement_ResetModificationOnDelete_Execute(Node);
+end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus_Execute;
 //#UC START# *4AF46E0C017F_4AE706BB029Fexec_var*
@@ -1247,8 +1194,8 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetFocus(const aParams: IvcmExecuteParams);
 begin
- FolderElement_SetFocus_Execute;
-end;
+ Self.FolderElement_SetFocus_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_SetFocus
 
 procedure TPrimFoldersElementInfoForm.FolderElement_Redraw_Execute;
 //#UC START# *4AF4727C0020_4AE706BB029Fexec_var*
@@ -1270,8 +1217,8 @@ end;//TPrimFoldersElementInfoForm.FolderElement_Redraw_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_Redraw(const aParams: IvcmExecuteParams);
 begin
- FolderElement_Redraw_Execute;
-end;
+ Self.FolderElement_Redraw_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_Redraw
 
 procedure TPrimFoldersElementInfoForm.Result_ExternalOk_Execute;
 //#UC START# *4AF4768A0372_4AE706BB029Fexec_var*
@@ -1325,8 +1272,8 @@ end;//TPrimFoldersElementInfoForm.Result_ExternalOk_Execute
 
 procedure TPrimFoldersElementInfoForm.Result_ExternalOk(const aParams: IvcmExecuteParams);
 begin
- Result_ExternalOk_Execute;
-end;
+ Self.Result_ExternalOk_Execute;
+end;//TPrimFoldersElementInfoForm.Result_ExternalOk
 
 procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged_Execute;
 //#UC START# *4AF4797100E8_4AE706BB029Fexec_var*
@@ -1343,8 +1290,8 @@ end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged_Execute
 
 procedure TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged(const aParams: IvcmExecuteParams);
 begin
- UsersRights_FolderShareChanged_Execute;
-end;
+ Self.UsersRights_FolderShareChanged_Execute;
+end;//TPrimFoldersElementInfoForm.UsersRights_FolderShareChanged
 
 procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage_Execute;
 //#UC START# *4AF814650325_4AE706BB029Fexec_var*
@@ -1357,10 +1304,11 @@ end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage(const aParams: IvcmExecuteParams);
 begin
- FolderElement_DisableSecurityPage_Execute;
-end;
+ Self.FolderElement_DisableSecurityPage_Execute;
+end;//TPrimFoldersElementInfoForm.FolderElement_DisableSecurityPage
 
 procedure TPrimFoldersElementInfoForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AE706BB029F_var*
 //#UC END# *479731C50290_4AE706BB029F_var*
 begin
@@ -1383,8 +1331,8 @@ begin
 //#UC END# *47A042E100E2_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AE706BB029F_var*
 //#UC END# *49803F5503AA_4AE706BB029F_var*
 begin
@@ -1402,10 +1350,9 @@ begin
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *49803F5503AA_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE706BB029F_var*
 //#UC END# *4A8E8F2E0195_4AE706BB029F_var*
 begin
@@ -1496,10 +1443,9 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimFoldersElementInfoForm.SetActiveControl;
+ {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_4AE706BB029F_var*
 //#UC END# *4AC3803A03CD_4AE706BB029F_var*
 begin
@@ -1507,33 +1453,21 @@ begin
  Windows.SetFocus(ElementName.Handle);
 //#UC END# *4AC3803A03CD_4AE706BB029F_impl*
 end;//TPrimFoldersElementInfoForm.SetActiveControl
-{$IfEnd} //not NoVCM
 
 procedure TPrimFoldersElementInfoForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_UserLoadParam := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_RequestingForm := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_CurNode := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SavedName := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SavedComment := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SavedObject := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimFoldersElementInfoForm.ClearFields
 
 procedure TPrimFoldersElementInfoForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1555,7 +1489,7 @@ begin
   PublishOpWithResult(en_UsersRights, op_FolderShareChanged, UsersRights_FolderShareChanged, nil, nil);
   PublishOpWithResult(en_FolderElement, op_DisableSecurityPage, FolderElement_DisableSecurityPage, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimFoldersElementInfoForm.InitEntities
 
 procedure TPrimFoldersElementInfoForm.MakeControls;
 begin
@@ -1563,7 +1497,7 @@ begin
  with AddUsertype(utFoldersPropertyName,
   str_utFoldersPropertyCaption,
   str_utFoldersPropertyCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1607,18 +1541,14 @@ begin
  f_InfoName.Name := 'InfoName';
  f_InfoName.Parent := Self;
  f_InfoName.Caption := 'Название';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFoldersElementInfoForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utFoldersPropertyCaption
- str_utFoldersPropertyCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFoldersElementInfo
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersElementInfoForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFoldersElementInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

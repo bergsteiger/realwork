@@ -30,11 +30,8 @@ type
  )
   private
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
    f_PropertyZone: TvtSizeablePanel;
-    {* Поле для свойства PropertyZone }
    f_TreeZone: TvtPanel;
-    {* Поле для свойства TreeZone }
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}
@@ -59,7 +56,6 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , Admin_Users_Controls
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls
@@ -73,7 +69,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -84,14 +79,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AFB0146035Bimpl_uses*
+ //#UC END# *4AFB0146035Bimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utAdminLocalConstants }
- str_utAdminCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAdminCaption'; rValue : 'Администрирование пользователей');
-  {* Заголовок пользовательского типа "Администрирование пользователей" }
-
 procedure TPrimAdminForm.InitFields;
 //#UC START# *47A042E100E2_4AFB0146035B_var*
 //#UC END# *47A042E100E2_4AFB0146035B_var*
@@ -138,7 +130,7 @@ begin
  with AddUsertype(utAdminName,
   str_utAdminCaption,
   str_utAdminCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -154,20 +146,18 @@ begin
  f_PropertyZone := TvtSizeablePanel.Create(Self);
  f_PropertyZone.Name := 'PropertyZone';
  f_PropertyZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_PropertyZone) do
+ with DefineZone(vcm_ztChild, PropertyZone) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_TreeZone := TvtPanel.Create(Self);
  f_TreeZone.Name := 'TreeZone';
  f_TreeZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_TreeZone) do
+ with DefineZone(vcm_ztParent, TreeZone) do
  begin
  end;//with DefineZone(vcm_ztParent
 end;//TPrimAdminForm.MakeControls
 
 initialization
- str_utAdminCaption.Init;
- {* Инициализация str_utAdminCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAdminForm);
  {* Регистрация PrimAdmin }

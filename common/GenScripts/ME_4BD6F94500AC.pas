@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки astNoneLocalConstants }
+ str_astNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'astNoneCaption'; rValue : 'Поиск: Выбор реквизита');
+  {* Заголовок пользовательского типа "Поиск: Выбор реквизита" }
  {* Константы для типа формы astNone }
  astNoneName = 'astNone';
   {* Строковый идентификатор пользовательского типа "Поиск: Выбор реквизита" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_astNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_astNoneCaption.Init;
+ {* Инициализация str_astNoneCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_astNone.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_astNone }

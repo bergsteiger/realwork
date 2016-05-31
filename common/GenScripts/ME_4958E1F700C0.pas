@@ -16,6 +16,9 @@ uses
  , BannerUnit
  , MainMenuUnit
  , vtPanel
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -30,9 +33,6 @@ uses
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoImageEn)}
  , imageenview
- {$IfEnd} // NOT Defined(NoImageEn)
- {$If NOT Defined(NoImageEn)}
- , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
  , ExternalObjectUnit
  , Classes
@@ -62,48 +62,33 @@ type
   private
    f_Banner: IBanner;
    f_CurrentSection: TSectionType;
-   f_pnlBaseSearch: TvtPanel;
-    {* Поле для свойства pnlBaseSearch }
-   f_pnlBaseSearchZone: TvtPanel;
-    {* Поле для свойства pnlBaseSearchZone }
-   f_pnlLogo: TvtPanel;
-    {* Поле для свойства pnlLogo }
-   f_pbLogo: TPaintBox;
-    {* Поле для свойства pbLogo }
-   f_pnlSearches: TvtPanel;
-    {* Поле для свойства pnlSearches }
-   f_flAttributeSearch: TnscFocusLabel;
-    {* Поле для свойства flAttributeSearch }
-   f_flSituationSearch: TnscFocusLabel;
-    {* Поле для свойства flSituationSearch }
-   f_flPublishedSourceSearch: TnscFocusLabel;
-    {* Поле для свойства flPublishedSourceSearch }
-   f_flDictionSearch: TnscFocusLabel;
-    {* Поле для свойства flDictionSearch }
-   f_pnlExpert: TvtPanel;
-    {* Поле для свойства pnlExpert }
-   f_pbExpert: TPaintBox;
-    {* Поле для свойства pbExpert }
-   f_pnlOnLine: TvtPanel;
-    {* Поле для свойства pnlOnLine }
-   f_pbOnLine: TPaintBox;
-    {* Поле для свойства pbOnLine }
-   f_pbIntranet: TPaintBox;
-    {* Поле для свойства pbIntranet }
-   f_pbCourtsOnline: TPaintBox;
-    {* Поле для свойства pbCourtsOnline }
-   f_hfTaxes: TnscHideField;
-    {* Поле для свойства hfTaxes }
-   f_tvTaxes: TnscTreeViewHotTruck;
-    {* Поле для свойства tvTaxes }
-   f_pnlBanner: TvtPanel;
-    {* Поле для свойства pnlBanner }
-   f_ieBanner: TImageEnView;
-    {* Поле для свойства ieBanner }
-   f_hfLastOpenDocsRightEdge: TvtPanel;
-    {* Поле для свойства hfLastOpenDocsRightEdge }
    f_ieIO: TImageEnIO;
-    {* Поле для свойства ieIO }
+   f_pnlBaseSearch: TvtPanel;
+   f_pnlBaseSearchZone: TvtPanel;
+   f_pnlLogo: TvtPanel;
+   f_pbLogo: TPaintBox;
+   f_pnlSearches: TvtPanel;
+   f_flAttributeSearch: TnscFocusLabel;
+    {* • По реквизитам }
+   f_flSituationSearch: TnscFocusLabel;
+    {* • По ситуации }
+   f_flPublishedSourceSearch: TnscFocusLabel;
+    {* • По источнику опубликования }
+   f_flDictionSearch: TnscFocusLabel;
+    {* • По Толковому словарю }
+   f_pnlExpert: TvtPanel;
+   f_pbExpert: TPaintBox;
+   f_pnlOnLine: TvtPanel;
+   f_pbOnLine: TPaintBox;
+   f_pbIntranet: TPaintBox;
+   f_pbCourtsOnline: TPaintBox;
+    {* Онлайн-архив }
+   f_hfTaxes: TnscHideField;
+    {* Налоги, финансы }
+   f_tvTaxes: TnscTreeViewHotTruck;
+   f_pnlBanner: TvtPanel;
+   f_ieBanner: TImageEnView;
+   f_hfLastOpenDocsRightEdge: TvtPanel;
   private
    procedure BaseSearchPanelResize(aSender: TObject);
    procedure PaintLogo(aSender: TObject);
@@ -236,7 +221,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimMainMenuNew_utMainMenuNew_UserType
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Tree_Controls
@@ -283,10 +267,6 @@ uses
  , MainMenuNewRes
  , nsTabbedInterfaceTypes
  , bsTypesNew
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -308,22 +288,21 @@ uses
  , nsExternalObjectPrim
  , SysUtils
  , l3String
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *4958E1F700C0impl_uses*
+ //#UC END# *4958E1F700C0impl_uses*
 ;
-
-type
- // ExcludeTree
 
 const
  c_SearchLabelDistance = 18;
- {* Локализуемые строки utMainMenuNewLocalConstants }
- str_utMainMenuNewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuNewCaption'; rValue : 'Основное меню');
-  {* Заголовок пользовательского типа "Основное меню" }
 
 type _Instance_R_ = TPrimMainMenuNewForm;
 
@@ -1347,6 +1326,9 @@ procedure TPrimMainMenuNewForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_CollapseAll, False);
+ AddUserTypeExclude(utMainMenuNewName, en_Tree, op_Wrap, False);
 end;//TPrimMainMenuNewForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -1374,7 +1356,7 @@ begin
  f_pnlBaseSearchZone := TvtPanel.Create(Self);
  f_pnlBaseSearchZone.Name := 'pnlBaseSearchZone';
  f_pnlBaseSearchZone.Parent := pnlBaseSearch;
- with DefineZone(vcm_ztMain, f_pnlBaseSearchZone) do
+ with DefineZone(vcm_ztMain, pnlBaseSearchZone) do
  begin
  end;//with DefineZone(vcm_ztMain
  f_pnlLogo := TvtPanel.Create(Self);
@@ -1443,8 +1425,6 @@ end;//TPrimMainMenuNewForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_utMainMenuNewCaption.Init;
- {* Инициализация str_utMainMenuNewCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMainMenuNewForm);
  {* Регистрация PrimMainMenuNew }

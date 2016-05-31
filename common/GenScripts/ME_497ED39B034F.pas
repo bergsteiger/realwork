@@ -23,10 +23,10 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
- , vcmControllers
+ , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -76,7 +76,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make: BadFactoryType; reintroduce;
+   class function Make: IvcmEntityForm; reintroduce;
   public
    property lblReference: TvtLabel
     read f_lblReference;
@@ -116,9 +116,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497ED39B034Fimpl_uses*
+ //#UC END# *497ED39B034Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -133,7 +136,7 @@ begin
 //#UC END# *51C3165101B7_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.cbEmailChange
 
-class function TPrimForbidAutoregistrationForm.Make: BadFactoryType;
+class function TPrimForbidAutoregistrationForm.Make: IvcmEntityForm;
 var
  l_Inst : TPrimForbidAutoregistrationForm;
 begin
@@ -236,6 +239,14 @@ procedure TPrimForbidAutoregistrationForm.SignalDataSourceChanged(const anOld: I
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsForbidAutoregistration := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsForbidAutoregistration, dsForbidAutoregistration);
+ end;//aNew = nil
 end;//TPrimForbidAutoregistrationForm.SignalDataSourceChanged
 
 procedure TPrimForbidAutoregistrationForm.MakeControls;

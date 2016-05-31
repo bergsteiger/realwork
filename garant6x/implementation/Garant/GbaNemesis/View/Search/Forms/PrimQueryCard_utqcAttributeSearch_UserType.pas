@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utqcAttributeSearchLocalConstants }
+ str_utqcAttributeSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcAttributeSearchCaption'; rValue : 'Поиск по реквизитам');
+  {* Заголовок пользовательского типа "Поиск по реквизитам" }
  {* Константы для типа формы utqcAttributeSearch }
  utqcAttributeSearchName = 'utqcAttributeSearch';
   {* Строковый идентификатор пользовательского типа "Поиск по реквизитам" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utqcAttributeSearchCaption.Init;
+ {* Инициализация str_utqcAttributeSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utqcAttributeSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utqcAttributeSearch }

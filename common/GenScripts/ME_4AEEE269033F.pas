@@ -28,6 +28,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,11 +43,8 @@ type
   {* Меню }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_NavigatorTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства NavigatorTree }
   protected
    f_Lock: Integer;
   private
@@ -94,7 +94,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , NavigatorUtils
  , DynamicTreeUnit
  , nsUtils
@@ -108,27 +107,19 @@ uses
  , NavigatorRes
  , nsNavigatorTreeStruct
  , BaseTypesUnit
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimNavigator_utNavigator_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AEEE269033Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *4AEEE269033Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utNavigatorLocalConstants }
- str_utNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorCaption'; rValue : 'Меню');
-  {* Заголовок пользовательского типа "Меню" }
- str_utNavigatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utNavigatorSettingsCaption'; rValue : 'Меню (вкладка)');
-  {* Заголовок пользовательского типа "Меню" для настройки панелей инструментов }
-
 procedure TPrimNavigatorForm.NavigatorTreeActionElement(Sender: TObject;
  Index: LongInt);
 //#UC START# *5240075C038B_4AEEE269033F_var*
@@ -357,7 +348,7 @@ begin
  with AddUsertype(utNavigatorName,
   str_utNavigatorCaption,
   str_utNavigatorSettingsCaption,
-  False,
+  True,
   44,
   10,
   '',
@@ -379,10 +370,6 @@ begin
 end;//TPrimNavigatorForm.MakeControls
 
 initialization
- str_utNavigatorCaption.Init;
- {* Инициализация str_utNavigatorCaption }
- str_utNavigatorSettingsCaption.Init;
- {* Инициализация str_utNavigatorSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNavigatorForm);
  {* Регистрация PrimNavigator }

@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtPublishSourceLocalConstants }
+ str_slqtPublishSourceCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtPublishSourceCaption'; rValue : 'Поиск: По источнику опубликования');
+  {* Заголовок пользовательского типа "Поиск: По источнику опубликования" }
  {* Константы для типа формы slqtPublishSource }
  slqtPublishSourceName = 'slqtPublishSource';
   {* Строковый идентификатор пользовательского типа "Поиск: По источнику опубликования" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtPublishSourceCaption.Init;
+ {* Инициализация str_slqtPublishSourceCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtPublishSource.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtPublishSource }

@@ -1,96 +1,78 @@
 unit PrimGroupPropertyOptions_Form;
+ {* Свойства группы }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimGroupPropertyOptions_Form.pas"
-// Начат: 10.09.2010 14:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimGroupPropertyOptions
-//
-// Свойства группы
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupPropertyOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimGroupPropertyOptions" MUID: (4C8A09E103B7)
+// Имя типа: "TPrimGroupPropertyOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  PrimGroupProperty_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimGroupProperty_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimGroupPropertyOptionsForm = {form} class(TPrimGroupPropertyForm)
+ TPrimGroupPropertyOptionsForm = class(TPrimGroupPropertyForm)
   {* Свойства группы }
- protected
-  procedure InitEntities; override;
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimGroupPropertyOptionsForm
-
- TvcmEntityFormRef = TPrimGroupPropertyOptionsForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A09E103B7impl_uses*
+ //#UC END# *4C8A09E103B7impl_uses*
+;
 
-{$If defined(Admin)}
-
-// start class TPrimGroupPropertyOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimGroupPropertyOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Ok, true);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Cancel, true);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, True);
+  ShowInToolbar(en_Result, op_Ok, True);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //Admin
+end;//TPrimGroupPropertyOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimGroupPropertyOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimGroupPropertyOptionsForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimGroupPropertyOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

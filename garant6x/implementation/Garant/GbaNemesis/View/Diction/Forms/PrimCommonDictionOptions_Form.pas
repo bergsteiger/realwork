@@ -1,227 +1,222 @@
 unit PrimCommonDictionOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/Forms/PrimCommonDictionOptions_Form.pas"
-// Начат: 08.09.2010 18:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Diction::View::Diction::PrimCommonDictionOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDictionOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimCommonDictionOptions" MUID: (4C87A1DF00B4)
+// Имя типа: "TPrimCommonDictionOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  Classes,
-  l3ControlsTypes
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  CommonDictionInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimCommonDiction_Form,
-  eeTreeViewExport
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  PrimCommonDiction_utTips_UserType
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimCommonDiction_Form
+ , CommonDictionInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , nscTreeViewWithAdapterDragDrop
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimCommonDictionOptionsForm = {form} class(TPrimCommonDictionForm, IbsCommonDictionListener)
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_WordsTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства WordsTree}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_NeedShowCurrentDiction : Boolean;
-    {* Поле для свойства NeedShowCurrentDiction}
-   f_ContextFilterState : InscContextFilterState;
-    {* Поле для свойства ContextFilterState}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimCommonDictionOptionsForm = class(TPrimCommonDictionForm, IbsCommonDictionListener)
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_NeedShowCurrentDiction: Boolean;
+   f_ContextFilterState: InscContextFilterState;
+   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
+   f_ContextFilter: TnscContextFilter;
+  private
    procedure ContextFilterChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ContextFilterWrongContext(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure WordsTreeCountChanged(Sender: TObject;
-     NewCount: LongInt);
+    NewCount: LongInt);
    procedure WordsTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    function WordsTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure WordsTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure WordsTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    procedure WordsTreeSelectCountChanged(aSender: TObject;
-     anOldCount: Integer;
-     aNewCount: Integer);
+    anOldCount: Integer;
+    aNewCount: Integer);
    procedure WordsTreeFormatStatusInfo(aSender: TObject;
-     var Info: Il3CString;
-     aCurrent: Integer;
-     aCount: Integer;
-     aSelected: Integer);
+    var Info: Il3CString;
+    aCurrent: Integer;
+    aCount: Integer;
+    aSelected: Integer);
    procedure WordsTreeNewCharPressed(aChar: AnsiChar);
-     {* событие для внешней обработки WMChar }
    procedure WordsTreeMakeTreeSource(out theTree: Il3SimpleTree);
- protected
- // property methods
+  protected
    procedure pm_SetNeedShowCurrentDiction(aValue: Boolean);
    function pm_GetContextFilterState: InscContextFilterState;
- protected
- // realized methods
+   procedure ChangeDiction(aItem: Integer;
+    aUpdateWithDelay: Boolean = True);
+    {* изменить текущее толковани }
    procedure CurrentUpdated;
-     {* текущее значение изменилось }
-   {$If not defined(NoVCM)}
-   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
+    {* текущее значение изменилось }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure ChangeDiction(aItem: Integer;
-     aUpdateWithDelay: Boolean = True);
-     {* изменить текущее толковани }
- protected
- // protected properties
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property NeedShowCurrentDiction: Boolean
-     read f_NeedShowCurrentDiction
-     write pm_SetNeedShowCurrentDiction;
+    read f_NeedShowCurrentDiction
+    write pm_SetNeedShowCurrentDiction;
    property ContextFilterState: InscContextFilterState
-     read pm_GetContextFilterState;
- public
- // public properties
+    read pm_GetContextFilterState;
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property WordsTree: TnscTreeViewWithAdapterDragDrop
-     read f_WordsTree;
+    read f_WordsTree;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
  end;//TPrimCommonDictionOptionsForm
-
- TvcmEntityFormRef = TPrimCommonDictionOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DictionRes,
-  l3String,
-  vtSizeablePanel,
-  SysUtils,
-  nsUtils,
-  PrimCommonDiction_utMedicDiction_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsMedicDictCache,
-  DataAdapter,
-  nsDictionTree,
-  BaseTypesUnit,
-  Windows
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , PrimCommonDiction_utTips_UserType
+ , DictionRes
+ , l3String
+ , vtSizeablePanel
+ , SysUtils
+ , nsUtils
+ , PrimCommonDiction_utMedicDiction_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsMedicDictCache
+ , DataAdapter
+ , nsDictionTree
+ , BaseTypesUnit
+ , vtLister
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87A1DF00B4impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4C87A1DF00B4impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+procedure TPrimCommonDictionOptionsForm.pm_SetNeedShowCurrentDiction(aValue: Boolean);
+//#UC START# *5005661D0242_4C87A1DF00B4set_var*
+//#UC END# *5005661D0242_4C87A1DF00B4set_var*
+begin
+//#UC START# *5005661D0242_4C87A1DF00B4set_impl*
+ inherited;
+ NeedShowCurrentDiction := false;
+ Assert(False);//тут бесконечная рекурсия
+//#UC END# *5005661D0242_4C87A1DF00B4set_impl*
+end;//TPrimCommonDictionOptionsForm.pm_SetNeedShowCurrentDiction
 
-// start class TPrimCommonDictionOptionsForm
+function TPrimCommonDictionOptionsForm.pm_GetContextFilterState: InscContextFilterState;
+//#UC START# *52F89EEA01EE_4C87A1DF00B4get_var*
+//#UC END# *52F89EEA01EE_4C87A1DF00B4get_var*
+begin
+//#UC START# *52F89EEA01EE_4C87A1DF00B4get_impl*
+ if not Assigned(f_ContextFilterState) then
+  if Assigned(dsCommonDiction) then
+   f_ContextFilterState := dsCommonDiction.ContextFilterState;
+ Result := f_ContextFilterState;
+//#UC END# *52F89EEA01EE_4C87A1DF00B4get_impl*
+end;//TPrimCommonDictionOptionsForm.pm_GetContextFilterState
+
+procedure TPrimCommonDictionOptionsForm.ChangeDiction(aItem: Integer;
+ aUpdateWithDelay: Boolean = True);
+ {* изменить текущее толковани }
+//#UC START# *5005645F03CE_4C87A1DF00B4_var*
+var
+ l_l3Node : Il3SimpleNode;
+//#UC END# *5005645F03CE_4C87A1DF00B4_var*
+begin
+//#UC START# *5005645F03CE_4C87A1DF00B4_impl*
+ if aItem <> -1 then
+ begin
+  l_l3Node := WordsTree.GetNode(aItem);
+  try
+   if (dsCommonDiction <> nil) then
+    dsCommonDiction.CurrentChanged(l_l3Node, aUpdateWithDelay);
+  finally
+   l_l3Node := nil;
+  end;//try..finally
+ end;//if Index <> -1 then
+//#UC END# *5005645F03CE_4C87A1DF00B4_impl*
+end;//TPrimCommonDictionOptionsForm.ChangeDiction
 
 procedure TPrimCommonDictionOptionsForm.ContextFilterChange(Sender: TObject);
 //#UC START# *5146E2260095_4C87A1DF00B4_var*
@@ -270,7 +265,7 @@ begin
 end;//TPrimCommonDictionOptionsForm.ContextFilterWrongContext
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeCountChanged(Sender: TObject;
-  NewCount: LongInt);
+ NewCount: LongInt);
 //#UC START# *5146E2F602B1_4C87A1DF00B4_var*
 //#UC END# *5146E2F602B1_4C87A1DF00B4_var*
 begin
@@ -280,8 +275,8 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeCountChanged
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *5146E33502A3_4C87A1DF00B4_var*
 //#UC END# *5146E33502A3_4C87A1DF00B4_var*
 begin
@@ -296,8 +291,8 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeCurrentChanged
 
 function TPrimCommonDictionOptionsForm.WordsTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *5146E621033A_4C87A1DF00B4_var*
 //#UC END# *5146E621033A_4C87A1DF00B4_var*
 begin
@@ -307,7 +302,7 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeGetItemImage
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *5146E64C035F_4C87A1DF00B4_var*
 //#UC END# *5146E64C035F_4C87A1DF00B4_var*
 begin
@@ -317,8 +312,8 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeActionElement
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
 //#UC START# *5146EC920269_4C87A1DF00B4_var*
 //#UC END# *5146EC920269_4C87A1DF00B4_var*
 begin
@@ -332,8 +327,8 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeTreeChanged
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeSelectCountChanged(aSender: TObject;
-  anOldCount: Integer;
-  aNewCount: Integer);
+ anOldCount: Integer;
+ aNewCount: Integer);
 //#UC START# *5146ED3F0081_4C87A1DF00B4_var*
 //#UC END# *5146ED3F0081_4C87A1DF00B4_var*
 begin
@@ -343,10 +338,10 @@ begin
 end;//TPrimCommonDictionOptionsForm.WordsTreeSelectCountChanged
 
 procedure TPrimCommonDictionOptionsForm.WordsTreeFormatStatusInfo(aSender: TObject;
-  var Info: Il3CString;
-  aCurrent: Integer;
-  aCount: Integer;
-  aSelected: Integer);
+ var Info: Il3CString;
+ aCurrent: Integer;
+ aCount: Integer;
+ aSelected: Integer);
 //#UC START# *5146ED6C00BB_4C87A1DF00B4_var*
 const
  cMap: array [utTips .. utMedicDiction] of PvcmStringID = (
@@ -399,51 +394,8 @@ begin
 //#UC END# *52F4E7F400DE_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.WordsTreeMakeTreeSource
 
-procedure TPrimCommonDictionOptionsForm.ChangeDiction(aItem: Integer;
-  aUpdateWithDelay: Boolean = True);
-//#UC START# *5005645F03CE_4C87A1DF00B4_var*
-var
- l_l3Node : Il3SimpleNode;
-//#UC END# *5005645F03CE_4C87A1DF00B4_var*
-begin
-//#UC START# *5005645F03CE_4C87A1DF00B4_impl*
- if aItem <> -1 then
- begin
-  l_l3Node := WordsTree.GetNode(aItem);
-  try
-   if (dsCommonDiction <> nil) then
-    dsCommonDiction.CurrentChanged(l_l3Node, aUpdateWithDelay);
-  finally
-   l_l3Node := nil;
-  end;//try..finally
- end;//if Index <> -1 then
-//#UC END# *5005645F03CE_4C87A1DF00B4_impl*
-end;//TPrimCommonDictionOptionsForm.ChangeDiction
-
-procedure TPrimCommonDictionOptionsForm.pm_SetNeedShowCurrentDiction(aValue: Boolean);
-//#UC START# *5005661D0242_4C87A1DF00B4set_var*
-//#UC END# *5005661D0242_4C87A1DF00B4set_var*
-begin
-//#UC START# *5005661D0242_4C87A1DF00B4set_impl*
- inherited;
- NeedShowCurrentDiction := false;
- Assert(False);//тут бесконечная рекурсия
-//#UC END# *5005661D0242_4C87A1DF00B4set_impl*
-end;//TPrimCommonDictionOptionsForm.pm_SetNeedShowCurrentDiction
-
-function TPrimCommonDictionOptionsForm.pm_GetContextFilterState: InscContextFilterState;
-//#UC START# *52F89EEA01EE_4C87A1DF00B4get_var*
-//#UC END# *52F89EEA01EE_4C87A1DF00B4get_var*
-begin
-//#UC START# *52F89EEA01EE_4C87A1DF00B4get_impl*
- if not Assigned(f_ContextFilterState) then
-  if Assigned(dsCommonDiction) then
-   f_ContextFilterState := dsCommonDiction.ContextFilterState;
- Result := f_ContextFilterState;
-//#UC END# *52F89EEA01EE_4C87A1DF00B4get_impl*
-end;//TPrimCommonDictionOptionsForm.pm_GetContextFilterState
-
 procedure TPrimCommonDictionOptionsForm.CurrentUpdated;
+ {* текущее значение изменилось }
 //#UC START# *493402BC0160_4C87A1DF00B4_var*
 //#UC END# *493402BC0160_4C87A1DF00B4_var*
 begin
@@ -452,8 +404,9 @@ begin
 //#UC END# *493402BC0160_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.CurrentUpdated
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C87A1DF00B4test_var*
 //#UC END# *4BDAF7880236_4C87A1DF00B4test_var*
 begin
@@ -461,10 +414,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_4C87A1DF00B4test_impl*
 end;//TPrimCommonDictionOptionsForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C87A1DF00B4test_var*
 //#UC END# *4BDAF7A2005C_4C87A1DF00B4test_var*
 begin
@@ -472,9 +426,10 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_4C87A1DF00B4test_impl*
 end;//TPrimCommonDictionOptionsForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimCommonDictionOptionsForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C87A1DF00B4_var*
 //#UC END# *479731C50290_4C87A1DF00B4_var*
 begin
@@ -485,9 +440,10 @@ begin
 //#UC END# *479731C50290_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4C87A1DF00B4_var*
 
  function lp_IsInit: Boolean;
@@ -564,10 +520,11 @@ begin
  PostMessage(WordsTree.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4C87A1DF00B4_var*
 //#UC END# *49803F5503AA_4C87A1DF00B4_var*
 begin
@@ -584,10 +541,11 @@ begin
  UpdateStatusInfo;
 //#UC END# *49803F5503AA_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4C87A1DF00B4_var*
 //#UC END# *4A8E8F2E0195_4C87A1DF00B4_var*
 begin
@@ -626,18 +584,18 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4C87A1DF00B4_impl*
 end;//TPrimCommonDictionOptionsForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimCommonDictionOptionsForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ContextFilterState := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimCommonDictionOptionsForm.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -645,29 +603,18 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Tree, nil);
   MakeEntitySupportedByControl(en_Tree, WordsTree);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
  end;//with Entities.Entities
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utTipsName, en_Tree, op_ExpandAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utTipsName, en_Tree, op_CollapseAll, false);
- {$IfEnd} //not NoVCM
-end;
+ AddUserTypeExclude(utTipsName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(utTipsName, en_Tree, op_CollapseAll, False);
+end;//TPrimCommonDictionOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimCommonDictionOptionsForm.MakeControls;
 begin
  inherited;
@@ -680,14 +627,14 @@ begin
  f_ContextFilter := TnscContextFilter.Create(Self);
  f_ContextFilter.Name := 'ContextFilter';
  f_ContextFilter.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimCommonDictionOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimCommonDictionOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimCommonDictionOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimCommonDictionOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

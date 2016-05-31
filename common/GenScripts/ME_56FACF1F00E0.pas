@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utMainMenuWithProfNewsLocalConstants }
+ str_utMainMenuWithProfNewsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainMenuWithProfNewsCaption'; rValue : 'Основное меню');
+  {* Заголовок пользовательского типа "Основное меню" }
  {* Константы для типа формы utMainMenuWithProfNews }
  utMainMenuWithProfNewsName = 'utMainMenuWithProfNews';
   {* Строковый идентификатор пользовательского типа "Основное меню" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utMainMenuWithProfNews.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utMainMenuWithProfNewsCaption.Init;
+ {* Инициализация str_utMainMenuWithProfNewsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utMainMenuWithProfNews.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utMainMenuWithProfNews }

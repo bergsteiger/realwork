@@ -1,95 +1,69 @@
 unit PrimSaveLoadOptionsForBaseSearch_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimSaveLoadOptionsForBaseSearch_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimSaveLoadOptionsForBaseSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsForBaseSearch_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimSaveLoadOptionsForBaseSearch" MUID: (4F5DA09300C5)
+// Имя типа: "TPrimSaveLoadOptionsForBaseSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  SearchLite_Strange_Controls,
-  Search_Strange_Controls,
-  l3StringIDEx,
-  PrimSaveLoadOptions_Form,
-  PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , PrimSaveLoadOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimSaveLoadOptionsForBaseSearchForm = {form} class(TPrimSaveLoadOptionsForm)
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // overridden protected methods
+ TPrimSaveLoadOptionsForBaseSearchForm = class(TPrimSaveLoadOptionsForm)
+  protected
    class function IsBaseSearchLike: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSaveLoadOptionsForBaseSearchForm
-
- TvcmContainerFormRef = TPrimSaveLoadOptionsForBaseSearchForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-var
-   { Локализуемые строки slqtBaseSearchLocalConstants }
-  str_slqtBaseSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtBaseSearchCaption'; rValue : 'Базовый поиск');
-   { Заголовок пользовательского типа "Базовый поиск" }
-
-// start class TPrimSaveLoadOptionsForBaseSearchForm
+ l3ImplUses
+ , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , PrimPrimListInterfaces
+ , bsTypes
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4F5DA09300C5impl_uses*
+ //#UC END# *4F5DA09300C5impl_uses*
+;
 
 class function TPrimSaveLoadOptionsForBaseSearchForm.IsBaseSearchLike: Boolean;
 //#UC START# *502289FB008D_4F5DA09300C5_var*
@@ -100,42 +74,43 @@ begin
 //#UC END# *502289FB008D_4F5DA09300C5_impl*
 end;//TPrimSaveLoadOptionsForBaseSearchForm.IsBaseSearchLike
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadOptionsForBaseSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
- AddUserTypeExclude(slqtBaseSearchName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(slqtBaseSearchName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Loadable, op_Load, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtBaseSearchName, en_Result, op_OkExt, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtBaseSearchName, en_Result, op_Cancel, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(slqtBaseSearchName, en_Query, op_ClearAll, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SetList, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Add, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Delete, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetList, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_ClearAll, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Refresh, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Result, op_ClearAll, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetOldQuery, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SearchType, false);
- AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicOr, false);
- AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicAnd, false);
- AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicNot, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filters, op_FiltersListOpen, false);
- AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_GetListType, false);
-end;
+ AddUserTypeExclude(slqtBaseSearchName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtBaseSearchName, en_Filterable, op_GetListType, False);
+end;//TPrimSaveLoadOptionsForBaseSearchForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimSaveLoadOptionsForBaseSearchForm.MakeControls;
 begin
  inherited;
  with AddUsertype(slqtBaseSearchName,
   str_slqtBaseSearchCaption,
   str_slqtBaseSearchCaption,
-  true,
+  True,
   102,
   -1,
   '',
@@ -145,18 +120,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(slqtBaseSearchName
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimSaveLoadOptionsForBaseSearchForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin)}
-// Инициализация str_slqtBaseSearchCaption
- str_slqtBaseSearchCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimSaveLoadOptionsForBaseSearch
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSaveLoadOptionsForBaseSearchForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimSaveLoadOptionsForBaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

@@ -20,9 +20,9 @@ uses
  , CompareEditions_Controls
  , Base_Operations_Editions_Controls
  , vtProportionalPanel
+ , l3Interfaces
  , vtSizeablePanel
  , vtPanel
- , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -55,11 +55,8 @@ type
    f_PrevPara: Integer;
    f_ForceDrawFocusRectMoment: Cardinal;
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
    f_pnLeft: TvtSizeablePanel;
-    {* Поле для свойства pnLeft }
    f_pnRight: TvtPanel;
-    {* Поле для свойства pnRight }
   protected
    EditionsContainerData: IdsEditionsContainerData;
   private
@@ -142,10 +139,6 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -164,14 +157,16 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimEditionsContainer_utEditionsContainer_UserType
+ //#UC START# *4A6EC0D0020Cimpl_uses*
+ //#UC END# *4A6EC0D0020Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки utEditionsContainerLocalConstants }
- str_utEditionsContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEditionsContainerCaption'; rValue : 'Сравнение редакций документа');
-  {* Заголовок пользовательского типа "Сравнение редакций документа" }
  {* Локализуемые строки CaptionConst }
  str_EditionsContainerCaptionShortPrefix: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'EditionsContainerCaptionShortPrefix'; rValue : 'Сравнение редакций');
   {* 'Сравнение редакций' }
@@ -532,6 +527,14 @@ procedure TPrimEditionsContainerForm.SignalDataSourceChanged(const anOld: IvcmFo
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  EditionsContainerData := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsEditionsContainerData, EditionsContainerData);
+ end;//aNew = nil
 end;//TPrimEditionsContainerForm.SignalDataSourceChanged
 
 procedure TPrimEditionsContainerForm.InitEntities;
@@ -547,6 +550,8 @@ begin
   PublishOp(en_Edition, op_NextChange, Edition_NextChange_Execute, Edition_NextChange_Test, nil);
   PublishOp(en_Edition, op_ReturnToDocument, Edition_ReturnToDocument_Execute, Edition_ReturnToDocument_Test, nil);
   PublishOp(en_Document, op_ViewChangedFragments, Document_ViewChangedFragments_Execute, Document_ViewChangedFragments_Test, nil);
+  ShowInContextMenu(en_Document, op_ViewChangedFragments, False);
+  ShowInToolbar(en_Document, op_ViewChangedFragments, True);
  end;//with Entities.Entities
 end;//TPrimEditionsContainerForm.InitEntities
 
@@ -556,7 +561,7 @@ begin
  with AddUsertype(utEditionsContainerName,
   str_utEditionsContainerCaption,
   str_utEditionsContainerCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -572,20 +577,18 @@ begin
  f_pnLeft := TvtSizeablePanel.Create(Self);
  f_pnLeft.Name := 'pnLeft';
  f_pnLeft.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_pnLeft) do
+ with DefineZone(vcm_ztChild, pnLeft) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_pnRight := TvtPanel.Create(Self);
  f_pnRight.Name := 'pnRight';
  f_pnRight.Parent := BackgroundPanel;
- with DefineZone(vcm_ztMain, f_pnRight) do
+ with DefineZone(vcm_ztMain, pnRight) do
  begin
  end;//with DefineZone(vcm_ztMain
 end;//TPrimEditionsContainerForm.MakeControls
 
 initialization
- str_utEditionsContainerCaption.Init;
- {* Инициализация str_utEditionsContainerCaption }
  str_EditionsContainerCaptionShortPrefix.Init;
  {* Инициализация str_EditionsContainerCaptionShortPrefix }
 {$If NOT Defined(NoScripts)}

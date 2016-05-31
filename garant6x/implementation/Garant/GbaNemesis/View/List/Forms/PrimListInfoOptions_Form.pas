@@ -1,98 +1,84 @@
 unit PrimListInfoOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/PrimListInfoOptions_Form.pas"
-// Начат: 09.09.2010 15:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::PrimListInfoOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfoOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimListInfoOptions" MUID: (4C88CB3E009C)
+// Имя типа: "TPrimListInfoOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimListInfo_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimListInfo_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimListInfoOptionsForm = {form} class(TPrimListInfoForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimListInfoOptionsForm = class(TPrimListInfoForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimListInfoOptionsForm
-
- TvcmEntityFormRef = TPrimListInfoOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , afwInterfaces
+ , afwFacade
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C88CB3E009Cimpl_uses*
+ //#UC END# *4C88CB3E009Cimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimListInfoOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_4C88CB3E009Ctest_var*
 //#UC END# *4951284902BD_4C88CB3E009Ctest_var*
 begin
@@ -101,10 +87,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4951284902BD_4C88CB3E009Ctest_impl*
 end;//TPrimListInfoOptionsForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_4C88CB3E009Cexec_var*
 //#UC END# *4951284902BD_4C88CB3E009Cexec_var*
 begin
@@ -112,10 +99,11 @@ begin
  aParams.CallControl;
 //#UC END# *4951284902BD_4C88CB3E009Cexec_impl*
 end;//TPrimListInfoOptionsForm.Edit_Copy_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C88CB3E009Ctest_var*
 //#UC END# *49521D8E0295_4C88CB3E009Ctest_var*
 begin
@@ -123,10 +111,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *49521D8E0295_4C88CB3E009Ctest_impl*
 end;//TPrimListInfoOptionsForm.File_Print_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C88CB3E009Cexec_var*
 //#UC END# *495220DE0298_4C88CB3E009Cexec_var*
 begin
@@ -135,10 +124,11 @@ begin
   afw.Application.PrintManager.PrintDialog(MakePreview);
 //#UC END# *495220DE0298_4C88CB3E009Cexec_impl*
 end;//TPrimListInfoOptionsForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C88CB3E009Cexec_var*
 //#UC END# *495220F2033A_4C88CB3E009Cexec_var*
 begin
@@ -146,52 +136,40 @@ begin
  TdmStdRes.MakePreview(MakePreview);
 //#UC END# *495220F2033A_4C88CB3E009Cexec_impl*
 end;//TPrimListInfoOptionsForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimListInfoOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_File, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_File, op_Print, nil, File_Print_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, nil, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, true);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, nil, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, true);
-  ShowInToolbar(en_File, op_PrintPreview, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintPreview, True);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Paste, true);
-  ShowInToolbar(en_Edit, op_Paste, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimListInfoOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimListInfoOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListInfoOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimListInfoOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

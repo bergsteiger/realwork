@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_CompInfoLocalConstants }
+ str_ut_CompInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CompInfoCaption'; rValue : 'Информация о комплекте');
+  {* Заголовок пользовательского типа "Информация о комплекте" }
  {* Константы для типа формы ut_CompInfo }
  ut_CompInfoName = 'ut_CompInfo';
   {* Строковый идентификатор пользовательского типа "Информация о комплекте" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_CompInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_CompInfoCaption.Init;
+ {* Инициализация str_ut_CompInfoCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_CompInfo.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_CompInfo }

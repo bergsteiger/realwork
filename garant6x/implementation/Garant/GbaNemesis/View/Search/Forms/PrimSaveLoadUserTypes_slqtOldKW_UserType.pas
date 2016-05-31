@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtOldKWLocalConstants }
+ str_slqtOldKWCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtOldKWCaption'; rValue : 'Поиск: По ситуации');
+  {* Заголовок пользовательского типа "Поиск: По ситуации" }
+ str_slqtOldKWSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtOldKWSettingsCaption'; rValue : 'Поиск: По ситуации (Преемственный)');
+  {* Заголовок пользовательского типа "Поиск: По ситуации" для настройки панелей инструментов }
  {* Константы для типа формы slqtOldKW }
  slqtOldKWName = 'slqtOldKW';
   {* Строковый идентификатор пользовательского типа "Поиск: По ситуации" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_slqtOldKW.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtOldKWCaption.Init;
+ {* Инициализация str_slqtOldKWCaption }
+ str_slqtOldKWSettingsCaption.Init;
+ {* Инициализация str_slqtOldKWSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtOldKW.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtOldKW }

@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки chatAddContactLocalConstants }
+ str_chatAddContactCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'chatAddContactCaption'; rValue : 'Добавить контакт');
+  {* Заголовок пользовательского типа "Добавить контакт" }
  {* Константы для типа формы chatAddContact }
  chatAddContactName = 'chatAddContact';
   {* Строковый идентификатор пользовательского типа "Добавить контакт" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_chatAddContact.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_chatAddContactCaption.Init;
+ {* Инициализация str_chatAddContactCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_chatAddContact.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_chatAddContact }

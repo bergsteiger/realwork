@@ -28,6 +28,9 @@ uses
  , FoldersDomainInterfaces
  , l3TreeInterfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -188,6 +191,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E651B0179impl_uses*
+ //#UC END# *4C7E651B0179impl_uses*
 ;
 
 function TPrimFoldersTreeOptionsForm.IsInSaveLoadState: Boolean;
@@ -1385,29 +1390,77 @@ begin
   PublishFormEntity(en_Folder, nil);
   PublishFormEntity(en_FolderElement, nil);
   PublishFormEntity(en_Consultation, nil);
+  ContextMenuWeight(en_Tree, 30);
+  ContextMenuWeight(en_FolderElement, 20);
+  ContextMenuWeight(en_Folder, 10);
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
+  ShowInContextMenu(en_Tree, op_ExpandAll, True);
+  ShowInToolbar(en_Tree, op_ExpandAll, False);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
   PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
+  ShowInContextMenu(en_SavedQuery, op_OpenQuery, True);
+  ShowInToolbar(en_SavedQuery, op_OpenQuery, False);
   PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
+  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, True);
+  ShowInToolbar(en_SavedQuery, op_ExecuteQuery, False);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   PublishOp(en_Folders, op_Filtrate, Folders_Filtrate_Execute, Folders_Filtrate_Test, nil);
+  ShowInContextMenu(en_Folders, op_Filtrate, False);
+  ShowInToolbar(en_Folders, op_Filtrate, True);
   PublishOp(en_Folder, op_New, Folder_New_Execute, Folder_New_Test, nil);
+  ShowInContextMenu(en_Folder, op_New, True);
+  ShowInToolbar(en_Folder, op_New, True);
+  ContextMenuWeight(en_Folder, op_New, 10);
   PublishOp(en_Folder, op_AddToControl, Folder_AddToControl_Execute, Folder_AddToControl_Test, nil);
+  ShowInContextMenu(en_Folder, op_AddToControl, True);
+  ShowInToolbar(en_Folder, op_AddToControl, False);
   PublishOp(en_Folder, op_DelFromControl, Folder_DelFromControl_Execute, Folder_DelFromControl_Test, nil);
+  ShowInContextMenu(en_Folder, op_DelFromControl, True);
+  ShowInToolbar(en_Folder, op_DelFromControl, False);
   PublishOp(en_Folder, op_SetShare, Folder_SetShare_Execute, Folder_SetShare_Test, nil);
+  ShowInContextMenu(en_Folder, op_SetShare, True);
+  ShowInToolbar(en_Folder, op_SetShare, False);
   PublishOp(en_Folder, op_ExportToXML, Folder_ExportToXML_Execute, Folder_ExportToXML_Test, nil);
+  ShowInContextMenu(en_Folder, op_ExportToXML, True);
+  ShowInToolbar(en_Folder, op_ExportToXML, False);
   PublishOp(en_Folder, op_ImportFromXML, Folder_ImportFromXML_Execute, Folder_ImportFromXML_Test, nil);
+  ShowInContextMenu(en_Folder, op_ImportFromXML, True);
+  ShowInToolbar(en_Folder, op_ImportFromXML, False);
+  ContextMenuWeight(en_Folder, op_ImportFromXML, 20);
   PublishOp(en_FolderElement, op_Edit, FolderElement_Edit_Execute, FolderElement_Edit_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_Edit, False);
+  ShowInToolbar(en_FolderElement, op_Edit, True);
   PublishOp(en_FolderElement, op_EditExt, FolderElement_EditExt_Execute, FolderElement_EditExt_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_EditExt, True);
+  ShowInToolbar(en_FolderElement, op_EditExt, False);
   PublishOp(en_FolderElement, op_Open, FolderElement_Open_Execute, FolderElement_Open_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_Open, True);
+  ShowInToolbar(en_FolderElement, op_Open, False);
   PublishOp(en_FolderElement, op_OpenNewWindow, FolderElement_OpenNewWindow_Execute, FolderElement_OpenNewWindow_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_OpenNewWindow, True);
+  ShowInToolbar(en_FolderElement, op_OpenNewWindow, False);
   PublishOp(en_FolderElement, op_ControlStatus, FolderElement_ControlStatus_Execute, FolderElement_ControlStatus_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_ControlStatus, True);
+  ShowInToolbar(en_FolderElement, op_ControlStatus, False);
   PublishOp(en_FolderElement, op_ExportForIntegration, FolderElement_ExportForIntegration_Execute, FolderElement_ExportForIntegration_Test, nil);
+  ShowInContextMenu(en_FolderElement, op_ExportForIntegration, True);
+  ShowInToolbar(en_FolderElement, op_ExportForIntegration, False);
   PublishOp(en_Consultation, op_Open, Consultation_Open_Execute, Consultation_Open_Test, nil);
+  ShowInContextMenu(en_Consultation, op_Open, True);
+  ShowInToolbar(en_Consultation, op_Open, False);
   PublishOp(en_Consultation, op_GiveMark, Consultation_GiveMark_Execute, Consultation_GiveMark_Test, nil);
+  ShowInContextMenu(en_Consultation, op_GiveMark, True);
+  ShowInToolbar(en_Consultation, op_GiveMark, False);
   PublishOp(en_Consultation, op_ShowConsultationInfo, Consultation_ShowConsultationInfo_Execute, Consultation_ShowConsultationInfo_Test, nil);
+  ShowInContextMenu(en_Consultation, op_ShowConsultationInfo, True);
+  ShowInToolbar(en_Consultation, op_ShowConsultationInfo, False);
   PublishOp(en_Consultation, op_ImportConsultation, Consultation_ImportConsultation_Execute, Consultation_ImportConsultation_Test, nil);
+  ShowInContextMenu(en_Consultation, op_ImportConsultation, True);
+  ShowInToolbar(en_Consultation, op_ImportConsultation, False);
   PublishOp(en_SavedQuery, op_CreateFilter, SavedQuery_CreateFilter_Execute, SavedQuery_CreateFilter_Test, nil);
+  ShowInContextMenu(en_SavedQuery, op_CreateFilter, True);
  end;//with Entities.Entities
 end;//TPrimFoldersTreeOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

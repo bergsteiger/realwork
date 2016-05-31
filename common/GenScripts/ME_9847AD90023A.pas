@@ -19,6 +19,9 @@ uses
 ;
 
 const
+ {* Локализуемые строки ShowChangesInfoName }
+ str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
+  {* Показывать историю изменений в документе }
  pi_Document_ShowChangesInfo = 'Работа с документом/Показывать историю изменений в документе';
   {* Идентификатор настройки "Показывать историю изменений в документе" }
  dv_Document_ShowChangesInfo = False;
@@ -33,9 +36,6 @@ const
  @str_ShowChangesInfo_Collapsed
  , @str_ShowChangesInfo_Expanded
  );
- {* Локализуемые строки ShowChangesInfoName }
- str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
-  {* Показывать историю изменений в документе }
 
 type
  ShowChangesInfoValuesMapHelper = {final} class
@@ -190,12 +190,12 @@ begin
 end;//TShowChangesInfoValuesMapImpl.Exists
 
 initialization
+ str_ShowChangesInfo.Init;
+ {* Инициализация str_ShowChangesInfo }
  str_ShowChangesInfo_Collapsed.Init;
  {* Инициализация str_ShowChangesInfo_Collapsed }
  str_ShowChangesInfo_Expanded.Init;
  {* Инициализация str_ShowChangesInfo_Expanded }
- str_ShowChangesInfo.Init;
- {* Инициализация str_ShowChangesInfo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

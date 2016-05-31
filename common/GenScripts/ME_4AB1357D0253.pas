@@ -15,10 +15,10 @@ uses
  l3IntfUses
  , PrimAttributesOptions_Form
  , Common_FormDefinitions_Controls
+ , nscTreeViewWithAdapterDragDrop
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
- , nscTreeViewWithAdapterDragDrop
 ;
 
 type

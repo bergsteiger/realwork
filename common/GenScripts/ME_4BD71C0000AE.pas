@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки flSituationLocalConstants }
+ str_flSituationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationCaption'; rValue : 'Ситуации первого уровня (вкладка)');
+  {* Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" }
+ str_flSituationSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationSettingsCaption'; rValue : 'Поиск: Ситуации первого уровня (вкладка)');
+  {* Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" для настройки панелей инструментов }
  {* Константы для типа формы flSituation }
  flSituationName = 'flSituation';
   {* Строковый идентификатор пользовательского типа "Ситуации первого уровня (вкладка)" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_flSituation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_flSituationCaption.Init;
+ {* Инициализация str_flSituationCaption }
+ str_flSituationSettingsCaption.Init;
+ {* Инициализация str_flSituationSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_flSituation.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_flSituation }

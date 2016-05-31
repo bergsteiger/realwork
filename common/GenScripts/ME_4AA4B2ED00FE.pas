@@ -26,6 +26,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimFolders_utFolders_UserType
  , Common_FormDefinitions_Controls
+ , FoldersInterfaces
  , PrimFoldersTree_utFoldersTree_UserType
  , PrimFoldersElementInfo_utFoldersProperty_UserType
 ;

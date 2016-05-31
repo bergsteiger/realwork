@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , nsString
- , k2BaseStruct
  , l3Variant
+ , k2BaseStruct
  , k2Base
  , k2TagList
  , k2Prim

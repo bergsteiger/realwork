@@ -18,6 +18,7 @@ uses
  , Windows
  , l3Interfaces
  , vtGroupBox
+ , vtPanel
  , vtLabel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -31,7 +32,6 @@ uses
  , vtFocusLabel
  , vtCheckBox
  , ElPopBtn
- , vtPanel
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -56,43 +56,34 @@ type
   private
    f_NeedRelogin: Boolean;
    f_RegisteredGroupBox: TvtGroupBox;
-    {* Поле для свойства RegisteredGroupBox }
-   f_lblLogin: TvtLabel;
-    {* Поле для свойства lblLogin }
-   f_lblPassword: TvtLabel;
-    {* Поле для свойства lblPassword }
-   f_EnterPaintBox: TPaintBox;
-    {* Поле для свойства EnterPaintBox }
-   f_edUserName: TnscComboBoxWithReadOnly;
-    {* Поле для свойства edUserName }
-   f_edPassword: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword }
-   f_lblForgetPassword: TvtFocusLabel;
-    {* Поле для свойства lblForgetPassword }
-   f_cbAutoLogin: TvtCheckBox;
-    {* Поле для свойства cbAutoLogin }
-   f_btnOk: TElPopupButton;
-    {* Поле для свойства btnOk }
+    {* Зарегистрированный пользователь }
    f_NewUserGroupBox: TvtGroupBox;
-    {* Поле для свойства NewUserGroupBox }
-   f_NewUserLabel: TvtLabel;
-    {* Поле для свойства NewUserLabel }
-   f_NewUserPaintBox: TPaintBox;
-    {* Поле для свойства NewUserPaintBox }
-   f_lblNewUser: TvtFocusLabel;
-    {* Поле для свойства lblNewUser }
+    {* Новый пользователь }
    f_HelpPanel: TvtPanel;
-    {* Поле для свойства HelpPanel }
-   f_HelpPaintBox: TPaintBox;
-    {* Поле для свойства HelpPaintBox }
-   f_HelpLabel: TvtFocusLabel;
-    {* Поле для свойства HelpLabel }
    f_ForgetPasswordChosen: Boolean;
-    {* Поле для свойства ForgetPasswordChosen }
    f_NewUserChosen: Boolean;
-    {* Поле для свойства NewUserChosen }
    f_LoginAction: TnsLoginAction;
-    {* Поле для свойства LoginAction }
+   f_lblLogin: TvtLabel;
+    {* Регистрационное имя: }
+   f_lblPassword: TvtLabel;
+    {* Пароль: }
+   f_EnterPaintBox: TPaintBox;
+   f_edUserName: TnscComboBoxWithReadOnly;
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_lblForgetPassword: TvtFocusLabel;
+    {* Забыли пароль? }
+   f_cbAutoLogin: TvtCheckBox;
+    {* Запомнить пароль }
+   f_btnOk: TElPopupButton;
+    {* Войти в систему }
+   f_NewUserLabel: TvtLabel;
+    {* Если Вы впервые входите в систему ГАРАНТ и еще не создали свою учетную запись, зарегистрируйтесь для начала работы. }
+   f_NewUserPaintBox: TPaintBox;
+   f_lblNewUser: TvtFocusLabel;
+    {* Зарегистрировать нового пользователя }
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
   private
    procedure FormShow(Sender: TObject);
    procedure FormHide(Sender: TObject);
@@ -223,6 +214,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93D80F014Fimpl_uses*
+ //#UC END# *4A93D80F014Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

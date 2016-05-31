@@ -46,49 +46,38 @@ type
    f_PasswordChanged: Boolean;
    f_LockCheckBox: Boolean;
    f_pnMainData: TvtPanel;
-    {* Поле для свойства pnMainData }
    f_f_TopPanel: TvtPanel;
-    {* Поле для свойства f_TopPanel }
    f_UserNameLabel: TvtLabel;
-    {* Поле для свойства UserNameLabel }
+    {* *ФИО пользователя: }
    f_PasswordLabel: TvtLabel;
-    {* Поле для свойства PasswordLabel }
+    {* Пароль: }
    f_LoginLabel: TvtLabel;
-    {* Поле для свойства LoginLabel }
+    {* *Регистрационное имя: }
    f_EMailLabel: TvtLabel;
-    {* Поле для свойства EMailLabel }
+    {* Электронная почта: }
    f_ConfirmPasswordLabel: TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel }
+    {* Подтверждение пароля: }
    f_GroupLabel: TvtLabel;
-    {* Поле для свойства GroupLabel }
+    {* Группа: }
    f_edPassword: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword }
    f_edUserName: TnscEdit;
-    {* Поле для свойства edUserName }
    f_edLogin: TnscEdit;
-    {* Поле для свойства edLogin }
    f_edEmail: TnscEdit;
-    {* Поле для свойства edEmail }
    f_edConfirm: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm }
    f_edGroup: TvtComboBoxQS;
-    {* Поле для свойства edGroup }
    f_f_MiddlePanel: TvtPanel;
-    {* Поле для свойства f_MiddlePanel }
    f_edPrivilegedUser: TvtCheckBox;
-    {* Поле для свойства edPrivilegedUser }
+    {* Привилегированный пользователь }
    f_edBuyConsulting: TvtCheckBox;
-    {* Поле для свойства edBuyConsulting }
+    {* Разрешено использование услуги Правового консалтинга }
    f_f_DontDeleteIdleUserPanel: TvtPanel;
-    {* Поле для свойства f_DontDeleteIdleUserPanel }
    f_edDontDeleteIdleUser: TvtCheckBox;
-    {* Поле для свойства edDontDeleteIdleUser }
+    {* Не удалять при бездействии }
    f_f_BottomPanel: TvtPanel;
-    {* Поле для свойства f_BottomPanel }
    f_InfoLabel: TvtLabel;
-    {* Поле для свойства InfoLabel }
+    {* * - поля, обязательные для заполнения }
    f_edHasSharedFilters: TvtCheckBox;
-    {* Поле для свойства edHasSharedFilters }
+    {* Фильтры этого пользователя являются общими }
   protected
    dsUserProperty: IdsUserProperty;
    f_IsCorrectInfo: Boolean;
@@ -218,21 +207,22 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimUserProperty_admUseProperties_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497F02D20216impl_uses*
+ , Classes
+ , l3ControlsTypes
+ //#UC END# *497F02D20216impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки admUsePropertiesLocalConstants }
- str_admUsePropertiesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUsePropertiesCaption'; rValue : 'Свойства пользователя');
-  {* Заголовок пользовательского типа "Свойства пользователя" }
  {* Локализуемые строки Hints }
  str_PrimUserProperty_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edPasswordHint'; rValue : 'Новый Пароль: должен совпадать с подтверждением пароля');
   {* 'Новый Пароль: должен совпадать с подтверждением пароля' }
@@ -914,6 +904,14 @@ procedure TPrimUserPropertyForm.SignalDataSourceChanged(const anOld: IvcmFormDat
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsUserProperty := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsUserProperty, dsUserProperty);
+ end;//aNew = nil
 end;//TPrimUserPropertyForm.SignalDataSourceChanged
 
 procedure TPrimUserPropertyForm.MakeControls;
@@ -922,7 +920,7 @@ begin
  with AddUsertype(admUsePropertiesName,
   str_admUsePropertiesCaption,
   str_admUsePropertiesCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -1012,8 +1010,6 @@ begin
 end;//TPrimUserPropertyForm.MakeControls
 
 initialization
- str_admUsePropertiesCaption.Init;
- {* Инициализация str_admUsePropertiesCaption }
  str_PrimUserProperty_edPasswordHint.Init;
  {* Инициализация str_PrimUserProperty_edPasswordHint }
  str_PrimUserProperty_edUserNameHint.Init;

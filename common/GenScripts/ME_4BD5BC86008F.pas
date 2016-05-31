@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtInpharmSearchLocalConstants }
+ str_slqtInpharmSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtInpharmSearchCaption'; rValue : 'Поиск лекарственных средств');
+  {* Заголовок пользовательского типа "Поиск лекарственных средств" }
  {* Константы для типа формы slqtInpharmSearch }
  slqtInpharmSearchName = 'slqtInpharmSearch';
   {* Строковый идентификатор пользовательского типа "Поиск лекарственных средств" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtInpharmSearchCaption.Init;
+ {* Инициализация str_slqtInpharmSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtInpharmSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtInpharmSearch }

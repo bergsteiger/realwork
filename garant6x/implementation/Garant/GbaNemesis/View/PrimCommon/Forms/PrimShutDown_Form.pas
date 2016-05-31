@@ -1,212 +1,163 @@
 unit PrimShutDown_Form;
+ {* Предупреждение }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimCommon/Forms/PrimShutDown_Form.pas"
-// Начат: 21.08.2009 21:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::F1 Application Template::View::PrimCommon::PrimShutDown
-//
-// Предупреждение
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimShutDown" MUID: (4A8EC8AC02EE)
+// Имя типа: "TPrimShutDownForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  F1_Application_Template_InternalOperations_Controls,
-  vtLabel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtButton,
-  PrimShutDown_sftNone_UserType,
-  Windows,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1_Application_Template_InternalOperations_Controls
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtPanel
+ , vtLabel
+ , vtButton
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimShutDownForm = {form} class(TvcmEntityForm, Il3WndProcRetListener, Il3Listener)
+ TPrimShutDownForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3WndProcRetListener, Il3Listener)
   {* Предупреждение }
- private
- // private fields
-   f_ShutdownTimer : TTimer;
-    {* Поле для свойства ShutdownTimer}
-   f_vtPanel1 : TvtPanel;
-    {* Поле для свойства vtPanel1}
-   f_LeftPanel : TvtPanel;
-    {* Поле для свойства LeftPanel}
-   f_Image : TImage;
-    {* Поле для свойства Image}
-   f_CenterPanel : TvtPanel;
-    {* Поле для свойства CenterPanel}
-   f_TopSpacerPanel : TvtPanel;
-    {* Поле для свойства TopSpacerPanel}
-   f_WarningText : TvtLabel;
-    {* Поле для свойства WarningText}
-   f_RightSpacerPanel : TvtPanel;
-    {* Поле для свойства RightSpacerPanel}
-   f_pnlBottom : TvtPanel;
-    {* Поле для свойства pnlBottom}
-   f_CloseButton : TvtButton;
-    {* Поле для свойства CloseButton}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_ShutdownTimer: TTimer;
+   f_vtPanel1: TvtPanel;
+   f_pnlBottom: TvtPanel;
+   f_LeftPanel: TvtPanel;
+   f_Image: TImage;
+   f_CenterPanel: TvtPanel;
+   f_TopSpacerPanel: TvtPanel;
+   f_WarningText: TvtLabel;
+   f_RightSpacerPanel: TvtPanel;
+   f_CloseButton: TvtButton;
+    {* Выход }
+  protected
+   f_InShutdown: Boolean;
+   f_CloseInterval: Integer;
+   f_CloseCaption: AnsiString;
+  private
    procedure ShutdownTimerTimer(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure CloseButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure VcmEntityFormCloseQuery(Sender: TObject;
-     var CanClose: Boolean);
+   procedure vcmEntityFormCloseQuery(Sender: TObject;
+    var CanClose: Boolean);
    procedure UpdateCloseButton;
-     {* Сигнатура метода UpdateCloseButton }
    procedure ShutdownAll;
-     {* Сигнатура метода ShutdownAll }
    procedure UpdateSize;
-     {* Сигнатура метода UpdateSize }
- protected
- // realized methods
+  protected
+   procedure WndProcRetListenerNotify(Msg: PCWPRetStruct;
+    var theResult: Tl3HookProcResult);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure DoShow; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure SetupFormLayout; override;
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCL)}
+   procedure DoClose(var Action: TCloseAction); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure System_InitShutdown_Execute(aShotdown: Boolean;
     aCloseInterval: Integer);
-     {* Начать процесс завершения работы }
+    {* Начать процесс завершения работы }
    procedure System_InitShutdown(const aParams: IvcmExecuteParams);
-     {* Начать процесс завершения работы }
-   procedure WndProcRetListenerNotify(Msg: PCWPRetStruct;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCL)}
-   procedure DoShow; override;
-   {$IfEnd} //not NoVCL
-    {$If not defined(NoVCM)}
-   procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCL)}
-   procedure DoClose(var Action: TCloseAction); override;
-    {$IfEnd} //not NoVCL
- protected
- // protected fields
-   f_InShutdown : Boolean;
-   f_CloseInterval : Integer;
-   f_CloseCaption : AnsiString;
- public
- // public properties
+    {* Начать процесс завершения работы }
+  public
    property ShutdownTimer: TTimer
-     read f_ShutdownTimer;
+    read f_ShutdownTimer;
    property vtPanel1: TvtPanel
-     read f_vtPanel1;
-   property LeftPanel: TvtPanel
-     read f_LeftPanel;
-   property Image: TImage
-     read f_Image;
-   property CenterPanel: TvtPanel
-     read f_CenterPanel;
-   property TopSpacerPanel: TvtPanel
-     read f_TopSpacerPanel;
-   property WarningText: TvtLabel
-     read f_WarningText;
-   property RightSpacerPanel: TvtPanel
-     read f_RightSpacerPanel;
+    read f_vtPanel1;
    property pnlBottom: TvtPanel
-     read f_pnlBottom;
+    read f_pnlBottom;
+   property LeftPanel: TvtPanel
+    read f_LeftPanel;
+   property Image: TImage
+    read f_Image;
+   property CenterPanel: TvtPanel
+    read f_CenterPanel;
+   property TopSpacerPanel: TvtPanel
+    read f_TopSpacerPanel;
+   property WarningText: TvtLabel
+    read f_WarningText;
+   property RightSpacerPanel: TvtPanel
+    read f_RightSpacerPanel;
    property CloseButton: TvtButton
-     read f_CloseButton;
-     {* Выход }
+    read f_CloseButton;
+    {* Выход }
  end;//TPrimShutDownForm
-
- TvcmEntityFormRef = TPrimShutDownForm;
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  DataAdapter,
-  l3InternalInterfaces,
-  l3String,
-  l3MinMax,
-  l3ScreenIC
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  f1NotificationManager,
-  Messages,
-  l3ListenersManager,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , DataAdapter
+ , l3InternalInterfaces
+ , l3String
+ , l3MinMax
+ , l3ScreenIC
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , f1NotificationManager
+ , Messages
+ , l3ListenersManager
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimShutDown_sftNone_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A8EC8AC02EEimpl_uses*
+ , SysUtils
+ //#UC END# *4A8EC8AC02EEimpl_uses*
+;
 
-var
-   { Локализуемые строки sftNoneLocalConstants }
-  str_sftNoneCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'sftNoneCaption'; rValue : 'Предупреждение о закрытии приложения');
-   { Заголовок пользовательского типа "Предупреждение о закрытии приложения" }
-
-// start class TPrimShutDownForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimShutDownForm.ShutdownTimerTimer(Sender: TObject);
 //#UC START# *5267AF7901AC_4A8EC8AC02EE_var*
 //#UC END# *5267AF7901AC_4A8EC8AC02EE_var*
@@ -228,15 +179,15 @@ begin
 //#UC END# *5267AF870367_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.CloseButtonClick
 
-procedure TPrimShutDownForm.VcmEntityFormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+procedure TPrimShutDownForm.vcmEntityFormCloseQuery(Sender: TObject;
+ var CanClose: Boolean);
 //#UC START# *5267AF9600C5_4A8EC8AC02EE_var*
 //#UC END# *5267AF9600C5_4A8EC8AC02EE_var*
 begin
 //#UC START# *5267AF9600C5_4A8EC8AC02EE_impl*
  CanClose := not f_InShutdown;
 //#UC END# *5267AF9600C5_4A8EC8AC02EE_impl*
-end;//TPrimShutDownForm.VcmEntityFormCloseQuery
+end;//TPrimShutDownForm.vcmEntityFormCloseQuery
 
 procedure TPrimShutDownForm.UpdateCloseButton;
 //#UC START# *5267AFA601F6_4A8EC8AC02EE_var*
@@ -305,7 +256,8 @@ begin
 end;//TPrimShutDownForm.UpdateSize
 
 procedure TPrimShutDownForm.System_InitShutdown_Execute(aShotdown: Boolean;
-  aCloseInterval: Integer);
+ aCloseInterval: Integer);
+ {* Начать процесс завершения работы }
 //#UC START# *4A8EC9E902CD_4A8EC8AC02EEexec_var*
 //#UC END# *4A8EC9E902CD_4A8EC8AC02EEexec_var*
 begin
@@ -323,13 +275,14 @@ begin
 end;//TPrimShutDownForm.System_InitShutdown_Execute
 
 procedure TPrimShutDownForm.System_InitShutdown(const aParams: IvcmExecuteParams);
+ {* Начать процесс завершения работы }
 begin
  with (aParams.Data As ISystem_InitShutdown_Params) do
-  System_InitShutdown_Execute(Shotdown, CloseInterval);
-end;
+  Self.System_InitShutdown_Execute(Shotdown, CloseInterval);
+end;//TPrimShutDownForm.System_InitShutdown
 
 procedure TPrimShutDownForm.WndProcRetListenerNotify(Msg: PCWPRetStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF9200A0_4A8EC8AC02EE_var*
 //#UC END# *4F79CF9200A0_4A8EC8AC02EE_var*
 begin
@@ -341,6 +294,7 @@ begin
 end;//TPrimShutDownForm.WndProcRetListenerNotify
 
 procedure TPrimShutDownForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A8EC8AC02EE_var*
 //#UC END# *479731C50290_4A8EC8AC02EE_var*
 begin
@@ -364,8 +318,8 @@ begin
 //#UC END# *47A042E100E2_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimShutDownForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A8EC8AC02EE_var*
 //#UC END# *4A8E8F2E0195_4A8EC8AC02EE_var*
 begin
@@ -441,9 +395,8 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimShutDownForm.DoShow;
 //#UC START# *4B321D1301DD_4A8EC8AC02EE_var*
 //#UC END# *4B321D1301DD_4A8EC8AC02EE_var*
@@ -454,10 +407,10 @@ begin
  Tl3ListenersManager.Add(Self);
 //#UC END# *4B321D1301DD_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.DoShow
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
 procedure TPrimShutDownForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4A8EC8AC02EE_var*
 //#UC END# *529332B40230_4A8EC8AC02EE_var*
 begin
@@ -471,9 +424,8 @@ begin
  OnCloseQuery := vcmEntityFormCloseQuery;
 //#UC END# *529332B40230_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.SetupFormLayout
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimShutDownForm.DoClose(var Action: TCloseAction);
 //#UC START# *5576E05C0204_4A8EC8AC02EE_var*
 //#UC END# *5576E05C0204_4A8EC8AC02EE_var*
@@ -483,9 +435,11 @@ begin
  inherited;
 //#UC END# *5576E05C0204_4A8EC8AC02EE_impl*
 end;//TPrimShutDownForm.DoClose
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimShutDownForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -493,17 +447,15 @@ begin
   PublishFormEntity(en_System, nil);
   PublishOpWithResult(en_System, op_InitShutdown, System_InitShutdown, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimShutDownForm.InitEntities
 
 procedure TPrimShutDownForm.MakeControls;
 begin
  inherited;
- f_ShutdownTimer := TTimer.Create(Self);
- f_ShutdownTimer.Name := 'ShutdownTimer';
  with AddUsertype(sftNoneName,
   str_sftNoneCaption,
   str_sftNoneCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -513,6 +465,8 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(sftNoneName
+ f_ShutdownTimer := TTimer.Create(Self);
+ f_ShutdownTimer.Name := 'ShutdownTimer';
  f_vtPanel1 := TvtPanel.Create(Self);
  f_vtPanel1.Name := 'vtPanel1';
  f_vtPanel1.Parent := Self;
@@ -541,14 +495,13 @@ begin
  f_CloseButton.Name := 'CloseButton';
  f_CloseButton.Parent := pnlBottom;
  f_CloseButton.Caption := 'Выход';
-end;
+end;//TPrimShutDownForm.MakeControls
 
 initialization
-// Инициализация str_sftNoneCaption
- str_sftNoneCaption.Init;
-{$If not defined(NoScripts)}
-// Регистрация PrimShutDown
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimShutDownForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimShutDown }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,26 +1,19 @@
 {$IfNDef SearcheableText_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/SearcheableText.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Document::SearcheableText
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "SearcheableText" MUID: (496B68FC000B)
+// Имя типа: "_SearcheableText_"
 
 {$Define SearcheableText_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _PrimText_Parent_ = _SearcheableText_Parent_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
  _BaseSearchPresentation_Parent_ = _PrimText_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
- _SearcheableText_ = {abstract form} class(_BaseSearchPresentation_, InsBaseSearchPresentation)
- protected
- // realized methods
+ _SearcheableText_ = {abstract} class(_BaseSearchPresentation_, InsBaseSearchPresentation)
+  protected
    function WindowRequired: Boolean;
    function WindowCloseable: Boolean;
    function CanCloseWindow: Boolean;
@@ -31,27 +24,26 @@
    function Get_ContextSearcher: InsContextSearcher;
    function Get_NeedSaveActiveClassBeforeSearch: Boolean;
  end;//_SearcheableText_
-{$Else}
 
- _PrimText_Parent_ = _SearcheableText_Parent_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
- _BaseSearchPresentation_Parent_ = _PrimText_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
- _SearcheableText_ = _BaseSearchPresentation_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_PrimText_Parent_ = _SearcheableText_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
+_BaseSearchPresentation_Parent_ = _PrimText_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
+_SearcheableText_ = _BaseSearchPresentation_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else SearcheableText_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef SearcheableText_imp_impl}
 
+{$Define SearcheableText_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
-
-// start class _SearcheableText_
 
 function _SearcheableText_.WindowRequired: Boolean;
 //#UC START# *496B4C41023E_496B68FC000B_var*
@@ -147,7 +139,9 @@ begin
  // - тут вообще говоря зависит от того - локальный поиск или глобальный
 //#UC END# *4F1D607E0027_496B68FC000Bget_impl*
 end;//_SearcheableText_.Get_NeedSaveActiveClassBeforeSearch
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf SearcheableText_imp_impl}
 
 {$EndIf SearcheableText_imp}
+

@@ -37,6 +37,9 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -45,15 +48,10 @@ type
  TPrimCommonDictionOptionsForm = class(TPrimCommonDictionForm, IbsCommonDictionListener)
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
-   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства WordsTree }
-   f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_NeedShowCurrentDiction: Boolean;
-    {* Поле для свойства NeedShowCurrentDiction }
    f_ContextFilterState: InscContextFilterState;
-    {* Поле для свойства ContextFilterState }
+   f_WordsTree: TnscTreeViewWithAdapterDragDrop;
+   f_ContextFilter: TnscContextFilter;
   private
    procedure ContextFilterChange(Sender: TObject);
    procedure ContextFilterWrongContext(Sender: TObject);
@@ -168,15 +166,12 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87A1DF00B4impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4C87A1DF00B4impl_uses*
 ;
-
-type
- // ExcludeExpandAllCollapseAll
 
 procedure TPrimCommonDictionOptionsForm.pm_SetNeedShowCurrentDiction(aValue: Boolean);
 //#UC START# *5005661D0242_4C87A1DF00B4set_var*
@@ -607,10 +602,15 @@ begin
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Tree, nil);
+  MakeEntitySupportedByControl(en_Tree, WordsTree);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
   PublishOp(en_Edit, op_Delete, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
  end;//with Entities.Entities
+ AddUserTypeExclude(utTipsName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(utTipsName, en_Tree, op_CollapseAll, False);
 end;//TPrimCommonDictionOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

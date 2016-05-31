@@ -1,309 +1,307 @@
 unit PrimUserProperty_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimUserProperty_Form.pas"
-// Начат: 27.01.2009 15:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimUserProperty
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimUserProperty" MUID: (497F02D20216)
+// Имя типа: "TPrimUserPropertyForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes,
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  vtComboBoxQS
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox,
-  PrimUserProperty_admUseProperties_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AdminInterfaces
+ , vtPanel
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtComboBoxQS
+ , vtCheckBox
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimUserPropertyForm = {form} class(TvcmEntityForm, IbsUserPropertyListener)
- private
- // private fields
-   f_PasswordChanged : Boolean;
-   f_LockCheckBox : Boolean;
-   f_pnMainData : TvtPanel;
-    {* Поле для свойства pnMainData}
-   f_f_TopPanel : TvtPanel;
-    {* Поле для свойства f_TopPanel}
-   f_UserNameLabel : TvtLabel;
-    {* Поле для свойства UserNameLabel}
-   f_PasswordLabel : TvtLabel;
-    {* Поле для свойства PasswordLabel}
-   f_LoginLabel : TvtLabel;
-    {* Поле для свойства LoginLabel}
-   f_EMailLabel : TvtLabel;
-    {* Поле для свойства EMailLabel}
-   f_ConfirmPasswordLabel : TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel}
-   f_GroupLabel : TvtLabel;
-    {* Поле для свойства GroupLabel}
-   f_edPassword : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword}
-   f_edUserName : TnscEdit;
-    {* Поле для свойства edUserName}
-   f_edLogin : TnscEdit;
-    {* Поле для свойства edLogin}
-   f_edEmail : TnscEdit;
-    {* Поле для свойства edEmail}
-   f_edConfirm : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm}
-   f_edGroup : TvtComboBoxQS;
-    {* Поле для свойства edGroup}
-   f_f_MiddlePanel : TvtPanel;
-    {* Поле для свойства f_MiddlePanel}
-   f_edPrivilegedUser : TvtCheckBox;
-    {* Поле для свойства edPrivilegedUser}
-   f_edBuyConsulting : TvtCheckBox;
-    {* Поле для свойства edBuyConsulting}
-   f_f_DontDeleteIdleUserPanel : TvtPanel;
-    {* Поле для свойства f_DontDeleteIdleUserPanel}
-   f_edDontDeleteIdleUser : TvtCheckBox;
-    {* Поле для свойства edDontDeleteIdleUser}
-   f_f_BottomPanel : TvtPanel;
-    {* Поле для свойства f_BottomPanel}
-   f_InfoLabel : TvtLabel;
-    {* Поле для свойства InfoLabel}
-   f_edHasSharedFilters : TvtCheckBox;
-    {* Поле для свойства edHasSharedFilters}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimUserPropertyForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IbsUserPropertyListener)
+  private
+   f_PasswordChanged: Boolean;
+   f_LockCheckBox: Boolean;
+   f_pnMainData: TvtPanel;
+   f_f_TopPanel: TvtPanel;
+   f_UserNameLabel: TvtLabel;
+    {* *ФИО пользователя: }
+   f_PasswordLabel: TvtLabel;
+    {* Пароль: }
+   f_LoginLabel: TvtLabel;
+    {* *Регистрационное имя: }
+   f_EMailLabel: TvtLabel;
+    {* Электронная почта: }
+   f_ConfirmPasswordLabel: TvtLabel;
+    {* Подтверждение пароля: }
+   f_GroupLabel: TvtLabel;
+    {* Группа: }
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_edUserName: TnscEdit;
+   f_edLogin: TnscEdit;
+   f_edEmail: TnscEdit;
+   f_edConfirm: TnscComboBoxWithPwdChar;
+   f_edGroup: TvtComboBoxQS;
+   f_f_MiddlePanel: TvtPanel;
+   f_edPrivilegedUser: TvtCheckBox;
+    {* Привилегированный пользователь }
+   f_edBuyConsulting: TvtCheckBox;
+    {* Разрешено использование услуги Правового консалтинга }
+   f_f_DontDeleteIdleUserPanel: TvtPanel;
+   f_edDontDeleteIdleUser: TvtCheckBox;
+    {* Не удалять при бездействии }
+   f_f_BottomPanel: TvtPanel;
+   f_InfoLabel: TvtLabel;
+    {* * - поля, обязательные для заполнения }
+   f_edHasSharedFilters: TvtCheckBox;
+    {* Фильтры этого пользователя являются общими }
+  protected
+   dsUserProperty: IdsUserProperty;
+   f_IsCorrectInfo: Boolean;
+  private
    function CheckUnsaved(const aUserProperty: IdsUserProperty): Boolean;
-     {* Возвращает признак отсутсвия несохраненных изменений (при необходимости выдавая запрос пользователю) }
-   procedure EdLoginChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdPasswordChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdConfirmChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdUserNameChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdEmailChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdBuyConsultingClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdPrivilegedUserClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdGroupChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdHasSharedFiltersClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdDontDeleteIdleUserClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+    {* Возвращает признак отсутсвия несохраненных изменений (при необходимости выдавая запрос пользователю) }
+   procedure edLoginChange(Sender: TObject);
+   procedure edPasswordChange(Sender: TObject);
+   procedure edConfirmChange(Sender: TObject);
+   procedure edUserNameChange(Sender: TObject);
+   procedure edEmailChange(Sender: TObject);
+   procedure edBuyConsultingClick(Sender: TObject);
+   procedure edPrivilegedUserClick(Sender: TObject);
+   procedure edGroupChange(Sender: TObject);
+   procedure edHasSharedFiltersClick(Sender: TObject);
+   procedure edDontDeleteIdleUserClick(Sender: TObject);
    procedure DoCheckUnsavedProperties;
-     {* Сигнатура метода DoCheckUnsavedProperties }
    function ShowDontDeleteIdleUsers: Boolean;
    procedure InitUserFields;
-     {* Сигнатура метода InitUserFields }
    procedure CheckFields;
-     {* Сигнатура метода CheckFields }
- protected
- // realized methods
-   procedure CheckUnsavedProperties;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsUserProperty : IdsUserProperty;
-   f_IsCorrectInfo : Boolean;
- protected
- // protected methods
+  protected
    procedure SaveChangedProfile(const aDataSource: IdsUserProperty);
    procedure RestoreFields;
-     {* Сигнатура метода RestoreFields }
- public
- // public properties
+   procedure CheckUnsavedProperties;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SetupFormLayout; override;
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property pnMainData: TvtPanel
-     read f_pnMainData;
+    read f_pnMainData;
    property f_TopPanel: TvtPanel
-     read f_f_TopPanel;
+    read f_f_TopPanel;
    property UserNameLabel: TvtLabel
-     read f_UserNameLabel;
-     {* *ФИО пользователя: }
+    read f_UserNameLabel;
+    {* *ФИО пользователя: }
    property PasswordLabel: TvtLabel
-     read f_PasswordLabel;
-     {* Пароль: }
+    read f_PasswordLabel;
+    {* Пароль: }
    property LoginLabel: TvtLabel
-     read f_LoginLabel;
-     {* *Регистрационное имя: }
+    read f_LoginLabel;
+    {* *Регистрационное имя: }
    property EMailLabel: TvtLabel
-     read f_EMailLabel;
-     {* Электронная почта: }
+    read f_EMailLabel;
+    {* Электронная почта: }
    property ConfirmPasswordLabel: TvtLabel
-     read f_ConfirmPasswordLabel;
-     {* Подтверждение пароля: }
+    read f_ConfirmPasswordLabel;
+    {* Подтверждение пароля: }
    property GroupLabel: TvtLabel
-     read f_GroupLabel;
-     {* Группа: }
+    read f_GroupLabel;
+    {* Группа: }
    property edPassword: TnscComboBoxWithPwdChar
-     read f_edPassword;
+    read f_edPassword;
    property edUserName: TnscEdit
-     read f_edUserName;
+    read f_edUserName;
    property edLogin: TnscEdit
-     read f_edLogin;
+    read f_edLogin;
    property edEmail: TnscEdit
-     read f_edEmail;
+    read f_edEmail;
    property edConfirm: TnscComboBoxWithPwdChar
-     read f_edConfirm;
+    read f_edConfirm;
    property edGroup: TvtComboBoxQS
-     read f_edGroup;
+    read f_edGroup;
    property f_MiddlePanel: TvtPanel
-     read f_f_MiddlePanel;
+    read f_f_MiddlePanel;
    property edPrivilegedUser: TvtCheckBox
-     read f_edPrivilegedUser;
-     {* Привилегированный пользователь }
+    read f_edPrivilegedUser;
+    {* Привилегированный пользователь }
    property edBuyConsulting: TvtCheckBox
-     read f_edBuyConsulting;
-     {* Разрешено использование услуги Правового консалтинга }
+    read f_edBuyConsulting;
+    {* Разрешено использование услуги Правового консалтинга }
    property f_DontDeleteIdleUserPanel: TvtPanel
-     read f_f_DontDeleteIdleUserPanel;
+    read f_f_DontDeleteIdleUserPanel;
    property edDontDeleteIdleUser: TvtCheckBox
-     read f_edDontDeleteIdleUser;
-     {* Не удалять при бездействии }
+    read f_edDontDeleteIdleUser;
+    {* Не удалять при бездействии }
    property f_BottomPanel: TvtPanel
-     read f_f_BottomPanel;
+    read f_f_BottomPanel;
    property InfoLabel: TvtLabel
-     read f_InfoLabel;
-     {* * - поля, обязательные для заполнения }
+    read f_InfoLabel;
+    {* * - поля, обязательные для заполнения }
    property edHasSharedFilters: TvtCheckBox
-     read f_edHasSharedFilters;
-     {* Фильтры этого пользователя являются общими }
+    read f_edHasSharedFilters;
+    {* Фильтры этого пользователя являются общими }
  end;//TPrimUserPropertyForm
-
- TvcmEntityFormRef = TPrimUserPropertyForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DataAdapter,
-  nsGroupTreeStruct,
-  l3Base,
-  l3String,
-  nsUserNodes,
-  SecurityUnit,
-  nsConst,
-  l3Chars,
-  nsTypes,
-  nsVerifyValue,
-  ctTypes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a},
-  StdRes {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , l3StringIDEx
+ , DataAdapter
+ , nsGroupTreeStruct
+ , l3Base
+ , l3String
+ , nsUserNodes
+ , SecurityUnit
+ , nsConst
+ , l3Chars
+ , nsTypes
+ , nsVerifyValue
+ , ctTypes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimUserProperty_admUseProperties_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497F02D20216impl_uses*
+ , Classes
+ , l3ControlsTypes
+ //#UC END# *497F02D20216impl_uses*
+;
 
-{$If defined(Admin)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Hints }
+ str_PrimUserProperty_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edPasswordHint'; rValue : 'Новый Пароль: должен совпадать с подтверждением пароля');
+  {* 'Новый Пароль: должен совпадать с подтверждением пароля' }
+ str_PrimUserProperty_edUserNameHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edUserNameHint'; rValue : 'Имя пользователя: не должно быть пустым');
+  {* 'Имя пользователя: не должно быть пустым' }
+ str_PrimUserProperty_edLoginHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edLoginHint'; rValue : 'Новое регистрационное имя');
+  {* 'Новое регистрационное имя' }
+ str_PrimUserProperty_edEmailHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
+  {* 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
+ str_PrimUserProperty_edConfirmHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edConfirmHint'; rValue : 'Подтверждение пароля: должно совпадать с новым паролем');
+  {* 'Подтверждение пароля: должно совпадать с новым паролем' }
+ str_PrimUserProperty_edGroupHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edGroupHint'; rValue : 'Группа пользователя');
+  {* 'Группа пользователя' }
 
-var
-   { Локализуемые строки admUsePropertiesLocalConstants }
-  str_admUsePropertiesCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUsePropertiesCaption'; rValue : 'Свойства пользователя');
-   { Заголовок пользовательского типа "Свойства пользователя" }
-
-var
-   { Локализуемые строки Hints }
-  str_PrimUserProperty_edPasswordHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edPasswordHint'; rValue : 'Новый Пароль: должен совпадать с подтверждением пароля');
-   { 'Новый Пароль: должен совпадать с подтверждением пароля' }
-  str_PrimUserProperty_edUserNameHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edUserNameHint'; rValue : 'Имя пользователя: не должно быть пустым');
-   { 'Имя пользователя: не должно быть пустым' }
-  str_PrimUserProperty_edLoginHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edLoginHint'; rValue : 'Новое регистрационное имя');
-   { 'Новое регистрационное имя' }
-  str_PrimUserProperty_edEmailHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
-   { 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
-  str_PrimUserProperty_edConfirmHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edConfirmHint'; rValue : 'Подтверждение пароля: должно совпадать с новым паролем');
-   { 'Подтверждение пароля: должно совпадать с новым паролем' }
-  str_PrimUserProperty_edGroupHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimUserProperty_edGroupHint'; rValue : 'Группа пользователя');
-   { 'Группа пользователя' }
-
-// start class TPrimUserPropertyForm
+procedure TPrimUserPropertyForm.SaveChangedProfile(const aDataSource: IdsUserProperty);
+//#UC START# *4C8A0FEE00C1_497F02D20216_var*
+//#UC END# *4C8A0FEE00C1_497F02D20216_var*
+begin
+//#UC START# *4C8A0FEE00C1_497F02D20216_impl*
+ if aDataSource.IsNewUser then
+ begin
+  try
+   aDataSource.CreateUserProfile(l3PCharLen(edLogin.Text),
+                                 l3PCharLen(edUserName.Text),
+                                 l3PCharLen(edEmail.Text),
+                                 l3PCharLen(edPassword.Text),
+                                 edBuyConsulting.Checked,
+                                 edPrivilegedUser.Checked,
+                                 GetUserID(edGroup.CurrentNode));
+   RestoreFields;
+   aDataSource.CreateUserFinished(True);
+  except
+   on ELoginDuplicate do
+    Say(war_LoginDuplicate, [edLogin.Text]);
+   on EWrongAuthentication do
+    Say(err_WrongAuthentification);
+   on EXMLImportRunning do
+    Say(inf_XMLImportRunning);
+   on ENoMoreProfiles do
+    Say(err_UsersLicenceViolation);
+   on ENoMorePrivilegedProfiles do
+    Say(err_PrivilegedUsersLicenceViolation);
+  end;
+ end else
+ if l3Same(edPassword.Text, cHasPassword) then
+ try
+  aDataSource.SaveUserProfile(l3PCharLen(edUserName.Text),
+                              l3PCharLen(edEmail.Text),
+                              edBuyConsulting.Checked,
+                              edPrivilegedUser.Checked,
+                              edDontDeleteIdleUser.Checked,
+                              cc_EmptyStr,
+                              GetUserID(edGroup.CurrentNode))
+ except
+  on ENoMoreProfiles do
+   Say(err_UsersLicenceViolation);
+  on ENoMorePrivilegedProfiles do
+   Say(err_PrivilegedUsersLicenceViolation);
+ end else
+ try
+  aDataSource.SaveUserProfile(l3PCharLen(edUserName.Text),
+                              l3PCharLen(edEmail.Text),
+                              edBuyConsulting.Checked,
+                              edPrivilegedUser.Checked,
+                              edDontDeleteIdleUser.Checked,
+                              l3PCharLen(edPassword.Text),
+                              GetUserID(edGroup.CurrentNode),
+                              f_PasswordChanged);
+ except
+  on ENoMoreProfiles do
+   Say(err_UsersLicenceViolation);
+  on ENoMorePrivilegedProfiles do
+   Say(err_PrivilegedUsersLicenceViolation);
+ end;
+//#UC END# *4C8A0FEE00C1_497F02D20216_impl*
+end;//TPrimUserPropertyForm.SaveChangedProfile
 
 function TPrimUserPropertyForm.CheckUnsaved(const aUserProperty: IdsUserProperty): Boolean;
+ {* Возвращает признак отсутсвия несохраненных изменений (при необходимости выдавая запрос пользователю) }
 //#UC START# *4C8A10120190_497F02D20216_var*
 //#UC END# *4C8A10120190_497F02D20216_var*
 begin
@@ -329,16 +327,27 @@ begin
 //#UC END# *4C8A10120190_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CheckUnsaved
 
-procedure TPrimUserPropertyForm.EdLoginChange(Sender: TObject);
+procedure TPrimUserPropertyForm.RestoreFields;
+//#UC START# *4C8A12540363_497F02D20216_var*
+//#UC END# *4C8A12540363_497F02D20216_var*
+begin
+//#UC START# *4C8A12540363_497F02D20216_impl*
+ if Assigned(dsUserProperty) then
+  dsUserProperty.IsChanged := False;
+ InitUserFields;
+//#UC END# *4C8A12540363_497F02D20216_impl*
+end;//TPrimUserPropertyForm.RestoreFields
+
+procedure TPrimUserPropertyForm.edLoginChange(Sender: TObject);
 //#UC START# *527BD93C01C3_497F02D20216_var*
 //#UC END# *527BD93C01C3_497F02D20216_var*
 begin
 //#UC START# *527BD93C01C3_497F02D20216_impl*
  CheckFields;
 //#UC END# *527BD93C01C3_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdLoginChange
+end;//TPrimUserPropertyForm.edLoginChange
 
-procedure TPrimUserPropertyForm.EdPasswordChange(Sender: TObject);
+procedure TPrimUserPropertyForm.edPasswordChange(Sender: TObject);
 //#UC START# *527BD9440399_497F02D20216_var*
 //#UC END# *527BD9440399_497F02D20216_var*
 begin
@@ -346,36 +355,36 @@ begin
  f_PasswordChanged := True;
  CheckFields;
 //#UC END# *527BD9440399_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdPasswordChange
+end;//TPrimUserPropertyForm.edPasswordChange
 
-procedure TPrimUserPropertyForm.EdConfirmChange(Sender: TObject);
+procedure TPrimUserPropertyForm.edConfirmChange(Sender: TObject);
 //#UC START# *527BD94D0009_497F02D20216_var*
 //#UC END# *527BD94D0009_497F02D20216_var*
 begin
 //#UC START# *527BD94D0009_497F02D20216_impl*
  CheckFields;
 //#UC END# *527BD94D0009_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdConfirmChange
+end;//TPrimUserPropertyForm.edConfirmChange
 
-procedure TPrimUserPropertyForm.EdUserNameChange(Sender: TObject);
+procedure TPrimUserPropertyForm.edUserNameChange(Sender: TObject);
 //#UC START# *527BD954035C_497F02D20216_var*
 //#UC END# *527BD954035C_497F02D20216_var*
 begin
 //#UC START# *527BD954035C_497F02D20216_impl*
  CheckFields;
 //#UC END# *527BD954035C_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdUserNameChange
+end;//TPrimUserPropertyForm.edUserNameChange
 
-procedure TPrimUserPropertyForm.EdEmailChange(Sender: TObject);
+procedure TPrimUserPropertyForm.edEmailChange(Sender: TObject);
 //#UC START# *527BD95C03CE_497F02D20216_var*
 //#UC END# *527BD95C03CE_497F02D20216_var*
 begin
 //#UC START# *527BD95C03CE_497F02D20216_impl*
  CheckFields;
 //#UC END# *527BD95C03CE_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdEmailChange
+end;//TPrimUserPropertyForm.edEmailChange
 
-procedure TPrimUserPropertyForm.EdBuyConsultingClick(Sender: TObject);
+procedure TPrimUserPropertyForm.edBuyConsultingClick(Sender: TObject);
 //#UC START# *527BD9660133_497F02D20216_var*
 //#UC END# *527BD9660133_497F02D20216_var*
 begin
@@ -383,9 +392,9 @@ begin
  if not f_LockCheckBox then
   CheckFields;
 //#UC END# *527BD9660133_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdBuyConsultingClick
+end;//TPrimUserPropertyForm.edBuyConsultingClick
 
-procedure TPrimUserPropertyForm.EdPrivilegedUserClick(Sender: TObject);
+procedure TPrimUserPropertyForm.edPrivilegedUserClick(Sender: TObject);
 //#UC START# *527BD96D033A_497F02D20216_var*
 //#UC END# *527BD96D033A_497F02D20216_var*
 begin
@@ -393,9 +402,9 @@ begin
  if not f_LockCheckBox then
   CheckFields;
 //#UC END# *527BD96D033A_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdPrivilegedUserClick
+end;//TPrimUserPropertyForm.edPrivilegedUserClick
 
-procedure TPrimUserPropertyForm.EdGroupChange(Sender: TObject);
+procedure TPrimUserPropertyForm.edGroupChange(Sender: TObject);
 //#UC START# *527BD9750041_497F02D20216_var*
 //#UC END# *527BD9750041_497F02D20216_var*
 begin
@@ -417,9 +426,9 @@ begin
    (dsUserProperty.GroupUID <> GetUserID(edGroup.CurrentNode)) then
   CheckFields;
 //#UC END# *527BD9750041_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdGroupChange
+end;//TPrimUserPropertyForm.edGroupChange
 
-procedure TPrimUserPropertyForm.EdHasSharedFiltersClick(Sender: TObject);
+procedure TPrimUserPropertyForm.edHasSharedFiltersClick(Sender: TObject);
 //#UC START# *527BD97D0353_497F02D20216_var*
 var
  l_UID: Integer;
@@ -439,9 +448,9 @@ begin
   end;//with defDataAdapter.NativeAdapter.MakeUserManager
  end;//not f_LockCheckBox
 //#UC END# *527BD97D0353_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdHasSharedFiltersClick
+end;//TPrimUserPropertyForm.edHasSharedFiltersClick
 
-procedure TPrimUserPropertyForm.EdDontDeleteIdleUserClick(Sender: TObject);
+procedure TPrimUserPropertyForm.edDontDeleteIdleUserClick(Sender: TObject);
 //#UC START# *527BD9860158_497F02D20216_var*
 //#UC END# *527BD9860158_497F02D20216_var*
 begin
@@ -449,7 +458,7 @@ begin
  if not f_LockCheckBox then
   CheckFields;
 //#UC END# *527BD9860158_497F02D20216_impl*
-end;//TPrimUserPropertyForm.EdDontDeleteIdleUserClick
+end;//TPrimUserPropertyForm.edDontDeleteIdleUserClick
 
 procedure TPrimUserPropertyForm.DoCheckUnsavedProperties;
 //#UC START# *527BDA0E0133_497F02D20216_var*
@@ -604,80 +613,6 @@ begin
 //#UC END# *527BDB2A0394_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CheckFields
 
-procedure TPrimUserPropertyForm.SaveChangedProfile(const aDataSource: IdsUserProperty);
-//#UC START# *4C8A0FEE00C1_497F02D20216_var*
-//#UC END# *4C8A0FEE00C1_497F02D20216_var*
-begin
-//#UC START# *4C8A0FEE00C1_497F02D20216_impl*
- if aDataSource.IsNewUser then
- begin
-  try
-   aDataSource.CreateUserProfile(l3PCharLen(edLogin.Text),
-                                 l3PCharLen(edUserName.Text),
-                                 l3PCharLen(edEmail.Text),
-                                 l3PCharLen(edPassword.Text),
-                                 edBuyConsulting.Checked,
-                                 edPrivilegedUser.Checked,
-                                 GetUserID(edGroup.CurrentNode));
-   RestoreFields;
-   aDataSource.CreateUserFinished(True);
-  except
-   on ELoginDuplicate do
-    Say(war_LoginDuplicate, [edLogin.Text]);
-   on EWrongAuthentication do
-    Say(err_WrongAuthentification);
-   on EXMLImportRunning do
-    Say(inf_XMLImportRunning);
-   on ENoMoreProfiles do
-    Say(err_UsersLicenceViolation);
-   on ENoMorePrivilegedProfiles do
-    Say(err_PrivilegedUsersLicenceViolation);
-  end;
- end else
- if l3Same(edPassword.Text, cHasPassword) then
- try
-  aDataSource.SaveUserProfile(l3PCharLen(edUserName.Text),
-                              l3PCharLen(edEmail.Text),
-                              edBuyConsulting.Checked,
-                              edPrivilegedUser.Checked,
-                              edDontDeleteIdleUser.Checked,
-                              cc_EmptyStr,
-                              GetUserID(edGroup.CurrentNode))
- except
-  on ENoMoreProfiles do
-   Say(err_UsersLicenceViolation);
-  on ENoMorePrivilegedProfiles do
-   Say(err_PrivilegedUsersLicenceViolation);
- end else
- try
-  aDataSource.SaveUserProfile(l3PCharLen(edUserName.Text),
-                              l3PCharLen(edEmail.Text),
-                              edBuyConsulting.Checked,
-                              edPrivilegedUser.Checked,
-                              edDontDeleteIdleUser.Checked,
-                              l3PCharLen(edPassword.Text),
-                              GetUserID(edGroup.CurrentNode),
-                              f_PasswordChanged);
- except
-  on ENoMoreProfiles do
-   Say(err_UsersLicenceViolation);
-  on ENoMorePrivilegedProfiles do
-   Say(err_PrivilegedUsersLicenceViolation);
- end;
-//#UC END# *4C8A0FEE00C1_497F02D20216_impl*
-end;//TPrimUserPropertyForm.SaveChangedProfile
-
-procedure TPrimUserPropertyForm.RestoreFields;
-//#UC START# *4C8A12540363_497F02D20216_var*
-//#UC END# *4C8A12540363_497F02D20216_var*
-begin
-//#UC START# *4C8A12540363_497F02D20216_impl*
- if Assigned(dsUserProperty) then
-  dsUserProperty.IsChanged := False;
- InitUserFields;
-//#UC END# *4C8A12540363_497F02D20216_impl*
-end;//TPrimUserPropertyForm.RestoreFields
-
 procedure TPrimUserPropertyForm.CheckUnsavedProperties;
 //#UC START# *49F6DC2600C0_497F02D20216_var*
 //#UC END# *49F6DC2600C0_497F02D20216_var*
@@ -687,9 +622,9 @@ begin
 //#UC END# *49F6DC2600C0_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CheckUnsavedProperties
 
-{$If not defined(NoVCM)}
 procedure TPrimUserPropertyForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497F02D20216_var*
 var
  l_DataSource: IdsUserProperty;
@@ -712,9 +647,7 @@ begin
   f_IsCorrectInfo := false
 //#UC END# *497469C90140_497F02D20216_impl*
 end;//TPrimUserPropertyForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimUserPropertyForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_497F02D20216_var*
 //#UC END# *4980407F0076_497F02D20216_var*
@@ -726,10 +659,9 @@ begin
  Result := True;
 //#UC END# *4980407F0076_497F02D20216_impl*
 end;//TPrimUserPropertyForm.CallCloseQuery
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimUserPropertyForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497F02D20216_var*
 //#UC END# *4A8E8F2E0195_497F02D20216_var*
 begin
@@ -955,10 +887,9 @@ begin
  edGroup.SetSimpleTree(TnsGroupTreeStruct.Make(defDataAdapter.GetGroupsTree, False));
 //#UC END# *4A8E8F2E0195_497F02D20216_impl*
 end;//TPrimUserPropertyForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimUserPropertyForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_497F02D20216_var*
 //#UC END# *529332B40230_497F02D20216_var*
 begin
@@ -968,21 +899,20 @@ begin
  Height := 276;
 //#UC END# *529332B40230_497F02D20216_impl*
 end;//TPrimUserPropertyForm.SetupFormLayout
-{$IfEnd} //not NoVCM
 
-procedure TPrimUserPropertyForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimUserPropertyForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsUserProperty := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsUserProperty, dsUserProperty);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsUserProperty, dsUserProperty);
+ end;//aNew = nil
+end;//TPrimUserPropertyForm.SignalDataSourceChanged
 
 procedure TPrimUserPropertyForm.MakeControls;
 begin
@@ -990,7 +920,7 @@ begin
  with AddUsertype(admUsePropertiesName,
   str_admUsePropertiesCaption,
   str_admUsePropertiesCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -1077,42 +1007,26 @@ begin
  f_edHasSharedFilters.Name := 'edHasSharedFilters';
  f_edHasSharedFilters.Parent := f_BottomPanel;
  f_edHasSharedFilters.Caption := 'Фильтры этого пользователя являются общими';
-end;
-
-{$IfEnd} //Admin
+end;//TPrimUserPropertyForm.MakeControls
 
 initialization
-{$If defined(Admin)}
-// Инициализация str_admUsePropertiesCaption
- str_admUsePropertiesCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edPasswordHint
  str_PrimUserProperty_edPasswordHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edUserNameHint
+ {* Инициализация str_PrimUserProperty_edPasswordHint }
  str_PrimUserProperty_edUserNameHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edLoginHint
+ {* Инициализация str_PrimUserProperty_edUserNameHint }
  str_PrimUserProperty_edLoginHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edEmailHint
+ {* Инициализация str_PrimUserProperty_edLoginHint }
  str_PrimUserProperty_edEmailHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edConfirmHint
+ {* Инициализация str_PrimUserProperty_edEmailHint }
  str_PrimUserProperty_edConfirmHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_PrimUserProperty_edGroupHint
+ {* Инициализация str_PrimUserProperty_edConfirmHint }
  str_PrimUserProperty_edGroupHint.Init;
-{$IfEnd} //Admin
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimUserProperty
+ {* Инициализация str_PrimUserProperty_edGroupHint }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUserPropertyForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimUserProperty }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

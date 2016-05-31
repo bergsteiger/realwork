@@ -39,7 +39,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsTypes
  , nsConst
- , l3MessageID
 ;
 
 const

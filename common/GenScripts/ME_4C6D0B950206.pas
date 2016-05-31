@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utSelectedAttributesLocalConstants }
+ str_utSelectedAttributesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSelectedAttributesCaption'; rValue : 'Поиск: Выбранные значения реквизита');
+  {* Заголовок пользовательского типа "Поиск: Выбранные значения реквизита" }
  {* Константы для типа формы utSelectedAttributes }
  utSelectedAttributesName = 'utSelectedAttributes';
   {* Строковый идентификатор пользовательского типа "Поиск: Выбранные значения реквизита" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_utSelectedAttributes.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utSelectedAttributesCaption.Init;
+ {* Инициализация str_utSelectedAttributesCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSelectedAttributes.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utSelectedAttributes }

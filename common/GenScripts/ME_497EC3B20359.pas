@@ -20,14 +20,14 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , SearchInterfaces
  , SearchDomainInterfaces
- , nscTreeViewWithAdapterDragDrop
  , l3TreeInterfaces
+ , nscTreeViewWithAdapterDragDrop
  , DynamicTreeUnit
  , l3Tree_TLB
+ , nsNodeBaseList
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , nsNodeBaseList
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
@@ -47,7 +47,6 @@ type
  )
   private
    f_SelectedTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства SelectedTree }
   protected
    dsSelectedAttributes: IdsSelectedAttributes;
     {* Выбранные атрибуты }
@@ -124,7 +123,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
  , nsTreeAttributeNodesNew
  , SearchRes
  , nsSelectedTreeStruct
@@ -135,22 +133,23 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimSelectedAttributes_utSelectedAttributes_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EC3B20359impl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EC3B20359impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utSelectedAttributesLocalConstants }
- str_utSelectedAttributesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSelectedAttributesCaption'; rValue : 'Поиск: Выбранные значения реквизита');
-  {* Заголовок пользовательского типа "Поиск: Выбранные значения реквизита" }
-
 function TPrimSelectedAttributesForm.pm_GetTaggedTreeInfo: InsTaggedTreeInfo;
 //#UC START# *525FEC2A0302_497EC3B20359get_var*
 //#UC END# *525FEC2A0302_497EC3B20359get_var*
@@ -573,6 +572,14 @@ procedure TPrimSelectedAttributesForm.SignalDataSourceChanged(const anOld: IvcmF
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsSelectedAttributes := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsSelectedAttributes, dsSelectedAttributes);
+ end;//aNew = nil
 end;//TPrimSelectedAttributesForm.SignalDataSourceChanged
 
 procedure TPrimSelectedAttributesForm.InitEntities;
@@ -585,6 +592,9 @@ begin
   PublishFormEntity(en_AttributeTree, nil);
   PublishFormEntity(en_SelectedList, nil);
   PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, SelectedTree);
+  MakeEntitySupportedByControl(en_Tree, SelectedTree);
   PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
   PublishOpWithResult(en_SelectedList, op_RefreshValues, SelectedList_RefreshValues, nil, nil);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
@@ -598,7 +608,7 @@ begin
  with AddUsertype(utSelectedAttributesName,
   str_utSelectedAttributesCaption,
   str_utSelectedAttributesCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -614,8 +624,6 @@ begin
 end;//TPrimSelectedAttributesForm.MakeControls
 
 initialization
- str_utSelectedAttributesCaption.Init;
- {* Инициализация str_utSelectedAttributesCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSelectedAttributesForm);
  {* Регистрация PrimSelectedAttributes }

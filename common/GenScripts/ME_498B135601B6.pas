@@ -13,11 +13,11 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , DocumentUnit
  , DocumentInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentUnit
  , DocumentDomainInterfaces
  , NavigationInterfaces
  , PresentationInterfaces

@@ -1,112 +1,79 @@
 unit PrimListAnalize_Form;
+ {* Анализ списка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/PrimListAnalize_Form.pas"
-// Начат: 01.08.2011 16:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::PrimListAnalize
-//
-// Анализ списка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalize_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimListAnalize" MUID: (4E369558035D)
+// Имя типа: "TPrimListAnalizeForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  WorkWithListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  ListAnalizeUserTypes_Analize_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , WorkWithListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _ListAnalizeUserTypes_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
- TPrimListAnalizeForm = {form} class(_ListAnalizeUserTypes_)
+ TPrimListAnalizeForm = class(_ListAnalizeUserTypes_)
   {* Анализ списка }
- private
- // private fields
-   ViewArea : IdsListAnalize;
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
- private
- // private methods
+  private
+   ViewArea: IdsListAnalize;
+  protected
+   sdsList: IsdsList;
+  private
    procedure UpdateTabAction(aSender: TObject);
    procedure ExecuteTabAction(aSender: TObject);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure BecomeActive; override;
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   sdsList : IsdsList;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimListAnalizeForm
-
- TvcmEntityFormRef = TPrimListAnalizeForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  ActnList
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ListAnalizeUserTypes_Analize_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4E369558035Dimpl_uses*
+ //#UC END# *4E369558035Dimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
-
-// start class TPrimListAnalizeForm
 
 procedure TPrimListAnalizeForm.UpdateTabAction(aSender: TObject);
 //#UC START# *4E36B621000E_4E369558035D_var*
@@ -130,8 +97,8 @@ begin
 //#UC END# *4E36B63D016B_4E369558035D_impl*
 end;//TPrimListAnalizeForm.ExecuteTabAction
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizeForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4E369558035D_var*
 var
  l_Action : TAction;
@@ -148,9 +115,7 @@ begin
  end;//Parent <> nil
 //#UC END# *49803F5503AA_4E369558035D_impl*
 end;//TPrimListAnalizeForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizeForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4E369558035D_var*
 //#UC END# *4A8AE0FA03B2_4E369558035D_var*
@@ -162,33 +127,29 @@ begin
  // TdmStdRes.MakeListAnalizer(dsDocumentList.MakeAnalizeTree);
 //#UC END# *4A8AE0FA03B2_4E369558035D_impl*
 end;//TPrimListAnalizeForm.BecomeActive
-{$IfEnd} //not NoVCM
 
-procedure TPrimListAnalizeForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimListAnalizeForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
   sdsList := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsListAnalize, ViewArea);
-  aDsNew.CastUCC(IsdsList, sdsList);
- end;//aDsNew = nil
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+  Supports(aNew, IdsListAnalize, ViewArea);
+  aNew.CastUCC(IsdsList, sdsList);
+ end;//aNew = nil
+end;//TPrimListAnalizeForm.SignalDataSourceChanged
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimListAnalize
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListAnalizeForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimListAnalize }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

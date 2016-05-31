@@ -14,6 +14,7 @@ interface
 uses
  l3IntfUses
  , PrimMainMenu_Form
+ , vtPanel
  {$If Defined(Nemesis)}
  , nscHideField
  {$IfEnd} // Defined(Nemesis)
@@ -24,14 +25,13 @@ uses
  {$If Defined(Nemesis)}
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
- , MainMenuDomainInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , MainMenuDomainInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , vtPanel
 ;
 
 type
@@ -41,21 +41,17 @@ type
   {* Основное меню Инфарм }
   private
    f_hfReferencesAndDictionaries: TnscHideField;
-    {* Поле для свойства hfReferencesAndDictionaries }
+    {* Справочники и словари }
    f_tvReferencesAndDictionaries: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvReferencesAndDictionaries }
    f_hfReferencePharmaceuticalInformation: TnscHideField;
-    {* Поле для свойства hfReferencePharmaceuticalInformation }
+    {* Справочная фармацевтическая информация }
    f_tvReferencePharmaceuticalInformation: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvReferencePharmaceuticalInformation }
    f_hfMainFeatures: TnscHideField;
-    {* Поле для свойства hfMainFeatures }
+    {* Основные возможности }
    f_tvMainFeatures: TnscTreeViewHotTruck;
-    {* Поле для свойства tvMainFeatures }
    f_hfRegulatoryInformation: TnscHideField;
-    {* Поле для свойства hfRegulatoryInformation }
+    {* Нормативная информация }
    f_tvRegulatoryInformation: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvRegulatoryInformation }
   protected
    function DoBuildGrid: InscArrangeGrid; override;
    procedure FinishDataUpdate; override;
@@ -114,11 +110,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , InpharmMainMenu_ut_mmmMain_UserType
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
  {$If Defined(Nemesis)}
  , nscArrangeGrid
  {$IfEnd} // Defined(Nemesis)
@@ -160,25 +156,20 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
  , Common_FormDefinitions_Controls
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ //#UC START# *4958E868009Cimpl_uses*
+ //#UC END# *4958E868009Cimpl_uses*
 ;
 
-type
- // InpharmMainMenu
-
 const
- {* Локализуемые строки ut_mmmMainLocalConstants }
- str_ut_mmmMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_mmmMainCaption'; rValue : 'ГАРАНТ-ИнФарм');
-  {* Заголовок пользовательского типа "ГАРАНТ-ИнФарм" }
  {* Локализуемые строки InpharmMainMenu Local Const }
  str_hfLasOpenDocsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'hfLasOpenDocsCaption'; rValue : 'Последние открытые препараты');
   {* 'Последние открытые препараты' }
@@ -523,6 +514,9 @@ procedure TInpharmMainMenuForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_CollapseAll, False);
+ AddUserTypeExclude(ut_mmmMainName, en_Tree, op_Wrap, False);
 end;//TInpharmMainMenuForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -533,7 +527,7 @@ begin
  with AddUsertype(ut_mmmMainName,
   str_ut_mmmMainCaption,
   str_ut_mmmMainCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -578,8 +572,6 @@ end;//TInpharmMainMenuForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_mmmMainCaption.Init;
- {* Инициализация str_ut_mmmMainCaption }
  str_hfLasOpenDocsCaption.Init;
  {* Инициализация str_hfLasOpenDocsCaption }
 {$If NOT Defined(NoScripts)}

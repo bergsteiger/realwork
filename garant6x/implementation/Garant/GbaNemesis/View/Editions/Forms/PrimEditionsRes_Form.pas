@@ -1,85 +1,74 @@
 unit PrimEditionsRes_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Editions/Forms/PrimEditionsRes_Form.pas"
-// Начат: 15.01.2010 17:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMDataModule::Class>> F1 Пользовательские сервисы::CompareEditions::View::Editions::PrimEditionsRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsRes_Form.pas"
+// Стереотип: "VCMDataModule"
+// Элемент модели: "PrimEditionsRes" MUID: (4B5082500342)
+// Имя типа: "TPrimEditionsResForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vtPngImgList,
-  Classes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , vtPngImgList
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimEditionsResForm = {form} class(TDataModule)
- private
- // private fields
-   f_EditionsStateIcons : TvtPngImageList;
-    {* Поле для свойства EditionsStateIcons}
- protected
- // property methods
+ TPrimEditionsResForm = class(TDataModule)
+  private
+   f_EditionsStateIcons: TvtPngImageList;
+  protected
    function pm_GetEditionsStateIcons: TvtPngImageList;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property EditionsStateIcons: TvtPngImageList
-     read pm_GetEditionsStateIcons;
- public
- // singleton factory method
+  public
    class function Instance: TPrimEditionsResForm;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TPrimEditionsResForm }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+  public
+   property EditionsStateIcons: TvtPngImageList
+    read pm_GetEditionsStateIcons;
  end;//TPrimEditionsResForm
-
- TvcmDataModuleRef = TPrimEditionsResForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a}
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-
-// start class TPrimEditionsResForm
-
-var g_TPrimEditionsResForm : TPrimEditionsResForm = nil;
+var g_TPrimEditionsResForm: TPrimEditionsResForm = nil;
+ {* Экземпляр синглетона TPrimEditionsResForm }
 
 procedure TPrimEditionsResFormFree;
+ {* Метод освобождения экземпляра синглетона TPrimEditionsResForm }
 begin
  l3Free(g_TPrimEditionsResForm);
-end;
+end;//TPrimEditionsResFormFree
+
+function TPrimEditionsResForm.pm_GetEditionsStateIcons: TvtPngImageList;
+begin
+ if (f_EditionsStateIcons = nil) then
+  f_EditionsStateIcons := FindComponent('EditionsStateIcons') As TvtPngImageList;
+ Result := f_EditionsStateIcons;
+end;//TPrimEditionsResForm.pm_GetEditionsStateIcons
 
 class function TPrimEditionsResForm.Instance: TPrimEditionsResForm;
+ {* Метод получения экземпляра синглетона TPrimEditionsResForm }
 begin
  if (g_TPrimEditionsResForm = nil) then
  begin
@@ -87,28 +76,19 @@ begin
   g_TPrimEditionsResForm := Create(nil);
  end;
  Result := g_TPrimEditionsResForm;
-end;
-
-
-function TPrimEditionsResForm.pm_GetEditionsStateIcons: TvtPngImageList;
-begin
- if (f_EditionsStateIcons = nil) then
-  f_EditionsStateIcons := FindComponent('EditionsStateIcons') As TvtPngImageList;
- Result := f_EditionsStateIcons;
-end;
+end;//TPrimEditionsResForm.Instance
 
 class function TPrimEditionsResForm.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TPrimEditionsResForm <> nil;
 end;//TPrimEditionsResForm.Exists
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimEditionsRes
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimEditionsResForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimEditionsRes }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

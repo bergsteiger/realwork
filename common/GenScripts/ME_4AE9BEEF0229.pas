@@ -22,6 +22,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , FoldersDomainInterfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -33,7 +36,6 @@ type
  )
   private
    f_ChildZone: TvtPanel;
-    {* Поле для свойства ChildZone }
   protected
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
@@ -63,30 +65,22 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , nsFolders
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimFoldersInfo_utFoldersInfoContainer_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AE9BEEF0229impl_uses*
+ //#UC END# *4AE9BEEF0229impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utFoldersInfoContainerLocalConstants }
- str_utFoldersInfoContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersInfoContainerCaption'; rValue : 'Свойства папок (модальный диалог)');
-  {* Заголовок пользовательского типа "Свойства папок (модальный диалог)" }
-
 procedure TPrimFoldersInfoForm.AdditionInfo_Close_Execute(aModalResult: Integer = Controls.mrCancel);
 //#UC START# *4AE9BF890271_4AE9BEEF0229exec_var*
 //#UC END# *4AE9BF890271_4AE9BEEF0229exec_var*
@@ -165,14 +159,12 @@ begin
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := Self;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
 end;//TPrimFoldersInfoForm.MakeControls
 
 initialization
- str_utFoldersInfoContainerCaption.Init;
- {* Инициализация str_utFoldersInfoContainerCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersInfoForm);
  {* Регистрация PrimFoldersInfo }

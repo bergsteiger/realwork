@@ -1,164 +1,129 @@
 unit PrimDictionContainer_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Diction/Forms/PrimDictionContainer_Form.pas"
-// Начат: 11.03.2011 21:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Встроенные продукты::Diction::View::Diction::PrimDictionContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDictionContainer_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimDictionContainer" MUID: (4D7A69F9028C)
+// Имя типа: "TPrimDictionContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimSaveLoad_Form,
-  vtSizeablePanel,
-  vtProportionalPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  SearchLite_Strange_Controls,
-  Search_Strange_Controls,
-  PrimSaveLoadOptions_Form,
-  DictionContainerUserTypes_slqtDiction_UserType,
-  DictionContainerUserTypes_slqtMedicDiction_UserType,
-  F1Like_InternalOperations_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  Classes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimSaveLoadOptions_Form
+ , F1Like_InternalOperations_Controls
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _DictionContainerUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
- TPrimDictionContainerForm = {form} class(_DictionContainerUserTypes_)
- private
- // private fields
-   f_pnBackground : TvtProportionalPanel;
-    {* Поле для свойства pnBackground}
-   f_NavigatorZone : TvtSizeablePanel;
-    {* Поле для свойства NavigatorZone}
-   f_pnWorkArea : TvtProportionalPanel;
-    {* Поле для свойства pnWorkArea}
-   f_ChildZone : TvtSizeablePanel;
-    {* Поле для свойства ChildZone}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimDictionContainerForm = class(_DictionContainerUserTypes_)
+  private
+   f_pnBackground: TvtProportionalPanel;
+   f_NavigatorZone: TvtSizeablePanel;
+   f_pnWorkArea: TvtProportionalPanel;
+   f_ChildZone: TvtSizeablePanel;
+  private
    procedure ChildZoneQueryResize(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer;
-     var aCanResize: Boolean);
- protected
- // realized methods
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer;
+    var aCanResize: Boolean);
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   class function IsDictionLike: Boolean; override;
+    {* Определяет, что форма похожа на "словарь" }
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetFormSetImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Common_ShowSplitter_Execute(aVisible: Boolean);
    procedure Common_ShowSplitter(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   class function IsDictionLike: Boolean; override;
-     {* Определяет, что форма похожа на "словарь" }
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoVCM)}
-   function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
-     {* Сигнатура метода NotifyUserTypeSet }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function AcceptForm(const aForm: IvcmEntityForm;
-     aControl: TComponent): Boolean; override;
-    {$IfEnd} //not NoVCM
- public
- // public properties
+    aControl: TComponent): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property pnBackground: TvtProportionalPanel
-     read f_pnBackground;
+    read f_pnBackground;
    property NavigatorZone: TvtSizeablePanel
-     read f_NavigatorZone;
+    read f_NavigatorZone;
    property pnWorkArea: TvtProportionalPanel
-     read f_pnWorkArea;
+    read f_pnWorkArea;
    property ChildZone: TvtSizeablePanel
-     read f_ChildZone;
+    read f_ChildZone;
  end;//TPrimDictionContainerForm
-
- TvcmContainerFormRef = TPrimDictionContainerForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DictionContainerUserTypes_slqtDiction_UserType
+ , DictionContainerUserTypes_slqtMedicDiction_UserType
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , PrimPrimListInterfaces
+ , bsTypes
+ , eeInterfaces
+ , nsTypes
+ , FiltersUnit
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4D7A69F9028Cimpl_uses*
+ //#UC END# *4D7A69F9028Cimpl_uses*
+;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
 
-// start class TPrimDictionContainerForm
-
 procedure TPrimDictionContainerForm.ChildZoneQueryResize(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer;
-  var aCanResize: Boolean);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer;
+ var aCanResize: Boolean);
 //#UC START# *4D7F8B4A0214_4D7A69F9028C_var*
 var
  l_Form : IvcmEntityForm;
@@ -189,11 +154,12 @@ end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
 procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ICommon_ShowSplitter_Params) do
-  Common_ShowSplitter_Execute(Visible);
-end;
+  Self.Common_ShowSplitter_Execute(Visible);
+end;//TPrimDictionContainerForm.Common_ShowSplitter
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4D7A69F9028C_var*
 //#UC END# *4A8E8F2E0195_4D7A69F9028C_var*
 begin
@@ -216,9 +182,9 @@ begin
  ChildZone.OnQueryResize := ChildZoneQueryResize;
 //#UC END# *4A8E8F2E0195_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_4D7A69F9028C_var*
 //#UC END# *4D78E2BB0211_4D7A69F9028C_var*
@@ -230,9 +196,10 @@ begin
  pnWorkArea.Color := ParentZone.Color;
 //#UC END# *4D78E2BB0211_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.NotifyUserTypeSet
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 class function TPrimDictionContainerForm.IsDictionLike: Boolean;
+ {* Определяет, что форма похожа на "словарь" }
 //#UC START# *4F5DB2320323_4D7A69F9028C_var*
 //#UC END# *4F5DB2320323_4D7A69F9028C_var*
 begin
@@ -241,9 +208,9 @@ begin
 //#UC END# *4F5DB2320323_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.IsDictionLike
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimDictionContainerForm.AcceptForm(const aForm: IvcmEntityForm;
-  aControl: TComponent): Boolean;
+ aControl: TComponent): Boolean;
 //#UC START# *52F2254D0058_4D7A69F9028C_var*
 //#UC END# *52F2254D0058_4D7A69F9028C_var*
 begin
@@ -253,9 +220,9 @@ begin
  Result := false;
 //#UC END# *52F2254D0058_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.AcceptForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimDictionContainerForm.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B649F600A3_4D7A69F9028C_var*
 //#UC END# *53B649F600A3_4D7A69F9028C_var*
@@ -267,9 +234,9 @@ begin
   Result := 0;
 //#UC END# *53B649F600A3_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.DoGetFormSetImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimDictionContainerForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4D7A69F9028C_var*
 //#UC END# *53F1C6EF02C9_4D7A69F9028C_var*
@@ -278,9 +245,12 @@ begin
  Result := nil;
 //#UC END# *53F1C6EF02C9_4D7A69F9028C_impl*
 end;//TPrimDictionContainerForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -288,56 +258,50 @@ begin
   PublishFormEntity(en_Common, nil);
   PublishOpWithResult(en_Common, op_ShowSplitter, Common_ShowSplitter, nil, nil);
  end;//with Entities.Entities
- AddUserTypeExclude(slqtDictionName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(slqtDictionName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(slqtDictionName, en_Loadable, op_Load, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtDictionName, en_Result, op_OkExt, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtDictionName, en_Result, op_Cancel, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(slqtDictionName, en_Query, op_ClearAll, false);
- AddUserTypeExclude(slqtDictionName, en_Query, op_SetList, false);
- AddUserTypeExclude(slqtDictionName, en_Filterable, op_Add, false);
- AddUserTypeExclude(slqtDictionName, en_Filterable, op_Delete, false);
- AddUserTypeExclude(slqtDictionName, en_Query, op_GetList, false);
- AddUserTypeExclude(slqtDictionName, en_Filterable, op_ClearAll, false);
- AddUserTypeExclude(slqtDictionName, en_Filterable, op_Refresh, false);
- AddUserTypeExclude(slqtDictionName, en_Result, op_ClearAll, false);
- AddUserTypeExclude(slqtDictionName, en_Query, op_GetOldQuery, false);
- AddUserTypeExclude(slqtDictionName, en_Query, op_SearchType, false);
- AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicOr, false);
- AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicAnd, false);
- AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicNot, false);
- AddUserTypeExclude(slqtDictionName, en_Filters, op_FiltersListOpen, false);
- AddUserTypeExclude(slqtDictionName, en_Filterable, op_GetListType, false);
- AddUserTypeExclude(slqtMedicDictionName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(slqtMedicDictionName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Loadable, op_Load, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtMedicDictionName, en_Result, op_OkExt, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(slqtMedicDictionName, en_Result, op_Cancel, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(slqtMedicDictionName, en_Query, op_ClearAll, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SetList, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Add, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Delete, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetList, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_ClearAll, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Refresh, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Result, op_ClearAll, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetOldQuery, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SearchType, false);
- AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicOr, false);
- AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicAnd, false);
- AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicNot, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filters, op_FiltersListOpen, false);
- AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_GetListType, false);
-end;
+ AddUserTypeExclude(slqtDictionName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtDictionName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtDictionName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtDictionName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtDictionName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtDictionName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtDictionName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtDictionName, en_Filterable, op_GetListType, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Loadable, op_Load, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SetList, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Add, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Delete, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetList, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_Refresh, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Result, op_ClearAll, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_GetOldQuery, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Query, op_SearchType, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicOr, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicAnd, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_LogicOperation, op_LogicNot, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filters, op_FiltersListOpen, False);
+ AddUserTypeExclude(slqtMedicDictionName, en_Filterable, op_GetListType, False);
+end;//TPrimDictionContainerForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimDictionContainerForm.MakeControls;
 begin
  inherited;
@@ -347,9 +311,9 @@ begin
  f_NavigatorZone := TvtSizeablePanel.Create(Self);
  f_NavigatorZone.Name := 'NavigatorZone';
  f_NavigatorZone.Parent := pnBackground;
- with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ with DefineZone(vcm_ztNavigator, NavigatorZone) do
  begin
- end;//with DefineZone(vcm_ztNavigator, f_NavigatorZone)
+ end;//with DefineZone(vcm_ztNavigator
  f_pnWorkArea := TvtProportionalPanel.Create(Self);
  f_pnWorkArea.Name := 'pnWorkArea';
  f_pnWorkArea.Parent := pnBackground;
@@ -357,20 +321,17 @@ begin
  f_ChildZone := TvtSizeablePanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := pnWorkArea;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
- end;//with DefineZone(vcm_ztChild, f_ChildZone)
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimDictionContainerForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDictionContainer
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDictionContainerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDictionContainer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,45 +1,31 @@
 unit MainMenuWithBaseSearchSupport_Form;
+ {* Основное меню с поддержкой базового поиска }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/Forms/MainMenuWithBaseSearchSupport_Form.pas"
-// Начат: 05.10.2009 11:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::MainMenuWithBaseSearchSupport
-//
-// Основное меню с поддержкой базового поиска
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuWithBaseSearchSupport_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "MainMenuWithBaseSearchSupport" MUID: (4AC99EBE0106)
+// Имя типа: "TMainMenuWithBaseSearchSupportForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimMainMenu_Form,
-  BaseSearchInterfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimMainMenu_Form
+ , BaseSearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _BaseSearchPresentationFor296635421_Parent_ = TPrimMainMenuForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
- TMainMenuWithBaseSearchSupportForm = {abstract form} class(_BaseSearchPresentationFor296635421_, InsBaseSearchPresentation, InsMainMenuLikeBaseSearchOwner)
+ TMainMenuWithBaseSearchSupportForm = {abstract} class(_BaseSearchPresentationFor296635421_, InsBaseSearchPresentation, InsMainMenuLikeBaseSearchOwner)
   {* Основное меню с поддержкой базового поиска }
- protected
- // realized methods
+  protected
    function WindowRequired: Boolean;
    function WindowCloseable: Boolean;
    function CanCloseWindow: Boolean;
@@ -50,59 +36,55 @@ type
    function Get_ContextSearcher: InsContextSearcher;
    function Get_NeedSaveActiveClassBeforeSearch: Boolean;
    function IsIt: Boolean;
- public
- // realized methods
-   function SupportDisabled: Boolean;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure CreateFormGUID(var theGUID: TGUID); override;
-     {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
+    {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   function SupportDisabled: Boolean;
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
    function NeedAutoScroll: Boolean; override;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
  end;//TMainMenuWithBaseSearchSupportForm
-
- TvcmEntityFormRef = TMainMenuWithBaseSearchSupportForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsMainMenuFormGUIDFactory
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsMainMenuFormGUIDFactory
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , afwFacade
+ //#UC START# *4AC99EBE0106impl_uses*
+ //#UC END# *4AC99EBE0106impl_uses*
+;
 
 type _Instance_R_ = TMainMenuWithBaseSearchSupportForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
-
-// start class TMainMenuWithBaseSearchSupportForm
 
 function TMainMenuWithBaseSearchSupportForm.WindowRequired: Boolean;
 //#UC START# *496B4C41023E_4AC99EBE0106_var*
@@ -204,8 +186,9 @@ begin
 //#UC END# *4F20313F00E3_4AC99EBE0106_impl*
 end;//TMainMenuWithBaseSearchSupportForm.IsIt
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainMenuWithBaseSearchSupportForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AC99EBE0106_var*
 //#UC END# *49803F5503AA_4AC99EBE0106_var*
 begin
@@ -219,9 +202,9 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258*)
 //#UC END# *49803F5503AA_4AC99EBE0106_impl*
 end;//TMainMenuWithBaseSearchSupportForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function TMainMenuWithBaseSearchSupportForm.NeedAutoScroll: Boolean;
 //#UC START# *4B0E845502C1_4AC99EBE0106_var*
 //#UC END# *4B0E845502C1_4AC99EBE0106_var*
@@ -230,10 +213,11 @@ begin
  Result := false;
 //#UC END# *4B0E845502C1_4AC99EBE0106_impl*
 end;//TMainMenuWithBaseSearchSupportForm.NeedAutoScroll
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TMainMenuWithBaseSearchSupportForm.CreateFormGUID(var theGUID: TGUID);
+ {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
 //#UC START# *4EBBC63E032A_4AC99EBE0106_var*
 //#UC END# *4EBBC63E032A_4AC99EBE0106_var*
 begin
@@ -242,14 +226,13 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=326773370&focusedCommentId=330698414#comment-330698414
 //#UC END# *4EBBC63E032A_4AC99EBE0106_impl*
 end;//TMainMenuWithBaseSearchSupportForm.CreateFormGUID
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация MainMenuWithBaseSearchSupport
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TMainMenuWithBaseSearchSupportForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация MainMenuWithBaseSearchSupport }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

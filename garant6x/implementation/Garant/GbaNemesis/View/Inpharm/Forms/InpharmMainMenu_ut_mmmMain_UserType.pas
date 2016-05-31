@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_mmmMainLocalConstants }
+ str_ut_mmmMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_mmmMainCaption'; rValue : 'ГАРАНТ-ИнФарм');
+  {* Заголовок пользовательского типа "ГАРАНТ-ИнФарм" }
  {* Константы для типа формы ut_mmmMain }
  ut_mmmMainName = 'ut_mmmMain';
   {* Строковый идентификатор пользовательского типа "ГАРАНТ-ИнФарм" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_mmmMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_mmmMainCaption.Init;
+ {* Инициализация str_ut_mmmMainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_mmmMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_mmmMain }

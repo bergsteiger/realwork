@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utDictionLocalConstants }
+ str_utDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionCaption'; rValue : 'Толковый словарь');
+  {* Заголовок пользовательского типа "Толковый словарь" }
+ str_utDictionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionSettingsCaption'; rValue : 'Толковый словарь: Список терминов (вкладка)');
+  {* Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов }
  {* Константы для типа формы utDiction }
  utDictionName = 'utDiction';
   {* Строковый идентификатор пользовательского типа "Толковый словарь" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utDictionCaption.Init;
+ {* Инициализация str_utDictionCaption }
+ str_utDictionSettingsCaption.Init;
+ {* Инициализация str_utDictionSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utDiction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utDiction }

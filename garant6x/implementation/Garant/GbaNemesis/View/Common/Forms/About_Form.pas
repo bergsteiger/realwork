@@ -13,6 +13,12 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtGroupBox
+ , vtButton
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -22,12 +28,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntities
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtLabel
- , vtGroupBox
- , vtButton
 ;
 
 const
@@ -140,7 +140,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -165,7 +164,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SecurityUnit
  , Classes
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -176,11 +174,6 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки ut_AboutLocalConstants }
- str_ut_AboutCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_AboutCaption'; rValue : 'О программе');
-  {* Заголовок пользовательского типа "О программе" }
-
 {$R *.DFM}
 
 procedure TefAbout.UpdateInfoOnForm;
@@ -671,8 +664,6 @@ begin
 end;//TefAbout.MakeControls
 
 initialization
- str_ut_AboutCaption.Init;
- {* Инициализация str_ut_AboutCaption }
  fm_efAbout.SetFactory(TefAbout.Make);
  {* Регистрация фабрики формы About }
 {$If NOT Defined(NoScripts)}

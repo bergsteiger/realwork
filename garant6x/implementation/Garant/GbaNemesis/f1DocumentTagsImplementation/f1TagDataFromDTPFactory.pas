@@ -10,9 +10,9 @@ interface
 
 uses
  l3IntfUses
+ , F1TagDataProviderInterface
  , k2Base
  , f1TagDataFromDTP
- , F1TagDataProviderInterface
  , DocumentUnit
 ;
 

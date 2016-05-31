@@ -34,8 +34,8 @@ uses
  , FoldersDomainInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
 ;
 
 type

@@ -13,8 +13,8 @@ interface
 uses
  l3IntfUses
  , MainPrim_Form
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -22,13 +22,16 @@ uses
 
 const
  {* Локализуемые строки Local }
- str_MayExit: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'MayExit'; rValue : 'Вы уверены, что хотите закрыть систему %s?');
-  {* 'Вы уверены, что хотите закрыть систему %s?' }
  str_ApplicationName: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ApplicationName'; rValue : 'ГАРАНТ');
   {* 'ГАРАНТ' }
  str_MayExit_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_CheckCaption'; rValue : 'Всегда выходить без подтверждения');
+  {* 'Всегда выходить без подтверждения' }
  str_MayExit_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_SettingsCaption'; rValue : 'Выход из системы');
+  {* 'Выход из системы' }
  str_MayExit_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_LongHint'; rValue : 'Подтверждение при выходе из системы');
+  {* 'Подтверждение при выходе из системы' }
+ str_MayExit: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'MayExit'; rValue : 'Вы уверены, что хотите закрыть систему %s?');
+  {* 'Вы уверены, что хотите закрыть систему %s?' }
 
 type
  TPrimMainForm = class(TMainPrimForm)
@@ -60,15 +63,17 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , F1Like_FormDefinitions_Controls
  , nsCustomStyleProcessor
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A92BD85004Dimpl_uses*
+ //#UC END# *4A92BD85004Dimpl_uses*
 ;
 
 const
@@ -138,10 +143,14 @@ begin
 end;//TPrimMainForm.ActivateDefKeyboardLayout
 
 initialization
- str_MayExit_Choice_Exit.Init;
- {* Инициализация str_MayExit_Choice_Exit }
- str_MayExit_Choice_Stay.Init;
- {* Инициализация str_MayExit_Choice_Stay }
+ str_ApplicationName.Init;
+ {* Инициализация str_ApplicationName }
+ str_MayExit_CheckCaption.Init;
+ {* Инициализация str_MayExit_CheckCaption }
+ str_MayExit_SettingsCaption.Init;
+ {* Инициализация str_MayExit_SettingsCaption }
+ str_MayExit_LongHint.Init;
+ {* Инициализация str_MayExit_LongHint }
  str_MayExit.Init;
  str_MayExit.AddChoice(str_MayExit_Choice_Exit);
  str_MayExit.AddChoice(str_MayExit_Choice_Stay);
@@ -152,14 +161,10 @@ initialization
  str_MayExit.SetLongHint(str_MayExit_LongHint);
  str_MayExit.SetDlgType(mtConfirmation);
  {* Инициализация str_MayExit }
- str_ApplicationName.Init;
- {* Инициализация str_ApplicationName }
- str_MayExit_CheckCaption.Init;
- {* Инициализация str_MayExit_CheckCaption }
- str_MayExit_SettingsCaption.Init;
- {* Инициализация str_MayExit_SettingsCaption }
- str_MayExit_LongHint.Init;
- {* Инициализация str_MayExit_LongHint }
+ str_MayExit_Choice_Exit.Init;
+ {* Инициализация str_MayExit_Choice_Exit }
+ str_MayExit_Choice_Stay.Init;
+ {* Инициализация str_MayExit_Choice_Stay }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMainForm);
  {* Регистрация PrimMain }

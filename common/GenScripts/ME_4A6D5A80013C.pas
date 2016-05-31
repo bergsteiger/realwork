@@ -15,6 +15,7 @@ uses
  l3IntfUses
  , DiffOptions_Form
  , EditionsInterfaces
+ , vtPanel
  , l3Tree_TLB
  , DocumentUnit
  {$If NOT Defined(NoVCM)}
@@ -26,14 +27,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , vtPanel
 ;
 
 type
  TPrimLeftEditionForm = {abstract} class(TDiffOptionsForm)
   {* Текущая редакция }
   private
-   : IdsLeftEdition;
+   ViewArea: IdsLeftEdition;
   protected
    function EditionsChooseRoot: Il3Node; override;
    procedure DoEditionChanged(anEditionID: TRedactionID); override;
@@ -61,20 +61,18 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , CompareEditions_Controls
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimLeftEdition_utLeftEdition_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
  , Base_Operations_View_Controls
  , BaseSearchInterfaces
- , SysUtils
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
@@ -104,7 +102,8 @@ uses
  , nsConst
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -120,12 +119,9 @@ uses
  , nevTools
  , evCustomEditor
  , evEditorWithOperations
+ //#UC START# *4A6D5A80013Cimpl_uses*
+ //#UC END# *4A6D5A80013Cimpl_uses*
 ;
-
-const
- {* Локализуемые строки utLeftEditionLocalConstants }
- str_utLeftEditionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utLeftEditionCaption'; rValue : 'Предыдущая редакция');
-  {* Заголовок пользовательского типа "Предыдущая редакция" }
 
 function TPrimLeftEditionForm.EditionsChooseRoot: Il3Node;
 //#UC START# *4B55ADAD0005_4A6D5A80013C_var*
@@ -195,6 +191,14 @@ procedure TPrimLeftEditionForm.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsLeftEdition;
+ end;//aNew = nil
 end;//TPrimLeftEditionForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -205,7 +209,7 @@ begin
  with AddUsertype(utLeftEditionName,
   str_utLeftEditionCaption,
   str_utLeftEditionCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -219,8 +223,6 @@ end;//TPrimLeftEditionForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_utLeftEditionCaption.Init;
- {* Инициализация str_utLeftEditionCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimLeftEditionForm);
  {* Регистрация PrimLeftEdition }

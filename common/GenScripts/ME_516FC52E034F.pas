@@ -38,17 +38,13 @@ type
   {* Информация о комплекте }
   private
    f_tvComplectInfo: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvComplectInfo }
    f_pnBottom: TvtPanel;
-    {* Поле для свойства pnBottom }
-   f_pnVisualRepresentationData: TvtPanel;
-    {* Поле для свойства pnVisualRepresentationData }
-   f_pnVisualRepresentationDataCaption: TvtPanel;
-    {* Поле для свойства pnVisualRepresentationDataCaption }
-   f_lblVisualRepresentationData: TvtLabel;
-    {* Поле для свойства lblVisualRepresentationData }
    f_ControlsToFree: Tl3ObjectList;
-    {* Поле для свойства ControlsToFree }
+    {* Все динамически создаваемые контролы. }
+   f_pnVisualRepresentationData: TvtPanel;
+   f_pnVisualRepresentationDataCaption: TvtPanel;
+   f_lblVisualRepresentationData: TvtLabel;
+    {* Ваш комплект системы ГАРАНТ: }
   private
    function tvComplectInfoGetItemImage(Sender: TObject;
     Index: Integer;
@@ -128,16 +124,18 @@ uses
  , SysUtils
  , vtGauge
  , nsTabbedInterfaceTypes
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *516FC52E034Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *516FC52E034Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

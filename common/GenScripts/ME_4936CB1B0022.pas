@@ -25,6 +25,7 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , DynamicTreeUnit
+ , QueryCardInterfaces
  , BaseDocumentWithAttributesInterfaces
  , l3ProtoObjectWithCOMQI
  {$If NOT Defined(NoVCM)}

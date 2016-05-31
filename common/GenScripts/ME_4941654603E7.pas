@@ -19,6 +19,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DynamicTreeUnit
  , l3IID
+ , QueryCardInterfaces
  , BaseDocumentWithAttributesInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit

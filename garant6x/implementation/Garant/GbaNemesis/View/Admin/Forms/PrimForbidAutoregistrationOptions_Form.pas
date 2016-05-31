@@ -1,94 +1,78 @@
 unit PrimForbidAutoregistrationOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimForbidAutoregistrationOptions_Form.pas"
-// Начат: 09.09.2010 18:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimForbidAutoregistrationOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistrationOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimForbidAutoregistrationOptions" MUID: (4C88F1C30376)
+// Имя типа: "TPrimForbidAutoregistrationOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  PrimForbidAutoregistration_Form
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimForbidAutoregistration_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimForbidAutoregistrationOptionsForm = {form} class(TPrimForbidAutoregistrationForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
+ TPrimForbidAutoregistrationOptionsForm = class(TPrimForbidAutoregistrationForm)
+  protected
    function SaveAdminInfo: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimForbidAutoregistrationOptionsForm
-
- TvcmEntityFormRef = TPrimForbidAutoregistrationOptionsForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  AdminDomainInterfaces,
-  nsVerifyValue,
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
-
-// start class TPrimForbidAutoregistrationOptionsForm
+ l3ImplUses
+ , nsVerifyValue
+ , l3String
+ , AdminDomainInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C88F1C30376impl_uses*
+ //#UC END# *4C88F1C30376impl_uses*
+;
 
 function TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo: Boolean;
 
- procedure LpSelectComboBox(const aComboBox: TnscComboBox);
+ procedure lp_SelectComboBox(const aComboBox: TnscComboBox);
  //#UC START# *4C8A05EA005B__var*
  //#UC END# *4C8A05EA005B__var*
  begin
@@ -99,7 +83,7 @@ function TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo: Boolean;
    SelectAll;
   end;//with cbEmail do
  //#UC END# *4C8A05EA005B__impl*
- end;//LpSelectComboBox
+ end;//lp_SelectComboBox
 
 //#UC START# *4C89FF5C0352_4C88F1C30376_var*
 //#UC END# *4C89FF5C0352_4C88F1C30376_var*
@@ -133,8 +117,9 @@ begin
 //#UC END# *4C89FF5C0352_4C88F1C30376_impl*
 end;//TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4C762A1501FC_4C88F1C30376test_var*
 //#UC END# *4C762A1501FC_4C88F1C30376test_var*
 begin
@@ -143,10 +128,11 @@ begin
   (not l3IsNil(cbEmail.Text) and nsEmailVerify.Verify(cbEmail.Text));
 //#UC END# *4C762A1501FC_4C88F1C30376test_impl*
 end;//TPrimForbidAutoregistrationOptionsForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4C762A1501FC_4C88F1C30376exec_var*
 //#UC END# *4C762A1501FC_4C88F1C30376exec_var*
 begin
@@ -158,10 +144,11 @@ begin
  end;//if SaveAdminInfo then
 //#UC END# *4C762A1501FC_4C88F1C30376exec_impl*
 end;//TPrimForbidAutoregistrationOptionsForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4C88F1C30376exec_var*
 //#UC END# *4C762C910358_4C88F1C30376exec_var*
 begin
@@ -170,36 +157,33 @@ begin
  SafeClose;
 //#UC END# *4C762C910358_4C88F1C30376exec_impl*
 end;//TPrimForbidAutoregistrationOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimForbidAutoregistrationOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //Admin
+end;//TPrimForbidAutoregistrationOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimForbidAutoregistrationOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimForbidAutoregistrationOptionsForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimForbidAutoregistrationOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

@@ -35,7 +35,6 @@ uses
  , DynamicTreeUnit
  , nsConst
  , nsMainMenuNode
- , l3MessageID
 ;
 
 const

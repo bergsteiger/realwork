@@ -27,13 +27,6 @@ _FiltersUserTypes_ = _FiltersUserTypes_Parent_;
 {$Define FiltersUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки utFiltersLocalConstants }
- str_utFiltersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFiltersCaption'; rValue : 'Фильтры');
-  {* Заголовок пользовательского типа "Фильтры" }
- str_utFiltersSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFiltersSettingsCaption'; rValue : 'Фильтры (вкладка)');
-  {* Заголовок пользовательского типа "Фильтры" для настройки панелей инструментов }
-
 {$If NOT Defined(NoVCM)}
 procedure _FiltersUserTypes_.MakeControls;
 begin
@@ -41,7 +34,7 @@ begin
  with AddUsertype(utFiltersName,
   str_utFiltersCaption,
   str_utFiltersSettingsCaption,
-  False,
+  True,
   40,
   50,
   '',
@@ -54,14 +47,7 @@ begin
 end;//_FiltersUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else FiltersUserTypes_imp_impl}
-
- str_utFiltersCaption.Init;
- {* Инициализация str_utFiltersCaption }
- str_utFiltersSettingsCaption.Init;
- {* Инициализация str_utFiltersSettingsCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf FiltersUserTypes_imp_impl}
 
 {$EndIf FiltersUserTypes_imp}

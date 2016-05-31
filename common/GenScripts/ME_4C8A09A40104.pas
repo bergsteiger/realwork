@@ -15,6 +15,9 @@ uses
  l3IntfUses
  , PrimGroupList_Form
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -36,12 +39,18 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , Admin_Users_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A09A40104impl_uses*
+ //#UC END# *4C8A09A40104impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -50,6 +59,17 @@ procedure TPrimGroupListOptionsForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_Groups, op_Add, False);
+  ShowInToolbar(en_Groups, op_Add, True);
+  ShowInContextMenu(en_Groups, op_ChangeBaseAccess, True);
+  ShowInToolbar(en_Groups, op_ChangeBaseAccess, False);
+  ShowInContextMenu(en_Groups, op_Rename, True);
+  ShowInToolbar(en_Groups, op_Rename, True);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+ end;//with Entities.Entities
 end;//TPrimGroupListOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

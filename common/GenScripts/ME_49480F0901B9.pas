@@ -56,14 +56,11 @@ type
    f_NeedFillFilterList: Boolean;
    UseCase: IsdsAdmin;
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_trUserList: TeeTreeView;
-    {* Поле для свойства trUserList }
   protected
    f_InCreateNew: Boolean;
-   : IdsUserList;
+   ViewArea: IdsUserList;
   private
    procedure ContextFilterChange(Sender: TObject);
    procedure ContextFilterWrongContext(Sender: TObject);
@@ -239,18 +236,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , ForbidAutoregistration_ut_ForbidAutoregistration_UserType
  , PrimUserList_admUserList_UserType
+ //#UC START# *49480F0901B9impl_uses*
+ , l3ControlsTypes
+ //#UC END# *49480F0901B9impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки admUserListLocalConstants }
- str_admUserListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admUserListCaption'; rValue : 'Список пользователей');
-  {* Заголовок пользовательского типа "Список пользователей" }
  {* Локализуемые строки PrimUserListConsts }
  str_DisableConsultingForAll: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DisableConsultingForAll'; rValue : 'Запретить всем использование услуги Правового консалтинга');
   {* 'Запретить всем использование услуги Правового консалтинга' }
@@ -1220,6 +1217,16 @@ procedure TPrimUserListForm.SignalDataSourceChanged(const anOld: IvcmFormDataSou
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+  UseCase := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsUserList;
+  aNew.CastUCC(IsdsAdmin, UseCase);
+ end;//aNew = nil
 end;//TPrimUserListForm.SignalDataSourceChanged
 
 procedure TPrimUserListForm.InitEntities;
@@ -1231,19 +1238,27 @@ begin
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Users, nil);
+  MakeEntitySupportedByControl(en_Edit, ContextFilter);
+  MakeEntitySupportedByControl(en_Edit, trUserList);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
   PublishOp(en_Users, op_Add, Users_Add_Execute, Users_Add_Test, nil);
   PublishOp(en_Users, op_LogoutUser, Users_LogoutUser_Execute, Users_LogoutUser_Test, Users_LogoutUser_GetState);
   PublishOp(en_Users, op_ConsultingStateForNewbie, Users_ConsultingStateForNewbie_Execute, nil, Users_ConsultingStateForNewbie_GetState);
   PublishOp(en_Users, op_Autoregistration, Users_Autoregistration_Execute, nil, Users_Autoregistration_GetState);
   PublishOp(en_Users, op_AddPrivelegedRight, Users_AddPrivelegedRight_Execute, Users_AddPrivelegedRight_Test, Users_AddPrivelegedRight_GetState);
+  ContextMenuWeight(en_Users, op_AddPrivelegedRight, 1);
   PublishOp(en_Users, op_RemovePrivelegedRight, Users_RemovePrivelegedRight_Execute, Users_RemovePrivelegedRight_Test, Users_RemovePrivelegedRight_GetState);
+  ContextMenuWeight(en_Users, op_RemovePrivelegedRight, 1);
   PublishOp(en_Users, op_UserFilter, Users_UserFilter_Execute, Users_UserFilter_Test, nil);
   PublishOp(en_Users, op_DisableConsulting, Users_DisableConsulting_Execute, Users_DisableConsulting_Test, nil);
   PublishOp(en_Users, op_EnableConsulting, Users_EnableConsulting_Execute, Users_EnableConsulting_Test, nil);
-  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
   PublishOp(en_Users, op_MakeFiltersShared, Users_MakeFiltersShared_Execute, Users_MakeFiltersShared_Test, nil);
+  ShowInContextMenu(en_Users, op_MakeFiltersShared, True);
+  ShowInToolbar(en_Users, op_MakeFiltersShared, False);
+  ContextMenuWeight(en_Users, op_MakeFiltersShared, 2);
   PublishOp(en_Users, op_DenyDeleteIdle, Users_DenyDeleteIdle_Execute, Users_DenyDeleteIdle_Test, nil);
+  ShowInContextMenu(en_Users, op_DenyDeleteIdle, True);
+  ShowInToolbar(en_Users, op_DenyDeleteIdle, False);
  end;//with Entities.Entities
 end;//TPrimUserListForm.InitEntities
 
@@ -1253,7 +1268,7 @@ begin
  with AddUsertype(admUserListName,
   str_admUserListCaption,
   str_admUserListCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -1275,8 +1290,6 @@ begin
 end;//TPrimUserListForm.MakeControls
 
 initialization
- str_admUserListCaption.Init;
- {* Инициализация str_admUserListCaption }
  str_DisableConsultingForAll.Init;
  {* Инициализация str_DisableConsultingForAll }
  str_EnableConsultingForAll.Init;

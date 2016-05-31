@@ -16,10 +16,10 @@ uses
  {$If NOT Defined(NotTunedDUnit)}
  , BaseTest
  {$IfEnd} // NOT Defined(NotTunedDUnit)
+ , evdNativeWriter
  , l3Variant
  , k2CustomFileReader
  , l3Filer
- , evdNativeWriter
 ;
 
 type

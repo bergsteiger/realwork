@@ -46,8 +46,6 @@ implementation
 
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -56,11 +54,6 @@ uses
  , LongProcessKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_LongProcessLocalConstants }
- str_ut_LongProcessCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_LongProcessCaption'; rValue : 'Информация');
-  {* Заголовок пользовательского типа "Информация" }
 
 {$R *.DFM}
 
@@ -85,8 +78,6 @@ end;//TLongProcessForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_LongProcessCaption.Init;
- {* Инициализация str_ut_LongProcessCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TLongProcessForm);
  {* Регистрация LongProcess }

@@ -1,185 +1,137 @@
 unit PrimTreeAttributeFirstLevel_Form;
+ {* Первый уровень дерева атрибутов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimTreeAttributeFirstLevel_Form.pas"
-// Начат: 27.01.2009 11:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimTreeAttributeFirstLevel
-//
-// Первый уровень дерева атрибутов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimTreeAttributeFirstLevel_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTreeAttributeFirstLevel" MUID: (497EC6A4022F)
+// Имя типа: "TPrimTreeAttributeFirstLevelForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3TreeInterfaces,
-  l3ControlsTypes,
-  TreeInterfaces,
-  eeTreeView,
-  TreeAttribute_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  QueryCardInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  SearchLite_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  PrimTreeAttributeFirstLevel_flSituation_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  DynamicTreeUnit,
-  l3Interfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , TreeAttribute_Form
+ , SearchLite_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TreeInterfaces
+ , QueryCardInterfaces
+ , nscTreeViewWithAdapterDragDrop
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DynamicTreeUnit
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimTreeAttributeFirstLevelForm = {abstract form} class(TTreeAttributeForm)
+ TPrimTreeAttributeFirstLevelForm = {abstract} class(TTreeAttributeForm)
   {* Первый уровень дерева атрибутов }
- private
- // private fields
-   f_FirstLevelContent : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FirstLevelContent}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_FirstLevelContent: TnscTreeViewWithAdapterDragDrop;
+  protected
+   dsSimpleTree: IdsSimpleTree;
+   dsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+   f_InternalMove: Integer;
+  private
    function FirstLevelContentGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure FirstLevelContentCurrentChanged(aSender: TObject;
-     aNewCurrent: Integer;
-     aOldCurrent: Integer);
-     {* событие для обработки изменения текущего элемента }
+    aNewCurrent: Integer;
+    aOldCurrent: Integer);
    procedure FirstLevelContentNewCharPressed(aChar: AnsiChar);
-     {* событие для внешней обработки WMChar }
    procedure UpdateCurrent(const aNode: Il3SimpleNode);
- protected
- // realized methods
+  protected
    procedure CurrentChangedNotification(const aNode: Il3SimpleNode); override;
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure AttributeTree_SetParent_Execute(const aParent: Il3SimpleNode);
    procedure AttributeTree_SetParent(const aParams: IvcmExecuteParams);
    procedure AttributeTree_ExtSetRoot_Execute(const aRoot: INodeBase);
    procedure AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParams);
    procedure AttributeTree_SetRoot_Execute(const aTag: Il3CString);
    procedure AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsSimpleTree : IdsSimpleTree;
-   dsTreeAttributeFirstLevel : IdsTreeAttributeFirstLevel;
-   f_InternalMove : Integer;
- public
- // public properties
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property FirstLevelContent: TnscTreeViewWithAdapterDragDrop
-     read f_FirstLevelContent;
+    read f_FirstLevelContent;
  end;//TPrimTreeAttributeFirstLevelForm
-
- TvcmEntityFormRef = TPrimTreeAttributeFirstLevelForm;
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base,
-  nsAttributeOneLevelTreeStruct,
-  SearchRes,
-  nsTypes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmBase {a},
-  StdRes {a},
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin
-
-{$If not defined(Admin)}
-
-var
-   { Локализуемые строки flSituationLocalConstants }
-  str_flSituationCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationCaption'; rValue : 'Ситуации первого уровня (вкладка)');
-   { Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" }
-  str_flSituationSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'flSituationSettingsCaption'; rValue : 'Поиск: Ситуации первого уровня (вкладка)');
-   { Заголовок пользовательского типа "Ситуации первого уровня (вкладка)" для настройки панелей инструментов }
-
-// start class TPrimTreeAttributeFirstLevelForm
+ l3ImplUses
+ , l3Base
+ , nsAttributeOneLevelTreeStruct
+ , SearchRes
+ , nsTypes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimTreeAttributeFirstLevel_flSituation_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EC6A4022Fimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EC6A4022Fimpl_uses*
+;
 
 function TPrimTreeAttributeFirstLevelForm.FirstLevelContentGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *52728D2A036D_497EC6A4022F_var*
 {var
  l_l3Node    : Il3SimpleNode;
@@ -208,8 +160,8 @@ begin
 end;//TPrimTreeAttributeFirstLevelForm.FirstLevelContentGetItemImage
 
 procedure TPrimTreeAttributeFirstLevelForm.FirstLevelContentCurrentChanged(aSender: TObject;
-  aNewCurrent: Integer;
-  aOldCurrent: Integer);
+ aNewCurrent: Integer;
+ aOldCurrent: Integer);
 //#UC START# *52728D32009E_497EC6A4022F_var*
 //#UC END# *52728D32009E_497EC6A4022F_var*
 begin
@@ -273,8 +225,8 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent_Execute
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetParent_Params) do
-  AttributeTree_SetParent_Execute(Parent);
-end;
+  Self.AttributeTree_SetParent_Execute(Parent);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent
 
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute(const aRoot: INodeBase);
 //#UC START# *4AEF14460025_497EC6A4022Fexec_var*
@@ -305,8 +257,8 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_ExtSetRoot_Params) do
-  AttributeTree_ExtSetRoot_Execute(Root);
-end;
+  Self.AttributeTree_ExtSetRoot_Execute(Root);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot
 
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute(const aTag: Il3CString);
 //#UC START# *4AF3EBC001C4_497EC6A4022Fexec_var*
@@ -330,11 +282,12 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
-  AttributeTree_SetRoot_Execute(Tag);
-end;
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_497EC6A4022Ftest_var*
 //#UC END# *4BDAF7880236_497EC6A4022Ftest_var*
 begin
@@ -342,10 +295,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_497EC6A4022Ftest_impl*
 end;//TPrimTreeAttributeFirstLevelForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_497EC6A4022Ftest_var*
 //#UC END# *4BDAF7A2005C_497EC6A4022Ftest_var*
 begin
@@ -353,7 +307,7 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_497EC6A4022Ftest_impl*
 end;//TPrimTreeAttributeFirstLevelForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimTreeAttributeFirstLevelForm.InitFields;
 //#UC START# *47A042E100E2_497EC6A4022F_var*
@@ -366,9 +320,10 @@ begin
 //#UC END# *47A042E100E2_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.InitFields
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EC6A4022F_var*
 //#UC END# *497469C90140_497EC6A4022F_var*
 begin
@@ -383,10 +338,11 @@ begin
  end;//(dsTreeAttributeFirstLevel <> nil)
 //#UC END# *497469C90140_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EC6A4022F_var*
 //#UC END# *4A8E8F2E0195_497EC6A4022F_var*
 begin
@@ -404,25 +360,30 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EC6A4022F_impl*
 end;//TPrimTreeAttributeFirstLevelForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsSimpleTree := nil;
   dsTreeAttributeFirstLevel := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsSimpleTree, dsSimpleTree);
-  Supports(aDsNew, IdsTreeAttributeFirstLevel, dsTreeAttributeFirstLevel);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsSimpleTree, dsSimpleTree);
+  Supports(aNew, IdsTreeAttributeFirstLevel, dsTreeAttributeFirstLevel);
+ end;//aNew = nil
+end;//TPrimTreeAttributeFirstLevelForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -433,27 +394,20 @@ begin
   PublishOpWithResult(en_AttributeTree, op_SetParent, AttributeTree_SetParent, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_ExtSetRoot, AttributeTree_ExtSetRoot, nil, nil);
   PublishOpWithResult(en_AttributeTree, op_SetRoot, AttributeTree_SetRoot, nil, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
+end;//TPrimTreeAttributeFirstLevelForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimTreeAttributeFirstLevelForm.MakeControls;
 begin
  inherited;
- f_FirstLevelContent := TnscTreeViewWithAdapterDragDrop.Create(Self);
- f_FirstLevelContent.Name := 'FirstLevelContent';
- f_FirstLevelContent.Parent := Self;
  with AddUsertype(flSituationName,
   str_flSituationCaption,
   str_flSituationSettingsCaption,
-  true,
+  True,
   29,
   40,
   '',
@@ -463,22 +417,17 @@ begin
   vcm_ccDisable) do
  begin
  end;//with AddUsertype(flSituationName
-end;
-
-{$IfEnd} //not Admin
+ f_FirstLevelContent := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_FirstLevelContent.Name := 'FirstLevelContent';
+ f_FirstLevelContent.Parent := Self;
+end;//TPrimTreeAttributeFirstLevelForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin)}
-// Инициализация str_flSituationCaption
- str_flSituationCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_flSituationSettingsCaption
- str_flSituationSettingsCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimTreeAttributeFirstLevel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTreeAttributeFirstLevelForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimTreeAttributeFirstLevel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

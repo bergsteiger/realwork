@@ -25,6 +25,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , MedicInterfaces
  , vtPanel
+ , afwInterfaces
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
@@ -33,7 +34,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , afwInterfaces
  , l3Interfaces
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
@@ -60,11 +60,8 @@ type
   {* Список фирм-производителей }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_ListTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства ListTree }
   protected
    dsMedicFirmList: IdsMedicFirmList;
   private
@@ -203,7 +200,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , nsToMSWordOp
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -216,11 +212,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , nsTabbedInterfaceTypes
- , l3DialogService
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , SysUtils
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -251,18 +245,21 @@ uses
  , PreviewInterfaces
  , nsSaveDialog
  , nsConst
+ , Base_Operations_Strange_Controls
+ , Common_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimMedicFirmList_mflMain_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EE4EB00CBimpl_uses*
+ , l3ControlsTypes
+ //#UC END# *497EE4EB00CBimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки mflMainLocalConstants }
- str_mflMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mflMainCaption'; rValue : 'Фармацевтические фирмы (полный список)');
-  {* Заголовок пользовательского типа "Фармацевтические фирмы (полный список)" }
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
@@ -976,6 +973,14 @@ procedure TPrimMedicFirmListForm.SignalDataSourceChanged(const anOld: IvcmFormDa
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsMedicFirmList := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsMedicFirmList, dsMedicFirmList);
+ end;//aNew = nil
 end;//TPrimMedicFirmListForm.SignalDataSourceChanged
 
 procedure TPrimMedicFirmListForm.InitEntities;
@@ -987,12 +992,28 @@ begin
  begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Tree, nil);
+  PublishFormEntity(en_Document, nil);
+  MakeEntitySupportedByControl(en_Document, ListTree);
+  MakeEntitySupportedByControl(en_Tree, ListTree);
+  MakeEntitySupportedByControl(en_Document, ListTree);
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  ShowInContextMenu(en_File, op_Save, False);
+  ShowInToolbar(en_File, op_Save, False);
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, True);
   PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
+  ShowInContextMenu(en_File, op_SendMailAsAttachment, False, true);
+  ShowInToolbar(en_File, op_SendMailAsAttachment, False, true);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
  end;//with Entities.Entities
@@ -1004,7 +1025,7 @@ begin
  with AddUsertype(mflMainName,
   str_mflMainCaption,
   str_mflMainCaption,
-  False,
+  True,
   178,
   -1,
   '',
@@ -1026,8 +1047,6 @@ begin
 end;//TPrimMedicFirmListForm.MakeControls
 
 initialization
- str_mflMainCaption.Init;
- {* Инициализация str_mflMainCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMedicFirmListForm);
  {* Регистрация PrimMedicFirmList }

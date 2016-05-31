@@ -29,6 +29,9 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -45,13 +48,10 @@ type
   private
    f_IsInfoShown: Boolean;
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ParentZone: TvtPanel;
-    {* Поле для свойства ParentZone }
    f_ChildZone: TvtSizeablePanel;
-    {* Поле для свойства ChildZone }
   protected
-   procedure utFoldersQueryClose(aSender: TObject);
+   procedure UtFoldersQueryClose(aSender: TObject);
     {* Обработчик события utFolders.OnQueryClose }
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
@@ -131,7 +131,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -141,26 +140,20 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimFolders_utFolders_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A96B6AE0071impl_uses*
+ , vcmEntityForm
+ //#UC END# *4A96B6AE0071impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utFoldersLocalConstants }
- str_utFoldersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersCaption'; rValue : 'Мои документы');
-  {* Заголовок пользовательского типа "Мои документы" }
-
-procedure TPrimFoldersForm.utFoldersQueryClose(aSender: TObject);
+procedure TPrimFoldersForm.UtFoldersQueryClose(aSender: TObject);
  {* Обработчик события utFolders.OnQueryClose }
 //#UC START# *1BA52F720139_4A96B6AE0071_var*
 //#UC END# *1BA52F720139_4A96B6AE0071_var*
@@ -168,7 +161,7 @@ begin
 //#UC START# *1BA52F720139_4A96B6AE0071_impl*
  SafeClose;
 //#UC END# *1BA52F720139_4A96B6AE0071_impl*
-end;//TPrimFoldersForm.utFoldersQueryClose
+end;//TPrimFoldersForm.UtFoldersQueryClose
 
 procedure TPrimFoldersForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
  {* Отмена }
@@ -499,6 +492,7 @@ begin
   PublishFormEntity(en_FoldersControl, nil);
   PublishFormEntity(en_AdditionInfo, nil);
   PublishFormEntity(en_Switcher, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
   PublishOpWithResult(en_FoldersControl, op_EditElement, FoldersControl_EditElement, nil, nil);
   PublishOpWithResult(en_FoldersControl, op_DeleteElement, FoldersControl_DeleteElement, nil, nil);
@@ -509,8 +503,6 @@ begin
   PublishOpWithResult(en_AdditionInfo, op_SetCaption, AdditionInfo_SetCaption, nil, nil);
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
   PublishOpWithResult(en_AdditionInfo, op_Close, AdditionInfo_Close, nil, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
  end;//with Entities.Entities
 end;//TPrimFoldersForm.InitEntities
 
@@ -526,7 +518,7 @@ begin
   '',
   nil,
   nil,
-  utFoldersQueryClose,
+  UtFoldersQueryClose,
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utFoldersName
@@ -536,21 +528,19 @@ begin
  f_ParentZone := TvtPanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
   FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
  end;//with DefineZone(vcm_ztParent
  f_ChildZone := TvtSizeablePanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
 end;//TPrimFoldersForm.MakeControls
 
 initialization
- str_utFoldersCaption.Init;
- {* Инициализация str_utFoldersCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersForm);
  {* Регистрация PrimFolders }

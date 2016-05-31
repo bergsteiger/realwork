@@ -1,127 +1,97 @@
 unit PrimLegalMainMenu_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/Forms/PrimLegalMainMenu_Form.pas"
-// Начат: 05.10.2009 16:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Интерфейсные элементы::MainMenu::View::MainMenu::PrimLegalMainMenu
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimLegalMainMenu_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimLegalMainMenu" MUID: (4AC9E7B40342)
+// Имя типа: "TPrimLegalMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimMainMenu_Form,
-  MainMenuWithBaseSearchSupport_Form
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  l3TreeInterfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MainMenuWithBaseSearchSupport_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimLegalMainMenuForm = {abstract form} class(TMainMenuWithBaseSearchSupportForm)
- private
- // private fields
-   f_hfReferences : TnscHideField;
-    {* Поле для свойства hfReferences}
-   f_tvReferences : TnscTreeViewHotTruck;
-    {* Поле для свойства tvReferences}
-   f_hfLawNews : TnscHideField;
-    {* Поле для свойства hfLawNews}
-   f_tvLawNews : TnscTreeViewHotTruck;
-    {* Поле для свойства tvLawNews}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimLegalMainMenuForm = {abstract} class(TMainMenuWithBaseSearchSupportForm)
+  private
+   f_hfReferences: TnscHideField;
+    {* Бизнес-справки }
+   f_tvReferences: TnscTreeViewHotTruck;
+   f_hfLawNews: TnscHideField;
+    {* Изменения в законодательстве }
+   f_tvLawNews: TnscTreeViewHotTruck;
+  private
    procedure UpdateMainMenuForm;
- protected
- // overridden protected methods
+  protected
+   procedure UpdateCaption;
    procedure FinishDataUpdate; override;
    procedure SettingsReplaceFinish; override;
    procedure UserSettingsChanged; override;
-     {* Изменились настройки пользователя }
-   {$If not defined(NoVCM)}
+    {* Изменились настройки пользователя }
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure LoadTrees; override;
- protected
- // protected methods
-   procedure UpdateCaption;
- public
- // public properties
-
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property hfReferences: TnscHideField
-     read f_hfReferences;
-     {* Бизнес-справки }
+    read f_hfReferences;
+    {* Бизнес-справки }
    property tvReferences: TnscTreeViewHotTruck
-     read f_tvReferences;
+    read f_tvReferences;
    property hfLawNews: TnscHideField
-     read f_hfLawNews;
-     {* Изменения в законодательстве }
+    read f_hfLawNews;
+    {* Изменения в законодательстве }
    property tvLawNews: TnscTreeViewHotTruck
-     read f_tvLawNews;
+    read f_tvLawNews;
  end;//TPrimLegalMainMenuForm
-
- TvcmEntityFormRef = TPrimLegalMainMenuForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsMainMenuNew,
-  smLawNewsTree,
-  smNewSchoolReferencesTree
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  SysUtils,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimLegalMainMenuForm
+ l3ImplUses
+ , nsMainMenuNew
+ , smLawNewsTree
+ , smNewSchoolReferencesTree
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , SysUtils
+ , afwFacade
+ //#UC START# *4AC9E7B40342impl_uses*
+ //#UC END# *4AC9E7B40342impl_uses*
+;
 
 procedure TPrimLegalMainMenuForm.UpdateMainMenuForm;
 //#UC START# *4ACC7F16032D_4AC9E7B40342_var*
@@ -164,6 +134,7 @@ begin
 end;//TPrimLegalMainMenuForm.SettingsReplaceFinish
 
 procedure TPrimLegalMainMenuForm.UserSettingsChanged;
+ {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_4AC9E7B40342_var*
 //#UC END# *4958BE910345_4AC9E7B40342_var*
 begin
@@ -173,8 +144,9 @@ begin
 //#UC END# *4958BE910345_4AC9E7B40342_impl*
 end;//TPrimLegalMainMenuForm.UserSettingsChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimLegalMainMenuForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AC9E7B40342_var*
 //#UC END# *49803F5503AA_4AC9E7B40342_var*
 begin
@@ -186,7 +158,7 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258*)
 //#UC END# *49803F5503AA_4AC9E7B40342_impl*
 end;//TPrimLegalMainMenuForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimLegalMainMenuForm.LoadTrees;
 //#UC START# *4AC9E9EC0064_4AC9E7B40342_var*
@@ -199,6 +171,7 @@ begin
 //#UC END# *4AC9E9EC0064_4AC9E7B40342_impl*
 end;//TPrimLegalMainMenuForm.LoadTrees
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimLegalMainMenuForm.MakeControls;
 begin
  inherited;
@@ -217,14 +190,14 @@ begin
  f_tvLawNews := TnscTreeViewHotTruck.Create(Self);
  f_tvLawNews.Name := 'tvLawNews';
  f_tvLawNews.Parent := hfLawNews;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimLegalMainMenuForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimLegalMainMenu
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimLegalMainMenuForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimLegalMainMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

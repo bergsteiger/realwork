@@ -26,6 +26,9 @@ uses
  , Common_Strange_Controls
  , Inpharm_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -74,6 +77,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E3A320074impl_uses*
+ //#UC END# *4C7E3A320074impl_uses*
 ;
 
 procedure TPrimMedicFirmListOptionsForm.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
@@ -244,18 +249,43 @@ begin
   PublishFormEntity(en_Document, nil);
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_MedicFirmList, nil);
+  ContextMenuWeight(en_Document, 20);
+  ContextMenuWeight(en_Tree, 30);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Cut, True);
+  ShowInToolbar(en_Edit, op_Cut, False);
   PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
+  ContextMenuWeight(en_Document, op_AddBookmark, 30);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Undo, True);
+  ShowInToolbar(en_Edit, op_Undo, False);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Redo, True);
+  ShowInToolbar(en_Edit, op_Redo, False);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_SelectAll, True);
+  ShowInToolbar(en_Edit, op_SelectAll, False);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Deselect, True);
+  ShowInToolbar(en_Edit, op_Deselect, False);
   PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
+  ContextMenuWeight(en_Tree, op_Wrap, 10);
   PublishOp(en_Document, op_OpenNewWindow, Document_OpenNewWindow_Execute, Document_OpenNewWindow_Test, nil);
+  ShowInContextMenu(en_Document, op_OpenNewWindow, True);
+  ContextMenuWeight(en_Document, op_OpenNewWindow, 20);
   PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_MedicFirmList, op_CountryFilter, MedicFirmList_CountryFilter_Execute, MedicFirmList_CountryFilter_Test, nil);
+  ShowInContextMenu(en_MedicFirmList, op_CountryFilter, False);
+  ShowInToolbar(en_MedicFirmList, op_CountryFilter, True);
   PublishOp(en_Document, op_OpenInNewTab, Document_OpenInNewTab_Execute, nil, nil);
+  ShowInContextMenu(en_Document, op_OpenInNewTab, True);
+  ShowInToolbar(en_Document, op_OpenInNewTab, False);
+  ContextMenuWeight(en_Document, op_OpenInNewTab, 10);
  end;//with Entities.Entities
 end;//TPrimMedicFirmListOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

@@ -22,6 +22,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Common_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -59,6 +62,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87A47E0036impl_uses*
+ //#UC END# *4C87A47E0036impl_uses*
 ;
 
 procedure TPrimNavigatorOptionsForm.NavigatorElement_Info_Test(const aParams: IvcmTestParamsPrim);
@@ -124,15 +129,35 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_NavigatorElement, nil);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Cut, True);
+  ShowInToolbar(en_Edit, op_Cut, True);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Undo, True);
+  ShowInToolbar(en_Edit, op_Undo, False);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Redo, True);
+  ShowInToolbar(en_Edit, op_Redo, False);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_SelectAll, True);
+  ShowInToolbar(en_Edit, op_SelectAll, False);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Deselect, True);
+  ShowInToolbar(en_Edit, op_Deselect, False);
   PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Delete, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
   PublishOp(en_NavigatorElement, op_Info, NavigatorElement_Info_Execute, NavigatorElement_Info_Test, nil);
+  ShowInContextMenu(en_NavigatorElement, op_Info, True);
+  ShowInToolbar(en_NavigatorElement, op_Info, False);
   PublishOp(en_NavigatorElement, op_Execute, NavigatorElement_Execute_Execute, NavigatorElement_Execute_Test, nil);
+  ShowInContextMenu(en_NavigatorElement, op_Execute, True);
+  ShowInToolbar(en_NavigatorElement, op_Execute, False);
  end;//with Entities.Entities
 end;//TPrimNavigatorOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

@@ -58,9 +58,6 @@ implementation
 uses
  l3ImplUses
  , nsMainMenuFormGUIDFactory
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
  {$IfEnd} // NOT Defined(NoVCM)
@@ -69,12 +66,20 @@ uses
  , l3InterfacesMisc
  , nsBaseSearchService
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , afwFacade
+ //#UC START# *4AC99EBE0106impl_uses*
+ //#UC END# *4AC99EBE0106impl_uses*
 ;
 
 type _Instance_R_ = TMainMenuWithBaseSearchSupportForm;

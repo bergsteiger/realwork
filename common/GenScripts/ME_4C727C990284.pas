@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , f1TagDataFromDTP
- , DocumentUnit
  , F1TagDataProviderInterface
+ , DocumentUnit
 ;
 
 type

@@ -1,141 +1,129 @@
 unit PrimAttributeSelect_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimAttributeSelect_Form.pas"
-// Начат: 27.01.2009 15:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimAttributeSelect
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimAttributeSelect" MUID: (497EFC6002FC)
+// Имя типа: "TPrimAttributeSelectForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  SearchUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(Admin)}
-  ,
-  nsQueryInterfaces
-  {$IfEnd} //not Admin
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  SearchLite_Strange_Controls,
-  l3StringIDEx,
-  PrimAttributeSelect_utAttributeSelect_UserType,
-  PrimAttributeSelect_utSingleSearch_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmEntityForm {a},
-  vcmContainerForm {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , SearchInterfaces
+ {$If NOT Defined(Admin)}
+ , nsQueryInterfaces
+ {$IfEnd} // NOT Defined(Admin)
+ , l3Interfaces
+ , vtProportionalPanel
+ , SearchUnit
+ , vtSizeablePanel
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimAttributeSelectForm = {form} class(TvcmContainerForm)
- private
- // private fields
-   f_BackgroundPanel : TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_SelectedZone : TvtSizeablePanel;
-    {* Поле для свойства SelectedZone}
-   f_ValuesZone : TvtPanel;
-    {* Поле для свойства ValuesZone}
-  {$If not defined(Admin)}
-   f_FormState : InsQueryFormState;
-    {* Поле для свойства FormState}
-  {$IfEnd} //not Admin
-   f_Tag : Il3CString;
-    {* Поле для свойства Tag}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-   procedure VcmContainerFormLoadState(const aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Loaded: Boolean);
-   procedure VcmContainerFormSaveState(out aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Saved: Boolean);
- protected
- // property methods
-   {$If not defined(Admin)}
+ TPrimAttributeSelectForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_BackgroundPanel: TvtProportionalPanel;
+   {$If NOT Defined(Admin)}
+   f_FormState: InsQueryFormState;
+   {$IfEnd} // NOT Defined(Admin)
+   f_Tag: Il3CString;
+    {* значение тега, которое можно выставить в vcmContainerFormChangedDataSource }
+   f_SelectedZone: TvtSizeablePanel;
+   f_ValuesZone: TvtPanel;
+  protected
+   dsAttributeSelect: IdsAttributeSelect;
+  private
+   procedure vcmContainerFormLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Loaded: Boolean);
+   procedure vcmContainerFormSaveState(out aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Saved: Boolean);
+  protected
+   {$If NOT Defined(Admin)}
    function pm_GetFormState: InsQueryFormState; virtual;
-   {$IfEnd} //not Admin
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(Admin)
+   function FillQuery(WithCreate: Boolean = True): IQuery;
+   {$If NOT Defined(Admin)}
+   function GetFormState: InsQueryFormState;
+   {$IfEnd} // NOT Defined(Admin)
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_OkExt_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
    procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
    procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
@@ -147,105 +135,76 @@ type
    procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
    procedure Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_ClearAll_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   dsAttributeSelect : IdsAttributeSelect;
- protected
- // protected methods
-   function FillQuery(WithCreate: Boolean = true): IQuery;
-    {$If not defined(Admin)}
-   function GetFormState: InsQueryFormState;
-    {$IfEnd} //not Admin
- protected
- // protected properties
-    {$If not defined(Admin)}
+  protected
+   {$If NOT Defined(Admin)}
    property FormState: InsQueryFormState
-     read pm_GetFormState;
-    {$IfEnd} //not Admin
+    read pm_GetFormState;
+   {$IfEnd} // NOT Defined(Admin)
    property Tag: Il3CString
-     read f_Tag;
-     {* значение тега, которое можно выставить в vcmContainerFormChangedDataSource }
- public
- // public properties
+    read f_Tag;
+    {* значение тега, которое можно выставить в vcmContainerFormChangedDataSource }
+  public
    property BackgroundPanel: TvtProportionalPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property SelectedZone: TvtSizeablePanel
-     read f_SelectedZone;
+    read f_SelectedZone;
    property ValuesZone: TvtPanel
-     read f_ValuesZone;
+    read f_ValuesZone;
  end;//TPrimAttributeSelectForm
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsNodes,
-  nsAttributeTreeCacheNew
-  {$If not defined(Admin)}
-  ,
-  nsQuery
-  {$IfEnd} //not Admin
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3String,
-  DynamicTreeUnit,
-  DataAdapter,
-  tasSaveLoadProxy,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a},
-  SysUtils {a}
-  ;
+ l3ImplUses
+ , PrimAttributeSelect_utSingleSearch_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsNodes
+ , nsAttributeTreeCacheNew
+ {$If NOT Defined(Admin)}
+ , nsQuery
+ {$IfEnd} // NOT Defined(Admin)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3String
+ , DynamicTreeUnit
+ , DataAdapter
+ , tasSaveLoadProxy
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimAttributeSelect_utAttributeSelect_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EFC6002FCimpl_uses*
+ , l3Base
+ //#UC END# *497EFC6002FCimpl_uses*
+;
 
-var
-   { Локализуемые строки utAttributeSelectLocalConstants }
-  str_utAttributeSelectCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAttributeSelectCaption'; rValue : 'Выбор значения атрибута');
-   { Заголовок пользовательского типа "Выбор значения атрибута" }
+{$If NOT Defined(NoVCM)}
+{$If NOT Defined(Admin)}
+function TPrimAttributeSelectForm.pm_GetFormState: InsQueryFormState;
+//#UC START# *5121EE47013D_497EFC6002FCget_var*
+//#UC END# *5121EE47013D_497EFC6002FCget_var*
+begin
+//#UC START# *5121EE47013D_497EFC6002FCget_impl*
+ if f_FormState = nil then
+  f_FormState := TnsQueryFormState.Make;
+ Result := f_FormState;
+//#UC END# *5121EE47013D_497EFC6002FCget_impl*
+end;//TPrimAttributeSelectForm.pm_GetFormState
+{$IfEnd} // NOT Defined(Admin)
 
-var
-   { Локализуемые строки utSingleSearchLocalConstants }
-  str_utSingleSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSingleSearchCaption'; rValue : 'Атомарный поиск');
-   { Заголовок пользовательского типа "Атомарный поиск" }
-
-// start class TPrimAttributeSelectForm
-
-procedure TPrimAttributeSelectForm.VcmContainerFormLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Loaded: Boolean);
+procedure TPrimAttributeSelectForm.vcmContainerFormLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Loaded: Boolean);
 //#UC START# *511FAA24016D_497EFC6002FC_var*
 //#UC END# *511FAA24016D_497EFC6002FC_var*
 begin
@@ -260,11 +219,11 @@ begin
  Loaded := false;
  {$IfEnd}
 //#UC END# *511FAA24016D_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.VcmContainerFormLoadState
+end;//TPrimAttributeSelectForm.vcmContainerFormLoadState
 
-procedure TPrimAttributeSelectForm.VcmContainerFormSaveState(out aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Saved: Boolean);
+procedure TPrimAttributeSelectForm.vcmContainerFormSaveState(out aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Saved: Boolean);
 //#UC START# *511FA9C8030E_497EFC6002FC_var*
 //#UC END# *511FA9C8030E_497EFC6002FC_var*
 begin
@@ -276,9 +235,9 @@ begin
  Saved := false;
  {$IfEnd}
 //#UC END# *511FA9C8030E_497EFC6002FC_impl*
-end;//TPrimAttributeSelectForm.VcmContainerFormSaveState
+end;//TPrimAttributeSelectForm.vcmContainerFormSaveState
 
-function TPrimAttributeSelectForm.FillQuery(WithCreate: Boolean = true): IQuery;
+function TPrimAttributeSelectForm.FillQuery(WithCreate: Boolean = True): IQuery;
 //#UC START# *51220BFE013D_497EFC6002FC_var*
 var
  l_Type: TQueryType;
@@ -322,7 +281,7 @@ begin
 //#UC END# *51220BFE013D_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.FillQuery
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 function TPrimAttributeSelectForm.GetFormState: InsQueryFormState;
 //#UC START# *51220C2B0092_497EFC6002FC_var*
 //#UC END# *51220C2B0092_497EFC6002FC_var*
@@ -331,23 +290,10 @@ begin
  Result := FormState;
 //#UC END# *51220C2B0092_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.GetFormState
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
-{$If not defined(Admin)}
-function TPrimAttributeSelectForm.pm_GetFormState: InsQueryFormState;
-//#UC START# *5121EE47013D_497EFC6002FCget_var*
-//#UC END# *5121EE47013D_497EFC6002FCget_var*
-begin
-//#UC START# *5121EE47013D_497EFC6002FCget_impl*
- if f_FormState = nil then
-  f_FormState := TnsQueryFormState.Make;
- Result := f_FormState;
-//#UC END# *5121EE47013D_497EFC6002FCget_impl*
-end;//TPrimAttributeSelectForm.pm_GetFormState
-{$IfEnd} //not Admin
-
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A8AD47D0357_497EFC6002FCtest_var*
 //#UC END# *4A8AD47D0357_497EFC6002FCtest_var*
 begin
@@ -355,21 +301,9 @@ begin
  // - ничего не делаем
 //#UC END# *4A8AD47D0357_497EFC6002FCtest_impl*
 end;//TPrimAttributeSelectForm.Result_OkExt_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimAttributeSelectForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_var*
-//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_var*
-begin
-//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_impl*
- State := st_user_Result_OkExt_AttributesSelect
-//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_impl*
-end;//TPrimAttributeSelectForm.Result_OkExt_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A8AD47D0357_497EFC6002FCexec_var*
 //#UC END# *4A8AD47D0357_497EFC6002FCexec_var*
 begin
@@ -381,10 +315,19 @@ begin
  ModalResult := mrOk;
 //#UC END# *4A8AD47D0357_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.Result_OkExt_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
+procedure TPrimAttributeSelectForm.Result_OkExt_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_var*
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_var*
+begin
+//#UC START# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+ State := st_user_Result_OkExt_AttributesSelect
+//#UC END# *4A8AD47D0357_497EFC6002FCgetstate_impl*
+end;//TPrimAttributeSelectForm.Result_OkExt_GetState
+
 procedure TPrimAttributeSelectForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_497EFC6002FCtest_var*
 //#UC END# *4AC5D61E0284_497EFC6002FCtest_var*
 begin
@@ -392,21 +335,9 @@ begin
  // - ничего не делаем
 //#UC END# *4AC5D61E0284_497EFC6002FCtest_impl*
 end;//TPrimAttributeSelectForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimAttributeSelectForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_var*
-//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_var*
-begin
-//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_impl*
- // - ничего не делаем
-//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_impl*
-end;//TPrimAttributeSelectForm.Result_Cancel_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_497EFC6002FCexec_var*
 //#UC END# *4AC5D61E0284_497EFC6002FCexec_var*
 begin
@@ -414,9 +345,18 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4AC5D61E0284_497EFC6002FCexec_impl*
 end;//TPrimAttributeSelectForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
-function TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+procedure TPrimAttributeSelectForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_var*
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_var*
+begin
+//#UC START# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+ // - ничего не делаем
+//#UC END# *4AC5D61E0284_497EFC6002FCgetstate_impl*
+end;//TPrimAttributeSelectForm.Result_Cancel_GetState
+
+function TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
 //#UC START# *4AE884E803AA_497EFC6002FCexec_var*
 //#UC END# *4AE884E803AA_497EFC6002FCexec_var*
 begin
@@ -436,8 +376,8 @@ end;//TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute
 procedure TPrimAttributeSelectForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_GetQuery_Params) do
-  ResultValue := SearchParameters_GetQuery_Execute(IgnoreError);
-end;
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimAttributeSelectForm.SearchParameters_GetQuery
 
 function TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute: Boolean;
 //#UC START# *4AE8A577027D_497EFC6002FCexec_var*
@@ -457,8 +397,8 @@ end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute
 procedure TPrimAttributeSelectForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
-  ResultValue := SearchParameters_IsQuerySaved_Execute;
-end;
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved
 
 procedure TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
 //#UC START# *4AEF213001F0_497EFC6002FCexec_var*
@@ -486,8 +426,8 @@ end;//TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute
 procedure TPrimAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
-  SearchParameters_SetQuery_Execute(Query);
-end;
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimAttributeSelectForm.SearchParameters_SetQuery
 
 procedure TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute(const aTag: Il3CString);
 //#UC START# *4AF3EBC001C4_497EFC6002FCexec_var*
@@ -505,8 +445,8 @@ end;//TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute
 procedure TPrimAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAttributeTree_SetRoot_Params) do
-  AttributeTree_SetRoot_Execute(Tag);
-end;
+  Self.AttributeTree_SetRoot_Execute(Tag);
+end;//TPrimAttributeSelectForm.AttributeTree_SetRoot
 
 procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery_Execute;
 //#UC START# *4AF92B09017F_497EFC6002FCexec_var*
@@ -519,8 +459,8 @@ end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery_Execute
 
 procedure TPrimAttributeSelectForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
- SearchParameters_ClearQuery_Execute;
-end;
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimAttributeSelectForm.SearchParameters_ClearQuery
 
 procedure TPrimAttributeSelectForm.Result_ClearAll_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2DFEE000BA_497EFC6002FCtest_var*
@@ -541,6 +481,7 @@ begin
 end;//TPrimAttributeSelectForm.Result_ClearAll_Execute
 
 procedure TPrimAttributeSelectForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_497EFC6002FC_var*
 //#UC END# *479731C50290_497EFC6002FC_var*
 begin
@@ -565,9 +506,9 @@ begin
 //#UC END# *47A042E100E2_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EFC6002FC_var*
 //#UC END# *497469C90140_497EFC6002FC_var*
 begin
@@ -583,10 +524,9 @@ begin
   end;//with dsAttributeSelect.Search do
 //#UC END# *497469C90140_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EFC6002FC_var*
 //#UC END# *49803F5503AA_497EFC6002FC_var*
 begin
@@ -595,10 +535,9 @@ begin
  CCaption := nil;
 //#UC END# *49803F5503AA_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimAttributeSelectForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EFC6002FC_var*
 //#UC END# *4A8E8F2E0195_497EFC6002FC_var*
 begin
@@ -624,33 +563,33 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EFC6002FC_impl*
 end;//TPrimAttributeSelectForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimAttributeSelectForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin)}
+ {$If NOT Defined(Admin)}
  f_FormState := nil;
- {$IfEnd} //not Admin
+ {$IfEnd} // NOT Defined(Admin)
  f_Tag := nil;
  inherited;
 end;//TPrimAttributeSelectForm.ClearFields
 
-procedure TPrimAttributeSelectForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimAttributeSelectForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsAttributeSelect := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsAttributeSelect, dsAttributeSelect);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsAttributeSelect, dsAttributeSelect);
+ end;//aNew = nil
+end;//TPrimAttributeSelectForm.SignalDataSourceChanged
 
 procedure TPrimAttributeSelectForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -660,14 +599,8 @@ begin
   PublishFormEntity(en_AttributeTree, nil);
   ToolbarAtBottom(en_Result);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
-  {$IfEnd} //not NoVCM
-
   PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_IsQuerySaved, SearchParameters_IsQuerySaved, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_SetQuery, SearchParameters_SetQuery, nil, nil);
@@ -675,14 +608,10 @@ begin
   PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
   PublishOp(en_Result, op_ClearAll, Result_ClearAll_Execute, Result_ClearAll_Test, nil);
  end;//with Entities.Entities
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utSingleSearchName, en_Result, op_OkExt, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utSingleSearchName, en_Result, op_Cancel, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(utSingleSearchName, en_Result, op_ClearAll, false);
-end;
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_OkExt, False);
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_Cancel, False);
+ AddUserTypeExclude(utSingleSearchName, en_Result, op_ClearAll, False);
+end;//TPrimAttributeSelectForm.InitEntities
 
 procedure TPrimAttributeSelectForm.MakeControls;
 begin
@@ -690,7 +619,7 @@ begin
  with AddUsertype(utAttributeSelectName,
   str_utAttributeSelectCaption,
   str_utAttributeSelectCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -703,7 +632,7 @@ begin
  with AddUsertype(utSingleSearchName,
   str_utSingleSearchCaption,
   str_utSingleSearchCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -719,25 +648,22 @@ begin
  f_SelectedZone := TvtSizeablePanel.Create(Self);
  f_SelectedZone.Name := 'SelectedZone';
  f_SelectedZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztChild, f_SelectedZone) do
+ with DefineZone(vcm_ztChild, SelectedZone) do
  begin
- end;//with DefineZone(vcm_ztChild, f_SelectedZone)
+ end;//with DefineZone(vcm_ztChild
  f_ValuesZone := TvtPanel.Create(Self);
  f_ValuesZone.Name := 'ValuesZone';
  f_ValuesZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztParent, f_ValuesZone) do
+ with DefineZone(vcm_ztParent, ValuesZone) do
  begin
- end;//with DefineZone(vcm_ztParent, f_ValuesZone)
-end;
+ end;//with DefineZone(vcm_ztParent
+end;//TPrimAttributeSelectForm.MakeControls
 
 initialization
-// Инициализация str_utAttributeSelectCaption
- str_utAttributeSelectCaption.Init;
-// Инициализация str_utSingleSearchCaption
- str_utSingleSearchCaption.Init;
-{$If not defined(NoScripts)}
-// Регистрация PrimAttributeSelect
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAttributeSelectForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimAttributeSelect }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

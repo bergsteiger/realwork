@@ -1,188 +1,114 @@
 unit PrimTasksPanel_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimTasksPanel_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimTasksPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTasksPanel" MUID: (4B13C72F0167)
+// Имя типа: "TPrimTasksPanelForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Messages
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Common_Strange_Controls,
-  nsCounterEvent,
-  l3StringIDEx
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanelView
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  LoggingUnit,
-  PrimTasksPanel_tpMain_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Common_Strange_Controls
+ {$If Defined(Nemesis)}
+ , nscTasksPanelView
+ {$IfEnd} // Defined(Nemesis)
+ , Messages
+ , nsCounterEvent
+ , LoggingUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsUseTaskPanelOperationEvent = class(TnsCounterEvent)
- protected
- // realized methods
+  protected
    function EventID: TLogEvent; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TnsUseTaskPanelOperationEvent;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseTaskPanelOperationEvent
 
  _vcmScrollableFormWithWheelSupport_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
- TPrimTasksPanelForm = {form} class(_vcmScrollableFormWithWheelSupport_)
- private
- // private fields
-   f_tpvMain : TnscTasksPanelView;
-    {* Поле для свойства tpvMain}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimTasksPanelForm = class(_vcmScrollableFormWithWheelSupport_)
+  private
+   f_tpvMain: TnscTasksPanelView;
+  private
    procedure WMSetFocus(var aMessage: TMessage); message WM_SETFOCUS;
- protected
- // realized methods
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  protected
+   procedure tpvMainOperationExecute(Sender: TObject);
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure TpvMainOperationExecute(Sender: TObject);
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+  public
    property tpvMain: TnscTasksPanelView
-     read f_tpvMain;
+    read f_tpvMain;
  end;//TPrimTasksPanelForm
-
- TvcmEntityFormRef = TPrimTasksPanelForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmTaskPanelInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3Defaults,
-  afwFacade,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  MainMenuNewRes,
-  Windows,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmTaskPanelInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Defaults
+ , afwFacade
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , MainMenuNewRes
+ , Windows
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimTasksPanel_tpMain_UserType
+ //#UC START# *4B13C72F0167impl_uses*
+ //#UC END# *4B13C72F0167impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
-
-var
-   { Локализуемые строки tpMainLocalConstants }
-  str_tpMainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'tpMainCaption'; rValue : 'Панель задач');
-   { Заголовок пользовательского типа "Панель задач" }
-
-// start class TPrimTasksPanelForm
-
-procedure TPrimTasksPanelForm.TpvMainOperationExecute(Sender: TObject);
-//#UC START# *4EE78AE903D9_4B13C72F0167_var*
-//#UC END# *4EE78AE903D9_4B13C72F0167_var*
-begin
-//#UC START# *4EE78AE903D9_4B13C72F0167_impl*
- TnsUseTaskPanelOperationEvent.Instance.Log;
-//#UC END# *4EE78AE903D9_4B13C72F0167_impl*
-end;//TPrimTasksPanelForm.TpvMainOperationExecute
-
-// start class TnsUseTaskPanelOperationEvent
-
-var g_TnsUseTaskPanelOperationEvent : TnsUseTaskPanelOperationEvent = nil;
+{$If NOT Defined(NoVCM)}
+var g_TnsUseTaskPanelOperationEvent: TnsUseTaskPanelOperationEvent = nil;
+ {* Экземпляр синглетона TnsUseTaskPanelOperationEvent }
 
 procedure TnsUseTaskPanelOperationEventFree;
+ {* Метод освобождения экземпляра синглетона TnsUseTaskPanelOperationEvent }
 begin
  l3Free(g_TnsUseTaskPanelOperationEvent);
-end;
-
-class function TnsUseTaskPanelOperationEvent.Instance: TnsUseTaskPanelOperationEvent;
-begin
- if (g_TnsUseTaskPanelOperationEvent = nil) then
- begin
-  l3System.AddExitProc(TnsUseTaskPanelOperationEventFree);
-  g_TnsUseTaskPanelOperationEvent := Create;
- end;
- Result := g_TnsUseTaskPanelOperationEvent;
-end;
-
-
-class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
- {-}
-begin
- Result := g_TnsUseTaskPanelOperationEvent <> nil;
-end;//TnsUseTaskPanelOperationEvent.Exists
+end;//TnsUseTaskPanelOperationEventFree
 
 function TnsUseTaskPanelOperationEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13C75E02D1_var*
@@ -192,6 +118,34 @@ begin
  Result := LE_USE_SUB_PANEL_DOCUMENT_OPERATION;
 //#UC END# *4B13A26203DB_4B13C75E02D1_impl*
 end;//TnsUseTaskPanelOperationEvent.EventID
+
+class function TnsUseTaskPanelOperationEvent.Instance: TnsUseTaskPanelOperationEvent;
+ {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
+begin
+ if (g_TnsUseTaskPanelOperationEvent = nil) then
+ begin
+  l3System.AddExitProc(TnsUseTaskPanelOperationEventFree);
+  g_TnsUseTaskPanelOperationEvent := Create;
+ end;
+ Result := g_TnsUseTaskPanelOperationEvent;
+end;//TnsUseTaskPanelOperationEvent.Instance
+
+class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseTaskPanelOperationEvent <> nil;
+end;//TnsUseTaskPanelOperationEvent.Exists
+
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
+
+procedure TPrimTasksPanelForm.tpvMainOperationExecute(Sender: TObject);
+//#UC START# *4EE78AE903D9_4B13C72F0167_var*
+//#UC END# *4EE78AE903D9_4B13C72F0167_var*
+begin
+//#UC START# *4EE78AE903D9_4B13C72F0167_impl*
+ TnsUseTaskPanelOperationEvent.Instance.Log;
+//#UC END# *4EE78AE903D9_4B13C72F0167_impl*
+end;//TPrimTasksPanelForm.tpvMainOperationExecute
 
 procedure TPrimTasksPanelForm.WMSetFocus(var aMessage: TMessage);
 //#UC START# *4EE78AC500E3_4B13C72F0167_var*
@@ -203,8 +157,8 @@ begin
 //#UC END# *4EE78AC500E3_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.WMSetFocus
 
-{$If not defined(NoVCM)}
 procedure TPrimTasksPanelForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4B13C72F0167_var*
 var
  l_MainForm: IvcmMainForm;
@@ -233,19 +187,20 @@ begin
  end;{try..finally}
 //#UC END# *4A8E8F2E0195_4B13C72F0167_impl*
 end;//TPrimTasksPanelForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimTasksPanelForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Fake, nil);
   PublishOp(en_Fake, op_Fake, nil, nil, nil);
-  ShowInContextMenu(en_Fake, op_Fake, false);
-  ShowInToolbar(en_Fake, op_Fake, false);
+  ShowInContextMenu(en_Fake, op_Fake, False);
+  ShowInToolbar(en_Fake, op_Fake, False);
  end;//with Entities.Entities
-end;
+end;//TPrimTasksPanelForm.InitEntities
 
 procedure TPrimTasksPanelForm.MakeControls;
 begin
@@ -253,7 +208,7 @@ begin
  with AddUsertype(tpMainName,
   str_tpMainCaption,
   str_tpMainCaption,
-  false,
+  False,
   165,
   -1,
   '',
@@ -266,18 +221,14 @@ begin
  f_tpvMain := TnscTasksPanelView.Create(Self);
  f_tpvMain.Name := 'tpvMain';
  f_tpvMain.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimTasksPanelForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_tpMainCaption
- str_tpMainCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimTasksPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTasksPanelForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimTasksPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

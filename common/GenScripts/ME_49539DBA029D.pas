@@ -30,14 +30,17 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , nevTools
- , bsTypes
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , l3TreeInterfaces
+ , eeInterfaces
+ , l3Interfaces
  , DocumentUnit
+ , bsTypes
  , nsTypes
  , AdapterFacade
- , eeInterfaces
  , nevNavigation
- , l3Interfaces
  , Windows
  , l3Variant
  {$If NOT Defined(NoVCM)}
@@ -47,9 +50,9 @@ uses
  , evCustomEditorWindow
  , BaseSearchInterfaces
  , DocumentInterfaces
+ , NavigationInterfaces
  , ExternalOperationUnit
  , bsTypesNew
- , NavigationInterfaces
  , Messages
  , afwInterfaces
  {$If NOT Defined(NoVCM)}
@@ -62,9 +65,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , bsInterfaces
  , Base_Operations_F1Specific_Controls
- {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
@@ -95,8 +95,8 @@ uses
  , UnderControlInterfaces
  , Hypertext_Controls_Controls
  , evdTypes
- , l3StringIDEx
  , l3ProtoObject
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -195,7 +195,7 @@ type
    f_eeSubIdForTypedCorrespondentList: Integer;
    {$If Defined(nsTest)}
    f_NeedShowIntranetWarningHack: Boolean;
-    {* Поле для свойства NeedShowIntranetWarningHack }
+    {* Хак для эмуляции включения МГО медали }
    {$IfEnd} // Defined(nsTest)
   protected
    DocumentWithContents: IucbDocumentWithContents;
@@ -331,9 +331,9 @@ type
    procedure OpenInWindow(aNew: Boolean = True); virtual; abstract;
    procedure DoSwitchToFirstTab;
    procedure OpenRedactionList;
-   procedure dftMedicFirmSynchroViewQueryMaximized(aSender: TObject); override;
+   procedure DftMedicFirmSynchroViewQueryMaximized(aSender: TObject); override;
     {* Обработчик события dftMedicFirmSynchroView.OnQueryMaximized }
-   procedure dftTranslationQueryMaximized(aSender: TObject); override;
+   procedure DftTranslationQueryMaximized(aSender: TObject); override;
     {* Обработчик события dftTranslation.OnQueryMaximized }
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
@@ -369,27 +369,27 @@ type
     aBehaviour: TbsProcessHyperLinkBehaviour); override;
    procedure TabBecomeActive;
    procedure TabBecomeInactive;
-   procedure dftDrugSynchroViewQueryOpen(aSender: TObject); override;
+   procedure DftDrugSynchroViewQueryOpen(aSender: TObject); override;
     {* Обработчик события dftDrugSynchroView.OnQueryOpen }
-   procedure dftDictSubEntryQueryClose(aSender: TObject); override;
+   procedure DftDictSubEntryQueryClose(aSender: TObject); override;
     {* Обработчик события dftDictSubEntry.OnQueryClose }
-   procedure dftTranslationQueryClose(aSender: TObject); override;
+   procedure DftTranslationQueryClose(aSender: TObject); override;
     {* Обработчик события dftTranslation.OnQueryClose }
-   procedure dftChronologyQueryClose(aSender: TObject); override;
+   procedure DftChronologyQueryClose(aSender: TObject); override;
     {* Обработчик события dftChronology.OnQueryClose }
-   procedure dftDrugSynchroViewQueryMaximized(aSender: TObject); override;
+   procedure DftDrugSynchroViewQueryMaximized(aSender: TObject); override;
     {* Обработчик события dftDrugSynchroView.OnQueryMaximized }
-   procedure dftAnnotationQueryClose(aSender: TObject); override;
+   procedure DftAnnotationQueryClose(aSender: TObject); override;
     {* Обработчик события dftAnnotation.OnQueryClose }
-   procedure dftDocSynchroViewQueryMaximized(aSender: TObject); override;
+   procedure DftDocSynchroViewQueryMaximized(aSender: TObject); override;
     {* Обработчик события dftDocSynchroView.OnQueryMaximized }
-   procedure dftRelatedDocQueryClose(aSender: TObject); override;
+   procedure DftRelatedDocQueryClose(aSender: TObject); override;
     {* Обработчик события dftRelatedDoc.OnQueryClose }
-   procedure dftTranslationQueryOpen(aSender: TObject); override;
+   procedure DftTranslationQueryOpen(aSender: TObject); override;
     {* Обработчик события dftTranslation.OnQueryOpen }
-   procedure dftDocSynchroViewQueryOpen(aSender: TObject); override;
+   procedure DftDocSynchroViewQueryOpen(aSender: TObject); override;
     {* Обработчик события dftDocSynchroView.OnQueryOpen }
-   procedure dftMedicFirmSynchroViewQueryOpen(aSender: TObject); override;
+   procedure DftMedicFirmSynchroViewQueryOpen(aSender: TObject); override;
     {* Обработчик события dftMedicFirmSynchroView.OnQueryOpen }
    {$If NOT Defined(NoVCL)}
    procedure WndProc(var Message: TMessage); override;
@@ -447,7 +447,6 @@ type
    {$If NOT Defined(NoVCM)}
    procedure BecomeVisible; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; override;
    function GetDocumentShortName(const aDoc: IDocument;
     aExportSelection: Boolean): Il3CString; override;
@@ -469,6 +468,7 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetNeedAddFormToTasksPanel: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -923,10 +923,6 @@ uses
  , nsTabbedInterfaceTypes
  , nscDocumentHistory
  , evSubPn
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ExTextFormWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -953,8 +949,12 @@ uses
  , f1MultilinkResolver
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , evdBlockNameAdder
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  , nsSearchInDocumentEvent
  , nsSearchInDocumentDoneEvent
  , nsSearchInDocumentNextEvent
@@ -1006,79 +1006,16 @@ uses
  , Block_Const
  , LeafParaDecorationsHolder_Const
  , CommentPara_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , evSubImplementation
  , Document_Const
+ //#UC START# *49539DBA029Dimpl_uses*
+ //#UC END# *49539DBA029Dimpl_uses*
 ;
 
 type
- // ExcludeForChildDocuments
-
- // ExcludeSaveToFolder
-
- // ExcludeInpharmSynchro
-
- // ExcludeLoadFromFolder
-
- // ExcludeEditOperations
-
- // ExcludeForConsultation
-
- // ExcludeFindContextForInpharm
-
- // IncludeForLegalDocumentPrim
-
- // IncludeForLegalDocument
-
- // ExcludeUserCommentIconHideShow
-
- // IncludeForLegalDocumentAndDrug
-
- // ExcludeRedactionOnID
-
- // ExcludeGetAttributesFrmAct
-
- // ExcludeComments
-
- // ExcludeShowUserComments
-
- // ExcludeBookmarkIcon
-
- // ExcludeUserCommentIconDelete
-
- // IncludeForLegalDocumentAndDrugs
-
- // IncludeGetGraphicImage
-
- // ExcludeInsertHyperlink
-
- // IncludeDocumentSynchroOpen
-
- // IncludeDictListOpenFrmAct
-
- // ExcludeGotoBookmark
-
- // IncludeAddBookmarkFromContents
-
- // ExcludeAddBookmark
-
- // IncludeLiteratureListForDictionary
-
- // ExcludeShowCommentsGroup
-
- // ExcludeCompareEditions
-
- // ExcludeBookmarkOperations
-
- // ExcludeOpenNewWindow
-
- // IncludeOpenProducedDrugList
-
- // IncludeOpenSimilarDrugList
-
- // ExcludeForAACContents
-
- // BaseSearchPresentationForAACLeft
-
  TnsDocumentPointWaiter = class(TevSubWaiter)
   {* Класс для ожидания перехода на указанную точку документа }
   private
@@ -2966,7 +2903,7 @@ begin
 //#UC END# *4B2631930324_49539DBA029D_impl*
 end;//TExTextForm.OpenRedactionList
 
-procedure TExTextForm.dftMedicFirmSynchroViewQueryMaximized(aSender: TObject);
+procedure TExTextForm.DftMedicFirmSynchroViewQueryMaximized(aSender: TObject);
  {* Обработчик события dftMedicFirmSynchroView.OnQueryMaximized }
 //#UC START# *08687812598B_49539DBA029D_var*
 //#UC END# *08687812598B_49539DBA029D_var*
@@ -2975,9 +2912,9 @@ begin
   if HasDoc then
    OpenInWindow;
 //#UC END# *08687812598B_49539DBA029D_impl*
-end;//TExTextForm.dftMedicFirmSynchroViewQueryMaximized
+end;//TExTextForm.DftMedicFirmSynchroViewQueryMaximized
 
-procedure TExTextForm.dftTranslationQueryMaximized(aSender: TObject);
+procedure TExTextForm.DftTranslationQueryMaximized(aSender: TObject);
  {* Обработчик события dftTranslation.OnQueryMaximized }
 //#UC START# *0B8413148796_49539DBA029D_var*
 //#UC END# *0B8413148796_49539DBA029D_var*
@@ -2986,7 +2923,7 @@ begin
   if HasDoc then
    OpenInWindow;
 //#UC END# *0B8413148796_49539DBA029D_impl*
-end;//TExTextForm.dftTranslationQueryMaximized
+end;//TExTextForm.DftTranslationQueryMaximized
 
 procedure TExTextForm.DoTabActivate;
  {* Реакция на переключение вкладки }
@@ -6371,7 +6308,7 @@ begin
 //#UC END# *5587AA310201_49539DBA029Dexec_impl*
 end;//TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Execute
 
-procedure TExTextForm.dftDrugSynchroViewQueryOpen(aSender: TObject);
+procedure TExTextForm.DftDrugSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события dftDrugSynchroView.OnQueryOpen }
 //#UC START# *664D52829DD3_49539DBA029D_var*
 //#UC END# *664D52829DD3_49539DBA029D_var*
@@ -6380,9 +6317,9 @@ begin
  if HasDoc then
   OpenInWindow(False);
 //#UC END# *664D52829DD3_49539DBA029D_impl*
-end;//TExTextForm.dftDrugSynchroViewQueryOpen
+end;//TExTextForm.DftDrugSynchroViewQueryOpen
 
-procedure TExTextForm.dftDictSubEntryQueryClose(aSender: TObject);
+procedure TExTextForm.DftDictSubEntryQueryClose(aSender: TObject);
  {* Обработчик события dftDictSubEntry.OnQueryClose }
 //#UC START# *701BC3512B2B_49539DBA029D_var*
 //#UC END# *701BC3512B2B_49539DBA029D_var*
@@ -6390,9 +6327,9 @@ begin
 //#UC START# *701BC3512B2B_49539DBA029D_impl*
  DoSwitchToFirstTab;
 //#UC END# *701BC3512B2B_49539DBA029D_impl*
-end;//TExTextForm.dftDictSubEntryQueryClose
+end;//TExTextForm.DftDictSubEntryQueryClose
 
-procedure TExTextForm.dftTranslationQueryClose(aSender: TObject);
+procedure TExTextForm.DftTranslationQueryClose(aSender: TObject);
  {* Обработчик события dftTranslation.OnQueryClose }
 //#UC START# *7401AD950C39_49539DBA029D_var*
 //#UC END# *7401AD950C39_49539DBA029D_var*
@@ -6400,9 +6337,9 @@ begin
 //#UC START# *7401AD950C39_49539DBA029D_impl*
  DoSwitchToFirstTab;
 //#UC END# *7401AD950C39_49539DBA029D_impl*
-end;//TExTextForm.dftTranslationQueryClose
+end;//TExTextForm.DftTranslationQueryClose
 
-procedure TExTextForm.dftChronologyQueryClose(aSender: TObject);
+procedure TExTextForm.DftChronologyQueryClose(aSender: TObject);
  {* Обработчик события dftChronology.OnQueryClose }
 //#UC START# *8418208BCCA0_49539DBA029D_var*
 //#UC END# *8418208BCCA0_49539DBA029D_var*
@@ -6410,9 +6347,9 @@ begin
 //#UC START# *8418208BCCA0_49539DBA029D_impl*
  DoSwitchToFirstTab;
 //#UC END# *8418208BCCA0_49539DBA029D_impl*
-end;//TExTextForm.dftChronologyQueryClose
+end;//TExTextForm.DftChronologyQueryClose
 
-procedure TExTextForm.dftDrugSynchroViewQueryMaximized(aSender: TObject);
+procedure TExTextForm.DftDrugSynchroViewQueryMaximized(aSender: TObject);
  {* Обработчик события dftDrugSynchroView.OnQueryMaximized }
 //#UC START# *8A8A353C1A57_49539DBA029D_var*
 //#UC END# *8A8A353C1A57_49539DBA029D_var*
@@ -6421,9 +6358,9 @@ begin
  if HasDoc then
   OpenInWindow;
 //#UC END# *8A8A353C1A57_49539DBA029D_impl*
-end;//TExTextForm.dftDrugSynchroViewQueryMaximized
+end;//TExTextForm.DftDrugSynchroViewQueryMaximized
 
-procedure TExTextForm.dftAnnotationQueryClose(aSender: TObject);
+procedure TExTextForm.DftAnnotationQueryClose(aSender: TObject);
  {* Обработчик события dftAnnotation.OnQueryClose }
 //#UC START# *918005C1AFE3_49539DBA029D_var*
 //#UC END# *918005C1AFE3_49539DBA029D_var*
@@ -6431,9 +6368,9 @@ begin
 //#UC START# *918005C1AFE3_49539DBA029D_impl*
  DoSwitchToFirstTab;
 //#UC END# *918005C1AFE3_49539DBA029D_impl*
-end;//TExTextForm.dftAnnotationQueryClose
+end;//TExTextForm.DftAnnotationQueryClose
 
-procedure TExTextForm.dftDocSynchroViewQueryMaximized(aSender: TObject);
+procedure TExTextForm.DftDocSynchroViewQueryMaximized(aSender: TObject);
  {* Обработчик события dftDocSynchroView.OnQueryMaximized }
 //#UC START# *931EEB23421A_49539DBA029D_var*
 //#UC END# *931EEB23421A_49539DBA029D_var*
@@ -6442,9 +6379,9 @@ begin
  if HasDoc then
   OpenInWindow;
 //#UC END# *931EEB23421A_49539DBA029D_impl*
-end;//TExTextForm.dftDocSynchroViewQueryMaximized
+end;//TExTextForm.DftDocSynchroViewQueryMaximized
 
-procedure TExTextForm.dftRelatedDocQueryClose(aSender: TObject);
+procedure TExTextForm.DftRelatedDocQueryClose(aSender: TObject);
  {* Обработчик события dftRelatedDoc.OnQueryClose }
 //#UC START# *A2BF852CD6C7_49539DBA029D_var*
 //#UC END# *A2BF852CD6C7_49539DBA029D_var*
@@ -6452,9 +6389,9 @@ begin
 //#UC START# *A2BF852CD6C7_49539DBA029D_impl*
  DoSwitchToFirstTab;
 //#UC END# *A2BF852CD6C7_49539DBA029D_impl*
-end;//TExTextForm.dftRelatedDocQueryClose
+end;//TExTextForm.DftRelatedDocQueryClose
 
-procedure TExTextForm.dftTranslationQueryOpen(aSender: TObject);
+procedure TExTextForm.DftTranslationQueryOpen(aSender: TObject);
  {* Обработчик события dftTranslation.OnQueryOpen }
 //#UC START# *AF0C9051AEEF_49539DBA029D_var*
 //#UC END# *AF0C9051AEEF_49539DBA029D_var*
@@ -6463,9 +6400,9 @@ begin
  if HasDoc then
   OpenInWindow(False);
 //#UC END# *AF0C9051AEEF_49539DBA029D_impl*
-end;//TExTextForm.dftTranslationQueryOpen
+end;//TExTextForm.DftTranslationQueryOpen
 
-procedure TExTextForm.dftDocSynchroViewQueryOpen(aSender: TObject);
+procedure TExTextForm.DftDocSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события dftDocSynchroView.OnQueryOpen }
 //#UC START# *BB5471A3EA8E_49539DBA029D_var*
 //#UC END# *BB5471A3EA8E_49539DBA029D_var*
@@ -6474,9 +6411,9 @@ begin
  if HasDoc then
   OpenInWindow(False);
 //#UC END# *BB5471A3EA8E_49539DBA029D_impl*
-end;//TExTextForm.dftDocSynchroViewQueryOpen
+end;//TExTextForm.DftDocSynchroViewQueryOpen
 
-procedure TExTextForm.dftMedicFirmSynchroViewQueryOpen(aSender: TObject);
+procedure TExTextForm.DftMedicFirmSynchroViewQueryOpen(aSender: TObject);
  {* Обработчик события dftMedicFirmSynchroView.OnQueryOpen }
 //#UC START# *FD0B95191C1E_49539DBA029D_var*
 //#UC END# *FD0B95191C1E_49539DBA029D_var*
@@ -6485,7 +6422,7 @@ begin
  if HasDoc then
   OpenInWindow(False);
 //#UC END# *FD0B95191C1E_49539DBA029D_impl*
-end;//TExTextForm.dftMedicFirmSynchroViewQueryOpen
+end;//TExTextForm.DftMedicFirmSynchroViewQueryOpen
 
 {$If NOT Defined(NoVCL)}
 procedure TExTextForm.WndProc(var Message: TMessage);
@@ -7052,13 +6989,6 @@ begin
 end;//TExTextForm.BecomeVisible
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextForm.ClearFields;
-begin
- f_ControlMap := nil;
- f_RecallCreateTOCTree := nil;
- inherited;
-end;//TExTextForm.ClearFields
-
 {$If NOT Defined(NoVCM)}
 function TExTextForm.GetIsMainObjectForm: Boolean;
 //#UC START# *501174B10018_49539DBA029D_var*
@@ -7220,11 +7150,38 @@ begin
 end;//TExTextForm.DoGetNeedAddFormToTasksPanel
 {$IfEnd} // NOT Defined(NoVCM)
 
+procedure TExTextForm.ClearFields;
+begin
+ f_ControlMap := nil;
+ f_RecallCreateTOCTree := nil;
+ inherited;
+end;//TExTextForm.ClearFields
+
 {$If NOT Defined(NoVCM)}
 procedure TExTextForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  DocumentWithContents := nil;
+  DictionDocument := nil;
+  MedicFirmDocument := nil;
+  DrugDocument := nil;
+  Consultation := nil;
+  dsConsultation := nil;
+  AAC := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IucbDocumentWithContents, DocumentWithContents);
+  Supports(aNew, IdsDictionDocument, DictionDocument);
+  Supports(aNew, IdsMedicFirmDocument, MedicFirmDocument);
+  Supports(aNew, IdsDrugDocument, DrugDocument);
+  aNew.CastUCC(IsdsConsultation, Consultation);
+  Supports(aNew, IdsConsultation, dsConsultation);
+  aNew.CastUCC(IsdsAAC, AAC);
+ end;//aNew = nil
 end;//TExTextForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -7260,6 +7217,19 @@ begin
   PublishFormEntity(en_IntranetSourcePoint, nil);
   PublishFormEntity(en_Picture, nil);
   PublishFormEntity(en_BaseSearchPresentationHolder, nil);
+  ContextMenuWeight(en_Edit, 10);
+  ContextMenuWeight(en_Text, 40);
+  ContextMenuWeight(en_TimeMachine, 20);
+  ContextMenuWeight(en_Document, 30);
+  ContextMenuWeight(en_Selection, 50);
+  ContextMenuWeight(en_HyperLink, 5);
+  ContextMenuWeight(en_UserCommentIcon, 32);
+  ContextMenuWeight(en_BookmarkIcon, 32);
+  ContextMenuWeight(en_Table, 70);
+  ContextMenuWeight(en_UserComment, 60);
+  ContextMenuWeight(en_Font, 80);
+  ContextMenuWeight(en_Redactions, 29);
+  MakeEntitySupportedByControl(en_Picture, Text);
   PublishOpWithResult(en_Document, op_OpenCorrespondentList, Document_OpenCorrespondentList, Document_OpenCorrespondentList_Test, nil);
   PublishOpWithResult(en_Document, op_OpenRespondentList, Document_OpenRespondentList, Document_OpenRespondentList_Test, nil);
   PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, nil);
@@ -7312,6 +7282,7 @@ begin
   PublishOp(en_Selection, op_ShowCorrespondentListToPart, Selection_ShowCorrespondentListToPart_Execute, Selection_ShowCorrespondentListToPart_Test, nil);
   PublishOp(en_Selection, op_ShowRespondentListToPart, Selection_ShowRespondentListToPart_Execute, Selection_ShowRespondentListToPart_Test, nil);
   PublishOp(en_WarnOnControl, op_ClearStatusSettings, WarnOnControl_ClearStatusSettings_Execute, WarnOnControl_ClearStatusSettings_Test, nil);
+  ContextMenuWeight(en_WarnOnControl, op_ClearStatusSettings, 3);
   PublishOp(en_TasksPanel, op_TimeMachineOnOff, TasksPanel_TimeMachineOnOff_Execute, TasksPanel_TimeMachineOnOff_Test, TasksPanel_TimeMachineOnOff_GetState);
   PublishOp(en_DocumentBlockHeader, op_AddBookmark, DocumentBlockHeader_AddBookmark_Execute, DocumentBlockHeader_AddBookmark_Test, nil);
   PublishOp(en_DocumentBlockHeader, op_ToMSWord, DocumentBlockHeader_ToMSWord_Execute, DocumentBlockHeader_ToMSWord_Test, nil);
@@ -7325,13 +7296,20 @@ begin
   PublishOp(en_Document, op_OpenContentsFrmAct, Document_OpenContentsFrmAct_Execute, Document_OpenContentsFrmAct_Test, Document_OpenContentsFrmAct_GetState);
   PublishOp(en_Document, op_ShowDocumentPicture, Document_ShowDocumentPicture_Execute, Document_ShowDocumentPicture_Test, nil);
   PublishOp(en_ExternalObject, op_Open, ExternalObject_Open_Execute, ExternalObject_Open_Test, nil);
+  ShowInContextMenu(en_ExternalObject, op_Open, True);
+  ShowInToolbar(en_ExternalObject, op_Open, False);
   PublishOp(en_ExternalObject, op_Save, ExternalObject_Save_Execute, ExternalObject_Save_Test, nil);
+  ShowInContextMenu(en_ExternalObject, op_Save, True);
+  ShowInToolbar(en_ExternalObject, op_Save, False);
   PublishOp(en_WarnRedaction, op_OpenActualRedaction, WarnRedaction_OpenActualRedaction_Execute, WarnRedaction_OpenActualRedaction_Test, nil, true);
+  ContextMenuWeight(en_WarnRedaction, op_OpenActualRedaction, 1, true);
   PublishOp(en_WarnTimeMachine, op_ShowInfo, WarnTimeMachine_ShowInfo_Execute, WarnTimeMachine_ShowInfo_Test, WarnTimeMachine_ShowInfo_GetState);
   PublishOp(en_WarnTimeMachine, op_TimeMachineOnOffNew, WarnTimeMachine_TimeMachineOnOffNew_Execute, WarnTimeMachine_TimeMachineOnOffNew_Test, WarnTimeMachine_TimeMachineOnOffNew_GetState);
   PublishOp(en_WarnJuror, op_ShowInfo, WarnJuror_ShowInfo_Execute, WarnJuror_ShowInfo_Test, WarnJuror_ShowInfo_GetState, true);
   PublishOp(en_WarnOnControl, op_ShowChanges, WarnOnControl_ShowChanges_Execute, WarnOnControl_ShowChanges_Test, nil);
+  ContextMenuWeight(en_WarnOnControl, op_ShowChanges, 1);
   PublishOp(en_WarnOnControl, op_ClearStatus, WarnOnControl_ClearStatus_Execute, WarnOnControl_ClearStatus_Test, nil);
+  ContextMenuWeight(en_WarnOnControl, op_ClearStatus, 2);
   PublishOp(en_BookmarkIcon, op_Delete, BookmarkIcon_Delete_Execute, BookmarkIcon_Delete_Test, nil);
   PublishOp(en_BookmarkIcon, op_Edit, BookmarkIcon_Edit_Execute, BookmarkIcon_Edit_Test, nil);
   PublishOp(en_UserCommentIcon, op_Delete, UserCommentIcon_Delete_Execute, UserCommentIcon_Delete_Test, nil);
@@ -7351,34 +7329,1083 @@ begin
   PublishOp(en_Document, op_OpenProducedDrugList, Document_OpenProducedDrugList_Execute, Document_OpenProducedDrugList_Test, nil);
   PublishOp(en_Document, op_OpenSimilarDrugList, Document_OpenSimilarDrugList_Execute, Document_OpenSimilarDrugList_Test, nil);
   PublishOp(en_Selection, op_InsertHyperlink, Selection_InsertHyperlink_Execute, Selection_InsertHyperlink_Test, Selection_InsertHyperlink_GetState, true);
-  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
-  PublishOp(en_Document, op_OpenContentsFrmAct, Document_OpenContentsFrmAct_Execute, Document_OpenContentsFrmAct_Test, Document_OpenContentsFrmAct_GetState);
-  PublishOp(en_TimeMachine, op_TimeMachineOnOffNew, TimeMachine_TimeMachineOnOffNew_Execute, TimeMachine_TimeMachineOnOffNew_Test, TimeMachine_TimeMachineOnOffNew_GetState);
-  PublishOp(en_UserCommentIcon, op_HideShow, UserCommentIcon_HideShow_Execute, nil, UserCommentIcon_HideShow_GetState);
-  PublishOp(en_TasksPanel, op_TimeMachineOnOff, TasksPanel_TimeMachineOnOff_Execute, TasksPanel_TimeMachineOnOff_Test, TasksPanel_TimeMachineOnOff_GetState);
-  PublishOp(en_WarnJuror, op_ShowInfo, WarnJuror_ShowInfo_Execute, WarnJuror_ShowInfo_Test, WarnJuror_ShowInfo_GetState, true);
-  PublishOp(en_WarnTimeMachine, op_ShowInfo, WarnTimeMachine_ShowInfo_Execute, WarnTimeMachine_ShowInfo_Test, WarnTimeMachine_ShowInfo_GetState);
-  PublishOp(en_WarnTimeMachine, op_TimeMachineOnOffNew, WarnTimeMachine_TimeMachineOnOffNew_Execute, WarnTimeMachine_TimeMachineOnOffNew_Test, WarnTimeMachine_TimeMachineOnOffNew_GetState);
   PublishOp(en_WarnRedaction, op_ShowInfo, WarnRedaction_ShowInfo_Execute, WarnRedaction_ShowInfo_Test, WarnRedaction_ShowInfo_GetState, true);
-  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
-  PublishOp(en_DocumentBlockHeader, op_UserCR1, DocumentBlockHeader_UserCR1_Execute, DocumentBlockHeader_UserCR1_Test, DocumentBlockHeader_UserCR1_GetState);
-  PublishOp(en_DocumentBlockHeader, op_UserCR2, DocumentBlockHeader_UserCR2_Execute, DocumentBlockHeader_UserCR2_Test, DocumentBlockHeader_UserCR2_GetState);
-  PublishOp(en_Text, op_AddToControl, Text_AddToControl_Execute, Text_AddToControl_Test, Text_AddToControl_GetState);
   PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
+  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintPreview, False);
   PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
+  ShowInContextMenu(en_DocumentBlock, op_Select, True);
+  ShowInToolbar(en_DocumentBlock, op_Select, False);
   PublishOp(en_Document, op_ViewChangedFragments, Document_ViewChangedFragments_Execute, Document_ViewChangedFragments_Test, nil);
+  ShowInContextMenu(en_Document, op_ViewChangedFragments, False);
+  ShowInToolbar(en_Document, op_ViewChangedFragments, True);
   PublishOpWithResult(en_DocumentSubPanel, op_UpdateSubPanel, DocumentSubPanel_UpdateSubPanel, nil, nil);
-  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
   PublishOp(en_IntranetSourcePoint, op_GoToIntranet, IntranetSourcePoint_GoToIntranet_Execute, nil, nil);
+  ShowInContextMenu(en_IntranetSourcePoint, op_GoToIntranet, False);
+  ShowInToolbar(en_IntranetSourcePoint, op_GoToIntranet, False);
   PublishOp(en_Picture, op_Open, Picture_Open_Execute, Picture_Open_Test, nil);
+  ContextMenuWeight(en_Picture, op_Open, 5);
   PublishOp(en_Picture, op_OpenNewWindow, Picture_OpenNewWindow_Execute, Picture_OpenNewWindow_Test, nil);
+  ContextMenuWeight(en_Picture, op_OpenNewWindow, 15);
   PublishOpWithResult(en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, BaseSearchPresentationHolder_GetBaseSearchPresentation, nil, nil);
   PublishOp(en_Text, op_SelectWord, Text_SelectWord_Execute, Text_SelectWord_Test, nil);
   PublishOp(en_Text, op_SelectPara, Text_SelectPara_Execute, Text_SelectPara_Test, nil);
   PublishOp(en_Picture, op_OpenNewTab, Picture_OpenNewTab_Execute, Picture_OpenNewTab_Test, nil);
+  ShowInContextMenu(en_Picture, op_OpenNewTab, True);
+  ContextMenuWeight(en_Picture, op_OpenNewTab, 10);
   PublishOpWithResult(en_Document, op_CommonDocumentOpenNewTab, Document_CommonDocumentOpenNewTab, nil, nil);
   PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
+  ContextMenuWeight(en_Edit, op_Copy, -2);
+  ContextMenuWeight(en_Edit, op_Paste, -1);
  end;//with Entities.Entities
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftTipsName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftAutoreferatName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftRelatedDocName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftAnnotationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftConsultationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftTranslationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftChronologyName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftRelatedDocName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAnnotationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftConsultationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftTranslationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftChronologyName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Cut, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AttributesCanBeClosed, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_CommonDocumentOpenNewWindow, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_FindExplanation, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_FindInDict, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_SetPosition, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ModifyBookmarkNotify, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenNotSureTopic, False);
+ AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Open, False);
+ AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Save, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_OpenActualRedaction, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnTimeMachine, op_ShowInfo, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnJuror, op_ShowInfo, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ShowChanges, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatus, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_Insert, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_InsertRow, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteRow, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_InsertColumn, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteColumn, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Bold, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Italic, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Underline, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Strikeout, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_ShowInfo, True);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindNext, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindPrev, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindNext, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindPrev, False);
+ AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_HideShow, False);
+ AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_HideShow, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Edit, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftAutoreferatName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftAutoreferatName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftConsultationName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftConsultationName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftTipsName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowCommentsGroup, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCommentsGroup, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedDocName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDictEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDictEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAnnotationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftConsultationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftTranslationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftTranslationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftTipsName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftTipsName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDrugName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDrugName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDrugName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftChronologyName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftChronologyName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftNoneName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDocumentName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftRelatedDocName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAnnotationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftConsultationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftTranslationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftTipsName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAutoreferatName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDrugName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedicFirmName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftChronologyName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
 end;//TExTextForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -7391,11 +8418,11 @@ end;//TExTextForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
+ str_ViewChangesOpName.Init;
+ {* Инициализация str_ViewChangesOpName }
 //#UC START# *4C40048600C1*
  g_GoToIntranetMessage := RegisterWindowMessage('{A6BE0224-FE97-4984-8E91-B24104812165}');
 //#UC END# *4C40048600C1*
- str_ViewChangesOpName.Init;
- {* Инициализация str_ViewChangesOpName }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TExTextForm);
  {* Регистрация ExText }

@@ -13,6 +13,7 @@ interface
 uses
  l3IntfUses
  , MainMenuWithBaseSearchSupport_Form
+ , vtPanel
  {$If Defined(Nemesis)}
  , nscHideField
  {$IfEnd} // Defined(Nemesis)
@@ -22,20 +23,17 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , vtPanel
 ;
 
 type
  TPrimLegalMainMenuForm = {abstract} class(TMainMenuWithBaseSearchSupportForm)
   private
    f_hfReferences: TnscHideField;
-    {* Поле для свойства hfReferences }
+    {* Бизнес-справки }
    f_tvReferences: TnscTreeViewHotTruck;
-    {* Поле для свойства tvReferences }
    f_hfLawNews: TnscHideField;
-    {* Поле для свойства hfLawNews }
+    {* Изменения в законодательстве }
    f_tvLawNews: TnscTreeViewHotTruck;
-    {* Поле для свойства tvLawNews }
   private
    procedure UpdateMainMenuForm;
   protected
@@ -74,12 +72,12 @@ uses
  , nsMainMenuNew
  , smLawNewsTree
  , smNewSchoolReferencesTree
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -91,6 +89,8 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , SysUtils
  , afwFacade
+ //#UC START# *4AC9E7B40342impl_uses*
+ //#UC END# *4AC9E7B40342impl_uses*
 ;
 
 procedure TPrimLegalMainMenuForm.UpdateMainMenuForm;

@@ -1,235 +1,164 @@
 unit ExText_Form;
+ {* Форма документа, работающая с IdsDocument и другими вариантами контроллеров области ввода }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/ExText_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Работа с документом и списком документов::Document::View::Document::ExText
-//
-// Форма документа, работающая с IdsDocument и другими вариантами контроллеров области ввода
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "ExText" MUID: (49539DBA029D)
+// Имя типа: "TExTextForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Classes,
-  nevTools,
-  bsTypes,
-  Windows,
-  eeInterfaces,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  evSubWaiter,
-  Document_F1Lite_Controls,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  L10nInterfaces,
-  l3ProtoObject,
-  nevContainers,
-  nevNavigation,
-  nsTypes,
-  Base_Operations_View_Controls,
-  Base_Operations_Strange_Controls,
-  ConsultationDomainInterfaces,
-  AdapterFacade,
-  DictionInterfacesPrim,
-  InpharmInterfaces,
-  Search_Strange_Controls,
-  Common_Strange_Controls,
-  DocumentUserTypes_dftNone_UserType,
-  DocumentUserTypes_dftDocument_UserType,
-  DocumentUserTypes_dftRelatedDoc_UserType,
-  DocumentUserTypes_dftAnnotation_UserType,
-  DocumentUserTypes_dftDocSynchroView_UserType,
-  DocumentUserTypes_dftRelatedSynchroView_UserType,
-  DocumentUserTypes_dftAnnotationSynchroView_UserType,
-  DocumentUserTypes_dftDictEntry_UserType,
-  DocumentUserTypes_dftDictSubEntry_UserType,
-  DocumentUserTypes_dftAutoreferatAfterSearch_UserType,
-  DocumentUserTypes_dftConsultation_UserType,
-  DocumentUserTypes_dftTranslation_UserType,
-  DocumentUserTypes_dftTips_UserType,
-  DocumentUserTypes_dftMedDictEntry_UserType,
-  DocumentUserTypes_dftAutoreferat_UserType,
-  DocumentUserTypes_dftDrug_UserType,
-  DocumentUserTypes_dftMedicFirm_UserType,
-  DocumentUserTypes_dftMedicFirmSynchroView_UserType,
-  DocumentUserTypes_dftDrugSynchroView_UserType,
-  l3StringIDEx,
-  bsTypesNew,
-  WorkWithDocumentInterfaces,
-  DocumentUserTypes_dftAACLeft_UserType,
-  DocumentUserTypes_dftAACRight_UserType,
-  DocumentUserTypes_dftAACContentsLeft_UserType,
-  DocumentUserTypes_dftAACContentsRight_UserType,
-  l3Variant,
-  DocumentUserTypes_dftChronology_UserType,
-  l3TabbedContainersDispatcher,
-  BaseSearchInterfaces,
-  l3SimpleObject,
-  eeSubPanel,
-  vtScrollBar,
-  vcmEntityForm {a},
-  vcmControllers {a},
-  afwInterfaces,
-  bsInterfaces,
-  l3InternalInterfaces,
-  k2TagGen,
-  k2CustomFileGenerator,
-  l3BaseStream
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  ,
-  Base_Operations_F1Specific_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearchInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  PresentationInterfaces,
-  l3Core,
-  ExternalOperationUnit,
-  evCustomEditorWindow,
-  nevGUIInterfaces,
-  afwNavigation,
-  NavigationInterfaces,
-  DocumentInterfaces,
-  nevBase
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  l3LongintList,
-  nsFoundBlocksList,
-  UnderControlUnit,
-  DocInfoInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  UnderControlInterfaces,
-  Hypertext_Controls_Controls,
-  evdTypes,
-  Messages,
-  vcmContainerForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Common_Strange_Controls
+ , Search_Strange_Controls
+ , Document_Strange_Controls
+ , Base_Operations_Strange_Controls
+ , Document_F1Lite_Controls
+ , Base_Operations_Editions_Controls
+ , l3TabbedContainersDispatcher
+ , DocumentAndListInterfaces
+ , DictionInterfacesPrim
+ , InpharmInterfaces
+ , ConsultationDomainInterfaces
+ , L10nInterfaces
+ , WorkWithDocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ , l3TreeInterfaces
+ , eeInterfaces
+ , l3Interfaces
+ , DocumentUnit
+ , bsTypes
+ , nsTypes
+ , AdapterFacade
+ , nevNavigation
+ , Windows
+ , l3Variant
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevContainers
+ , evCustomEditorWindow
+ , BaseSearchInterfaces
+ , DocumentInterfaces
+ , NavigationInterfaces
+ , ExternalOperationUnit
+ , bsTypesNew
+ , Messages
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeSubPanel
+ , vtScrollBar
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , bsInterfaces
+ , Base_Operations_F1Specific_Controls
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , l3BaseStream
+ , nsTypesNew
+ , k2CustomFileGenerator
+ , k2TagGen
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimBaseSearchInterfaces
+ , l3SimpleObject
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , PresentationInterfaces
+ , l3Core
+ , Base_Operations_View_Controls
+ , nevGUIInterfaces
+ , afwNavigation
+ , nevBase
+ , l3LongintList
+ , nsFoundBlocksList
+ , DocInfoInterfaces
+ , UnderControlUnit
+ , BaseDocumentWithAttributesInterfaces
+ , UnderControlInterfaces
+ , Hypertext_Controls_Controls
+ , evdTypes
+ , l3ProtoObject
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Локализуемые строки LocalForChangedFragments }
+ str_ViewChangesOpName: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ViewChangesOpName'; rValue : 'Обзор изменений документа');
+  {* 'Обзор изменений документа' }
+
 type
  IExTextFormState = interface(IvcmBase)
-   ['{BE5E5BDA-BD9E-4C35-86E5-EA717CAA2E11}']
-   function pm_GetInnerState: IvcmBase;
-   function pm_GetNeedShowUserComments: Boolean;
-   function Get_EeSubIdForTypedCorrespondentList: Integer;
-   function pm_GetNeedShowComments: Boolean;
-   function pm_GetNeedShowVersionComments: Boolean;
-   property InnerState: IvcmBase
-     read pm_GetInnerState;
-   property NeedShowUserComments: Boolean
-     read pm_GetNeedShowUserComments;
-   property eeSubIdForTypedCorrespondentList: Integer
-     read Get_EeSubIdForTypedCorrespondentList;
-   property NeedShowComments: Boolean
-     read pm_GetNeedShowComments;
-   property NeedShowVersionComments: Boolean
-     read pm_GetNeedShowVersionComments;
+  ['{BE5E5BDA-BD9E-4C35-86E5-EA717CAA2E11}']
+  function pm_GetInnerState: IvcmBase;
+  function pm_GetNeedShowUserComments: Boolean;
+  function Get_eeSubIdForTypedCorrespondentList: Integer;
+  function pm_GetNeedShowComments: Boolean;
+  function pm_GetNeedShowVersionComments: Boolean;
+  property InnerState: IvcmBase
+   read pm_GetInnerState;
+  property NeedShowUserComments: Boolean
+   read pm_GetNeedShowUserComments;
+  property eeSubIdForTypedCorrespondentList: Integer
+   read Get_eeSubIdForTypedCorrespondentList;
+  property NeedShowComments: Boolean
+   read pm_GetNeedShowComments;
+  property NeedShowVersionComments: Boolean
+   read pm_GetNeedShowVersionComments;
  end;//IExTextFormState
 
  TExTextFormState = class(Tl3ProtoObject, IExTextFormState)
- private
- // private fields
-   f_InnerState : IvcmBase;
-   f_NeedShowUserComments : Boolean;
-   f_eeSubIdForTypedCorrespondentList : Integer;
-   f_NeedShowComments : Boolean;
-   f_NeedShowVersionComments : Boolean;
- protected
- // realized methods
+  private
+   f_InnerState: IvcmBase;
+   f_NeedShowUserComments: Boolean;
+   f_eeSubIdForTypedCorrespondentList: Integer;
+   f_NeedShowComments: Boolean;
+   f_NeedShowVersionComments: Boolean;
+  protected
    function pm_GetInnerState: IvcmBase;
    function pm_GetNeedShowUserComments: Boolean;
-   function Get_EeSubIdForTypedCorrespondentList: Integer;
+   function Get_eeSubIdForTypedCorrespondentList: Integer;
    function pm_GetNeedShowComments: Boolean;
    function pm_GetNeedShowVersionComments: Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aInnerState: IvcmBase;
+    aNeedShowUserComments: Boolean;
+    aNeedShowComments: Boolean;
+    aNeedShowVersionComments: Boolean;
+    aEeSubIdForTypedCorrespondentList: Integer); reintroduce;
+   class function Make(const aInnerState: IvcmBase;
+    aNeedShowUserComments: Boolean;
+    aNeedShowComments: Boolean;
+    aNeedShowVersionComments: Boolean;
+    aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState; reintroduce;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
- public
- // public methods
-   constructor Create(const aInnerState: IvcmBase;
-     aNeedShowUserComments: Boolean;
-     aNeedShowComments: Boolean;
-     aNeedShowVersionComments: Boolean;
-     aEeSubIdForTypedCorrespondentList: Integer); reintroduce;
-   class function Make(const aInnerState: IvcmBase;
-     aNeedShowUserComments: Boolean;
-     aNeedShowComments: Boolean;
-     aNeedShowVersionComments: Boolean;
-     aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState; reintroduce;
-     {* Сигнатура фабрики TExTextFormState.Make }
  end;//TExTextFormState
 
-var
-  { Локализуемые строки LocalForChangedFragments }
- str_ViewChangesOpName : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ViewChangesOpName'; rValue : 'Обзор изменений документа');
-  { 'Обзор изменений документа' }
-
-type
  _SearcheableText_Parent_ = TvcmContainerForm;
- {$Include ..\Forms\SearcheableText.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas}
  _PageControlNotification_Parent_ = _SearcheableText_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _TurnOnTimeMachine_Parent_ = _PageControlNotification_;
@@ -256,152 +185,361 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TExTextForm = {form} class(_vcmChromeLikeTabIconUpdater_, Il3SelectedTabDependent)
+ TExTextForm = class(_vcmChromeLikeTabIconUpdater_, Il3SelectedTabDependent)
   {* Форма документа, работающая с IdsDocument и другими вариантами контроллеров области ввода }
- private
- // private fields
-   f_NeedAnnoingCheck : Boolean;
-   f_InGoToInternet : Boolean;
-   f_TabCaption : IvcmCString;
-   f_DocumentLoaded : Boolean;
-   f_eeSubIdForTypedCorrespondentList : Integer;
-  {$If defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
-   f_NeedShowIntranetWarningHack : Boolean;
-    {* Поле для свойства NeedShowIntranetWarningHack}
-  {$IfEnd} //nsTest AND not Admin AND not Monitorings
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_NeedAnnoingCheck: Boolean;
+   f_InGoToInternet: Boolean;
+   f_TabCaption: IvcmCString;
+   f_DocumentLoaded: Boolean;
+   f_eeSubIdForTypedCorrespondentList: Integer;
+   {$If Defined(nsTest)}
+   f_NeedShowIntranetWarningHack: Boolean;
+    {* Хак для эмуляции включения МГО медали }
+   {$IfEnd} // Defined(nsTest)
+  protected
+   DocumentWithContents: IucbDocumentWithContents;
+   DictionDocument: IdsDictionDocument;
+    {* Документ толкового словаря. Может быть nil }
+   MedicFirmDocument: IdsMedicFirmDocument;
+    {* Документ мед. фирмы. Может быть nil }
+   DrugDocument: IdsDrugDocument;
+    {* Документ-препарат. Может быть nil }
+   Consultation: IsdsConsultation;
+   dsConsultation: IdsConsultation;
+   f_ControlMap: InsStringValueMap;
+   f_LastBookmarkIndex: Integer;
+   f_RecallCreateTOCTree: IdeSimpleTree;
+   f_HyperlinkCallStatus: Boolean;
+   AAC: IsdsAAC;
+  private
    procedure DoFindInDict;
    procedure DoFocusViaMouseSet(aSender: TObject);
    procedure TextSourceTOCCreated(aSender: TObject;
-     const aTOC: Il3SimpleTree);
+    const aTOC: Il3SimpleTree);
    procedure TextSourceMakeDocumentContainer(Sender: TObject;
-     var aMade: InevDocumentContainer);
+    var aMade: InevDocumentContainer);
    procedure TextSourceDocumentChanged(aSender: TObject;
-     anOldDocument: Tl3Tag;
-     aNewDocument: Tl3Tag);
+    anOldDocument: Tl3Tag;
+    aNewDocument: Tl3Tag);
    procedure OnHistoryState(Sender: TObject;
-     var IsLast: Boolean);
+    var IsLast: Boolean);
    procedure GoToIntranetPrim(aNeedCheck: Boolean);
    procedure SetFocusToTextInAAC;
    function GetCorrespondentListTest: Boolean;
    function GetRespondentListTest: Boolean;
    procedure CheckLinkedWindows;
-     {* Синхронизирует положения связанных окон }
+    {* Синхронизирует положения связанных окон }
    procedure DoHyperlinkNavigate(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure DoTextZOrderChanging(aSender: TObject;
-     var aCanChangeZOrder: Boolean);
+    var aCanChangeZOrder: Boolean);
    function HasVisibleBookmarks(const aBookmarks: IeeSubList): Boolean;
    procedure ExcludeRootSub(const aParams: IvcmTestParamsPrim);
    function MakePositionListBySub(aSubID: Integer): IPositionList;
    procedure CheckIsDocumentSub(const aParams: IvcmTestParamsPrim);
    function ExtractRangeFromSubPanel(const aParams: IvcmExecuteParams): InevRange;
    function MakeCaption(const aDocument: IDocument;
-     aShort: Boolean): Il3CString;
+    aShort: Boolean): Il3CString;
    procedure UpdateDocumentCaption(const aDocument: IDocument);
    procedure OpenDocumentInNewContainer(aOpenKind: TvcmMainFormOpenKind);
- protected
- // property methods
-   {$If defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
-
-   {$IfEnd} //nsTest AND not Admin AND not Monitorings
- protected
- // realized methods
+  protected
+   function CheckParamForUserType(aUserType: Integer): Boolean;
+   procedure DisableOperation(const aParams: IvcmTestParamsPrim);
+   procedure CRToPartTest(const aParams: IvcmTestParamsPrim;
+    aCRType: TlstCRType);
+    {* общий обработчик для СКР к части }
+   procedure CRToPartExecute(const aParams: IvcmExecuteParamsPrim;
+    aCRType: TlstCRType);
+    {* общий обработчик для СКР к части }
+   procedure TurnOnTimeMachine(const aDate: Il3CString);
+    {* включить машину времени на дату }
+   procedure OpenContents(aMode: TnsContentsOpenMode);
+   function FiltrateTOCTree(const aTOC: Il3SimpleTree;
+    NeedFiltrate: Boolean = True): Il3SimpleTree;
+   procedure ShowWarningPage(SwitchActivity: Boolean;
+    anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
+   function GetVisibleBookmarksCount(const aBookmarks: IeeSubList): Integer;
+   function GetVisibleBookmark(const aBookmarks: IeeSubList;
+    anIndex: Integer = 0): IeeSub;
+   procedure EditBookmark(anID: Integer);
+   function NeedShowIntranetWarning: Boolean;
+   procedure GoToIntranet;
+   procedure CheckForcedQueryForIntranet;
+   procedure RequiestCheckForcedQueryForInternet;
+   procedure UpdateSubPanelDescription;
+   procedure InvalidateDataSources;
+    {* синхронизирует новый источник данных с запомненными источниками данных }
+   procedure UpdateTechComment;
+   procedure CreateTOC(const aTOC: IdeSimpleTree); virtual; abstract;
+   procedure LoadFromSettings;
+    {* применить настройки к форме }
+   procedure ShowSubNumbers;
+   procedure DoSettingsChanged;
+    {* вызывается в случае изменения\замены настроек. }
+   function GetCurrentCaption: Il3CString;
+   function GetCurrentImage: Integer;
+   procedure CorrespondentsToSubTest(const aParams: IvcmTestParamsPrim);
+   function ExtractSubFromSubPanel(const aTarget: IUnknown): IeeSub;
+   procedure OpenPicture(const aPara: IeePara;
+    const aPicture: IeePicture;
+    aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
+   function LeafParaUnderCursor: IeePara;
+   function MakePositionList(aCRType: TlstCRType): IPositionList;
+   procedure SetFocusToText;
+   function GetNeedsStatusBarItems: Boolean;
+   function NeedShowTOC: Boolean;
+    {* Нужно ли показывать оглавление }
+   function ExtractRangeFromList(const aList: InevFlatSubsList): InevRange;
+   function ExtractRangeFromSub(aID: Integer;
+    aLayerID: Integer): InevRange;
+   function IsPictureUnderCursor: Boolean;
+   procedure ChangePositionByDataSource;
+    {* изменить позицию в документе на основе информации источника данных }
+   function OpenCRList(aKind: TlstCRType;
+    const aType: Il3SimpleNode;
+    ReConvertNode: Boolean): Boolean;
+    {* Открыть список корреспондентов/респондентов }
+   procedure TypedCRToPartTest(const aParams: IvcmTestParamsPrim;
+    aCRType: TlstCRType);
+   procedure GetCorrespondentListEx(aParamsIndex: Integer;
+    const aChoosedNode: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure OpenCRListToPart(aCRType: TlstCRType;
+    const aType: Il3SimpleNode;
+    const aPositionList: IPositionList = nil);
+   procedure GetRespondentListEx(aParamsIndex: Integer;
+    const aChoosedNode: Il3SimpleNode);
+   procedure SynchronizeWithRedationsForm;
+   procedure ReloadRedaction(aChangeType: TnsChangeRedactionType;
+    aRedaction: TRedactionID = 0); overload; virtual; abstract;
+   function ReloadRedaction(const aDate: AdapterDate): Boolean; overload; virtual; abstract;
+   procedure SetActualRedaction; virtual; abstract;
+   function ExtractRangeFromContents(const aData: IUnknown;
+    aUserType: Integer): InevRange; virtual; abstract;
+   procedure ExportBlock(const aRange: InevRange;
+    ToActiveWindow: Boolean); virtual; abstract;
+   procedure SelectBlock(const aRange: InevRange); virtual; abstract;
+   procedure CopyBlock(const aRange: InevRange); virtual; abstract;
+   procedure PrintBlock(const aRange: InevRange); virtual; abstract;
+   procedure PrintDialogBlock(const aRange: InevRange); virtual; abstract;
+   procedure PreviewBlock(const aRange: InevRange); virtual; abstract;
+   function FindBookmarkInText(const aBookmark: IBookmark;
+    out aSub: IeeSub): Boolean; virtual; abstract;
+   procedure InitHyperLink(const aHyperLink: IevHyperlink;
+    const aBaseEntity: IUnknown); virtual; abstract;
+   function EnableRedactionOps(const aParams: IvcmTestParamsPrim): Boolean; virtual; abstract;
+   procedure OpenInWindow(aNew: Boolean = True); virtual; abstract;
+   procedure DoSwitchToFirstTab;
+   procedure OpenRedactionList;
    procedure DftMedicFirmSynchroViewQueryMaximized(aSender: TObject); override;
-     {* Обработчик события dftMedicFirmSynchroView.OnQueryMaximized }
+    {* Обработчик события dftMedicFirmSynchroView.OnQueryMaximized }
    procedure DftTranslationQueryMaximized(aSender: TObject); override;
-     {* Обработчик события dftTranslation.OnQueryMaximized }
+    {* Обработчик события dftTranslation.OnQueryMaximized }
    procedure DoTabActivate; override;
-     {* Реакция на переключение вкладки }
-   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
-     {* Коллеги, это что? }
-   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Информация о документе }
-   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Информация о документе }
-   function Loadable_Load_Execute(const aNode: IeeNode;
-    const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
-     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParams);
-     {* Коллеги, кто может описать этот метод? }
-   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Справка к документу }
-   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Справка к документу }
+    {* Реакция на переключение вкладки }
    procedure SetBookmark; override;
-     {* Устанавливает закладку на текущее место текущего документа }
+    {* Устанавливает закладку на текущее место текущего документа }
    function CanAddBookmark: Boolean; override;
-     {* Можно ли сейчас добавлять закладку }
-   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки на документ }
-   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки на документ }
-   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки из документа }
-   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки из документа }
-   function Document_AttributesCanBeClosed_Execute: Boolean;
-     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
-     {* Это кандидат на перенос в Facet или что-то подобное }
+    {* Можно ли сейчас добавлять закладку }
    function DocumentIsValid: Boolean; override;
-     {* Есть ли документ, готовый к работе }
+    {* Есть ли документ, готовый к работе }
    function RedactionCurrentPara: IeeLeafPara; override;
-     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
+    {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
-     {* Обработчик внешней операции }
+    {* Обработчик внешней операции }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); override;
-     {* Переход на точку в документе }
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour); override;
-     {* Открывает локальную ссылку на другую редакцию }
+    {* Открывает локальную ссылку на другую редакцию }
    function HyperlinkDocument: IDocument; override;
-     {* Документ ИЗ которого ведёт ссылка }
+    {* Документ ИЗ которого ведёт ссылка }
    function pm_GetHyperlinkText: TevCustomEditorWindow; override;
    function CanBeChanged: Boolean; override;
-     {* Может ли документ быть изменён }
+    {* Может ли документ быть изменён }
    function IsFloating: Boolean; override;
-     {* Форма плавающая }
+    {* Форма плавающая }
    function pm_GetTextWithComments: TevCustomEditorWindow; override;
+   function NeedGotoNeighbours: Boolean; override;
+    {* Надо ли переходить на соседей блока }
+   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); override;
+   procedure TabBecomeActive;
+   procedure TabBecomeInactive;
+   procedure DftDrugSynchroViewQueryOpen(aSender: TObject); override;
+    {* Обработчик события dftDrugSynchroView.OnQueryOpen }
+   procedure DftDictSubEntryQueryClose(aSender: TObject); override;
+    {* Обработчик события dftDictSubEntry.OnQueryClose }
+   procedure DftTranslationQueryClose(aSender: TObject); override;
+    {* Обработчик события dftTranslation.OnQueryClose }
+   procedure DftChronologyQueryClose(aSender: TObject); override;
+    {* Обработчик события dftChronology.OnQueryClose }
+   procedure DftDrugSynchroViewQueryMaximized(aSender: TObject); override;
+    {* Обработчик события dftDrugSynchroView.OnQueryMaximized }
+   procedure DftAnnotationQueryClose(aSender: TObject); override;
+    {* Обработчик события dftAnnotation.OnQueryClose }
+   procedure DftDocSynchroViewQueryMaximized(aSender: TObject); override;
+    {* Обработчик события dftDocSynchroView.OnQueryMaximized }
+   procedure DftRelatedDocQueryClose(aSender: TObject); override;
+    {* Обработчик события dftRelatedDoc.OnQueryClose }
+   procedure DftTranslationQueryOpen(aSender: TObject); override;
+    {* Обработчик события dftTranslation.OnQueryOpen }
+   procedure DftDocSynchroViewQueryOpen(aSender: TObject); override;
+    {* Обработчик события dftDocSynchroView.OnQueryOpen }
+   procedure DftMedicFirmSynchroViewQueryOpen(aSender: TObject); override;
+    {* Обработчик события dftMedicFirmSynchroView.OnQueryOpen }
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   procedure FinishDataUpdate; override;
+   function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
+    {* Обработчик изменения указанной настройки }
+   procedure SettingsReplaceFinish; override;
+   procedure UserSettingsChanged; override;
+    {* Изменились настройки пользователя }
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function CanAddToControl: Boolean; override;
+    {* Можно ли поставить на контроль }
+   function DoMakeLinkDocInfo(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal): IdeDocInfo; override;
+   function DoProcessLocalLink(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
+    {* Обработка локальных ссылок }
+   function NeedsStatusBarItems: Boolean; override;
+    {* Определяет, что операции в статусной строке таки надо публиковать }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure VersionCommentsVisibleInvertedByUser(NewState: Boolean); override;
+   procedure DoDocumentShowTechCommentsExecute; override;
+   function pm_GetHyperlinkSubID: Integer; override;
+   procedure DoSetHyperlinkCallStatus(aValue: Boolean); override;
+    {* Выставляет флаг, определяющий произведенный переход по ссылке }
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeVisible; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; override;
+   function GetDocumentShortName(const aDoc: IDocument;
+    aExportSelection: Boolean): Il3CString; override;
+   {$If NOT Defined(NoVCM)}
+   function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetFormSetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetTabImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetCanDefineFormSetIcon: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure AfterOpenHyperlinkInNewTab; override;
+   function GetParaIDForSaveInWorkJournal: Integer; override;
+   function NeedSaveInWorkJournal: Boolean; override;
+   {$If NOT Defined(NoVCM)}
+   function DoGetNeedAddFormToTasksPanel: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
+    {* Коллеги, это что? }
+   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Информация о документе }
+   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Информация о документе }
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    {* Коллеги, кто может описать этот метод? }
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
+    {* Коллеги, кто может описать этот метод? }
+   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки из документа }
+   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа }
+   function Document_AttributesCanBeClosed_Execute: Boolean;
+    {* Это кандидат на перенос в Facet или что-то подобное }
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
+    {* Это кандидат на перенос в Facet или что-то подобное }
    procedure Document_CommonDocumentOpenNewWindow_Execute(aUserType: Integer);
-     {* Что это? }
+    {* Что это? }
    procedure Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParams);
-     {* Что это? }
-   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = false);
+    {* Что это? }
+   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
    procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
    procedure Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
    procedure Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
    function Document_FindExplanation_Execute: Boolean;
-     {* Найти толкование }
+    {* Найти толкование }
    procedure Document_FindExplanation(const aParams: IvcmExecuteParams);
-     {* Найти толкование }
+    {* Найти толкование }
    procedure Selection_FindInDict_Test(const aParams: IvcmTestParamsPrim);
-     {* Найти в Толковом словаре }
+    {* Найти в Толковом словаре }
    procedure Selection_FindInDict_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Найти в Толковом словаре }
+    {* Найти в Толковом словаре }
    function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
     aUserType: Integer = 0): Boolean;
    procedure Document_SetPosition(const aParams: IvcmExecuteParams);
    procedure Document_SetActive_Execute(aUserType: Integer);
@@ -439,13 +577,13 @@ type
    procedure Document_AddBookmarkFromContents_Execute(const aTag: Il3TagRef);
    procedure Document_AddBookmarkFromContents(const aParams: IvcmExecuteParams);
    procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки на документ (вид информации) }
+    {* Ссылки на документ (вид информации) }
    procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки на документ (вид информации) }
+    {* Ссылки на документ (вид информации) }
    procedure Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки из документа (вид информации) }
+    {* Ссылки из документа (вид информации) }
    procedure Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки из документа (вид информации) }
+    {* Ссылки из документа (вид информации) }
    procedure TimeMachine_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
    procedure TimeMachine_TimeMachineOnOff_Execute;
    procedure TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParams);
@@ -457,36 +595,34 @@ type
    procedure Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure Redactions_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Edit_ToggleFoundWords_Test(const aParams: IvcmTestParamsPrim);
-     {* Подсвечивать найденный контекст }
+    {* Подсвечивать найденный контекст }
    procedure Edit_ToggleFoundWords_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Подсвечивать найденный контекст }
+    {* Подсвечивать найденный контекст }
    function Document_GotoPara_Execute(const aPara: Il3TagRef;
     aUserType: Integer): Boolean;
    procedure Document_GotoPara(const aParams: IvcmExecuteParams);
    procedure TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
-     {* Включить Машину времени }
-   procedure TimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
-     {* Включить Машину времени }
+    {* Включить Машину времени }
    procedure TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Включить Машину времени }
+    {* Включить Машину времени }
+   procedure TimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+    {* Включить Машину времени }
    procedure Redactions_OpenRedactionListFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Список редакций }
-   procedure Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
-     {* Список редакций }
+    {* Список редакций }
    procedure Redactions_OpenRedactionListFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Список редакций }
+    {* Список редакций }
+   procedure Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
+    {* Список редакций }
    procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
    function Document_GetParaForPositionning_Execute: IeeLeafPara;
    procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
-   function NeedGotoNeighbours: Boolean; override;
-     {* Надо ли переходить на соседей блока }
    procedure DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-   procedure DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetTypedRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Document_GetAnnotationDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
@@ -494,11 +630,11 @@ type
    procedure Document_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
    procedure Document_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlockHeader_UserCR1_Test(const aParams: IvcmTestParamsPrim);
-   procedure DocumentBlockHeader_UserCR1_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlockHeader_UserCR1_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_UserCR1_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlockHeader_UserCR2_Test(const aParams: IvcmTestParamsPrim);
-   procedure DocumentBlockHeader_UserCR2_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlockHeader_UserCR2_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlockHeader_UserCR2_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlockHeader_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlockHeader_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Redactions_PrevRedaction_Test(const aParams: IvcmTestParamsPrim);
@@ -506,19 +642,19 @@ type
    procedure Redactions_NextRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure Redactions_NextRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Text_AddToControl_Test(const aParams: IvcmTestParamsPrim);
-   procedure Text_AddToControl_GetState(var State: TvcmOperationStateIndex);
    procedure Text_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Text_AddToControl_GetState(var State: TvcmOperationStateIndex);
    procedure Selection_ShowCorrespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
    procedure Selection_ShowCorrespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Selection_ShowRespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
    procedure Selection_ShowRespondentListToPart_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure WarnOnControl_ClearStatusSettings_Test(const aParams: IvcmTestParamsPrim);
-     {* Способ сброса статуса "изменен" }
+    {* Способ сброса статуса "изменен" }
    procedure WarnOnControl_ClearStatusSettings_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Способ сброса статуса "изменен" }
+    {* Способ сброса статуса "изменен" }
    procedure TasksPanel_TimeMachineOnOff_Test(const aParams: IvcmTestParamsPrim);
-   procedure TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
    procedure TasksPanel_TimeMachineOnOff_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlockHeader_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlockHeader_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlockHeader_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
@@ -528,9 +664,9 @@ type
    procedure DocumentBlockHeader_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlockHeader_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
-     {* Установить закладку на фрагмент }
+    {* Установить закладку на фрагмент }
    procedure DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Установить закладку на фрагмент }
+    {* Установить закладку на фрагмент }
    procedure DocumentBlock_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
@@ -540,8 +676,8 @@ type
    procedure DocumentBlock_Print_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_Print_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Document_OpenContentsFrmAct_Test(const aParams: IvcmTestParamsPrim);
-   procedure Document_OpenContentsFrmAct_GetState(var State: TvcmOperationStateIndex);
    procedure Document_OpenContentsFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Document_OpenContentsFrmAct_GetState(var State: TvcmOperationStateIndex);
    procedure Document_ShowDocumentPicture_Test(const aParams: IvcmTestParamsPrim);
    procedure Document_ShowDocumentPicture_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ExternalObject_Open_Test(const aParams: IvcmTestParamsPrim);
@@ -551,30 +687,30 @@ type
    procedure WarnRedaction_OpenActualRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure WarnRedaction_OpenActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure WarnTimeMachine_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
-   procedure WarnTimeMachine_ShowInfo_GetState(var State: TvcmOperationStateIndex);
    procedure WarnTimeMachine_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnTimeMachine_ShowInfo_GetState(var State: TvcmOperationStateIndex);
    procedure WarnTimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
-   procedure WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
    procedure WarnTimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
    procedure WarnJuror_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
-   procedure WarnJuror_ShowInfo_GetState(var State: TvcmOperationStateIndex);
    procedure WarnJuror_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure WarnJuror_ShowInfo_GetState(var State: TvcmOperationStateIndex);
    procedure WarnOnControl_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать изменения }
+    {* Показать изменения }
    procedure WarnOnControl_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать изменения }
+    {* Показать изменения }
    procedure WarnOnControl_ClearStatus_Test(const aParams: IvcmTestParamsPrim);
-     {* Сбросить статус "изменен" }
+    {* Сбросить статус "изменен" }
    procedure WarnOnControl_ClearStatus_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сбросить статус "изменен" }
+    {* Сбросить статус "изменен" }
    procedure BookmarkIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
    procedure BookmarkIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure BookmarkIcon_Edit_Test(const aParams: IvcmTestParamsPrim);
    procedure BookmarkIcon_Edit_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure UserCommentIcon_Delete_Test(const aParams: IvcmTestParamsPrim);
    procedure UserCommentIcon_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure UserCommentIcon_HideShow_GetState(var State: TvcmOperationStateIndex);
    procedure UserCommentIcon_HideShow_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure UserCommentIcon_HideShow_GetState(var State: TvcmOperationStateIndex);
    procedure UserComment_Delete_Test(const aParams: IvcmTestParamsPrim);
    procedure UserComment_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Text_AddUserComment_Test(const aParams: IvcmTestParamsPrim);
@@ -604,557 +740,306 @@ type
    procedure Document_OpenSimilarDrugList_Test(const aParams: IvcmTestParamsPrim);
    procedure Document_OpenSimilarDrugList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Selection_InsertHyperlink_Test(const aParams: IvcmTestParamsPrim);
-     {* Поставить ссылку... }
-   procedure Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
-     {* Поставить ссылку... }
+    {* Поставить ссылку... }
    procedure Selection_InsertHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Поставить ссылку... }
+    {* Поставить ссылку... }
+   procedure Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить ссылку... }
    procedure WarnRedaction_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать текст предупреждения }
-   procedure WarnRedaction_ShowInfo_GetState(var State: TvcmOperationStateIndex);
-     {* Показать текст предупреждения }
+    {* Показать текст предупреждения }
    procedure WarnRedaction_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать текст предупреждения }
+    {* Показать текст предупреждения }
+   procedure WarnRedaction_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+    {* Показать текст предупреждения }
    procedure DocumentBlock_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_Select_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_Select_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
-     {* Обзор изменений документа }
+    {* Обзор изменений документа }
    procedure Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Обзор изменений документа }
+    {* Обзор изменений документа }
    procedure DocumentSubPanel_UpdateSubPanel_Execute;
    procedure DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParams);
    procedure IntranetSourcePoint_GoToIntranet_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Picture_Open_Test(const aParams: IvcmTestParamsPrim);
-     {* Открыть в текущем окне }
+    {* Открыть в текущем окне }
    procedure Picture_Open_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть в текущем окне }
+    {* Открыть в текущем окне }
    procedure Picture_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
-     {* Открыть в новом окне }
+    {* Открыть в новом окне }
    procedure Picture_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть в новом окне }
+    {* Открыть в новом окне }
    function BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute: InsBaseSearchPresentation;
    procedure BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParams);
    procedure Text_SelectWord_Test(const aParams: IvcmTestParamsPrim);
    procedure Text_SelectWord_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Text_SelectPara_Test(const aParams: IvcmTestParamsPrim);
    procedure Text_SelectPara_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); override;
    procedure Picture_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
-     {* Открыть в новой вкладке }
+    {* Открыть в новой вкладке }
    procedure Picture_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Открыть в новой вкладке }
-   procedure TabBecomeActive;
-   procedure TabBecomeInactive;
+    {* Открыть в новой вкладке }
    procedure Document_CommonDocumentOpenNewTab_Execute(aUserType: Integer);
    procedure Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure DftDrugSynchroViewQueryOpen(aSender: TObject); override;
-     {* Обработчик события dftDrugSynchroView.OnQueryOpen }
-   procedure DftDictSubEntryQueryClose(aSender: TObject); override;
-     {* Обработчик события dftDictSubEntry.OnQueryClose }
-   procedure DftTranslationQueryClose(aSender: TObject); override;
-     {* Обработчик события dftTranslation.OnQueryClose }
-   procedure DftChronologyQueryClose(aSender: TObject); override;
-     {* Обработчик события dftChronology.OnQueryClose }
-   procedure DftDrugSynchroViewQueryMaximized(aSender: TObject); override;
-     {* Обработчик события dftDrugSynchroView.OnQueryMaximized }
-   procedure DftAnnotationQueryClose(aSender: TObject); override;
-     {* Обработчик события dftAnnotation.OnQueryClose }
-   procedure DftDocSynchroViewQueryMaximized(aSender: TObject); override;
-     {* Обработчик события dftDocSynchroView.OnQueryMaximized }
-   procedure DftRelatedDocQueryClose(aSender: TObject); override;
-     {* Обработчик события dftRelatedDoc.OnQueryClose }
-   procedure DftTranslationQueryOpen(aSender: TObject); override;
-     {* Обработчик события dftTranslation.OnQueryOpen }
-   procedure DftDocSynchroViewQueryOpen(aSender: TObject); override;
-     {* Обработчик события dftDocSynchroView.OnQueryOpen }
-   procedure DftMedicFirmSynchroViewQueryOpen(aSender: TObject); override;
-     {* Обработчик события dftMedicFirmSynchroView.OnQueryOpen }
- protected
- // overridden property methods
-   function pm_GetHyperlinkSubID: Integer; override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   procedure FinishDataUpdate; override;
-   function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
-     {* Обработчик изменения указанной настройки }
-   procedure SettingsReplaceFinish; override;
-   procedure UserSettingsChanged; override;
-     {* Изменились настройки пользователя }
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   function CanAddToControl: Boolean; override;
-     {* Можно ли поставить на контроль }
-   function DoMakeLinkDocInfo(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal): IdeDocInfo; override;
-   function DoProcessLocalLink(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
-     {* Обработка локальных ссылок }
-   function NeedsStatusBarItems: Boolean; override;
-     {* Определяет, что операции в статусной строке таки надо публиковать }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure VersionCommentsVisibleInvertedByUser(NewState: Boolean); override;
-   procedure DoDocumentShowTechCommentsExecute; override;
-   procedure DoSetHyperlinkCallStatus(aValue: Boolean); override;
-     {* Выставляет флаг, определяющий произведенный переход по ссылке }
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure BecomeVisible; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; override;
-   function GetDocumentShortName(const aDoc: IDocument;
-     aExportSelection: Boolean): Il3CString; override;
-    {$If not defined(NoVCM)}
-   function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetFormSetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetCanDefineFormSetIcon: Boolean; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-   procedure AfterOpenHyperlinkInNewTab; override;
-     {* Сигнатура метода AfterOpenHyperlinkInNewTab }
-   function GetParaIDForSaveInWorkJournal: Integer; override;
-   function NeedSaveInWorkJournal: Boolean; override;
-    {$If not defined(NoVCM)}
-   function DoGetNeedAddFormToTasksPanel: Boolean; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure SetPositionByDS; override;
-     {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function NeedDrawCaption: Boolean; override;
-     {* Нужно ли рисовать заголовок зоны }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Нужно ли рисовать заголовок зоны }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
-     {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
-     {* Сигнатура метода NotifyUserTypeSet }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsMainObjectForm: Boolean; override;
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   DocumentWithContents : IucbDocumentWithContents;
-   DictionDocument : IdsDictionDocument;
-    {* Документ толкового словаря. Может быть nil}
-   MedicFirmDocument : IdsMedicFirmDocument;
-    {* Документ мед. фирмы. Может быть nil}
-   DrugDocument : IdsDrugDocument;
-    {* Документ-препарат. Может быть nil}
-   Consultation : IsdsConsultation;
-   dsConsultation : IdsConsultation;
-   f_ControlMap : InsStringValueMap;
-   f_LastBookmarkIndex : Integer;
-   f_RecallCreateTOCTree : IdeSimpleTree;
-   f_HyperlinkCallStatus : Boolean;
-   AAC : IsdsAAC;
- protected
- // protected methods
-   function CheckParamForUserType(aUserType: Integer): Boolean;
-   procedure DisableOperation(const aParams: IvcmTestParamsPrim);
-   procedure CRToPartTest(const aParams: IvcmTestParamsPrim;
-     aCRType: TlstCRType);
-     {* общий обработчик для СКР к части }
-   procedure CRToPartExecute(const aParams: IvcmExecuteParamsPrim;
-     aCRType: TlstCRType);
-     {* общий обработчик для СКР к части }
-   procedure TurnOnTimeMachine(const aDate: Il3CString);
-     {* включить машину времени на дату }
-   procedure OpenContents(aMode: TnsContentsOpenMode);
-   function FiltrateTOCTree(const aTOC: Il3SimpleTree;
-     NeedFiltrate: Boolean = True): Il3SimpleTree;
-   procedure ShowWarningPage(SwitchActivity: Boolean;
-     anOffset: TnsWarningSub = cNoneWarningSub);
-   function GetVisibleBookmarksCount(const aBookmarks: IeeSubList): Integer;
-   function GetVisibleBookmark(const aBookmarks: IeeSubList;
-     anIndex: Integer = 0): IeeSub;
-   procedure EditBookmark(anID: Integer);
-   function NeedShowIntranetWarning: Boolean;
-   procedure GoToIntranet;
-   procedure CheckForcedQueryForIntranet;
-   procedure RequiestCheckForcedQueryForInternet;
-   procedure UpdateSubPanelDescription;
-   procedure InvalidateDataSources;
-     {* синхронизирует новый источник данных с запомненными источниками данных }
-   procedure UpdateTechComment;
-   procedure CreateTOC(const aTOC: IdeSimpleTree); virtual; abstract;
-   procedure LoadFromSettings;
-     {* применить настройки к форме }
-   procedure ShowSubNumbers;
-   procedure DoSettingsChanged;
-     {* вызывается в случае изменения\замены настроек. }
-   function GetCurrentCaption: Il3CString;
-   function GetCurrentImage: Integer;
-   procedure CorrespondentsToSubTest(const aParams: IvcmTestParamsPrim);
-   function ExtractSubFromSubPanel(const aTarget: IUnknown): IeeSub;
-   procedure OpenPicture(const aPara: IeePara;
-     const aPicture: IeePicture;
-     aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
-   function LeafParaUnderCursor: IeePara;
-   function MakePositionList(aCRType: TlstCRType): IPositionList;
-   procedure SetFocusToText;
-   function GetNeedsStatusBarItems: Boolean;
-   function NeedShowTOC: Boolean;
-     {* Нужно ли показывать оглавление }
-   function ExtractRangeFromList(const aList: InevFlatSubsList): InevRange;
-   function ExtractRangeFromSub(aID: Integer;
-     aLayerID: Integer): InevRange;
-   function IsPictureUnderCursor: Boolean;
-   procedure ChangePositionByDataSource;
-     {* изменить позицию в документе на основе информации источника данных }
-   function OpenCRList(aKind: TlstCRType;
-    const aType: Il3SimpleNode;
-    ReConvertNode: Boolean): Boolean;
-     {* Открыть список корреспондентов/респондентов }
-   procedure TypedCRToPartTest(const aParams: IvcmTestParamsPrim;
-    aCRType: TlstCRType);
-   procedure GetCorrespondentListEx(aParamsIndex: Integer;
-    const aChoosedNode: Il3SimpleNode);
-     {* Коллеги, это что? }
-   procedure OpenCRListToPart(aCRType: TlstCRType;
-    const aType: Il3SimpleNode;
-    const aPositionList: IPositionList = nil);
-   procedure GetRespondentListEx(aParamsIndex: Integer;
-    const aChoosedNode: Il3SimpleNode);
-   procedure SynchronizeWithRedationsForm;
-   procedure ReloadRedaction(aChangeType: TnsChangeRedactionType;
-    aRedaction: TRedactionID = 0); overload;  virtual; abstract;
-   function ReloadRedaction(const aDate: AdapterDate): Boolean; overload;  virtual; abstract;
-   procedure SetActualRedaction; virtual; abstract;
-   function ExtractRangeFromContents(const aData: IUnknown;
-    aUserType: Integer): InevRange; virtual; abstract;
-   procedure ExportBlock(const aRange: InevRange;
-    ToActiveWindow: Boolean); virtual; abstract;
-   procedure SelectBlock(const aRange: InevRange); virtual; abstract;
-   procedure CopyBlock(const aRange: InevRange); virtual; abstract;
-   procedure PrintBlock(const aRange: InevRange); virtual; abstract;
-   procedure PrintDialogBlock(const aRange: InevRange); virtual; abstract;
-   procedure PreviewBlock(const aRange: InevRange); virtual; abstract;
-   function FindBookmarkInText(const aBookmark: IBookmark;
-    out aSub: IeeSub): Boolean; virtual; abstract;
-   procedure InitHyperLink(const aHyperLink: IevHyperlink;
-    const aBaseEntity: IUnknown); virtual; abstract;
-   function EnableRedactionOps(const aParams: IvcmTestParamsPrim): Boolean; virtual; abstract;
-   procedure OpenInWindow(aNew: Boolean = true); virtual; abstract;
-   procedure DoSwitchToFirstTab;
-   procedure OpenRedactionList;
- public
- // public properties
-    {$If defined(nsTest) AND not defined(Admin) AND not defined(Monitorings)}
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If Defined(nsTest)}
    property NeedShowIntranetWarningHack: Boolean
-     read f_NeedShowIntranetWarningHack
-     write f_NeedShowIntranetWarningHack;
-     {* Хак для эмуляции включения МГО медали }
-    {$IfEnd} //nsTest AND not Admin AND not Monitorings
+    read f_NeedShowIntranetWarningHack
+    write f_NeedShowIntranetWarningHack;
+    {* Хак для эмуляции включения МГО медали }
+   {$IfEnd} // Defined(nsTest)
  end;//TExTextForm
-{$IfEnd} //not Admin AND not Monitorings
+
+var g_GoToIntranetMessage: THandle = 0;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  nsFolders,
-  nsTagNodeTools,
-  Block_Const,
-  LeafParaDecorationsHolder_Const,
-  CommentPara_Const,
-  ParaList_Const,
-  LeafPara_Const,
-  k2Tags
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSubImplementation,
-  Document_Const,
-  ConsultingUnit,
-  DataAdapter
-  {$If not defined(NoVCM)}
-  ,
-  vcmGUI
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  ,
-  nsConst,
-  nsExternalObjectPrim,
-  nsValueMaps,
-  nsValueMapsIDs,
-  bsChangeRedationWorker,
-  eeEditorExport,
-  l3Bits,
-  l3Chars,
-  l3String,
-  evTypes,
-  BaseTreeSupportUnit,
-  FoldersUnit,
-  BaseTypesUnit,
-  nsDocumentTools
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  eeInterfacesEx
-  {$If defined(Nemesis)}
-  ,
-  eeParaTools
-  {$IfEnd} //Nemesis
-  ,
-  F1Like_InternalOperations_Controls,
-  nsSwitchVersionCommentsEvent,
-  nsTextTabActivateEvent,
-  nsUseDocumentSubPanelOperationEvent
-  {$If not defined(NoVCM)}
-  ,
-  vcmUtils
-  {$IfEnd} //not NoVCM
-  ,
-  StartUnit,
-  evCustomEditor,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  deSimpleTree,
-  F1TagDataProviderInterface,
-  Graphics,
-  WarningConst,
-  ControlStatusUtils,
-  resWarnImages,
-  bsDocumentMissingMessage,
-  bsUtils,
-  nsInternalPictureData,
-  BitmapPara_Const,
-  Base_Operations_AAC_Controls,
-  AACTextContainerPrim_Form,
-  k2Const,
-  evEditorWithOperations,
-  eeEditor,
-  nevRangeList,
-  nevRangeListTools,
-  evMultiSelectionBlock
-  {$If not defined(NoVGScene)}
-  ,
-  vgRemindersLineManager
-  {$IfEnd} //not NoVGScene
-  ,
-  nsTabbedInterfaceTypes,
-  nscDocumentHistory,
-  evSubPn,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  nsTrialSupport,
-  bsDocumentContextSearcher,
-  afwFacade,
-  Printers,
-  l3Stream,
-  l3Types,
-  SysUtils,
-  nsUtils,
-  nsToMSWordOp,
-  afwSettingsChangePublisher,
-  evdBlockNameAdder
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  nsSearchInDocumentEvent,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  nsManagers,
-  LoggingUnit,
-  bsConvert,
-  nsTimeMachineOffEvent,
-  nsHyperLinkProcessor,
-  deDocInfo,
-  nsOpenUtils,
-  nsTabbedContainerUtils
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsHyperlinkProcessorTypes,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  evOp,
-  DynamicTreeUnit,
-  ExternalObjectUnit,
-  nsDocumentFromListNavigationEvent
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarItemDef
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDef
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarDelimiterDef
-  {$IfEnd} //Nemesis
-  ,
-  DocumentUtil
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDefsList
-  {$IfEnd} //Nemesis
-  ,
-  Common_FormDefinitions_Controls,
-  evConstStringData,
-  evdHyperlinkInfo,
-  nsHyperlinkToDocumentProducerConst
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TExTextForm;
-
-{$Include ..\Forms\SearcheableText.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas}
-
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
-
-
-{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
-
-
-{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
+ l3ImplUses
+ , DocumentUserTypes_dftRelatedDoc_UserType
+ , DocumentUserTypes_dftAnnotation_UserType
+ , DocumentUserTypes_dftRelatedSynchroView_UserType
+ , DocumentUserTypes_dftDictSubEntry_UserType
+ , DocumentUserTypes_dftConsultation_UserType
+ , DocumentUserTypes_dftTranslation_UserType
+ , DocumentUserTypes_dftChronology_UserType
+ , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
+ , DocumentUserTypes_dftTips_UserType
+ , DocumentUserTypes_dftAutoreferat_UserType
+ , DocumentUserTypes_dftMedicFirmSynchroView_UserType
+ , DocumentUserTypes_dftDrugSynchroView_UserType
+ , DocumentUserTypes_dftDocSynchroView_UserType
+ , DocumentUserTypes_dftAnnotationSynchroView_UserType
+ , DocumentUserTypes_dftNone_UserType
+ , DocumentUserTypes_dftDocument_UserType
+ , DocumentUserTypes_dftAACLeft_UserType
+ , DocumentUserTypes_dftAACRight_UserType
+ , DocumentUserTypes_dftAACContentsLeft_UserType
+ , DocumentUserTypes_dftAACContentsRight_UserType
+ , DocumentUserTypes_dftDrug_UserType
+ , DocumentUserTypes_dftDictEntry_UserType
+ , DocumentUserTypes_dftMedDictEntry_UserType
+ , DocumentUserTypes_dftMedicFirm_UserType
+ , evSubWaiter
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ConsultingUnit
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmGUI
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConst
+ , nsExternalObjectPrim
+ , nsValueMaps
+ , nsValueMapsIDs
+ , bsChangeRedationWorker
+ , eeEditorExport
+ , l3Bits
+ , l3Chars
+ , l3String
+ , evTypes
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , BaseTreeSupportUnit
+ , FoldersUnit
+ , BaseTypesUnit
+ , nsDocumentTools
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , F1Like_InternalOperations_Controls
+ , nsSwitchVersionCommentsEvent
+ , nsTextTabActivateEvent
+ , nsUseDocumentSubPanelOperationEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmUtils
+ {$IfEnd} // NOT Defined(NoVCM)
+ , StartUnit
+ , evCustomEditor
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , deSimpleTree
+ , F1TagDataProviderInterface
+ , Graphics
+ , WarningConst
+ , ControlStatusUtils
+ , resWarnImages
+ , bsDocumentMissingMessage
+ , bsUtils
+ , nsInternalPictureData
+ , BitmapPara_Const
+ , Base_Operations_AAC_Controls
+ , AACTextContainerPrim_Form
+ , k2Const
+ , evEditorWithOperations
+ , eeEditor
+ , nevRangeList
+ , nevRangeListTools
+ , evMultiSelectionBlock
+ {$If NOT Defined(NoVGScene)}
+ , vgRemindersLineManager
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , nsTabbedInterfaceTypes
+ , nscDocumentHistory
+ , evSubPn
+ {$If NOT Defined(NoScripts)}
+ , ExTextFormWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , nsTrialSupport
+ , bsDocumentContextSearcher
+ , afwFacade
+ , Printers
+ , l3Stream
+ , l3Base
+ , l3Types
+ , Classes
+ , SysUtils
+ , nsUtils
+ , nsToMSWordOp
+ , afwSettingsChangePublisher
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsExportToFileEvent
+ , nsExportToWordEvent
+ , nsSendDocumentByEMailEvent
+ , nsDocumentPrintPreviewEvent
+ , nsBaseTextOperationsConst
+ , f1MultilinkResolver
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , evdBlockNameAdder
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsSearchInDocumentEvent
+ , nsSearchInDocumentDoneEvent
+ , nsSearchInDocumentNextEvent
+ , nsSearchInDocumentPrevEvent
+ , nsSearchWindowManager
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , nsManagers
+ , LoggingUnit
+ , bsConvert
+ , nsTimeMachineOffEvent
+ , nsHyperLinkProcessor
+ , deDocInfo
+ , nsOpenUtils
+ , nsTabbedContainerUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsHyperlinkProcessorTypes
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , evOp
+ , DynamicTreeUnit
+ , ExternalObjectUnit
+ , nsDocumentFromListNavigationEvent
+ {$If Defined(Nemesis)}
+ , nscStatusBarItemDef
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDef
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarDelimiterDef
+ {$IfEnd} // Defined(Nemesis)
+ , DocumentUtil
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
+ , Common_FormDefinitions_Controls
+ , evConstStringData
+ , evdHyperlinkInfo
+ , nsHyperlinkToDocumentProducerConst
+ , nsFolders
+ , nsTagNodeTools
+ , ParaList_Const
+ , LeafPara_Const
+ , Block_Const
+ , LeafParaDecorationsHolder_Const
+ , CommentPara_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evSubImplementation
+ , Document_Const
+ //#UC START# *49539DBA029Dimpl_uses*
+ //#UC END# *49539DBA029Dimpl_uses*
+;
 
 type
-  TnsDocumentPointWaiter = class(TevSubWaiter)
-   {* Класс для ожидания перехода на указанную точку документа }
+ TnsDocumentPointWaiter = class(TevSubWaiter)
+  {* Класс для ожидания перехода на указанную точку документа }
   private
-  // private fields
-   f_Pos : TbsDocPos;
-   f_Form : TExTextForm;
+   f_Pos: TbsDocPos;
+   f_Form: TExTextForm;
   protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function TrySelectPara(const aContainer: InevDocumentContainer;
     const aSel: InevSelection;
     aParaID: Integer): Boolean; override;
+   function TrySelectSub(const aContainer: InevDocumentContainer;
+    const aSel: InevSelection;
+    aSubID: Integer;
+    aType: Integer): Boolean; override;
   public
-  // public methods
    constructor Create(aForm: TExTextForm;
-      const aPos: TbsDocPos); reintroduce;
+    const aPos: TbsDocPos); reintroduce;
    class function Make(aForm: TExTextForm;
-      const aPos: TbsDocPos): InevWaiter; reintroduce;
-     {* Сигнатура фабрики TnsDocumentPointWaiter.Make }
-  end;//TnsDocumentPointWaiter
-
-// start class TnsDocumentPointWaiter
+    const aPos: TbsDocPos): InevWaiter; reintroduce;
+ end;//TnsDocumentPointWaiter
 
 constructor TnsDocumentPointWaiter.Create(aForm: TExTextForm;
-  const aPos: TbsDocPos);
+ const aPos: TbsDocPos);
 //#UC START# *4C0669610060_4C066918002D_var*
 //#UC END# *4C0669610060_4C066918002D_var*
 begin
@@ -1166,7 +1051,7 @@ begin
 end;//TnsDocumentPointWaiter.Create
 
 class function TnsDocumentPointWaiter.Make(aForm: TExTextForm;
-  const aPos: TbsDocPos): InevWaiter;
+ const aPos: TbsDocPos): InevWaiter;
 var
  l_Inst : TnsDocumentPointWaiter;
 begin
@@ -1176,9 +1061,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocumentPointWaiter.Make
 
 procedure TnsDocumentPointWaiter.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C066918002D_var*
 //#UC END# *479731C50290_4C066918002D_var*
 begin
@@ -1190,8 +1076,8 @@ begin
 end;//TnsDocumentPointWaiter.Cleanup
 
 function TnsDocumentPointWaiter.TrySelectPara(const aContainer: InevDocumentContainer;
-  const aSel: InevSelection;
-  aParaID: Integer): Boolean;
+ const aSel: InevSelection;
+ aParaID: Integer): Boolean;
 //#UC START# *4BFFA0FF01D2_4C066918002D_var*
 var
  l_Para      : InevPara;
@@ -1328,463 +1214,177 @@ begin
 //#UC END# *4BFFA0FF01D2_4C066918002D_impl*
 end;//TnsDocumentPointWaiter.TrySelectPara
 
-procedure TExTextForm.DoFindInDict;
-//#UC START# *4C80FB6E0249_49539DBA029D_var*
-
- function DeleteEndlines(const S: Il3CString): Il3CString;
- begin//DeleteEndlines
-  Result := S;
-  l3Replace(Result, [#$D], cc_HardSpace);
-  l3DeleteChars(Result, [#$A]);
- end;//DeleteEndlines
-
+function TnsDocumentPointWaiter.TrySelectSub(const aContainer: InevDocumentContainer;
+ const aSel: InevSelection;
+ aSubID: Integer;
+ aType: Integer): Boolean;
+//#UC START# *5715DB6E02FC_4C066918002D_var*
 var
- l_Str : Il3CString;
- l_Range: InevRange;
- l_Pt: InevBasePoint;
-//#UC END# *4C80FB6E0249_49539DBA029D_var*
+ l_Sub      : IevSub;
+ l_Para     : Tl3Variant;
+ l_Addr     : TevAddress;
+ l_Block    : Tl3Variant;
+ l_SubHandle: Integer;
+//#UC END# *5715DB6E02FC_4C066918002D_var*
 begin
-//#UC START# *4C80FB6E0249_49539DBA029D_impl*
- if (ViewArea <> nil) AND defDataAdapter.IsExplanatoryExists then
+//#UC START# *5715DB6E02FC_4C066918002D_impl*
+ Result := inherited TrySelectSub(aContainer, aSel, aSubID, aType);
+ if not Result and (f_Form.AAC <> nil) and (f_Form.AAC.Right <> nil) and f_Form.AAC.Right.HasDoc then
  begin
-  if (Text.HasSelection) then
-   l_Range := InevSelection(Text.Selection).GetBlock
-  else
+  l_Sub := f_Form.AAC.Right.Container.SubList.SubEx[aSubID, aType];
+  if (l_Sub <> nil) and l_Sub.Exists then
   begin
-   l_Pt := Text.Selection.Cursor.ClonePoint(Text.View);
-   l_Range := l_Pt.Obj.Range;
-   l_Range.Select(Text.View, l_Pt, ev_stWord);
-  end;
-  if not l_Range.Collapsed(Text.View) then
-   l_Str := DeleteEndlines(l3Trim(evAsString(l_Range.Data)))
-  else
-   l_Str := nil;
-  TdmStdRes.OpenTermByContext(l_Str, ViewArea.Language);
- end;//ViewArea <> nil
-//#UC END# *4C80FB6E0249_49539DBA029D_impl*
-end;//TExTextForm.DoFindInDict
+   l_Para := l_Sub.Para;
+   l_SubHandle := 0;
+   if evInBlock(l_Para, ev_bvkRight, l_Block) then
+   begin
+    l_SubHandle := l_Block.IntA[k2_tiHandle];
+    l_Block.BoolA[k2_tiCollapsed] := False;
+   end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+   if (l_SubHandle > 0) then
+   begin
+    l_Addr := TevAddress_C(-1, l_SubHandle);
+    f_Form.Text.SearchHyperLinkAddress(true, true, l_Addr);
+   end; // if (l_SubHandle > 0) then
+  end; // if (l_Sub <> nil) and l_Sub.Exists then
+ end; // if not Result then
+//#UC END# *5715DB6E02FC_4C066918002D_impl*
+end;//TnsDocumentPointWaiter.TrySelectSub
 
-procedure TExTextForm.DoFocusViaMouseSet(aSender: TObject);
-//#UC START# *4E7B48CB02C1_49539DBA029D_var*
-//#UC END# *4E7B48CB02C1_49539DBA029D_var*
+constructor TExTextFormState.Create(const aInnerState: IvcmBase;
+ aNeedShowUserComments: Boolean;
+ aNeedShowComments: Boolean;
+ aNeedShowVersionComments: Boolean;
+ aEeSubIdForTypedCorrespondentList: Integer);
+//#UC START# *56558B510110_56558AAF003B_var*
+//#UC END# *56558B510110_56558AAF003B_var*
 begin
-//#UC START# *4E7B48CB02C1_49539DBA029D_impl*
- if Op_Contents_IsContentsVisible.Call(Aggregate) then
-  Op_Contents_ToggleContentsVisibility.Call(Aggregate);
-//#UC END# *4E7B48CB02C1_49539DBA029D_impl*
-end;//TExTextForm.DoFocusViaMouseSet
+//#UC START# *56558B510110_56558AAF003B_impl*
+ inherited Create;
+ f_InnerState := aInnerState;
+ f_NeedShowUserComments := aNeedShowUserComments;
+ f_NeedShowComments := aNeedShowComments;
+ f_NeedShowVersionComments := aNeedShowVersionComments;
+ f_eeSubIdForTypedCorrespondentList := aEeSubIdForTypedCorrespondentList;
+//#UC END# *56558B510110_56558AAF003B_impl*
+end;//TExTextFormState.Create
 
-procedure TExTextForm.TextSourceTOCCreated(aSender: TObject;
-  const aTOC: Il3SimpleTree);
-//#UC START# *4EBAB1080234_49539DBA029D_var*
+class function TExTextFormState.Make(const aInnerState: IvcmBase;
+ aNeedShowUserComments: Boolean;
+ aNeedShowComments: Boolean;
+ aNeedShowVersionComments: Boolean;
+ aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState;
 var
- l_Adornments : InsDocumentAdornments;
-//#UC END# *4EBAB1080234_49539DBA029D_var*
+ l_Inst : TExTextFormState;
 begin
-//#UC START# *4EBAB1080234_49539DBA029D_impl*
- Supports(Text.TextSource.DocumentContainer, InsDocumentAdornments, l_Adornments);
+ l_Inst := Create(aInnerState, aNeedShowUserComments, aNeedShowComments, aNeedShowVersionComments, aEeSubIdForTypedCorrespondentList);
  try
-  CreateTOC(TdeSimpleTree.Make(aTOC, l_Adornments));
+  Result := l_Inst;
  finally
-  l_Adornments := nil;
+  l_Inst.Free;
  end;//try..finally
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
-//#UC END# *4EBAB1080234_49539DBA029D_impl*
-end;//TExTextForm.TextSourceTOCCreated
+end;//TExTextFormState.Make
 
-procedure TExTextForm.TextSourceMakeDocumentContainer(Sender: TObject;
-  var aMade: InevDocumentContainer);
-//#UC START# *4EBAB3C4024F_49539DBA029D_var*
-var
- l_Container : InevDocumentContainer;
-//#UC END# *4EBAB3C4024F_49539DBA029D_var*
+function TExTextFormState.pm_GetInnerState: IvcmBase;
+//#UC START# *56558A84014E_56558AAF003Bget_var*
+//#UC END# *56558A84014E_56558AAF003Bget_var*
 begin
-//#UC START# *4EBAB3C4024F_49539DBA029D_impl*
- if (ViewArea <> nil) then
- begin
-  l_Container := ViewArea.Container;
-  if (l_Container <> nil) then
-  begin
-   aMade := l_Container;
-   InvalidateDataSources;
-   f_DocumentLoaded := True;
-  end;//if l_Container <> nil then
- end;//ViewArea <> nil
-//#UC END# *4EBAB3C4024F_49539DBA029D_impl*
-end;//TExTextForm.TextSourceMakeDocumentContainer
+//#UC START# *56558A84014E_56558AAF003Bget_impl*
+ Result := f_InnerState;
+//#UC END# *56558A84014E_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetInnerState
 
-procedure TExTextForm.TextSourceDocumentChanged(aSender: TObject;
-  anOldDocument: Tl3Tag;
-  aNewDocument: Tl3Tag);
-//#UC START# *4EBAB40900C2_49539DBA029D_var*
-
- function GetDocumentName(const aDocument: IDocument): Il3CString;
- begin
-  Result := nsGetDocumentName(aDocument);
- end;
-
-var
- l_Document: IDocument;
- l_DocName: IvcmCString;
-//#UC END# *4EBAB40900C2_49539DBA029D_var*
+function TExTextFormState.pm_GetNeedShowUserComments: Boolean;
+//#UC START# *56558A99000A_56558AAF003Bget_var*
+//#UC END# *56558A99000A_56558AAF003Bget_var*
 begin
-//#UC START# *4EBAB40900C2_49539DBA029D_impl*
- TvgRemindersLineManager.ClosePopupForms;
+//#UC START# *56558A99000A_56558AAF003Bget_impl*
+ Result := f_NeedShowUserComments;
+//#UC END# *56558A99000A_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowUserComments
 
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
- if (aNewDocument <> nil) and
-    l3IOk(aNewDocument.Owner.QueryInterface(IDocument, l_Document)) then
- begin
-  UpdateDocumentCaption(l_Document);
-  if not (l_Document.GetDocType in [DT_AUTO_REFERAT]) then
-   TnscDocumentHistory.Instance.AddDocument(l_Document.GetInternalId);
-  if (UserType in [dftAACLeft, dftAACContentsRight]) then
-  begin
-   l_DocName := MakeCaption(l_Document, False);
-   Container.SetTabCaption(l_DocName);
-   CCaption := l_DocName;
-   TvcmEntityForm(Container.AsForm.VCLWinControl).CCaption := CCaption;
-  end;
-
-  if (UserType in [dftAutoreferat, dftAutoreferatAfterSearch, dftAACLeft, dftAACContentsRight]) then
-   Dispatcher.UpdateStatus;
-
-  LoadFromSettings;
-  ContextChanged(nil);
-  CheckLinkedWindows;
- end;//aNewDocument <> nil..
-//#UC END# *4EBAB40900C2_49539DBA029D_impl*
-end;//TExTextForm.TextSourceDocumentChanged
-
-procedure TExTextForm.OnHistoryState(Sender: TObject;
-  var IsLast: Boolean);
-//#UC START# *4EBAB68B0050_49539DBA029D_var*
-//#UC END# *4EBAB68B0050_49539DBA029D_var*
+function TExTextFormState.Get_eeSubIdForTypedCorrespondentList: Integer;
+//#UC START# *5656B27E015A_56558AAF003Bget_var*
+//#UC END# *5656B27E015A_56558AAF003Bget_var*
 begin
-//#UC START# *4EBAB68B0050_49539DBA029D_impl*
- if (Dispatcher.History <> nil) then
-  IsLast := Dispatcher.History.IsLast;
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=565841783
-//#UC END# *4EBAB68B0050_49539DBA029D_impl*
-end;//TExTextForm.OnHistoryState
+//#UC START# *5656B27E015A_56558AAF003Bget_impl*
+ Result := f_eeSubIdForTypedCorrespondentList;
+//#UC END# *5656B27E015A_56558AAF003Bget_impl*
+end;//TExTextFormState.Get_eeSubIdForTypedCorrespondentList
 
-procedure TExTextForm.GoToIntranetPrim(aNeedCheck: Boolean);
-//#UC START# *4F184AD903C9_49539DBA029D_var*
-var
- l_Para: IeePara;
- l_ParaID: LongWord;
-//#UC END# *4F184AD903C9_49539DBA029D_var*
+function TExTextFormState.pm_GetNeedShowComments: Boolean;
+//#UC START# *565C49D7029F_56558AAF003Bget_var*
+//#UC END# *565C49D7029F_56558AAF003Bget_var*
 begin
-//#UC START# *4F184AD903C9_49539DBA029D_impl*
- l_Para := GetTopParaID;
- if Assigned(l_Para) then
-  l_Para := eeFindNumberedPara(l_Para, Text as IeeDocumentEx);
- if Assigned(l_Para) then
-  l_ParaID := l_Para.ID
+//#UC START# *565C49D7029F_56558AAF003Bget_impl*
+ Result := f_NeedShowComments;
+//#UC END# *565C49D7029F_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowComments
+
+function TExTextFormState.pm_GetNeedShowVersionComments: Boolean;
+//#UC START# *565C49E9039D_56558AAF003Bget_var*
+//#UC END# *565C49E9039D_56558AAF003Bget_var*
+begin
+//#UC START# *565C49E9039D_56558AAF003Bget_impl*
+ Result := f_NeedShowVersionComments;
+//#UC END# *565C49E9039D_56558AAF003Bget_impl*
+end;//TExTextFormState.pm_GetNeedShowVersionComments
+
+procedure TExTextFormState.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_56558AAF003B_var*
+//#UC END# *479731C50290_56558AAF003B_var*
+begin
+//#UC START# *479731C50290_56558AAF003B_impl*
+ f_InnerState := nil;
+ inherited;
+//#UC END# *479731C50290_56558AAF003B_impl*
+end;//TExTextFormState.Cleanup
+
+function TExTextFormState.QueryInterface(const IID: TGUID;
+ out Obj): HResult;
+//#UC START# *561145D802BB_56558AAF003B_var*
+//#UC END# *561145D802BB_56558AAF003B_var*
+begin
+//#UC START# *561145D802BB_56558AAF003B_impl*
+ // Всё это криво и костыльно. И ужасно. И очень не хотелось так делать.
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=612730339
+ if (not IsEqualGUID(IID, IExTextFormState)) and (f_InnerState <> nil) then
+  Result := f_InnerState.QueryInterface(IID, Obj)
  else
-  l_ParaID := 0;
- DefDataAdapter.OpenIntranetDocument(Document.GetInternalId, l_ParaID, aNeedCheck);
-//#UC END# *4F184AD903C9_49539DBA029D_impl*
-end;//TExTextForm.GoToIntranetPrim
+  Result := inherited QueryInterface(IID, Obj);
+//#UC END# *561145D802BB_56558AAF003B_impl*
+end;//TExTextFormState.QueryInterface
 
-procedure TExTextForm.SetFocusToTextInAAC;
-//#UC START# *4FF4378900EB_49539DBA029D_var*
-//#UC END# *4FF4378900EB_49539DBA029D_var*
-begin
-//#UC START# *4FF4378900EB_49539DBA029D_impl*
- if (UserType = dftAACLeft) OR (UserType = dftAACContentsLeft) then
-  SetFocusToText;
-//#UC END# *4FF4378900EB_49539DBA029D_impl*
-end;//TExTextForm.SetFocusToTextInAAC
+type _Instance_R_ = TExTextForm;
 
-function TExTextForm.GetCorrespondentListTest: Boolean;
-//#UC START# *50111C6102B7_49539DBA029D_var*
-//#UC END# *50111C6102B7_49539DBA029D_var*
-begin
-//#UC START# *50111C6102B7_49539DBA029D_impl*
-//  if (ZoneType = vcm_ztChild) then
-//  begin
-//   Result := False;
-//   Exit;
-//  end;    отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
- Result := False;
- if Assigned(dsDocument) then
-  if DocumentIsValid then
-   Result := DocumentSet.HasCorrespondents;
-//#UC END# *50111C6102B7_49539DBA029D_impl*
-end;//TExTextForm.GetCorrespondentListTest
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas}
 
-function TExTextForm.GetRespondentListTest: Boolean;
-//#UC START# *50111CAC03B5_49539DBA029D_var*
-//#UC END# *50111CAC03B5_49539DBA029D_var*
-begin
-//#UC START# *50111CAC03B5_49539DBA029D_impl*
-//  if (ZoneType = vcm_ztChild) then
-//  begin
-//   Result := False;
-//   Exit;
-//  end;         отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
- Result := False;
- if Assigned(dsDocument) then
-  if DocumentIsValid then
-   Result := DocumentSet.HasRespondents;
-//#UC END# *50111CAC03B5_49539DBA029D_impl*
-end;//TExTextForm.GetRespondentListTest
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-procedure TExTextForm.CheckLinkedWindows;
-//#UC START# *502D3AFC0282_49539DBA029D_var*
-var
- l_Addr : TevAddress;
-//#UC END# *502D3AFC0282_49539DBA029D_var*
-begin
-//#UC START# *502D3AFC0282_49539DBA029D_impl*
- if (UserType = dftAACContentsLeft) then
-  if Assigned(dsDocument) and
-     Assigned(dsDocument.DocInfo) then
-  begin
-   if (dsDocument.DocInfo.Pos.rRefType = dptSub) then
-   begin
-    //if not Dispatcher.History.InBF then
-    begin
-     l_Addr := TevAddress_C(0, dsDocument.DocInfo.Pos.rPos);
-     if not Text.SearchHyperLinkAddress(true, true, l_Addr) then
-      if (Text.Selection <> nil) then
-       //if Text.Selection.Collapsed then
-       if Dispatcher.History.InBF then
-       begin
-        Text.GotoTop;
-        //Text.NextHyperlink;
-       end;//Dispatcher.History.InBF
-     end;//not Dispatcher.History.InBF
-   end;//dsDocument.DocInfo.Pos.rRefType = dptSub
-  end;//Assigned(dsDocument)
-//#UC END# *502D3AFC0282_49539DBA029D_impl*
-end;//TExTextForm.CheckLinkedWindows
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas}
 
-procedure TExTextForm.DoHyperlinkNavigate(Sender: TObject);
-//#UC START# *502D43D50306_49539DBA029D_var*
-//#UC END# *502D43D50306_49539DBA029D_var*
-begin
-//#UC START# *502D43D50306_49539DBA029D_impl*
- if (UserType = dftAACContentsLeft) then
-  if (dsDocument <> nil) then
-   if not Dispatcher.History.InBF then
-    if (Text <> nil) AND Text.HasDocument then
-    begin
-     Text.OnHyperlinkNavigate := nil;
-     try
-      Self.OpenHyperlink;
-     finally
-      Text.OnHyperlinkNavigate := Self.DoHyperlinkNavigate;
-     end;//try..finally
-    end;//Text <> nil
-//#UC END# *502D43D50306_49539DBA029D_impl*
-end;//TExTextForm.DoHyperlinkNavigate
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas}
 
-procedure TExTextForm.DoTextZOrderChanging(aSender: TObject;
-  var aCanChangeZOrder: Boolean);
-//#UC START# *527CB40000BD_49539DBA029D_var*
-//#UC END# *527CB40000BD_49539DBA029D_var*
-begin
-//#UC START# *527CB40000BD_49539DBA029D_impl*
- // Костыль: Не даем редактору поменять Z-order если над ним есть медали
- // http://mdp.garant.ru/pages/viewpage.action?pageId=488604061
-{ aCanChangeZOrder := ((csLoading in ComponentState) or (csDestroying in ComponentState)) OR
-  ((aSender is TControl) and VtFindRemindersOverControl(TControl(aSender))); }
-//#UC END# *527CB40000BD_49539DBA029D_impl*
-end;//TExTextForm.DoTextZOrderChanging
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
 
-function TExTextForm.HasVisibleBookmarks(const aBookmarks: IeeSubList): Boolean;
-//#UC START# *52876E7B02BC_49539DBA029D_var*
-var
- I: Integer;
-//#UC END# *52876E7B02BC_49539DBA029D_var*
-begin
-//#UC START# *52876E7B02BC_49539DBA029D_impl*
- Result := False;
- if Assigned(aBookmarks) then
-  for I := 0 to Pred(aBookmarks.Count) do
-   if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
-   begin
-    Result := True;
-    Break;
-   end;
-//#UC END# *52876E7B02BC_49539DBA029D_impl*
-end;//TExTextForm.HasVisibleBookmarks
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
 
-procedure TExTextForm.ExcludeRootSub(const aParams: IvcmTestParamsPrim);
-//#UC START# *5287A5D4007D_49539DBA029D_var*
-var
- l_Sub: IeeSub;
-//#UC END# *5287A5D4007D_49539DBA029D_var*
-begin
-//#UC START# *5287A5D4007D_49539DBA029D_impl*
- l_Sub := ExtractSubFromSubPanel(aParams.Target);
- aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID <> c_DocumentSubID);
-//#UC END# *5287A5D4007D_49539DBA029D_impl*
-end;//TExTextForm.ExcludeRootSub
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
 
-function TExTextForm.MakePositionListBySub(aSubID: Integer): IPositionList;
-//#UC START# *5287A6130217_49539DBA029D_var*
-var
- l_Pos: DocumentUnit.TPosition;
-//#UC END# *5287A6130217_49539DBA029D_var*
-begin
-//#UC START# *5287A6130217_49539DBA029D_impl*
- Result := defDataAdapter.NativeAdapter.MakePositionList;
- with l_Pos do
- begin
-  rType := PT_SUB;
-  rPoint := aSubID;
- end;
- Result.Add(l_Pos);
-//#UC END# *5287A6130217_49539DBA029D_impl*
-end;//TExTextForm.MakePositionListBySub
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-procedure TExTextForm.CheckIsDocumentSub(const aParams: IvcmTestParamsPrim);
-//#UC START# *5287A65300FD_49539DBA029D_var*
-var
- l_Sub: IeeSub;
-//#UC END# *5287A65300FD_49539DBA029D_var*
-begin
-//#UC START# *5287A65300FD_49539DBA029D_impl*
- l_Sub := ExtractSubFromSubPanel(aParams.Target);
- aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID = c_DocumentSubID)
-//#UC END# *5287A65300FD_49539DBA029D_impl*
-end;//TExTextForm.CheckIsDocumentSub
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas}
 
-function TExTextForm.ExtractRangeFromSubPanel(const aParams: IvcmExecuteParams): InevRange;
-//#UC START# *5287A6D60096_49539DBA029D_var*
-var
- l_Sub: IeeSub;
-//#UC END# *5287A6D60096_49539DBA029D_var*
-begin
-//#UC START# *5287A6D60096_49539DBA029D_impl*
- l_Sub := ExtractSubFromSubPanel(aParams.Target);
- if Assigned(l_Sub) then
-  Result := ExtractRangeFromSub(l_Sub.ID, l_Sub.LayerID)
- else
-  Result := nil;
-//#UC END# *5287A6D60096_49539DBA029D_impl*
-end;//TExTextForm.ExtractRangeFromSubPanel
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
 
-function TExTextForm.MakeCaption(const aDocument: IDocument;
-  aShort: Boolean): Il3CString;
-//#UC START# *53BE2C3D0176_49539DBA029D_var*
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
 
- function lp_GetDocumentName(const aDoc: IDocument): Il3CString;
- begin
-  Result := nsGetDocumentName(aDoc);
- end;//lp_GetDocumentName
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
- function lp_GetDocumentShortName(const aDoc: IDocument): Il3CString;
- begin
-  Result := nsGetDocumentShortName(aDoc);
- end;
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
-//#UC END# *53BE2C3D0176_49539DBA029D_var*
-begin
-//#UC START# *53BE2C3D0176_49539DBA029D_impl*
- case UserType of
-  dftDocument, dftDictEntry, dftTips, dftMedDictEntry, dftMedicFirm:
-  begin
-   if (not aShort) then
-   begin
-    if not TdmStdRes.IsCurEditionActual(aDocument) then
-     Result := vcmFmt(str_nsRedactionCaption, [lp_GetDocumentName(aDocument)])
-    else
-     Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
-   end
-   else
-    Result := lp_GetDocumentName(aDocument);
-    // - http://mdp.garant.ru/pages/viewpage.action?pageId=531971274
-  end;//dftDocument..
-  dftAutoreferat,
-  dftAutoreferatAfterSearch,
-  dftDrug:
-   if aShort then
-   begin
-    //http://mdp.garant.ru/pages/viewpage.action?pageId=562605136
-    if (UserType in [dftAutoreferatAfterSearch, dftAutoreferat]) then
-     Result := lp_GetDocumentShortName(aDocument)
-    else
-     Result := lp_GetDocumentName(aDocument)
-   end
-   else
-    Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
-  dftAACLeft,
-  dftAACRight,
-  dftAACContentsRight:
-   if aShort then
-    Result := lp_GetDocumentShortName(aDocument)
-   else
-    Result := l3Cat([str_dftDocumentCaption.AsCStr, vcmCStr(' : '), lp_GetDocumentName(aDocument)]);
-  // - http://mdp.garant.ru/pages/viewpage.action?pageId=571639740
- end;//case UserType
-//#UC END# *53BE2C3D0176_49539DBA029D_impl*
-end;//TExTextForm.MakeCaption
-
-procedure TExTextForm.UpdateDocumentCaption(const aDocument: IDocument);
-//#UC START# *53C3A82F01C0_49539DBA029D_var*
-var
- l_Caption: Il3CString;
-//#UC END# *53C3A82F01C0_49539DBA029D_var*
-begin
-//#UC START# *53C3A82F01C0_49539DBA029D_impl*
- Assert(aDocument <> nil);
- l_Caption := MakeCaption(aDocument, False);
- try
-  f_TabCaption := MakeCaption(aDocument, True);
-  if (not l3IsNil(l_Caption)) then
-  begin
-   CCaption := l_Caption;
-   if (UserType in [dftAACLeft, dftAACRight, dftAACContentsRight, dftDictEntry]) then
-    UpdateTabCaption(l_Caption);
-   // - http://mdp.garant.ru/pages/viewpage.action?pageId=590762358
-  end;
- finally
-  l_Caption := nil;
- end;
-//#UC END# *53C3A82F01C0_49539DBA029D_impl*
-end;//TExTextForm.UpdateDocumentCaption
-
-procedure TExTextForm.OpenDocumentInNewContainer(aOpenKind: TvcmMainFormOpenKind);
-//#UC START# *55546DEA0384_49539DBA029D_var*
-var
- l_NewDocument : IDocument;
- l_Cont        : IvcmContainer;
- l_TopPara     : IeePara;
-//#UC END# *55546DEA0384_49539DBA029D_var*
-begin
-//#UC START# *55546DEA0384_49539DBA029D_impl*
- if (Document <> nil) then
- begin
-  l_Cont := nsOpenNewWindowTabbed(NativeMainForm, aOpenKind);
-  // - http://mdp.garant.ru/pages/viewpage.action?pageId=560729118
-  if (l_Cont <> nil) then
-  try
-   l_TopPara := GetTopParaID;
-   try
-    l_NewDocument := defDataAdapter.TimeMachine.CorrectDocumentEdition(Document);
-    try
-     if (l_TopPara <> nil) then
-      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument,
-                                             TbsDocPos_P(l_TopPara)),
-                             l_Cont)
-     else
-      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument), l_Cont);
-    finally
-     l_NewDocument := nil;
-    end;//try..finally
-   finally
-    l_TopPara := nil;
-   end;//try..finally
-  finally
-   l_Cont := nil;
-  end;//try..finally
- end;//Document <> nil
-//#UC END# *55546DEA0384_49539DBA029D_impl*
-end;//TExTextForm.OpenDocumentInNewContainer
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TExTextForm.CheckParamForUserType(aUserType: Integer): Boolean;
 //#UC START# *4A8EEFED022C_49539DBA029D_var*
@@ -1818,7 +1418,8 @@ begin
 end;//TExTextForm.DisableOperation
 
 procedure TExTextForm.CRToPartTest(const aParams: IvcmTestParamsPrim;
-  aCRType: TlstCRType);
+ aCRType: TlstCRType);
+ {* общий обработчик для СКР к части }
 //#UC START# *4C3B036300C4_49539DBA029D_var*
 var
  l_Strings : IvcmStrings;
@@ -1860,7 +1461,8 @@ begin
 end;//TExTextForm.CRToPartTest
 
 procedure TExTextForm.CRToPartExecute(const aParams: IvcmExecuteParamsPrim;
-  aCRType: TlstCRType);
+ aCRType: TlstCRType);
+ {* общий обработчик для СКР к части }
 //#UC START# *4C3B0399027D_49539DBA029D_var*
 //#UC END# *4C3B0399027D_49539DBA029D_var*
 begin
@@ -1871,6 +1473,7 @@ begin
 end;//TExTextForm.CRToPartExecute
 
 procedure TExTextForm.TurnOnTimeMachine(const aDate: Il3CString);
+ {* включить машину времени на дату }
 //#UC START# *4C3B040002CA_49539DBA029D_var*
 var
  l_Date: BaseTypesUnit.TDate;
@@ -1938,7 +1541,7 @@ begin
 end;//TExTextForm.OpenContents
 
 function TExTextForm.FiltrateTOCTree(const aTOC: Il3SimpleTree;
-  NeedFiltrate: Boolean = True): Il3SimpleTree;
+ NeedFiltrate: Boolean = True): Il3SimpleTree;
 //#UC START# *4C3B3E270109_49539DBA029D_var*
 (*var
  l_FilterableTree: Il3FilterableTree;
@@ -1954,7 +1557,7 @@ begin
 end;//TExTextForm.FiltrateTOCTree
 
 procedure TExTextForm.ShowWarningPage(SwitchActivity: Boolean;
-  anOffset: TnsWarningSub = cNoneWarningSub);
+ anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
 //#UC START# *4C3B4CCF0068_49539DBA029D_var*
 
  function lp_NeedOpen: Boolean;
@@ -1997,7 +1600,7 @@ begin
 end;//TExTextForm.GetVisibleBookmarksCount
 
 function TExTextForm.GetVisibleBookmark(const aBookmarks: IeeSubList;
-  anIndex: Integer = 0): IeeSub;
+ anIndex: Integer = 0): IeeSub;
 //#UC START# *4C3EC308025F_49539DBA029D_var*
 var
  CurIndex,
@@ -2040,9 +1643,6 @@ begin
   Say(war_EditMissingBookmark);
 //#UC END# *4C3EC3570265_49539DBA029D_impl*
 end;//TExTextForm.EditBookmark
-var
-  g_GoToIntranetMessage : THandle;
-
 
 function TExTextForm.NeedShowIntranetWarning: Boolean;
 //#UC START# *4C40039C03CD_49539DBA029D_var*
@@ -2101,6 +1701,42 @@ begin
   end;//f_NeedAnnoingCheck and NeedShowIntranetWarning
 //#UC END# *4C40042A0193_49539DBA029D_impl*
 end;//TExTextForm.CheckForcedQueryForIntranet
+
+procedure TExTextForm.DoFindInDict;
+//#UC START# *4C80FB6E0249_49539DBA029D_var*
+
+ function DeleteEndlines(const S: Il3CString): Il3CString;
+ begin//DeleteEndlines
+  Result := S;
+  l3Replace(Result, [#$D], cc_HardSpace);
+  l3DeleteChars(Result, [#$A]);
+ end;//DeleteEndlines
+
+var
+ l_Str : Il3CString;
+ l_Range: InevRange;
+ l_Pt: InevBasePoint;
+//#UC END# *4C80FB6E0249_49539DBA029D_var*
+begin
+//#UC START# *4C80FB6E0249_49539DBA029D_impl*
+ if (ViewArea <> nil) AND defDataAdapter.IsExplanatoryExists then
+ begin
+  if (Text.HasSelection) then
+   l_Range := InevSelection(Text.Selection).GetBlock
+  else
+  begin
+   l_Pt := Text.Selection.Cursor.ClonePoint(Text.View);
+   l_Range := l_Pt.Obj.Range;
+   l_Range.Select(Text.View, l_Pt, ev_stWord);
+  end;
+  if not l_Range.Collapsed(Text.View) then
+   l_Str := DeleteEndlines(l3Trim(evAsString(l_Range.Data)))
+  else
+   l_Str := nil;
+  TdmStdRes.OpenTermByContext(l_Str, ViewArea.Language);
+ end;//ViewArea <> nil
+//#UC END# *4C80FB6E0249_49539DBA029D_impl*
+end;//TExTextForm.DoFindInDict
 
 procedure TExTextForm.RequiestCheckForcedQueryForInternet;
 //#UC START# *4C931477005F_49539DBA029D_var*
@@ -2173,7 +1809,18 @@ begin
 //#UC END# *4DF1F81F02DE_49539DBA029D_impl*
 end;//TExTextForm.UpdateSubPanelDescription
 
+procedure TExTextForm.DoFocusViaMouseSet(aSender: TObject);
+//#UC START# *4E7B48CB02C1_49539DBA029D_var*
+//#UC END# *4E7B48CB02C1_49539DBA029D_var*
+begin
+//#UC START# *4E7B48CB02C1_49539DBA029D_impl*
+ if Op_Contents_IsContentsVisible.Call(Aggregate) then
+  Op_Contents_ToggleContentsVisibility.Call(Aggregate);
+//#UC END# *4E7B48CB02C1_49539DBA029D_impl*
+end;//TExTextForm.DoFocusViaMouseSet
+
 procedure TExTextForm.InvalidateDataSources;
+ {* синхронизирует новый источник данных с запомненными источниками данных }
 //#UC START# *4EBA9E0201FC_49539DBA029D_var*
 //#UC END# *4EBA9E0201FC_49539DBA029D_var*
 begin
@@ -2241,6 +1888,7 @@ begin
 end;//TExTextForm.UpdateTechComment
 
 procedure TExTextForm.LoadFromSettings;
+ {* применить настройки к форме }
 //#UC START# *4EBAAEB20259_49539DBA029D_var*
 //#UC END# *4EBAAEB20259_49539DBA029D_var*
 begin
@@ -2275,7 +1923,102 @@ begin
 //#UC END# *4EBAAF2F03D6_49539DBA029D_impl*
 end;//TExTextForm.ShowSubNumbers
 
+procedure TExTextForm.TextSourceTOCCreated(aSender: TObject;
+ const aTOC: Il3SimpleTree);
+//#UC START# *4EBAB1080234_49539DBA029D_var*
+var
+ l_Adornments : InsDocumentAdornments;
+//#UC END# *4EBAB1080234_49539DBA029D_var*
+begin
+//#UC START# *4EBAB1080234_49539DBA029D_impl*
+ Supports(Text.TextSource.DocumentContainer, InsDocumentAdornments, l_Adornments);
+ try
+  CreateTOC(TdeSimpleTree.Make(aTOC, l_Adornments));
+ finally
+  l_Adornments := nil;
+ end;//try..finally
+ TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+//#UC END# *4EBAB1080234_49539DBA029D_impl*
+end;//TExTextForm.TextSourceTOCCreated
+
+procedure TExTextForm.TextSourceMakeDocumentContainer(Sender: TObject;
+ var aMade: InevDocumentContainer);
+//#UC START# *4EBAB3C4024F_49539DBA029D_var*
+var
+ l_Container : InevDocumentContainer;
+//#UC END# *4EBAB3C4024F_49539DBA029D_var*
+begin
+//#UC START# *4EBAB3C4024F_49539DBA029D_impl*
+ if (ViewArea <> nil) then
+ begin
+  l_Container := ViewArea.Container;
+  if (l_Container <> nil) then
+  begin
+   aMade := l_Container;
+   InvalidateDataSources;
+   f_DocumentLoaded := True;
+  end;//if l_Container <> nil then
+ end;//ViewArea <> nil
+//#UC END# *4EBAB3C4024F_49539DBA029D_impl*
+end;//TExTextForm.TextSourceMakeDocumentContainer
+
+procedure TExTextForm.TextSourceDocumentChanged(aSender: TObject;
+ anOldDocument: Tl3Tag;
+ aNewDocument: Tl3Tag);
+//#UC START# *4EBAB40900C2_49539DBA029D_var*
+
+ function GetDocumentName(const aDocument: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentName(aDocument);
+ end;
+
+var
+ l_Document: IDocument;
+ l_DocName: IvcmCString;
+//#UC END# *4EBAB40900C2_49539DBA029D_var*
+begin
+//#UC START# *4EBAB40900C2_49539DBA029D_impl*
+ TvgRemindersLineManager.ClosePopupForms;
+
+ TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+ if (aNewDocument <> nil) and
+    l3IOk(aNewDocument.Owner.QueryInterface(IDocument, l_Document)) then
+ begin
+  UpdateDocumentCaption(l_Document);
+  if not (l_Document.GetDocType in [DT_AUTO_REFERAT]) then
+   TnscDocumentHistory.Instance.AddDocument(l_Document.GetInternalId);
+  if (UserType in [dftAACLeft, dftAACContentsRight]) then
+  begin
+   l_DocName := MakeCaption(l_Document, False);
+   Container.SetTabCaption(l_DocName);
+   CCaption := l_DocName;
+   TvcmEntityForm(Container.AsForm.VCLWinControl).CCaption := CCaption;
+  end;
+
+  if (UserType in [dftAutoreferat, dftAutoreferatAfterSearch, dftAACLeft, dftAACContentsRight]) then
+   Dispatcher.UpdateStatus;
+
+  LoadFromSettings;
+  ContextChanged(nil);
+  CheckLinkedWindows;
+ end;//aNewDocument <> nil..
+//#UC END# *4EBAB40900C2_49539DBA029D_impl*
+end;//TExTextForm.TextSourceDocumentChanged
+
+procedure TExTextForm.OnHistoryState(Sender: TObject;
+ var IsLast: Boolean);
+//#UC START# *4EBAB68B0050_49539DBA029D_var*
+//#UC END# *4EBAB68B0050_49539DBA029D_var*
+begin
+//#UC START# *4EBAB68B0050_49539DBA029D_impl*
+ if (Dispatcher.History <> nil) then
+  IsLast := Dispatcher.History.IsLast;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=565841783
+//#UC END# *4EBAB68B0050_49539DBA029D_impl*
+end;//TExTextForm.OnHistoryState
+
 procedure TExTextForm.DoSettingsChanged;
+ {* вызывается в случае изменения\замены настроек. }
 //#UC START# *4EBABF090101_49539DBA029D_var*
 //#UC END# *4EBABF090101_49539DBA029D_var*
 begin
@@ -2380,9 +2123,28 @@ begin
 //#UC END# *4EDF72CC0158_49539DBA029D_impl*
 end;//TExTextForm.ExtractSubFromSubPanel
 
+procedure TExTextForm.GoToIntranetPrim(aNeedCheck: Boolean);
+//#UC START# *4F184AD903C9_49539DBA029D_var*
+var
+ l_Para: IeePara;
+ l_ParaID: LongWord;
+//#UC END# *4F184AD903C9_49539DBA029D_var*
+begin
+//#UC START# *4F184AD903C9_49539DBA029D_impl*
+ l_Para := GetTopParaID;
+ if Assigned(l_Para) then
+  l_Para := eeFindNumberedPara(l_Para, Text as IeeDocumentEx);
+ if Assigned(l_Para) then
+  l_ParaID := l_Para.ID
+ else
+  l_ParaID := 0;
+ DefDataAdapter.OpenIntranetDocument(Document.GetInternalId, l_ParaID, aNeedCheck);
+//#UC END# *4F184AD903C9_49539DBA029D_impl*
+end;//TExTextForm.GoToIntranetPrim
+
 procedure TExTextForm.OpenPicture(const aPara: IeePara;
-  const aPicture: IeePicture;
-  aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
+ const aPicture: IeePicture;
+ aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
 //#UC START# *4F6719C001DB_49539DBA029D_var*
 var
  l_Cont  : IvcmContainer;
@@ -2415,33 +2177,14 @@ begin
 end;//TExTextForm.LeafParaUnderCursor
 
 function TExTextForm.MakePositionList(aCRType: TlstCRType): IPositionList;
-var
- l_PositionList : IPositionList absolute Result;
+var l_PositionList: IPositionList absolute Result;
 
  procedure CollectParas(const aRange: InevRange);
- var
-  l_WasCorrection : Boolean;
+ var l_WasCorrection: Boolean;
 
   function DoIt(const anItem: InevRange;
-    anIndex: Integer): Boolean;
-
-   procedure AddParaToList(const aPara: InevObject);
-   //#UC START# *4F98298400DA__var*
-   var
-    l_Pos : DocumentUnit.TPosition;
-   //#UC END# *4F98298400DA__var*
-   begin
-   //#UC START# *4F98298400DA__impl*
-    l3FillChar(l_Pos, SizeOf(l_Pos));
-    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
-    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
-    begin
-     l_Pos.rType := PT_PARA;
-     l_PositionList.Add(l_Pos);
-    end;//l_Pos.rPoint <> 0
-   //#UC END# *4F98298400DA__impl*
-   end;//AddParaToList
-
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова Iterate из CollectParas }
 
    function CorrectPara(const aPara: InevObject): Boolean;
    //#UC START# *4F981D29027B__var*
@@ -2515,6 +2258,24 @@ var
    //#UC END# *4F981D29027B__impl*
    end;//CorrectPara
 
+
+   procedure AddParaToList(const aPara: InevObject);
+   //#UC START# *4F98298400DA__var*
+   var
+    l_Pos : DocumentUnit.TPosition;
+   //#UC END# *4F98298400DA__var*
+   begin
+   //#UC START# *4F98298400DA__impl*
+    l3FillChar(l_Pos, SizeOf(l_Pos));
+    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
+    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
+    begin
+     l_Pos.rType := PT_PARA;
+     l_PositionList.Add(l_Pos);
+    end;//l_Pos.rPoint <> 0
+   //#UC END# *4F98298400DA__impl*
+   end;//AddParaToList
+
   //#UC START# *4F981D630001__var*
   var
    l_P : PInevObject;
@@ -2541,7 +2302,7 @@ var
   l_WasCorrection := false;
   aRange.
   //#UC END# *4F980CDF02C7iter*
-   IterateF(L2InevRangePrimIterateAction(@DoIt));
+  IterateF(L2InevRangePrimIterateAction(@DoIt));
  end;//CollectParas
 
 //#UC START# *4F97FB9C0324_49539DBA029D_var*
@@ -2576,6 +2337,16 @@ begin
 //#UC END# *4FF437680128_49539DBA029D_impl*
 end;//TExTextForm.SetFocusToText
 
+procedure TExTextForm.SetFocusToTextInAAC;
+//#UC START# *4FF4378900EB_49539DBA029D_var*
+//#UC END# *4FF4378900EB_49539DBA029D_var*
+begin
+//#UC START# *4FF4378900EB_49539DBA029D_impl*
+ if (UserType = dftAACLeft) OR (UserType = dftAACContentsLeft) then
+  SetFocusToText;
+//#UC END# *4FF4378900EB_49539DBA029D_impl*
+end;//TExTextForm.SetFocusToTextInAAC
+
 function TExTextForm.GetNeedsStatusBarItems: Boolean;
 //#UC START# *501013340168_49539DBA029D_var*
 //#UC END# *501013340168_49539DBA029D_var*
@@ -2585,7 +2356,42 @@ begin
 //#UC END# *501013340168_49539DBA029D_impl*
 end;//TExTextForm.GetNeedsStatusBarItems
 
+function TExTextForm.GetCorrespondentListTest: Boolean;
+//#UC START# *50111C6102B7_49539DBA029D_var*
+//#UC END# *50111C6102B7_49539DBA029D_var*
+begin
+//#UC START# *50111C6102B7_49539DBA029D_impl*
+//  if (ZoneType = vcm_ztChild) then
+//  begin
+//   Result := False;
+//   Exit;
+//  end;    отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
+ Result := False;
+ if Assigned(dsDocument) then
+  if DocumentIsValid then
+   Result := DocumentSet.HasCorrespondents;
+//#UC END# *50111C6102B7_49539DBA029D_impl*
+end;//TExTextForm.GetCorrespondentListTest
+
+function TExTextForm.GetRespondentListTest: Boolean;
+//#UC START# *50111CAC03B5_49539DBA029D_var*
+//#UC END# *50111CAC03B5_49539DBA029D_var*
+begin
+//#UC START# *50111CAC03B5_49539DBA029D_impl*
+//  if (ZoneType = vcm_ztChild) then
+//  begin
+//   Result := False;
+//   Exit;
+//  end;         отключается через ExcludeUserType http://mdp.garant.ru/pages/viewpage.action?pageId=379233069&focusedCommentId=379249025#comment-379249025
+ Result := False;
+ if Assigned(dsDocument) then
+  if DocumentIsValid then
+   Result := DocumentSet.HasRespondents;
+//#UC END# *50111CAC03B5_49539DBA029D_impl*
+end;//TExTextForm.GetRespondentListTest
+
 function TExTextForm.NeedShowTOC: Boolean;
+ {* Нужно ли показывать оглавление }
 //#UC START# *502B835801B4_49539DBA029D_var*
 //#UC END# *502B835801B4_49539DBA029D_var*
 begin
@@ -2593,6 +2399,144 @@ begin
  Result := (UserType in [dftDocument, dftDrug, dftAACLeft, dftAACContentsRight]);
 //#UC END# *502B835801B4_49539DBA029D_impl*
 end;//TExTextForm.NeedShowTOC
+
+procedure TExTextForm.CheckLinkedWindows;
+ {* Синхронизирует положения связанных окон }
+//#UC START# *502D3AFC0282_49539DBA029D_var*
+var
+ l_Addr : TevAddress;
+//#UC END# *502D3AFC0282_49539DBA029D_var*
+begin
+//#UC START# *502D3AFC0282_49539DBA029D_impl*
+ if (UserType = dftAACContentsLeft) then
+  if Assigned(dsDocument) and
+     Assigned(dsDocument.DocInfo) then
+  begin
+   if (dsDocument.DocInfo.Pos.rRefType = dptSub) then
+   begin
+    //if not Dispatcher.History.InBF then
+    begin
+     l_Addr := TevAddress_C(0, dsDocument.DocInfo.Pos.rPos);
+     if not Text.SearchHyperLinkAddress(true, true, l_Addr) then
+      if (Text.Selection <> nil) then
+       //if Text.Selection.Collapsed then
+       if Dispatcher.History.InBF then
+       begin
+        Text.GotoTop;
+        //Text.NextHyperlink;
+       end;//Dispatcher.History.InBF
+     end;//not Dispatcher.History.InBF
+   end;//dsDocument.DocInfo.Pos.rRefType = dptSub
+  end;//Assigned(dsDocument)
+//#UC END# *502D3AFC0282_49539DBA029D_impl*
+end;//TExTextForm.CheckLinkedWindows
+
+procedure TExTextForm.DoHyperlinkNavigate(Sender: TObject);
+//#UC START# *502D43D50306_49539DBA029D_var*
+//#UC END# *502D43D50306_49539DBA029D_var*
+begin
+//#UC START# *502D43D50306_49539DBA029D_impl*
+ if (UserType = dftAACContentsLeft) then
+  if (dsDocument <> nil) then
+   if not Dispatcher.History.InBF then
+    if (Text <> nil) AND Text.HasDocument then
+    begin
+     Text.OnHyperlinkNavigate := nil;
+     try
+      Self.OpenHyperlink;
+     finally
+      Text.OnHyperlinkNavigate := Self.DoHyperlinkNavigate;
+     end;//try..finally
+    end;//Text <> nil
+//#UC END# *502D43D50306_49539DBA029D_impl*
+end;//TExTextForm.DoHyperlinkNavigate
+
+procedure TExTextForm.DoTextZOrderChanging(aSender: TObject;
+ var aCanChangeZOrder: Boolean);
+//#UC START# *527CB40000BD_49539DBA029D_var*
+//#UC END# *527CB40000BD_49539DBA029D_var*
+begin
+//#UC START# *527CB40000BD_49539DBA029D_impl*
+ // Костыль: Не даем редактору поменять Z-order если над ним есть медали
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=488604061
+{ aCanChangeZOrder := ((csLoading in ComponentState) or (csDestroying in ComponentState)) OR
+  ((aSender is TControl) and VtFindRemindersOverControl(TControl(aSender))); }
+//#UC END# *527CB40000BD_49539DBA029D_impl*
+end;//TExTextForm.DoTextZOrderChanging
+
+function TExTextForm.HasVisibleBookmarks(const aBookmarks: IeeSubList): Boolean;
+//#UC START# *52876E7B02BC_49539DBA029D_var*
+var
+ I: Integer;
+//#UC END# *52876E7B02BC_49539DBA029D_var*
+begin
+//#UC START# *52876E7B02BC_49539DBA029D_impl*
+ Result := False;
+ if Assigned(aBookmarks) then
+  for I := 0 to Pred(aBookmarks.Count) do
+   if aBookmarks.Subs[I].Flags and ev_sfOwn = ev_sfOwn then
+   begin
+    Result := True;
+    Break;
+   end;
+//#UC END# *52876E7B02BC_49539DBA029D_impl*
+end;//TExTextForm.HasVisibleBookmarks
+
+procedure TExTextForm.ExcludeRootSub(const aParams: IvcmTestParamsPrim);
+//#UC START# *5287A5D4007D_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A5D4007D_49539DBA029D_var*
+begin
+//#UC START# *5287A5D4007D_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID <> c_DocumentSubID);
+//#UC END# *5287A5D4007D_49539DBA029D_impl*
+end;//TExTextForm.ExcludeRootSub
+
+function TExTextForm.MakePositionListBySub(aSubID: Integer): IPositionList;
+//#UC START# *5287A6130217_49539DBA029D_var*
+var
+ l_Pos: DocumentUnit.TPosition;
+//#UC END# *5287A6130217_49539DBA029D_var*
+begin
+//#UC START# *5287A6130217_49539DBA029D_impl*
+ Result := defDataAdapter.NativeAdapter.MakePositionList;
+ with l_Pos do
+ begin
+  rType := PT_SUB;
+  rPoint := aSubID;
+ end;
+ Result.Add(l_Pos);
+//#UC END# *5287A6130217_49539DBA029D_impl*
+end;//TExTextForm.MakePositionListBySub
+
+procedure TExTextForm.CheckIsDocumentSub(const aParams: IvcmTestParamsPrim);
+//#UC START# *5287A65300FD_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A65300FD_49539DBA029D_var*
+begin
+//#UC START# *5287A65300FD_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(l_Sub) and (l_Sub.ID = c_DocumentSubID)
+//#UC END# *5287A65300FD_49539DBA029D_impl*
+end;//TExTextForm.CheckIsDocumentSub
+
+function TExTextForm.ExtractRangeFromSubPanel(const aParams: IvcmExecuteParams): InevRange;
+//#UC START# *5287A6D60096_49539DBA029D_var*
+var
+ l_Sub: IeeSub;
+//#UC END# *5287A6D60096_49539DBA029D_var*
+begin
+//#UC START# *5287A6D60096_49539DBA029D_impl*
+ l_Sub := ExtractSubFromSubPanel(aParams.Target);
+ if Assigned(l_Sub) then
+  Result := ExtractRangeFromSub(l_Sub.ID, l_Sub.LayerID)
+ else
+  Result := nil;
+//#UC END# *5287A6D60096_49539DBA029D_impl*
+end;//TExTextForm.ExtractRangeFromSubPanel
 
 function TExTextForm.ExtractRangeFromList(const aList: InevFlatSubsList): InevRange;
 //#UC START# *4F85B66E0260_49539DBA029D_var*
@@ -2625,7 +2569,7 @@ begin
 end;//TExTextForm.ExtractRangeFromList
 
 function TExTextForm.ExtractRangeFromSub(aID: Integer;
-  aLayerID: Integer): InevRange;
+ aLayerID: Integer): InevRange;
 //#UC START# *4F85B63D00DE_49539DBA029D_var*
 var
  l_Para: InevPara;
@@ -2638,6 +2582,86 @@ begin
   Result := nil;
 //#UC END# *4F85B63D00DE_49539DBA029D_impl*
 end;//TExTextForm.ExtractRangeFromSub
+
+function TExTextForm.MakeCaption(const aDocument: IDocument;
+ aShort: Boolean): Il3CString;
+//#UC START# *53BE2C3D0176_49539DBA029D_var*
+
+ function lp_GetDocumentName(const aDoc: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentName(aDoc);
+ end;//lp_GetDocumentName
+
+ function lp_GetDocumentShortName(const aDoc: IDocument): Il3CString;
+ begin
+  Result := nsGetDocumentShortName(aDoc);
+ end;
+
+//#UC END# *53BE2C3D0176_49539DBA029D_var*
+begin
+//#UC START# *53BE2C3D0176_49539DBA029D_impl*
+ case UserType of
+  dftDocument, dftDictEntry, dftTips, dftMedDictEntry, dftMedicFirm:
+  begin
+   if (not aShort) then
+   begin
+    if not TdmStdRes.IsCurEditionActual(aDocument) then
+     Result := vcmFmt(str_nsRedactionCaption, [lp_GetDocumentName(aDocument)])
+    else
+     Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
+   end
+   else
+    Result := lp_GetDocumentName(aDocument);
+    // - http://mdp.garant.ru/pages/viewpage.action?pageId=531971274
+  end;//dftDocument..
+  dftAutoreferat,
+  dftAutoreferatAfterSearch,
+  dftDrug:
+   if aShort then
+   begin
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=562605136
+    if (UserType in [dftAutoreferatAfterSearch, dftAutoreferat]) then
+     Result := lp_GetDocumentShortName(aDocument)
+    else
+     Result := lp_GetDocumentName(aDocument)
+   end
+   else
+    Result := l3Cat(CurUserType.Caption + ' : ', lp_GetDocumentName(aDocument));
+  dftAACLeft,
+  dftAACRight,
+  dftAACContentsRight:
+   if aShort then
+    Result := lp_GetDocumentShortName(aDocument)
+   else
+    Result := l3Cat([str_dftDocumentCaption.AsCStr, vcmCStr(' : '), lp_GetDocumentName(aDocument)]);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=571639740
+ end;//case UserType
+//#UC END# *53BE2C3D0176_49539DBA029D_impl*
+end;//TExTextForm.MakeCaption
+
+procedure TExTextForm.UpdateDocumentCaption(const aDocument: IDocument);
+//#UC START# *53C3A82F01C0_49539DBA029D_var*
+var
+ l_Caption: Il3CString;
+//#UC END# *53C3A82F01C0_49539DBA029D_var*
+begin
+//#UC START# *53C3A82F01C0_49539DBA029D_impl*
+ Assert(aDocument <> nil);
+ l_Caption := MakeCaption(aDocument, False);
+ try
+  f_TabCaption := MakeCaption(aDocument, True);
+  if (not l3IsNil(l_Caption)) then
+  begin
+   CCaption := l_Caption;
+   if (UserType in [dftAACLeft, dftAACRight, dftAACContentsRight, dftDictEntry]) then
+    UpdateTabCaption(l_Caption);
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=590762358
+  end;
+ finally
+  l_Caption := nil;
+ end;
+//#UC END# *53C3A82F01C0_49539DBA029D_impl*
+end;//TExTextForm.UpdateDocumentCaption
 
 function TExTextForm.IsPictureUnderCursor: Boolean;
 //#UC START# *53DF35EA01CE_49539DBA029D_var*
@@ -2653,113 +2677,47 @@ begin
    Result := false;
 //#UC END# *53DF35EA01CE_49539DBA029D_impl*
 end;//TExTextForm.IsPictureUnderCursor
-// start class TExTextFormState
 
-constructor TExTextFormState.Create(const aInnerState: IvcmBase;
-  aNeedShowUserComments: Boolean;
-  aNeedShowComments: Boolean;
-  aNeedShowVersionComments: Boolean;
-  aEeSubIdForTypedCorrespondentList: Integer);
-//#UC START# *56558B510110_56558AAF003B_var*
-//#UC END# *56558B510110_56558AAF003B_var*
-begin
-//#UC START# *56558B510110_56558AAF003B_impl*
- inherited Create;
- f_InnerState := aInnerState;
- f_NeedShowUserComments := aNeedShowUserComments;
- f_NeedShowComments := aNeedShowComments;
- f_NeedShowVersionComments := aNeedShowVersionComments;
- f_eeSubIdForTypedCorrespondentList := aEeSubIdForTypedCorrespondentList;
-//#UC END# *56558B510110_56558AAF003B_impl*
-end;//TExTextFormState.Create
-
-class function TExTextFormState.Make(const aInnerState: IvcmBase;
-  aNeedShowUserComments: Boolean;
-  aNeedShowComments: Boolean;
-  aNeedShowVersionComments: Boolean;
-  aEeSubIdForTypedCorrespondentList: Integer): IExTextFormState;
+procedure TExTextForm.OpenDocumentInNewContainer(aOpenKind: TvcmMainFormOpenKind);
+//#UC START# *55546DEA0384_49539DBA029D_var*
 var
- l_Inst : TExTextFormState;
+ l_NewDocument : IDocument;
+ l_Cont        : IvcmContainer;
+ l_TopPara     : IeePara;
+//#UC END# *55546DEA0384_49539DBA029D_var*
 begin
- l_Inst := Create(aInnerState, aNeedShowUserComments, aNeedShowComments, aNeedShowVersionComments, aEeSubIdForTypedCorrespondentList);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TExTextFormState.pm_GetInnerState: IvcmBase;
-//#UC START# *56558A84014E_56558AAF003Bget_var*
-//#UC END# *56558A84014E_56558AAF003Bget_var*
-begin
-//#UC START# *56558A84014E_56558AAF003Bget_impl*
- Result := f_InnerState;
-//#UC END# *56558A84014E_56558AAF003Bget_impl*
-end;//TExTextFormState.pm_GetInnerState
-
-function TExTextFormState.pm_GetNeedShowUserComments: Boolean;
-//#UC START# *56558A99000A_56558AAF003Bget_var*
-//#UC END# *56558A99000A_56558AAF003Bget_var*
-begin
-//#UC START# *56558A99000A_56558AAF003Bget_impl*
- Result := f_NeedShowUserComments;
-//#UC END# *56558A99000A_56558AAF003Bget_impl*
-end;//TExTextFormState.pm_GetNeedShowUserComments
-
-function TExTextFormState.Get_EeSubIdForTypedCorrespondentList: Integer;
-//#UC START# *5656B27E015A_56558AAF003Bget_var*
-//#UC END# *5656B27E015A_56558AAF003Bget_var*
-begin
-//#UC START# *5656B27E015A_56558AAF003Bget_impl*
- Result := f_eeSubIdForTypedCorrespondentList;
-//#UC END# *5656B27E015A_56558AAF003Bget_impl*
-end;//TExTextFormState.Get_EeSubIdForTypedCorrespondentList
-
-function TExTextFormState.pm_GetNeedShowComments: Boolean;
-//#UC START# *565C49D7029F_56558AAF003Bget_var*
-//#UC END# *565C49D7029F_56558AAF003Bget_var*
-begin
-//#UC START# *565C49D7029F_56558AAF003Bget_impl*
- Result := f_NeedShowComments;
-//#UC END# *565C49D7029F_56558AAF003Bget_impl*
-end;//TExTextFormState.pm_GetNeedShowComments
-
-function TExTextFormState.pm_GetNeedShowVersionComments: Boolean;
-//#UC START# *565C49E9039D_56558AAF003Bget_var*
-//#UC END# *565C49E9039D_56558AAF003Bget_var*
-begin
-//#UC START# *565C49E9039D_56558AAF003Bget_impl*
- Result := f_NeedShowVersionComments;
-//#UC END# *565C49E9039D_56558AAF003Bget_impl*
-end;//TExTextFormState.pm_GetNeedShowVersionComments
-
-procedure TExTextFormState.Cleanup;
-//#UC START# *479731C50290_56558AAF003B_var*
-//#UC END# *479731C50290_56558AAF003B_var*
-begin
-//#UC START# *479731C50290_56558AAF003B_impl*
- f_InnerState := nil;
- inherited;
-//#UC END# *479731C50290_56558AAF003B_impl*
-end;//TExTextFormState.Cleanup
-
-function TExTextFormState.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
-//#UC START# *561145D802BB_56558AAF003B_var*
-//#UC END# *561145D802BB_56558AAF003B_var*
-begin
-//#UC START# *561145D802BB_56558AAF003B_impl*
- // Всё это криво и костыльно. И ужасно. И очень не хотелось так делать.
- // - http://mdp.garant.ru/pages/viewpage.action?pageId=612730339
- if (not IsEqualGUID(IID, IExTextFormState)) and (f_InnerState <> nil) then
-  Result := f_InnerState.QueryInterface(IID, Obj)
- else
-  Result := inherited QueryInterface(IID, Obj);
-//#UC END# *561145D802BB_56558AAF003B_impl*
-end;//TExTextFormState.QueryInterface
+//#UC START# *55546DEA0384_49539DBA029D_impl*
+ if (Document <> nil) then
+ begin
+  l_Cont := nsOpenNewWindowTabbed(NativeMainForm, aOpenKind);
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=560729118
+  if (l_Cont <> nil) then
+  try
+   l_TopPara := GetTopParaID;
+   try
+    l_NewDocument := defDataAdapter.TimeMachine.CorrectDocumentEdition(Document);
+    try
+     if (l_TopPara <> nil) then
+      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument,
+                                             TbsDocPos_P(l_TopPara)),
+                             l_Cont)
+     else
+      TdmStdRes.OpenDocument(TdeDocInfo.Make(l_NewDocument), l_Cont);
+    finally
+     l_NewDocument := nil;
+    end;//try..finally
+   finally
+    l_TopPara := nil;
+   end;//try..finally
+  finally
+   l_Cont := nil;
+  end;//try..finally
+ end;//Document <> nil
+//#UC END# *55546DEA0384_49539DBA029D_impl*
+end;//TExTextForm.OpenDocumentInNewContainer
 
 procedure TExTextForm.ChangePositionByDataSource;
+ {* изменить позицию в документе на основе информации источника данных }
 //#UC START# *49883D6D03A2_49539DBA029D_var*
 //#UC END# *49883D6D03A2_49539DBA029D_var*
 begin
@@ -2777,8 +2735,9 @@ begin
 end;//TExTextForm.ChangePositionByDataSource
 
 function TExTextForm.OpenCRList(aKind: TlstCRType;
-  const aType: Il3SimpleNode;
-  ReConvertNode: Boolean): Boolean;
+ const aType: Il3SimpleNode;
+ ReConvertNode: Boolean): Boolean;
+ {* Открыть список корреспондентов/респондентов }
 //#UC START# *49886FBC0385_49539DBA029D_var*
 var
  l_Node: Il3SimpleNode;
@@ -2795,7 +2754,7 @@ begin
 end;//TExTextForm.OpenCRList
 
 procedure TExTextForm.TypedCRToPartTest(const aParams: IvcmTestParamsPrim;
-  aCRType: TlstCRType);
+ aCRType: TlstCRType);
 //#UC START# *4988773A0053_49539DBA029D_var*
 const
  CRListCaptions : array [1..2] of PvcmStringID = (@str_RespListForText, @str_RespListForPart);
@@ -2832,7 +2791,8 @@ begin
 end;//TExTextForm.TypedCRToPartTest
 
 procedure TExTextForm.GetCorrespondentListEx(aParamsIndex: Integer;
-  const aChoosedNode: Il3SimpleNode);
+ const aChoosedNode: Il3SimpleNode);
+ {* Коллеги, это что? }
 //#UC START# *498878B60084_49539DBA029D_var*
 //#UC END# *498878B60084_49539DBA029D_var*
 begin
@@ -2849,8 +2809,8 @@ begin
 end;//TExTextForm.GetCorrespondentListEx
 
 procedure TExTextForm.OpenCRListToPart(aCRType: TlstCRType;
-  const aType: Il3SimpleNode;
-  const aPositionList: IPositionList = nil);
+ const aType: Il3SimpleNode;
+ const aPositionList: IPositionList = nil);
 //#UC START# *498879F203D8_49539DBA029D_var*
 var
  l_PositionList : IPositionList;
@@ -2892,7 +2852,7 @@ begin
 end;//TExTextForm.OpenCRListToPart
 
 procedure TExTextForm.GetRespondentListEx(aParamsIndex: Integer;
-  const aChoosedNode: Il3SimpleNode);
+ const aChoosedNode: Il3SimpleNode);
 //#UC START# *49889018003E_49539DBA029D_var*
 //#UC END# *49889018003E_49539DBA029D_var*
 begin
@@ -2944,6 +2904,7 @@ begin
 end;//TExTextForm.OpenRedactionList
 
 procedure TExTextForm.DftMedicFirmSynchroViewQueryMaximized(aSender: TObject);
+ {* Обработчик события dftMedicFirmSynchroView.OnQueryMaximized }
 //#UC START# *08687812598B_49539DBA029D_var*
 //#UC END# *08687812598B_49539DBA029D_var*
 begin
@@ -2954,6 +2915,7 @@ begin
 end;//TExTextForm.DftMedicFirmSynchroViewQueryMaximized
 
 procedure TExTextForm.DftTranslationQueryMaximized(aSender: TObject);
+ {* Обработчик события dftTranslation.OnQueryMaximized }
 //#UC START# *0B8413148796_49539DBA029D_var*
 //#UC END# *0B8413148796_49539DBA029D_var*
 begin
@@ -2964,6 +2926,7 @@ begin
 end;//TExTextForm.DftTranslationQueryMaximized
 
 procedure TExTextForm.DoTabActivate;
+ {* Реакция на переключение вкладки }
 //#UC START# *497F16AC015A_49539DBA029D_var*
 var
  l_ActivationKind : TnsTextTabActivateKind;
@@ -2986,6 +2949,7 @@ begin
 end;//TExTextForm.DoTabActivate
 
 procedure TExTextForm.Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *4988752302F4_49539DBA029Dtest_var*
 //#UC END# *4988752302F4_49539DBA029Dtest_var*
 begin
@@ -2995,7 +2959,8 @@ begin
 end;//TExTextForm.Document_OpenCorrespondentList_Test
 
 procedure TExTextForm.Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
 //#UC START# *4988752302F4_49539DBA029Dexec_var*
 //#UC END# *4988752302F4_49539DBA029Dexec_var*
 begin
@@ -3009,12 +2974,14 @@ begin
 end;//TExTextForm.Document_OpenCorrespondentList_Execute
 
 procedure TExTextForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
+ {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
-  Document_OpenCorrespondentList_Execute(Kind, CRType);
-end;
+  Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
+end;//TExTextForm.Document_OpenCorrespondentList
 
 procedure TExTextForm.Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *49888E8003B9_49539DBA029Dtest_var*
 //#UC END# *49888E8003B9_49539DBA029Dtest_var*
 begin
@@ -3024,7 +2991,8 @@ begin
 end;//TExTextForm.Document_OpenRespondentList_Test
 
 procedure TExTextForm.Document_OpenRespondentList_Execute(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
 //#UC START# *49888E8003B9_49539DBA029Dexec_var*
 //#UC END# *49888E8003B9_49539DBA029Dexec_var*
 begin
@@ -3038,12 +3006,14 @@ begin
 end;//TExTextForm.Document_OpenRespondentList_Execute
 
 procedure TExTextForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
+ {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenRespondentList_Params) do
-  Document_OpenRespondentList_Execute(Kind, CRType);
-end;
+  Self.Document_OpenRespondentList_Execute(Kind, CRType);
+end;//TExTextForm.Document_OpenRespondentList
 
 procedure TExTextForm.Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Информация о документе }
 //#UC START# *498891640253_49539DBA029Dtest_var*
 //#UC END# *498891640253_49539DBA029Dtest_var*
 begin
@@ -3058,6 +3028,7 @@ begin
 end;//TExTextForm.Document_GetAttributesFrmAct_Test
 
 procedure TExTextForm.Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о документе }
 //#UC START# *498891640253_49539DBA029Dexec_var*
 //#UC END# *498891640253_49539DBA029Dexec_var*
 begin
@@ -3067,8 +3038,9 @@ begin
 end;//TExTextForm.Document_GetAttributesFrmAct_Execute
 
 function TExTextForm.Loadable_Load_Execute(const aNode: IeeNode;
-  const aData: IUnknown;
-  anOp: TListLogicOperation = LLO_NONE): Boolean;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
+ {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_49539DBA029Dexec_var*
 var
  l_FolderNode : INode;
@@ -3139,12 +3111,14 @@ begin
 end;//TExTextForm.Loadable_Load_Execute
 
 procedure TExTextForm.Loadable_Load(const aParams: IvcmExecuteParams);
+ {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
-  ResultValue := Loadable_Load_Execute(Node, Data, nOp);
-end;
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TExTextForm.Loadable_Load
 
 procedure TExTextForm.Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Справка к документу }
 //#UC START# *498993C801DC_49539DBA029Dtest_var*
 //#UC END# *498993C801DC_49539DBA029Dtest_var*
 begin
@@ -3157,6 +3131,7 @@ begin
 end;//TExTextForm.Document_GetRelatedDocFrmAct_Test
 
 procedure TExTextForm.Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Справка к документу }
 //#UC START# *498993C801DC_49539DBA029Dexec_var*
 //#UC END# *498993C801DC_49539DBA029Dexec_var*
 begin
@@ -3166,6 +3141,7 @@ begin
 end;//TExTextForm.Document_GetRelatedDocFrmAct_Execute
 
 procedure TExTextForm.SetBookmark;
+ {* Устанавливает закладку на текущее место текущего документа }
 //#UC START# *4989CD040306_49539DBA029D_var*
 //#UC END# *4989CD040306_49539DBA029D_var*
 begin
@@ -3175,6 +3151,7 @@ begin
 end;//TExTextForm.SetBookmark
 
 function TExTextForm.CanAddBookmark: Boolean;
+ {* Можно ли сейчас добавлять закладку }
 //#UC START# *4989CF90010A_49539DBA029D_var*
 //#UC END# *4989CF90010A_49539DBA029D_var*
 begin
@@ -3184,6 +3161,7 @@ begin
 end;//TExTextForm.CanAddBookmark
 
 procedure TExTextForm.Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки на документ }
 //#UC START# *4989D65C0275_49539DBA029Dtest_var*
 //#UC END# *4989D65C0275_49539DBA029Dtest_var*
 begin
@@ -3193,6 +3171,7 @@ begin
 end;//TExTextForm.Document_GetCorrespondentList_Test
 
 procedure TExTextForm.Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ }
 //#UC START# *4989D65C0275_49539DBA029Dexec_var*
 //#UC END# *4989D65C0275_49539DBA029Dexec_var*
 begin
@@ -3202,6 +3181,7 @@ begin
 end;//TExTextForm.Document_GetCorrespondentList_Execute
 
 procedure TExTextForm.Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки из документа }
 //#UC START# *4989D8430128_49539DBA029Dtest_var*
 //#UC END# *4989D8430128_49539DBA029Dtest_var*
 begin
@@ -3211,6 +3191,7 @@ begin
 end;//TExTextForm.Document_GetRespondentList_Test
 
 procedure TExTextForm.Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа }
 //#UC START# *4989D8430128_49539DBA029Dexec_var*
 //#UC END# *4989D8430128_49539DBA029Dexec_var*
 begin
@@ -3220,6 +3201,7 @@ begin
 end;//TExTextForm.Document_GetRespondentList_Execute
 
 function TExTextForm.Document_AttributesCanBeClosed_Execute: Boolean;
+ {* Это кандидат на перенос в Facet или что-то подобное }
 //#UC START# *4989DE3702CF_49539DBA029Dexec_var*
 const
  c_CanCloseFormTypes = [
@@ -3239,12 +3221,14 @@ begin
 end;//TExTextForm.Document_AttributesCanBeClosed_Execute
 
 procedure TExTextForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
+ {* Это кандидат на перенос в Facet или что-то подобное }
 begin
  with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
-  ResultValue := Document_AttributesCanBeClosed_Execute;
-end;
+  ResultValue := Self.Document_AttributesCanBeClosed_Execute;
+end;//TExTextForm.Document_AttributesCanBeClosed
 
 function TExTextForm.DocumentIsValid: Boolean;
+ {* Есть ли документ, готовый к работе }
 //#UC START# *4A7C0E1A005C_49539DBA029D_var*
 //#UC END# *4A7C0E1A005C_49539DBA029D_var*
 begin
@@ -3254,6 +3238,7 @@ begin
 end;//TExTextForm.DocumentIsValid
 
 function TExTextForm.RedactionCurrentPara: IeeLeafPara;
+ {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
 //#UC START# *4A7FCEA9025D_49539DBA029D_var*
 //#UC END# *4A7FCEA9025D_49539DBA029D_var*
 begin
@@ -3263,6 +3248,7 @@ begin
 end;//TExTextForm.RedactionCurrentPara
 
 function TExTextForm.DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean;
+ {* Обработчик внешней операции }
 //#UC START# *4A815E860391_49539DBA029D_var*
 var
  l_Operartion: TbsObjectId;
@@ -3332,7 +3318,8 @@ begin
 end;//TExTextForm.DoProcessExternalOperation
 
 procedure TExTextForm.GotoPoint(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_49539DBA029D_var*
 var
  l_Document : IDocument;
@@ -3401,8 +3388,9 @@ begin
 end;//TExTextForm.GotoPoint
 
 procedure TExTextForm.OpenRedactionLocalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
+ {* Открывает локальную ссылку на другую редакцию }
 //#UC START# *4A81650B014A_49539DBA029D_var*
 //#UC END# *4A81650B014A_49539DBA029D_var*
 begin
@@ -3412,6 +3400,7 @@ begin
 end;//TExTextForm.OpenRedactionLocalLink
 
 function TExTextForm.HyperlinkDocument: IDocument;
+ {* Документ ИЗ которого ведёт ссылка }
 //#UC START# *4A8168BB0217_49539DBA029D_var*
 //#UC END# *4A8168BB0217_49539DBA029D_var*
 begin
@@ -3430,6 +3419,7 @@ begin
 end;//TExTextForm.pm_GetHyperlinkText
 
 function TExTextForm.CanBeChanged: Boolean;
+ {* Может ли документ быть изменён }
 //#UC START# *4A8931130363_49539DBA029D_var*
 //#UC END# *4A8931130363_49539DBA029D_var*
 begin
@@ -3439,6 +3429,7 @@ begin
 end;//TExTextForm.CanBeChanged
 
 function TExTextForm.IsFloating: Boolean;
+ {* Форма плавающая }
 //#UC START# *4A8A9DB0001A_49539DBA029D_var*
 //#UC END# *4A8A9DB0001A_49539DBA029D_var*
 begin
@@ -3457,6 +3448,7 @@ begin
 end;//TExTextForm.pm_GetTextWithComments
 
 procedure TExTextForm.Document_CommonDocumentOpenNewWindow_Execute(aUserType: Integer);
+ {* Что это? }
 //#UC START# *4A8EF02E007D_49539DBA029Dexec_var*
 var
  l_NewDocument : IDocument;
@@ -3474,12 +3466,13 @@ begin
 end;//TExTextForm.Document_CommonDocumentOpenNewWindow_Execute
 
 procedure TExTextForm.Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParams);
+ {* Что это? }
 begin
  with (aParams.Data As IDocument_CommonDocumentOpenNewWindow_Params) do
-  Document_CommonDocumentOpenNewWindow_Execute(UserType);
-end;
+  Self.Document_CommonDocumentOpenNewWindow_Execute(UserType);
+end;//TExTextForm.Document_CommonDocumentOpenNewWindow
 
-procedure TExTextForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = false);
+procedure TExTextForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
 //#UC START# *4A8EF367029E_49539DBA029Dexec_var*
 //#UC END# *4A8EF367029E_49539DBA029Dexec_var*
 begin
@@ -3510,8 +3503,8 @@ end;//TExTextForm.System_TimeMachineStateChange_Execute
 procedure TExTextForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
-  System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
-end;
+  Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
+end;//TExTextForm.System_TimeMachineStateChange
 
 procedure TExTextForm.Redactions_RedactionOnID_Execute(aRedactionID: TRedactionID);
 //#UC START# *4A8EF4B50044_49539DBA029Dexec_var*
@@ -3527,10 +3520,11 @@ end;//TExTextForm.Redactions_RedactionOnID_Execute
 procedure TExTextForm.Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRedactions_RedactionOnID_Params) do
-  Redactions_RedactionOnID_Execute(RedactionID);
-end;
+  Self.Redactions_RedactionOnID_Execute(RedactionID);
+end;//TExTextForm.Redactions_RedactionOnID
 
 function TExTextForm.Document_FindExplanation_Execute: Boolean;
+ {* Найти толкование }
 //#UC START# *4A9D26B80015_49539DBA029Dexec_var*
 //#UC END# *4A9D26B80015_49539DBA029Dexec_var*
 begin
@@ -3544,12 +3538,14 @@ begin
 end;//TExTextForm.Document_FindExplanation_Execute
 
 procedure TExTextForm.Document_FindExplanation(const aParams: IvcmExecuteParams);
+ {* Найти толкование }
 begin
  with (aParams.Data As IDocument_FindExplanation_Params) do
-  ResultValue := Document_FindExplanation_Execute;
-end;
+  ResultValue := Self.Document_FindExplanation_Execute;
+end;//TExTextForm.Document_FindExplanation
 
 procedure TExTextForm.Selection_FindInDict_Test(const aParams: IvcmTestParamsPrim);
+ {* Найти в Толковом словаре }
 //#UC START# *4A9D3FC50134_49539DBA029Dtest_var*
 //#UC END# *4A9D3FC50134_49539DBA029Dtest_var*
 begin
@@ -3562,6 +3558,7 @@ begin
 end;//TExTextForm.Selection_FindInDict_Test
 
 procedure TExTextForm.Selection_FindInDict_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти в Толковом словаре }
 //#UC START# *4A9D3FC50134_49539DBA029Dexec_var*
 //#UC END# *4A9D3FC50134_49539DBA029Dexec_var*
 begin
@@ -3571,8 +3568,8 @@ begin
 end;//TExTextForm.Selection_FindInDict_Execute
 
 function TExTextForm.Document_SetPosition_Execute(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub;
-  aUserType: Integer = 0): Boolean;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_49539DBA029Dexec_var*
 //#UC END# *4AE9D38A02DA_49539DBA029Dexec_var*
 begin
@@ -3590,8 +3587,8 @@ end;//TExTextForm.Document_SetPosition_Execute
 procedure TExTextForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
-  ResultValue := Document_SetPosition_Execute(PointID, PointType, UserType);
-end;
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TExTextForm.Document_SetPosition
 
 procedure TExTextForm.Document_SetActive_Execute(aUserType: Integer);
 //#UC START# *4AE9D9AF02FE_49539DBA029Dexec_var*
@@ -3612,12 +3609,12 @@ end;//TExTextForm.Document_SetActive_Execute
 procedure TExTextForm.Document_SetActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetActive_Params) do
-  Document_SetActive_Execute(UserType);
-end;
+  Self.Document_SetActive_Execute(UserType);
+end;//TExTextForm.Document_SetActive
 
 procedure TExTextForm.Document_ExportBlock_Execute(const aData: IUnknown;
-  aUserType: Integer;
-  aToActiveWindow: Boolean);
+ aUserType: Integer;
+ aToActiveWindow: Boolean);
 //#UC START# *4AE9DC070264_49539DBA029Dexec_var*
 //#UC END# *4AE9DC070264_49539DBA029Dexec_var*
 begin
@@ -3629,8 +3626,8 @@ end;//TExTextForm.Document_ExportBlock_Execute
 procedure TExTextForm.Document_ExportBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ExportBlock_Params) do
-  Document_ExportBlock_Execute(Data, UserType, ToActiveWindow);
-end;
+  Self.Document_ExportBlock_Execute(Data, UserType, ToActiveWindow);
+end;//TExTextForm.Document_ExportBlock
 
 procedure TExTextForm.Document_GetCurrentPosition_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AEAF9C000D8_49539DBA029Dtest_var*
@@ -3663,11 +3660,11 @@ end;//TExTextForm.Document_GetCurrentPosition_Execute
 procedure TExTextForm.Document_GetCurrentPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetCurrentPosition_Params) do
-  ResultValue := Document_GetCurrentPosition_Execute;
-end;
+  ResultValue := Self.Document_GetCurrentPosition_Execute;
+end;//TExTextForm.Document_GetCurrentPosition
 
 procedure TExTextForm.Document_SelectBlock_Execute(const aData: IUnknown;
-  aUserType: Integer);
+ aUserType: Integer);
 //#UC START# *4AEB097001C3_49539DBA029Dexec_var*
 //#UC END# *4AEB097001C3_49539DBA029Dexec_var*
 begin
@@ -3679,11 +3676,11 @@ end;//TExTextForm.Document_SelectBlock_Execute
 procedure TExTextForm.Document_SelectBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SelectBlock_Params) do
-  Document_SelectBlock_Execute(Data, UserType);
-end;
+  Self.Document_SelectBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_SelectBlock
 
 procedure TExTextForm.Document_CopyBlock_Execute(const aData: IUnknown;
-  aUserType: Integer);
+ aUserType: Integer);
 //#UC START# *4AEB09C50287_49539DBA029Dexec_var*
 //#UC END# *4AEB09C50287_49539DBA029Dexec_var*
 begin
@@ -3695,11 +3692,11 @@ end;//TExTextForm.Document_CopyBlock_Execute
 procedure TExTextForm.Document_CopyBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_CopyBlock_Params) do
-  Document_CopyBlock_Execute(Data, UserType);
-end;
+  Self.Document_CopyBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_CopyBlock
 
 procedure TExTextForm.Document_PrintBlock_Execute(const aData: IUnknown;
-  aUserType: Integer);
+ aUserType: Integer);
 //#UC START# *4AEB0A1C0270_49539DBA029Dexec_var*
 //#UC END# *4AEB0A1C0270_49539DBA029Dexec_var*
 begin
@@ -3711,11 +3708,11 @@ end;//TExTextForm.Document_PrintBlock_Execute
 procedure TExTextForm.Document_PrintBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PrintBlock_Params) do
-  Document_PrintBlock_Execute(Data, UserType);
-end;
+  Self.Document_PrintBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PrintBlock
 
 procedure TExTextForm.Document_PrintDialogBlock_Execute(const aData: IUnknown;
-  aUserType: Integer);
+ aUserType: Integer);
 //#UC START# *4AEB0A550165_49539DBA029Dexec_var*
 //#UC END# *4AEB0A550165_49539DBA029Dexec_var*
 begin
@@ -3727,11 +3724,11 @@ end;//TExTextForm.Document_PrintDialogBlock_Execute
 procedure TExTextForm.Document_PrintDialogBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PrintDialogBlock_Params) do
-  Document_PrintDialogBlock_Execute(Data, UserType);
-end;
+  Self.Document_PrintDialogBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PrintDialogBlock
 
 procedure TExTextForm.Document_PreviewBlock_Execute(const aData: IUnknown;
-  aUserType: Integer);
+ aUserType: Integer);
 //#UC START# *4AEB0A8E002E_49539DBA029Dexec_var*
 //#UC END# *4AEB0A8E002E_49539DBA029Dexec_var*
 begin
@@ -3743,11 +3740,11 @@ end;//TExTextForm.Document_PreviewBlock_Execute
 procedure TExTextForm.Document_PreviewBlock(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_PreviewBlock_Params) do
-  Document_PreviewBlock_Execute(Data, UserType);
-end;
+  Self.Document_PreviewBlock_Execute(Data, UserType);
+end;//TExTextForm.Document_PreviewBlock
 
 procedure TExTextForm.Document_ShowRespondentListToPart_Execute(const aList: IPositionList;
-  const aCurrent: Il3SimpleNode = nil);
+ const aCurrent: Il3SimpleNode = nil);
 //#UC START# *4AEEEE970141_49539DBA029Dexec_var*
 //#UC END# *4AEEEE970141_49539DBA029Dexec_var*
 begin
@@ -3760,11 +3757,11 @@ end;//TExTextForm.Document_ShowRespondentListToPart_Execute
 procedure TExTextForm.Document_ShowRespondentListToPart(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ShowRespondentListToPart_Params) do
-  Document_ShowRespondentListToPart_Execute(List, Current);
-end;
+  Self.Document_ShowRespondentListToPart_Execute(List, Current);
+end;//TExTextForm.Document_ShowRespondentListToPart
 
 procedure TExTextForm.Document_ShowCorrespondentListToPart_Execute(const aList: IPositionList;
-  const aCurrent: Il3SimpleNode = nil);
+ const aCurrent: Il3SimpleNode = nil);
 //#UC START# *4AEEEEB7027C_49539DBA029Dexec_var*
 //#UC END# *4AEEEEB7027C_49539DBA029Dexec_var*
 begin
@@ -3777,8 +3774,8 @@ end;//TExTextForm.Document_ShowCorrespondentListToPart_Execute
 procedure TExTextForm.Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ShowCorrespondentListToPart_Params) do
-  Document_ShowCorrespondentListToPart_Execute(List, Current);
-end;
+  Self.Document_ShowCorrespondentListToPart_Execute(List, Current);
+end;//TExTextForm.Document_ShowCorrespondentListToPart
 
 procedure TExTextForm.Document_ModifyBookmarkNotify_Execute(const anEntity: IUnknown);
 //#UC START# *4AEEF7F40304_49539DBA029Dexec_var*
@@ -3807,8 +3804,8 @@ end;//TExTextForm.Document_ModifyBookmarkNotify_Execute
 procedure TExTextForm.Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_ModifyBookmarkNotify_Params) do
-  Document_ModifyBookmarkNotify_Execute(nEntity);
-end;
+  Self.Document_ModifyBookmarkNotify_Execute(nEntity);
+end;//TExTextForm.Document_ModifyBookmarkNotify
 
 procedure TExTextForm.Document_AddBookmarkFromContents_Execute(const aTag: Il3TagRef);
 //#UC START# *4AEEF87B00E1_49539DBA029Dexec_var*
@@ -3833,10 +3830,11 @@ end;//TExTextForm.Document_AddBookmarkFromContents_Execute
 procedure TExTextForm.Document_AddBookmarkFromContents(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_AddBookmarkFromContents_Params) do
-  Document_AddBookmarkFromContents_Execute(Tag);
-end;
+  Self.Document_AddBookmarkFromContents_Execute(Tag);
+end;//TExTextForm.Document_AddBookmarkFromContents
 
 procedure TExTextForm.Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки на документ (вид информации) }
 //#UC START# *4AF329F6002A_49539DBA029Dtest_var*
 //#UC END# *4AF329F6002A_49539DBA029Dtest_var*
 begin
@@ -3846,6 +3844,7 @@ begin
 end;//TExTextForm.Document_GetCorrespondentListExFrmAct_Test
 
 procedure TExTextForm.Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ (вид информации) }
 //#UC START# *4AF329F6002A_49539DBA029Dexec_var*
 //#UC END# *4AF329F6002A_49539DBA029Dexec_var*
 begin
@@ -3856,6 +3855,7 @@ begin
 end;//TExTextForm.Document_GetCorrespondentListExFrmAct_Execute
 
 procedure TExTextForm.Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки из документа (вид информации) }
 //#UC START# *4AF329FD014D_49539DBA029Dtest_var*
 //#UC END# *4AF329FD014D_49539DBA029Dtest_var*
 begin
@@ -3865,6 +3865,7 @@ begin
 end;//TExTextForm.Document_GetRespondentListExFrmAct_Test
 
 procedure TExTextForm.Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа (вид информации) }
 //#UC START# *4AF329FD014D_49539DBA029Dexec_var*
 //#UC END# *4AF329FD014D_49539DBA029Dexec_var*
 begin
@@ -3901,8 +3902,8 @@ end;//TExTextForm.TimeMachine_TimeMachineOnOff_Execute
 
 procedure TExTextForm.TimeMachine_TimeMachineOnOff(const aParams: IvcmExecuteParams);
 begin
- TimeMachine_TimeMachineOnOff_Execute;
-end;
+ Self.TimeMachine_TimeMachineOnOff_Execute;
+end;//TExTextForm.TimeMachine_TimeMachineOnOff
 
 procedure TExTextForm.TimeMachine_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AF83BEB0393_49539DBA029Dtest_var*
@@ -3925,8 +3926,8 @@ end;//TExTextForm.TimeMachine_TimeMachineOffAndReset_Execute
 
 procedure TExTextForm.TimeMachine_TimeMachineOffAndReset(const aParams: IvcmExecuteParams);
 begin
- TimeMachine_TimeMachineOffAndReset_Execute;
-end;
+ Self.TimeMachine_TimeMachineOffAndReset_Execute;
+end;//TExTextForm.TimeMachine_TimeMachineOffAndReset
 
 procedure TExTextForm.Document_OpenNotSureTopic_Execute;
 //#UC START# *4AF83C3D01DA_49539DBA029Dexec_var*
@@ -3950,8 +3951,8 @@ end;//TExTextForm.Document_OpenNotSureTopic_Execute
 
 procedure TExTextForm.Document_OpenNotSureTopic(const aParams: IvcmExecuteParams);
 begin
- Document_OpenNotSureTopic_Execute;
-end;
+ Self.Document_OpenNotSureTopic_Execute;
+end;//TExTextForm.Document_OpenNotSureTopic
 
 procedure TExTextForm.Redactions_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AFAF4900270_49539DBA029Dtest_var*
@@ -3973,6 +3974,7 @@ begin
 end;//TExTextForm.Redactions_ActualRedaction_Execute
 
 procedure TExTextForm.Edit_ToggleFoundWords_Test(const aParams: IvcmTestParamsPrim);
+ {* Подсвечивать найденный контекст }
 //#UC START# *4AFD4230031F_49539DBA029Dtest_var*
 //#UC END# *4AFD4230031F_49539DBA029Dtest_var*
 begin
@@ -3982,6 +3984,7 @@ begin
 end;//TExTextForm.Edit_ToggleFoundWords_Test
 
 procedure TExTextForm.Edit_ToggleFoundWords_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Подсвечивать найденный контекст }
 //#UC START# *4AFD4230031F_49539DBA029Dexec_var*
 //#UC END# *4AFD4230031F_49539DBA029Dexec_var*
 begin
@@ -3995,7 +3998,7 @@ begin
 end;//TExTextForm.Edit_ToggleFoundWords_Execute
 
 function TExTextForm.Document_GotoPara_Execute(const aPara: Il3TagRef;
-  aUserType: Integer): Boolean;
+ aUserType: Integer): Boolean;
 //#UC START# *4AFD4A45003B_49539DBA029Dexec_var*
 var
  l_O : InevObject;
@@ -4017,10 +4020,11 @@ end;//TExTextForm.Document_GotoPara_Execute
 procedure TExTextForm.Document_GotoPara(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GotoPara_Params) do
-  ResultValue := Document_GotoPara_Execute(Para, UserType);
-end;
+  ResultValue := Self.Document_GotoPara_Execute(Para, UserType);
+end;//TExTextForm.Document_GotoPara
 
 procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
+ {* Включить Машину времени }
 //#UC START# *4B261EC80086_49539DBA029Dtest_var*
 //#UC END# *4B261EC80086_49539DBA029Dtest_var*
 begin
@@ -4036,7 +4040,21 @@ begin
 //#UC END# *4B261EC80086_49539DBA029Dtest_impl*
 end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Test
 
+procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Включить Машину времени }
+//#UC START# *4B261EC80086_49539DBA029Dexec_var*
+//#UC END# *4B261EC80086_49539DBA029Dexec_var*
+begin
+//#UC START# *4B261EC80086_49539DBA029Dexec_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  TdmStdRes.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
+ else
+  TdmStdRes.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
+//#UC END# *4B261EC80086_49539DBA029Dexec_impl*
+end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute
+
 procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+ {* Включить Машину времени }
 //#UC START# *4B261EC80086_49539DBA029Dgetstate_var*
 //#UC END# *4B261EC80086_49539DBA029Dgetstate_var*
 begin
@@ -4053,19 +4071,8 @@ begin
 //#UC END# *4B261EC80086_49539DBA029Dgetstate_impl*
 end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_GetState
 
-procedure TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4B261EC80086_49539DBA029Dexec_var*
-//#UC END# *4B261EC80086_49539DBA029Dexec_var*
-begin
-//#UC START# *4B261EC80086_49539DBA029Dexec_impl*
- if DefDataAdapter.TimeMachine.IsOn then
-  TdmStdRes.OpenTurnOffTimeMachine(InsTurnOffTimeMachine(Self))
- else
-  TdmStdRes.OpenTurnOnTimeMachine(InsTurnOnTimeMachine(Self));
-//#UC END# *4B261EC80086_49539DBA029Dexec_impl*
-end;//TExTextForm.TimeMachine_TimeMachineOnOffNew_Execute
-
 procedure TExTextForm.Redactions_OpenRedactionListFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Список редакций }
 //#UC START# *4B262F9701DE_49539DBA029Dtest_var*
 //#UC END# *4B262F9701DE_49539DBA029Dtest_var*
 begin
@@ -4074,16 +4081,8 @@ begin
 //#UC END# *4B262F9701DE_49539DBA029Dtest_impl*
 end;//TExTextForm.Redactions_OpenRedactionListFrmAct_Test
 
-procedure TExTextForm.Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4B262F9701DE_49539DBA029Dgetstate_var*
-//#UC END# *4B262F9701DE_49539DBA029Dgetstate_var*
-begin
-//#UC START# *4B262F9701DE_49539DBA029Dgetstate_impl*
- State := vcm_DefaultOperationState;
-//#UC END# *4B262F9701DE_49539DBA029Dgetstate_impl*
-end;//TExTextForm.Redactions_OpenRedactionListFrmAct_GetState
-
 procedure TExTextForm.Redactions_OpenRedactionListFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Список редакций }
 //#UC START# *4B262F9701DE_49539DBA029Dexec_var*
 //#UC END# *4B262F9701DE_49539DBA029Dexec_var*
 begin
@@ -4091,6 +4090,16 @@ begin
  OpenRedactionList;
 //#UC END# *4B262F9701DE_49539DBA029Dexec_impl*
 end;//TExTextForm.Redactions_OpenRedactionListFrmAct_Execute
+
+procedure TExTextForm.Redactions_OpenRedactionListFrmAct_GetState(var State: TvcmOperationStateIndex);
+ {* Список редакций }
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_var*
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4B262F9701DE_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4B262F9701DE_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Redactions_OpenRedactionListFrmAct_GetState
 
 procedure TExTextForm.Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4B506F4D0196_49539DBA029Dtest_var*
@@ -4113,10 +4122,11 @@ end;//TExTextForm.Document_GetParaForPositionning_Execute
 procedure TExTextForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
-  ResultValue := Document_GetParaForPositionning_Execute;
-end;
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TExTextForm.Document_GetParaForPositionning
 
 function TExTextForm.NeedGotoNeighbours: Boolean;
+ {* Надо ли переходить на соседей блока }
 //#UC START# *4C068AB5026A_49539DBA029D_var*
 //#UC END# *4C068AB5026A_49539DBA029D_var*
 begin
@@ -4181,15 +4191,6 @@ begin
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test
 
-procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_var*
-//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_var*
-begin
-//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
- State := st_user_DocumentBlock_GetTypedCorrespondentList_InText;
-//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
-end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState
-
 procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C2AEDDA0335_49539DBA029Dexec_var*
 var
@@ -4208,6 +4209,15 @@ begin
  end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dexec_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Execute
+
+procedure TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_var*
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+ State := st_user_DocumentBlock_GetTypedCorrespondentList_InText;
+//#UC END# *4C2AEDDA0335_49539DBA029Dgetstate_impl*
+end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_GetState
 
 procedure TExTextForm.DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2AEDE7028C_49539DBA029Dtest_var*
@@ -4295,6 +4305,15 @@ begin
 //#UC END# *4C3ADF860163_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_UserCR1_Test
 
+procedure TExTextForm.DocumentBlockHeader_UserCR1_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ADF860163_49539DBA029Dexec_var*
+//#UC END# *4C3ADF860163_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ADF860163_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF860163_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR1_Execute
+
 procedure TExTextForm.DocumentBlockHeader_UserCR1_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3ADF860163_49539DBA029Dgetstate_var*
 //#UC END# *4C3ADF860163_49539DBA029Dgetstate_var*
@@ -4311,15 +4330,6 @@ begin
   State := vcm_DefaultOperationState;
 //#UC END# *4C3ADF860163_49539DBA029Dgetstate_impl*
 end;//TExTextForm.DocumentBlockHeader_UserCR1_GetState
-
-procedure TExTextForm.DocumentBlockHeader_UserCR1_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3ADF860163_49539DBA029Dexec_var*
-//#UC END# *4C3ADF860163_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3ADF860163_49539DBA029Dexec_impl*
- TnsUseDocumentSubPanelOperationEvent.Instance.Log;
-//#UC END# *4C3ADF860163_49539DBA029Dexec_impl*
-end;//TExTextForm.DocumentBlockHeader_UserCR1_Execute
 
 procedure TExTextForm.DocumentBlockHeader_UserCR2_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3ADF950028_49539DBA029Dtest_var*
@@ -4349,6 +4359,15 @@ begin
 //#UC END# *4C3ADF950028_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlockHeader_UserCR2_Test
 
+procedure TExTextForm.DocumentBlockHeader_UserCR2_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3ADF950028_49539DBA029Dexec_var*
+//#UC END# *4C3ADF950028_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3ADF950028_49539DBA029Dexec_impl*
+ TnsUseDocumentSubPanelOperationEvent.Instance.Log;
+//#UC END# *4C3ADF950028_49539DBA029Dexec_impl*
+end;//TExTextForm.DocumentBlockHeader_UserCR2_Execute
+
 procedure TExTextForm.DocumentBlockHeader_UserCR2_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3ADF950028_49539DBA029Dgetstate_var*
 //#UC END# *4C3ADF950028_49539DBA029Dgetstate_var*
@@ -4365,15 +4384,6 @@ begin
   State := vcm_DefaultOperationState;
 //#UC END# *4C3ADF950028_49539DBA029Dgetstate_impl*
 end;//TExTextForm.DocumentBlockHeader_UserCR2_GetState
-
-procedure TExTextForm.DocumentBlockHeader_UserCR2_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3ADF950028_49539DBA029Dexec_var*
-//#UC END# *4C3ADF950028_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3ADF950028_49539DBA029Dexec_impl*
- TnsUseDocumentSubPanelOperationEvent.Instance.Log;
-//#UC END# *4C3ADF950028_49539DBA029Dexec_impl*
-end;//TExTextForm.DocumentBlockHeader_UserCR2_Execute
 
 procedure TExTextForm.DocumentBlockHeader_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3ADFA5018F_49539DBA029Dtest_var*
@@ -4445,6 +4455,15 @@ begin
 //#UC END# *4C3AFAD90234_49539DBA029Dtest_impl*
 end;//TExTextForm.Text_AddToControl_Test
 
+procedure TExTextForm.Text_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_var*
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3AFAD90234_49539DBA029Dexec_impl*
+ Document_AddToControl_Execute(aParams);
+//#UC END# *4C3AFAD90234_49539DBA029Dexec_impl*
+end;//TExTextForm.Text_AddToControl_Execute
+
 procedure TExTextForm.Text_AddToControl_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3AFAD90234_49539DBA029Dgetstate_var*
 var
@@ -4463,15 +4482,6 @@ begin
   end;//try..finally
 //#UC END# *4C3AFAD90234_49539DBA029Dgetstate_impl*
 end;//TExTextForm.Text_AddToControl_GetState
-
-procedure TExTextForm.Text_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3AFAD90234_49539DBA029Dexec_var*
-//#UC END# *4C3AFAD90234_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3AFAD90234_49539DBA029Dexec_impl*
- Document_AddToControl_Execute(aParams);
-//#UC END# *4C3AFAD90234_49539DBA029Dexec_impl*
-end;//TExTextForm.Text_AddToControl_Execute
 
 procedure TExTextForm.Selection_ShowCorrespondentListToPart_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3AFB450234_49539DBA029Dtest_var*
@@ -4510,6 +4520,7 @@ begin
 end;//TExTextForm.Selection_ShowRespondentListToPart_Execute
 
 procedure TExTextForm.WarnOnControl_ClearStatusSettings_Test(const aParams: IvcmTestParamsPrim);
+ {* Способ сброса статуса "изменен" }
 //#UC START# *4C3AFBA702E4_49539DBA029Dtest_var*
 var
  l_Strings : IvcmStrings;
@@ -4533,6 +4544,7 @@ begin
 end;//TExTextForm.WarnOnControl_ClearStatusSettings_Test
 
 procedure TExTextForm.WarnOnControl_ClearStatusSettings_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Способ сброса статуса "изменен" }
 //#UC START# *4C3AFBA702E4_49539DBA029Dexec_var*
 var l_Str: Il3CString;
 //#UC END# *4C3AFBA702E4_49539DBA029Dexec_var*
@@ -4557,18 +4569,6 @@ begin
 //#UC END# *4C3AFC1302FF_49539DBA029Dtest_impl*
 end;//TExTextForm.TasksPanel_TimeMachineOnOff_Test
 
-procedure TExTextForm.TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_var*
-//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_var*
-begin
-//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
- if DefDataAdapter.TimeMachine.IsOn then
-  State := st_user_TasksPanel_TimeMachineOnOff_Off
- else
-  State := st_user_TasksPanel_TimeMachineOnOff_On;
-//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
-end;//TExTextForm.TasksPanel_TimeMachineOnOff_GetState
-
 procedure TExTextForm.TasksPanel_TimeMachineOnOff_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C3AFC1302FF_49539DBA029Dexec_var*
 var
@@ -4587,6 +4587,18 @@ begin
  end;//if DefDataAdapter.TimeMachine.IsOn then
 //#UC END# *4C3AFC1302FF_49539DBA029Dexec_impl*
 end;//TExTextForm.TasksPanel_TimeMachineOnOff_Execute
+
+procedure TExTextForm.TasksPanel_TimeMachineOnOff_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_var*
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+ if DefDataAdapter.TimeMachine.IsOn then
+  State := st_user_TasksPanel_TimeMachineOnOff_Off
+ else
+  State := st_user_TasksPanel_TimeMachineOnOff_On;
+//#UC END# *4C3AFC1302FF_49539DBA029Dgetstate_impl*
+end;//TExTextForm.TasksPanel_TimeMachineOnOff_GetState
 
 procedure TExTextForm.DocumentBlockHeader_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3B17DC02C4_49539DBA029Dtest_var*
@@ -4692,6 +4704,7 @@ begin
 end;//TExTextForm.DocumentBlockHeader_PrintDialog_Execute
 
 procedure TExTextForm.DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+ {* Установить закладку на фрагмент }
 //#UC START# *4C3B1AEA0127_49539DBA029Dtest_var*
 //#UC END# *4C3B1AEA0127_49539DBA029Dtest_var*
 begin
@@ -4702,6 +4715,7 @@ begin
 end;//TExTextForm.DocumentBlockBookmarks_AddBookmark_Test
 
 procedure TExTextForm.DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Установить закладку на фрагмент }
 //#UC START# *4C3B1AEA0127_49539DBA029Dexec_var*
 var
  l_eeSub: IeeSub;
@@ -4831,6 +4845,16 @@ begin
 //#UC END# *4C3B3754034D_49539DBA029Dtest_impl*
 end;//TExTextForm.Document_OpenContentsFrmAct_Test
 
+procedure TExTextForm.Document_OpenContentsFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B3754034D_49539DBA029Dexec_var*
+//#UC END# *4C3B3754034D_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B3754034D_49539DBA029Dexec_impl*
+ if not Op_Contents_ToggleContentsVisibility.Call(Aggregate) then
+  OpenContents(ns_comForce);
+//#UC END# *4C3B3754034D_49539DBA029Dexec_impl*
+end;//TExTextForm.Document_OpenContentsFrmAct_Execute
+
 procedure TExTextForm.Document_OpenContentsFrmAct_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3B3754034D_49539DBA029Dgetstate_var*
 //#UC END# *4C3B3754034D_49539DBA029Dgetstate_var*
@@ -4842,16 +4866,6 @@ begin
   State := vcm_DefaultOperationState;
 //#UC END# *4C3B3754034D_49539DBA029Dgetstate_impl*
 end;//TExTextForm.Document_OpenContentsFrmAct_GetState
-
-procedure TExTextForm.Document_OpenContentsFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3B3754034D_49539DBA029Dexec_var*
-//#UC END# *4C3B3754034D_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3B3754034D_49539DBA029Dexec_impl*
- if not Op_Contents_ToggleContentsVisibility.Call(Aggregate) then
-  OpenContents(ns_comForce);
-//#UC END# *4C3B3754034D_49539DBA029Dexec_impl*
-end;//TExTextForm.Document_OpenContentsFrmAct_Execute
 
 procedure TExTextForm.Document_ShowDocumentPicture_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3B3792000E_49539DBA029Dtest_var*
@@ -4958,6 +4972,18 @@ begin
 //#UC END# *4C3B500B0126_49539DBA029Dtest_impl*
 end;//TExTextForm.WarnTimeMachine_ShowInfo_Test
 
+procedure TExTextForm.WarnTimeMachine_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B500B0126_49539DBA029Dexec_var*
+//#UC END# *4C3B500B0126_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B500B0126_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cTimeMachineWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B500B0126_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnTimeMachine_ShowInfo_Execute
+
 procedure TExTextForm.WarnTimeMachine_ShowInfo_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3B500B0126_49539DBA029Dgetstate_var*
 var l_Form: IvcmEntityForm;
@@ -4972,18 +4998,6 @@ begin
 //#UC END# *4C3B500B0126_49539DBA029Dgetstate_impl*
 end;//TExTextForm.WarnTimeMachine_ShowInfo_GetState
 
-procedure TExTextForm.WarnTimeMachine_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3B500B0126_49539DBA029Dexec_var*
-//#UC END# *4C3B500B0126_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3B500B0126_49539DBA029Dexec_impl*
- ShowWarningPage(true{false{True}, cTimeMachineWarningSub);
-              // ^ - незачем ничего закрывать, если вызываем с медали
-              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
-              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
-//#UC END# *4C3B500B0126_49539DBA029Dexec_impl*
-end;//TExTextForm.WarnTimeMachine_ShowInfo_Execute
-
 procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3B504A0202_49539DBA029Dtest_var*
 //#UC END# *4C3B504A0202_49539DBA029Dtest_var*
@@ -4992,15 +5006,6 @@ begin
  // - ничего не делаем
 //#UC END# *4C3B504A0202_49539DBA029Dtest_impl*
 end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Test
-
-procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C3B504A0202_49539DBA029Dgetstate_var*
-//#UC END# *4C3B504A0202_49539DBA029Dgetstate_var*
-begin
-//#UC START# *4C3B504A0202_49539DBA029Dgetstate_impl*
- TimeMachine_TimeMachineOnOffNew_GetState(State);
-//#UC END# *4C3B504A0202_49539DBA029Dgetstate_impl*
-end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState
 
 procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C3B504A0202_49539DBA029Dexec_var*
@@ -5011,6 +5016,15 @@ begin
 //#UC END# *4C3B504A0202_49539DBA029Dexec_impl*
 end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_Execute
 
+procedure TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_var*
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C3B504A0202_49539DBA029Dgetstate_impl*
+ TimeMachine_TimeMachineOnOffNew_GetState(State);
+//#UC END# *4C3B504A0202_49539DBA029Dgetstate_impl*
+end;//TExTextForm.WarnTimeMachine_TimeMachineOnOffNew_GetState
+
 procedure TExTextForm.WarnJuror_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3B52D6021F_49539DBA029Dtest_var*
 //#UC END# *4C3B52D6021F_49539DBA029Dtest_var*
@@ -5019,6 +5033,18 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := FormIsMainInDocumentSet;
 //#UC END# *4C3B52D6021F_49539DBA029Dtest_impl*
 end;//TExTextForm.WarnJuror_ShowInfo_Test
+
+procedure TExTextForm.WarnJuror_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_var*
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3B52D6021F_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cSimpleWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C3B52D6021F_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnJuror_ShowInfo_Execute
 
 procedure TExTextForm.WarnJuror_ShowInfo_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3B52D6021F_49539DBA029Dgetstate_var*
@@ -5034,19 +5060,8 @@ begin
 //#UC END# *4C3B52D6021F_49539DBA029Dgetstate_impl*
 end;//TExTextForm.WarnJuror_ShowInfo_GetState
 
-procedure TExTextForm.WarnJuror_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3B52D6021F_49539DBA029Dexec_var*
-//#UC END# *4C3B52D6021F_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3B52D6021F_49539DBA029Dexec_impl*
- ShowWarningPage(true{false{True}, cSimpleWarningSub);
-              // ^ - незачем ничего закрывать, если вызываем с медали
-              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
-              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
-//#UC END# *4C3B52D6021F_49539DBA029Dexec_impl*
-end;//TExTextForm.WarnJuror_ShowInfo_Execute
-
 procedure TExTextForm.WarnOnControl_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать изменения }
 //#UC START# *4C3B5337022E_49539DBA029Dtest_var*
 var
  l_Controllable : IControllable;
@@ -5061,6 +5076,7 @@ begin
 end;//TExTextForm.WarnOnControl_ShowChanges_Test
 
 procedure TExTextForm.WarnOnControl_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать изменения }
 //#UC START# *4C3B5337022E_49539DBA029Dexec_var*
 //#UC END# *4C3B5337022E_49539DBA029Dexec_var*
 begin
@@ -5070,6 +5086,7 @@ begin
 end;//TExTextForm.WarnOnControl_ShowChanges_Execute
 
 procedure TExTextForm.WarnOnControl_ClearStatus_Test(const aParams: IvcmTestParamsPrim);
+ {* Сбросить статус "изменен" }
 //#UC START# *4C3B535F0064_49539DBA029Dtest_var*
 //#UC END# *4C3B535F0064_49539DBA029Dtest_var*
 begin
@@ -5079,6 +5096,7 @@ begin
 end;//TExTextForm.WarnOnControl_ClearStatus_Test
 
 procedure TExTextForm.WarnOnControl_ClearStatus_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сбросить статус "изменен" }
 //#UC START# *4C3B535F0064_49539DBA029Dexec_var*
 //#UC END# *4C3B535F0064_49539DBA029Dexec_var*
 begin
@@ -5175,6 +5193,37 @@ begin
 //#UC END# *4C3C71D20351_49539DBA029Dexec_impl*
 end;//TExTextForm.UserCommentIcon_Delete_Execute
 
+procedure TExTextForm.UserCommentIcon_HideShow_Execute(const aParams: IvcmExecuteParamsPrim);
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_var*
+var
+ l_eeSub: IeeSub;
+ l_Status: Bool;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_var*
+begin
+//#UC START# *4C3C71E4033D_49539DBA029Dexec_impl*
+ if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtMark)) then
+ begin
+  case l_eeSub.Flag of
+   1: begin
+       l_Status := not Text.ShowComments;
+       Text.ShowComments := l_Status;
+      end;//1
+   2: begin
+       l_Status := not Text.ShowUserComments;
+       Text.ShowUserComments := l_Status;
+      end;//2
+   3: begin
+       InvertVersionCommentsVisibleByUser;
+       if Text.ShowVersionComments then
+        l_eeSub.Select;
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=235868034
+      end;//3
+  end; // case l_eeSub.Flag
+ end;//Supports(aParams.Target, IeeSub, l_eeSub)
+ l_eeSub := nil;
+//#UC END# *4C3C71E4033D_49539DBA029Dexec_impl*
+end;//TExTextForm.UserCommentIcon_HideShow_Execute
+
 procedure TExTextForm.UserCommentIcon_HideShow_GetState(var State: TvcmOperationStateIndex);
 //#UC START# *4C3C71E4033D_49539DBA029Dgetstate_var*
 var
@@ -5207,37 +5256,6 @@ begin
  l_eeSub := nil;
 //#UC END# *4C3C71E4033D_49539DBA029Dgetstate_impl*
 end;//TExTextForm.UserCommentIcon_HideShow_GetState
-
-procedure TExTextForm.UserCommentIcon_HideShow_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C3C71E4033D_49539DBA029Dexec_var*
-var
- l_eeSub: IeeSub;
- l_Status: Bool;
-//#UC END# *4C3C71E4033D_49539DBA029Dexec_var*
-begin
-//#UC START# *4C3C71E4033D_49539DBA029Dexec_impl*
- if Supports(aParams.Target, IeeSub, l_eeSub) and (l_eeSub.LayerID = Ord(ev_sbtMark)) then
- begin
-  case l_eeSub.Flag of
-   1: begin
-       l_Status := not Text.ShowComments;
-       Text.ShowComments := l_Status;
-      end;//1
-   2: begin
-       l_Status := not Text.ShowUserComments;
-       Text.ShowUserComments := l_Status;
-      end;//2
-   3: begin
-       InvertVersionCommentsVisibleByUser;
-       if Text.ShowVersionComments then
-        l_eeSub.Select;
-       // http://mdp.garant.ru/pages/viewpage.action?pageId=235868034
-      end;//3
-  end; // case l_eeSub.Flag
- end;//Supports(aParams.Target, IeeSub, l_eeSub)
- l_eeSub := nil;
-//#UC END# *4C3C71E4033D_49539DBA029Dexec_impl*
-end;//TExTextForm.UserCommentIcon_HideShow_Execute
 
 procedure TExTextForm.UserComment_Delete_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3C74C603B6_49539DBA029Dtest_var*
@@ -5721,6 +5739,7 @@ begin
 end;//TExTextForm.Document_OpenSimilarDrugList_Execute
 
 procedure TExTextForm.Selection_InsertHyperlink_Test(const aParams: IvcmTestParamsPrim);
+ {* Поставить ссылку... }
 //#UC START# *4C7B96FA02DA_49539DBA029Dtest_var*
 var
  l_Hyperlink : IevHyperlink;
@@ -5773,30 +5792,8 @@ begin
 //#UC END# *4C7B96FA02DA_49539DBA029Dtest_impl*
 end;//TExTextForm.Selection_InsertHyperlink_Test
 
-procedure TExTextForm.Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_var*
-var
- l_Hyperlink : IevHyperlink;
- l_Selection : InevSelection;
-//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_var*
-begin
-//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
- State := vcm_DefaultOperationState;
- l_Selection := Text.Selection;
- if (l_Selection <> nil) AND not l_Selection.IsMulti then
- begin
-  if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
-   try
-    if (l_Hyperlink.ID > 0) then
-     State := st_user_Selection_InsertHyperlink_ModifyLink;
-   finally
-    l_Hyperlink := nil;
-   end//try..finally
- end;//(l_Selection <> nil) AND not l_Selection.IsMulti
-//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
-end;//TExTextForm.Selection_InsertHyperlink_GetState
-
 procedure TExTextForm.Selection_InsertHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить ссылку... }
 //#UC START# *4C7B96FA02DA_49539DBA029Dexec_var*
 var
  l_Caption   : TvcmStringID;
@@ -5826,7 +5823,32 @@ begin
 //#UC END# *4C7B96FA02DA_49539DBA029Dexec_impl*
 end;//TExTextForm.Selection_InsertHyperlink_Execute
 
+procedure TExTextForm.Selection_InsertHyperlink_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить ссылку... }
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_var*
+var
+ l_Hyperlink : IevHyperlink;
+ l_Selection : InevSelection;
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_var*
+begin
+//#UC START# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+ State := vcm_DefaultOperationState;
+ l_Selection := Text.Selection;
+ if (l_Selection <> nil) AND not l_Selection.IsMulti then
+ begin
+  if Supports(l_Selection, IevHyperlink, l_Hyperlink) then
+   try
+    if (l_Hyperlink.ID > 0) then
+     State := st_user_Selection_InsertHyperlink_ModifyLink;
+   finally
+    l_Hyperlink := nil;
+   end//try..finally
+ end;//(l_Selection <> nil) AND not l_Selection.IsMulti
+//#UC END# *4C7B96FA02DA_49539DBA029Dgetstate_impl*
+end;//TExTextForm.Selection_InsertHyperlink_GetState
+
 procedure TExTextForm.WarnRedaction_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать текст предупреждения }
 //#UC START# *4C7D354603D3_49539DBA029Dtest_var*
 //#UC END# *4C7D354603D3_49539DBA029Dtest_var*
 begin
@@ -5835,7 +5857,21 @@ begin
 //#UC END# *4C7D354603D3_49539DBA029Dtest_impl*
 end;//TExTextForm.WarnRedaction_ShowInfo_Test
 
+procedure TExTextForm.WarnRedaction_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать текст предупреждения }
+//#UC START# *4C7D354603D3_49539DBA029Dexec_var*
+//#UC END# *4C7D354603D3_49539DBA029Dexec_var*
+begin
+//#UC START# *4C7D354603D3_49539DBA029Dexec_impl*
+ ShowWarningPage(true{false{True}, cEditionWarningSub);
+              // ^ - незачем ничего закрывать, если вызываем с медали
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
+              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
+//#UC END# *4C7D354603D3_49539DBA029Dexec_impl*
+end;//TExTextForm.WarnRedaction_ShowInfo_Execute
+
 procedure TExTextForm.WarnRedaction_ShowInfo_GetState(var State: TvcmOperationStateIndex);
+ {* Показать текст предупреждения }
 //#UC START# *4C7D354603D3_49539DBA029Dgetstate_var*
 var l_Form: IvcmEntityForm;
 //#UC END# *4C7D354603D3_49539DBA029Dgetstate_var*
@@ -5848,18 +5884,6 @@ begin
   State := vcm_DefaultOperationState;
 //#UC END# *4C7D354603D3_49539DBA029Dgetstate_impl*
 end;//TExTextForm.WarnRedaction_ShowInfo_GetState
-
-procedure TExTextForm.WarnRedaction_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C7D354603D3_49539DBA029Dexec_var*
-//#UC END# *4C7D354603D3_49539DBA029Dexec_var*
-begin
-//#UC START# *4C7D354603D3_49539DBA029Dexec_impl*
- ShowWarningPage(true{false{True}, cEditionWarningSub);
-              // ^ - незачем ничего закрывать, если вызываем с медали
-              // http://mdp.garant.ru/pages/viewpage.action?pageId=266898633&focusedCommentId=285508953#comment-285508953
-              // А вот и есть "зачем" - http://mdp.garant.ru/pages/viewpage.action?pageId=287219564
-//#UC END# *4C7D354603D3_49539DBA029Dexec_impl*
-end;//TExTextForm.WarnRedaction_ShowInfo_Execute
 
 procedure TExTextForm.DocumentBlock_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C879306001C_49539DBA029Dtest_var*
@@ -5898,6 +5922,7 @@ begin
 end;//TExTextForm.DocumentBlock_Select_Execute
 
 procedure TExTextForm.Document_ViewChangedFragments_Test(const aParams: IvcmTestParamsPrim);
+ {* Обзор изменений документа }
 //#UC START# *4DDCBABC03B7_49539DBA029Dtest_var*
 //#UC END# *4DDCBABC03B7_49539DBA029Dtest_var*
 begin
@@ -5907,6 +5932,7 @@ begin
 end;//TExTextForm.Document_ViewChangedFragments_Test
 
 procedure TExTextForm.Document_ViewChangedFragments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Обзор изменений документа }
 //#UC START# *4DDCBABC03B7_49539DBA029Dexec_var*
 //#UC END# *4DDCBABC03B7_49539DBA029Dexec_var*
 begin
@@ -5926,8 +5952,8 @@ end;//TExTextForm.DocumentSubPanel_UpdateSubPanel_Execute
 
 procedure TExTextForm.DocumentSubPanel_UpdateSubPanel(const aParams: IvcmExecuteParams);
 begin
- DocumentSubPanel_UpdateSubPanel_Execute;
-end;
+ Self.DocumentSubPanel_UpdateSubPanel_Execute;
+end;//TExTextForm.DocumentSubPanel_UpdateSubPanel
 
 procedure TExTextForm.IntranetSourcePoint_GoToIntranet_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4F184B42019E_49539DBA029Dexec_var*
@@ -5939,6 +5965,7 @@ begin
 end;//TExTextForm.IntranetSourcePoint_GoToIntranet_Execute
 
 procedure TExTextForm.Picture_Open_Test(const aParams: IvcmTestParamsPrim);
+ {* Открыть в текущем окне }
 //#UC START# *4F672A7903C1_49539DBA029Dtest_var*
 //#UC END# *4F672A7903C1_49539DBA029Dtest_var*
 begin
@@ -5948,6 +5975,7 @@ begin
 end;//TExTextForm.Picture_Open_Test
 
 procedure TExTextForm.Picture_Open_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в текущем окне }
 //#UC START# *4F672A7903C1_49539DBA029Dexec_var*
 var
  l_EP : IeePara;
@@ -5962,6 +5990,7 @@ begin
 end;//TExTextForm.Picture_Open_Execute
 
 procedure TExTextForm.Picture_OpenNewWindow_Test(const aParams: IvcmTestParamsPrim);
+ {* Открыть в новом окне }
 //#UC START# *4F672A9C0083_49539DBA029Dtest_var*
 //#UC END# *4F672A9C0083_49539DBA029Dtest_var*
 begin
@@ -5971,6 +6000,7 @@ begin
 end;//TExTextForm.Picture_OpenNewWindow_Test
 
 procedure TExTextForm.Picture_OpenNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в новом окне }
 //#UC START# *4F672A9C0083_49539DBA029Dexec_var*
 var
  l_EP : IeePara;
@@ -5997,8 +6027,8 @@ end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute
 procedure TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params) do
-  ResultValue := BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute;
-end;
+  ResultValue := Self.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute;
+end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation
 
 procedure TExTextForm.Text_SelectWord_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *528777B1010F_49539DBA029Dtest_var*
@@ -6040,8 +6070,8 @@ begin
 end;//TExTextForm.Text_SelectPara_Execute
 
 procedure TExTextForm.OpenRedactionGlobalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *53A303BE03A8_49539DBA029D_var*
 
  function lp_GetDocumentRedactionID(const aDoc: IDocument): TRedactionID;
@@ -6192,6 +6222,7 @@ begin
 end;//TExTextForm.OpenRedactionGlobalLink
 
 procedure TExTextForm.Picture_OpenNewTab_Test(const aParams: IvcmTestParamsPrim);
+ {* Открыть в новой вкладке }
 //#UC START# *53DF276802DD_49539DBA029Dtest_var*
 //#UC END# *53DF276802DD_49539DBA029Dtest_var*
 begin
@@ -6201,6 +6232,7 @@ begin
 end;//TExTextForm.Picture_OpenNewTab_Test
 
 procedure TExTextForm.Picture_OpenNewTab_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Открыть в новой вкладке }
 //#UC START# *53DF276802DD_49539DBA029Dexec_var*
 var
  l_EP : IeePara;
@@ -6246,8 +6278,8 @@ end;//TExTextForm.Document_CommonDocumentOpenNewTab_Execute
 procedure TExTextForm.Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_CommonDocumentOpenNewTab_Params) do
-  Document_CommonDocumentOpenNewTab_Execute(UserType);
-end;
+  Self.Document_CommonDocumentOpenNewTab_Execute(UserType);
+end;//TExTextForm.Document_CommonDocumentOpenNewTab
 
 procedure TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *5587AA310201_49539DBA029Dtest_var*
@@ -6277,6 +6309,7 @@ begin
 end;//TExTextForm.DocumentBlock_GetSimilarDocsToBlock_Execute
 
 procedure TExTextForm.DftDrugSynchroViewQueryOpen(aSender: TObject);
+ {* Обработчик события dftDrugSynchroView.OnQueryOpen }
 //#UC START# *664D52829DD3_49539DBA029D_var*
 //#UC END# *664D52829DD3_49539DBA029D_var*
 begin
@@ -6287,6 +6320,7 @@ begin
 end;//TExTextForm.DftDrugSynchroViewQueryOpen
 
 procedure TExTextForm.DftDictSubEntryQueryClose(aSender: TObject);
+ {* Обработчик события dftDictSubEntry.OnQueryClose }
 //#UC START# *701BC3512B2B_49539DBA029D_var*
 //#UC END# *701BC3512B2B_49539DBA029D_var*
 begin
@@ -6296,6 +6330,7 @@ begin
 end;//TExTextForm.DftDictSubEntryQueryClose
 
 procedure TExTextForm.DftTranslationQueryClose(aSender: TObject);
+ {* Обработчик события dftTranslation.OnQueryClose }
 //#UC START# *7401AD950C39_49539DBA029D_var*
 //#UC END# *7401AD950C39_49539DBA029D_var*
 begin
@@ -6305,6 +6340,7 @@ begin
 end;//TExTextForm.DftTranslationQueryClose
 
 procedure TExTextForm.DftChronologyQueryClose(aSender: TObject);
+ {* Обработчик события dftChronology.OnQueryClose }
 //#UC START# *8418208BCCA0_49539DBA029D_var*
 //#UC END# *8418208BCCA0_49539DBA029D_var*
 begin
@@ -6314,6 +6350,7 @@ begin
 end;//TExTextForm.DftChronologyQueryClose
 
 procedure TExTextForm.DftDrugSynchroViewQueryMaximized(aSender: TObject);
+ {* Обработчик события dftDrugSynchroView.OnQueryMaximized }
 //#UC START# *8A8A353C1A57_49539DBA029D_var*
 //#UC END# *8A8A353C1A57_49539DBA029D_var*
 begin
@@ -6324,6 +6361,7 @@ begin
 end;//TExTextForm.DftDrugSynchroViewQueryMaximized
 
 procedure TExTextForm.DftAnnotationQueryClose(aSender: TObject);
+ {* Обработчик события dftAnnotation.OnQueryClose }
 //#UC START# *918005C1AFE3_49539DBA029D_var*
 //#UC END# *918005C1AFE3_49539DBA029D_var*
 begin
@@ -6333,6 +6371,7 @@ begin
 end;//TExTextForm.DftAnnotationQueryClose
 
 procedure TExTextForm.DftDocSynchroViewQueryMaximized(aSender: TObject);
+ {* Обработчик события dftDocSynchroView.OnQueryMaximized }
 //#UC START# *931EEB23421A_49539DBA029D_var*
 //#UC END# *931EEB23421A_49539DBA029D_var*
 begin
@@ -6343,6 +6382,7 @@ begin
 end;//TExTextForm.DftDocSynchroViewQueryMaximized
 
 procedure TExTextForm.DftRelatedDocQueryClose(aSender: TObject);
+ {* Обработчик события dftRelatedDoc.OnQueryClose }
 //#UC START# *A2BF852CD6C7_49539DBA029D_var*
 //#UC END# *A2BF852CD6C7_49539DBA029D_var*
 begin
@@ -6352,6 +6392,7 @@ begin
 end;//TExTextForm.DftRelatedDocQueryClose
 
 procedure TExTextForm.DftTranslationQueryOpen(aSender: TObject);
+ {* Обработчик события dftTranslation.OnQueryOpen }
 //#UC START# *AF0C9051AEEF_49539DBA029D_var*
 //#UC END# *AF0C9051AEEF_49539DBA029D_var*
 begin
@@ -6362,6 +6403,7 @@ begin
 end;//TExTextForm.DftTranslationQueryOpen
 
 procedure TExTextForm.DftDocSynchroViewQueryOpen(aSender: TObject);
+ {* Обработчик события dftDocSynchroView.OnQueryOpen }
 //#UC START# *BB5471A3EA8E_49539DBA029D_var*
 //#UC END# *BB5471A3EA8E_49539DBA029D_var*
 begin
@@ -6372,6 +6414,7 @@ begin
 end;//TExTextForm.DftDocSynchroViewQueryOpen
 
 procedure TExTextForm.DftMedicFirmSynchroViewQueryOpen(aSender: TObject);
+ {* Обработчик события dftMedicFirmSynchroView.OnQueryOpen }
 //#UC START# *FD0B95191C1E_49539DBA029D_var*
 //#UC END# *FD0B95191C1E_49539DBA029D_var*
 begin
@@ -6381,7 +6424,7 @@ begin
 //#UC END# *FD0B95191C1E_49539DBA029D_impl*
 end;//TExTextForm.DftMedicFirmSynchroViewQueryOpen
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TExTextForm.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_49539DBA029D_var*
 //#UC END# *47E136A80191_49539DBA029D_var*
@@ -6393,7 +6436,7 @@ begin
   inherited WndProc(Message);
 //#UC END# *47E136A80191_49539DBA029D_impl*
 end;//TExTextForm.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TExTextForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_49539DBA029D_var*
@@ -6417,6 +6460,7 @@ begin
 end;//TExTextForm.FinishDataUpdate
 
 function TExTextForm.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
+ {* Обработчик изменения указанной настройки }
 //#UC START# *47EA863A035C_49539DBA029D_var*
 //#UC END# *47EA863A035C_49539DBA029D_var*
 begin
@@ -6473,6 +6517,7 @@ begin
 end;//TExTextForm.SettingsReplaceFinish
 
 procedure TExTextForm.UserSettingsChanged;
+ {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_49539DBA029D_var*
 //#UC END# *4958BE910345_49539DBA029D_var*
 begin
@@ -6482,9 +6527,10 @@ begin
 //#UC END# *4958BE910345_49539DBA029D_impl*
 end;//TExTextForm.UserSettingsChanged
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_49539DBA029D_var*
 
  procedure lp_CheckBaseSearchArea;
@@ -6531,10 +6577,11 @@ begin
                                             // http://mdp.garant.ru/pages/viewpage.action?pageId=401506914
 //#UC END# *497469C90140_49539DBA029D_impl*
 end;//TExTextForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49539DBA029D_var*
 //#UC END# *49803F5503AA_49539DBA029D_var*
 begin
@@ -6557,12 +6604,13 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=290953654
 //#UC END# *49803F5503AA_49539DBA029D_impl*
 end;//TExTextForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_49539DBA029D_var*
 var
  l_InnerState: IvcmBase;
@@ -6579,11 +6627,12 @@ begin
  theState := l_State;
 //#UC END# *49806ED503D5_49539DBA029D_impl*
 end;//TExTextForm.DoSaveState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_49539DBA029D_var*
 var
  l_State: IExTextFormState;
@@ -6613,9 +6662,10 @@ begin
  end;
 //#UC END# *49807428008C_49539DBA029D_impl*
 end;//TExTextForm.DoLoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.CanAddToControl: Boolean;
+ {* Можно ли поставить на контроль }
 //#UC START# *4988675A0308_49539DBA029D_var*
 //#UC END# *4988675A0308_49539DBA029D_var*
 begin
@@ -6624,8 +6674,9 @@ begin
 //#UC END# *4988675A0308_49539DBA029D_impl*
 end;//TExTextForm.CanAddToControl
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.SetPositionByDS;
+ {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
 //#UC START# *498953170108_49539DBA029D_var*
 //#UC END# *498953170108_49539DBA029D_var*
 begin
@@ -6634,11 +6685,11 @@ begin
  ChangePositionByDataSource;
 //#UC END# *498953170108_49539DBA029D_impl*
 end;//TExTextForm.SetPositionByDS
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.DoMakeLinkDocInfo(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal): IdeDocInfo;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal): IdeDocInfo;
 //#UC START# *4A815FB3005D_49539DBA029D_var*
 //#UC END# *4A815FB3005D_49539DBA029D_var*
 begin
@@ -6649,9 +6700,10 @@ begin
 end;//TExTextForm.DoMakeLinkDocInfo
 
 function TExTextForm.DoProcessLocalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ {* Обработка локальных ссылок }
 //#UC START# *4A8160720125_49539DBA029D_var*
 //#UC END# *4A8160720125_49539DBA029D_var*
 begin
@@ -6675,8 +6727,9 @@ begin
 //#UC END# *4A8160720125_49539DBA029D_impl*
 end;//TExTextForm.DoProcessLocalLink
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.NeedDrawCaption: Boolean;
+ {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_49539DBA029D_var*
 //#UC END# *4A84183701B9_49539DBA029D_var*
 begin
@@ -6687,9 +6740,10 @@ begin
                              dftAACContentsRight]);
 //#UC END# *4A84183701B9_49539DBA029D_impl*
 end;//TExTextForm.NeedDrawCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.NeedsStatusBarItems: Boolean;
+ {* Определяет, что операции в статусной строке таки надо публиковать }
 //#UC START# *4A8E5CEC021F_49539DBA029D_var*
 //#UC END# *4A8E5CEC021F_49539DBA029D_var*
 begin
@@ -6698,8 +6752,9 @@ begin
 //#UC END# *4A8E5CEC021F_49539DBA029D_impl*
 end;//TExTextForm.NeedsStatusBarItems
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_49539DBA029D_var*
 //#UC END# *4A8E8F2E0195_49539DBA029D_var*
 begin
@@ -6718,7 +6773,7 @@ begin
  Text.OnZOrderChanging := Self.DoTextZOrderChanging;
 //#UC END# *4A8E8F2E0195_49539DBA029D_impl*
 end;//TExTextForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.VersionCommentsVisibleInvertedByUser(NewState: Boolean);
 //#UC START# *4AAA150A0244_49539DBA029D_var*
@@ -6729,9 +6784,10 @@ begin
 //#UC END# *4AAA150A0244_49539DBA029D_impl*
 end;//TExTextForm.VersionCommentsVisibleInvertedByUser
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetTabInfo(out theCaption: Il3CString;
-  out theItemIndex: Integer): Boolean;
+ out theItemIndex: Integer): Boolean;
+ {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
 //#UC START# *4AC497FD00A2_49539DBA029D_var*
 //#UC END# *4AC497FD00A2_49539DBA029D_var*
 begin
@@ -6761,9 +6817,9 @@ begin
  end;//UserType in..
 //#UC END# *4AC497FD00A2_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabInfo
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.NeedSetMyFocus: Boolean;
 //#UC START# *4B4F13E80365_49539DBA029D_var*
 //#UC END# *4B4F13E80365_49539DBA029D_var*
@@ -6783,7 +6839,7 @@ begin
  end;//Case UserType
 //#UC END# *4B4F13E80365_49539DBA029D_impl*
 end;//TExTextForm.NeedSetMyFocus
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.DoDocumentShowTechCommentsExecute;
 //#UC START# *4C8DCD3B015C_49539DBA029D_var*
@@ -6837,7 +6893,7 @@ begin
 //#UC END# *4CE41B300315_49539DBA029Dget_impl*
 end;//TExTextForm.pm_GetHyperlinkSubID
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_49539DBA029D_var*
 const
@@ -6887,9 +6943,10 @@ begin
  end;
 //#UC END# *4D78E2BB0211_49539DBA029D_impl*
 end;//TExTextForm.NotifyUserTypeSet
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TExTextForm.DoSetHyperlinkCallStatus(aValue: Boolean);
+ {* Выставляет флаг, определяющий произведенный переход по ссылке }
 //#UC START# *4F382E2D01C1_49539DBA029D_var*
 //#UC END# *4F382E2D01C1_49539DBA029D_var*
 begin
@@ -6898,7 +6955,7 @@ begin
 //#UC END# *4F382E2D01C1_49539DBA029D_impl*
 end;//TExTextForm.DoSetHyperlinkCallStatus
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_49539DBA029D_var*
 var
@@ -6918,9 +6975,9 @@ begin
  end;//UserType in [dftAACRight, dftAACLeft]
 //#UC END# *4F7C65380244_49539DBA029D_impl*
 end;//TExTextForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.BecomeVisible;
 //#UC START# *4F7C808A0349_49539DBA029D_var*
 //#UC END# *4F7C808A0349_49539DBA029D_var*
@@ -6930,21 +6987,9 @@ begin
  SetFocusToTextInAAC;
 //#UC END# *4F7C808A0349_49539DBA029D_impl*
 end;//TExTextForm.BecomeVisible
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_ControlMap := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_RecallCreateTOCTree := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TExTextForm.ClearFields
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.GetIsMainObjectForm: Boolean;
 //#UC START# *501174B10018_49539DBA029D_var*
 //#UC END# *501174B10018_49539DBA029D_var*
@@ -6962,7 +7007,7 @@ begin
  end;//Case UserType
 //#UC END# *501174B10018_49539DBA029D_impl*
 end;//TExTextForm.GetIsMainObjectForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TExTextForm.GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour;
 //#UC START# *53A95A1A0073_49539DBA029D_var*
@@ -6977,7 +7022,7 @@ begin
 end;//TExTextForm.GetBehaviourFromEffects
 
 function TExTextForm.GetDocumentShortName(const aDoc: IDocument;
-  aExportSelection: Boolean): Il3CString;
+ aExportSelection: Boolean): Il3CString;
 //#UC START# *53D8E4B702E4_49539DBA029D_var*
 //#UC END# *53D8E4B702E4_49539DBA029D_var*
 begin
@@ -6992,7 +7037,7 @@ begin
 //#UC END# *53D8E4B702E4_49539DBA029D_impl*
 end;//TExTextForm.GetDocumentShortName
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_49539DBA029D_var*
 //#UC END# *53F1C6EF02C9_49539DBA029D_var*
@@ -7001,9 +7046,9 @@ begin
  Result := f_TabCaption;
 //#UC END# *53F1C6EF02C9_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetFormSetTabCaption: IvcmCString;
 //#UC START# *54058CBC0182_49539DBA029D_var*
 //#UC END# *54058CBC0182_49539DBA029D_var*
@@ -7012,9 +7057,9 @@ begin
  Result := DoGetTabCaption
 //#UC END# *54058CBC0182_49539DBA029D_impl*
 end;//TExTextForm.DoGetFormSetTabCaption
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_49539DBA029D_var*
 //#UC END# *543E3AA801D0_49539DBA029D_var*
@@ -7036,9 +7081,9 @@ begin
   Result := NsTabIconIndex(titDocumentNormal);
 //#UC END# *543E3AA801D0_49539DBA029D_impl*
 end;//TExTextForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TExTextForm.DoGetCanDefineFormSetIcon: Boolean;
 //#UC START# *544609B9032D_49539DBA029D_var*
 //#UC END# *544609B9032D_49539DBA029D_var*
@@ -7047,7 +7092,7 @@ begin
  Result := (UserType <> dftMedicFirmSynchroView);
 //#UC END# *544609B9032D_49539DBA029D_impl*
 end;//TExTextForm.DoGetCanDefineFormSetIcon
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TExTextForm.AfterOpenHyperlinkInNewTab;
 //#UC START# *544E049F00F7_49539DBA029D_var*
@@ -7093,7 +7138,7 @@ begin
 //#UC END# *54EED7DF0249_49539DBA029D_impl*
 end;//TExTextForm.NeedSaveInWorkJournal
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextForm.DoGetNeedAddFormToTasksPanel: Boolean;
 //#UC START# *54F458DD01CE_49539DBA029D_var*
 //#UC END# *54F458DD01CE_49539DBA029D_var*
@@ -7103,13 +7148,21 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=588809860
 //#UC END# *54F458DD01CE_49539DBA029D_impl*
 end;//TExTextForm.DoGetNeedAddFormToTasksPanel
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TExTextForm.ClearFields;
+begin
+ f_ControlMap := nil;
+ f_RecallCreateTOCTree := nil;
+ inherited;
+end;//TExTextForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TExTextForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   DocumentWithContents := nil;
   DictionDocument := nil;
@@ -7118,20 +7171,24 @@ begin
   Consultation := nil;
   dsConsultation := nil;
   AAC := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IucbDocumentWithContents, DocumentWithContents);
-  Supports(aDsNew, IdsDictionDocument, DictionDocument);
-  Supports(aDsNew, IdsMedicFirmDocument, MedicFirmDocument);
-  Supports(aDsNew, IdsDrugDocument, DrugDocument);
-  aDsNew.CastUCC(IsdsConsultation, Consultation);
-  Supports(aDsNew, IdsConsultation, dsConsultation);
-  aDsNew.CastUCC(IsdsAAC, AAC);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IucbDocumentWithContents, DocumentWithContents);
+  Supports(aNew, IdsDictionDocument, DictionDocument);
+  Supports(aNew, IdsMedicFirmDocument, MedicFirmDocument);
+  Supports(aNew, IdsDrugDocument, DrugDocument);
+  aNew.CastUCC(IsdsConsultation, Consultation);
+  Supports(aNew, IdsConsultation, dsConsultation);
+  aNew.CastUCC(IsdsAAC, AAC);
+ end;//aNew = nil
+end;//TExTextForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -7239,11 +7296,11 @@ begin
   PublishOp(en_Document, op_OpenContentsFrmAct, Document_OpenContentsFrmAct_Execute, Document_OpenContentsFrmAct_Test, Document_OpenContentsFrmAct_GetState);
   PublishOp(en_Document, op_ShowDocumentPicture, Document_ShowDocumentPicture_Execute, Document_ShowDocumentPicture_Test, nil);
   PublishOp(en_ExternalObject, op_Open, ExternalObject_Open_Execute, ExternalObject_Open_Test, nil);
-  ShowInContextMenu(en_ExternalObject, op_Open, true);
-  ShowInToolbar(en_ExternalObject, op_Open, false);
+  ShowInContextMenu(en_ExternalObject, op_Open, True);
+  ShowInToolbar(en_ExternalObject, op_Open, False);
   PublishOp(en_ExternalObject, op_Save, ExternalObject_Save_Execute, ExternalObject_Save_Test, nil);
-  ShowInContextMenu(en_ExternalObject, op_Save, true);
-  ShowInToolbar(en_ExternalObject, op_Save, false);
+  ShowInContextMenu(en_ExternalObject, op_Save, True);
+  ShowInToolbar(en_ExternalObject, op_Save, False);
   PublishOp(en_WarnRedaction, op_OpenActualRedaction, WarnRedaction_OpenActualRedaction_Execute, WarnRedaction_OpenActualRedaction_Test, nil, true);
   ContextMenuWeight(en_WarnRedaction, op_OpenActualRedaction, 1, true);
   PublishOp(en_WarnTimeMachine, op_ShowInfo, WarnTimeMachine_ShowInfo_Execute, WarnTimeMachine_ShowInfo_Test, WarnTimeMachine_ShowInfo_GetState);
@@ -7274,18 +7331,18 @@ begin
   PublishOp(en_Selection, op_InsertHyperlink, Selection_InsertHyperlink_Execute, Selection_InsertHyperlink_Test, Selection_InsertHyperlink_GetState, true);
   PublishOp(en_WarnRedaction, op_ShowInfo, WarnRedaction_ShowInfo_Execute, WarnRedaction_ShowInfo_Test, WarnRedaction_ShowInfo_GetState, true);
   PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
-  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, true);
-  ShowInToolbar(en_DocumentBlock, op_PrintPreview, false);
+  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintPreview, False);
   PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
-  ShowInContextMenu(en_DocumentBlock, op_Select, true);
-  ShowInToolbar(en_DocumentBlock, op_Select, false);
+  ShowInContextMenu(en_DocumentBlock, op_Select, True);
+  ShowInToolbar(en_DocumentBlock, op_Select, False);
   PublishOp(en_Document, op_ViewChangedFragments, Document_ViewChangedFragments_Execute, Document_ViewChangedFragments_Test, nil);
-  ShowInContextMenu(en_Document, op_ViewChangedFragments, false);
-  ShowInToolbar(en_Document, op_ViewChangedFragments, true);
+  ShowInContextMenu(en_Document, op_ViewChangedFragments, False);
+  ShowInToolbar(en_Document, op_ViewChangedFragments, True);
   PublishOpWithResult(en_DocumentSubPanel, op_UpdateSubPanel, DocumentSubPanel_UpdateSubPanel, nil, nil);
   PublishOp(en_IntranetSourcePoint, op_GoToIntranet, IntranetSourcePoint_GoToIntranet_Execute, nil, nil);
-  ShowInContextMenu(en_IntranetSourcePoint, op_GoToIntranet, false);
-  ShowInToolbar(en_IntranetSourcePoint, op_GoToIntranet, false);
+  ShowInContextMenu(en_IntranetSourcePoint, op_GoToIntranet, False);
+  ShowInToolbar(en_IntranetSourcePoint, op_GoToIntranet, False);
   PublishOp(en_Picture, op_Open, Picture_Open_Execute, Picture_Open_Test, nil);
   ContextMenuWeight(en_Picture, op_Open, 5);
   PublishOp(en_Picture, op_OpenNewWindow, Picture_OpenNewWindow_Execute, Picture_OpenNewWindow_Test, nil);
@@ -7294,1144 +7351,1082 @@ begin
   PublishOp(en_Text, op_SelectWord, Text_SelectWord_Execute, Text_SelectWord_Test, nil);
   PublishOp(en_Text, op_SelectPara, Text_SelectPara_Execute, Text_SelectPara_Test, nil);
   PublishOp(en_Picture, op_OpenNewTab, Picture_OpenNewTab_Execute, Picture_OpenNewTab_Test, nil);
-  ShowInContextMenu(en_Picture, op_OpenNewTab, true);
+  ShowInContextMenu(en_Picture, op_OpenNewTab, True);
   ContextMenuWeight(en_Picture, op_OpenNewTab, 10);
   PublishOpWithResult(en_Document, op_CommonDocumentOpenNewTab, Document_CommonDocumentOpenNewTab, nil, nil);
-  PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);{$If not defined(NoVCM)}
-  
+  PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
   ContextMenuWeight(en_Edit, op_Copy, -2);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
   ContextMenuWeight(en_Edit, op_Paste, -1);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftTipsName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftAutoreferatName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftRelatedDocName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftAnnotationName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftDictSubEntryName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftConsultationName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftTranslationName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftChronologyName, en_File, op_SaveToFolder, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftRelatedDocName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftAnnotationName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftDictSubEntryName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftConsultationName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftTranslationName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftChronologyName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_File, op_LoadFromFolder, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_File, op_LoadFromFolder, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Paste, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Undo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Redo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Edit, op_Paste, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Edit, op_Undo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Edit, op_Redo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Paste, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Undo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Redo, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Edit, op_Cut, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(dftConsultationName, en_Document, op_AttributesCanBeClosed, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_CommonDocumentOpenNewWindow, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_FindExplanation, false);
- AddUserTypeExclude(dftConsultationName, en_Selection, op_FindInDict, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_SetPosition, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ModifyBookmarkNotify, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_OpenNotSureTopic, false);
- AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Open, false);
- AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Save, false);
- AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_OpenActualRedaction, true);
- AddUserTypeExclude(dftConsultationName, en_WarnTimeMachine, op_ShowInfo, false);
- AddUserTypeExclude(dftConsultationName, en_WarnJuror, op_ShowInfo, true);
- AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ShowChanges, false);
- AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatus, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Table, op_Insert, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Table, op_InsertRow, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteRow, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Table, op_InsertColumn, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteColumn, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Font, op_Bold, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Font, op_Italic, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Font, op_Underline, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftConsultationName, en_Font, op_Strikeout, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(dftConsultationName, en_Selection, op_InsertHyperlink, true);
- AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_ShowInfo, true);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindContext, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindNext, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindPrev, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindContext, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindNext, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindPrev, false);
- {$IfEnd} //not NoVCM
- AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_HideShow, false);
- AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_HideShow, false);
- AddUserTypeExclude(dftDictEntryName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftTipsName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftDrugName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_RedactionOnID, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowJurorComments, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowVersionComments, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowTechComments, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowUserComments, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowUserComments, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ShowUserComments, false);
- AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Delete, false);
- AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Edit, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserCommentIcon, op_Delete, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserComment, op_Delete, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddUserComment, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_HyperLink, op_Delete, true);
- AddUserTypeExclude(dftAutoreferatName, en_UserCommentIcon, op_Delete, false);
- AddUserTypeExclude(dftAutoreferatName, en_UserComment, op_Delete, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddUserComment, false);
- AddUserTypeExclude(dftAutoreferatName, en_HyperLink, op_Delete, true);
- AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_Delete, false);
- AddUserTypeExclude(dftConsultationName, en_UserComment, op_Delete, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_AddUserComment, false);
- AddUserTypeExclude(dftConsultationName, en_HyperLink, op_Delete, true);
- AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_Delete, false);
- AddUserTypeExclude(dftTipsName, en_UserComment, op_Delete, false);
- AddUserTypeExclude(dftTipsName, en_Text, op_AddUserComment, false);
- AddUserTypeExclude(dftTipsName, en_HyperLink, op_Delete, true);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_InsertHyperlink, true);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_InsertHyperlink, true);
- AddUserTypeExclude(dftTipsName, en_Selection, op_InsertHyperlink, true);
- AddUserTypeExclude(dftAutoreferatName, en_Selection, op_InsertHyperlink, true);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GotoBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmark, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddBookmark, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowCommentsGroup, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCommentsGroup, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_CompareEditions, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Text, op_EditBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Text, op_DeleteBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_EditBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_DeleteBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_EditBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_DeleteBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_AddBookmark, false);
- AddUserTypeExclude(dftTipsName, en_Text, op_EditBookmark, false);
- AddUserTypeExclude(dftTipsName, en_Text, op_DeleteBookmark, false);
- AddUserTypeExclude(dftTipsName, en_Text, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_EditBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_DeleteBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_OpenNewWindow, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_OpenNewWindow, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_OpenNewWindow, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOffAndReset, false);
- AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftDictEntryName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftAnnotationName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftConsultationName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftTranslationName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftTipsName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftDrugName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftChronologyName, en_Redactions, op_ActualRedaction, false);
- AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOffNew, false);
- AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftDrugName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Redactions, op_OpenRedactionListFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_GetAnnotationDocFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_SimilarDocuments, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR1, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR2, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftDictEntryName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftAnnotationName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftConsultationName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftTranslationName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftTipsName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftDrugName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftChronologyName, en_Redactions, op_PrevRedaction, false);
- AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftDictEntryName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftAnnotationName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftConsultationName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftTranslationName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftTipsName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftDrugName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftChronologyName, en_Redactions, op_NextRedaction, false);
- AddUserTypeExclude(dftRelatedDocName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftDictEntryName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftAnnotationName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftConsultationName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftTranslationName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftTipsName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftDrugName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftMedicFirmName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftChronologyName, en_Text, op_AddToControl, false);
- AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftTipsName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftDrugName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowCorrespondentListToPart, false);
- AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftTipsName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftDrugName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowRespondentListToPart, false);
- AddUserTypeExclude(dftRelatedDocName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftDictEntryName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftDictSubEntryName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftAnnotationName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftTranslationName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftTipsName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftMedDictEntryName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftAutoreferatName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftDrugName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftMedicFirmName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftChronologyName, en_WarnOnControl, op_ClearStatusSettings, false);
- AddUserTypeExclude(dftRelatedDocName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDictEntryName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDictSubEntryName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAnnotationName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftConsultationName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftTranslationName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftTipsName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedDictEntryName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftAutoreferatName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDrugName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedicFirmName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftChronologyName, en_TasksPanel, op_TimeMachineOnOff, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_AddBookmark, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_ToMSWord, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_Print, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_PrintDialog, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_OpenContentsFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_ShowDocumentPicture, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetGraphicImage, false);
- AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenWindow, true);
- AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenNewWindow, true);
- AddUserTypeExclude(dftNoneName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftDocumentName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAACRightName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_DictListOpenFrmAct, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_AddBookmarkFromContents, false);
- AddUserTypeExclude(dftNoneName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftDocumentName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAACRightName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_LiteratureListForDictionary, false);
- AddUserTypeExclude(dftNoneName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDocumentName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDrugName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAACRightName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_OpenProducedDrugList, false);
- AddUserTypeExclude(dftNoneName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftDocumentName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftConsultationName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftTranslationName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftTipsName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAACRightName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftChronologyName, en_Document, op_OpenSimilarDrugList, false);
- AddUserTypeExclude(dftNoneName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDocumentName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftRelatedDocName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDocSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftRelatedSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDictSubEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAnnotationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAutoreferatAfterSearchName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftConsultationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftTranslationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAnnotationSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftTipsName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftMedDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAutoreferatName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDrugName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftMedicFirmName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftMedicFirmSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftDrugSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAACRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAACContentsLeftName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftAACContentsRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
- AddUserTypeExclude(dftChronologyName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, false);
-end;
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftTipsName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftAutoreferatName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftRelatedDocName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftAnnotationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftConsultationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftTranslationName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftChronologyName, en_File, op_SaveToFolder, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftRelatedDocName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAnnotationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftConsultationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftTranslationName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftChronologyName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_File, op_LoadFromFolder, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Paste, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Undo, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Edit, op_Redo, False);
+ AddUserTypeExclude(dftConsultationName, en_Edit, op_Cut, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AttributesCanBeClosed, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_CommonDocumentOpenNewWindow, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_FindExplanation, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_FindInDict, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_SetPosition, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ModifyBookmarkNotify, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenNotSureTopic, False);
+ AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Open, False);
+ AddUserTypeExclude(dftConsultationName, en_ExternalObject, op_Save, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_OpenActualRedaction, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnTimeMachine, op_ShowInfo, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnJuror, op_ShowInfo, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ShowChanges, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatus, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_Insert, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_InsertRow, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteRow, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_InsertColumn, False);
+ AddUserTypeExclude(dftConsultationName, en_Table, op_DeleteColumn, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Bold, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Italic, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Underline, False);
+ AddUserTypeExclude(dftConsultationName, en_Font, op_Strikeout, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftConsultationName, en_WarnRedaction, op_ShowInfo, True);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindNext, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Edit, op_FindPrev, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindContext, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindNext, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Edit, op_FindPrev, False);
+ AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_HideShow, False);
+ AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_HideShow, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_RedactionOnID, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowJurorComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowVersionComments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowTechComments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowUserComments, False);
+ AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_BookmarkIcon, op_Edit, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftAutoreferatName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftAutoreferatName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftConsultationName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftConsultationName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftConsultationName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftTipsName, en_UserCommentIcon, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_UserComment, op_Delete, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddUserComment, False);
+ AddUserTypeExclude(dftTipsName, en_HyperLink, op_Delete, True);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_InsertHyperlink, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GotoBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowCommentsGroup, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowCommentsGroup, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_CompareEditions, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_EditBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_DeleteBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_OpenNewWindow, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedDocName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftRelatedDocName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDictEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDictEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDictEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDictEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAnnotationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAnnotationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftConsultationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftConsultationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftConsultationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftTranslationName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftTranslationName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftTranslationName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftTranslationName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftTipsName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftTipsName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftTipsName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftTipsName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftAutoreferatName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftAutoreferatName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDrugName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDrugName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDrugName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDrugName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedicFirmName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOffAndReset, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_ActualRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_TimeMachine, op_TimeMachineOnOffNew, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_OpenRedactionListFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_GetAnnotationDocFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_SimilarDocuments, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR1, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_UserCR2, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_PrevRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_Redactions, op_NextRedaction, False);
+ AddUserTypeExclude(dftChronologyName, en_Text, op_AddToControl, False);
+ AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowCorrespondentListToPart, False);
+ AddUserTypeExclude(dftChronologyName, en_Selection, op_ShowRespondentListToPart, False);
+ AddUserTypeExclude(dftChronologyName, en_WarnOnControl, op_ClearStatusSettings, False);
+ AddUserTypeExclude(dftChronologyName, en_TasksPanel, op_TimeMachineOnOff, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedDocName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftConsultationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftTranslationName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftTipsName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftAutoreferatName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_AddBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_ToMSWord, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_Print, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockHeader, op_PrintDialog, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(dftChronologyName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenContentsFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_ShowDocumentPicture, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_GetGraphicImage, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftTipsName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftDrugName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenWindow, True);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DocumentSynchroOpenNewWindow, True);
+ AddUserTypeExclude(dftNoneName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_DictListOpenFrmAct, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_AddBookmarkFromContents, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_LiteratureListForDictionary, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDrugName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenProducedDrugList, False);
+ AddUserTypeExclude(dftNoneName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDocumentName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftRelatedDocName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDictEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAnnotationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftConsultationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftTranslationName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftTipsName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAutoreferatName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedicFirmName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACLeftName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACRightName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftChronologyName, en_Document, op_OpenSimilarDrugList, False);
+ AddUserTypeExclude(dftNoneName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDocumentName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftRelatedDocName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDocSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftRelatedSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDictSubEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAnnotationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAutoreferatAfterSearchName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftConsultationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftTranslationName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAnnotationSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftTipsName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedDictEntryName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAutoreferatName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDrugName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedicFirmName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftMedicFirmSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftDrugSynchroViewName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACContentsLeftName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftAACContentsRightName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+ AddUserTypeExclude(dftChronologyName, en_BaseSearchPresentationHolder, op_GetBaseSearchPresentation, False);
+end;//TExTextForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TExTextForm.MakeControls;
 begin
  inherited;
  Text.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TExTextForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
+ str_ViewChangesOpName.Init;
+ {* Инициализация str_ViewChangesOpName }
 //#UC START# *4C40048600C1*
  g_GoToIntranetMessage := RegisterWindowMessage('{A6BE0224-FE97-4984-8E91-B24104812165}');
 //#UC END# *4C40048600C1*
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ViewChangesOpName
- str_ViewChangesOpName.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ExText
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TExTextForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация ExText }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

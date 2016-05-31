@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utSingleSearchLocalConstants }
+ str_utSingleSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSingleSearchCaption'; rValue : 'Атомарный поиск');
+  {* Заголовок пользовательского типа "Атомарный поиск" }
  {* Константы для типа формы utSingleSearch }
  utSingleSearchName = 'utSingleSearch';
   {* Строковый идентификатор пользовательского типа "Атомарный поиск" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_utSingleSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utSingleSearchCaption.Init;
+ {* Инициализация str_utSingleSearchCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utSingleSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utSingleSearch }

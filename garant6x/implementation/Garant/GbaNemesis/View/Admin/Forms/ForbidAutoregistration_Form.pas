@@ -49,8 +49,6 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , ForbidAutoregistrationKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_ForbidAutoregistrationLocalConstants }
- str_ut_ForbidAutoregistrationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_ForbidAutoregistrationCaption'; rValue : 'Запретить авторегистрацию');
-  {* Заголовок пользовательского типа "Запретить авторегистрацию" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TefForbidAutoregistration.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_ForbidAutoregistrationCaption.Init;
- {* Инициализация str_ut_ForbidAutoregistrationCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TefForbidAutoregistration);
  {* Регистрация ForbidAutoregistration }

@@ -23,14 +23,13 @@ type
  TPrimEditionsResForm = class(TDataModule)
   private
    f_EditionsStateIcons: TvtPngImageList;
-    {* Поле для свойства EditionsStateIcons }
   protected
    function pm_GetEditionsStateIcons: TvtPngImageList;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TPrimEditionsResForm;
     {* Метод получения экземпляра синглетона TPrimEditionsResForm }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property EditionsStateIcons: TvtPngImageList
     read pm_GetEditionsStateIcons;
@@ -42,11 +41,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- , l3Base
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -62,19 +61,11 @@ begin
 end;//TPrimEditionsResFormFree
 
 function TPrimEditionsResForm.pm_GetEditionsStateIcons: TvtPngImageList;
-//#UC START# *4B50956D00B2_4B5082500342get_var*
-//#UC END# *4B50956D00B2_4B5082500342get_var*
 begin
-//#UC START# *4B50956D00B2_4B5082500342get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B50956D00B2_4B5082500342get_impl*
+ if (f_EditionsStateIcons = nil) then
+  f_EditionsStateIcons := FindComponent('EditionsStateIcons') As TvtPngImageList;
+ Result := f_EditionsStateIcons;
 end;//TPrimEditionsResForm.pm_GetEditionsStateIcons
-
-class function TPrimEditionsResForm.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TPrimEditionsResForm <> nil;
-end;//TPrimEditionsResForm.Exists
 
 class function TPrimEditionsResForm.Instance: TPrimEditionsResForm;
  {* Метод получения экземпляра синглетона TPrimEditionsResForm }
@@ -82,10 +73,16 @@ begin
  if (g_TPrimEditionsResForm = nil) then
  begin
   l3System.AddExitProc(TPrimEditionsResFormFree);
-  g_TPrimEditionsResForm := Create;
+  g_TPrimEditionsResForm := Create(nil);
  end;
  Result := g_TPrimEditionsResForm;
 end;//TPrimEditionsResForm.Instance
+
+class function TPrimEditionsResForm.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TPrimEditionsResForm <> nil;
+end;//TPrimEditionsResForm.Exists
 
 initialization
 {$If NOT Defined(NoScripts)}

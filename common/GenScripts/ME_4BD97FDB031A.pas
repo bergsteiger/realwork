@@ -22,12 +22,8 @@ uses
 const
  fm_enQueryCard: TvcmFormDescriptor = (rFormID : (rName : 'enQueryCard'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenQueryCard }
-
-const
  fm_efPreviewForm: TvcmFormDescriptor = (rFormID : (rName : 'efPreviewForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefPreviewForm }
-
-const
  fm_cfSaveLoad: TvcmFormDescriptor = (rFormID : (rName : 'cfSaveLoad'; rID : 0); rFactory : nil);
   {* Идентификатор формы TcfSaveLoad }
 

@@ -22,6 +22,9 @@ uses
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtButton
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -91,7 +94,7 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    constructor Create(const aData: TnsLongProcessData); reintroduce;
-   class function Make(const aData: TnsLongProcessData): BadFactoryType; reintroduce;
+   class function Make(const aData: TnsLongProcessData): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function ShowModal: Integer; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -136,11 +139,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93DDAE0396impl_uses*
+ //#UC END# *4A93DDAE0396impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -271,7 +273,7 @@ begin
 //#UC END# *523ADA5A023D_4A93DDAE0396_impl*
 end;//TPrimLongProcessForm.vcmEntityFormCloseQuery
 
-class function TPrimLongProcessForm.Make(const aData: TnsLongProcessData): BadFactoryType;
+class function TPrimLongProcessForm.Make(const aData: TnsLongProcessData): IvcmEntityForm;
 var
  l_Inst : TPrimLongProcessForm;
 begin

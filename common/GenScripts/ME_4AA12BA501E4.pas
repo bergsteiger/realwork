@@ -31,10 +31,11 @@ uses
  , PrimCommonDiction_utMedicDiction_UserType
  , DocumentInterfaces
  , DynamicTreeUnit
+ , QueryCardInterfaces
+ , DocumentAndListInterfaces
  , DocumentUnit
  , bsTypesNew
  , DocumentUserTypes_dftMedDictEntry_UserType
- , DocumentAndListInterfaces
  , F1Like_FormDefinitions_Controls
  , AttributesUserTypes_fDocAttribute_UserType
  , BaseDocumentWithAttributesInterfaces

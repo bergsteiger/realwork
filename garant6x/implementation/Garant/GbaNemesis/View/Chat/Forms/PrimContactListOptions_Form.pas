@@ -1,93 +1,77 @@
 unit PrimContactListOptions_Form;
+ {* Совещание онлайн }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/PrimContactListOptions_Form.pas"
-// Начат: 06.09.2010 15:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::Chat::View::Chat::PrimContactListOptions
-//
-// Совещание онлайн
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactListOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimContactListOptions" MUID: (4C84D11E01E2)
+// Имя типа: "TPrimContactListOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimContactList_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimContactList_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimContactListOptionsForm = {form} class(TPrimContactListForm)
+ TPrimContactListOptionsForm = class(TPrimContactListForm)
   {* Совещание онлайн }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimContactListOptionsForm
-
- TvcmEntityFormRef = TPrimContactListOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  Base_Operations_Chat_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Base_Operations_Chat_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C84D11E01E2impl_uses*
+ //#UC END# *4C84D11E01E2impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimContactListOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContactListOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C84D11E01E2test_var*
 //#UC END# *4C7D0CC90052_4C84D11E01E2test_var*
 begin
@@ -99,24 +83,11 @@ begin
    aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4C7D0CC90052_4C84D11E01E2test_impl*
 end;//TPrimContactListOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimContactListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_var*
-//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_var*
-begin
-//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_impl*
- if trContactList.Focused then
-  State := st_user_Edit_Delete_Contact
- else
-  State := vcm_DefaultOperationState;
-//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_impl*
-end;//TPrimContactListOptionsForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContactListOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C84D11E01E2exec_var*
 //#UC END# *4C7D0CC90052_4C84D11E01E2exec_var*
 begin
@@ -130,46 +101,52 @@ begin
   aParams.CallControl;
 //#UC END# *4C7D0CC90052_4C84D11E01E2exec_impl*
 end;//TPrimContactListOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
+procedure TPrimContactListOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_var*
+begin
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+ if trContactList.Focused then
+  State := st_user_Edit_Delete_Contact
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+end;//TPrimContactListOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimContactListOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
-  ShowInContextMenu(en_Chat, op_Add, true);
-  ShowInToolbar(en_Chat, op_Add, true);
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_Chat, op_History, true);
-  ShowInToolbar(en_Chat, op_History, true);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ShowInContextMenu(en_Chat, op_Add, True);
+  ShowInToolbar(en_Chat, op_Add, True);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ShowInContextMenu(en_Chat, op_History, True);
+  ShowInToolbar(en_Chat, op_History, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimContactListOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimContactListOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimContactListOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimContactListOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,77 +1,70 @@
 unit PrimSelectedAttributesOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LiteSearch/Forms/PrimSelectedAttributesOptions_Form.pas"
-// Начат: 08.09.2010 20:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Базовые определения предметной области::SearchLite::View::LiteSearch::PrimSelectedAttributesOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributesOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimSelectedAttributesOptions" MUID: (4C87B3A50387)
+// Имя типа: "TPrimSelectedAttributesOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimSelectedAttributes_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
+ l3IntfUses
+ , PrimSelectedAttributes_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TPrimSelectedAttributesOptionsForm = {form} class(TPrimSelectedAttributesForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimSelectedAttributesOptionsForm = class(TPrimSelectedAttributesForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSelectedAttributesOptionsForm
-
- TvcmEntityFormRef = TPrimSelectedAttributesOptionsForm;
 
 implementation
 
 uses
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  SysUtils,
-  l3Nodes,
-  SearchLite_Strange_Controls,
-  l3Tree_TLB
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3TreeInterfaces
+ , DynamicTreeUnit
+ , SysUtils
+ , l3Nodes
+ , SearchLite_Strange_Controls
+ , l3Tree_TLB
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87B3A50387impl_uses*
+ //#UC END# *4C87B3A50387impl_uses*
+;
 
-// start class TPrimSelectedAttributesOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C87B3A50387test_var*
 var
  l_Node   : INodeBase;
@@ -94,10 +87,11 @@ begin
  end;
 //#UC END# *4C7D0CC90052_4C87B3A50387test_impl*
 end;//TPrimSelectedAttributesOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C87B3A50387exec_var*
 var
  l_l3Node: Il3Node;
@@ -139,27 +133,28 @@ begin
  end;//SelectedTree.Current >= 0
 //#UC END# *4C7D0CC90052_4C87B3A50387exec_impl*
 end;//TPrimSelectedAttributesOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimSelectedAttributesOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
  end;//with Entities.Entities
-end;
+end;//TPrimSelectedAttributesOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация PrimSelectedAttributesOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSelectedAttributesOptionsForm);
-{$IfEnd} //not NoScripts
+ {* Регистрация PrimSelectedAttributesOptions }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

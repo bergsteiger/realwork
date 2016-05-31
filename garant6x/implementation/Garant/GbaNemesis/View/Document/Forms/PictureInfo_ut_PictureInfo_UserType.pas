@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_PictureInfoLocalConstants }
+ str_ut_PictureInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PictureInfoCaption'; rValue : 'Информация о картинке');
+  {* Заголовок пользовательского типа "Информация о картинке" }
  {* Константы для типа формы ut_PictureInfo }
  ut_PictureInfoName = 'ut_PictureInfo';
   {* Строковый идентификатор пользовательского типа "Информация о картинке" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_PictureInfoCaption.Init;
+ {* Инициализация str_ut_PictureInfoCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_PictureInfo.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_PictureInfo }

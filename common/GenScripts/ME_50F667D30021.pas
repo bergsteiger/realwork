@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utProgressIndicatorLocalConstants }
+ str_utProgressIndicatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorCaption'; rValue : 'Ход выполнения');
+  {* Заголовок пользовательского типа "Ход выполнения" }
+ str_utProgressIndicatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorSettingsCaption'; rValue : 'Ход выполнения');
+  {* Заголовок пользовательского типа "Ход выполнения" для настройки панелей инструментов }
  {* Константы для типа формы utProgressIndicator }
  utProgressIndicatorName = 'utProgressIndicator';
   {* Строковый идентификатор пользовательского типа "Ход выполнения" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utProgressIndicatorCaption.Init;
+ {* Инициализация str_utProgressIndicatorCaption }
+ str_utProgressIndicatorSettingsCaption.Init;
+ {* Инициализация str_utProgressIndicatorSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utProgressIndicator.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utProgressIndicator }

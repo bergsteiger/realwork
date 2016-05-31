@@ -25,16 +25,16 @@ uses
  , nsTypes
  , nsFolders
  , vtPanel
- , eeMemoWithEditOperations
  , vtLabel
+ , eeMemoWithEditOperations
  {$If Defined(Nemesis)}
  , nscComboBoxWithReadOnly
  {$IfEnd} // Defined(Nemesis)
  , vtCheckBox
+ , FoldersUnit
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , FoldersUnit
  , BaseTypesUnit
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -55,25 +55,19 @@ type
    f_EDoChangedAlreadyDoneFired: Boolean;
     {* Если для дерева при обработке CHanged вздернулись еще скобки Changing/Changed и возникло EDoChangedAlreadyDone - запоромнить это и после остальной обрабиотки переподнять его }
    f_CommentPanel: TvtPanel;
-    {* Поле для свойства CommentPanel }
-   f_ElementComment: TeeMemoWithEditOperations;
-    {* Поле для свойства ElementComment }
-   f_CaptionPanel: TvtPanel;
-    {* Поле для свойства CaptionPanel }
-   f_lblComment: TvtLabel;
-    {* Поле для свойства lblComment }
    f_TopPanel: TvtPanel;
-    {* Поле для свойства TopPanel }
-   f_NamePanel: TvtPanel;
-    {* Поле для свойства NamePanel }
-   f_lblElementName: TvtLabel;
-    {* Поле для свойства lblElementName }
-   f_ElementName: TnscComboBoxWithReadOnly;
-    {* Поле для свойства ElementName }
-   f_cbShared: TvtCheckBox;
-    {* Поле для свойства cbShared }
    f_InfoName: TvtLabel;
-    {* Поле для свойства InfoName }
+    {* Название }
+   f_ElementComment: TeeMemoWithEditOperations;
+   f_CaptionPanel: TvtPanel;
+   f_lblComment: TvtLabel;
+    {* Примечание: }
+   f_NamePanel: TvtPanel;
+   f_lblElementName: TvtLabel;
+    {* Имя: }
+   f_ElementName: TnscComboBoxWithReadOnly;
+   f_cbShared: TvtCheckBox;
+    {* Общий доступ }
   protected
    f_CurType: TFoldersInfoType;
    f_UserLoadParam: IUnknown;
@@ -225,7 +219,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -253,7 +246,6 @@ uses
  , nsQueryUtils
  , nsSaveQueryEvent
  , nsSaveDocumentToFoldersEvent
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -261,14 +253,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AE706BB029Fimpl_uses*
+ //#UC END# *4AE706BB029Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utFoldersPropertyLocalConstants }
- str_utFoldersPropertyCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersPropertyCaption'; rValue : 'Панель свойств');
-  {* Заголовок пользовательского типа "Панель свойств" }
-
 function TPrimFoldersElementInfoForm.SendChosenObject: Boolean;
 //#UC START# *4AE75C84001D_4AE706BB029F_var*
 //#UC END# *4AE75C84001D_4AE706BB029F_var*
@@ -1486,6 +1475,7 @@ begin
   PublishFormEntity(en_FolderElement, nil);
   PublishFormEntity(en_UsersRights, nil);
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOpWithResult(en_FolderElement, op_GetState, FolderElement_GetState, nil, nil);
   PublishOpWithResult(en_FolderElement, op_SetLoadInfo, FolderElement_SetLoadInfo, nil, nil);
   PublishOpWithResult(en_FolderElement, op_SetContent, FolderElement_SetContent, nil, nil);
@@ -1554,8 +1544,6 @@ begin
 end;//TPrimFoldersElementInfoForm.MakeControls
 
 initialization
- str_utFoldersPropertyCaption.Init;
- {* Инициализация str_utFoldersPropertyCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersElementInfoForm);
  {* Регистрация PrimFoldersElementInfo }

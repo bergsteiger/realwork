@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки admCreateGroupLocalConstants }
+ str_admCreateGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admCreateGroupCaption'; rValue : 'Новая группа');
+  {* Заголовок пользовательского типа "Новая группа" }
  {* Константы для типа формы admCreateGroup }
  admCreateGroupName = 'admCreateGroup';
   {* Строковый идентификатор пользовательского типа "Новая группа" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_admCreateGroup.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_admCreateGroupCaption.Init;
+ {* Инициализация str_admCreateGroupCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_admCreateGroup.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_admCreateGroup }

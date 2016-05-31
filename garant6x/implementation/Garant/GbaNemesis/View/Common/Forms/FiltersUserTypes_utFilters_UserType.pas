@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utFiltersLocalConstants }
+ str_utFiltersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFiltersCaption'; rValue : 'Фильтры');
+  {* Заголовок пользовательского типа "Фильтры" }
+ str_utFiltersSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFiltersSettingsCaption'; rValue : 'Фильтры (вкладка)');
+  {* Заголовок пользовательского типа "Фильтры" для настройки панелей инструментов }
  {* Константы для типа формы utFilters }
  utFiltersName = 'utFilters';
   {* Строковый идентификатор пользовательского типа "Фильтры" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utFilters.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utFiltersCaption.Init;
+ {* Инициализация str_utFiltersCaption }
+ str_utFiltersSettingsCaption.Init;
+ {* Инициализация str_utFiltersSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFilters.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utFilters }

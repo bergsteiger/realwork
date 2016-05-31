@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , DocNumberQueryKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_DocNumberQueryLocalConstants }
- str_ut_DocNumberQueryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_DocNumberQueryCaption'; rValue : 'Открыть документ по номеру');
-  {* Заголовок пользовательского типа "Открыть документ по номеру" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TDocNumberQueryForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_DocNumberQueryCaption.Init;
- {* Инициализация str_ut_DocNumberQueryCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDocNumberQueryForm);
  {* Регистрация DocNumberQuery }

@@ -18,6 +18,9 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -52,12 +55,18 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , Base_Operations_Chat_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C84D11E01E2impl_uses*
+ //#UC END# *4C84D11E01E2impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -119,6 +128,16 @@ begin
  begin
   PublishFormEntity(en_Edit, nil);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ShowInContextMenu(en_Chat, op_Add, True);
+  ShowInToolbar(en_Chat, op_Add, True);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ShowInContextMenu(en_Chat, op_History, True);
+  ShowInToolbar(en_Chat, op_History, True);
  end;//with Entities.Entities
 end;//TPrimContactListOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

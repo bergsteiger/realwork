@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utChatHistoryLocalConstants }
+ str_utChatHistoryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utChatHistoryCaption'; rValue : 'История переписки');
+  {* Заголовок пользовательского типа "История переписки" }
  {* Константы для типа формы utChatHistory }
  utChatHistoryName = 'utChatHistory';
   {* Строковый идентификатор пользовательского типа "История переписки" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utChatHistory.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utChatHistoryCaption.Init;
+ {* Инициализация str_utChatHistoryCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utChatHistory.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utChatHistory }

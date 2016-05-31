@@ -1,130 +1,127 @@
 unit PrimFoldersTree_Form;
+ {* Дерево папок }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders/Forms/PrimFoldersTree_Form.pas"
-// Начат: 26.01.2009 18:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Folders::View::Folders::PrimFoldersTree
-//
-// Дерево папок
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFoldersTree" MUID: (497DD4870291)
+// Имя типа: "TPrimFoldersTreeForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces,
-  l3ControlsTypes,
-  eeInterfaces,
-  FoldersInterfaces,
-  eeTreeView,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  Folders_Strange_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  PrimFoldersTree_utFoldersTree_UserType,
-  PrimFoldersTree_utSaveOpen_UserType,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop,
-  FoldersUnit,
-  BaseTreeSupportUnit,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3Interfaces
+ , FoldersDomainInterfaces
+ , Folders_Strange_Controls
+ , FoldersInterfaces
+ , nsTypes
+ , nscTreeViewWithAdapterDragDrop
+ , eeInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , FoldersUnit
+ , BaseTreeSupportUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimFoldersTreeForm = {form} class(TvcmEntityForm, Il3ItemNotifyRecipient, InsFolderNodeListener)
+ TPrimFoldersTreeForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3ItemNotifyRecipient, InsFolderNodeListener)
   {* Дерево папок }
- private
- // private fields
-   f_FoldersTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FoldersTree}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_FoldersTree: TnscTreeViewWithAdapterDragDrop;
+  protected
+   f_OldFilter: Integer;
+   dsFoldersTree: IdsFoldersTree;
+    {* Дерево папок }
+  private
    function FoldersTreeGetItemIconHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* event to get Hint String; }
+    Index: LongInt): Il3CString;
    procedure FoldersTreeMakeTreeSource(out theTree: Il3SimpleTree);
    function FoldersTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    function FoldersTreeGetItemTextHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* получение hint-а при задерке курсора над текстом. }
+    Index: LongInt): Il3CString;
    procedure FoldersTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure FoldersTreeCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure FoldersTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    procedure FoldersTreeGetItemFont(Sender: TObject;
-     Index: LongInt;
-     const aFont: Il3Font);
-     {* event to get Font of the item cell
-событие для получения шрифта элемента. }
- protected
- // property methods
+    Index: LongInt;
+    const aFont: Il3Font);
+  protected
    function pm_GetFoldersInfo: InsFoldersInfo;
- protected
- // realized methods
+   procedure DoFoldersTreeCurrentChanged(Sender: TObject;
+    NewCurrent: Integer;
+    OldCurrent: Integer); virtual; abstract;
+   function BeginEdit(const aNode: IeeNode;
+    WithPositioning: Boolean = False;
+    IsNewFolder: Boolean = False): Boolean; virtual; abstract;
+   procedure EndEdit(const aNode: IeeNode); virtual; abstract;
+   function DeleteNode(const aNode: IeeNode;
+    aAskConfirmation: Boolean): TnsDeleteResult; virtual; abstract;
+   function GetFoldersInfo: InsFoldersInfo; virtual; abstract;
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
+    {* прошла операция. }
    procedure ChildNodeAdded(const aNode: Il3SimpleNode);
-     {* был добавлен дочерний узел }
+    {* был добавлен дочерний узел }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure FolderElement_InternalEditByFoldersNode_Execute(const aNode: IFoldersNode;
-    aInternalCall: Boolean = true);
-     {* Редактирование элемента }
+    aInternalCall: Boolean = True);
+    {* Редактирование элемента }
    procedure FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParams);
-     {* Редактирование элемента }
+    {* Редактирование элемента }
    function FolderElement_InternalDelete_Execute(const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult;
-     {* Удаляет элемент папок }
+    aAsk: Boolean = True): TnsDeleteResult;
+    {* Удаляет элемент папок }
    procedure FolderElement_InternalDelete(const aParams: IvcmExecuteParams);
-     {* Удаляет элемент папок }
+    {* Удаляет элемент папок }
    procedure FolderElement_InternalEdit_Execute(const aNode: IeeNode;
-    aInternalCall: Boolean = true);
+    aInternalCall: Boolean = True);
    procedure FolderElement_InternalEdit(const aParams: IvcmExecuteParams);
    procedure SavedQuery_SetFilterState_Execute(const aNode: INode);
    procedure SavedQuery_SetFilterState(const aParams: IvcmExecuteParams);
@@ -140,116 +137,77 @@ type
    procedure Folders_OpenMyConsultations(const aParams: IvcmExecuteParams);
    procedure Folders_SetInfoContent_Execute;
    procedure Folders_SetInfoContent(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsFoldersTree : IdsFoldersTree;
-    {* Дерево папок}
-   f_OldFilter : Integer;
- protected
- // protected methods
-   procedure DoFoldersTreeCurrentChanged(Sender: TObject;
-     NewCurrent: Integer;
-     OldCurrent: Integer); virtual; abstract;
-   function BeginEdit(const aNode: IeeNode;
-    WithPositioning: Boolean = False;
-    IsNewFolder: Boolean = False): Boolean; virtual; abstract;
-   procedure EndEdit(const aNode: IeeNode); virtual; abstract;
-   function DeleteNode(const aNode: IeeNode;
-    aAskConfirmation: Boolean): TnsDeleteResult; virtual; abstract;
-   function GetFoldersInfo: InsFoldersInfo; virtual; abstract;
- protected
- // protected properties
+  protected
    property FoldersInfo: InsFoldersInfo
-     read pm_GetFoldersInfo;
- public
- // public properties
+    read pm_GetFoldersInfo;
+  public
    property FoldersTree: TnscTreeViewWithAdapterDragDrop
-     read f_FoldersTree;
+    read f_FoldersTree;
  end;//TPrimFoldersTreeForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils,
-  nsTreeUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Tree_TLB,
-  bsUtils,
-  nsUtils
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  l3InternalInterfaces,
-  OvcConst,
-  nsFolders,
-  nsNodes,
-  FoldersRes,
-  l3String,
-  afwFacade,
-  nsConst,
-  nsOpenUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsManagers,
-  nsFolderFilterInfo,
-  Graphics,
-  nsQuestionsWithChoices,
-  bsTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , nsTreeUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Tree_TLB
+ , bsUtils
+ , nsUtils
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , l3InternalInterfaces
+ , OvcConst
+ , nsFolders
+ , nsNodes
+ , FoldersRes
+ , l3String
+ , afwFacade
+ , nsConst
+ , nsOpenUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsManagers
+ , nsFolderFilterInfo
+ , Graphics
+ , nsQuestionsWithChoices
+ , bsTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimFoldersTree_utFoldersTree_UserType
+ , PrimFoldersTree_utSaveOpen_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497DD4870291impl_uses*
+ , vtLister
+ , l3ControlsTypes
+ //#UC END# *497DD4870291impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utFoldersTreeLocalConstants }
-  str_utFoldersTreeCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersTreeCaption'; rValue : 'Мои документы (вкладка)');
-   { Заголовок пользовательского типа "Мои документы (вкладка)" }
-
-var
-   { Локализуемые строки utSaveOpenLocalConstants }
-  str_utSaveOpenCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utSaveOpenCaption'; rValue : 'Мои документы');
-   { Заголовок пользовательского типа "Мои документы" }
-
-// start class TPrimFoldersTreeForm
+{$If NOT Defined(NoVCM)}
+function TPrimFoldersTreeForm.pm_GetFoldersInfo: InsFoldersInfo;
+//#UC START# *4C7E75040189_497DD4870291get_var*
+//#UC END# *4C7E75040189_497DD4870291get_var*
+begin
+//#UC START# *4C7E75040189_497DD4870291get_impl*
+ Supports(FoldersTree.TreeStruct, InsFoldersInfo, Result);
+//#UC END# *4C7E75040189_497DD4870291get_impl*
+end;//TPrimFoldersTreeForm.pm_GetFoldersInfo
 
 function TPrimFoldersTreeForm.FoldersTreeGetItemIconHint(Sender: TObject;
-  Index: LongInt): Il3CString;
+ Index: LongInt): Il3CString;
 //#UC START# *51C414700399_497DD4870291_var*
 var
  l_eeNode      : IeeNode;
@@ -281,8 +239,8 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeMakeTreeSource
 
 function TPrimFoldersTreeForm.FoldersTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *51C4149F0381_497DD4870291_var*
 var
  l_eeNode: IeeNode;
@@ -361,7 +319,7 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeGetItemImage
 
 function TPrimFoldersTreeForm.FoldersTreeGetItemTextHint(Sender: TObject;
-  Index: LongInt): Il3CString;
+ Index: LongInt): Il3CString;
 //#UC START# *51C414AA021C_497DD4870291_var*
 var
  l_eeNode      : IeeNode;
@@ -388,7 +346,7 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeGetItemTextHint
 
 procedure TPrimFoldersTreeForm.FoldersTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *51C414B701C6_497DD4870291_var*
  function lp_CheckCanOpen(const aNode: Il3SimpleNode): Boolean;
  begin
@@ -460,8 +418,8 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeActionElement
 
 procedure TPrimFoldersTreeForm.FoldersTreeCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *51C414C5000A_497DD4870291_var*
 //#UC END# *51C414C5000A_497DD4870291_var*
 begin
@@ -471,8 +429,8 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeCurrentChanged
 
 procedure TPrimFoldersTreeForm.FoldersTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
 //#UC START# *51C414CF0180_497DD4870291_var*
 var
  l_Notify: InsFolderNodeNotify;
@@ -489,8 +447,8 @@ begin
 end;//TPrimFoldersTreeForm.FoldersTreeTreeChanged
 
 procedure TPrimFoldersTreeForm.FoldersTreeGetItemFont(Sender: TObject;
-  Index: LongInt;
-  const aFont: Il3Font);
+ Index: LongInt;
+ const aFont: Il3Font);
 //#UC START# *51C414D901EA_497DD4870291_var*
 var
  l_Node: Il3SimpleNode;
@@ -514,18 +472,10 @@ begin
 //#UC END# *51C414D901EA_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.FoldersTreeGetItemFont
 
-function TPrimFoldersTreeForm.pm_GetFoldersInfo: InsFoldersInfo;
-//#UC START# *4C7E75040189_497DD4870291get_var*
-//#UC END# *4C7E75040189_497DD4870291get_var*
-begin
-//#UC START# *4C7E75040189_497DD4870291get_impl*
- Supports(FoldersTree.TreeStruct, InsFoldersInfo, Result);
-//#UC END# *4C7E75040189_497DD4870291get_impl*
-end;//TPrimFoldersTreeForm.pm_GetFoldersInfo
-
 procedure TPrimFoldersTreeForm.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_497DD4870291_var*
 //#UC END# *46A4504B03C4_497DD4870291_var*
 begin
@@ -541,6 +491,7 @@ begin
 end;//TPrimFoldersTreeForm.Notify
 
 procedure TPrimFoldersTreeForm.ChildNodeAdded(const aNode: Il3SimpleNode);
+ {* был добавлен дочерний узел }
 //#UC START# *49901C9600DD_497DD4870291_var*
 //#UC END# *49901C9600DD_497DD4870291_var*
 begin
@@ -551,7 +502,8 @@ begin
 end;//TPrimFoldersTreeForm.ChildNodeAdded
 
 procedure TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode_Execute(const aNode: IFoldersNode;
-  aInternalCall: Boolean = true);
+ aInternalCall: Boolean = True);
+ {* Редактирование элемента }
 //#UC START# *4AE7060A03E7_497DD4870291exec_var*
 var
  l_CurNode: IeeNode;
@@ -581,13 +533,15 @@ begin
 end;//TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode_Execute
 
 procedure TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParams);
+ {* Редактирование элемента }
 begin
  with (aParams.Data As IFolderElement_InternalEditByFoldersNode_Params) do
-  FolderElement_InternalEditByFoldersNode_Execute(Node, InternalCall);
-end;
+  Self.FolderElement_InternalEditByFoldersNode_Execute(Node, InternalCall);
+end;//TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode
 
 function TPrimFoldersTreeForm.FolderElement_InternalDelete_Execute(const aNode: IFoldersNode;
-  aAsk: Boolean = true): TnsDeleteResult;
+ aAsk: Boolean = True): TnsDeleteResult;
+ {* Удаляет элемент папок }
 //#UC START# *4AE7099B0136_497DD4870291exec_var*
 var
  l_eeNode      : IeeNode;
@@ -620,13 +574,14 @@ begin
 end;//TPrimFoldersTreeForm.FolderElement_InternalDelete_Execute
 
 procedure TPrimFoldersTreeForm.FolderElement_InternalDelete(const aParams: IvcmExecuteParams);
+ {* Удаляет элемент папок }
 begin
  with (aParams.Data As IFolderElement_InternalDelete_Params) do
-  ResultValue := FolderElement_InternalDelete_Execute(Node, Ask);
-end;
+  ResultValue := Self.FolderElement_InternalDelete_Execute(Node, Ask);
+end;//TPrimFoldersTreeForm.FolderElement_InternalDelete
 
 procedure TPrimFoldersTreeForm.FolderElement_InternalEdit_Execute(const aNode: IeeNode;
-  aInternalCall: Boolean = true);
+ aInternalCall: Boolean = True);
 //#UC START# *4AE7240E024C_497DD4870291exec_var*
 //#UC END# *4AE7240E024C_497DD4870291exec_var*
 begin
@@ -646,8 +601,8 @@ end;//TPrimFoldersTreeForm.FolderElement_InternalEdit_Execute
 procedure TPrimFoldersTreeForm.FolderElement_InternalEdit(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolderElement_InternalEdit_Params) do
-  FolderElement_InternalEdit_Execute(Node, InternalCall);
-end;
+  Self.FolderElement_InternalEdit_Execute(Node, InternalCall);
+end;//TPrimFoldersTreeForm.FolderElement_InternalEdit
 
 procedure TPrimFoldersTreeForm.SavedQuery_SetFilterState_Execute(const aNode: INode);
 //#UC START# *4AEEBF3B01CD_497DD4870291exec_var*
@@ -660,8 +615,8 @@ end;//TPrimFoldersTreeForm.SavedQuery_SetFilterState_Execute
 procedure TPrimFoldersTreeForm.SavedQuery_SetFilterState(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISavedQuery_SetFilterState_Params) do
-  SavedQuery_SetFilterState_Execute(Node);
-end;
+  Self.SavedQuery_SetFilterState_Execute(Node);
+end;//TPrimFoldersTreeForm.SavedQuery_SetFilterState
 
 procedure TPrimFoldersTreeForm.Folders_SetCurrent_Execute(const aNode: IeeNode);
 //#UC START# *4AEEC3580234_497DD4870291exec_var*
@@ -677,8 +632,8 @@ end;//TPrimFoldersTreeForm.Folders_SetCurrent_Execute
 procedure TPrimFoldersTreeForm.Folders_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolders_SetCurrent_Params) do
-  Folders_SetCurrent_Execute(Node);
-end;
+  Self.Folders_SetCurrent_Execute(Node);
+end;//TPrimFoldersTreeForm.Folders_SetCurrent
 
 procedure TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo_Execute(const anInfo: InsFolderFilterInfo);
 //#UC START# *4AF2F57400D8_497DD4870291exec_var*
@@ -716,8 +671,8 @@ end;//TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo_Execute
 procedure TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFolders_FiltrateByFilterInfo_Params) do
-  Folders_FiltrateByFilterInfo_Execute(nInfo);
-end;
+  Self.Folders_FiltrateByFilterInfo_Execute(nInfo);
+end;//TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo
 
 procedure TPrimFoldersTreeForm.FolderElement_DisableFilter_Execute;
 //#UC START# *4AF4741300DA_497DD4870291exec_var*
@@ -730,8 +685,8 @@ end;//TPrimFoldersTreeForm.FolderElement_DisableFilter_Execute
 
 procedure TPrimFoldersTreeForm.FolderElement_DisableFilter(const aParams: IvcmExecuteParams);
 begin
- FolderElement_DisableFilter_Execute;
-end;
+ Self.FolderElement_DisableFilter_Execute;
+end;//TPrimFoldersTreeForm.FolderElement_DisableFilter
 
 procedure TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer_Execute;
 //#UC START# *4AF8170E0139_497DD4870291exec_var*
@@ -775,8 +730,8 @@ end;//TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer_Execute
 
 procedure TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer(const aParams: IvcmExecuteParams);
 begin
- Folders_TryOpenConsultationAnswer_Execute;
-end;
+ Self.Folders_TryOpenConsultationAnswer_Execute;
+end;//TPrimFoldersTreeForm.Folders_TryOpenConsultationAnswer
 
 procedure TPrimFoldersTreeForm.Folders_OpenMyConsultations_Execute;
 //#UC START# *4AF81CE50390_497DD4870291exec_var*
@@ -796,8 +751,8 @@ end;//TPrimFoldersTreeForm.Folders_OpenMyConsultations_Execute
 
 procedure TPrimFoldersTreeForm.Folders_OpenMyConsultations(const aParams: IvcmExecuteParams);
 begin
- Folders_OpenMyConsultations_Execute;
-end;
+ Self.Folders_OpenMyConsultations_Execute;
+end;//TPrimFoldersTreeForm.Folders_OpenMyConsultations
 
 procedure TPrimFoldersTreeForm.Folders_SetInfoContent_Execute;
 //#UC START# *4AF81E1C012F_497DD4870291exec_var*
@@ -815,10 +770,11 @@ end;//TPrimFoldersTreeForm.Folders_SetInfoContent_Execute
 
 procedure TPrimFoldersTreeForm.Folders_SetInfoContent(const aParams: IvcmExecuteParams);
 begin
- Folders_SetInfoContent_Execute;
-end;
+ Self.Folders_SetInfoContent_Execute;
+end;//TPrimFoldersTreeForm.Folders_SetInfoContent
 
 procedure TPrimFoldersTreeForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_497DD4870291_var*
 var
  l_Notify      : InsFolderNodeNotify;
@@ -849,8 +805,8 @@ begin
 //#UC END# *479731C50290_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimFoldersTreeForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497DD4870291_var*
 //#UC END# *49803F5503AA_497DD4870291_var*
 begin
@@ -862,10 +818,9 @@ begin
  FoldersTree.VJustify := vt_vjTop;
 //#UC END# *49803F5503AA_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimFoldersTreeForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DD4870291_var*
 //#UC END# *4A8E8F2E0195_497DD4870291_var*
 begin
@@ -888,23 +843,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DD4870291_impl*
 end;//TPrimFoldersTreeForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimFoldersTreeForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimFoldersTreeForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsFoldersTree := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsFoldersTree, dsFoldersTree);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsFoldersTree, dsFoldersTree);
+ end;//aNew = nil
+end;//TPrimFoldersTreeForm.SignalDataSourceChanged
 
 procedure TPrimFoldersTreeForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -923,18 +879,15 @@ begin
   PublishOpWithResult(en_Folders, op_OpenMyConsultations, Folders_OpenMyConsultations, nil, nil);
   PublishOpWithResult(en_Folders, op_SetInfoContent, Folders_SetInfoContent, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimFoldersTreeForm.InitEntities
 
 procedure TPrimFoldersTreeForm.MakeControls;
 begin
  inherited;
- f_FoldersTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
- f_FoldersTree.Name := 'FoldersTree';
- f_FoldersTree.Parent := Self;
  with AddUsertype(utFoldersTreeName,
   str_utFoldersTreeCaption,
   str_utFoldersTreeCaption,
-  false,
+  False,
   65,
   -1,
   utSaveOpenName,
@@ -947,7 +900,7 @@ begin
  with AddUsertype(utSaveOpenName,
   str_utSaveOpenCaption,
   str_utSaveOpenCaption,
-  true,
+  True,
   65,
   -1,
   '',
@@ -957,22 +910,17 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utSaveOpenName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ f_FoldersTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_FoldersTree.Name := 'FoldersTree';
+ f_FoldersTree.Parent := Self;
+end;//TPrimFoldersTreeForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utFoldersTreeCaption
- str_utFoldersTreeCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utSaveOpenCaption
- str_utSaveOpenCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFoldersTree
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFoldersTreeForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFoldersTree }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

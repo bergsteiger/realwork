@@ -25,6 +25,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , vtLabel
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -58,7 +61,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IbsEditGroupName): BadFactoryType; reintroduce;
+   class function Make(const aData: IbsEditGroupName): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -93,7 +96,6 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -101,30 +103,20 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimGroupProperty_admCreateGroup_UserType
  , PrimGroupProperty_admRenameGroup_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC4ED6801F3impl_uses*
+ //#UC END# *4AC4ED6801F3impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки admCreateGroupLocalConstants }
- str_admCreateGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admCreateGroupCaption'; rValue : 'Новая группа');
-  {* Заголовок пользовательского типа "Новая группа" }
- {* Локализуемые строки admRenameGroupLocalConstants }
- str_admRenameGroupCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'admRenameGroupCaption'; rValue : 'Переименовать группу');
-  {* Заголовок пользовательского типа "Переименовать группу" }
-
-class function TPrimGroupPropertyForm.Make(const aData: IbsEditGroupName): BadFactoryType;
+class function TPrimGroupPropertyForm.Make(const aData: IbsEditGroupName): IvcmEntityForm;
 var
  l_Inst : TPrimGroupPropertyForm;
 begin
@@ -240,10 +232,10 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ContextMenuWeight(en_Result, op_Cancel, 10);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
  end;//with Entities.Entities
 end;//TPrimGroupPropertyForm.InitEntities
 
@@ -286,10 +278,6 @@ begin
 end;//TPrimGroupPropertyForm.MakeControls
 
 initialization
- str_admCreateGroupCaption.Init;
- {* Инициализация str_admCreateGroupCaption }
- str_admRenameGroupCaption.Init;
- {* Инициализация str_admRenameGroupCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimGroupPropertyForm);
  {* Регистрация PrimGroupProperty }

@@ -20,6 +20,9 @@ uses
  , nsCounterEvent
  , LoggingUnit
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -32,10 +35,10 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseTaskPanelOperationEvent;
     {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseTaskPanelOperationEvent
 
  _vcmScrollableFormWithWheelSupport_Parent_ = TvcmEntityForm;
@@ -43,7 +46,6 @@ type
  TPrimTasksPanelForm = class(_vcmScrollableFormWithWheelSupport_)
   private
    f_tpvMain: TnscTasksPanelView;
-    {* Поле для свойства tpvMain }
   private
    procedure WMSetFocus(var aMessage: TMessage); message WM_SETFOCUS;
   protected
@@ -72,7 +74,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmTaskPanelInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -90,37 +91,24 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , MainMenuNewRes
  , Windows
- , l3MessageID
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Base
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimTasksPanel_tpMain_UserType
+ //#UC START# *4B13C72F0167impl_uses*
+ //#UC END# *4B13C72F0167impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 var g_TnsUseTaskPanelOperationEvent: TnsUseTaskPanelOperationEvent = nil;
  {* Экземпляр синглетона TnsUseTaskPanelOperationEvent }
 
-const
- {* Локализуемые строки tpMainLocalConstants }
- str_tpMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'tpMainCaption'; rValue : 'Панель задач');
-  {* Заголовок пользовательского типа "Панель задач" }
-
 procedure TnsUseTaskPanelOperationEventFree;
  {* Метод освобождения экземпляра синглетона TnsUseTaskPanelOperationEvent }
 begin
  l3Free(g_TnsUseTaskPanelOperationEvent);
 end;//TnsUseTaskPanelOperationEventFree
-
-class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUseTaskPanelOperationEvent <> nil;
-end;//TnsUseTaskPanelOperationEvent.Exists
 
 function TnsUseTaskPanelOperationEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13C75E02D1_var*
@@ -141,6 +129,12 @@ begin
  end;
  Result := g_TnsUseTaskPanelOperationEvent;
 end;//TnsUseTaskPanelOperationEvent.Instance
+
+class function TnsUseTaskPanelOperationEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseTaskPanelOperationEvent <> nil;
+end;//TnsUseTaskPanelOperationEvent.Exists
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
 
@@ -203,6 +197,8 @@ begin
  begin
   PublishFormEntity(en_Fake, nil);
   PublishOp(en_Fake, op_Fake, nil, nil, nil);
+  ShowInContextMenu(en_Fake, op_Fake, False);
+  ShowInToolbar(en_Fake, op_Fake, False);
  end;//with Entities.Entities
 end;//TPrimTasksPanelForm.InitEntities
 
@@ -228,8 +224,6 @@ begin
 end;//TPrimTasksPanelForm.MakeControls
 
 initialization
- str_tpMainCaption.Init;
- {* Инициализация str_tpMainCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTasksPanelForm);
  {* Регистрация PrimTasksPanel }

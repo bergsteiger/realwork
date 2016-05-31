@@ -24,6 +24,9 @@ uses
  , evQueryCardEditor
  , evTextSource
  , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , nevBase
  , l3Variant
  , afwNavigation
@@ -33,9 +36,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmControllers
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
  {$If NOT Defined(NoVCM)}
@@ -147,7 +147,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(aIsFilter: Boolean); reintroduce;
+   class function MakeSingleChild(aIsFilter: Boolean): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
@@ -206,7 +206,6 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimQueryCard_utqcSendConsultation_UserType
  , PrimQueryCard_utqcAttributeSearch_UserType
  , PrimQueryCard_utqcLegislationReview_UserType
@@ -256,7 +255,6 @@ uses
  , nsQueryAttribute
  , nsQueryUtils
  , ContextHistoryInterfaces
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -289,34 +287,17 @@ uses
  , IOUnit
  , l3String
  , PrimQueryCard_utqcPostingOrder_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EBA4301CAimpl_uses*
+ //#UC END# *497EBA4301CAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-type
- // ExcludeForSendConsultation
-
- // ExcludeForAllExceptPostingOrder
-
 const
  cOldUserTypes = [utqcAttributeSearch, utqcPostingOrder, utqcLegislationReview, utqcInpharmSearch];
- {* Локализуемые строки utqcAttributeSearchLocalConstants }
- str_utqcAttributeSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcAttributeSearchCaption'; rValue : 'Поиск по реквизитам');
-  {* Заголовок пользовательского типа "Поиск по реквизитам" }
- {* Локализуемые строки utqcPostingOrderLocalConstants }
- str_utqcPostingOrderCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcPostingOrderCaption'; rValue : 'Создание индивидуальной ленты');
-  {* Заголовок пользовательского типа "Создание индивидуальной ленты" }
- {* Локализуемые строки utqcLegislationReviewLocalConstants }
- str_utqcLegislationReviewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcLegislationReviewCaption'; rValue : 'Обзор изменений законодательства');
-  {* Заголовок пользовательского типа "Обзор изменений законодательства" }
- {* Локализуемые строки utqcSendConsultationLocalConstants }
- str_utqcSendConsultationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcSendConsultationCaption'; rValue : 'Правовая поддержка онлайн');
-  {* Заголовок пользовательского типа "Правовая поддержка онлайн" }
- {* Локализуемые строки utqcInpharmSearchLocalConstants }
- str_utqcInpharmSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcInpharmSearchCaption'; rValue : 'Поиск лекарственных средств');
-  {* Заголовок пользовательского типа "Поиск лекарственных средств" }
 
 class procedure TnsSendTestRequestToLegalAdviceEvent.Log;
 //#UC START# *5255425502CE_525542460297_var*
@@ -436,7 +417,7 @@ begin
 //#UC END# *4C2E19C50385_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.MakePreview
 
-class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean);
+class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean): IvcmEntityForm;
 var
  l_Inst : TPrimQueryCardForm;
 begin
@@ -1574,6 +1555,14 @@ procedure TPrimQueryCardForm.SignalDataSourceChanged(const anOld: IvcmFormDataSo
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsQuery := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsQuery, dsQuery);
+ end;//aNew = nil
 end;//TPrimQueryCardForm.SignalDataSourceChanged
 
 procedure TPrimQueryCardForm.InitEntities;
@@ -1587,6 +1576,7 @@ begin
   PublishFormEntity(en_SearchParameters, nil);
   PublishFormEntity(en_SearchParameter, nil);
   PublishFormEntity(en_CardOperation, nil);
+  MakeEntitySupportedByControl(en_CardOperation, Editor);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
   PublishOpWithResult(en_SearchParameters, op_IsQueryEmpty, SearchParameters_IsQueryEmpty, nil, nil);
@@ -1602,6 +1592,18 @@ begin
   PublishOp(en_CardOperation, op_CreateAttr, CardOperation_CreateAttr_Execute, CardOperation_CreateAttr_Test, nil);
   PublishOp(en_CardOperation, op_OpenTreeSelection, CardOperation_OpenTreeSelection_Execute, CardOperation_OpenTreeSelection_Test, nil);
  end;//with Entities.Entities
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_ExpandCollapse, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_DeleteAll, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_CreateAttr, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_OpenTreeSelection, False);
+ AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintPreview, False);
 end;//TPrimQueryCardForm.InitEntities
 
 procedure TPrimQueryCardForm.MakeControls;
@@ -1680,16 +1682,6 @@ begin
 end;//TPrimQueryCardForm.MakeControls
 
 initialization
- str_utqcAttributeSearchCaption.Init;
- {* Инициализация str_utqcAttributeSearchCaption }
- str_utqcPostingOrderCaption.Init;
- {* Инициализация str_utqcPostingOrderCaption }
- str_utqcLegislationReviewCaption.Init;
- {* Инициализация str_utqcLegislationReviewCaption }
- str_utqcSendConsultationCaption.Init;
- {* Инициализация str_utqcSendConsultationCaption }
- str_utqcInpharmSearchCaption.Init;
- {* Инициализация str_utqcInpharmSearchCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimQueryCardForm);
  {* Регистрация PrimQueryCard }

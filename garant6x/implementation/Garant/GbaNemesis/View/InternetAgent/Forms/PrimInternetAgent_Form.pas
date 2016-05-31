@@ -1,448 +1,402 @@
 unit PrimInternetAgent_Form;
+ {* Базаовая форма для [Интернет-агента|$124453728] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/InternetAgent/Forms/PrimInternetAgent_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::InternetAgent::View::InternetAgent::PrimInternetAgent
-//
-// Базаовая форма для [Интернет-агента|$124453728]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimInternetAgent" MUID: (49EC746B01E5)
+// Имя типа: "TPrimInternetAgentForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  InternetAgentInterfaces,
-  nsWebBrowser,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  Search_ScalingSupport_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimInternetAgent_utInternetAgent_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_ScalingSupport_Controls
+ , nsWebBrowser
+ , InternetAgentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimInternetAgentForm = {form} class(_vcmChromeLikeTabIconUpdater_)
+ TPrimInternetAgentForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Базаовая форма для [Интернет-агента|$124453728] }
- private
- // private fields
-   f_Browser : TnsWebBrowser;
-   f_InInit : Boolean;
-   f_URL : WideString;
-   f_CanBack : Boolean;
-   f_CanForward : Boolean;
-   f_NavigateErrorPass : Boolean;
-    {* Признак, что мы "прошли" через обработчик ошибки навигации.}
-   f_NavigateErrorCode : HResult;
-    {* Содержит код ошибки, если мы "прошли" через обработчик ошибки навигации.}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-    {$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+  private
+   f_Browser: TnsWebBrowser;
+   f_InInit: Boolean;
+   f_URL: WideString;
+   f_CanBack: Boolean;
+   f_CanForward: Boolean;
+   f_NavigateErrorPass: Boolean;
+    {* Признак, что мы "прошли" через обработчик ошибки навигации. }
+   f_NavigateErrorCode: HResult;
+    {* Содержит код ошибки, если мы "прошли" через обработчик ошибки навигации. }
+  protected
+   ViewArea: IdsInternetAgent;
+  private
+   {$If NOT Defined(XE)}
    procedure BeforeNavigate(Sender: TObject;
-     const pDisp: IDispatch;
-     var URL: OleVariant;
-     var Flags: OleVariant;
-     var TargetFrameName: OleVariant;
-     var PostData: OleVariant;
-     var Headers: OleVariant;
-     var Cancel: WordBool);
-     {* Обработчик события навигации }
-    {$IfEnd} //not Admin AND not Monitorings AND not XE
+    const pDisp: IDispatch;
+    var URL: OleVariant;
+    var Flags: OleVariant;
+    var TargetFrameName: OleVariant;
+    var PostData: OleVariant;
+    var Headers: OleVariant;
+    var Cancel: WordBool);
+    {* Обработчик события навигации }
+   {$IfEnd} // NOT Defined(XE)
    procedure TitleChange(Sender: TObject;
-     const Text: WideString);
-    {$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+    const Text: WideString);
+   {$If NOT Defined(XE)}
    procedure NavigateComplete(Sender: TObject;
-     const pDisp: IDispatch;
-     var URL: OleVariant);
-    {$IfEnd} //not Admin AND not Monitorings AND not XE
+    const pDisp: IDispatch;
+    var URL: OleVariant);
+   {$IfEnd} // NOT Defined(XE)
    procedure Navigate(const anURL: WideString);
-     {* Навигация на заданный адрес }
+    {* Навигация на заданный адрес }
    procedure CommandStateChange(Sender: TObject;
-     Command: Integer;
-     Enable: WordBool);
-     {* Реакция на смену доступности команды }
-    {$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+    Command: Integer;
+    Enable: WordBool);
+    {* Реакция на смену доступности команды }
+   {$If NOT Defined(XE)}
    procedure NavigateError(Sender: TObject;
-     const pDisp: IDispatch;
-     var URL: OleVariant;
-     var Frame: OleVariant;
-     var StatusCode: OleVariant;
-     var Cancel: WordBool);
-     {* Обработчик события ошибка навигации }
-    {$IfEnd} //not Admin AND not Monitorings AND not XE
+    const pDisp: IDispatch;
+    var URL: OleVariant;
+    var Frame: OleVariant;
+    var StatusCode: OleVariant;
+    var Cancel: WordBool);
+    {* Обработчик события ошибка навигации }
+   {$IfEnd} // NOT Defined(XE)
    procedure BeforeNavigateXE(Sender: TObject;
-     const pDisp: IDispatch;
-     const URL: OleVariant;
-     const Flags: OleVariant;
-     const TargetFrameName: OleVariant;
-     const PostData: OleVariant;
-     const Headers: OleVariant;
-     var Cancel: WordBool);
+    const pDisp: IDispatch;
+    const URL: OleVariant;
+    const Flags: OleVariant;
+    const TargetFrameName: OleVariant;
+    const PostData: OleVariant;
+    const Headers: OleVariant;
+    var Cancel: WordBool);
    procedure NavigateCompleteXE(Sender: TObject;
-     const pDisp: IDispatch;
-     const URL: OleVariant);
+    const pDisp: IDispatch;
+    const URL: OleVariant);
    procedure NavigateErrorXE(Sender: TObject;
-     const pDisp: IDispatch;
-     const URL: OleVariant;
-     const Frame: OleVariant;
-     const StatusCode: OleVariant;
-     var Cancel: WordBool);
+    const pDisp: IDispatch;
+    const URL: OleVariant;
+    const Frame: OleVariant;
+    const StatusCode: OleVariant;
+    var Cancel: WordBool);
    procedure MakeBrowser;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Cut_Test(const aParams: IvcmTestParamsPrim);
-     {* Вырезать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Cut_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вырезать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindContext_Test(const aParams: IvcmTestParamsPrim);
-     {* Поиск }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindContext_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Поиск }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
-     {* Найти далее }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Найти далее }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
-     {* Вставка }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вставка }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Undo_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
-     {* Возврат }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Redo_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Возврат }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Выделить всё }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Выделить всё }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
-     {* Снять выделение }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Снять выделение }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
-   function Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
-     {* Изменить масштаб }
-   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParams);
-     {* Изменить масштаб }
-   function Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
-     {* Масштабирование запрещено }
-   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
-     {* Масштабирование запрещено }
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoSaveState(out theState: IvcmBase;
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- protected
- // protected fields
-   ViewArea : IdsInternetAgent;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Cut_Test(const aParams: IvcmTestParamsPrim);
+    {* Вырезать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Cut_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вырезать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindContext_Test(const aParams: IvcmTestParamsPrim);
+    {* Поиск }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindContext_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Поиск }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
+    {* Найти далее }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Найти далее }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Undo_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
+    {* Возврат }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Redo_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Возврат }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Выделить всё }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
+    {* Снять выделение }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Снять выделение }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$IfEnd} // NOT Defined(NoVCM)
+   function Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
+    {* Изменить масштаб }
+   procedure Scalable_ChangeScale(const aParams: IvcmExecuteParams);
+    {* Изменить масштаб }
+   function Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
+    {* Масштабирование запрещено }
+   procedure Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
+    {* Масштабирование запрещено }
  end;//TPrimInternetAgentForm
-
- TvcmEntityFormRef = TPrimInternetAgentForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  nsInternetUtils
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsExternalObjectPrim,
-  l3Base
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  ComObj,
-  shdocvw,
-  UrlMon
-  {$If not defined(NoVCL)}
-  ,
-  OleCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  afwFacade,
-  nsConst,
-  nsUtils,
-  bsTypesNew,
-  nsSettingsConst,
-  nsQuestionsWithChoices,
-  nsTabbedInterfaceTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3ProtoObject
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ComObj
+ , shdocvw
+ , UrlMon
+ {$If NOT Defined(NoVCL)}
+ , OleCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , afwFacade
+ , nsConst
+ , nsUtils
+ , bsTypesNew
+ , nsSettingsConst
+ , nsQuestionsWithChoices
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If Defined(Nemesis)}
+ , nsInternetUtils
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsExternalObjectPrim
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimInternetAgent_utInternetAgent_UserType
+ //#UC START# *49EC746B01E5impl_uses*
+ //#UC END# *49EC746B01E5impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TPrimInternetAgentForm;
-
-{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
-
-const
-   { Идентификаторы настроек }
-  pi_InternetAgent_Scale = gi_Internal + '/Новости онлайн/Масштаб';
-   { Идентификатор натройки "Масштаб" }
-
-var
-   { Локализуемые строки utInternetAgentLocalConstants }
-  str_utInternetAgentCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utInternetAgentCaption'; rValue : 'Новости онлайн');
-   { Заголовок пользовательского типа "Новости онлайн" }
-
+{$If NOT Defined(NoVCM)}
 type
- InsInternetAgentState = interface(IUnknown{, IvcmBase})
+ TnsInternetAgentState = class;
+
+ InsInternetAgentState = interface
   {* Состояние Интернет-агента }
-   ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']
-   function Get_URL: WideString;
-   procedure SetParams(const anURL: WideString);
-     {* Устанавливает новые параметры состояния Интернет-агента }
-   property URL: WideString
-     read Get_URL;
-     {* Путь к странице }
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
+  ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']
+  function Get_URL: WideString;
+  function Get_ScrollPos: Integer;
+  procedure SetParams(const anURL: WideString;
+   aScrollPos: Integer);
+   {* Устанавливает новые параметры состояния Интернет-агента }
+  function As_IvcmBase: IvcmBase;
+   {* Метод приведения нашего интерфейса к IvcmBase }
+  property URL: WideString
+   read Get_URL;
+   {* Путь к странице }
+  property ScrollPos: Integer
+   read Get_ScrollPos;
  end;//InsInternetAgentState
 
-  TnsInternetAgentState = class(Tl3ProtoObject, InsInternetAgentState, IvcmBase {from InsInternetAgentState})
+ TnsInternetAgentState = class(Tl3ProtoObject, InsInternetAgentState, IvcmBase)
   private
-  // private fields
-   f_URL : WideString;
+   f_URL: WideString;
+   f_ScrollPos: Integer;
   protected
-  // realized methods
-   function Get_URL: WideString;
-   procedure SetParams(const anURL: WideString);
-     {* Устанавливает новые параметры состояния Интернет-агента }
-  public
-  // public methods
-   class function Make(const anURL: WideString): InsInternetAgentState; reintroduce;
-   constructor Create(const anURL: WideString); reintroduce;
-  protected
-  // Методы преобразования к реализуемым интерфейсам
    function As_IvcmBase: IvcmBase;
-  end;//TnsInternetAgentState
+    {* Метод приведения нашего интерфейса к IvcmBase }
+   function Get_URL: WideString;
+   procedure SetParams(const anURL: WideString;
+    aScrollPos: Integer);
+    {* Устанавливает новые параметры состояния Интернет-агента }
+   function Get_ScrollPos: Integer;
+  public
+   constructor Create(const anURL: WideString;
+    aScrollPos: Integer); reintroduce;
+   class function Make(const anURL: WideString;
+    aScrollPos: Integer): InsInternetAgentState; reintroduce;
+ end;//TnsInternetAgentState
 
-// start class TnsInternetAgentState
+const
+ {* Идентификаторы настроек }
+ pi_InternetAgent_Scale = gi_Internal + '/Новости онлайн/Масштаб';
+  {* Идентификатор натройки "Масштаб" }
 
-class function TnsInternetAgentState.Make(const anURL: WideString): InsInternetAgentState;
+constructor TnsInternetAgentState.Create(const anURL: WideString;
+ aScrollPos: Integer);
+//#UC START# *5742CDC7015B_49EDAA740295_var*
+//#UC END# *5742CDC7015B_49EDAA740295_var*
+begin
+//#UC START# *5742CDC7015B_49EDAA740295_impl*
+ inherited Create;
+ SetParams(anUrl, aScrollPos);
+//#UC END# *5742CDC7015B_49EDAA740295_impl*
+end;//TnsInternetAgentState.Create
+
+class function TnsInternetAgentState.Make(const anURL: WideString;
+ aScrollPos: Integer): InsInternetAgentState;
 var
  l_Inst : TnsInternetAgentState;
 begin
- l_Inst := Create(anURL);
+ l_Inst := Create(anURL, aScrollPos);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsInternetAgentState.Make
 
-constructor TnsInternetAgentState.Create(const anURL: WideString);
-//#UC START# *49EDAB3802C8_49EDAA740295_var*
-//#UC END# *49EDAB3802C8_49EDAA740295_var*
+function TnsInternetAgentState.As_IvcmBase: IvcmBase;
+ {* Метод приведения нашего интерфейса к IvcmBase }
 begin
-//#UC START# *49EDAB3802C8_49EDAA740295_impl*
- inherited Create;
- f_URL := anURL;
-//#UC END# *49EDAB3802C8_49EDAA740295_impl*
-end;//TnsInternetAgentState.Create
+ Result := Self;
+end;//TnsInternetAgentState.As_IvcmBase
 
 function TnsInternetAgentState.Get_URL: WideString;
 //#UC START# *49EDAAF403C0_49EDAA740295get_var*
@@ -453,7 +407,9 @@ begin
 //#UC END# *49EDAAF403C0_49EDAA740295get_impl*
 end;//TnsInternetAgentState.Get_URL
 
-procedure TnsInternetAgentState.SetParams(const anURL: WideString);
+procedure TnsInternetAgentState.SetParams(const anURL: WideString;
+ aScrollPos: Integer);
+ {* Устанавливает новые параметры состояния Интернет-агента }
 //#UC START# *49EDDC9F007A_49EDAA740295_var*
 //#UC END# *49EDDC9F007A_49EDAA740295_var*
 begin
@@ -462,22 +418,29 @@ begin
 //#UC END# *49EDDC9F007A_49EDAA740295_impl*
 end;//TnsInternetAgentState.SetParams
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TnsInternetAgentState.As_IvcmBase: IvcmBase;
+function TnsInternetAgentState.Get_ScrollPos: Integer;
+//#UC START# *5742C1CB030C_49EDAA740295get_var*
+//#UC END# *5742C1CB030C_49EDAA740295get_var*
 begin
- Result := Self;
-end;
+//#UC START# *5742C1CB030C_49EDAA740295get_impl*
+ Result := f_ScrollPos;
+//#UC END# *5742C1CB030C_49EDAA740295get_impl*
+end;//TnsInternetAgentState.Get_ScrollPos
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+type _Instance_R_ = TPrimInternetAgentForm;
+
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
+
+{$If NOT Defined(XE)}
 procedure TPrimInternetAgentForm.BeforeNavigate(Sender: TObject;
-  const pDisp: IDispatch;
-  var URL: OleVariant;
-  var Flags: OleVariant;
-  var TargetFrameName: OleVariant;
-  var PostData: OleVariant;
-  var Headers: OleVariant;
-  var Cancel: WordBool);
+ const pDisp: IDispatch;
+ var URL: OleVariant;
+ var Flags: OleVariant;
+ var TargetFrameName: OleVariant;
+ var PostData: OleVariant;
+ var Headers: OleVariant;
+ var Cancel: WordBool);
+ {* Обработчик события навигации }
 //#UC START# *49ED882F0024_49EC746B01E5_var*
 //#UC END# *49ED882F0024_49EC746B01E5_var*
 begin
@@ -485,10 +448,10 @@ begin
  BeforeNavigateXE(Sender, pDisp, URL, Flags, TargetFrameName, PostData, Headers, Cancel);
 //#UC END# *49ED882F0024_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.BeforeNavigate
-{$IfEnd} //not Admin AND not Monitorings AND not XE
+{$IfEnd} // NOT Defined(XE)
 
 procedure TPrimInternetAgentForm.TitleChange(Sender: TObject;
-  const Text: WideString);
+ const Text: WideString);
 //#UC START# *49ED8A6F01AE_49EC746B01E5_var*
 //#UC END# *49ED8A6F01AE_49EC746B01E5_var*
 begin
@@ -497,10 +460,10 @@ begin
 //#UC END# *49ED8A6F01AE_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.TitleChange
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+{$If NOT Defined(XE)}
 procedure TPrimInternetAgentForm.NavigateComplete(Sender: TObject;
-  const pDisp: IDispatch;
-  var URL: OleVariant);
+ const pDisp: IDispatch;
+ var URL: OleVariant);
 //#UC START# *49ED8AA0026E_49EC746B01E5_var*
 //#UC END# *49ED8AA0026E_49EC746B01E5_var*
 begin
@@ -508,9 +471,10 @@ begin
  NavigateCompleteXE(Sender, pDisp, URL);
 //#UC END# *49ED8AA0026E_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.NavigateComplete
-{$IfEnd} //not Admin AND not Monitorings AND not XE
+{$IfEnd} // NOT Defined(XE)
 
 procedure TPrimInternetAgentForm.Navigate(const anURL: WideString);
+ {* Навигация на заданный адрес }
 //#UC START# *49EDE0FF002C_49EC746B01E5_var*
 //#UC END# *49EDE0FF002C_49EC746B01E5_var*
 begin
@@ -522,8 +486,9 @@ begin
 end;//TPrimInternetAgentForm.Navigate
 
 procedure TPrimInternetAgentForm.CommandStateChange(Sender: TObject;
-  Command: Integer;
-  Enable: WordBool);
+ Command: Integer;
+ Enable: WordBool);
+ {* Реакция на смену доступности команды }
 //#UC START# *49EDEDCE0015_49EC746B01E5_var*
 //#UC END# *49EDEDCE0015_49EC746B01E5_var*
 begin
@@ -538,13 +503,14 @@ begin
 //#UC END# *49EDEDCE0015_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.CommandStateChange
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(XE)}
+{$If NOT Defined(XE)}
 procedure TPrimInternetAgentForm.NavigateError(Sender: TObject;
-  const pDisp: IDispatch;
-  var URL: OleVariant;
-  var Frame: OleVariant;
-  var StatusCode: OleVariant;
-  var Cancel: WordBool);
+ const pDisp: IDispatch;
+ var URL: OleVariant;
+ var Frame: OleVariant;
+ var StatusCode: OleVariant;
+ var Cancel: WordBool);
+ {* Обработчик события ошибка навигации }
 //#UC START# *4A1133EF0284_49EC746B01E5_var*
 //#UC END# *4A1133EF0284_49EC746B01E5_var*
 begin
@@ -552,16 +518,16 @@ begin
  NavigateErrorXE(Sender, pDisp, URL, Frame, StatusCode, Cancel);
 //#UC END# *4A1133EF0284_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.NavigateError
-{$IfEnd} //not Admin AND not Monitorings AND not XE
+{$IfEnd} // NOT Defined(XE)
 
 procedure TPrimInternetAgentForm.BeforeNavigateXE(Sender: TObject;
-  const pDisp: IDispatch;
-  const URL: OleVariant;
-  const Flags: OleVariant;
-  const TargetFrameName: OleVariant;
-  const PostData: OleVariant;
-  const Headers: OleVariant;
-  var Cancel: WordBool);
+ const pDisp: IDispatch;
+ const URL: OleVariant;
+ const Flags: OleVariant;
+ const TargetFrameName: OleVariant;
+ const PostData: OleVariant;
+ const Headers: OleVariant;
+ var Cancel: WordBool);
 //#UC START# *5175422C03AF_49EC746B01E5_var*
 const
  c_GarantUserAgent: string = 'GarantF1';
@@ -632,8 +598,8 @@ begin
 end;//TPrimInternetAgentForm.BeforeNavigateXE
 
 procedure TPrimInternetAgentForm.NavigateCompleteXE(Sender: TObject;
-  const pDisp: IDispatch;
-  const URL: OleVariant);
+ const pDisp: IDispatch;
+ const URL: OleVariant);
 //#UC START# *517544400331_49EC746B01E5_var*
 const
  c_PageNotFoundError: HResult = 404;
@@ -662,11 +628,11 @@ begin
 end;//TPrimInternetAgentForm.NavigateCompleteXE
 
 procedure TPrimInternetAgentForm.NavigateErrorXE(Sender: TObject;
-  const pDisp: IDispatch;
-  const URL: OleVariant;
-  const Frame: OleVariant;
-  const StatusCode: OleVariant;
-  var Cancel: WordBool);
+ const pDisp: IDispatch;
+ const URL: OleVariant;
+ const Frame: OleVariant;
+ const StatusCode: OleVariant;
+ var Cancel: WordBool);
 //#UC START# *517544E2036E_49EC746B01E5_var*
 const
  c_HTTP_OK: HResult = 200;
@@ -699,8 +665,8 @@ begin
 //#UC END# *5411790D0297_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.MakeBrowser
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_49EC746B01E5test_var*
 //#UC END# *494F89C30197_49EC746B01E5test_var*
 begin
@@ -708,21 +674,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_DELETE) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *494F89C30197_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimInternetAgentForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_49EC746B01E5getstate_var*
-//#UC END# *494F89C30197_49EC746B01E5getstate_var*
-begin
-//#UC START# *494F89C30197_49EC746B01E5getstate_impl*
- // - ничего не делаем
-//#UC END# *494F89C30197_49EC746B01E5getstate_impl*
-end;//TPrimInternetAgentForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_49EC746B01E5exec_var*
 //#UC END# *494F89C30197_49EC746B01E5exec_var*
 begin
@@ -730,10 +684,19 @@ begin
  f_Browser.ExecWB(OLECMDID_DELETE, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *494F89C30197_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
+procedure TPrimInternetAgentForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_49EC746B01E5getstate_var*
+//#UC END# *494F89C30197_49EC746B01E5getstate_var*
+begin
+//#UC START# *494F89C30197_49EC746B01E5getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_49EC746B01E5getstate_impl*
+end;//TPrimInternetAgentForm.Edit_Delete_GetState
+
 procedure TPrimInternetAgentForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_49EC746B01E5test_var*
 //#UC END# *4951284902BD_49EC746B01E5test_var*
 begin
@@ -741,10 +704,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_COPY) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *4951284902BD_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
 //#UC START# *4951284902BD_49EC746B01E5exec_var*
 //#UC END# *4951284902BD_49EC746B01E5exec_var*
 begin
@@ -752,10 +714,9 @@ begin
  f_Browser.ExecWB(OLECMDID_COPY, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *4951284902BD_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Copy_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Cut_Test(const aParams: IvcmTestParamsPrim);
+ {* Вырезать }
 //#UC START# *4951285702E1_49EC746B01E5test_var*
 //#UC END# *4951285702E1_49EC746B01E5test_var*
 begin
@@ -763,10 +724,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_CUT) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *4951285702E1_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Cut_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Cut_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вырезать }
 //#UC START# *4951285702E1_49EC746B01E5exec_var*
 //#UC END# *4951285702E1_49EC746B01E5exec_var*
 begin
@@ -774,10 +734,9 @@ begin
  f_Browser.ExecWB(OLECMDID_CUT, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *4951285702E1_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Cut_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindContext_Test(const aParams: IvcmTestParamsPrim);
+ {* Поиск }
 //#UC START# *49512B5D0009_49EC746B01E5test_var*
 //#UC END# *49512B5D0009_49EC746B01E5test_var*
 begin
@@ -785,10 +744,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_FIND) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49512B5D0009_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_FindContext_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindContext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поиск }
 //#UC START# *49512B5D0009_49EC746B01E5exec_var*
 //#UC END# *49512B5D0009_49EC746B01E5exec_var*
 begin
@@ -796,10 +754,9 @@ begin
  f_Browser.ExecWB(OLECMDID_FIND, OLECMDEXECOPT_PROMPTUSER);
 //#UC END# *49512B5D0009_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_FindContext_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
+ {* Найти далее }
 //#UC START# *495130C40123_49EC746B01E5test_var*
 //#UC END# *495130C40123_49EC746B01E5test_var*
 begin
@@ -807,10 +764,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_FIND) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *495130C40123_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_FindNext_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти далее }
 //#UC START# *495130C40123_49EC746B01E5exec_var*
 //#UC END# *495130C40123_49EC746B01E5exec_var*
 begin
@@ -823,10 +779,9 @@ begin
  end;//try..except
 //#UC END# *495130C40123_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_FindNext_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_49EC746B01E5test_var*
 //#UC END# *49521D8E0295_49EC746B01E5test_var*
 begin
@@ -834,10 +789,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49521D8E0295_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.File_Print_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_49EC746B01E5exec_var*
 //#UC END# *49521D8E0295_49EC746B01E5exec_var*
 begin
@@ -845,10 +799,9 @@ begin
  f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_DONTPROMPTUSER);
 //#UC END# *49521D8E0295_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.File_Print_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_49EC746B01E5test_var*
 //#UC END# *495220DE0298_49EC746B01E5test_var*
 begin
@@ -856,10 +809,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINT) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *495220DE0298_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_49EC746B01E5exec_var*
 //#UC END# *495220DE0298_49EC746B01E5exec_var*
 begin
@@ -867,10 +819,9 @@ begin
  f_Browser.ExecWB(OLECMDID_PRINT, OLECMDEXECOPT_PROMPTUSER);
 //#UC END# *495220DE0298_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_49EC746B01E5test_var*
 //#UC END# *495220F2033A_49EC746B01E5test_var*
 begin
@@ -878,10 +829,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PRINTPREVIEW) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *495220F2033A_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_49EC746B01E5exec_var*
 //#UC END# *495220F2033A_49EC746B01E5exec_var*
 begin
@@ -889,10 +839,9 @@ begin
  f_Browser.ExecWB(OLECMDID_PRINTPREVIEW, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *495220F2033A_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_49EC746B01E5test_var*
 //#UC END# *495235F401C0_49EC746B01E5test_var*
 begin
@@ -900,10 +849,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_SAVEAS) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *495235F401C0_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.File_Save_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_49EC746B01E5exec_var*
 //#UC END# *495235F401C0_49EC746B01E5exec_var*
 begin
@@ -911,10 +859,9 @@ begin
  f_Browser.ExecWB(OLECMDID_SAVEAS, OLECMDEXECOPT_PROMPTUSER);
 //#UC END# *495235F401C0_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.File_Save_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_49EC746B01E5test_var*
 //#UC END# *49EDFA3701B0_49EC746B01E5test_var*
 begin
@@ -922,10 +869,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_PASTE) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49EDFA3701B0_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Paste_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Paste_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_49EC746B01E5exec_var*
 //#UC END# *49EDFA3701B0_49EC746B01E5exec_var*
 begin
@@ -933,10 +879,9 @@ begin
  f_Browser.ExecWB(OLECMDID_PASTE, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *49EDFA3701B0_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Paste_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Undo_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *49EDFCA2006D_49EC746B01E5test_var*
 //#UC END# *49EDFCA2006D_49EC746B01E5test_var*
 begin
@@ -944,10 +889,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_UNDO) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49EDFCA2006D_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Undo_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Undo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *49EDFCA2006D_49EC746B01E5exec_var*
 //#UC END# *49EDFCA2006D_49EC746B01E5exec_var*
 begin
@@ -955,10 +899,9 @@ begin
  f_Browser.ExecWB(OLECMDID_UNDO, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *49EDFCA2006D_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Undo_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Redo_Test(const aParams: IvcmTestParamsPrim);
+ {* Возврат }
 //#UC START# *49EDFCB100BC_49EC746B01E5test_var*
 //#UC END# *49EDFCB100BC_49EC746B01E5test_var*
 begin
@@ -966,10 +909,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_REDO) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49EDFCB100BC_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Redo_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Redo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Возврат }
 //#UC START# *49EDFCB100BC_49EC746B01E5exec_var*
 //#UC END# *49EDFCB100BC_49EC746B01E5exec_var*
 begin
@@ -977,10 +919,9 @@ begin
  f_Browser.ExecWB(OLECMDID_REDO, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *49EDFCB100BC_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Redo_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_SelectAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_49EC746B01E5test_var*
 //#UC END# *49EE01AA02BE_49EC746B01E5test_var*
 begin
@@ -988,10 +929,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_SELECTALL) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49EE01AA02BE_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_SelectAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_SelectAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Выделить всё }
 //#UC START# *49EE01AA02BE_49EC746B01E5exec_var*
 //#UC END# *49EE01AA02BE_49EC746B01E5exec_var*
 begin
@@ -999,10 +939,9 @@ begin
  f_Browser.ExecWB(OLECMDID_SELECTALL, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *49EE01AA02BE_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_SelectAll_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Deselect_Test(const aParams: IvcmTestParamsPrim);
+ {* Снять выделение }
 //#UC START# *49EE01BC022E_49EC746B01E5test_var*
 //#UC END# *49EE01BC022E_49EC746B01E5test_var*
 begin
@@ -1010,10 +949,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := (f_Browser <> nil) AND ((f_Browser.QueryStatusWB(OLECMDID_CLEARSELECTION) AND OLECMDF_ENABLED) <> 0);
 //#UC END# *49EE01BC022E_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_Deselect_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_Deselect_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Снять выделение }
 //#UC START# *49EE01BC022E_49EC746B01E5exec_var*
 //#UC END# *49EE01BC022E_49EC746B01E5exec_var*
 begin
@@ -1021,9 +959,7 @@ begin
  f_Browser.ExecWB(OLECMDID_CLEARSELECTION, OLECMDEXECOPT_DODEFAULT);
 //#UC END# *49EE01BC022E_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_Deselect_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *49FEDE4703B8_49EC746B01E5test_var*
 //#UC END# *49FEDE4703B8_49EC746B01E5test_var*
@@ -1032,9 +968,7 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *49FEDE4703B8_49EC746B01E5test_impl*
 end;//TPrimInternetAgentForm.Edit_FindPrev_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *49FEDE4703B8_49EC746B01E5exec_var*
 //#UC END# *49FEDE4703B8_49EC746B01E5exec_var*
@@ -1043,9 +977,9 @@ begin
  aParams.DoneStatus := vcm_dsDisabled;
 //#UC END# *49FEDE4703B8_49EC746B01E5exec_impl*
 end;//TPrimInternetAgentForm.Edit_FindPrev_Execute
-{$IfEnd} //not NoVCM
 
 function TPrimInternetAgentForm.Scalable_ChangeScale_Execute(aInc: Boolean): Boolean;
+ {* Изменить масштаб }
 //#UC START# *4BB32C1401C0_49EC746B01E5exec_var*
 //#UC END# *4BB32C1401C0_49EC746B01E5exec_var*
 begin
@@ -1067,12 +1001,14 @@ begin
 end;//TPrimInternetAgentForm.Scalable_ChangeScale_Execute
 
 procedure TPrimInternetAgentForm.Scalable_ChangeScale(const aParams: IvcmExecuteParams);
+ {* Изменить масштаб }
 begin
  with (aParams.Data As IScalable_ChangeScale_Params) do
-  ResultValue := Scalable_ChangeScale_Execute(Inc);
-end;
+  ResultValue := Self.Scalable_ChangeScale_Execute(Inc);
+end;//TPrimInternetAgentForm.Scalable_ChangeScale
 
 function TPrimInternetAgentForm.Scalable_CanChangeScale_Execute(anInc: Boolean): TCanChangeScale;
+ {* Масштабирование запрещено }
 //#UC START# *4BB366A901D7_49EC746B01E5exec_var*
 //#UC END# *4BB366A901D7_49EC746B01E5exec_var*
 begin
@@ -1103,12 +1039,14 @@ begin
 end;//TPrimInternetAgentForm.Scalable_CanChangeScale_Execute
 
 procedure TPrimInternetAgentForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
+ {* Масштабирование запрещено }
 begin
  with (aParams.Data As IScalable_CanChangeScale_Params) do
-  ResultValue := Scalable_CanChangeScale_Execute(nInc);
-end;
+  ResultValue := Self.Scalable_CanChangeScale_Execute(nInc);
+end;//TPrimInternetAgentForm.Scalable_CanChangeScale
 
 procedure TPrimInternetAgentForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49EC746B01E5_var*
 //#UC END# *479731C50290_49EC746B01E5_var*
 begin
@@ -1121,9 +1059,9 @@ begin
 //#UC END# *479731C50290_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_49EC746B01E5_var*
 //#UC END# *497469C90140_49EC746B01E5_var*
 begin
@@ -1139,10 +1077,9 @@ begin
  end;//aNew <> nil
 //#UC END# *497469C90140_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimInternetAgentForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49EC746B01E5_var*
 //#UC END# *49803F5503AA_49EC746B01E5_var*
 begin
@@ -1153,12 +1090,11 @@ begin
   f_Browser.SetFocus;
 //#UC END# *49803F5503AA_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimInternetAgentForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_49EC746B01E5_var*
 //#UC END# *49806ED503D5_49EC746B01E5_var*
 begin
@@ -1173,11 +1109,10 @@ begin
  Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoSaveState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimInternetAgentForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_49EC746B01E5_var*
 var
  l_State : InsInternetAgentState;
@@ -1226,9 +1161,8 @@ begin
  Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimInternetAgentForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_49EC746B01E5_var*
 //#UC END# *543E3AA801D0_49EC746B01E5_var*
@@ -1238,23 +1172,25 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=565271310
 //#UC END# *543E3AA801D0_49EC746B01E5_impl*
 end;//TPrimInternetAgentForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-procedure TPrimInternetAgentForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimInternetAgentForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsInternetAgent;
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsInternetAgent;
+ end;//aNew = nil
+end;//TPrimInternetAgentForm.SignalDataSourceChanged
 
 procedure TPrimInternetAgentForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1262,70 +1198,25 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Scalable, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Cut, Edit_Cut_Execute, Edit_Cut_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_FindContext, Edit_FindContext_Execute, Edit_FindContext_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_FindNext, Edit_FindNext_Execute, Edit_FindNext_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, Edit_Paste_Execute, Edit_Paste_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Undo, Edit_Undo_Execute, Edit_Undo_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Redo, Edit_Redo_Execute, Edit_Redo_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_SelectAll, Edit_SelectAll_Execute, Edit_SelectAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Deselect, Edit_Deselect_Execute, Edit_Deselect_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOpWithResult(en_Scalable, op_ChangeScale, Scalable_ChangeScale, nil, nil);
   PublishOpWithResult(en_Scalable, op_CanChangeScale, Scalable_CanChangeScale, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimInternetAgentForm.InitEntities
 
 procedure TPrimInternetAgentForm.MakeControls;
 begin
@@ -1333,7 +1224,7 @@ begin
  with AddUsertype(utInternetAgentName,
   str_utInternetAgentCaption,
   str_utInternetAgentCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -1343,18 +1234,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utInternetAgentName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimInternetAgentForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utInternetAgentCaption
- str_utInternetAgentCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimInternetAgent
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimInternetAgentForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimInternetAgent }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

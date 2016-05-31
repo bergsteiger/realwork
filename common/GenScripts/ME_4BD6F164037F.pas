@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utTipsLocalConstants }
+ str_utTipsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utTipsCaption'; rValue : 'Совет дня');
+  {* Заголовок пользовательского типа "Совет дня" }
+ str_utTipsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utTipsSettingsCaption'; rValue : 'Совет дня: Список советов (вкладка)');
+  {* Заголовок пользовательского типа "Совет дня" для настройки панелей инструментов }
  {* Константы для типа формы utTips }
  utTipsName = 'utTips';
   {* Строковый идентификатор пользовательского типа "Совет дня" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utTips.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utTipsCaption.Init;
+ {* Инициализация str_utTipsCaption }
+ str_utTipsSettingsCaption.Init;
+ {* Инициализация str_utTipsSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utTips.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utTips }

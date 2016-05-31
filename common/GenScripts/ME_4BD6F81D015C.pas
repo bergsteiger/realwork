@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utAttributeSelectLocalConstants }
+ str_utAttributeSelectCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utAttributeSelectCaption'; rValue : 'Выбор значения атрибута');
+  {* Заголовок пользовательского типа "Выбор значения атрибута" }
  {* Константы для типа формы utAttributeSelect }
  utAttributeSelectName = 'utAttributeSelect';
   {* Строковый идентификатор пользовательского типа "Выбор значения атрибута" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_utAttributeSelect.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utAttributeSelectCaption.Init;
+ {* Инициализация str_utAttributeSelectCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utAttributeSelect.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utAttributeSelect }

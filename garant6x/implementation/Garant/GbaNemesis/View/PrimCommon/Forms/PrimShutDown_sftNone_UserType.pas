@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки sftNoneLocalConstants }
+ str_sftNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'sftNoneCaption'; rValue : 'Предупреждение о закрытии приложения');
+  {* Заголовок пользовательского типа "Предупреждение о закрытии приложения" }
  {* Константы для типа формы sftNone }
  sftNoneName = 'sftNone';
   {* Строковый идентификатор пользовательского типа "Предупреждение о закрытии приложения" }
@@ -55,6 +59,8 @@ end;//Tkw_FormUserType_sftNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_sftNoneCaption.Init;
+ {* Инициализация str_sftNoneCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_sftNone.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_sftNone }

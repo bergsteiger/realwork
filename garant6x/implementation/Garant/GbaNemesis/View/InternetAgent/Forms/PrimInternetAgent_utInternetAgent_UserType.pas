@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utInternetAgentLocalConstants }
+ str_utInternetAgentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utInternetAgentCaption'; rValue : 'Новости онлайн');
+  {* Заголовок пользовательского типа "Новости онлайн" }
  {* Константы для типа формы utInternetAgent }
  utInternetAgentName = 'utInternetAgent';
   {* Строковый идентификатор пользовательского типа "Новости онлайн" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utInternetAgent.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utInternetAgentCaption.Init;
+ {* Инициализация str_utInternetAgentCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utInternetAgent.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utInternetAgent }

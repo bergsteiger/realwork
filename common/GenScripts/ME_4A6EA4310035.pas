@@ -21,6 +21,9 @@ uses
  {$If Defined(Nemesis)}
  , nscChatMemo
  {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , DocumentUnit
  , evCustomEditorWindow
@@ -33,9 +36,6 @@ uses
  , nevGUIInterfaces
  , afwInterfaces
  , afwNavigation
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -100,7 +100,7 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(anUID: TbsUserID;
-    const aName: Il3CString): IbsAbstractChatWindow; reintroduce;
+    const aName: Il3CString): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -167,6 +167,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A6EA4310035impl_uses*
+ //#UC END# *4A6EA4310035impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -228,7 +233,7 @@ begin
 end;//TAbstractHistoryForm.ProcessMessages
 
 class function TAbstractHistoryForm.MakeSingleChild(anUID: TbsUserID;
- const aName: Il3CString): IbsAbstractChatWindow;
+ const aName: Il3CString): IvcmEntityForm;
 var
  l_Inst : TAbstractHistoryForm;
 begin
@@ -448,7 +453,8 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, HistoryEditor);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
  end;//with Entities.Entities
 end;//TAbstractHistoryForm.InitEntities

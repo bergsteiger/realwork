@@ -15,6 +15,9 @@ uses
  l3IntfUses
  , PrimTurnOffTimeMachine_Form
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -36,12 +39,17 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8A171801CAimpl_uses*
+ //#UC END# *4C8A171801CAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -50,6 +58,13 @@ procedure TPrimTurnOffTimeMachineOptionsForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, False);
+ end;//with Entities.Entities
 end;//TPrimTurnOffTimeMachineOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

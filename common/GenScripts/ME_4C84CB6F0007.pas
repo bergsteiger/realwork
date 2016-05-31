@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_Chat_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,12 +43,20 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C84CB6F0007impl_uses*
+ //#UC END# *4C84CB6F0007impl_uses*
 ;
 
 procedure TBaseChatWindowOptionsForm.Chat_History_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -67,8 +78,17 @@ begin
  begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_Chat, nil);
+  ToolbarAtBottom(en_Chat);
   PublishOp(en_Edit, op_Delete, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, False);
   PublishOp(en_Chat, op_History, Chat_History_Execute, nil, nil);
+  ShowInContextMenu(en_Chat, op_History, False);
+  ShowInToolbar(en_Chat, op_History, True);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, True);
  end;//with Entities.Entities
 end;//TBaseChatWindowOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utFoldersPropertyLocalConstants }
+ str_utFoldersPropertyCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utFoldersPropertyCaption'; rValue : 'Панель свойств');
+  {* Заголовок пользовательского типа "Панель свойств" }
  {* Константы для типа формы utFoldersProperty }
  utFoldersPropertyName = 'utFoldersProperty';
   {* Строковый идентификатор пользовательского типа "Панель свойств" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utFoldersProperty.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utFoldersPropertyCaption.Init;
+ {* Инициализация str_utFoldersPropertyCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utFoldersProperty.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utFoldersProperty }

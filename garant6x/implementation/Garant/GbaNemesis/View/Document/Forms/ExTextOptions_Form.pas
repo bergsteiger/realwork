@@ -1,145 +1,138 @@
 unit ExTextOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/Forms/ExTextOptions_Form.pas"
-// Начат: 02.09.2010 14:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Работа с документом и списком документов::Document::View::Document::ExTextOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExTextOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "ExTextOptions" MUID: (4C7F801D0304)
+// Имя типа: "TExTextOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Units,
-  Classes,
-  nevTools,
-  eeInterfaces,
-  ExText_Form,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  DataAdapterInterfaces,
-  Base_Operations_Strange_Controls,
-  Search_Strange_Controls,
-  l3StringIDEx,
-  bsTypesNew,
-  l3Variant
-  {$If defined(Nemesis)}
-  ,
-  nscReminder
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscRemindersLine
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  DocumentUnit,
-  nsTypes,
-  AdapterFacade,
-  nevNavigation,
-  DocumentAndListInterfaces,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ExText_Form
+ , Base_Operations_Strange_Controls
+ , Search_Strange_Controls
+ , Document_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscRemindersLine
+ {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ , nevTools
+ , bsTypesNew
+ {$If Defined(Nemesis)}
+ , nscReminder
+ {$IfEnd} // Defined(Nemesis)
+ , l3Variant
+ , DataAdapterInterfaces
+ , eeInterfaces
+ , l3Units
+ , afwInterfaces
+ , Classes
+ , nsTypes
+ , DocumentUnit
+ , AdapterFacade
+ , nevNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DocumentAndListInterfaces
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-var
-  { Локализуемые строки Reminders' Hints }
- str_WarnRedactionHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnRedactionHint'; rValue : 'Внимание! Настоящая редакция документа не действует');
-  { 'Внимание! Настоящая редакция документа не действует' }
- str_WarnTimeMachineOnHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnTimeMachineOnHint'; rValue : 'Машина времени включена');
-  { 'Машина времени включена' }
+const
+ {* Локализуемые строки Reminders' Hints }
+ str_WarnRedactionHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnRedactionHint'; rValue : 'Внимание! Настоящая редакция документа не действует');
+  {* 'Внимание! Настоящая редакция документа не действует' }
+ str_WarnTimeMachineOnHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnTimeMachineOnHint'; rValue : 'Машина времени включена');
+  {* 'Машина времени включена' }
 
 type
- TExTextOptionsForm = {form} class(TExTextForm)
- private
- // private fields
-   f_RemindersLine : TnscRemindersLine;
-    {* Поле для свойства RemindersLine}
-   f_WarnTimeMachineException : TnscReminder;
-    {* Поле для свойства WarnTimeMachineException}
-   f_WarnIsAbolished : TnscReminder;
-    {* Поле для свойства WarnIsAbolished}
-   f_WarnPreActive : TnscReminder;
-    {* Поле для свойства WarnPreActive}
-   f_WarnTimeMachineWarning : TnscReminder;
-    {* Поле для свойства WarnTimeMachineWarning}
-   f_WarnOnControl : TnscReminder;
-    {* Поле для свойства WarnOnControl}
-   f_WarnJuror : TnscReminder;
-    {* Поле для свойства WarnJuror}
-   f_WarnRedaction : TnscReminder;
-    {* Поле для свойства WarnRedaction}
-   f_WarnInactualDocument : TnscReminder;
-    {* Поле для свойства WarnInactualDocument}
-   f_WarnTimeMachineOn : TnscReminder;
-    {* Поле для свойства WarnTimeMachineOn}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TExTextOptionsForm = class(TExTextForm)
+  private
+   f_RemindersLine: TnscRemindersLine;
+   f_WarnTimeMachineException: TnscReminder;
+   f_WarnIsAbolished: TnscReminder;
+   f_WarnPreActive: TnscReminder;
+   f_WarnTimeMachineWarning: TnscReminder;
+   f_WarnOnControl: TnscReminder;
+   f_WarnJuror: TnscReminder;
+   f_WarnRedaction: TnscReminder;
+   f_WarnInactualDocument: TnscReminder;
+   f_WarnTimeMachineOn: TnscReminder;
+  protected
+   f_DocOpsList: IvcmItems;
+  private
    procedure TextBlockChange(aSender: TObject);
    procedure TextBlockScroll(aSender: TObject;
-     aDown: Boolean);
+    aDown: Boolean);
    function TextMouseAction(aSender: TObject;
-     const aHotSpot: IeeHotSpot;
-     aButton: TeeMouseButton;
-     anAction: TeeMouseAction;
-     Keys: TeeShiftState;
-     aWasSelection: Boolean): Boolean;
+    const aHotSpot: IeeHotSpot;
+    aButton: TeeMouseButton;
+    anAction: TeeMouseAction;
+    Keys: TeeShiftState;
+    aWasSelection: Boolean): Boolean;
    procedure TextCanSplitPara(aSender: TObject;
-     const aPara: IeePara;
-     var Allow: Boolean);
+    const aPara: IeePara;
+    var Allow: Boolean);
    procedure TextUserCommentsHidden(Sender: TObject);
    procedure TextAfterFirstPaint(Sender: TObject);
    procedure TextCommentsVisibleChanged(Sender: TObject);
    procedure TextShowDocumentPartsChanged(Sender: TObject);
    procedure TextDrawSpecialChange(Sender: TObject);
    function SubPanelMouseOverSub(Sender: TObject;
-     const Pt: Tl3SPoint;
-     const R: Tl3SRect;
-     const aSub: IevSub;
-     aLayer: Integer): Boolean;
+    const Pt: Tl3SPoint;
+    const R: Tl3SRect;
+    const aSub: IevSub;
+    aLayer: Integer): Boolean;
    procedure SubPanelClickSub(Sender: TObject;
-     SubType: Integer;
-     SubHandle: Integer;
-     aKind: TafwClickKind);
-   procedure VcmEntityFormRefGetStatus(aSender: TObject;
-     out theStatus: TafwStatusInfo);
+    SubType: Integer;
+    SubHandle: Integer;
+    aKind: TafwClickKind);
+   procedure vcmEntityFormRefGetStatus(aSender: TObject;
+    out theStatus: TafwStatusInfo);
    function GetContentsElement(const aBlock: IevDocumentPart): IevDocumentPart;
- protected
- // realized methods
+  protected
+   procedure SetReminderOpParams(const aParams: IvcmTestParamsPrim;
+    const aInfo: Il3CString;
+    const aCaption: Il3CString = nil);
+   function WarnJurorInfo: Il3CString;
+    {* сообщение к предупреждению "В настоящий документ внесены изменения" }
+   function TimeMachineWarningOnInfo: Il3CString;
+    {* сообщение к предупреждению машина времени включена }
+   function TimeMachineWarningOnHint: Il3CString;
+    {* сообщение к предупреждению машина времени включена }
+   function WarnPreActiveInfo: Il3CString;
+    {* сообщение к предупреждению документ не вступил в силу }
+   function HasWarning: Boolean;
+   function WarnOnControlInfo: Il3CString;
+    {* сообщение к предупреждению документ на контроле измене }
+   function WarnIsAbolishedInfo: Il3CString;
+    {* сообщение к предупреждению документ устратил силу }
+   function BaseTimeMachineWarningInfo(aType: TTMWarningType): Il3CString;
+    {* сообщение к предупрежедению включенной машины времени }
+   function TimeMachineWarningInfo: Il3CString;
+    {* сообщение к предупреждению ??? }
+   function CurrentParaPos: TbsDocPos;
+   function ContextEntitiesGetTarget(aControl: TComponent;
+    aX: Integer;
+    aY: Integer;
+    out theTarget: IUnknown): Boolean;
+   function SubPanelEntitiesGetTarget(aControl: TComponent;
+    aX: Integer;
+    aY: Integer;
+    out theTarget: IUnknown): Boolean;
    procedure ReloadRedaction(aChangeType: TnsChangeRedactionType;
     aRedaction: TRedactionID = 0); override;
    function ReloadRedaction(const aDate: AdapterDate): Boolean; override;
@@ -158,13 +151,54 @@ type
    procedure InitHyperLink(const aHyperLink: IevHyperlink;
     const aBaseEntity: IUnknown); override;
    function EnableRedactionOps(const aParams: IvcmTestParamsPrim): Boolean; override;
-   procedure OpenInWindow(aNew: Boolean = true); override;
+   procedure OpenInWindow(aNew: Boolean = True); override;
+   procedure CreateTOC(const aTOC: IdeSimpleTree); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure EntitiesInited; override;
+    {* Вызывается после того как все операции зарегистрированы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function SaveOwnFormState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ReleaseResources; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Openable_OpenInNewWindow_Test(const aParams: IvcmTestParamsPrim);
    procedure Openable_OpenInNewWindow_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SubPanelSettings_Show_Test(const aParams: IvcmTestParamsPrim);
-     {* Показывать метки }
+    {* Показывать метки }
    procedure SubPanelSettings_Show_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показывать метки }
+    {* Показывать метки }
    procedure Reminder_RemWarnJuror_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_RemWarnJuror_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_RemWarnTimeMachineOn_Test(const aParams: IvcmTestParamsPrim);
@@ -183,255 +217,375 @@ type
    procedure Reminder_RemWarnTimeMachineWarning_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Reminder_ViewInactualDocument_Test(const aParams: IvcmTestParamsPrim);
    procedure Reminder_ViewInactualDocument_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure CreateTOC(const aTOC: IdeSimpleTree); override;
    procedure Document_ChangesButton_Test(const aParams: IvcmTestParamsPrim);
-     {* Изменения в документе }
+    {* Изменения в документе }
    procedure SubsPanel_CopySubNumber_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать позицию }
+    {* Копировать позицию }
    procedure SubsPanel_CopySubNumber_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать позицию }
+    {* Копировать позицию }
    procedure SubPanelSettings_ShowByShortCut_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure EntitiesInited; override;
-     {* Вызывается после того как все операции зарегистрированы }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function SaveOwnFormState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure ReleaseResources; override;
-     {* Сигнатура метода ReleaseResources }
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_DocOpsList : IvcmItems;
- protected
- // protected methods
-   procedure SetReminderOpParams(const aParams: IvcmTestParamsPrim;
-     const aInfo: Il3CString;
-     const aCaption: Il3CString = nil);
-   function WarnJurorInfo: Il3CString;
-     {* сообщение к предупреждению "В настоящий документ внесены изменения" }
-   function TimeMachineWarningOnInfo: Il3CString;
-     {* сообщение к предупреждению машина времени включена }
-   function TimeMachineWarningOnHint: Il3CString;
-     {* сообщение к предупреждению машина времени включена }
-   function WarnPreActiveInfo: Il3CString;
-     {* сообщение к предупреждению документ не вступил в силу }
-   function HasWarning: Boolean;
-   function WarnOnControlInfo: Il3CString;
-     {* сообщение к предупреждению документ на контроле измене }
-   function WarnIsAbolishedInfo: Il3CString;
-     {* сообщение к предупреждению документ устратил силу }
-   function BaseTimeMachineWarningInfo(aType: TTMWarningType): Il3CString;
-     {* сообщение к предупрежедению включенной машины времени }
-   function TimeMachineWarningInfo: Il3CString;
-     {* сообщение к предупреждению ??? }
-   function CurrentParaPos: TbsDocPos;
-   function ContextEntitiesGetTarget(aControl: TComponent;
-     aX: Integer;
-     aY: Integer;
-     out theTarget: IUnknown): Boolean;
-   function SubPanelEntitiesGetTarget(aControl: TComponent;
-     aX: Integer;
-     aY: Integer;
-     out theTarget: IUnknown): Boolean;
- public
- // public properties
+  public
    property RemindersLine: TnscRemindersLine
-     read f_RemindersLine;
+    read f_RemindersLine;
    property WarnTimeMachineException: TnscReminder
-     read f_WarnTimeMachineException;
+    read f_WarnTimeMachineException;
    property WarnIsAbolished: TnscReminder
-     read f_WarnIsAbolished;
+    read f_WarnIsAbolished;
    property WarnPreActive: TnscReminder
-     read f_WarnPreActive;
+    read f_WarnPreActive;
    property WarnTimeMachineWarning: TnscReminder
-     read f_WarnTimeMachineWarning;
+    read f_WarnTimeMachineWarning;
    property WarnOnControl: TnscReminder
-     read f_WarnOnControl;
+    read f_WarnOnControl;
    property WarnJuror: TnscReminder
-     read f_WarnJuror;
+    read f_WarnJuror;
    property WarnRedaction: TnscReminder
-     read f_WarnRedaction;
+    read f_WarnRedaction;
    property WarnInactualDocument: TnscReminder
-     read f_WarnInactualDocument;
+    read f_WarnInactualDocument;
    property WarnTimeMachineOn: TnscReminder
-     read f_WarnTimeMachineOn;
+    read f_WarnTimeMachineOn;
  end;//TExTextOptionsForm
-
- TvcmContainerFormRef = TExTextOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  ParaList_Const,
-  k2Tags,
-  l3Memory,
-  k2DocumentBuffer,
-  evCustomWikiReader,
-  DataAdapter,
-  SysUtils,
-  nsHyperLinkProcessor,
-  evCustomEditor
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  ,
-  eeInterfacesEx,
-  evdTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  BaseTypesUnit,
-  nsDocumentTools,
-  DocumentUserTypes_dftDocument_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  DocumentUserTypes_dftRelatedDoc_UserType,
-  bsUtils,
-  WarningConst,
-  ControlStatusUtils,
-  resWarnImages,
-  DocumentUserTypes_dftDrug_UserType,
-  DocumentUserTypes_dftAutoreferat_UserType,
-  DocumentUserTypes_dftAutoreferatAfterSearch_UserType,
-  nsManagers,
-  nsConst
-  {$If defined(Nemesis)}
-  ,
-  eeParaTools
-  {$IfEnd} //Nemesis
-  ,
-  l3Chars
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evDocumentPart
-  {$IfEnd} //k2ForEditor
-  ,
-  nsValueMaps,
-  nsValueMapsIDs,
-  DocumentUserTypes_dftDictEntry_UserType,
-  DocumentUserTypes_dftMedDictEntry_UserType,
-  DocumentUserTypes_dftConsultation_UserType,
-  bsChangeRedationWorker,
-  nevContainers,
-  afwFacade,
-  afwNavigation,
-  nsOpenUtils,
-  DocumentInterfaces,
-  l3TreeInterfaces,
-  deSimpleTree,
-  nevRangeList,
-  nevRangeListTools,
-  evMultiSelectionBlock
-  {$If not defined(NoVCM)}
-  ,
-  vcmItems
-  {$IfEnd} //not NoVCM
-  ,
-  evConstStringData,
-  eeEditor,
-  eeSubPanel,
-  DocumentUserTypes_dftAACRight_UserType,
-  DocumentUserTypes_dftAACLeft_UserType,
-  BaloonWarningUserTypes_WarnPreActive_UserType,
-  BaloonWarningUserTypes_WarnRedaction_UserType,
-  BaloonWarningUserTypes_WarnIsAbolished_UserType,
-  BaloonWarningUserTypes_WarnJuror_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineException_UserType,
-  BaloonWarningUserTypes_WarnOnControl_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineOn_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_WarnInactualDocument_UserType,
-  nsUseDocumentSubPanelOperationEvent,
-  bsUtilsConst,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_F1Specific_Controls,
-  Common_Strange_Controls,
-  Base_Operations_View_Controls,
-  Document_F1Lite_Controls,
-  Hypertext_Controls_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , DataAdapter
+ , SysUtils
+ , nsHyperLinkProcessor
+ , evCustomEditor
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ , eeInterfacesEx
+ , evdTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTypesUnit
+ , nsDocumentTools
+ , DocumentUserTypes_dftDocument_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , DocumentUserTypes_dftRelatedDoc_UserType
+ , bsUtils
+ , WarningConst
+ , ControlStatusUtils
+ , resWarnImages
+ , DocumentUserTypes_dftDrug_UserType
+ , DocumentUserTypes_dftAutoreferat_UserType
+ , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
+ , nsManagers
+ , nsConst
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , l3Chars
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(k2ForEditor)}
+ , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
+ , nsValueMaps
+ , nsValueMapsIDs
+ , DocumentUserTypes_dftDictEntry_UserType
+ , DocumentUserTypes_dftMedDictEntry_UserType
+ , DocumentUserTypes_dftConsultation_UserType
+ , bsChangeRedationWorker
+ , nevContainers
+ , afwFacade
+ , afwNavigation
+ , nsOpenUtils
+ , DocumentInterfaces
+ , l3TreeInterfaces
+ , deSimpleTree
+ , nevRangeList
+ , nevRangeListTools
+ , evMultiSelectionBlock
+ {$If NOT Defined(NoVCM)}
+ , vcmItems
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evConstStringData
+ , eeEditor
+ , eeSubPanel
+ , DocumentUserTypes_dftAACRight_UserType
+ , DocumentUserTypes_dftAACLeft_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , nsUseDocumentSubPanelOperationEvent
+ , bsUtilsConst
+ , l3Memory
+ , k2DocumentBuffer
+ , evCustomWikiReader
+ , ParaList_Const
+ , k2Tags
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ , Common_Strange_Controls
+ , Base_Operations_View_Controls
+ , Document_F1Lite_Controls
+ , Base_Operations_Editions_Controls
+ , Hypertext_Controls_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4C7F801D0304impl_uses*
+ //#UC END# *4C7F801D0304impl_uses*
+;
 
 const
-   { SubLayers }
-  c_Div = 10;
-  c_GarantComment = - (Ord(ev_sbtMark) * c_Div + 0);
-   { Комментарий юристов в SubPanel }
-  c_UserComment = - (Ord(ev_sbtMark) * c_Div + 1);
-   { Пользовательский комментарий в SubPanel }
-  c_VersionComment = - (Ord(ev_sbtMark) * c_Div + 2);
-   { Версионный комментарий юристов в SubPanel }
+ c_Div = 10;
+ c_GarantComment = - (Ord(ev_sbtMark) * c_Div + 0);
+  {* Комментарий юристов в SubPanel }
+ c_UserComment = - (Ord(ev_sbtMark) * c_Div + 1);
+  {* Пользовательский комментарий в SubPanel }
+ c_VersionComment = - (Ord(ev_sbtMark) * c_Div + 2);
+  {* Версионный комментарий юристов в SubPanel }
 
-// start class TExTextOptionsForm
+procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPrim;
+ const aInfo: Il3CString;
+ const aCaption: Il3CString = nil);
+
+ function RefineBaloonHint(const aHint: Il3CString): Il3CString;
+
+  procedure MergeText(aRoot: Tl3Tag;
+   var theText: Il3CString);
+
+   function DoIt(anItem: Tl3Variant;
+    anIndex: Integer): Boolean;
+    {* Подитеративная функция для вызова IterateChildrenF из MergeText }
+   //#UC START# *66C7C35BA1A6__var*
+   //#UC END# *66C7C35BA1A6__var*
+   begin
+   //#UC START# *66C7C35BA1A6__impl*
+    Result := true;
+    if anItem.IsKindOf(k2_typParaList) then
+     MergeText(anItem, theText)
+    else
+    begin
+     if (theText = nil) then
+      theText := l3CStr(anItem.PCharLenA[k2_tiText])
+     else
+     begin
+      theText := l3Cat(theText, #10);
+      theText := l3Cat([theText, l3CStr(anItem.PCharLenA[k2_tiText])]);
+     end;//theText = nil
+    end;//anItem.IsKindOf(k2_typParaList)
+   //#UC END# *66C7C35BA1A6__impl*
+   end;//DoIt
+
+  //#UC START# *4F916E210355__var*
+  //#UC END# *4F916E210355__var*
+  begin
+   //#UC START# *4F916E210355iter*
+   aRoot.
+   //#UC END# *4F916E210355iter*
+   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
+  end;//MergeText
+
+ //#UC START# *4F916DF101C2__var*
+ var
+  l_R : TevCustomWikiReader;
+  l_G : Tk2DocumentBuffer;
+  l_S : Tl3ConstMemoryStream;
+  l_W : Tl3WString;
+ //#UC END# *4F916DF101C2__var*
+ begin
+ //#UC START# *4F916DF101C2__impl*
+  //Result := aHint;
+  Result := nil;
+  l_R := TevCustomWikiReader.Create;
+  try
+   l_G := Tk2DocumentBuffer.Create;
+   try
+    l_R.Generator := l_G;
+    l_W := aHint.AsWStr;
+    l_S := Tl3ConstMemoryStream.Create(l_W.S, l_W.SLen);
+    try
+     l_R.Filer.NeedProcessMessages := false;
+     l_R.Filer.Indicator.NeedProgressProc := false;
+     l_R.Filer.COMStream := l_S;
+     try
+      l_R.Filer.CodePage := l_W.SCodePage;
+      l_R.Execute;
+     finally
+      l_R.Filer.COMStream := nil;
+     end;//try..finally
+    finally
+     FreeAndNil(l_S);
+    end;//try..finally
+    MergeText(l_G.Root, Result);
+   finally
+    FreeAndNil(l_G);
+   end;//try..finally
+  finally
+   FreeAndNil(l_R);
+  end;//try..finally
+ //#UC END# *4F916DF101C2__impl*
+ end;//RefineBaloonHint
+
+//#UC START# *4C7FAE9B01E1_4C7F801D0304_var*
+var
+ l_Hint: Il3CString;
+//#UC END# *4C7FAE9B01E1_4C7F801D0304_var*
+begin
+//#UC START# *4C7FAE9B01E1_4C7F801D0304_impl*
+ with aParams.Op do
+ begin
+  Flag[vcm_ofVisible] := (aInfo <> nil);
+  if Flag[vcm_ofVisible] then
+  begin
+   l_Hint := RefineBaloonHint(aInfo);
+   if not Document.HasRelatedDoc then
+    if l3Ends(str_wgReferenceHyperlinkSearchText.AsCStr, l_Hint) then
+     l3SetLen(l_Hint, l3Len(l_Hint) - l3Len(str_wgReferenceHyperlinkSearchText.AsCStr));
+   Hint := l_Hint;
+   LongHint := l_Hint;
+   Caption := aCaption;
+  end;//Flag[vcm_ofVisible]
+ end;//with aParams.Op do
+//#UC END# *4C7FAE9B01E1_4C7F801D0304_impl*
+end;//TExTextOptionsForm.SetReminderOpParams
+
+function TExTextOptionsForm.WarnJurorInfo: Il3CString;
+ {* сообщение к предупреждению "В настоящий документ внесены изменения" }
+//#UC START# *4C80CFC301F1_4C7F801D0304_var*
+//#UC END# *4C80CFC301F1_4C7F801D0304_var*
+begin
+//#UC START# *4C80CFC301F1_4C7F801D0304_impl*
+ if HasWarning and
+    not (Document.GetStatus in [IS_ABOLISHED, IS_PREACTIVE]) and
+    not (UserType in [dftAACRight]) then
+  Result := nsGetDocumentWarning(Document)
+ else
+  Result := nil;
+//#UC END# *4C80CFC301F1_4C7F801D0304_impl*
+end;//TExTextOptionsForm.WarnJurorInfo
+
+function TExTextOptionsForm.TimeMachineWarningOnInfo: Il3CString;
+ {* сообщение к предупреждению машина времени включена }
+//#UC START# *4C80D03001DC_4C7F801D0304_var*
+//#UC END# *4C80D03001DC_4C7F801D0304_var*
+begin
+//#UC START# *4C80D03001DC_4C7F801D0304_impl*
+ if (UserType in [dftDocument, dftAACLeft]) and
+   DefDataAdapter.TimeMachine.IsOn then
+  Result := l3Fmt(vcmConstString(str_TimeMachineTurnOnOnDate),
+   [DefDataAdapter.TimeMachine.DateStr])
+ else
+  Result := nil;
+//#UC END# *4C80D03001DC_4C7F801D0304_impl*
+end;//TExTextOptionsForm.TimeMachineWarningOnInfo
+
+function TExTextOptionsForm.TimeMachineWarningOnHint: Il3CString;
+ {* сообщение к предупреждению машина времени включена }
+//#UC START# *4C80D0730151_4C7F801D0304_var*
+//#UC END# *4C80D0730151_4C7F801D0304_var*
+begin
+//#UC START# *4C80D0730151_4C7F801D0304_impl*
+ if (UserType in [dftDocument, dftAACLeft]) and DefDataAdapter.TimeMachine.IsOn then
+  Result := DefDataAdapter.TimeMachine.DateStr
+ else
+  Result := nil;
+//#UC END# *4C80D0730151_4C7F801D0304_impl*
+end;//TExTextOptionsForm.TimeMachineWarningOnHint
+
+function TExTextOptionsForm.WarnPreActiveInfo: Il3CString;
+ {* сообщение к предупреждению документ не вступил в силу }
+//#UC START# *4C80D2370306_4C7F801D0304_var*
+//#UC END# *4C80D2370306_4C7F801D0304_var*
+begin
+//#UC START# *4C80D2370306_4C7F801D0304_impl*
+ Result := nil;
+ if not (UserType in [dftAACRight]) then
+  if HasWarning and (Document.GetStatus = IS_PREACTIVE) then
+   Result := nsGetDocumentWarning(Document);
+//#UC END# *4C80D2370306_4C7F801D0304_impl*
+end;//TExTextOptionsForm.WarnPreActiveInfo
+
+function TExTextOptionsForm.HasWarning: Boolean;
+//#UC START# *4C80D52A007B_4C7F801D0304_var*
+//#UC END# *4C80D52A007B_4C7F801D0304_var*
+begin
+//#UC START# *4C80D52A007B_4C7F801D0304_impl*
+ Result := Assigned(Document) and Document.HasWarning;
+//#UC END# *4C80D52A007B_4C7F801D0304_impl*
+end;//TExTextOptionsForm.HasWarning
+
+function TExTextOptionsForm.WarnOnControlInfo: Il3CString;
+ {* сообщение к предупреждению документ на контроле измене }
+//#UC START# *4C80D61203E4_4C7F801D0304_var*
+//#UC END# *4C80D61203E4_4C7F801D0304_var*
+begin
+//#UC START# *4C80D61203E4_4C7F801D0304_impl*
+ if not (UserType in [dftAACRight])
+  then Result := bsFullControlStatusHint(ucpUnderControl)
+  else Result := nil;
+//#UC END# *4C80D61203E4_4C7F801D0304_impl*
+end;//TExTextOptionsForm.WarnOnControlInfo
+
+function TExTextOptionsForm.WarnIsAbolishedInfo: Il3CString;
+ {* сообщение к предупреждению документ устратил силу }
+//#UC START# *4C80D65C01D8_4C7F801D0304_var*
+//#UC END# *4C80D65C01D8_4C7F801D0304_var*
+begin
+//#UC START# *4C80D65C01D8_4C7F801D0304_impl*
+ Result := nil;
+ if not (UserType in [dftAACRight]) then
+  if HasWarning and (Document.GetStatus = IS_ABOLISHED) then
+   Result := nsGetDocumentWarning(Document);
+//#UC END# *4C80D65C01D8_4C7F801D0304_impl*
+end;//TExTextOptionsForm.WarnIsAbolishedInfo
+
+function TExTextOptionsForm.BaseTimeMachineWarningInfo(aType: TTMWarningType): Il3CString;
+ {* сообщение к предупрежедению включенной машины времени }
+//#UC START# *4C80D68600A1_4C7F801D0304_var*
+//#UC END# *4C80D68600A1_4C7F801D0304_var*
+begin
+//#UC START# *4C80D68600A1_4C7F801D0304_impl*
+ if not (defDataAdapter.TimeMachine.
+   GetTimeMachineWarning(Document, Result) = aType) then
+  Result := nil;
+//#UC END# *4C80D68600A1_4C7F801D0304_impl*
+end;//TExTextOptionsForm.BaseTimeMachineWarningInfo
+
+function TExTextOptionsForm.TimeMachineWarningInfo: Il3CString;
+ {* сообщение к предупреждению ??? }
+//#UC START# *4C80D6CB002A_4C7F801D0304_var*
+//#UC END# *4C80D6CB002A_4C7F801D0304_var*
+begin
+//#UC START# *4C80D6CB002A_4C7F801D0304_impl*
+ Result := BaseTimeMachineWarningInfo(tmwWarning);
+ if (Result = nil) and
+   defDataAdapter.TimeMachine.HasNotSureWarning(Document) then
+  Result := str_wgNotShureWarningHint.AsCStr;
+//#UC END# *4C80D6CB002A_4C7F801D0304_impl*
+end;//TExTextOptionsForm.TimeMachineWarningInfo
 
 procedure TExTextOptionsForm.TextBlockChange(aSender: TObject);
 //#UC START# *4F82F0810313_4C7F801D0304_var*
@@ -455,7 +609,7 @@ begin
 end;//TExTextOptionsForm.TextBlockChange
 
 procedure TExTextOptionsForm.TextBlockScroll(aSender: TObject;
-  aDown: Boolean);
+ aDown: Boolean);
 //#UC START# *4F82F0A0030A_4C7F801D0304_var*
 var
  l_TopCursor : InevBasePoint;
@@ -483,11 +637,11 @@ begin
 end;//TExTextOptionsForm.TextBlockScroll
 
 function TExTextOptionsForm.TextMouseAction(aSender: TObject;
-  const aHotSpot: IeeHotSpot;
-  aButton: TeeMouseButton;
-  anAction: TeeMouseAction;
-  Keys: TeeShiftState;
-  aWasSelection: Boolean): Boolean;
+ const aHotSpot: IeeHotSpot;
+ aButton: TeeMouseButton;
+ anAction: TeeMouseAction;
+ Keys: TeeShiftState;
+ aWasSelection: Boolean): Boolean;
 //#UC START# *4F82F0C7004D_4C7F801D0304_var*
 var
  l_Picture : IeePicture;
@@ -512,8 +666,8 @@ begin
 end;//TExTextOptionsForm.TextMouseAction
 
 procedure TExTextOptionsForm.TextCanSplitPara(aSender: TObject;
-  const aPara: IeePara;
-  var Allow: Boolean);
+ const aPara: IeePara;
+ var Allow: Boolean);
 //#UC START# *4F82F10600ED_4C7F801D0304_var*
 //#UC END# *4F82F10600ED_4C7F801D0304_var*
 begin
@@ -576,10 +730,10 @@ begin
 end;//TExTextOptionsForm.TextDrawSpecialChange
 
 function TExTextOptionsForm.SubPanelMouseOverSub(Sender: TObject;
-  const Pt: Tl3SPoint;
-  const R: Tl3SRect;
-  const aSub: IevSub;
-  aLayer: Integer): Boolean;
+ const Pt: Tl3SPoint;
+ const R: Tl3SRect;
+ const aSub: IevSub;
+ aLayer: Integer): Boolean;
 //#UC START# *4F82F1F10297_4C7F801D0304_var*
 var
  l_Sep       : Il3CString;
@@ -740,9 +894,9 @@ begin
 end;//TExTextOptionsForm.SubPanelMouseOverSub
 
 procedure TExTextOptionsForm.SubPanelClickSub(Sender: TObject;
-  SubType: Integer;
-  SubHandle: Integer;
-  aKind: TafwClickKind);
+ SubType: Integer;
+ SubHandle: Integer;
+ aKind: TafwClickKind);
 //#UC START# *4F82F22B023D_4C7F801D0304_var*
 //#UC END# *4F82F22B023D_4C7F801D0304_var*
 begin
@@ -759,8 +913,8 @@ begin
 //#UC END# *4F82F22B023D_4C7F801D0304_impl*
 end;//TExTextOptionsForm.SubPanelClickSub
 
-procedure TExTextOptionsForm.VcmEntityFormRefGetStatus(aSender: TObject;
-  out theStatus: TafwStatusInfo);
+procedure TExTextOptionsForm.vcmEntityFormRefGetStatus(aSender: TObject;
+ out theStatus: TafwStatusInfo);
 //#UC START# *4F82F2FF00B9_4C7F801D0304_var*
 //#UC END# *4F82F2FF00B9_4C7F801D0304_var*
 begin
@@ -772,7 +926,7 @@ begin
   theStatus.rStrings[Length(theStatus.rStrings) - 1] := vcmFmt(str_AnnotationCount, [Document.GetAutoReferatDocCount]);
  end;//UserType in [dftAutoreferatAfterSearch, dftAutoreferat]
 //#UC END# *4F82F2FF00B9_4C7F801D0304_impl*
-end;//TExTextOptionsForm.VcmEntityFormRefGetStatus
+end;//TExTextOptionsForm.vcmEntityFormRefGetStatus
 
 function TExTextOptionsForm.GetContentsElement(const aBlock: IevDocumentPart): IevDocumentPart;
 //#UC START# *4F82FDD7022B_4C7F801D0304_var*
@@ -799,217 +953,6 @@ begin
 //#UC END# *4F82FDD7022B_4C7F801D0304_impl*
 end;//TExTextOptionsForm.GetContentsElement
 
-procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPrim;
-  const aInfo: Il3CString;
-  const aCaption: Il3CString = nil);
-
- function RefineBaloonHint(const aHint: Il3CString): Il3CString;
-
-  procedure MergeText(aRoot: Tl3Tag;
-    var theText: Il3CString);
-
-   function DoIt(anItem: Tl3Variant;
-     anIndex: Integer): Boolean;
-   //#UC START# *66C7C35BA1A6__var*
-   //#UC END# *66C7C35BA1A6__var*
-   begin
-   //#UC START# *66C7C35BA1A6__impl*
-    Result := true;
-    if anItem.IsKindOf(k2_typParaList) then
-     MergeText(anItem, theText)
-    else
-    begin
-     if (theText = nil) then
-      theText := l3CStr(anItem.PCharLenA[k2_tiText])
-     else
-     begin
-      theText := l3Cat(theText, #10);
-      theText := l3Cat([theText, l3CStr(anItem.PCharLenA[k2_tiText])]);
-     end;//theText = nil
-    end;//anItem.IsKindOf(k2_typParaList)
-   //#UC END# *66C7C35BA1A6__impl*
-   end;//DoIt
-
-  //#UC START# *4F916E210355__var*
-  //#UC END# *4F916E210355__var*
-  begin
-   //#UC START# *4F916E210355iter*
-   aRoot.
-   //#UC END# *4F916E210355iter*
-    IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
-  end;//MergeText
-
- //#UC START# *4F916DF101C2__var*
- var
-  l_R : TevCustomWikiReader;
-  l_G : Tk2DocumentBuffer;
-  l_S : Tl3ConstMemoryStream;
-  l_W : Tl3WString;
- //#UC END# *4F916DF101C2__var*
- begin
- //#UC START# *4F916DF101C2__impl*
-  //Result := aHint;
-  Result := nil;
-  l_R := TevCustomWikiReader.Create;
-  try
-   l_G := Tk2DocumentBuffer.Create;
-   try
-    l_R.Generator := l_G;
-    l_W := aHint.AsWStr;
-    l_S := Tl3ConstMemoryStream.Create(l_W.S, l_W.SLen);
-    try
-     l_R.Filer.NeedProcessMessages := false;
-     l_R.Filer.Indicator.NeedProgressProc := false;
-     l_R.Filer.COMStream := l_S;
-     try
-      l_R.Filer.CodePage := l_W.SCodePage;
-      l_R.Execute;
-     finally
-      l_R.Filer.COMStream := nil;
-     end;//try..finally
-    finally
-     FreeAndNil(l_S);
-    end;//try..finally
-    MergeText(l_G.Root, Result);
-   finally
-    FreeAndNil(l_G);
-   end;//try..finally
-  finally
-   FreeAndNil(l_R);
-  end;//try..finally
- //#UC END# *4F916DF101C2__impl*
- end;//RefineBaloonHint
-
-//#UC START# *4C7FAE9B01E1_4C7F801D0304_var*
-var
- l_Hint: Il3CString;
-//#UC END# *4C7FAE9B01E1_4C7F801D0304_var*
-begin
-//#UC START# *4C7FAE9B01E1_4C7F801D0304_impl*
- with aParams.Op do
- begin
-  Flag[vcm_ofVisible] := (aInfo <> nil);
-  if Flag[vcm_ofVisible] then
-  begin
-   l_Hint := RefineBaloonHint(aInfo);
-   if not Document.HasRelatedDoc then
-    if l3Ends(str_wgReferenceHyperlinkSearchText.AsCStr, l_Hint) then
-     l3SetLen(l_Hint, l3Len(l_Hint) - l3Len(str_wgReferenceHyperlinkSearchText.AsCStr));
-   Hint := l_Hint;
-   LongHint := l_Hint;
-   Caption := aCaption;
-  end;//Flag[vcm_ofVisible]
- end;//with aParams.Op do
-//#UC END# *4C7FAE9B01E1_4C7F801D0304_impl*
-end;//TExTextOptionsForm.SetReminderOpParams
-
-function TExTextOptionsForm.WarnJurorInfo: Il3CString;
-//#UC START# *4C80CFC301F1_4C7F801D0304_var*
-//#UC END# *4C80CFC301F1_4C7F801D0304_var*
-begin
-//#UC START# *4C80CFC301F1_4C7F801D0304_impl*
- if HasWarning and
-    not (Document.GetStatus in [IS_ABOLISHED, IS_PREACTIVE]) and
-    not (UserType in [dftAACRight]) then
-  Result := nsGetDocumentWarning(Document)
- else
-  Result := nil;
-//#UC END# *4C80CFC301F1_4C7F801D0304_impl*
-end;//TExTextOptionsForm.WarnJurorInfo
-
-function TExTextOptionsForm.TimeMachineWarningOnInfo: Il3CString;
-//#UC START# *4C80D03001DC_4C7F801D0304_var*
-//#UC END# *4C80D03001DC_4C7F801D0304_var*
-begin
-//#UC START# *4C80D03001DC_4C7F801D0304_impl*
- if (UserType in [dftDocument, dftAACLeft]) and
-   DefDataAdapter.TimeMachine.IsOn then
-  Result := l3Fmt(vcmConstString(str_TimeMachineTurnOnOnDate),
-   [DefDataAdapter.TimeMachine.DateStr])
- else
-  Result := nil;
-//#UC END# *4C80D03001DC_4C7F801D0304_impl*
-end;//TExTextOptionsForm.TimeMachineWarningOnInfo
-
-function TExTextOptionsForm.TimeMachineWarningOnHint: Il3CString;
-//#UC START# *4C80D0730151_4C7F801D0304_var*
-//#UC END# *4C80D0730151_4C7F801D0304_var*
-begin
-//#UC START# *4C80D0730151_4C7F801D0304_impl*
- if (UserType in [dftDocument, dftAACLeft]) and DefDataAdapter.TimeMachine.IsOn then
-  Result := DefDataAdapter.TimeMachine.DateStr
- else
-  Result := nil;
-//#UC END# *4C80D0730151_4C7F801D0304_impl*
-end;//TExTextOptionsForm.TimeMachineWarningOnHint
-
-function TExTextOptionsForm.WarnPreActiveInfo: Il3CString;
-//#UC START# *4C80D2370306_4C7F801D0304_var*
-//#UC END# *4C80D2370306_4C7F801D0304_var*
-begin
-//#UC START# *4C80D2370306_4C7F801D0304_impl*
- Result := nil;
- if not (UserType in [dftAACRight]) then
-  if HasWarning and (Document.GetStatus = IS_PREACTIVE) then
-   Result := nsGetDocumentWarning(Document);
-//#UC END# *4C80D2370306_4C7F801D0304_impl*
-end;//TExTextOptionsForm.WarnPreActiveInfo
-
-function TExTextOptionsForm.HasWarning: Boolean;
-//#UC START# *4C80D52A007B_4C7F801D0304_var*
-//#UC END# *4C80D52A007B_4C7F801D0304_var*
-begin
-//#UC START# *4C80D52A007B_4C7F801D0304_impl*
- Result := Assigned(Document) and Document.HasWarning;
-//#UC END# *4C80D52A007B_4C7F801D0304_impl*
-end;//TExTextOptionsForm.HasWarning
-
-function TExTextOptionsForm.WarnOnControlInfo: Il3CString;
-//#UC START# *4C80D61203E4_4C7F801D0304_var*
-//#UC END# *4C80D61203E4_4C7F801D0304_var*
-begin
-//#UC START# *4C80D61203E4_4C7F801D0304_impl*
- if not (UserType in [dftAACRight])
-  then Result := bsFullControlStatusHint(ucpUnderControl)
-  else Result := nil;
-//#UC END# *4C80D61203E4_4C7F801D0304_impl*
-end;//TExTextOptionsForm.WarnOnControlInfo
-
-function TExTextOptionsForm.WarnIsAbolishedInfo: Il3CString;
-//#UC START# *4C80D65C01D8_4C7F801D0304_var*
-//#UC END# *4C80D65C01D8_4C7F801D0304_var*
-begin
-//#UC START# *4C80D65C01D8_4C7F801D0304_impl*
- Result := nil;
- if not (UserType in [dftAACRight]) then
-  if HasWarning and (Document.GetStatus = IS_ABOLISHED) then
-   Result := nsGetDocumentWarning(Document);
-//#UC END# *4C80D65C01D8_4C7F801D0304_impl*
-end;//TExTextOptionsForm.WarnIsAbolishedInfo
-
-function TExTextOptionsForm.BaseTimeMachineWarningInfo(aType: TTMWarningType): Il3CString;
-//#UC START# *4C80D68600A1_4C7F801D0304_var*
-//#UC END# *4C80D68600A1_4C7F801D0304_var*
-begin
-//#UC START# *4C80D68600A1_4C7F801D0304_impl*
- if not (defDataAdapter.TimeMachine.
-   GetTimeMachineWarning(Document, Result) = aType) then
-  Result := nil;
-//#UC END# *4C80D68600A1_4C7F801D0304_impl*
-end;//TExTextOptionsForm.BaseTimeMachineWarningInfo
-
-function TExTextOptionsForm.TimeMachineWarningInfo: Il3CString;
-//#UC START# *4C80D6CB002A_4C7F801D0304_var*
-//#UC END# *4C80D6CB002A_4C7F801D0304_var*
-begin
-//#UC START# *4C80D6CB002A_4C7F801D0304_impl*
- Result := BaseTimeMachineWarningInfo(tmwWarning);
- if (Result = nil) and
-   defDataAdapter.TimeMachine.HasNotSureWarning(Document) then
-  Result := str_wgNotShureWarningHint.AsCStr;
-//#UC END# *4C80D6CB002A_4C7F801D0304_impl*
-end;//TExTextOptionsForm.TimeMachineWarningInfo
-
 function TExTextOptionsForm.CurrentParaPos: TbsDocPos;
 //#UC START# *4F85B70C035A_4C7F801D0304_var*
 var
@@ -1030,9 +973,9 @@ begin
 end;//TExTextOptionsForm.CurrentParaPos
 
 function TExTextOptionsForm.ContextEntitiesGetTarget(aControl: TComponent;
-  aX: Integer;
-  aY: Integer;
-  out theTarget: IUnknown): Boolean;
+ aX: Integer;
+ aY: Integer;
+ out theTarget: IUnknown): Boolean;
 //#UC START# *4F88454E023C_4C7F801D0304_var*
 var
  l_Editor: IeeEditor;
@@ -1056,9 +999,9 @@ begin
 end;//TExTextOptionsForm.ContextEntitiesGetTarget
 
 function TExTextOptionsForm.SubPanelEntitiesGetTarget(aControl: TComponent;
-  aX: Integer;
-  aY: Integer;
-  out theTarget: IUnknown): Boolean;
+ aX: Integer;
+ aY: Integer;
+ out theTarget: IUnknown): Boolean;
 //#UC START# *4F884583015D_4C7F801D0304_var*
 //#UC END# *4F884583015D_4C7F801D0304_var*
 begin
@@ -1074,7 +1017,7 @@ begin
 end;//TExTextOptionsForm.SubPanelEntitiesGetTarget
 
 procedure TExTextOptionsForm.ReloadRedaction(aChangeType: TnsChangeRedactionType;
-  aRedaction: TRedactionID = 0);
+ aRedaction: TRedactionID = 0);
 //#UC START# *4AE7354E03A4_4C7F801D0304_var*
 var
  l_Para   : IeePara;
@@ -1138,7 +1081,7 @@ begin
 end;//TExTextOptionsForm.SetActualRedaction
 
 function TExTextOptionsForm.ExtractRangeFromContents(const aData: IUnknown;
-  aUserType: Integer): InevRange;
+ aUserType: Integer): InevRange;
 //#UC START# *4AE9DB55008E_4C7F801D0304_var*
 var
  l_Sub  : IevSub;
@@ -1163,7 +1106,7 @@ begin
 end;//TExTextOptionsForm.ExtractRangeFromContents
 
 procedure TExTextOptionsForm.ExportBlock(const aRange: InevRange;
-  ToActiveWindow: Boolean);
+ ToActiveWindow: Boolean);
 //#UC START# *4AE9DC630356_4C7F801D0304_var*
 const
  cMap: array [Boolean] of TnsExportKind = (ekShell, ekActiveWord);
@@ -1246,7 +1189,7 @@ begin
 end;//TExTextOptionsForm.PreviewBlock
 
 function TExTextOptionsForm.FindBookmarkInText(const aBookmark: IBookmark;
-  out aSub: IeeSub): Boolean;
+ out aSub: IeeSub): Boolean;
 //#UC START# *4AEEF8180282_4C7F801D0304_var*
 var
  l_BookmarkID : Cardinal;
@@ -1281,7 +1224,7 @@ begin
 end;//TExTextOptionsForm.FindBookmarkInText
 
 procedure TExTextOptionsForm.InitHyperLink(const aHyperLink: IevHyperlink;
-  const aBaseEntity: IUnknown);
+ const aBaseEntity: IUnknown);
 //#UC START# *4AEEFBF102AF_4C7F801D0304_var*
 var
  l_Bookmark: IBookmark;
@@ -1318,7 +1261,7 @@ begin
 //#UC END# *4AFAF4620059_4C7F801D0304_impl*
 end;//TExTextOptionsForm.EnableRedactionOps
 
-procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean = true);
+procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean = True);
 //#UC START# *4B04318202FC_4C7F801D0304_var*
 var
  l_Cont : IvcmContainer;
@@ -1363,6 +1306,7 @@ begin
 end;//TExTextOptionsForm.Openable_OpenInNewWindow_Execute
 
 procedure TExTextOptionsForm.SubPanelSettings_Show_Test(const aParams: IvcmTestParamsPrim);
+ {* Показывать метки }
 //#UC START# *4C7F8DFF02BF_4C7F801D0304test_var*
 //#UC END# *4C7F8DFF02BF_4C7F801D0304test_var*
 begin
@@ -1374,6 +1318,7 @@ begin
 end;//TExTextOptionsForm.SubPanelSettings_Show_Test
 
 procedure TExTextOptionsForm.SubPanelSettings_Show_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показывать метки }
 //#UC START# *4C7F8DFF02BF_4C7F801D0304exec_var*
 //#UC END# *4C7F8DFF02BF_4C7F801D0304exec_var*
 begin
@@ -1595,6 +1540,7 @@ begin
 end;//TExTextOptionsForm.CreateTOC
 
 procedure TExTextOptionsForm.Document_ChangesButton_Test(const aParams: IvcmTestParamsPrim);
+ {* Изменения в документе }
 //#UC START# *4F88460903B1_4C7F801D0304test_var*
 
  function lp_MakeAvailableOps: IvcmItems;
@@ -1625,6 +1571,7 @@ begin
 end;//TExTextOptionsForm.Document_ChangesButton_Test
 
 procedure TExTextOptionsForm.SubsPanel_CopySubNumber_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать позицию }
 //#UC START# *4F884EF30187_4C7F801D0304test_var*
 var
  l_eeSub : IeeSub;
@@ -1640,6 +1587,7 @@ begin
 end;//TExTextOptionsForm.SubsPanel_CopySubNumber_Test
 
 procedure TExTextOptionsForm.SubsPanel_CopySubNumber_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать позицию }
 //#UC START# *4F884EF30187_4C7F801D0304exec_var*
 var
  l_eeSub : IeeSub;
@@ -1667,6 +1615,7 @@ begin
 end;//TExTextOptionsForm.SubPanelSettings_ShowByShortCut_Execute
 
 procedure TExTextOptionsForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C7F801D0304_var*
 //#UC END# *479731C50290_4C7F801D0304_var*
 begin
@@ -1678,9 +1627,10 @@ begin
 //#UC END# *479731C50290_4C7F801D0304_impl*
 end;//TExTextOptionsForm.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4C7F801D0304_var*
 var
  l_FromHistory : Boolean;
@@ -1721,10 +1671,11 @@ begin
  end;
 //#UC END# *497469C90140_4C7F801D0304_impl*
 end;//TExTextOptionsForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4C7F801D0304_var*
 //#UC END# *49803F5503AA_4C7F801D0304_var*
 begin
@@ -1734,9 +1685,9 @@ begin
  f_ControlMap := nsStringMapManager.Map[smap_pi_DropChangeStatus];
 //#UC END# *49803F5503AA_4C7F801D0304_impl*
 end;//TExTextOptionsForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextOptionsForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_4C7F801D0304_var*
 var
@@ -1753,10 +1704,11 @@ begin
   // потому что в PrimText - сохранение в Журнал работы
 //#UC END# *4980407F0076_4C7F801D0304_impl*
 end;//TExTextOptionsForm.CallCloseQuery
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4C7F801D0304_var*
 //#UC END# *4A8E8F2E0195_4C7F801D0304_var*
 begin
@@ -1872,10 +1824,11 @@ begin
  {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A8E8F2E0195_4C7F801D0304_impl*
 end;//TExTextOptionsForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.EntitiesInited;
+ {* Вызывается после того как все операции зарегистрированы }
 //#UC START# *4AE1948900DE_4C7F801D0304_var*
 //#UC END# *4AE1948900DE_4C7F801D0304_var*
 begin
@@ -1956,12 +1909,12 @@ begin
  f_RemindersLine.Visible := True;
 //#UC END# *4AE1948900DE_4C7F801D0304_impl*
 end;//TExTextOptionsForm.EntitiesInited
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TExTextOptionsForm.SaveOwnFormState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *4B4F49900003_4C7F801D0304_var*
 var
  l_OldCanRefresh: Boolean;
@@ -1998,18 +1951,9 @@ begin
  end;//aStateType = vcm_stContent
 //#UC END# *4B4F49900003_4C7F801D0304_impl*
 end;//TExTextOptionsForm.SaveOwnFormState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure TExTextOptionsForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_DocOpsList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TExTextOptionsForm.ClearFields
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.ReleaseResources;
 //#UC START# *538C374A00B7_4C7F801D0304_var*
 var
@@ -2022,9 +1966,18 @@ begin
   l_RH.ReleaseResources;
 //#UC END# *538C374A00B7_4C7F801D0304_impl*
 end;//TExTextOptionsForm.ReleaseResources
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+procedure TExTextOptionsForm.ClearFields;
+begin
+ f_DocOpsList := nil;
+ inherited;
+end;//TExTextOptionsForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -2044,8 +1997,8 @@ begin
   PublishFormEntity(en_WarnOnControl, nil);
   MakeEntitySupportedByControl(en_WarnOnControl, WarnOnControl);
   PublishFormEntity(en_WarnJuror, nil);
-  MakeEntitySupportedByControl(en_WarnJuror, WarnJuror);
   PublishFormEntity(en_Picture, nil);
+  MakeEntitySupportedByControl(en_WarnJuror, WarnJuror);
   MakeEntitySupportedByControl(en_Picture, WarnJuror);
   PublishFormEntity(en_WarnRedaction, nil);
   MakeEntitySupportedByControl(en_WarnRedaction, WarnRedaction);
@@ -2053,324 +2006,217 @@ begin
   MakeEntitySupportedByControl(en_WarnTimeMachine, WarnTimeMachineOn);
   PublishOp(en_Openable, op_OpenInNewWindow, Openable_OpenInNewWindow_Execute, Openable_OpenInNewWindow_Test, nil);
   PublishOp(en_SubPanelSettings, op_Show, SubPanelSettings_Show_Execute, SubPanelSettings_Show_Test, nil);
-  ShowInContextMenu(en_SubPanelSettings, op_Show, true);
-  ShowInToolbar(en_SubPanelSettings, op_Show, false);
+  ShowInContextMenu(en_SubPanelSettings, op_Show, True);
+  ShowInToolbar(en_SubPanelSettings, op_Show, False);
   PublishOp(en_Reminder, op_RemWarnJuror, Reminder_RemWarnJuror_Execute, Reminder_RemWarnJuror_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnJuror, true);
-  ShowInToolbar(en_Reminder, op_RemWarnJuror, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnJuror, True);
+  ShowInToolbar(en_Reminder, op_RemWarnJuror, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineOn, Reminder_RemWarnTimeMachineOn_Execute, Reminder_RemWarnTimeMachineOn_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineOn, true);
-  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineOn, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineOn, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineOn, False);
   PublishOp(en_Reminder, op_RemWarnRedaction, Reminder_RemWarnRedaction_Execute, Reminder_RemWarnRedaction_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnRedaction, true);
-  ShowInToolbar(en_Reminder, op_RemWarnRedaction, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnRedaction, True);
+  ShowInToolbar(en_Reminder, op_RemWarnRedaction, False);
   PublishOp(en_Reminder, op_RemWarnOnControl, Reminder_RemWarnOnControl_Execute, Reminder_RemWarnOnControl_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnOnControl, true);
-  ShowInToolbar(en_Reminder, op_RemWarnOnControl, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnOnControl, True);
+  ShowInToolbar(en_Reminder, op_RemWarnOnControl, False);
   PublishOp(en_Reminder, op_RemWarnIsAbolished, Reminder_RemWarnIsAbolished_Execute, Reminder_RemWarnIsAbolished_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnIsAbolished, true);
-  ShowInToolbar(en_Reminder, op_RemWarnIsAbolished, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnIsAbolished, True);
+  ShowInToolbar(en_Reminder, op_RemWarnIsAbolished, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineException, Reminder_RemWarnTimeMachineException_Execute, Reminder_RemWarnTimeMachineException_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineException, true);
-  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineException, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineException, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineException, False);
   PublishOp(en_Reminder, op_RemWarnPreActive, Reminder_RemWarnPreActive_Execute, Reminder_RemWarnPreActive_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnPreActive, true);
-  ShowInToolbar(en_Reminder, op_RemWarnPreActive, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnPreActive, True);
+  ShowInToolbar(en_Reminder, op_RemWarnPreActive, False);
   PublishOp(en_Reminder, op_RemWarnTimeMachineWarning, Reminder_RemWarnTimeMachineWarning_Execute, Reminder_RemWarnTimeMachineWarning_Test, nil);
-  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineWarning, true);
-  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineWarning, false);
+  ShowInContextMenu(en_Reminder, op_RemWarnTimeMachineWarning, True);
+  ShowInToolbar(en_Reminder, op_RemWarnTimeMachineWarning, False);
   PublishOp(en_Reminder, op_ViewInactualDocument, Reminder_ViewInactualDocument_Execute, Reminder_ViewInactualDocument_Test, nil);
-  ShowInContextMenu(en_Reminder, op_ViewInactualDocument, true);
-  ShowInToolbar(en_Reminder, op_ViewInactualDocument, false);
+  ShowInContextMenu(en_Reminder, op_ViewInactualDocument, True);
+  ShowInToolbar(en_Reminder, op_ViewInactualDocument, False);
   PublishOp(en_Document, op_ChangesButton, nil, Document_ChangesButton_Test, nil);
   PublishOp(en_SubsPanel, op_CopySubNumber, SubsPanel_CopySubNumber_Execute, SubsPanel_CopySubNumber_Test, nil);
-  ShowInContextMenu(en_SubsPanel, op_CopySubNumber, true);
-  ShowInToolbar(en_SubsPanel, op_CopySubNumber, false);
+  ShowInContextMenu(en_SubsPanel, op_CopySubNumber, True);
+  ShowInToolbar(en_SubsPanel, op_CopySubNumber, False);
   PublishOp(en_SubPanelSettings, op_ShowByShortCut, SubPanelSettings_ShowByShortCut_Execute, nil, nil);
-  ShowInContextMenu(en_SubPanelSettings, op_ShowByShortCut, false);
-  ShowInToolbar(en_SubPanelSettings, op_ShowByShortCut, false);{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_FindContext, true);
-  ShowInToolbar(en_Edit, op_FindContext, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_FindNext, true);
-  ShowInToolbar(en_Edit, op_FindNext, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_Save, false);
-  ShowInToolbar(en_File, op_Save, true);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_File, op_ToMSWord, false);
-  ShowInToolbar(en_File, op_ToMSWord, true);
-  
-  ShowInContextMenu(en_File, op_SendMailAsAttachment, false, true);
-  ShowInToolbar(en_File, op_SendMailAsAttachment, false, true);
-  
-  ShowInContextMenu(en_Document, op_NextDocumentInList, false);
-  ShowInToolbar(en_Document, op_NextDocumentInList, true);
-  
-  ShowInContextMenu(en_Document, op_ReturnToList, false);
-  ShowInToolbar(en_Document, op_ReturnToList, true);
-  
-  ShowInContextMenu(en_File, op_SaveToFolder, false);
-  ShowInToolbar(en_File, op_SaveToFolder, true);
-  
-  ShowInContextMenu(en_File, op_LoadFromFolder, false);
-  ShowInToolbar(en_File, op_LoadFromFolder, true);
-  
-  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, false);
-  ShowInToolbar(en_Document, op_GetAttributesFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, false);
-  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_AddBookmark, false);
-  ShowInToolbar(en_Document, op_AddBookmark, false);
-  
-  ShowInContextMenu(en_Document, op_GetCorrespondentList, false);
-  ShowInToolbar(en_Document, op_GetCorrespondentList, false);
-  
-  ShowInContextMenu(en_Document, op_GetRespondentList, false);
-  ShowInToolbar(en_Document, op_GetRespondentList, false);
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Undo, false);
-  ShowInToolbar(en_Edit, op_Undo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Redo, false);
-  ShowInToolbar(en_Edit, op_Redo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_FindPrev, true);
-  ShowInToolbar(en_Edit, op_FindPrev, false);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_Document, op_ShowJurorComments, false);
-  ShowInToolbar(en_Document, op_ShowJurorComments, true);
-  
-  ShowInContextMenu(en_SubPanelSettings, op_ShowSpecial, true);
-  ShowInToolbar(en_SubPanelSettings, op_ShowSpecial, false);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowByShortCut, False);
+  ShowInToolbar(en_SubPanelSettings, op_ShowByShortCut, False);
+  ShowInContextMenu(en_Edit, op_FindContext, True);
+  ShowInToolbar(en_Edit, op_FindContext, True);
+  ShowInContextMenu(en_Edit, op_FindNext, True);
+  ShowInToolbar(en_Edit, op_FindNext, False);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
+  ShowInContextMenu(en_File, op_Save, False);
+  ShowInToolbar(en_File, op_Save, True);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, True);
+  ShowInContextMenu(en_File, op_SendMailAsAttachment, False, true);
+  ShowInToolbar(en_File, op_SendMailAsAttachment, False, true);
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, True);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, True);
+  ShowInContextMenu(en_File, op_SaveToFolder, False);
+  ShowInToolbar(en_File, op_SaveToFolder, True);
+  ShowInContextMenu(en_File, op_LoadFromFolder, False);
+  ShowInToolbar(en_File, op_LoadFromFolder, True);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddBookmark, False);
+  ShowInToolbar(en_Document, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentList, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_Document, op_GetRespondentList, False);
+  ShowInToolbar(en_Document, op_GetRespondentList, False);
+  ShowInContextMenu(en_Edit, op_Undo, False);
+  ShowInToolbar(en_Edit, op_Undo, False);
+  ShowInContextMenu(en_Edit, op_Redo, False);
+  ShowInToolbar(en_Edit, op_Redo, False);
+  ShowInContextMenu(en_Edit, op_FindPrev, True);
+  ShowInToolbar(en_Edit, op_FindPrev, False);
+  ShowInContextMenu(en_Document, op_ShowJurorComments, False);
+  ShowInToolbar(en_Document, op_ShowJurorComments, True);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowSpecial, True);
+  ShowInToolbar(en_SubPanelSettings, op_ShowSpecial, False);
   ContextMenuWeight(en_SubPanelSettings, op_ShowSpecial, 2);
-  
-  ShowInContextMenu(en_SubPanelSettings, op_ShowInfo, true);
-  ShowInToolbar(en_SubPanelSettings, op_ShowInfo, false);
+  ShowInContextMenu(en_SubPanelSettings, op_ShowInfo, True);
+  ShowInToolbar(en_SubPanelSettings, op_ShowInfo, False);
   ContextMenuWeight(en_SubPanelSettings, op_ShowInfo, 1);
-  
   ContextMenuWeight(en_Selection, op_FindInDict, 10);
-  
-  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, false);
-  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, false);
-  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, true);
-  
-  ShowInContextMenu(en_Redactions, op_ActualRedaction, false);
-  ShowInToolbar(en_Redactions, op_ActualRedaction, false);
+  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, True);
+  ShowInContextMenu(en_Redactions, op_ActualRedaction, False);
+  ShowInToolbar(en_Redactions, op_ActualRedaction, False);
   ContextMenuWeight(en_Redactions, op_ActualRedaction, 1);
-  
-  ShowInContextMenu(en_Redactions, op_OpenRedactionListFrmAct, false);
-  ShowInToolbar(en_Redactions, op_OpenRedactionListFrmAct, true);
-  
+  ShowInContextMenu(en_Redactions, op_OpenRedactionListFrmAct, False);
+  ShowInToolbar(en_Redactions, op_OpenRedactionListFrmAct, True);
   ContextMenuWeight(en_DocumentBlock, op_GetCorrespondentList, 110);
-  
   ContextMenuWeight(en_DocumentBlock, op_GetRespondentList, 120);
-  
-  ShowInContextMenu(en_Document, op_GetAnnotationDocFrmAct, false);
-  ShowInToolbar(en_Document, op_GetAnnotationDocFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_SimilarDocuments, false);
-  ShowInToolbar(en_Document, op_SimilarDocuments, true);
-  
-  ShowInContextMenu(en_Redactions, op_PrevRedaction, false);
-  ShowInToolbar(en_Redactions, op_PrevRedaction, false);
-  
-  ShowInContextMenu(en_Redactions, op_NextRedaction, false);
-  ShowInToolbar(en_Redactions, op_NextRedaction, false);
-  
+  ShowInContextMenu(en_Document, op_GetAnnotationDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAnnotationDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_SimilarDocuments, False);
+  ShowInToolbar(en_Document, op_SimilarDocuments, True);
+  ShowInContextMenu(en_Redactions, op_PrevRedaction, False);
+  ShowInToolbar(en_Redactions, op_PrevRedaction, False);
+  ShowInContextMenu(en_Redactions, op_NextRedaction, False);
+  ShowInToolbar(en_Redactions, op_NextRedaction, False);
   ContextMenuWeight(en_Text, op_AddToControl, 1);
-  
-  ShowInContextMenu(en_Selection, op_ShowCorrespondentListToPart, true);
-  ShowInToolbar(en_Selection, op_ShowCorrespondentListToPart, false);
-  
-  ShowInContextMenu(en_Selection, op_ShowRespondentListToPart, true);
-  ShowInToolbar(en_Selection, op_ShowRespondentListToPart, false);
-  
-  ShowInContextMenu(en_WarnOnControl, op_ClearStatusSettings, true);
-  ShowInToolbar(en_WarnOnControl, op_ClearStatusSettings, false);
+  ShowInContextMenu(en_Selection, op_ShowCorrespondentListToPart, True);
+  ShowInToolbar(en_Selection, op_ShowCorrespondentListToPart, False);
+  ShowInContextMenu(en_Selection, op_ShowRespondentListToPart, True);
+  ShowInToolbar(en_Selection, op_ShowRespondentListToPart, False);
+  ShowInContextMenu(en_WarnOnControl, op_ClearStatusSettings, True);
+  ShowInToolbar(en_WarnOnControl, op_ClearStatusSettings, False);
   ContextMenuWeight(en_WarnOnControl, op_ClearStatusSettings, 3);
-  
-  ShowInContextMenu(en_DocumentBlockHeader, op_Print, false);
-  ShowInToolbar(en_DocumentBlockHeader, op_Print, false);
-  
-  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, true);
-  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, false);
-  
-  ShowInContextMenu(en_Document, op_OpenContentsFrmAct, false);
-  ShowInToolbar(en_Document, op_OpenContentsFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_ShowDocumentPicture, true);
-  ShowInToolbar(en_Document, op_ShowDocumentPicture, true);
-  
-  ShowInContextMenu(en_WarnRedaction, op_OpenActualRedaction, true, true);
-  ShowInToolbar(en_WarnRedaction, op_OpenActualRedaction, false, true);
+  ShowInContextMenu(en_DocumentBlockHeader, op_Print, False);
+  ShowInToolbar(en_DocumentBlockHeader, op_Print, False);
+  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, True);
+  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_OpenContentsFrmAct, False);
+  ShowInToolbar(en_Document, op_OpenContentsFrmAct, True);
+  ShowInContextMenu(en_Document, op_ShowDocumentPicture, True);
+  ShowInToolbar(en_Document, op_ShowDocumentPicture, True);
+  ShowInContextMenu(en_WarnRedaction, op_OpenActualRedaction, True, true);
+  ShowInToolbar(en_WarnRedaction, op_OpenActualRedaction, False, true);
   ContextMenuWeight(en_WarnRedaction, op_OpenActualRedaction, 1, true);
-  
-  ShowInContextMenu(en_WarnOnControl, op_ShowChanges, true);
-  ShowInToolbar(en_WarnOnControl, op_ShowChanges, false);
+  ShowInContextMenu(en_WarnOnControl, op_ShowChanges, True);
+  ShowInToolbar(en_WarnOnControl, op_ShowChanges, False);
   ContextMenuWeight(en_WarnOnControl, op_ShowChanges, 1);
-  
-  ShowInContextMenu(en_WarnOnControl, op_ClearStatus, true);
-  ShowInToolbar(en_WarnOnControl, op_ClearStatus, false);
+  ShowInContextMenu(en_WarnOnControl, op_ClearStatus, True);
+  ShowInToolbar(en_WarnOnControl, op_ClearStatus, False);
   ContextMenuWeight(en_WarnOnControl, op_ClearStatus, 2);
-  
   ContextMenuWeight(en_Text, op_AddUserComment, 5);
-  
-  ShowInContextMenu(en_Document, op_GetGraphicImage, false);
-  ShowInToolbar(en_Document, op_GetGraphicImage, true);
-  
-  ShowInContextMenu(en_Document, op_DocumentSynchroOpenWindow, false, true);
-  ShowInToolbar(en_Document, op_DocumentSynchroOpenWindow, false, true);
-  
-  ShowInContextMenu(en_Document, op_DocumentSynchroOpenNewWindow, false, true);
-  ShowInToolbar(en_Document, op_DocumentSynchroOpenNewWindow, false, true);
-  
-  ShowInContextMenu(en_Document, op_DictListOpenFrmAct, true);
-  ShowInToolbar(en_Document, op_DictListOpenFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_GotoBookmark, false);
-  ShowInToolbar(en_Document, op_GotoBookmark, true);
-  
-  ShowInContextMenu(en_Document, op_LiteratureListForDictionary, false);
-  ShowInToolbar(en_Document, op_LiteratureListForDictionary, true);
-  
+  ShowInContextMenu(en_Document, op_GetGraphicImage, False);
+  ShowInToolbar(en_Document, op_GetGraphicImage, True);
+  ShowInContextMenu(en_Document, op_DocumentSynchroOpenWindow, False, true);
+  ShowInToolbar(en_Document, op_DocumentSynchroOpenWindow, False, true);
+  ShowInContextMenu(en_Document, op_DocumentSynchroOpenNewWindow, False, true);
+  ShowInToolbar(en_Document, op_DocumentSynchroOpenNewWindow, False, true);
+  ShowInContextMenu(en_Document, op_DictListOpenFrmAct, True);
+  ShowInToolbar(en_Document, op_DictListOpenFrmAct, True);
+  ShowInContextMenu(en_Document, op_GotoBookmark, False);
+  ShowInToolbar(en_Document, op_GotoBookmark, True);
+  ShowInContextMenu(en_Document, op_LiteratureListForDictionary, False);
+  ShowInToolbar(en_Document, op_LiteratureListForDictionary, True);
   ContextMenuWeight(en_Text, op_AddBookmark, 3);
-  
-  ShowInContextMenu(en_Text, op_OpenNewWindow, false);
-  ShowInToolbar(en_Text, op_OpenNewWindow, false);
+  ShowInContextMenu(en_Text, op_OpenNewWindow, False);
+  ShowInToolbar(en_Text, op_OpenNewWindow, False);
   ContextMenuWeight(en_Text, op_OpenNewWindow, 2);
-  
-  ShowInContextMenu(en_Document, op_OpenProducedDrugList, false);
-  ShowInToolbar(en_Document, op_OpenProducedDrugList, false);
-  
-  ShowInContextMenu(en_Document, op_OpenSimilarDrugList, false);
-  ShowInToolbar(en_Document, op_OpenSimilarDrugList, false);
-  
-  ShowInContextMenu(en_Document, op_ShowJurorComments, false);
-  ShowInToolbar(en_Document, op_ShowJurorComments, true);
-  
-  ShowInContextMenu(en_Document, op_ShowUserComments, false);
-  ShowInToolbar(en_Document, op_ShowUserComments, true);
-  
-  ShowInContextMenu(en_Document, op_ShowTechComments, true);
-  ShowInToolbar(en_Document, op_ShowTechComments, false);
-  
-  ShowInContextMenu(en_Document, op_AddToControl, false);
-  ShowInToolbar(en_Document, op_AddToControl, true);
-  
-  ShowInContextMenu(en_Document, op_UserCR1, false);
-  ShowInToolbar(en_Document, op_UserCR1, true);
-  
-  ShowInContextMenu(en_Document, op_UserCR2, false);
-  ShowInToolbar(en_Document, op_UserCR2, true);
-  
-  ShowInContextMenu(en_Document, op_ShowVersionComments, false);
-  ShowInToolbar(en_Document, op_ShowVersionComments, true);
-  
-  ShowInContextMenu(en_Document, op_CompareEditions, false);
-  ShowInToolbar(en_Document, op_CompareEditions, true);
-  
-  ShowInContextMenu(en_TimeMachine, op_TimeMachineOnOffNew, true);
-  ShowInToolbar(en_TimeMachine, op_TimeMachineOnOffNew, false);
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, true);
-  {$IfEnd} //not NoVCM
-
-  
-  ShowInContextMenu(en_WarnJuror, op_ShowInfo, true, true);
-  ShowInToolbar(en_WarnJuror, op_ShowInfo, false, true);
-  
-  ShowInContextMenu(en_WarnTimeMachine, op_ShowInfo, true);
-  ShowInToolbar(en_WarnTimeMachine, op_ShowInfo, false);
-  
-  ShowInContextMenu(en_WarnTimeMachine, op_TimeMachineOnOffNew, true);
-  ShowInToolbar(en_WarnTimeMachine, op_TimeMachineOnOffNew, false);
-  
-  ShowInContextMenu(en_WarnRedaction, op_ShowInfo, true, true);
-  ShowInToolbar(en_WarnRedaction, op_ShowInfo, false, true);
-  
-  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR1, true);
-  ShowInToolbar(en_DocumentBlockHeader, op_UserCR1, false);
-  
-  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR2, true);
-  ShowInToolbar(en_DocumentBlockHeader, op_UserCR2, false);
-  
+  ShowInContextMenu(en_Document, op_OpenProducedDrugList, False);
+  ShowInToolbar(en_Document, op_OpenProducedDrugList, False);
+  ShowInContextMenu(en_Document, op_OpenSimilarDrugList, False);
+  ShowInToolbar(en_Document, op_OpenSimilarDrugList, False);
+  ShowInContextMenu(en_Document, op_ShowJurorComments, False);
+  ShowInToolbar(en_Document, op_ShowJurorComments, True);
+  ShowInContextMenu(en_Document, op_ShowUserComments, False);
+  ShowInToolbar(en_Document, op_ShowUserComments, True);
+  ShowInContextMenu(en_Document, op_ShowTechComments, True);
+  ShowInToolbar(en_Document, op_ShowTechComments, False);
+  ShowInContextMenu(en_Document, op_AddToControl, False);
+  ShowInToolbar(en_Document, op_AddToControl, True);
+  ShowInContextMenu(en_Document, op_UserCR1, False);
+  ShowInToolbar(en_Document, op_UserCR1, True);
+  ShowInContextMenu(en_Document, op_UserCR2, False);
+  ShowInToolbar(en_Document, op_UserCR2, True);
+  ShowInContextMenu(en_Document, op_ShowVersionComments, False);
+  ShowInToolbar(en_Document, op_ShowVersionComments, True);
+  ShowInContextMenu(en_Document, op_CompareEditions, False);
+  ShowInToolbar(en_Document, op_CompareEditions, True);
+  ShowInContextMenu(en_TimeMachine, op_TimeMachineOnOffNew, True);
+  ShowInToolbar(en_TimeMachine, op_TimeMachineOnOffNew, False);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
+  ShowInContextMenu(en_WarnJuror, op_ShowInfo, True, true);
+  ShowInToolbar(en_WarnJuror, op_ShowInfo, False, true);
+  ShowInContextMenu(en_WarnTimeMachine, op_ShowInfo, True);
+  ShowInToolbar(en_WarnTimeMachine, op_ShowInfo, False);
+  ShowInContextMenu(en_WarnTimeMachine, op_TimeMachineOnOffNew, True);
+  ShowInToolbar(en_WarnTimeMachine, op_TimeMachineOnOffNew, False);
+  ShowInContextMenu(en_WarnRedaction, op_ShowInfo, True, true);
+  ShowInToolbar(en_WarnRedaction, op_ShowInfo, False, true);
+  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR1, True);
+  ShowInToolbar(en_DocumentBlockHeader, op_UserCR1, False);
+  ShowInContextMenu(en_DocumentBlockHeader, op_UserCR2, True);
+  ShowInToolbar(en_DocumentBlockHeader, op_UserCR2, False);
   ContextMenuWeight(en_Text, op_AddToControl, 1);
-  
-  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, true);
-  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, false);
+  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, True);
+  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, False);
   ContextMenuWeight(en_Text, op_MakeHyperlinkToDocument, 4);
-  
-  ShowInContextMenu(en_Document, op_PrevDocumentInList, false);
-  ShowInToolbar(en_Document, op_PrevDocumentInList, false);
-  
-  ShowInContextMenu(en_Document, op_DocumentIsUseful, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseful, false);
-  
-  ShowInContextMenu(en_Document, op_DocumentIsUseless, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseless, false);
-  
-  ShowInContextMenu(en_Text, op_SelectWord, false);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
+  ShowInContextMenu(en_Text, op_SelectWord, False);
   ContextMenuWeight(en_Text, op_SelectWord, 6);
-  
-  ShowInContextMenu(en_Text, op_SelectPara, false);
+  ShowInContextMenu(en_Text, op_SelectPara, False);
   ContextMenuWeight(en_Text, op_SelectPara, 7);
-  
   ContextMenuWeight(en_DocumentBlock, op_GetSimilarDocsToBlock, 130);
  end;//with Entities.Entities
-end;
+end;//TExTextOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TExTextOptionsForm.MakeControls;
 begin
  inherited;
  f_RemindersLine := TnscRemindersLine.Create(Self);
  f_RemindersLine.Name := 'RemindersLine';
  f_RemindersLine.Parent := Self;
- with DefineZone(vcm_ztChild, f_RemindersLine) do
+ with DefineZone(vcm_ztChild, RemindersLine) do
  begin
- end;//with DefineZone(vcm_ztChild, f_RemindersLine)
+ end;//with DefineZone(vcm_ztChild
  f_WarnTimeMachineException := TnscReminder.Create(RemindersLine);
  f_WarnTimeMachineException.Name := 'WarnTimeMachineException';
  f_WarnIsAbolished := TnscReminder.Create(RemindersLine);
@@ -2389,22 +2235,18 @@ begin
  f_WarnInactualDocument.Name := 'WarnInactualDocument';
  f_WarnTimeMachineOn := TnscReminder.Create(RemindersLine);
  f_WarnTimeMachineOn.Name := 'WarnTimeMachineOn';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TExTextOptionsForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_WarnRedactionHint
  str_WarnRedactionHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_WarnTimeMachineOnHint
+ {* Инициализация str_WarnRedactionHint }
  str_WarnTimeMachineOnHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация ExTextOptions
+ {* Инициализация str_WarnTimeMachineOnHint }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TExTextOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация ExTextOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

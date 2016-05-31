@@ -27,6 +27,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , ComCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Messages
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -77,7 +80,7 @@ type
   public
    class function Make(const aProgress: InsProgressIndicator;
     const aCaption: Il3CString;
-    aMaxCount: Integer): BadFactoryType; reintroduce;
+    aMaxCount: Integer): IvcmEntityForm; reintroduce;
   public
    property ProgressBar: TProgressBar
     read pm_GetProgressBar;
@@ -117,30 +120,22 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimProgressIndicator_utProgressIndicator_UserType
+ //#UC START# *4A93F1980324impl_uses*
+ //#UC END# *4A93F1980324impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки utProgressIndicatorLocalConstants }
- str_utProgressIndicatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorCaption'; rValue : 'Ход выполнения');
-  {* Заголовок пользовательского типа "Ход выполнения" }
- str_utProgressIndicatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorSettingsCaption'; rValue : 'Ход выполнения');
-  {* Заголовок пользовательского типа "Ход выполнения" для настройки панелей инструментов }
  {* Локализуемые строки ProgressIndicatorLocalConst }
  str_CancelButtonCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CancelButtonCaption'; rValue : '&Отмена');
   {* '&Отмена' }
 
 function TPrimProgressIndicatorForm.pm_GetProgressBar: TProgressBar;
-//#UC START# *4AC627D2039B_4A93F1980324get_var*
-//#UC END# *4AC627D2039B_4A93F1980324get_var*
 begin
-//#UC START# *4AC627D2039B_4A93F1980324get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC627D2039B_4A93F1980324get_impl*
+ if (f_ProgressBar = nil) then
+  f_ProgressBar := FindComponent('ProgressBar') As TProgressBar;
+ Result := f_ProgressBar;
 end;//TPrimProgressIndicatorForm.pm_GetProgressBar
 
 procedure TPrimProgressIndicatorForm.VcmEntityFormRefCloseQuery(Sender: TObject;
@@ -163,7 +158,7 @@ end;//TPrimProgressIndicatorForm.VcmEntityFormRefCloseQuery
 
 class function TPrimProgressIndicatorForm.Make(const aProgress: InsProgressIndicator;
  const aCaption: Il3CString;
- aMaxCount: Integer): BadFactoryType;
+ aMaxCount: Integer): IvcmEntityForm;
 var
  l_Inst : TPrimProgressIndicatorForm;
 begin
@@ -306,7 +301,7 @@ begin
  with AddUsertype(utProgressIndicatorName,
   str_utProgressIndicatorCaption,
   str_utProgressIndicatorSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -319,10 +314,6 @@ begin
 end;//TPrimProgressIndicatorForm.MakeControls
 
 initialization
- str_utProgressIndicatorCaption.Init;
- {* Инициализация str_utProgressIndicatorCaption }
- str_utProgressIndicatorSettingsCaption.Init;
- {* Инициализация str_utProgressIndicatorSettingsCaption }
  str_CancelButtonCaption.Init;
  {* Инициализация str_CancelButtonCaption }
 {$If NOT Defined(NoScripts)}
