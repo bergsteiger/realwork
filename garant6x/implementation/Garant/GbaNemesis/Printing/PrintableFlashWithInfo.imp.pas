@@ -1,75 +1,41 @@
 {$IfNDef PrintableFlashWithInfo_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Printing"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Printing/PrintableFlashWithInfo.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Aspects::Printing::Printing::Printing::PrintableFlashWithInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrintableFlashWithInfo" MUID: (54D879C9030C)
+// Имя типа: "_PrintableFlashWithInfo_"
 
 {$Define PrintableFlashWithInfo_imp}
+
  _PrintableFlash_Parent_ = _PrintableFlashWithInfo_Parent_;
- {$Include ..\Printing\PrintableFlash.imp.pas}
- _PrintableFlashWithInfo_ = {abstract form} class(_PrintableFlash_)
- private
- // private fields
-   f_InfoPreview : IafwDocumentPreview;
-    {* Поле для свойства InfoPreview}
-   f_FlashPreview : IafwDocumentPreview;
-    {* Поле для свойства FlashPreview}
- protected
- // property methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas}
+ _PrintableFlashWithInfo_ = {abstract} class(_PrintableFlash_)
+  private
+   f_InfoPreview: IafwDocumentPreview;
+   f_FlashPreview: IafwDocumentPreview;
+  protected
    function pm_GetInfoPreview: IafwDocumentPreview; virtual;
    function pm_GetFlashPreview: IafwDocumentPreview; virtual;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   function MakePreview: IafwDocumentPreview; override;
-   procedure ClearPreview; override;
- protected
- // protected methods
    function MakeDocumentPreview: IafwDocumentPreview;
    function MakeInfoPreview: IafwDocumentPreview;
    function GetDocumentForInfo: IdeDocInfo; virtual; abstract;
- protected
- // protected properties
+   function MakePreview: IafwDocumentPreview; override;
+   procedure ClearPreview; override;
+   procedure ClearFields; override;
+  protected
    property InfoPreview: IafwDocumentPreview
-     read pm_GetInfoPreview;
+    read pm_GetInfoPreview;
    property FlashPreview: IafwDocumentPreview
-     read pm_GetFlashPreview;
+    read pm_GetFlashPreview;
  end;//_PrintableFlashWithInfo_
 
 {$Else PrintableFlashWithInfo_imp}
 
-{$Include ..\Printing\PrintableFlash.imp.pas}
+{$IfNDef PrintableFlashWithInfo_imp_impl}
 
-// start class _PrintableFlashWithInfo_
+{$Define PrintableFlashWithInfo_imp_impl}
 
-function _PrintableFlashWithInfo_.MakeDocumentPreview: IafwDocumentPreview;
-//#UC START# *54D879F001C4_54D879C9030C_var*
-//#UC END# *54D879F001C4_54D879C9030C_var*
-begin
-//#UC START# *54D879F001C4_54D879C9030C_impl*
- Result := TnsObjectPreview.Make(TevBitmapDataObject.Make(BitmapForPrint, Self.DPI),
-                                 evDefaultPreviewCacheKey,
-                                 TnsHAFPainter.Make(TnsFixedHAFMacroReplacer.Make(nil, ShortName, Name)));
-//#UC END# *54D879F001C4_54D879C9030C_impl*
-end;//_PrintableFlashWithInfo_.MakeDocumentPreview
-
-function _PrintableFlashWithInfo_.MakeInfoPreview: IafwDocumentPreview;
-//#UC START# *54D87A03022C_54D879C9030C_var*
-//#UC END# *54D87A03022C_54D879C9030C_var*
-begin
-//#UC START# *54D87A03022C_54D879C9030C_impl*
- Result := nsGetRelatedDocPreview(GetDocumentForInfo.Doc, True, False, False);
-//#UC END# *54D87A03022C_54D879C9030C_impl*
-end;//_PrintableFlashWithInfo_.MakeInfoPreview
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas}
 
 function _PrintableFlashWithInfo_.pm_GetInfoPreview: IafwDocumentPreview;
 //#UC START# *54D886BC0229_54D879C9030Cget_var*
@@ -93,13 +59,25 @@ begin
 //#UC END# *54D886F20388_54D879C9030Cget_impl*
 end;//_PrintableFlashWithInfo_.pm_GetFlashPreview
 
-procedure _PrintableFlashWithInfo_.ClearFields;
- {-}
+function _PrintableFlashWithInfo_.MakeDocumentPreview: IafwDocumentPreview;
+//#UC START# *54D879F001C4_54D879C9030C_var*
+//#UC END# *54D879F001C4_54D879C9030C_var*
 begin
- f_InfoPreview := nil;
- f_FlashPreview := nil;
- inherited;
-end;//_PrintableFlashWithInfo_.ClearFields
+//#UC START# *54D879F001C4_54D879C9030C_impl*
+ Result := TnsObjectPreview.Make(TevBitmapDataObject.Make(BitmapForPrint, Self.DPI),
+                                 evDefaultPreviewCacheKey,
+                                 TnsHAFPainter.Make(TnsFixedHAFMacroReplacer.Make(nil, ShortName, Name)));
+//#UC END# *54D879F001C4_54D879C9030C_impl*
+end;//_PrintableFlashWithInfo_.MakeDocumentPreview
+
+function _PrintableFlashWithInfo_.MakeInfoPreview: IafwDocumentPreview;
+//#UC START# *54D87A03022C_54D879C9030C_var*
+//#UC END# *54D87A03022C_54D879C9030C_var*
+begin
+//#UC START# *54D87A03022C_54D879C9030C_impl*
+ Result := nsGetRelatedDocPreview(GetDocumentForInfo.Doc, True, False, False);
+//#UC END# *54D87A03022C_54D879C9030C_impl*
+end;//_PrintableFlashWithInfo_.MakeInfoPreview
 
 function _PrintableFlashWithInfo_.MakePreview: IafwDocumentPreview;
 //#UC START# *5301CBFE023E_54D879C9030C_var*
@@ -121,4 +99,14 @@ begin
 //#UC END# *5592655F00B2_54D879C9030C_impl*
 end;//_PrintableFlashWithInfo_.ClearPreview
 
+procedure _PrintableFlashWithInfo_.ClearFields;
+begin
+ f_InfoPreview := nil;
+ f_FlashPreview := nil;
+ inherited;
+end;//_PrintableFlashWithInfo_.ClearFields
+
+{$EndIf PrintableFlashWithInfo_imp_impl}
+
 {$EndIf PrintableFlashWithInfo_imp}
+

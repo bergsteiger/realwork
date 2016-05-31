@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cfRenameLocalConstants }
+ str_cfRenameCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfRenameCaption'; rValue : 'Переименовать фильтр');
+  {* Заголовок пользовательского типа "Переименовать фильтр" }
  {* Константы для типа формы cfRename }
  cfRenameName = 'cfRename';
   {* Строковый идентификатор пользовательского типа "Переименовать фильтр" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_cfRename.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cfRenameCaption.Init;
+ {* Инициализация str_cfRenameCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cfRename.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cfRename }

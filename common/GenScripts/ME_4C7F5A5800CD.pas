@@ -23,6 +23,9 @@ uses
  , Base_Operations_Strange_Controls
  , Filters_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -113,6 +116,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7F5A5800CDimpl_uses*
+ //#UC END# *4C7F5A5800CDimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -414,19 +419,47 @@ begin
   PublishFormEntity(en_Filters, nil);
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_Filter, nil);
+  ContextMenuWeight(en_Filter, 30);
+  ContextMenuWeight(en_Edit, 20);
+  ContextMenuWeight(en_Filters, 10);
+  ContextMenuWeight(en_Tree, 40);
+  ContextMenuWeight(en_Filters, 10);
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
   PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
   PublishOp(en_Filters, op_Clear, Filters_Clear_Execute, Filters_Clear_Test, nil);
+  ShowInContextMenu(en_Filters, op_Clear, True);
+  ShowInToolbar(en_Filters, op_Clear, True);
+  ContextMenuWeight(en_Filters, op_Clear, 20);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ContextMenuWeight(en_Edit, op_Delete, -10);
   PublishOp(en_Filters, op_New, Filters_New_Execute, Filters_New_Test, nil);
+  ContextMenuWeight(en_Filters, op_New, 10);
   PublishOp(en_Filters, op_Refresh, Filters_Refresh_Execute, Filters_Refresh_Test, nil);
+  ContextMenuWeight(en_Filters, op_Refresh, 30);
   PublishOp(en_Filter, op_Activate, nil, nil, nil);
+  ShowInContextMenu(en_Filter, op_Activate, True);
+  ShowInToolbar(en_Filter, op_Activate, False);
+  ContextMenuWeight(en_Filter, op_Activate, 10);
   PublishOp(en_Filter, op_Edit, Filter_Edit_Execute, Filter_Edit_Test, nil);
+  ContextMenuWeight(en_Filter, op_Edit, 20);
   PublishOp(en_Filter, op_PersistentFilter, Filter_PersistentFilter_Execute, Filter_PersistentFilter_Test, nil);
+  ShowInContextMenu(en_Filter, op_PersistentFilter, True);
+  ShowInToolbar(en_Filter, op_PersistentFilter, False);
+  ContextMenuWeight(en_Filter, op_PersistentFilter, 30);
   PublishOp(en_Filters, op_FiltersListOpen, nil, nil, nil);
+  ShowInContextMenu(en_Filters, op_FiltersListOpen, False);
+  ShowInToolbar(en_Filters, op_FiltersListOpen, False);
+  ContextMenuWeight(en_Filters, op_FiltersListOpen, 20);
   PublishOp(en_Filter, op_RenameFilter, Filter_RenameFilter_Execute, Filter_RenameFilter_Test, nil);
+  ShowInContextMenu(en_Filter, op_RenameFilter, True);
+  ContextMenuWeight(en_Filter, op_RenameFilter, 50);
   PublishOpWithResult(en_Filters, op_InternalClear, Filters_InternalClear, nil, nil);
+  ShowInContextMenu(en_Filter, op_CreateFilter, True);
+  ShowInToolbar(en_Filter, op_CreateFilter, False);
+  ContextMenuWeight(en_Filter, op_CreateFilter, 40);
  end;//with Entities.Entities
 end;//TPrimFiltersOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

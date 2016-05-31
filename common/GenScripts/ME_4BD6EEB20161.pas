@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dwftSynchroLocalConstants }
+ str_dwftSynchroCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroCaption'; rValue : 'Схема (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Схема (синхронный просмотр)" }
+ str_dwftSynchroSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroSettingsCaption'; rValue : 'Синхронный просмотр: Схема');
+  {* Заголовок пользовательского типа "Схема (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dwftSynchro }
  dwftSynchroName = 'dwftSynchro';
   {* Строковый идентификатор пользовательского типа "Схема (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dwftSynchro.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dwftSynchroCaption.Init;
+ {* Инициализация str_dwftSynchroCaption }
+ str_dwftSynchroSettingsCaption.Init;
+ {* Инициализация str_dwftSynchroSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dwftSynchro.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dwftSynchro }

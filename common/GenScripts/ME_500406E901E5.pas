@@ -14,12 +14,15 @@ uses
  l3IntfUses
  , AACContainerPrim_Form
  , afwInterfaces
+ , vtProportionalPanel
  , vtPanel
  , nscSimpleEditorForDialogs
  , vtLabel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ , vtSizeablePanel
+ , vtScrollBar
  , nevGUIInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
@@ -28,9 +31,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , vtProportionalPanel
- , vtScrollBar
- , vtSizeablePanel
 ;
 
 const
@@ -45,17 +45,12 @@ type
    f_EdWriteToUsBufferAlreadyAssigned: Boolean;
    f_InSetupWriteToUsEditor: Boolean;
    f_pnWriteToUs: TvtPanel;
-    {* Поле для свойства pnWriteToUs }
    f_edWriteToUs: TnscSimpleEditorForDialogs;
-    {* Поле для свойства edWriteToUs }
    f_pnSeeAlso: TvtPanel;
-    {* Поле для свойства pnSeeAlso }
    f_lblSeeAlso: TvtLabel;
-    {* Поле для свойства lblSeeAlso }
+    {* См. также }
    f_pnLinkToContent: TvtPanel;
-    {* Поле для свойства pnLinkToContent }
    f_pbLinkToContent: TPaintBox;
-    {* Поле для свойства pbLinkToContent }
   private
    procedure SetupWriteToUsEditor;
    procedure lblLinkToContentClick(Sender: TObject);
@@ -125,19 +120,20 @@ uses
  , nsUtils
  , bsTypesNew
  , nsConst
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , bsHyperLinkProcessorPrim
  , vtPngImgList
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *500406E901E5impl_uses*
+ //#UC END# *500406E901E5impl_uses*
 ;
 
 const
@@ -416,7 +412,7 @@ begin
  f_pbLinkToContent := TPaintBox.Create(Self);
  f_pbLinkToContent.Name := 'pbLinkToContent';
  f_pbLinkToContent.Parent := pnLinkToContent;
- .Parent := pnLeftForScroll;
+ pnLeft.Parent := pnLeftForScroll;
 end;//TAACTextContainerPrimForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 

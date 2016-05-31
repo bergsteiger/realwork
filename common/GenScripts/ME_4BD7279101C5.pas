@@ -25,12 +25,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Settings_Strange_Controls
  , nscTreeViewWithAdapterDragDrop
+ , l3Interfaces
  , eeInterfaces
+ , SettingsUnit
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , l3Interfaces
- , SettingsUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -44,7 +47,6 @@ type
   {* Конфигурации }
   private
    f_tvConfs: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvConfs }
   private
    function tvConfsGetItemImage(Sender: TObject;
     Index: Integer;
@@ -132,7 +134,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , ConfigInterfaces
  , SysUtils
  , nsConfigurationList
@@ -149,30 +150,22 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , PrimConfigurationListWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimConfigurationList_utConfigurationList_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4BD7279101C5impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4BD7279101C5impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utConfigurationListLocalConstants }
- str_utConfigurationListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListCaption'; rValue : 'Конфигурации');
-  {* Заголовок пользовательского типа "Конфигурации" }
- str_utConfigurationListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListSettingsCaption'; rValue : 'Конфигурации (вкладка)');
-  {* Заголовок пользовательского типа "Конфигурации" для настройки панелей инструментов }
-
 procedure TPrimConfigurationListForm.OpenConf(const aConf: IeeNode = nil);
 //#UC START# *4C408D790107_4BD7279101C5_var*
 var
@@ -701,18 +694,36 @@ begin
   PublishFormEntity(en_Switcher, nil);
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_PopupMenu, nil);
+  ContextMenuWeight(en_Switcher, 10);
+  ContextMenuWeight(en_PopupMenu, 20);
+  ContextMenuWeight(en_Edit, 30);
+  ContextMenuWeight(en_Tree, 40);
+  MakeEntitySupportedByControl(en_Edit, tvConfs);
+  MakeEntitySupportedByControl(en_Tree, tvConfs);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
   PublishOp(en_PopupMenu, op_DoActive, PopupMenu_DoActive_Execute, PopupMenu_DoActive_Test, nil);
+  ShowInContextMenu(en_PopupMenu, op_DoActive, True);
+  ShowInToolbar(en_PopupMenu, op_DoActive, True);
   PublishOp(en_PopupMenu, op_Modify, PopupMenu_Modify_Execute, PopupMenu_Modify_Test, nil);
+  ShowInContextMenu(en_PopupMenu, op_Modify, True);
+  ShowInToolbar(en_PopupMenu, op_Modify, True);
   PublishOp(en_PopupMenu, op_CopyConfig, PopupMenu_CopyConfig_Execute, PopupMenu_CopyConfig_Test, nil);
+  ShowInContextMenu(en_PopupMenu, op_CopyConfig, True);
+  ShowInToolbar(en_PopupMenu, op_CopyConfig, True);
   PublishOp(en_PopupMenu, op_ConfInfo, PopupMenu_ConfInfo_Execute, nil, nil);
+  ShowInContextMenu(en_PopupMenu, op_ConfInfo, True);
+  ShowInToolbar(en_PopupMenu, op_ConfInfo, True);
   PublishOp(en_PopupMenu, op_RestoreAllSettings, PopupMenu_RestoreAllSettings_Execute, nil, nil);
+  ShowInContextMenu(en_PopupMenu, op_RestoreAllSettings, True);
+  ShowInToolbar(en_PopupMenu, op_RestoreAllSettings, True);
   PublishOp(en_PopupMenu, op_RestoreConf, PopupMenu_RestoreConf_Execute, PopupMenu_RestoreConf_Test, nil);
+  ShowInToolbar(en_PopupMenu, op_RestoreConf, True);
   PublishOp(en_PopupMenu, op_SaveAsDefaultConf, PopupMenu_SaveAsDefaultConf_Execute, PopupMenu_SaveAsDefaultConf_Test, nil);
-  PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  ShowInContextMenu(en_PopupMenu, op_SaveAsDefaultConf, True);
+  ShowInToolbar(en_PopupMenu, op_SaveAsDefaultConf, True);
  end;//with Entities.Entities
 end;//TPrimConfigurationListForm.InitEntities
 
@@ -722,7 +733,7 @@ begin
  with AddUsertype(utConfigurationListName,
   str_utConfigurationListCaption,
   str_utConfigurationListSettingsCaption,
-  False,
+  True,
   74,
   30,
   '',
@@ -738,10 +749,6 @@ begin
 end;//TPrimConfigurationListForm.MakeControls
 
 initialization
- str_utConfigurationListCaption.Init;
- {* Инициализация str_utConfigurationListCaption }
- str_utConfigurationListSettingsCaption.Init;
- {* Инициализация str_utConfigurationListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimConfigurationListForm);
  {* Регистрация PrimConfigurationList }

@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftDocSynchroViewLocalConstants }
+ str_dftDocSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDocSynchroViewCaption'; rValue : 'Текст документа (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Текст документа (синхронный просмотр)" }
+ str_dftDocSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDocSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Текст документа');
+  {* Заголовок пользовательского типа "Текст документа (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dftDocSynchroView }
  dftDocSynchroViewName = 'dftDocSynchroView';
   {* Строковый идентификатор пользовательского типа "Текст документа (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftDocSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftDocSynchroViewCaption.Init;
+ {* Инициализация str_dftDocSynchroViewCaption }
+ str_dftDocSynchroViewSettingsCaption.Init;
+ {* Инициализация str_dftDocSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDocSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftDocSynchroView }

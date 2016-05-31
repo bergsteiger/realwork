@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utDrugContentsLocalConstants }
+ str_utDrugContentsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsCaption'; rValue : 'Структура препарата');
+  {* Заголовок пользовательского типа "Структура препарата" }
+ str_utDrugContentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsSettingsCaption'; rValue : 'Препарат: Структура (вкладка)');
+  {* Заголовок пользовательского типа "Структура препарата" для настройки панелей инструментов }
  {* Константы для типа формы utDrugContents }
  utDrugContentsName = 'utDrugContents';
   {* Строковый идентификатор пользовательского типа "Структура препарата" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_utDrugContents.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utDrugContentsCaption.Init;
+ {* Инициализация str_utDrugContentsCaption }
+ str_utDrugContentsSettingsCaption.Init;
+ {* Инициализация str_utDrugContentsSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utDrugContents.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utDrugContents }

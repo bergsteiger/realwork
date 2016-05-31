@@ -30,6 +30,9 @@ uses
  , vtCheckBox
  , vtComboBoxQS
  , vtColorBox
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -238,7 +241,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm; reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
    procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
@@ -398,11 +401,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC642480314impl_uses*
+ //#UC END# *4AC642480314impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -417,7 +419,7 @@ const
  str_InheritanceButtonNoTransparentHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonNoTransparentHint'; rValue : 'Тип наследования (Собственное, Родительское)');
   {* 'Тип наследования (Собственное, Родительское)' }
 
-class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo);
+class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm;
 var
  l_Inst : TPrimStyleEditorFontForm;
 begin

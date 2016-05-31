@@ -17,6 +17,9 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -55,6 +58,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C863B1E0196impl_uses*
+ //#UC END# *4C863B1E0196impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -91,8 +96,13 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Ok, True);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
  end;//with Entities.Entities
 end;//TPrimDocNumberQueryOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

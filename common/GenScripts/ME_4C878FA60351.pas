@@ -24,6 +24,9 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -121,12 +124,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmRepOperationsCollectionItem
  {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C878FA60351impl_uses*
+ //#UC END# *4C878FA60351impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -434,17 +440,57 @@ begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Tree, nil);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Cut, False);
+  ShowInToolbar(en_Edit, op_Cut, False);
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, False);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, False);
+  ShowInToolbar(en_Edit, op_Paste, False);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_SelectAll, False);
+  ShowInToolbar(en_Edit, op_SelectAll, False);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Deselect, False);
+  ShowInToolbar(en_Edit, op_Deselect, False);
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, nil, nil);
+  ShowInContextMenu(en_Tree, op_CollapseAll, True);
+  ShowInToolbar(en_Tree, op_CollapseAll, False);
   PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
   PublishOp(en_Edit, op_Copy, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Copy, False);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ShowInContextMenu(en_DocumentBlock, op_GetCorrespondentList, True);
+  ShowInToolbar(en_DocumentBlock, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_DocumentBlock, op_GetRespondentList, True);
+  ShowInToolbar(en_DocumentBlock, op_GetRespondentList, False);
+  ShowInContextMenu(en_DocumentBlock, op_GetTypedCorrespondentList, False);
+  ShowInToolbar(en_DocumentBlock, op_GetTypedCorrespondentList, True);
+  ShowInContextMenu(en_DocumentBlock, op_GetTypedRespondentList, False);
+  ShowInToolbar(en_DocumentBlock, op_GetTypedRespondentList, True);
+  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, True);
+  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, False);
+  ShowInContextMenu(en_DocumentBlock, op_ToMSWord, True);
+  ShowInToolbar(en_DocumentBlock, op_ToMSWord, False);
+  ShowInContextMenu(en_DocumentBlock, op_PrintDialog, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintDialog, False);
+  ShowInContextMenu(en_DocumentBlock, op_Copy, True);
+  ShowInToolbar(en_DocumentBlock, op_Copy, False);
+  ShowInContextMenu(en_DocumentBlock, op_Print, False);
+  ShowInToolbar(en_DocumentBlock, op_Print, False);
  end;//with Entities.Entities
 end;//TPrimContentsOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

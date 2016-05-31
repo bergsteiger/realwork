@@ -19,6 +19,13 @@ uses
 ;
 
 const
+ {* Ћокализуемые строки ContextParamsMessages }
+ str_nsc_cpmTreeLevelDistHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmTreeLevelDistHint'; rValue : 'Ќаход€тс€ ли искомые слова на разных уровн€х иерархического дерева или в пределах одного уровн€');
+  {* 'Ќаход€тс€ ли искомые слова на разных уровн€х иерархического дерева или в пределах одного уровн€' }
+ str_nsc_cpmWordOrderHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmWordOrderHint'; rValue : 'ƒолжны ли слова строго следовать друг за другом или нет');
+  {* 'ƒолжны ли слова строго следовать друг за другом или нет' }
+ str_nsc_cpmWordPositionHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmWordPositionHint'; rValue : 'ѕоложение контекста в слове, строке');
+  {* 'ѕоложение контекста в слове, строке' }
  {* Ћокализуемые строки WordPositionNames }
  str_nsc_wpAnyPathWord: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_wpAnyPathWord'; rValue : '¬ любой части слова');
   {* '¬ любой части слова' }
@@ -52,13 +59,6 @@ const
  @str_nsc_woAnyOrder
  , @str_nsc_woAsWrote
  );
- {* Ћокализуемые строки ContextParamsMessages }
- str_nsc_cpmTreeLevelDistHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmTreeLevelDistHint'; rValue : 'Ќаход€тс€ ли искомые слова на разных уровн€х иерархического дерева или в пределах одного уровн€');
-  {* 'Ќаход€тс€ ли искомые слова на разных уровн€х иерархического дерева или в пределах одного уровн€' }
- str_nsc_cpmWordOrderHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmWordOrderHint'; rValue : 'ƒолжны ли слова строго следовать друг за другом или нет');
-  {* 'ƒолжны ли слова строго следовать друг за другом или нет' }
- str_nsc_cpmWordPositionHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmWordPositionHint'; rValue : 'ѕоложение контекста в слове, строке');
-  {* 'ѕоложение контекста в слове, строке' }
 
 type
  WordPositionNamesMapHelper = {final} class
@@ -489,6 +489,12 @@ begin
 end;//TWordOrderNamesMapImpl.Exists
 
 initialization
+ str_nsc_cpmTreeLevelDistHint.Init;
+ {* »нициализаци€ str_nsc_cpmTreeLevelDistHint }
+ str_nsc_cpmWordOrderHint.Init;
+ {* »нициализаци€ str_nsc_cpmWordOrderHint }
+ str_nsc_cpmWordPositionHint.Init;
+ {* »нициализаци€ str_nsc_cpmWordPositionHint }
  str_nsc_wpAnyPathWord.Init;
  {* »нициализаци€ str_nsc_wpAnyPathWord }
  str_nsc_wpAtBeginWord.Init;
@@ -503,12 +509,6 @@ initialization
  {* »нициализаци€ str_nsc_woAnyOrder }
  str_nsc_woAsWrote.Init;
  {* »нициализаци€ str_nsc_woAsWrote }
- str_nsc_cpmTreeLevelDistHint.Init;
- {* »нициализаци€ str_nsc_cpmTreeLevelDistHint }
- str_nsc_cpmWordOrderHint.Init;
- {* »нициализаци€ str_nsc_cpmWordOrderHint }
- str_nsc_cpmWordPositionHint.Init;
- {* »нициализаци€ str_nsc_cpmWordPositionHint }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

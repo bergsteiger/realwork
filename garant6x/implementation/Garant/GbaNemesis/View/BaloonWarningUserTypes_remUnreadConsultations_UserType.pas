@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки remUnreadConsultationsLocalConstants }
+ str_remUnreadConsultationsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remUnreadConsultationsCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы remUnreadConsultations }
  remUnreadConsultationsName = 'remUnreadConsultations';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_remUnreadConsultationsCaption.Init;
+ {* Инициализация str_remUnreadConsultationsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remUnreadConsultations.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_remUnreadConsultations }

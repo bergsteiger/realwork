@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftRelatedDocLocalConstants }
+ str_dftRelatedDocCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftRelatedDocCaption'; rValue : 'Справка');
+  {* Заголовок пользовательского типа "Справка" }
+ str_dftRelatedDocSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftRelatedDocSettingsCaption'; rValue : 'Документ: Справка к документу');
+  {* Заголовок пользовательского типа "Справка" для настройки панелей инструментов }
  {* Константы для типа формы dftRelatedDoc }
  dftRelatedDocName = 'dftRelatedDoc';
   {* Строковый идентификатор пользовательского типа "Справка" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftRelatedDocCaption.Init;
+ {* Инициализация str_dftRelatedDocCaption }
+ str_dftRelatedDocSettingsCaption.Init;
+ {* Инициализация str_dftRelatedDocSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftRelatedDoc.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftRelatedDoc }

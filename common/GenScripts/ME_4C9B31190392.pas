@@ -13,14 +13,14 @@ interface
 uses
  l3IntfUses
  , PrimTextLoad_Form
- , evCustomTextSource
- , evCustomEditor
- , vcmInterfaces
- , vcmEntities
  , eeEditorExport
  {$If Defined(Nemesis)}
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
+ , evCustomTextSource
+ , evCustomEditor
+ , vcmInterfaces
+ , vcmEntities
 ;
 
 const
@@ -57,8 +57,6 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -67,11 +65,6 @@ uses
  , F1LikeTextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_F1LikeTextLoadLocalConstants }
- str_ut_F1LikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_F1LikeTextLoadCaption'; rValue : 'F1LikeTextLoad');
-  {* Заголовок пользовательского типа "F1LikeTextLoad" }
 
 {$R *.DFM}
 
@@ -117,8 +110,6 @@ begin
 end;//TF1LikeTextLoadForm.MakeControls
 
 initialization
- str_ut_F1LikeTextLoadCaption.Init;
- {* Инициализация str_ut_F1LikeTextLoadCaption }
  fm_F1LikeTextLoadForm.SetFactory(TF1LikeTextLoadForm.Make);
  {* Регистрация фабрики формы F1LikeTextLoad }
 {$If NOT Defined(NoScripts)}

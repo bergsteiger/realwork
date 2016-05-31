@@ -26,6 +26,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -102,12 +105,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Editions_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E4A45018Fimpl_uses*
+ //#UC END# *4C7E4A45018Fimpl_uses*
 ;
 
 function TPrimUnderControlOptionsForm.pm_GetUnderControlInfo: InsUnderControlInfo;
@@ -432,15 +438,35 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_ControlCenter, nil);
   PublishFormEntity(en_ControledObject, nil);
+  ContextMenuWeight(en_Edit, 10);
+  ContextMenuWeight(en_ControledObject, 20);
+  ContextMenuWeight(en_Tree, 30);
   PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
   PublishOp(en_Edit, op_Copy, nil, Edit_Copy_Test, nil);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ContextMenuWeight(en_Edit, op_Delete, -10);
   PublishOp(en_ControlCenter, op_Add, ControlCenter_Add_Execute, nil, nil);
+  ShowInContextMenu(en_ControlCenter, op_Add, False);
+  ShowInToolbar(en_ControlCenter, op_Add, True);
   PublishOp(en_ControlCenter, op_CreateList, ControlCenter_CreateList_Execute, ControlCenter_CreateList_Test, nil);
+  ShowInContextMenu(en_ControlCenter, op_CreateList, False);
+  ShowInToolbar(en_ControlCenter, op_CreateList, True);
   PublishOp(en_ControlCenter, op_Sort, ControlCenter_Sort_Execute, ControlCenter_Sort_Test, nil);
+  ShowInContextMenu(en_ControlCenter, op_Sort, False);
+  ShowInToolbar(en_ControlCenter, op_Sort, True);
   PublishOp(en_ControlCenter, op_ClearAllStatus, ControlCenter_ClearAllStatus_Execute, ControlCenter_ClearAllStatus_Test, nil);
+  ShowInContextMenu(en_ControlCenter, op_ClearAllStatus, False);
+  ShowInToolbar(en_ControlCenter, op_ClearAllStatus, True);
   PublishOp(en_ControledObject, op_Open, ControledObject_Open_Execute, ControledObject_Open_Test, nil);
+  ShowInContextMenu(en_ControledObject, op_Open, True);
+  ShowInToolbar(en_ControledObject, op_Open, False);
   PublishOp(en_ControledObject, op_ClearStatus, ControledObject_ClearStatus_Execute, ControledObject_ClearStatus_Test, nil);
+  ShowInContextMenu(en_ControledObject, op_ClearStatus, True);
+  ShowInToolbar(en_ControledObject, op_ClearStatus, True);
+  ShowInContextMenu(en_Document, op_ShowChanges, True);
+  ShowInToolbar(en_Document, op_ShowChanges, False);
  end;//with Entities.Entities
 end;//TPrimUnderControlOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

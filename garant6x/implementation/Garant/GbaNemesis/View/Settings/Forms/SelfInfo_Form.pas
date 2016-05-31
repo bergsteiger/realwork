@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , SelfInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_SelfInfoLocalConstants }
- str_ut_SelfInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_SelfInfoCaption'; rValue : 'Регистрационные данные');
-  {* Заголовок пользовательского типа "Регистрационные данные" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TSelfInfoForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_SelfInfoCaption.Init;
- {* Инициализация str_ut_SelfInfoCaption }
  fm_SelfInfoForm.SetFactory(TSelfInfoForm.Make);
  {* Регистрация фабрики формы SelfInfo }
 {$If NOT Defined(NoScripts)}

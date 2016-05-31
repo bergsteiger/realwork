@@ -14,8 +14,8 @@ uses
  , tfwScriptingInterfaces
  , tfwDictionaryExPrim
  , tfwDictionaryPrim
- , l3Interfaces
  , l3Variant
+ , l3Interfaces
  , tfwWordRefList
 ;
 

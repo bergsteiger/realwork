@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftDictSubEntryLocalConstants }
+ str_dftDictSubEntryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDictSubEntryCaption'; rValue : 'Перевод словарной статьи');
+  {* Заголовок пользовательского типа "Перевод словарной статьи" }
+ str_dftDictSubEntrySettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDictSubEntrySettingsCaption'; rValue : 'Толковый словарь: Перевод словарной статьи');
+  {* Заголовок пользовательского типа "Перевод словарной статьи" для настройки панелей инструментов }
  {* Константы для типа формы dftDictSubEntry }
  dftDictSubEntryName = 'dftDictSubEntry';
   {* Строковый идентификатор пользовательского типа "Перевод словарной статьи" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftDictSubEntry.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftDictSubEntryCaption.Init;
+ {* Инициализация str_dftDictSubEntryCaption }
+ str_dftDictSubEntrySettingsCaption.Init;
+ {* Инициализация str_dftDictSubEntrySettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDictSubEntry.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftDictSubEntry }

@@ -20,8 +20,8 @@ uses
  , tfwScriptingExceptions
  , tfwTypeInfo
  , l3ProtoObject
- , TypInfo
  , tfwValueTypes
+ , TypInfo
  , tfwCStringFactory
  , SysUtils
  , tfwStreamFactory
@@ -37,15 +37,11 @@ const
  tfw_atPrivate = tfwScriptingTypes.tfw_atPrivate;
  tfw_atProtected = tfwScriptingTypes.tfw_atProtected;
  tfw_atPublic = tfwScriptingTypes.tfw_atPublic;
-
-const
  {* Алиасы для значений tfwScriptingTypes.TtfwLinkType }
  tfw_ltNone = tfwScriptingTypes.tfw_ltNone;
  tfw_ltAggregation = tfwScriptingTypes.tfw_ltAggregation;
  tfw_ltLink = tfwScriptingTypes.tfw_ltLink;
  tfw_ltReference = tfwScriptingTypes.tfw_ltReference;
-
-const
  {* Алиасы для значений tfwTypeInfo.TtfwValueType }
  tfw_vtVoid = tfwTypeInfo.tfw_vtVoid;
  tfw_vtInt = tfwTypeInfo.tfw_vtInt;
@@ -60,8 +56,6 @@ const
  tfw_vtChar = tfwTypeInfo.tfw_vtChar;
  tfw_vtClass = tfwTypeInfo.tfw_vtClass;
   {* Ссылка на класс }
-
-const
  {* Алиасы для значений tfwScriptingTypes.TtfwWordModifier }
  tfw_wmRedefinition = tfwScriptingTypes.tfw_wmRedefinition;
  tfw_wmRightWordRef = tfwScriptingTypes.tfw_wmRightWordRef;
@@ -70,8 +64,6 @@ const
  tfw_wmInline = tfwScriptingTypes.tfw_wmInline;
  tfw_wmTreatUnknownAsString = tfwScriptingTypes.tfw_wmTreatUnknownAsString;
  tfw_wmCaller = tfwScriptingTypes.tfw_wmCaller;
-
-const
  TtfwStackValue_E: TtfwStackValue = (rType : tfw_vtVoid);
  TtfwStackValue_NULL: TtfwStackValue = (rType : tfw_vtNil);
 

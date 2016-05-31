@@ -1,56 +1,44 @@
 {$IfNDef TextWithComments_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/TextWithComments.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::TextWithComments
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "TextWithComments" MUID: (4A8AACAE0356)
+// Имя типа: "_TextWithComments_"
 
 {$Define TextWithComments_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _TextWithComments_ = {abstract form} class(_TextWithComments_Parent_)
- protected
- // property methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _TextWithComments_ = {abstract} class(_TextWithComments_Parent_)
+  protected
    function pm_GetTextWithComments: TevCustomEditorWindow; virtual; abstract;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
    procedure TextSourceGetControlItemImg(aSender: TObject;
-     const aControl: TnevControlInfo;
-     out theImageInfo: TnevControlImageInfo);
-     {* Возвращает иконку для контрола (комментария) }
- protected
- // protected properties
+    const aControl: TnevControlInfo;
+    out theImageInfo: TnevControlImageInfo);
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property TextWithComments: TevCustomEditorWindow
-     read pm_GetTextWithComments;
-     {* Текст, содержащий комментарии }
+    read pm_GetTextWithComments;
+    {* Текст, содержащий комментарии }
  end;//_TextWithComments_
-{$Else}
 
- _TextWithComments_ = _TextWithComments_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_TextWithComments_ = _TextWithComments_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else TextWithComments_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef TextWithComments_imp_impl}
 
-// start class _TextWithComments_
+{$Define TextWithComments_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _TextWithComments_.TextSourceGetControlItemImg(aSender: TObject;
-  const aControl: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo);
+ const aControl: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo);
 //#UC START# *4A8AACD503DC_4A8AACAE0356_var*
 //#UC END# *4A8AACD503DC_4A8AACAE0356_var*
 begin
@@ -107,8 +95,9 @@ begin
 //#UC END# *4A8AACD503DC_4A8AACAE0356_impl*
 end;//_TextWithComments_.TextSourceGetControlItemImg
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _TextWithComments_.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A8AACAE0356_var*
 //#UC END# *4A8E8F2E0195_4A8AACAE0356_var*
 begin
@@ -120,8 +109,10 @@ begin
  end;//with TextWithComments
 //#UC END# *4A8E8F2E0195_4A8AACAE0356_impl*
 end;//_TextWithComments_.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf TextWithComments_imp_impl}
 
 {$EndIf TextWithComments_imp}
+

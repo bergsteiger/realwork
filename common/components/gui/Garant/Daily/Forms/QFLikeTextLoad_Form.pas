@@ -15,12 +15,12 @@ uses
  l3IntfUses
  , PrimTextLoad_Form
  , evQueryCardInt
+ , evTextSource
+ , evQueryCardEditor
  , evCustomTextSource
  , evCustomEditor
  , vcmInterfaces
  , vcmEntities
- , evTextSource
- , evQueryCardEditor
 ;
 
 const
@@ -65,12 +65,10 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  , evQueryDocumentContainer
  , evControlContainerEX
  , nevTools
  , l3InterfacesMisc
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -79,11 +77,6 @@ uses
  , QFLikeTextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_QFLikeTextLoadLocalConstants }
- str_ut_QFLikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_QFLikeTextLoadCaption'; rValue : 'Форма для работы с КЗ');
-  {* Заголовок пользовательского типа "Форма для работы с КЗ" }
 
 {$R *.DFM}
 
@@ -164,8 +157,6 @@ begin
 end;//TQFLikeTextLoadForm.MakeControls
 
 initialization
- str_ut_QFLikeTextLoadCaption.Init;
- {* Инициализация str_ut_QFLikeTextLoadCaption }
  fm_QFLikeTextLoadForm.SetFactory(TQFLikeTextLoadForm.Make);
  {* Регистрация фабрики формы QFLikeTextLoad }
 {$If NOT Defined(NoScripts)}

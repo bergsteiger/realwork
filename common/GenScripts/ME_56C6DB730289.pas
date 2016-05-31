@@ -30,12 +30,14 @@ type
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    function DoMakeParam(const aParamDesc: IdaParamDescription): IdaParam; override;
   public
-   constructor Create(const aDataConverter: IdaDataConverter;
+   constructor Create(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IdaDataConverter;
     const aTable: IdaTableDescription;
     const anAlias: AnsiString;
     const aHTQuery: IdaTabledQuery;
     const aPGQuery: IdaTabledQuery); reintroduce;
-   class function Make(const aDataConverter: IdaDataConverter;
+   class function Make(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IdaDataConverter;
     const aTable: IdaTableDescription;
     const anAlias: AnsiString;
     const aHTQuery: IdaTabledQuery;
@@ -53,7 +55,8 @@ uses
  , caParam
 ;
 
-constructor TcaTabledQuery.Create(const aDataConverter: IdaDataConverter;
+constructor TcaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IdaDataConverter;
  const aTable: IdaTableDescription;
  const anAlias: AnsiString;
  const aHTQuery: IdaTabledQuery;
@@ -68,7 +71,8 @@ begin
 //#UC END# *56C6DC070160_56C6DB730289_impl*
 end;//TcaTabledQuery.Create
 
-class function TcaTabledQuery.Make(const aDataConverter: IdaDataConverter;
+class function TcaTabledQuery.Make(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IdaDataConverter;
  const aTable: IdaTableDescription;
  const anAlias: AnsiString;
  const aHTQuery: IdaTabledQuery;
@@ -76,7 +80,7 @@ class function TcaTabledQuery.Make(const aDataConverter: IdaDataConverter;
 var
  l_Inst : TcaTabledQuery;
 begin
- l_Inst := Create(aDataConverter, aTable, anAlias, aHTQuery, aPGQuery);
+ l_Inst := Create(aFactory, aDataConverter, aTable, anAlias, aHTQuery, aPGQuery);
  try
   Result := l_Inst;
  finally

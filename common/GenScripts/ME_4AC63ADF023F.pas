@@ -22,6 +22,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Settings_Strange_Controls
  , ConfigInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , bsInterfaces
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -73,7 +76,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsConfigSettingsInfo): Il3CommandTarget; reintroduce;
+   class function Make(const aData: InsConfigSettingsInfo): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
@@ -99,7 +102,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , nsConfigurationList
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -116,27 +118,20 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , afwFacade
  , SysUtils
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimSettings_cutSettings_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC63ADF023Fimpl_uses*
+ //#UC END# *4AC63ADF023Fimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки cutSettingsLocalConstants }
- str_cutSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutSettingsCaption'; rValue : 'Настройка конфигурации');
-  {* Заголовок пользовательского типа "Настройка конфигурации" }
-
 procedure TPrimSettingsForm.StartEdit;
 var l_Settings: InsSettings;
 //#UC START# *4AC63BB001DA_4AC63ADF023F_var*
@@ -155,7 +150,7 @@ begin
 //#UC END# *4AC63BB001DA_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.StartEdit
 
-class function TPrimSettingsForm.Make(const aData: InsConfigSettingsInfo): Il3CommandTarget;
+class function TPrimSettingsForm.Make(const aData: InsConfigSettingsInfo): IvcmEntityForm;
 var
  l_Inst : TPrimSettingsForm;
 begin
@@ -388,13 +383,24 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
+  ContextMenuWeight(en_Result, op_Cancel, -1);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInContextMenu(en_Result, op_Ok, True);
+  ShowInToolbar(en_Result, op_Ok, True);
+  ContextMenuWeight(en_Result, op_Ok, -2);
   PublishOp(en_Result, op_RestoreConf, Result_RestoreConf_Execute, Result_RestoreConf_Test, nil);
+  ShowInContextMenu(en_Result, op_RestoreConf, True);
+  ShowInToolbar(en_Result, op_RestoreConf, True);
   PublishOp(en_Result, op_SaveAsDefaultConf, Result_SaveAsDefaultConf_Execute, Result_SaveAsDefaultConf_Test, nil);
+  ShowInContextMenu(en_Result, op_SaveAsDefaultConf, True);
+  ShowInToolbar(en_Result, op_SaveAsDefaultConf, True);
   PublishOp(en_Result, op_RestoreAllSettings, Result_RestoreAllSettings_Execute, nil, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInContextMenu(en_Result, op_RestoreAllSettings, True);
+  ShowInToolbar(en_Result, op_RestoreAllSettings, True);
  end;//with Entities.Entities
 end;//TPrimSettingsForm.InitEntities
 
@@ -404,7 +410,7 @@ begin
  with AddUsertype(cutSettingsName,
   str_cutSettingsCaption,
   str_cutSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -417,8 +423,6 @@ begin
 end;//TPrimSettingsForm.MakeControls
 
 initialization
- str_cutSettingsCaption.Init;
- {* Инициализация str_cutSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSettingsForm);
  {* Регистрация PrimSettings }

@@ -31,9 +31,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  , vcmCustOpsRepGroupList
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -43,11 +41,6 @@ uses
  , CustomizeTasksPanelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
- str_ut_CustomizeTasksPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
-  {* Заголовок пользовательского типа "Редактор панели задач" }
 
 {$R *.DFM}
 
@@ -70,8 +63,6 @@ begin
 end;//TCustomizeTasksPanelForm.MakeControls
 
 initialization
- str_ut_CustomizeTasksPanelCaption.Init;
- {* Инициализация str_ut_CustomizeTasksPanelCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomizeTasksPanelForm);
  {* Регистрация CustomizeTasksPanel }

@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , StyleEditorFontKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_StyleEditorFontLocalConstants }
- str_ut_StyleEditorFontCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_StyleEditorFontCaption'; rValue : 'Параметры шрифта');
-  {* Заголовок пользовательского типа "Параметры шрифта" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TStyleEditorFontForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_StyleEditorFontCaption.Init;
- {* Инициализация str_ut_StyleEditorFontCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TStyleEditorFontForm);
  {* Регистрация StyleEditorFont }

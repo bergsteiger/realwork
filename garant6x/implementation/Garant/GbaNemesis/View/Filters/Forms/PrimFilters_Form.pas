@@ -1,139 +1,168 @@
 unit PrimFilters_Form;
+ {* Фильтры }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Filters/Forms/PrimFilters_Form.pas"
-// Начат: 26.01.2009 17:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Filters::View::Filters::PrimFilters
-//
-// Фильтры
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFilters_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFilters" MUID: (497DCC17001C)
+// Имя типа: "TPrimFiltersForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FiltersUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  ActiveX,
-  l3Tree_TLB,
-  l3ControlsTypes,
-  eeInterfaces,
-  SimpleListInterfaces,
-  eeTreeViewExport,
-  l3ProtoObject,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Search_Strange_Controls,
-  l3StringIDEx,
-  vtOutlinerWithDragDrop,
-  Filters_Strange_Controls,
-  vtLister,
-  nsIFilterFromQueryList,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  FiltersUserTypes_utFilters_UserType,
-  vcmEntityForm {a}
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Search_Strange_Controls
+ , Base_Operations_Strange_Controls
+ , Filters_Strange_Controls
+ , SimpleListInterfaces
+ , nscTreeViewWithAdapterDragDrop
+ , vtOutliner
+ , l3Tree_TLB
+ , eeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ , l3TreeInterfaces
+ , ActiveX
+ , FiltersUnit
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObject
+ , nsIFilterFromQueryList
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- InsSelectedFiltersState = interface(IUnknown)
-   ['{71A14889-6D58-434C-BE3C-0D014150A6E2}']
-   function pm_GetCount: Integer;
-   function Get_Filter(anIndex: Integer): IFilterFromQuery;
-   property Count: Integer
-     read pm_GetCount;
-   property Filter[anIndex: Integer]: IFilterFromQuery
-     read Get_Filter;
+ TnsSelectedFiltersState = class;
+
+ InsSelectedFiltersState = interface
+  ['{71A14889-6D58-434C-BE3C-0D014150A6E2}']
+  function pm_GetCount: Integer;
+  function Get_Filter(anIndex: Integer): IFilterFromQuery;
+  property Count: Integer
+   read pm_GetCount;
+  property Filter[anIndex: Integer]: IFilterFromQuery
+   read Get_Filter;
  end;//InsSelectedFiltersState
 
- TnsSelectedFiltersState = class(Tl3ProtoObject {$If not defined(NoVCM)}, IvcmBase{$IfEnd} //not NoVCM
+ TnsSelectedFiltersState = class(Tl3ProtoObject{$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , InsSelectedFiltersState)
- private
- // private fields
-   f_List : TnsIFilterFromQueryList;
- protected
- // realized methods
+  private
+   f_List: TnsIFilterFromQueryList;
+  protected
    function pm_GetCount: Integer;
    function Get_Filter(anIndex: Integer): IFilterFromQuery;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aTree: IeeTree); reintroduce;
    class function Make(const aTree: IeeTree): IvcmBase;
  end;//TnsSelectedFiltersState
 
  _FiltersUserTypes_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
- TPrimFiltersForm = {form} class(_FiltersUserTypes_)
+ TPrimFiltersForm = class(_FiltersUserTypes_)
   {* Фильтры }
- private
- // private fields
-   f_LockSelectionChangedEvent : Boolean;
-   f_FiltersLoaded : Boolean;
-   f_FiltersList : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FiltersList}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   f_LockSelectionChangedEvent: Boolean;
+   f_FiltersLoaded: Boolean;
+   f_FiltersList: TnscTreeViewWithAdapterDragDrop;
+  protected
+   Filters: IdsFilters;
+    {* Фильтры }
+  protected
+   procedure FiltersListSelectChange(Sender: TObject;
+    Index: LongInt;
+    var SelectedState: Integer);
+   procedure FiltersListGetItemPickImage(Sender: TObject;
+    Index: LongInt;
+    var aImages: TCustomImageList;
+    var aImageIndex: Integer);
+   function FiltersListGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+   procedure FiltersListActionElement(Sender: TObject;
+    Index: LongInt);
+   procedure FiltersListRootChanged(aSender: TObject;
+    const anOldRoot: IeeNode;
+    const aNewRoot: IeeNode);
+   procedure FiltersListGetItemFont(Sender: TObject;
+    Index: LongInt;
+    const aFont: Il3Font);
+   procedure FiltersListCanBeginDrag(const aNode: Il3SimpleNode;
+    var aOkEffect: LongInt);
+   function FiltersListCanAcceptData(const aData: IDataObject): Boolean;
+   function FiltersListDoDrop(const aData: Il3SimpleNode;
+    aWantMenu: Boolean;
+    var dwEffect: LongInt): Boolean;
+   procedure StartDeselectAll;
+   procedure FinishDeselectAll;
+   procedure ChangeActiveStatus(aTreeView: TvtCustomOutliner;
+    var aNode: Il3Node;
+    aNewStatus: Boolean);
+   function GetItemImage(const aNode: IeeNode): Integer;
+   procedure SetActiveFilter(const aNode: IeeNode);
+   procedure SetActiveFilters;
+   procedure ClearFilters;
+   procedure DeselectAll;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
-     {* Коллеги, кто может описать этот метод? }
+    {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParams);
-     {* Коллеги, кто может описать этот метод? }
+    {* Коллеги, кто может описать этот метод? }
    procedure Filter_ActivateNode_Execute(const aNode: Il3Node);
    procedure Filter_ActivateNode(const aParams: IvcmExecuteParams);
    function Filters_GetSelected_Execute: IFiltersFromQuery;
@@ -143,151 +172,156 @@ type
    procedure Filters_DeselectAll_Execute;
    procedure Filters_DeselectAll(const aParams: IvcmExecuteParams);
    procedure Filter_Activate_Test(const aParams: IvcmTestParamsPrim);
-     {* Применить фильтр }
-   procedure Filter_Activate_GetState(var State: TvcmOperationStateIndex);
-     {* Применить фильтр }
+    {* Применить фильтр }
    procedure Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Применить фильтр }
+    {* Применить фильтр }
+   procedure Filter_Activate_GetState(var State: TvcmOperationStateIndex);
+    {* Применить фильтр }
    procedure Filter_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Добавить фильтр из сохраненных запросов }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   Filters : IdsFilters;
-    {* Фильтры}
- protected
- // protected methods
-   procedure FiltersListSelectChange(Sender: TObject;
-     Index: LongInt;
-     var SelectedState: Integer);
-     {* event to notify of a selection change }
-   procedure FiltersListGetItemPickImage(Sender: TObject;
-     Index: LongInt;
-     var aImages: TCustomImageList;
-     var aImageIndex: Integer);
-     {* event to get Index of Bitmap in ImageIndex }
-   function FiltersListGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
-   procedure FiltersListActionElement(Sender: TObject;
-     Index: LongInt);
-   procedure FiltersListRootChanged(aSender: TObject;
-     const anOldRoot: IeeNode;
-     const aNewRoot: IeeNode);
-   procedure FiltersListGetItemFont(Sender: TObject;
-     Index: LongInt;
-     const aFont: Il3Font);
-     {* event to get Font of the item cell
-событие для получения шрифта элемента. }
-   procedure FiltersListCanBeginDrag(const aNode: Il3SimpleNode;
-     var aOkEffect: LongInt);
-   function FiltersListCanAcceptData(const aData: IDataObject): Boolean;
-   function FiltersListDoDrop(const aData: Il3SimpleNode;
-     aWantMenu: Boolean;
-     var dwEffect: LongInt): Boolean;
-   procedure StartDeselectAll;
-     {* Сигнатура метода StartDeselectAll }
-   procedure FinishDeselectAll;
-     {* Сигнатура метода FinishDeselectAll }
-   procedure ChangeActiveStatus(aTreeView: TvtCustomOutliner;
-     var aNode: Il3Node;
-     aNewStatus: Boolean);
-   function GetItemImage(const aNode: IeeNode): Integer;
-   procedure SetActiveFilter(const aNode: IeeNode);
-   procedure SetActiveFilters;
-     {* Сигнатура метода SetActiveFilters }
-   procedure ClearFilters;
-     {* Сигнатура метода ClearFilters }
-   procedure DeselectAll;
-     {* Сигнатура метода DeselectAll }
- public
- // public properties
+    {* Добавить фильтр из сохраненных запросов }
+  public
    property FiltersList: TnscTreeViewWithAdapterDragDrop
-     read f_FiltersList;
+    read f_FiltersList;
  end;//TPrimFiltersForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SearchUnit,
-  BaseTreeSupportUnit,
-  FoldersDomainInterfaces,
-  BaseTypesUnit,
-  DataAdapter,
-  nsFolderFilterInfo
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsFiltersInterfaces,
-  SearchRes,
-  Graphics,
-  FoldersRes,
-  DocumentAndListInterfaces,
-  nsFiltersTree,
-  nsTreeUtils,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , SearchUnit
+ , BaseTreeSupportUnit
+ , FoldersDomainInterfaces
+ , BaseTypesUnit
+ , DataAdapter
+ , nsFolderFilterInfo
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , Classes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsFiltersInterfaces
+ , SearchRes
+ , Graphics
+ , FoldersRes
+ , DocumentAndListInterfaces
+ , nsFiltersTree
+ , nsTreeUtils
+ {$If NOT Defined(NoScripts)}
+ , InsFilterNodeWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FiltersProcessingWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , FiltersUserTypes_utFilters_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497DCC17001Cimpl_uses*
+ //#UC END# *497DCC17001Cimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Local }
+ str_CreateFilter: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CreateFilter'; rValue : 'Создать фильтр...');
+  {* 'Создать фильтр...' }
+
+constructor TnsSelectedFiltersState.Create(const aTree: IeeTree);
+//#UC START# *51BB44F901EC_4D0B4E06037B_var*
+var
+ l_Node: IeeNode;
+ l_SelectedCount: Integer;
+ l_Filter: IFilterFromQuery;
+ I: Integer;
+//#UC END# *51BB44F901EC_4D0B4E06037B_var*
+begin
+//#UC START# *51BB44F901EC_4D0B4E06037B_impl*
+ inherited Create;
+ f_List := TnsIFilterFromQueryList.Make;
+ with aTree do
+ begin
+  l_SelectedCount := SelectedCount;
+  if (l_SelectedCount > 0) then
+  begin
+   l_Node := GetNextSelected(Root);
+   I := 0;
+   repeat
+    if Supports(l_Node, IFilterFromQuery, l_Filter) then
+     try
+      f_List.Add(l_Filter);
+     finally
+      l_Filter := nil;
+     end;//try..finally
+    Inc(I);
+    if I < l_SelectedCount then
+     l_Node := GetNextSelected(l_Node)
+    else
+     l_Node := nil;
+   until (I = l_SelectedCount);
+  end;//l_SelectedCount > 0
+ end;//with aTree
+//#UC END# *51BB44F901EC_4D0B4E06037B_impl*
+end;//TnsSelectedFiltersState.Create
+
+class function TnsSelectedFiltersState.Make(const aTree: IeeTree): IvcmBase;
+//#UC START# *51BB4B2502A9_4D0B4E06037B_var*
+var
+ l_State: TnsSelectedFiltersState;
+//#UC END# *51BB4B2502A9_4D0B4E06037B_var*
+begin
+//#UC START# *51BB4B2502A9_4D0B4E06037B_impl*
+ l_State := Create(aTree);
+ try
+  Result := l_State;
+ finally
+  FreeAndNil(l_State);
+ end;
+//#UC END# *51BB4B2502A9_4D0B4E06037B_impl*
+end;//TnsSelectedFiltersState.Make
+
+function TnsSelectedFiltersState.pm_GetCount: Integer;
+//#UC START# *51BB45A5037C_4D0B4E06037Bget_var*
+//#UC END# *51BB45A5037C_4D0B4E06037Bget_var*
+begin
+//#UC START# *51BB45A5037C_4D0B4E06037Bget_impl*
+ Result := f_List.Count
+//#UC END# *51BB45A5037C_4D0B4E06037Bget_impl*
+end;//TnsSelectedFiltersState.pm_GetCount
+
+function TnsSelectedFiltersState.Get_Filter(anIndex: Integer): IFilterFromQuery;
+//#UC START# *51BB45D703AF_4D0B4E06037Bget_var*
+//#UC END# *51BB45D703AF_4D0B4E06037Bget_var*
+begin
+//#UC START# *51BB45D703AF_4D0B4E06037Bget_impl*
+ Result := f_List.Items[anIndex];
+//#UC END# *51BB45D703AF_4D0B4E06037Bget_impl*
+end;//TnsSelectedFiltersState.Get_Filter
+
+procedure TnsSelectedFiltersState.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_4D0B4E06037B_var*
+//#UC END# *479731C50290_4D0B4E06037B_var*
+begin
+//#UC START# *479731C50290_4D0B4E06037B_impl*
+ FreeAndNil(f_List);
+ inherited;
+//#UC END# *479731C50290_4D0B4E06037B_impl*
+end;//TnsSelectedFiltersState.Cleanup
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
 
-var
-   { Локализуемые строки Local }
-  str_CreateFilter : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CreateFilter'; rValue : 'Создать фильтр...');
-   { 'Создать фильтр...' }
-
-// start class TPrimFiltersForm
-
 procedure TPrimFiltersForm.FiltersListSelectChange(Sender: TObject;
-  Index: LongInt;
-  var SelectedState: Integer);
+ Index: LongInt;
+ var SelectedState: Integer);
 //#UC START# *51BB121B037C_497DCC17001C_var*
 var
  l_CurNode: IeeNode;
@@ -327,9 +361,9 @@ begin
 end;//TPrimFiltersForm.FiltersListSelectChange
 
 procedure TPrimFiltersForm.FiltersListGetItemPickImage(Sender: TObject;
-  Index: LongInt;
-  var aImages: TCustomImageList;
-  var aImageIndex: Integer);
+ Index: LongInt;
+ var aImages: TCustomImageList;
+ var aImageIndex: Integer);
 //#UC START# *51BB122A0185_497DCC17001C_var*
 //#UC END# *51BB122A0185_497DCC17001C_var*
 begin
@@ -345,8 +379,8 @@ begin
 end;//TPrimFiltersForm.FiltersListGetItemPickImage
 
 function TPrimFiltersForm.FiltersListGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *51BB123402EB_497DCC17001C_var*
 var
  l_CurNode: IeeNode;
@@ -363,7 +397,7 @@ begin
 end;//TPrimFiltersForm.FiltersListGetItemImage
 
 procedure TPrimFiltersForm.FiltersListActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *51BB123D03D4_497DCC17001C_var*
 //#UC END# *51BB123D03D4_497DCC17001C_var*
 begin
@@ -373,8 +407,8 @@ begin
 end;//TPrimFiltersForm.FiltersListActionElement
 
 procedure TPrimFiltersForm.FiltersListRootChanged(aSender: TObject;
-  const anOldRoot: IeeNode;
-  const aNewRoot: IeeNode);
+ const anOldRoot: IeeNode;
+ const aNewRoot: IeeNode);
 //#UC START# *51BB1245036A_497DCC17001C_var*
 //#UC END# *51BB1245036A_497DCC17001C_var*
 begin
@@ -393,8 +427,8 @@ begin
 end;//TPrimFiltersForm.FiltersListRootChanged
 
 procedure TPrimFiltersForm.FiltersListGetItemFont(Sender: TObject;
-  Index: LongInt;
-  const aFont: Il3Font);
+ Index: LongInt;
+ const aFont: Il3Font);
 //#UC START# *51BB124D036F_497DCC17001C_var*
 var
  l_Filter: InsFilterNode;
@@ -413,7 +447,7 @@ begin
 end;//TPrimFiltersForm.FiltersListGetItemFont
 
 procedure TPrimFiltersForm.FiltersListCanBeginDrag(const aNode: Il3SimpleNode;
-  var aOkEffect: LongInt);
+ var aOkEffect: LongInt);
 //#UC START# *51BB12570242_497DCC17001C_var*
 //#UC END# *51BB12570242_497DCC17001C_var*
 begin
@@ -432,8 +466,8 @@ begin
 end;//TPrimFiltersForm.FiltersListCanAcceptData
 
 function TPrimFiltersForm.FiltersListDoDrop(const aData: Il3SimpleNode;
-  aWantMenu: Boolean;
-  var dwEffect: LongInt): Boolean;
+ aWantMenu: Boolean;
+ var dwEffect: LongInt): Boolean;
 //#UC START# *51BB1270027A_497DCC17001C_var*
 //#UC END# *51BB1270027A_497DCC17001C_var*
 begin
@@ -461,8 +495,8 @@ begin
 end;//TPrimFiltersForm.FinishDeselectAll
 
 procedure TPrimFiltersForm.ChangeActiveStatus(aTreeView: TvtCustomOutliner;
-  var aNode: Il3Node;
-  aNewStatus: Boolean);
+ var aNode: Il3Node;
+ aNewStatus: Boolean);
 //#UC START# *51BB2A2E0234_497DCC17001C_var*
 var
  l_FiltersNode: InsFilterNode;
@@ -591,92 +625,11 @@ begin
  end;
 //#UC END# *51BB3A14022C_497DCC17001C_impl*
 end;//TPrimFiltersForm.DeselectAll
-// start class TnsSelectedFiltersState
-
-constructor TnsSelectedFiltersState.Create(const aTree: IeeTree);
-//#UC START# *51BB44F901EC_4D0B4E06037B_var*
-var
- l_Node: IeeNode;
- l_SelectedCount: Integer;
- l_Filter: IFilterFromQuery;
- I: Integer;
-//#UC END# *51BB44F901EC_4D0B4E06037B_var*
-begin
-//#UC START# *51BB44F901EC_4D0B4E06037B_impl*
- inherited Create;
- f_List := TnsIFilterFromQueryList.Make;
- with aTree do
- begin
-  l_SelectedCount := SelectedCount;
-  if (l_SelectedCount > 0) then
-  begin
-   l_Node := GetNextSelected(Root);
-   I := 0;
-   repeat
-    if Supports(l_Node, IFilterFromQuery, l_Filter) then
-     try
-      f_List.Add(l_Filter);
-     finally
-      l_Filter := nil;
-     end;//try..finally
-    Inc(I);
-    if I < l_SelectedCount then
-     l_Node := GetNextSelected(l_Node)
-    else
-     l_Node := nil;
-   until (I = l_SelectedCount);
-  end;//l_SelectedCount > 0
- end;//with aTree
-//#UC END# *51BB44F901EC_4D0B4E06037B_impl*
-end;//TnsSelectedFiltersState.Create
-
-class function TnsSelectedFiltersState.Make(const aTree: IeeTree): IvcmBase;
-//#UC START# *51BB4B2502A9_4D0B4E06037B_var*
-var
- l_State: TnsSelectedFiltersState;
-//#UC END# *51BB4B2502A9_4D0B4E06037B_var*
-begin
-//#UC START# *51BB4B2502A9_4D0B4E06037B_impl*
- l_State := Create(aTree);
- try
-  Result := l_State;
- finally
-  FreeAndNil(l_State);
- end;
-//#UC END# *51BB4B2502A9_4D0B4E06037B_impl*
-end;//TnsSelectedFiltersState.Make
-
-function TnsSelectedFiltersState.pm_GetCount: Integer;
-//#UC START# *51BB45A5037C_4D0B4E06037Bget_var*
-//#UC END# *51BB45A5037C_4D0B4E06037Bget_var*
-begin
-//#UC START# *51BB45A5037C_4D0B4E06037Bget_impl*
- Result := f_List.Count
-//#UC END# *51BB45A5037C_4D0B4E06037Bget_impl*
-end;//TnsSelectedFiltersState.pm_GetCount
-
-function TnsSelectedFiltersState.Get_Filter(anIndex: Integer): IFilterFromQuery;
-//#UC START# *51BB45D703AF_4D0B4E06037Bget_var*
-//#UC END# *51BB45D703AF_4D0B4E06037Bget_var*
-begin
-//#UC START# *51BB45D703AF_4D0B4E06037Bget_impl*
- Result := f_List.Items[anIndex];
-//#UC END# *51BB45D703AF_4D0B4E06037Bget_impl*
-end;//TnsSelectedFiltersState.Get_Filter
-
-procedure TnsSelectedFiltersState.Cleanup;
-//#UC START# *479731C50290_4D0B4E06037B_var*
-//#UC END# *479731C50290_4D0B4E06037B_var*
-begin
-//#UC START# *479731C50290_4D0B4E06037B_impl*
- FreeAndNil(f_List);
- inherited;
-//#UC END# *479731C50290_4D0B4E06037B_impl*
-end;//TnsSelectedFiltersState.Cleanup
 
 function TPrimFiltersForm.Loadable_Load_Execute(const aNode: IeeNode;
-  const aData: IUnknown;
-  anOp: TListLogicOperation = LLO_NONE): Boolean;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
+ {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_497DCC17001Cexec_var*
 var
  l_Node: INode;
@@ -732,10 +685,11 @@ begin
 end;//TPrimFiltersForm.Loadable_Load_Execute
 
 procedure TPrimFiltersForm.Loadable_Load(const aParams: IvcmExecuteParams);
+ {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
-  ResultValue := Loadable_Load_Execute(Node, Data, nOp);
-end;
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimFiltersForm.Loadable_Load
 
 procedure TPrimFiltersForm.Filter_ActivateNode_Execute(const aNode: Il3Node);
 //#UC START# *4AEECBA3030B_497DCC17001Cexec_var*
@@ -753,8 +707,8 @@ end;//TPrimFiltersForm.Filter_ActivateNode_Execute
 procedure TPrimFiltersForm.Filter_ActivateNode(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilter_ActivateNode_Params) do
-  Filter_ActivateNode_Execute(Node);
-end;
+  Self.Filter_ActivateNode_Execute(Node);
+end;//TPrimFiltersForm.Filter_ActivateNode
 
 function TPrimFiltersForm.Filters_GetSelected_Execute: IFiltersFromQuery;
 //#UC START# *4AF2B1AC02F8_497DCC17001Cexec_var*
@@ -784,8 +738,8 @@ end;//TPrimFiltersForm.Filters_GetSelected_Execute
 procedure TPrimFiltersForm.Filters_GetSelected(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IFilters_GetSelected_Params) do
-  ResultValue := Filters_GetSelected_Execute;
-end;
+  ResultValue := Self.Filters_GetSelected_Execute;
+end;//TPrimFiltersForm.Filters_GetSelected
 
 procedure TPrimFiltersForm.List_SetNewContent_Execute;
 //#UC START# *4AF81DE902B6_497DCC17001Cexec_var*
@@ -798,8 +752,8 @@ end;//TPrimFiltersForm.List_SetNewContent_Execute
 
 procedure TPrimFiltersForm.List_SetNewContent(const aParams: IvcmExecuteParams);
 begin
- List_SetNewContent_Execute;
-end;
+ Self.List_SetNewContent_Execute;
+end;//TPrimFiltersForm.List_SetNewContent
 
 procedure TPrimFiltersForm.Filters_DeselectAll_Execute;
 //#UC START# *4AF8598C0277_497DCC17001Cexec_var*
@@ -812,10 +766,11 @@ end;//TPrimFiltersForm.Filters_DeselectAll_Execute
 
 procedure TPrimFiltersForm.Filters_DeselectAll(const aParams: IvcmExecuteParams);
 begin
- Filters_DeselectAll_Execute;
-end;
+ Self.Filters_DeselectAll_Execute;
+end;//TPrimFiltersForm.Filters_DeselectAll
 
 procedure TPrimFiltersForm.Filter_Activate_Test(const aParams: IvcmTestParamsPrim);
+ {* Применить фильтр }
 //#UC START# *4C7D3A81021B_497DCC17001Ctest_var*
 //#UC END# *4C7D3A81021B_497DCC17001Ctest_var*
 begin
@@ -825,7 +780,23 @@ begin
 //#UC END# *4C7D3A81021B_497DCC17001Ctest_impl*
 end;//TPrimFiltersForm.Filter_Activate_Test
 
+procedure TPrimFiltersForm.Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Применить фильтр }
+//#UC START# *4C7D3A81021B_497DCC17001Cexec_var*
+var
+ l_CurNode: Il3Node;
+//#UC END# *4C7D3A81021B_497DCC17001Cexec_var*
+begin
+//#UC START# *4C7D3A81021B_497DCC17001Cexec_impl*
+ l_CurNode := FiltersList.CurrentCNode;
+ ChangeActiveStatus(FiltersList,
+                    l_CurNode,
+                    (FiltersList.CTree.NodeFlags[l_CurNode] and nfSelected = 0));
+//#UC END# *4C7D3A81021B_497DCC17001Cexec_impl*
+end;//TPrimFiltersForm.Filter_Activate_Execute
+
 procedure TPrimFiltersForm.Filter_Activate_GetState(var State: TvcmOperationStateIndex);
+ {* Применить фильтр }
 //#UC START# *4C7D3A81021B_497DCC17001Cgetstate_var*
 var
  l_CurNode: IeeNode;
@@ -848,21 +819,8 @@ begin
 //#UC END# *4C7D3A81021B_497DCC17001Cgetstate_impl*
 end;//TPrimFiltersForm.Filter_Activate_GetState
 
-procedure TPrimFiltersForm.Filter_Activate_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C7D3A81021B_497DCC17001Cexec_var*
-var
- l_CurNode: Il3Node;
-//#UC END# *4C7D3A81021B_497DCC17001Cexec_var*
-begin
-//#UC START# *4C7D3A81021B_497DCC17001Cexec_impl*
- l_CurNode := FiltersList.CurrentCNode;
- ChangeActiveStatus(FiltersList,
-                    l_CurNode,
-                    (FiltersList.CTree.NodeFlags[l_CurNode] and nfSelected = 0));
-//#UC END# *4C7D3A81021B_497DCC17001Cexec_impl*
-end;//TPrimFiltersForm.Filter_Activate_Execute
-
 procedure TPrimFiltersForm.Filter_CreateFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить фильтр из сохраненных запросов }
 //#UC START# *4D0B5FBF0310_497DCC17001Cexec_var*
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_var*
 begin
@@ -873,9 +831,9 @@ begin
 //#UC END# *4D0B5FBF0310_497DCC17001Cexec_impl*
 end;//TPrimFiltersForm.Filter_CreateFilter_Execute
 
-{$If not defined(NoVCM)}
 procedure TPrimFiltersForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497DCC17001C_var*
 //#UC END# *497469C90140_497DCC17001C_var*
 begin
@@ -884,10 +842,9 @@ begin
   SetActiveFilters;
 //#UC END# *497469C90140_497DCC17001C_impl*
 end;//TPrimFiltersForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimFiltersForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497DCC17001C_var*
 //#UC END# *49803F5503AA_497DCC17001C_var*
 begin
@@ -895,12 +852,11 @@ begin
  FiltersList.Images := nsFoldersRes.FoldersItemImages;
 //#UC END# *49803F5503AA_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimFiltersForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_497DCC17001C_var*
 //#UC END# *49806ED503D5_497DCC17001C_var*
 begin
@@ -915,11 +871,10 @@ begin
  end;
 //#UC END# *49806ED503D5_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoSaveState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimFiltersForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497DCC17001C_var*
 var
  l_State: InsSelectedFiltersState;
@@ -950,10 +905,9 @@ begin
    Assert(False);
 //#UC END# *49807428008C_497DCC17001C_impl*
 end;//TPrimFiltersForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimFiltersForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497DCC17001C_var*
 //#UC END# *4A8E8F2E0195_497DCC17001C_var*
 begin
@@ -985,23 +939,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497DCC17001C_impl*
 end;//TPrimFiltersForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimFiltersForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimFiltersForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   Filters := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsFilters, Filters);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsFilters, Filters);
+ end;//aNew = nil
+end;//TPrimFiltersForm.SignalDataSourceChanged
 
 procedure TPrimFiltersForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1017,10 +972,10 @@ begin
   PublishOpWithResult(en_Filters, op_DeselectAll, Filters_DeselectAll, nil, nil);
   PublishOp(en_Filter, op_Activate, Filter_Activate_Execute, Filter_Activate_Test, Filter_Activate_GetState);
   PublishOp(en_Filter, op_CreateFilter, Filter_CreateFilter_Execute, nil, nil);
-  ShowInContextMenu(en_Filter, op_CreateFilter, true);
-  ShowInToolbar(en_Filter, op_CreateFilter, false);
+  ShowInContextMenu(en_Filter, op_CreateFilter, True);
+  ShowInToolbar(en_Filter, op_CreateFilter, False);
  end;//with Entities.Entities
-end;
+end;//TPrimFiltersForm.InitEntities
 
 procedure TPrimFiltersForm.MakeControls;
 begin
@@ -1028,21 +983,16 @@ begin
  f_FiltersList := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_FiltersList.Name := 'FiltersList';
  f_FiltersList.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFiltersForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_CreateFilter
  str_CreateFilter.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFilters
+ {* Инициализация str_CreateFilter }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFiltersForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFilters }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

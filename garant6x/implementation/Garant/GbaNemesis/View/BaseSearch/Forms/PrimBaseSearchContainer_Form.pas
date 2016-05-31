@@ -1,95 +1,72 @@
 unit PrimBaseSearchContainer_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/PrimBaseSearchContainer_Form.pas"
-// Начат: 11.03.2011 18:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::PrimBaseSearchContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchContainer_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimBaseSearchContainer" MUID: (4D7A454101A4)
+// Имя типа: "TPrimBaseSearchContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vtPanel,
-  BaseSearchInterfaces,
-  PrimSaveLoadOptionsForBaseSearch_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimSaveLoadOptionsForBaseSearch_Form
+ , BaseSearchInterfaces
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimBaseSearchContainerForm = {form} class(TPrimSaveLoadOptionsForBaseSearchForm, InsMainMenuLikeBaseSearchOwner)
- private
- // private fields
-   f_ChildZone : TvtPanel;
-    {* Поле для свойства ChildZone}
- protected
-  procedure MakeControls; override;
- protected
- // realized methods
+ TPrimBaseSearchContainerForm = class(TPrimSaveLoadOptionsForBaseSearchForm, InsMainMenuLikeBaseSearchOwner)
+  private
+   f_ChildZone: TvtPanel;
+  protected
    function IsIt: Boolean;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- public
- // overridden public methods
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure NotifyUserTypeSet; override;
-     {* Сигнатура метода NotifyUserTypeSet }
-    {$IfEnd} //not NoVCM
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property ChildZone: TvtPanel
-     read f_ChildZone;
+    read f_ChildZone;
  end;//TPrimBaseSearchContainerForm
-
- TvcmContainerFormRef = TPrimBaseSearchContainerForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsTabbedInterfaceTypes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimBaseSearchContainerForm
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4D7A454101A4impl_uses*
+ //#UC END# *4D7A454101A4impl_uses*
+;
 
 function TPrimBaseSearchContainerForm.IsIt: Boolean;
 //#UC START# *4F20313F00E3_4D7A454101A4_var*
@@ -100,8 +77,9 @@ begin
 //#UC END# *4F20313F00E3_4D7A454101A4_impl*
 end;//TPrimBaseSearchContainerForm.IsIt
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchContainerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4D7A454101A4_var*
 //#UC END# *4A8E8F2E0195_4D7A454101A4_var*
 begin
@@ -112,9 +90,9 @@ begin
  ChildZone.Height := 122 + 13;
 //#UC END# *4A8E8F2E0195_4D7A454101A4_impl*
 end;//TPrimBaseSearchContainerForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchContainerForm.NotifyUserTypeSet;
 //#UC START# *4D78E2BB0211_4D7A454101A4_var*
 //#UC END# *4D78E2BB0211_4D7A454101A4_var*
@@ -124,9 +102,9 @@ begin
  ChildZone.Color := ParentZone.Color;
 //#UC END# *4D78E2BB0211_4D7A454101A4_impl*
 end;//TPrimBaseSearchContainerForm.NotifyUserTypeSet
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimBaseSearchContainerForm.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B649F600A3_4D7A454101A4_var*
 //#UC END# *53B649F600A3_4D7A454101A4_var*
@@ -135,25 +113,26 @@ begin
  Result := NsTabIconIndex(titBaseSearch);
 //#UC END# *53B649F600A3_4D7A454101A4_impl*
 end;//TPrimBaseSearchContainerForm.DoGetFormSetImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchContainerForm.MakeControls;
 begin
  inherited;
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := Self;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
- end;//with DefineZone(vcm_ztChild, f_ChildZone)
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimBaseSearchContainerForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimBaseSearchContainer
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimBaseSearchContainerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimBaseSearchContainer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

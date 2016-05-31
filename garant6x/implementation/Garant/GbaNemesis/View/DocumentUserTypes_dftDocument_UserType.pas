@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftDocumentLocalConstants }
+ str_dftDocumentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDocumentCaption'; rValue : 'Текст');
+  {* Заголовок пользовательского типа "Текст" }
+ str_dftDocumentSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDocumentSettingsCaption'; rValue : 'Документ: Текст документа');
+  {* Заголовок пользовательского типа "Текст" для настройки панелей инструментов }
  {* Константы для типа формы dftDocument }
  dftDocumentName = 'dftDocument';
   {* Строковый идентификатор пользовательского типа "Текст" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftDocument.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftDocumentCaption.Init;
+ {* Инициализация str_dftDocumentCaption }
+ str_dftDocumentSettingsCaption.Init;
+ {* Инициализация str_dftDocumentSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDocument.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftDocument }

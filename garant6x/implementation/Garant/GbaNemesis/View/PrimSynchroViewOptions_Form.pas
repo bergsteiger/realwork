@@ -1,53 +1,48 @@
 unit PrimSynchroViewOptions_Form;
+ {* Синхронный просмотр }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimSynchroViewOptions_Form.pas"
-// Начат: 07.09.2010 13:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Работа с документом и списком документов::Document::View::SynchroView::PrimSynchroViewOptions
-//
-// Синхронный просмотр
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroViewOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimSynchroViewOptions" MUID: (4C8604040234)
+// Имя типа: "TPrimSynchroViewOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  bsTypes,
-  PrimSynchroView_Form,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  l3Interfaces,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimSynchroView_Form
+ , Document_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypes
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimSynchroViewOptionsForm = {form} class(TPrimSynchroViewForm)
+ TPrimSynchroViewOptionsForm = class(TPrimSynchroViewForm)
   {* Синхронный просмотр }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+  protected
+   procedure MakeUserCRListCaption(const aParams: IvcmTestParamsPrim;
+    aId: TnsUserCRListId);
+   {$If NOT Defined(NoVCM)}
+   procedure PageActive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure PageInactive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure SynchroView_ShowText_Test(const aParams: IvcmTestParamsPrim);
    procedure SynchroView_ShowText_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SynchroView_Annotation_Test(const aParams: IvcmTestParamsPrim);
@@ -62,57 +57,36 @@ type
    procedure SynchroView_ShowUserCRList2_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SynchroView_SimilarDocuments_Test(const aParams: IvcmTestParamsPrim);
    procedure SynchroView_SimilarDocuments_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure PageActive; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure PageInactive; override;
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; override;
-     {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure MakeUserCRListCaption(const aParams: IvcmTestParamsPrim;
-     aId: TnsUserCRListId);
+    {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimSynchroViewOptionsForm
-
- TvcmContainerFormRef = TPrimSynchroViewOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  afwFacade,
-  Base_Operations_Strange_Controls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimSynchroViewOptionsForm
+ l3ImplUses
+ , afwFacade
+ , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8604040234impl_uses*
+ //#UC END# *4C8604040234impl_uses*
+;
 
 procedure TPrimSynchroViewOptionsForm.MakeUserCRListCaption(const aParams: IvcmTestParamsPrim;
-  aId: TnsUserCRListId);
+ aId: TnsUserCRListId);
 //#UC START# *4C860B4801E9_4C8604040234_var*
 //#UC END# *4C860B4801E9_4C8604040234_var*
 begin
@@ -281,9 +255,10 @@ begin
 //#UC END# *4C8605BF03B0_4C8604040234exec_impl*
 end;//TPrimSynchroViewOptionsForm.SynchroView_SimilarDocuments_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimSynchroViewOptionsForm.DoGetTabInfo(out theCaption: Il3CString;
-  out theItemIndex: Integer): Boolean;
+ out theItemIndex: Integer): Boolean;
+ {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
 //#UC START# *4AC497FD00A2_4C8604040234_var*
 //#UC END# *4AC497FD00A2_4C8604040234_var*
 begin
@@ -298,9 +273,9 @@ begin
   Result := false;
 //#UC END# *4AC497FD00A2_4C8604040234_impl*
 end;//TPrimSynchroViewOptionsForm.DoGetTabInfo
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimSynchroViewOptionsForm.PageActive;
 //#UC START# *4C52E8030278_4C8604040234_var*
 //#UC END# *4C52E8030278_4C8604040234_var*
@@ -309,9 +284,9 @@ begin
  op_List_SetCurrentVisible.Call(Aggregate);
 //#UC END# *4C52E8030278_4C8604040234_impl*
 end;//TPrimSynchroViewOptionsForm.PageActive
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimSynchroViewOptionsForm.PageInactive;
 //#UC START# *4C52E81603A9_4C8604040234_var*
 //#UC END# *4C52E81603A9_4C8604040234_var*
@@ -320,44 +295,47 @@ begin
  // - ничего не делаем
 //#UC END# *4C52E81603A9_4C8604040234_impl*
 end;//TPrimSynchroViewOptionsForm.PageInactive
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimSynchroViewOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_SynchroView, nil);
   PublishOp(en_SynchroView, op_ShowText, SynchroView_ShowText_Execute, SynchroView_ShowText_Test, nil, true);
-  ShowInContextMenu(en_SynchroView, op_ShowText, true, true);
-  ShowInToolbar(en_SynchroView, op_ShowText, true, true);
+  ShowInContextMenu(en_SynchroView, op_ShowText, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowText, True, true);
   PublishOp(en_SynchroView, op_Annotation, SynchroView_Annotation_Execute, SynchroView_Annotation_Test, nil);
-  ShowInContextMenu(en_SynchroView, op_Annotation, true);
-  ShowInToolbar(en_SynchroView, op_Annotation, true);
+  ShowInContextMenu(en_SynchroView, op_Annotation, True);
+  ShowInToolbar(en_SynchroView, op_Annotation, True);
   PublishOp(en_SynchroView, op_ShowAttributes, SynchroView_ShowAttributes_Execute, SynchroView_ShowAttributes_Test, nil, true);
-  ShowInContextMenu(en_SynchroView, op_ShowAttributes, true, true);
-  ShowInToolbar(en_SynchroView, op_ShowAttributes, true, true);
+  ShowInContextMenu(en_SynchroView, op_ShowAttributes, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowAttributes, True, true);
   PublishOp(en_SynchroView, op_ShowRelated, SynchroView_ShowRelated_Execute, SynchroView_ShowRelated_Test, nil, true);
-  ShowInContextMenu(en_SynchroView, op_ShowRelated, true, true);
-  ShowInToolbar(en_SynchroView, op_ShowRelated, true, true);
+  ShowInContextMenu(en_SynchroView, op_ShowRelated, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowRelated, True, true);
   PublishOp(en_SynchroView, op_ShowUserCRList1, SynchroView_ShowUserCRList1_Execute, SynchroView_ShowUserCRList1_Test, nil, true);
-  ShowInContextMenu(en_SynchroView, op_ShowUserCRList1, true, true);
-  ShowInToolbar(en_SynchroView, op_ShowUserCRList1, true, true);
+  ShowInContextMenu(en_SynchroView, op_ShowUserCRList1, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowUserCRList1, True, true);
   PublishOp(en_SynchroView, op_ShowUserCRList2, SynchroView_ShowUserCRList2_Execute, SynchroView_ShowUserCRList2_Test, nil, true);
-  ShowInContextMenu(en_SynchroView, op_ShowUserCRList2, true, true);
-  ShowInToolbar(en_SynchroView, op_ShowUserCRList2, true, true);
+  ShowInContextMenu(en_SynchroView, op_ShowUserCRList2, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowUserCRList2, True, true);
   PublishOp(en_SynchroView, op_SimilarDocuments, SynchroView_SimilarDocuments_Execute, SynchroView_SimilarDocuments_Test, nil);
-  ShowInContextMenu(en_SynchroView, op_SimilarDocuments, true);
-  ShowInToolbar(en_SynchroView, op_SimilarDocuments, true);
+  ShowInContextMenu(en_SynchroView, op_SimilarDocuments, True);
+  ShowInToolbar(en_SynchroView, op_SimilarDocuments, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimSynchroViewOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimSynchroViewOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSynchroViewOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimSynchroViewOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

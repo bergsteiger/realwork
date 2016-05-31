@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftUserCRList1_SynchorFormLocalConstants }
+ str_lftUserCRList1_SynchorFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftUserCRList1_SynchorFormCaption'; rValue : 'Синхронный просмотр (настраиваемая вкладка связанных документов 1)');
+  {* Заголовок пользовательского типа "Синхронный просмотр (настраиваемая вкладка связанных документов 1)" }
+ str_lftUserCRList1_SynchorFormSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftUserCRList1_SynchorFormSettingsCaption'; rValue : 'Синхронный просмотр: Первая пользовательская вкладка списка ссылкок на документ\из документа');
+  {* Заголовок пользовательского типа "Синхронный просмотр (настраиваемая вкладка связанных документов 1)" для настройки панелей инструментов }
  {* Константы для типа формы lftUserCRList1_SynchorForm }
  lftUserCRList1_SynchorFormName = 'lftUserCRList1_SynchorForm';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр (настраиваемая вкладка связанных документов 1)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftUserCRList1_SynchorForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftUserCRList1_SynchorFormCaption.Init;
+ {* Инициализация str_lftUserCRList1_SynchorFormCaption }
+ str_lftUserCRList1_SynchorFormSettingsCaption.Init;
+ {* Инициализация str_lftUserCRList1_SynchorFormSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftUserCRList1_SynchorForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftUserCRList1_SynchorForm }

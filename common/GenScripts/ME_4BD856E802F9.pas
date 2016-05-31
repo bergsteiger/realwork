@@ -23,152 +23,78 @@ uses
 const
  fm_TextForm: TvcmFormDescriptor = (rFormID : (rName : 'TextForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TTextForm }
-
-const
  fm_enUnderControl: TvcmFormDescriptor = (rFormID : (rName : 'enUnderControl'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenUnderControl }
-
-const
  fm_cfFolders: TvcmFormDescriptor = (rFormID : (rName : 'cfFolders'; rID : 0); rFactory : nil);
   {* Идентификатор формы TcfFolders }
-
-const
  fm_en_Navigator: TvcmFormDescriptor = (rFormID : (rName : 'en_Navigator'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_Navigator }
-
-const
  fm_en_TasksPanel: TvcmFormDescriptor = (rFormID : (rName : 'en_TasksPanel'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_TasksPanel }
-
-const
  fm_enCompInfo: TvcmFormDescriptor = (rFormID : (rName : 'enCompInfo'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenCompInfo }
-
-const
  fm_efRubricator: TvcmFormDescriptor = (rFormID : (rName : 'efRubricator'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefRubricator }
-
-const
  fm_enDiction: TvcmFormDescriptor = (rFormID : (rName : 'enDiction'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenDiction }
-
-const
  fm_WarningForm: TvcmFormDescriptor = (rFormID : (rName : 'WarningForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TWarningForm }
-
-const
  fm_efListInfo: TvcmFormDescriptor = (rFormID : (rName : 'efListInfo'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefListInfo }
-
-const
  fm_en_CommonDiction: TvcmFormDescriptor = (rFormID : (rName : 'en_CommonDiction'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_CommonDiction }
-
-const
  fm_en_MedicMainMenu: TvcmFormDescriptor = (rFormID : (rName : 'en_MedicMainMenu'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_MedicMainMenu }
-
-const
  fm_en_MedicFirmList: TvcmFormDescriptor = (rFormID : (rName : 'en_MedicFirmList'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_MedicFirmList }
-
-const
  fm_efList: TvcmFormDescriptor = (rFormID : (rName : 'efList'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefList }
-
-const
  fm_en_ConfigurationList: TvcmFormDescriptor = (rFormID : (rName : 'en_ConfigurationList'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_ConfigurationList }
-
-const
  fm_en_MainMenuNew: TvcmFormDescriptor = (rFormID : (rName : 'en_MainMenuNew'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_MainMenuNew }
-
-const
  fm_NewBaseSearchForm: TvcmFormDescriptor = (rFormID : (rName : 'NewBaseSearchForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TNewBaseSearchForm }
-
-const
  fm_AttributesForm: TvcmFormDescriptor = (rFormID : (rName : 'AttributesForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TAttributesForm }
-
-const
  fm_BaseSearchContainerForm: TvcmFormDescriptor = (rFormID : (rName : 'BaseSearchContainerForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TBaseSearchContainerForm }
-
-const
  fm_DictionContainerForm: TvcmFormDescriptor = (rFormID : (rName : 'DictionContainerForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TDictionContainerForm }
-
-const
  fm_enFilters: TvcmFormDescriptor = (rFormID : (rName : 'enFilters'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenFilters }
-
-const
  fm_efTreeAttributeFirstLevel: TvcmFormDescriptor = (rFormID : (rName : 'efTreeAttributeFirstLevel'; rID : 0); rFactory : nil);
   {* Идентификатор формы TefTreeAttributeFirstLevel }
-
-const
  fm_WarningBaloonForm: TvcmFormDescriptor = (rFormID : (rName : 'WarningBaloonForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TWarningBaloonForm }
-
-const
  fm_enNewsLine: TvcmFormDescriptor = (rFormID : (rName : 'enNewsLine'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenNewsLine }
-
-const
  fm_RedactionsForm: TvcmFormDescriptor = (rFormID : (rName : 'RedactionsForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TRedactionsForm }
-
-const
  fm_SynchroView_WarningBaloonForm: TvcmFormDescriptor = (rFormID : (rName : 'SynchroView_WarningBaloonForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TSynchroView_WarningBaloonForm }
-
-const
  fm_Translation_WarningBaloonForm: TvcmFormDescriptor = (rFormID : (rName : 'Translation_WarningBaloonForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TTranslation_WarningBaloonForm }
-
-const
  fm_UserCR1_WarningBaloonForm: TvcmFormDescriptor = (rFormID : (rName : 'UserCR1_WarningBaloonForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TUserCR1_WarningBaloonForm }
-
-const
  fm_UserCR2_WarningBaloonForm: TvcmFormDescriptor = (rFormID : (rName : 'UserCR2_WarningBaloonForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TUserCR2_WarningBaloonForm }
-
-const
  fm_ContentsForm: TvcmFormDescriptor = (rFormID : (rName : 'ContentsForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TContentsForm }
-
-const
  fm_enFoldersTree: TvcmFormDescriptor = (rFormID : (rName : 'enFoldersTree'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenFoldersTree }
-
-const
  fm_enFoldersElementInfo: TvcmFormDescriptor = (rFormID : (rName : 'enFoldersElementInfo'; rID : 0); rFactory : nil);
   {* Идентификатор формы TenFoldersElementInfo }
-
-const
  fm_DocumentWithFlashForm: TvcmFormDescriptor = (rFormID : (rName : 'DocumentWithFlashForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TDocumentWithFlashForm }
-
-const
  fm_en_ConsultationMark: TvcmFormDescriptor = (rFormID : (rName : 'en_ConsultationMark'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_ConsultationMark }
-
-const
  fm_en_MedicListSynchroView: TvcmFormDescriptor = (rFormID : (rName : 'en_MedicListSynchroView'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_MedicListSynchroView }
-
-const
  fm_fcSynchroView: TvcmFormDescriptor = (rFormID : (rName : 'fcSynchroView'; rID : 0); rFactory : nil);
   {* Идентификатор формы TfcSynchroView }
-
-const
  fm_ListAnalizeForm: TvcmFormDescriptor = (rFormID : (rName : 'ListAnalizeForm'; rID : 0); rFactory : nil);
   {* Идентификатор формы TListAnalizeForm }
-
-const
  fm_en_MainMenuWithProfNews: TvcmFormDescriptor = (rFormID : (rName : 'en_MainMenuWithProfNews'; rID : 0); rFactory : nil);
   {* Идентификатор формы Ten_MainMenuWithProfNews }
 

@@ -1,56 +1,42 @@
 {$IfNDef RedactionsUserTypes_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/RedactionsUserTypes.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::RedactionsUserTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "RedactionsUserTypes" MUID: (5009475801E4)
+// Имя типа: "_RedactionsUserTypes_"
 
 {$Define RedactionsUserTypes_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _RedactionsUserTypes_ = {abstract form} class(_RedactionsUserTypes_Parent_)
- protected
-  procedure MakeControls; override;
- protected
- // protected methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _RedactionsUserTypes_ = {abstract} class(_RedactionsUserTypes_Parent_)
+  protected
    procedure UtRedactionQueryClose(aSender: TObject); virtual; abstract;
-     {* Обработчик события utRedaction.OnQueryClose }
+    {* Обработчик события utRedaction.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_RedactionsUserTypes_
-{$Else}
 
- _RedactionsUserTypes_ = _RedactionsUserTypes_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_RedactionsUserTypes_ = _RedactionsUserTypes_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else RedactionsUserTypes_imp}
 
 {$IfNDef RedactionsUserTypes_imp_impl}
+
 {$Define RedactionsUserTypes_imp_impl}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utRedactionLocalConstants }
-  str_utRedactionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRedactionCaption'; rValue : 'Редакции');
-   { Заголовок пользовательского типа "Редакции" }
-  str_utRedactionSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRedactionSettingsCaption'; rValue : 'Документ: Редакции (вкладка)');
-   { Заголовок пользовательского типа "Редакции" для настройки панелей инструментов }
-
-// start class _RedactionsUserTypes_
-
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
 procedure _RedactionsUserTypes_.MakeControls;
 begin
  inherited;
  with AddUsertype(utRedactionName,
   str_utRedactionCaption,
   str_utRedactionSettingsCaption,
-  true,
+  True,
   46,
   60,
   '',
@@ -60,17 +46,11 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utRedactionName
-end;
+end;//_RedactionsUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else  RedactionsUserTypes_imp_impl}
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utRedactionCaption
- str_utRedactionCaption.Init;
-// Инициализация str_utRedactionSettingsCaption
- str_utRedactionSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf RedactionsUserTypes_imp_impl}
+
 {$EndIf RedactionsUserTypes_imp}
+

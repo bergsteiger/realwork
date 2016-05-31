@@ -91,6 +91,7 @@ uses
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  , SelfInfo_Form
+ , SelfInfo_ut_SelfInfo_UserType
  , StyleEditorContainer_Form
  , StyleEditorFont_Form
  , StyleEditorNavigator_Form

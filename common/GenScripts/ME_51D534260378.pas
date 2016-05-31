@@ -13,9 +13,9 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
+ , vtPanel
  , vcmInterfaces
  , vcmEntities
- , vtPanel
 ;
 
 const
@@ -49,11 +49,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -62,11 +60,6 @@ uses
  , FromWithPanelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_FromWithPanelLocalConstants }
- str_ut_FromWithPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_FromWithPanelCaption'; rValue : 'FromWithPanel');
-  {* Заголовок пользовательского типа "FromWithPanel" }
 
 {$R *.DFM}
 
@@ -103,8 +96,6 @@ begin
 end;//TFromWithPanelForm.MakeControls
 
 initialization
- str_ut_FromWithPanelCaption.Init;
- {* Инициализация str_ut_FromWithPanelCaption }
  fm_FromWithPanelForm.SetFactory(TFromWithPanelForm.Make);
  {* Регистрация фабрики формы FromWithPanel }
 {$If NOT Defined(NoScripts)}

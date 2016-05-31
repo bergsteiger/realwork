@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , csRequestTask
  , evdTaskTypes
- , dt_Types
  , k2Base
+ , dt_Types
 ;
 
 type

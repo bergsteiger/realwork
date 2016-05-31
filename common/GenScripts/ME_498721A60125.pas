@@ -322,6 +322,16 @@ procedure _StatusBarDocumentItems_.SignalDataSourceChanged(const anOld: IvcmForm
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ucbDocumentFromList := nil;
+  dsBaseDocument := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IucbDocumentFromList, ucbDocumentFromList);
+  Supports(aNew, IdsBaseDocument, dsBaseDocument);
+ end;//aNew = nil
 end;//_StatusBarDocumentItems_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -335,10 +345,20 @@ begin
  begin
   PublishFormEntity(en_Document, nil);
   PublishOp(en_Document, op_NextDocumentInList, Document_NextDocumentInList_Execute, Document_NextDocumentInList_Test, nil);
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, False);
   PublishOp(en_Document, op_ReturnToList, Document_ReturnToList_Execute, Document_ReturnToList_Test, nil);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, False);
   PublishOp(en_Document, op_PrevDocumentInList, Document_PrevDocumentInList_Execute, Document_PrevDocumentInList_Test, nil);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
   PublishOp(en_Document, op_DocumentIsUseful, Document_DocumentIsUseful_Execute, Document_DocumentIsUseful_Test, Document_DocumentIsUseful_GetState);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
   PublishOp(en_Document, op_DocumentIsUseless, Document_DocumentIsUseless_Execute, Document_DocumentIsUseless_Test, Document_DocumentIsUseless_GetState);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
  end;//with Entities.Entities
 end;//_StatusBarDocumentItems_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

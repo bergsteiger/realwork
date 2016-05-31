@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки liListInfoLocalConstants }
+ str_liListInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'liListInfoCaption'; rValue : 'Справка к списку');
+  {* Заголовок пользовательского типа "Справка к списку" }
+ str_liListInfoSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'liListInfoSettingsCaption'; rValue : 'Список: Справка к списку');
+  {* Заголовок пользовательского типа "Справка к списку" для настройки панелей инструментов }
  {* Константы для типа формы liListInfo }
  liListInfoName = 'liListInfo';
   {* Строковый идентификатор пользовательского типа "Справка к списку" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_liListInfo.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_liListInfoCaption.Init;
+ {* Инициализация str_liListInfoCaption }
+ str_liListInfoSettingsCaption.Init;
+ {* Инициализация str_liListInfoSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_liListInfo.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_liListInfo }

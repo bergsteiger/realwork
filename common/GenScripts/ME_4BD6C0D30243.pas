@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки svSynchroViewLocalConstants }
+ str_svSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svSynchroViewCaption'; rValue : 'Синхронный просмотр');
+  {* Заголовок пользовательского типа "Синхронный просмотр" }
  {* Константы для типа формы svSynchroView }
  svSynchroViewName = 'svSynchroView';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_svSynchroViewCaption.Init;
+ {* Инициализация str_svSynchroViewCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_svSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_svSynchroView }

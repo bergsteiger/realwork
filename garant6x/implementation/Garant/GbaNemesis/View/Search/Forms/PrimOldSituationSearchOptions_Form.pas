@@ -1,69 +1,59 @@
 unit PrimOldSituationSearchOptions_Form;
+ {* Поиск по ситуации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimOldSituationSearchOptions_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Основные прецеденты::Search::View::Search::PrimOldSituationSearchOptions
-//
-// Поиск по ситуации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearchOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimOldSituationSearchOptions" MUID: (4C44149E023F)
+// Имя типа: "TPrimOldSituationSearchOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimOldSituationSearch_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimOldSituationSearch_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimOldSituationSearchOptionsForm = {form} class(TPrimOldSituationSearchForm)
+ TPrimOldSituationSearchOptionsForm = class(TPrimOldSituationSearchForm)
   {* Поиск по ситуации }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimOldSituationSearchOptionsForm
-
- TvcmContainerFormRef = TPrimOldSituationSearchOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C44149E023Fimpl_uses*
+ //#UC END# *4C44149E023Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimOldSituationSearchOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimOldSituationSearchOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
 //#UC START# *494F89C30197_4C44149E023Fgetstate_var*
 //#UC END# *494F89C30197_4C44149E023Fgetstate_var*
 begin
@@ -71,14 +61,13 @@ begin
  // - ничего не делаем 
 //#UC END# *494F89C30197_4C44149E023Fgetstate_impl*
 end;//TPrimOldSituationSearchOptionsForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimOldSituationSearchOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimOldSituationSearchOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimOldSituationSearchOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -27,11 +27,6 @@ _ListAnalizeUserTypes_ = _ListAnalizeUserTypes_Parent_;
 {$Define ListAnalizeUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки AnalizeLocalConstants }
- str_AnalizeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AnalizeCaption'; rValue : 'Анализ списка');
-  {* Заголовок пользовательского типа "Анализ списка" }
-
 {$If NOT Defined(NoVCM)}
 procedure _ListAnalizeUserTypes_.MakeControls;
 begin
@@ -52,12 +47,7 @@ begin
 end;//_ListAnalizeUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else ListAnalizeUserTypes_imp_impl}
-
- str_AnalizeCaption.Init;
- {* Инициализация str_AnalizeCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf ListAnalizeUserTypes_imp_impl}
 
 {$EndIf ListAnalizeUserTypes_imp}

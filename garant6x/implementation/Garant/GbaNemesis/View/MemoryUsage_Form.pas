@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , MemoryUsageKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_MemoryUsageLocalConstants }
- str_ut_MemoryUsageCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MemoryUsageCaption'; rValue : 'Используемые ресурсы');
-  {* Заголовок пользовательского типа "Используемые ресурсы" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TMemoryUsageForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_MemoryUsageCaption.Init;
- {* Инициализация str_ut_MemoryUsageCaption }
  fm_MemoryUsageForm.SetFactory(TMemoryUsageForm.Make);
  {* Регистрация фабрики формы MemoryUsage }
 {$If NOT Defined(NoScripts)}

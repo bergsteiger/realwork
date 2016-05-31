@@ -26,6 +26,11 @@ uses
  , DocumentAndListInterfaces
  , DocumentInterfaces
  , vtPanel
+ , l3TreeInterfaces
+ , DocumentUnit
+ , nevContainers
+ , afwInterfaces
+ , nevTools
  , vtLister
  , nscTreeViewWithAdapterDragDrop
  {$If Defined(Nemesis)}
@@ -34,15 +39,10 @@ uses
  {$If Defined(Nemesis)}
  , nscTasksPanelView
  {$IfEnd} // Defined(Nemesis)
- , l3TreeInterfaces
- , nevTools
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentUnit
  , eeInterfaces
- , nevContainers
- , afwInterfaces
  , l3Interfaces
  , DynamicTreeUnit
  {$If NOT Defined(NoVCL)}
@@ -104,19 +104,12 @@ type
    f_LastBlockIdForHasSimilar: Integer;
    f_LastHasSimilar: Boolean;
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_lstBookmarks: TvtLister;
-    {* Поле для свойства lstBookmarks }
    f_lstComments: TvtLister;
-    {* Поле для свойства lstComments }
    f_lstExternalObjects: TvtLister;
-    {* Поле для свойства lstExternalObjects }
    f_ContentsTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства ContentsTree }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_Tasks: TnscTasksPanelView;
-    {* Поле для свойства Tasks }
   protected
    SimpleTree: IdsSimpleTree;
    Contents: IdsContents;
@@ -355,10 +348,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , ContentsUserTypes_utContents_UserType
  , DataAdapter
  , ExternalObjectUnit
  , BaseTypesUnit
@@ -382,10 +372,19 @@ uses
  , nsFilterableTreeStruct
  , nsContextFilterParams
  , IOUnit
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979DFB700F8impl_uses*
+ , Base_Operations_Editions_Controls
+ //#UC END# *4979DFB700F8impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -394,8 +393,6 @@ type
   public
    class procedure Log(const aDoc: IDocument);
  end;//TnsGetDocumentStructureEvent
-
- // DocumentBlockExcludeForInpharm
 
 const
  {* Локализуемые строки ContentsGroups }
@@ -2458,6 +2455,18 @@ procedure TPrimContentsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSou
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  SimpleTree := nil;
+  Contents := nil;
+  BaseContents := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsSimpleTree, SimpleTree);
+  Supports(aNew, IdsContents, Contents);
+  Supports(aNew, IdsBaseContents, BaseContents);
+ end;//aNew = nil
 end;//TPrimContentsForm.SignalDataSourceChanged
 
 procedure TPrimContentsForm.InitEntities;
@@ -2473,20 +2482,39 @@ begin
   PublishFormEntity(en_ContentsValidator, nil);
   PublishFormEntity(en_Comment, nil);
   PublishFormEntity(en_DocumentBlockBookmarks, nil);
+  ContextMenuWeight(en_DocumentBlockBookmarks, 10);
+  ContextMenuWeight(en_Tree, 30);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, lstBookmarks);
+  MakeEntitySupportedByControl(en_Edit, lstComments);
+  MakeEntitySupportedByControl(en_Tree, ContentsTree);
+  MakeEntitySupportedByControl(en_DocumentBlock, ContentsTree);
+  MakeEntitySupportedByControl(en_DocumentBlockBookmarks, ContentsTree);
   PublishOpWithResult(en_Contents, op_SetCurrent, Contents_SetCurrent, nil, nil);
   PublishOpWithResult(en_Contents, op_MoveCurrent, Contents_MoveCurrent, nil, nil);
   PublishOp(en_DocumentBlock, op_GetCorrespondentList, DocumentBlock_GetCorrespondentList_Execute, DocumentBlock_GetCorrespondentList_Test, nil);
+  ContextMenuWeight(en_DocumentBlock, op_GetCorrespondentList, 60);
   PublishOp(en_DocumentBlock, op_GetRespondentList, DocumentBlock_GetRespondentList_Execute, DocumentBlock_GetRespondentList_Test, nil);
+  ContextMenuWeight(en_DocumentBlock, op_GetRespondentList, 70);
   PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
   PublishOp(en_DocumentBlock, op_GetTypedRespondentList, DocumentBlock_GetTypedRespondentList_Execute, DocumentBlock_GetTypedRespondentList_Test, nil);
   PublishOp(en_DocumentBlockBookmarks, op_AddBookmark, DocumentBlockBookmarks_AddBookmark_Execute, DocumentBlockBookmarks_AddBookmark_Test, nil);
   PublishOp(en_DocumentBlock, op_ToMSWord, DocumentBlock_ToMSWord_Execute, DocumentBlock_ToMSWord_Test, nil);
+  ContextMenuWeight(en_DocumentBlock, op_ToMSWord, 40);
   PublishOp(en_DocumentBlock, op_PrintDialog, DocumentBlock_PrintDialog_Execute, DocumentBlock_PrintDialog_Test, nil);
+  ContextMenuWeight(en_DocumentBlock, op_PrintDialog, 30);
   PublishOp(en_DocumentBlock, op_Copy, DocumentBlock_Copy_Execute, DocumentBlock_Copy_Test, nil);
+  ContextMenuWeight(en_DocumentBlock, op_Copy, 10);
   PublishOp(en_DocumentBlock, op_Print, DocumentBlock_Print_Execute, DocumentBlock_Print_Test, nil);
-  PublishOp(en_DocumentBlock, op_GetTypedCorrespondentList, DocumentBlock_GetTypedCorrespondentList_Execute, DocumentBlock_GetTypedCorrespondentList_Test, DocumentBlock_GetTypedCorrespondentList_GetState);
+  ContextMenuWeight(en_DocumentBlock, op_Print, 20);
   PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
+  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintPreview, False);
+  ContextMenuWeight(en_DocumentBlock, op_PrintPreview, 35);
   PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
+  ShowInContextMenu(en_DocumentBlock, op_Select, True);
+  ShowInToolbar(en_DocumentBlock, op_Select, False);
+  ContextMenuWeight(en_DocumentBlock, op_Select, 50);
   PublishOpWithResult(en_ContentsValidator, op_IsDocumentAdornmentsChanged, ContentsValidator_IsDocumentAdornmentsChanged, nil, nil);
   PublishOpWithResult(en_Contents, op_HasUserComments, Contents_HasUserComments, nil, nil);
   PublishOpWithResult(en_Contents, op_HasBookmarks, Contents_HasBookmarks, nil, nil);
@@ -2494,7 +2522,21 @@ begin
   PublishOpWithResult(en_Contents, op_IsContentsVisible, Contents_IsContentsVisible, nil, nil);
   PublishOpWithResult(en_Comment, op_Changed, Comment_Changed, nil, nil);
   PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
+  ShowInToolbar(en_DocumentBlock, op_GetSimilarDocsToBlock, True);
+  ContextMenuWeight(en_DocumentBlock, op_GetSimilarDocsToBlock, 71);
  end;//with Entities.Entities
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetCorrespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetRespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedRespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Print, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintPreview, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Select, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetSimilarDocsToBlock, False);
 end;//TPrimContentsForm.InitEntities
 
 procedure TPrimContentsForm.MakeControls;

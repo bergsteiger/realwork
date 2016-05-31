@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftMedicFirmLocalConstants }
+ str_dftMedicFirmCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftMedicFirmCaption'; rValue : 'Описание фирмы');
+  {* Заголовок пользовательского типа "Описание фирмы" }
  {* Константы для типа формы dftMedicFirm }
  dftMedicFirmName = 'dftMedicFirm';
   {* Строковый идентификатор пользовательского типа "Описание фирмы" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_dftMedicFirm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftMedicFirmCaption.Init;
+ {* Инициализация str_dftMedicFirmCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftMedicFirm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftMedicFirm }

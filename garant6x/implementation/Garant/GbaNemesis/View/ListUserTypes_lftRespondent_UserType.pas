@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftRespondentLocalConstants }
+ str_lftRespondentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftRespondentCaption'; rValue : 'Ссылки из документа');
+  {* Заголовок пользовательского типа "Ссылки из документа" }
+ str_lftRespondentSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftRespondentSettingsCaption'; rValue : 'Список: Ссылки из документа (все)/Ссылки на документ (все)');
+  {* Заголовок пользовательского типа "Ссылки из документа" для настройки панелей инструментов }
  {* Константы для типа формы lftRespondent }
  lftRespondentName = 'lftRespondent';
   {* Строковый идентификатор пользовательского типа "Ссылки из документа" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftRespondent.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftRespondentCaption.Init;
+ {* Инициализация str_lftRespondentCaption }
+ str_lftRespondentSettingsCaption.Init;
+ {* Инициализация str_lftRespondentSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftRespondent.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftRespondent }

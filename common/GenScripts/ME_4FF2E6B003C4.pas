@@ -236,6 +236,7 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
+ , WarningUserTypes_Warning_UserType
 ;
 
 constructor TdeAAC.Create(const aDeDocInfo: IdeDocInfo;

@@ -29,8 +29,8 @@ uses
  , Buttons
  {$IfEnd} // NOT Defined(NoVCL)
  , eeCheckBox
- , l3Tree_TLB
  , vcmInterfaces
+ , l3Tree_TLB
  , l3Interfaces
  , l3TreeInterfaces
  , l3NodesModelPart
@@ -496,7 +496,7 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    procedure MakeControls; override;
   public
-   class function Make(const aPanel: IvcmCustOps); reintroduce;
+   class function Make(const aPanel: IvcmCustOps): IvcmEntityForm; reintroduce;
     {* Фабрика }
   private
    property IsChanged: Boolean
@@ -614,6 +614,8 @@ uses
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
  , StdRes
+ //#UC START# *4C8E4D21001Fimpl_uses*
+ //#UC END# *4C8E4D21001Fimpl_uses*
 ;
 
 procedure TvcmBaseNode.DoSave;
@@ -1359,7 +1361,7 @@ begin
 //#UC END# *5397181C036E_4C8E4D21001Fset_impl*
 end;//TPrimCustomizeTasksPanelForm.pm_SetIsChanged
 
-class function TPrimCustomizeTasksPanelForm.Make(const aPanel: IvcmCustOps);
+class function TPrimCustomizeTasksPanelForm.Make(const aPanel: IvcmCustOps): IvcmEntityForm;
  {* Фабрика }
 var
  l_Inst : TPrimCustomizeTasksPanelForm;

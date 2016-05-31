@@ -27,14 +27,6 @@ _DictionContainerUserTypes_ = _DictionContainerUserTypes_Parent_;
 {$Define DictionContainerUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки slqtDictionLocalConstants }
- str_slqtDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtDictionCaption'; rValue : 'Толковый словарь');
-  {* Заголовок пользовательского типа "Толковый словарь" }
- {* Локализуемые строки slqtMedicDictionLocalConstants }
- str_slqtMedicDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
-  {* Заголовок пользовательского типа "Словарь медицинских терминов" }
-
 {$If NOT Defined(NoVCM)}
 procedure _DictionContainerUserTypes_.MakeControls;
 begin
@@ -42,7 +34,7 @@ begin
  with AddUsertype(slqtDictionName,
   str_slqtDictionCaption,
   str_slqtDictionCaption,
-  False,
+  True,
   60,
   -1,
   '',
@@ -55,7 +47,7 @@ begin
  with AddUsertype(slqtMedicDictionName,
   str_slqtMedicDictionCaption,
   str_slqtMedicDictionCaption,
-  False,
+  True,
   182,
   -1,
   '',
@@ -68,14 +60,7 @@ begin
 end;//_DictionContainerUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else DictionContainerUserTypes_imp_impl}
-
- str_slqtDictionCaption.Init;
- {* Инициализация str_slqtDictionCaption }
- str_slqtMedicDictionCaption.Init;
- {* Инициализация str_slqtMedicDictionCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf DictionContainerUserTypes_imp_impl}
 
 {$EndIf DictionContainerUserTypes_imp}

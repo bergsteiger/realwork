@@ -1,177 +1,150 @@
 {$IfNDef BaseTextOperations_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseTextOperations.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::BaseTextOperations
-//
-// Базовые операции с текстом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "BaseTextOperations" MUID: (4AE1A69E0156)
+// Имя типа: "_BaseTextOperations_"
 
 {$Define BaseTextOperations_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _Text_Parent_ = _BaseTextOperations_Parent_;
- {$Include ..\View\Text.imp.pas}
- _BaseTextOperations_ = {abstract form} class(_Text_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
+ _BaseTextOperations_ = {abstract} class(_Text_)
   {* Базовые операции с текстом }
- private
- // private fields
-   f_Text : TnscEditor;
-    {* Поле для свойства Text}
-   f_TextSource : TnscTextSource;
-    {* Поле для свойства TextSource}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_Text: TnscEditor;
+   f_TextSource: TnscTextSource;
+    {* Источник текста }
+  protected
+   HAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
+   FilterInfoFactory: IucpFilterInfoFactory;
+  private
    procedure MakeMacroReplacer(Sender: TObject;
-     var aReplacer: Il3HAFMacroReplacer);
- protected
- // property methods
+    var aReplacer: Il3HAFMacroReplacer);
+  protected
    function pm_GetHasDoc: Boolean; virtual; abstract;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
-     {* Экспорт в Word }
-   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Экспорт в Word }
-   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
-     {* Послать по e-mail }
-   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Послать по e-mail }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   HAFMacroReplacerFactory : IucpHAFMacroReplacerFactory;
-   FilterInfoFactory : IucpFilterInfoFactory;
- protected
- // protected methods
    function DocumentExport(anExportKind: TnsExportKind;
-     aExportSelection: Boolean;
-     const aRange: InevRange = nil): Boolean;
+    aExportSelection: Boolean;
+    const aRange: InevRange = nil): Boolean;
    procedure DocumentPrint(aPrintDialog: Boolean = False);
    function MakePreview: IafwComplexDocumentPreview;
    procedure DoMakeExportFilters(aSelection: Boolean;
-     aForExport: Boolean;
-     var theGen: Ik2TagGenerator);
+    aForExport: Boolean;
+    var theGen: Ik2TagGenerator);
    function GetDocumentExportName(const aDoc: IDocument;
-     aExportSelection: Boolean): Il3CString;
+    aExportSelection: Boolean): Il3CString;
    function GetDocumentShortName(const aDoc: IDocument;
-     aExportSelection: Boolean): Il3CString; virtual;
+    aExportSelection: Boolean): Il3CString; virtual;
    function DocumentForExport: IDocument; virtual; abstract;
    procedure NotEmptyDocumentTest(const aParams: IvcmTestParamsPrim);
-     {* Проверяет, что документ непустой }
+    {* Проверяет, что документ непустой }
    procedure NotEmptyDocumentWithTrialModeTest(const aParams: IvcmTestParamsPrim);
-     {* Проверяет, что документ не пустой и версия не демонстрационная }
+    {* Проверяет, что документ не пустой и версия не демонстрационная }
    function AddBookmark(const aPara: IeeLeafPara): Boolean;
    function IsDrug: Boolean; virtual; abstract;
- protected
- // protected properties
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+    {* Экспорт в Word }
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   procedure File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+    {* Послать по e-mail }
+   procedure File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Послать по e-mail }
+  protected
    property TextSource: TnscTextSource
-     read f_TextSource;
-     {* Источник текста }
+    read f_TextSource;
+    {* Источник текста }
    property HasDoc: Boolean
-     read pm_GetHasDoc;
-     {* Проверяет наличие документа }
- public
- // public properties
+    read pm_GetHasDoc;
+    {* Проверяет наличие документа }
+  public
    property Text: TnscEditor
-     read f_Text;
+    read f_Text;
  end;//_BaseTextOperations_
-{$Else}
 
- _Text_Parent_ = _BaseTextOperations_Parent_;
- {$Include ..\View\Text.imp.pas}
- _BaseTextOperations_ = _Text_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_Text_Parent_ = _BaseTextOperations_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
+_BaseTextOperations_ = _Text_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else BaseTextOperations_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef BaseTextOperations_imp_impl}
 
+{$Define BaseTextOperations_imp_impl}
 
-{$Include ..\View\Text.imp.pas}
-
-// start class _BaseTextOperations_
-
-procedure _BaseTextOperations_.MakeMacroReplacer(Sender: TObject;
-  var aReplacer: Il3HAFMacroReplacer);
-//#UC START# *4AE1864F024B_4AE1A69E0156_var*
-var
- l_F : IucpHAFMacroReplacerFactory;
-//#UC END# *4AE1864F024B_4AE1A69E0156_var*
-begin
-//#UC START# *4AE1864F024B_4AE1A69E0156_impl*
- l_F := HAFMacroReplacerFactory;
- if (l_F <> nil) then
-  aReplacer := l_F.MakeHAFMacroReplacer;
-//#UC END# *4AE1864F024B_4AE1A69E0156_impl*
-end;//_BaseTextOperations_.MakeMacroReplacer
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
 
 function _BaseTextOperations_.DocumentExport(anExportKind: TnsExportKind;
-  aExportSelection: Boolean;
-  const aRange: InevRange = nil): Boolean;
+ aExportSelection: Boolean;
+ const aRange: InevRange = nil): Boolean;
+var l_Ext: AnsiString;
+var l_PathName: Il3CString;
+var l_Stream: Tl3Stream;
+var l_Format: Tl3ClipboardFormat;
+var l_F: TnsFileFormat;
+var l_G: Tk2CustomFileGenerator;
+var l_Visualizer: IafwLongProcessVisualizer;
+var l_Head: Tk2TagGenerator;
+ {* Голова цепочки генераторов }
 //#UC START# *4A1FF17502AC_4AE1A69E0156_var*
 var
  l_H    : Tk2TagGenerator;
  l_Output : TnsGetGenOutputStruct;
 //#UC END# *4A1FF17502AC_4AE1A69E0156_var*
-var
- l_Ext : AnsiString;
- l_PathName : Il3CString;
- l_Stream : Tl3Stream;
- l_Format : Tl3ClipboardFormat;
- l_F : TnsFileFormat;
- l_G : Tk2CustomFileGenerator;
- l_Visualizer : IafwLongProcessVisualizer;
- l_Head : Tk2TagGenerator; // Голова цепочки генераторов
 begin
 //#UC START# *4A1FF17502AC_4AE1A69E0156_impl*
  Result := false;
@@ -334,10 +307,9 @@ begin
 end;//_BaseTextOperations_.DocumentExport
 
 procedure _BaseTextOperations_.DocumentPrint(aPrintDialog: Boolean = False);
+var l_Preview: IafwComplexDocumentPreview;
 //#UC START# *4AE1B21502BB_4AE1A69E0156_var*
 //#UC END# *4AE1B21502BB_4AE1A69E0156_var*
-var
- l_Preview : IafwComplexDocumentPreview;
 begin
 //#UC START# *4AE1B21502BB_4AE1A69E0156_impl*
  if aPrintDialog and
@@ -373,9 +345,23 @@ begin
 //#UC END# *4AE1B41802E4_4AE1A69E0156_impl*
 end;//_BaseTextOperations_.MakePreview
 
+procedure _BaseTextOperations_.MakeMacroReplacer(Sender: TObject;
+ var aReplacer: Il3HAFMacroReplacer);
+//#UC START# *4AE1864F024B_4AE1A69E0156_var*
+var
+ l_F : IucpHAFMacroReplacerFactory;
+//#UC END# *4AE1864F024B_4AE1A69E0156_var*
+begin
+//#UC START# *4AE1864F024B_4AE1A69E0156_impl*
+ l_F := HAFMacroReplacerFactory;
+ if (l_F <> nil) then
+  aReplacer := l_F.MakeHAFMacroReplacer;
+//#UC END# *4AE1864F024B_4AE1A69E0156_impl*
+end;//_BaseTextOperations_.MakeMacroReplacer
+
 procedure _BaseTextOperations_.DoMakeExportFilters(aSelection: Boolean;
-  aForExport: Boolean;
-  var theGen: Ik2TagGenerator);
+ aForExport: Boolean;
+ var theGen: Ik2TagGenerator);
 //#UC START# *4DCD5DE203C5_4AE1A69E0156_var*
 //#UC END# *4DCD5DE203C5_4AE1A69E0156_var*
 begin
@@ -385,7 +371,7 @@ begin
 end;//_BaseTextOperations_.DoMakeExportFilters
 
 function _BaseTextOperations_.GetDocumentExportName(const aDoc: IDocument;
-  aExportSelection: Boolean): Il3CString;
+ aExportSelection: Boolean): Il3CString;
 //#UC START# *53D8D3E90248_4AE1A69E0156_var*
 //#UC END# *53D8D3E90248_4AE1A69E0156_var*
 begin
@@ -399,7 +385,7 @@ begin
 end;//_BaseTextOperations_.GetDocumentExportName
 
 function _BaseTextOperations_.GetDocumentShortName(const aDoc: IDocument;
-  aExportSelection: Boolean): Il3CString;
+ aExportSelection: Boolean): Il3CString;
 //#UC START# *53D8E4B702E4_4AE1A69E0156_var*
 //#UC END# *53D8E4B702E4_4AE1A69E0156_var*
 begin
@@ -409,6 +395,7 @@ begin
 end;//_BaseTextOperations_.GetDocumentShortName
 
 procedure _BaseTextOperations_.NotEmptyDocumentTest(const aParams: IvcmTestParamsPrim);
+ {* Проверяет, что документ непустой }
 //#UC START# *4AE1BA9302E5_4AE1A69E0156_var*
 //#UC END# *4AE1BA9302E5_4AE1A69E0156_var*
 begin
@@ -419,6 +406,7 @@ begin
 end;//_BaseTextOperations_.NotEmptyDocumentTest
 
 procedure _BaseTextOperations_.NotEmptyDocumentWithTrialModeTest(const aParams: IvcmTestParamsPrim);
+ {* Проверяет, что документ не пустой и версия не демонстрационная }
 //#UC START# *4AE1BAA102BD_4AE1A69E0156_var*
 //#UC END# *4AE1BAA102BD_4AE1A69E0156_var*
 begin
@@ -463,8 +451,9 @@ begin
 //#UC END# *4AE1C14801CE_4AE1A69E0156_impl*
 end;//_BaseTextOperations_.AddBookmark
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4AE1A69E0156test_var*
 //#UC END# *49521D8E0295_4AE1A69E0156test_var*
 begin
@@ -477,10 +466,11 @@ begin
  nsDisableOperationInTrialMode(aParams);
 //#UC END# *49521D8E0295_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_Print_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4AE1A69E0156exec_var*
 var
  l_Preview: IafwComplexDocumentPreview;
@@ -495,10 +485,11 @@ begin
  end;//try..finally
 //#UC END# *49521D8E0295_4AE1A69E0156exec_impl*
 end;//_BaseTextOperations_.File_Print_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4AE1A69E0156test_var*
 //#UC END# *495220DE0298_4AE1A69E0156test_var*
 begin
@@ -508,10 +499,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := HasDoc;
 //#UC END# *495220DE0298_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4AE1A69E0156exec_var*
 //#UC END# *495220DE0298_4AE1A69E0156exec_var*
 begin
@@ -519,10 +511,11 @@ begin
  DocumentPrint(True);
 //#UC END# *495220DE0298_4AE1A69E0156exec_impl*
 end;//_BaseTextOperations_.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4AE1A69E0156test_var*
 //#UC END# *495220F2033A_4AE1A69E0156test_var*
 begin
@@ -534,10 +527,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := Printer.Printers.Count > 0;
 //#UC END# *495220F2033A_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4AE1A69E0156exec_var*
 //#UC END# *495220F2033A_4AE1A69E0156exec_var*
 begin
@@ -546,10 +540,11 @@ begin
  aParams.CallControl;
 //#UC END# *495220F2033A_4AE1A69E0156exec_impl*
 end;//_BaseTextOperations_.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4AE1A69E0156test_var*
 //#UC END# *495235F401C0_4AE1A69E0156test_var*
 begin
@@ -558,10 +553,11 @@ begin
  NotEmptyDocumentTest(aParams);
 //#UC END# *495235F401C0_4AE1A69E0156test_impl*
 end;//_BaseTextOperations_.File_Save_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4AE1A69E0156exec_var*
 //#UC END# *495235F401C0_4AE1A69E0156exec_var*
 begin
@@ -569,9 +565,10 @@ begin
  DocumentExport(ekDisk, Text.HasSelection);
 //#UC END# *495235F401C0_4AE1A69E0156exec_impl*
 end;//_BaseTextOperations_.File_Save_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _BaseTextOperations_.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4AE1A69E0156test_var*
 //#UC END# *495238EB0160_4AE1A69E0156test_var*
 begin
@@ -582,6 +579,7 @@ begin
 end;//_BaseTextOperations_.File_ToMSWord_Test
 
 procedure _BaseTextOperations_.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4AE1A69E0156exec_var*
 var
  lExportSelection : Boolean;
@@ -607,6 +605,7 @@ begin
 end;//_BaseTextOperations_.File_ToMSWord_Execute
 
 procedure _BaseTextOperations_.File_SendMailAsAttachment_Test(const aParams: IvcmTestParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_4AE1A69E0156test_var*
 //#UC END# *495253870002_4AE1A69E0156test_var*
 begin
@@ -617,6 +616,7 @@ begin
 end;//_BaseTextOperations_.File_SendMailAsAttachment_Test
 
 procedure _BaseTextOperations_.File_SendMailAsAttachment_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Послать по e-mail }
 //#UC START# *495253870002_4AE1A69E0156exec_var*
 var
  l_ExportSelection : Boolean;
@@ -638,8 +638,9 @@ begin
 //#UC END# *495253870002_4AE1A69E0156exec_impl*
 end;//_BaseTextOperations_.File_SendMailAsAttachment_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE1A69E0156_var*
 //#UC END# *4A8E8F2E0195_4AE1A69E0156_var*
 begin
@@ -650,55 +651,50 @@ begin
  Text.OnMakeExportFilters := Self.DoMakeExportFilters;
 //#UC END# *4A8E8F2E0195_4AE1A69E0156_impl*
 end;//_BaseTextOperations_.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-procedure _BaseTextOperations_.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure _BaseTextOperations_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   HAFMacroReplacerFactory := nil;
   FilterInfoFactory := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IucpHAFMacroReplacerFactory, HAFMacroReplacerFactory);
-  Supports(aDsNew, IucpFilterInfoFactory, FilterInfoFactory);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IucpHAFMacroReplacerFactory, HAFMacroReplacerFactory);
+  Supports(aNew, IucpFilterInfoFactory, FilterInfoFactory);
+ end;//aNew = nil
+end;//_BaseTextOperations_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Redactions, nil);
-  MakeEntitySupportedByControl(en_Redactions, Text);
   PublishFormEntity(en_TimeMachine, nil);
+  MakeEntitySupportedByControl(en_Redactions, Text);
   MakeEntitySupportedByControl(en_TimeMachine, Text);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
   PublishOp(en_File, op_SendMailAsAttachment, File_SendMailAsAttachment_Execute, File_SendMailAsAttachment_Test, nil, true);
  end;//with Entities.Entities
-end;
+end;//_BaseTextOperations_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _BaseTextOperations_.MakeControls;
 begin
  inherited;
@@ -707,8 +703,11 @@ begin
  f_Text.Parent := Self;
  f_TextSource := TnscTextSource.Create(Self);
  f_TextSource.Name := 'TextSource';
-end;
+end;//_BaseTextOperations_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf BaseTextOperations_imp_impl}
 
 {$EndIf BaseTextOperations_imp}
+

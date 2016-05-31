@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftDrugListLocalConstants }
+ str_lftDrugListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftDrugListCaption'; rValue : 'Список препаратов');
+  {* Заголовок пользовательского типа "Список препаратов" }
  {* Константы для типа формы lftDrugList }
  lftDrugListName = 'lftDrugList';
   {* Строковый идентификатор пользовательского типа "Список препаратов" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_lftDrugList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftDrugListCaption.Init;
+ {* Инициализация str_lftDrugListCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftDrugList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftDrugList }

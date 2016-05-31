@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , csProcessTask
- , dt_Types
  , k2Base
+ , dt_Types
 ;
 
 type

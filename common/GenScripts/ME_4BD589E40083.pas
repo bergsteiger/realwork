@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftSimilarDocumentsLocalConstants }
+ str_lftSimilarDocumentsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsCaption'; rValue : 'Похожие документы');
+  {* Заголовок пользовательского типа "Похожие документы" }
+ str_lftSimilarDocumentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsSettingsCaption'; rValue : 'Список: Похожие документы');
+  {* Заголовок пользовательского типа "Похожие документы" для настройки панелей инструментов }
  {* Константы для типа формы lftSimilarDocuments }
  lftSimilarDocumentsName = 'lftSimilarDocuments';
   {* Строковый идентификатор пользовательского типа "Похожие документы" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftSimilarDocumentsCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsCaption }
+ str_lftSimilarDocumentsSettingsCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSimilarDocuments.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftSimilarDocuments }

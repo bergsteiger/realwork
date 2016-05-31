@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки pfImageLocalConstants }
+ str_pfImageCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageCaption'; rValue : 'Просмотр графического объекта');
+  {* Заголовок пользовательского типа "Просмотр графического объекта" }
+ str_pfImageSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageSettingsCaption'; rValue : 'Документ: Просмотр графического объекта');
+  {* Заголовок пользовательского типа "Просмотр графического объекта" для настройки панелей инструментов }
  {* Константы для типа формы pfImage }
  pfImageName = 'pfImage';
   {* Строковый идентификатор пользовательского типа "Просмотр графического объекта" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_pfImage.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_pfImageCaption.Init;
+ {* Инициализация str_pfImageCaption }
+ str_pfImageSettingsCaption.Init;
+ {* Инициализация str_pfImageSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_pfImage.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_pfImage }

@@ -17,8 +17,8 @@ uses
  , tfwWordRefList
  , tfwDictionaryPrim
  , tfwScriptingInterfaces
- , l3Interfaces
  , l3Variant
+ , l3Interfaces
 ;
 
 type

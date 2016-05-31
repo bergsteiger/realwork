@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftAnnotationLocalConstants }
+ str_dftAnnotationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAnnotationCaption'; rValue : 'Аннотация');
+  {* Заголовок пользовательского типа "Аннотация" }
+ str_dftAnnotationSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAnnotationSettingsCaption'; rValue : 'Документ: Дополнительная информация');
+  {* Заголовок пользовательского типа "Аннотация" для настройки панелей инструментов }
  {* Константы для типа формы dftAnnotation }
  dftAnnotationName = 'dftAnnotation';
   {* Строковый идентификатор пользовательского типа "Аннотация" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftAnnotation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftAnnotationCaption.Init;
+ {* Инициализация str_dftAnnotationCaption }
+ str_dftAnnotationSettingsCaption.Init;
+ {* Инициализация str_dftAnnotationSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAnnotation.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftAnnotation }

@@ -1,56 +1,52 @@
 {$IfNDef Text_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Text.imp.pas"
-// Начат: 14.08.2009 14:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::Text
-//
-// Обработка текста
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "Text" MUID: (4A853E260311)
+// Имя типа: "_Text_"
 
 {$Define Text_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _Text_ = {abstract form} class(_Text_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _Text_ = {abstract} class(_Text_Parent_)
   {* Обработка текста }
- protected
- // property methods
+  protected
    function pm_GetSettings: IafwSettings;
- protected
- // protected methods
    function GetTopParaID: IeePara;
-     {* Возвращает верхний нумерованный параграф на видимой странице }
-   function GetParaForPositionning(aSearchDown: Boolean = true): IeeLeafPara;
-     {* Возвращает текущий параграф, если он виден или первый видимый на экране }
- protected
- // protected properties
+    {* Возвращает верхний нумерованный параграф на видимой странице }
+   function GetParaForPositionning(aSearchDown: Boolean = True): IeeLeafPara;
+    {* Возвращает текущий параграф, если он виден или первый видимый на экране }
+  protected
    property Settings: IafwSettings
-     read pm_GetSettings;
+    read pm_GetSettings;
  end;//_Text_
-{$Else}
 
- _Text_ = _Text_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_Text_ = _Text_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else Text_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef Text_imp_impl}
 
-// start class _Text_
+{$Define Text_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+function _Text_.pm_GetSettings: IafwSettings;
+//#UC START# *4DF1F6B3027A_4A853E260311get_var*
+//#UC END# *4DF1F6B3027A_4A853E260311get_var*
+begin
+//#UC START# *4DF1F6B3027A_4A853E260311get_impl*
+ Result := afw.Application.Settings;
+//#UC END# *4DF1F6B3027A_4A853E260311get_impl*
+end;//_Text_.pm_GetSettings
 
 function _Text_.GetTopParaID: IeePara;
+ {* Возвращает верхний нумерованный параграф на видимой странице }
+var l_TopCursor: InevBasePoint;
 //#UC START# *4A854E340357_4A853E260311_var*
 //#UC END# *4A854E340357_4A853E260311_var*
-var
- l_TopCursor : InevBasePoint;
 begin
 //#UC START# *4A854E340357_4A853E260311_impl*
  if _Instance_R_(Self).Text.GetTopCursor(l_TopCursor) then
@@ -64,11 +60,11 @@ begin
 //#UC END# *4A854E340357_4A853E260311_impl*
 end;//_Text_.GetTopParaID
 
-function _Text_.GetParaForPositionning(aSearchDown: Boolean = true): IeeLeafPara;
+function _Text_.GetParaForPositionning(aSearchDown: Boolean = True): IeeLeafPara;
+ {* Возвращает текущий параграф, если он виден или первый видимый на экране }
+var l_Para: IeePara;
 //#UC START# *4A854F880181_4A853E260311_var*
 //#UC END# *4A854F880181_4A853E260311_var*
-var
- l_Para : IeePara;
 begin
 //#UC START# *4A854F880181_4A853E260311_impl*
  l_Para := nil;
@@ -87,16 +83,9 @@ begin
                               aSearchDown);
 //#UC END# *4A854F880181_4A853E260311_impl*
 end;//_Text_.GetParaForPositionning
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-function _Text_.pm_GetSettings: IafwSettings;
-//#UC START# *4DF1F6B3027A_4A853E260311get_var*
-//#UC END# *4DF1F6B3027A_4A853E260311get_var*
-begin
-//#UC START# *4DF1F6B3027A_4A853E260311get_impl*
- Result := afw.Application.Settings;
-//#UC END# *4DF1F6B3027A_4A853E260311get_impl*
-end;//_Text_.pm_GetSettings
-
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf Text_imp_impl}
 
 {$EndIf Text_imp}
+

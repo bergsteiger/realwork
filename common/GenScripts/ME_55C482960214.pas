@@ -492,13 +492,6 @@ uses
  , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}

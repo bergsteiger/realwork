@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_MemoryUsageLocalConstants }
+ str_ut_MemoryUsageCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_MemoryUsageCaption'; rValue : 'Используемые ресурсы');
+  {* Заголовок пользовательского типа "Используемые ресурсы" }
  {* Константы для типа формы ut_MemoryUsage }
  ut_MemoryUsageName = 'ut_MemoryUsage';
   {* Строковый идентификатор пользовательского типа "Используемые ресурсы" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_MemoryUsage.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_MemoryUsageCaption.Init;
+ {* Инициализация str_ut_MemoryUsageCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_MemoryUsage.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_MemoryUsage }

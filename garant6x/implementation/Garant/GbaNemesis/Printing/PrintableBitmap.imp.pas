@@ -1,57 +1,42 @@
 {$IfNDef PrintableBitmap_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Printing"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Printing/PrintableBitmap.imp.pas"
-// Начат: 10.11.2010 19:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Aspects::Printing::Printing::Printing::PrintableBitmap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrintableBitmap" MUID: (4CDACCDF0368)
+// Имя типа: "_PrintableBitmap_"
 
 {$Define PrintableBitmap_imp}
- Graphics_Bitmap = Graphics.TBitmap;
+
+type
+ Graphics_Bitmap = TBitmap;
   {* Переопределение TBitmap, чтобы не нарваться на конфликт с Windows.TBitmap }
 
  _Printable_Parent_ = _PrintableBitmap_Parent_;
- {$Include ..\Printing\Printable.imp.pas}
- _PrintableBitmap_ = {abstract form} class(_Printable_)
- private
- // private fields
-   f_Preview : IafwDocumentPreview;
- protected
- // property methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas}
+ _PrintableBitmap_ = {abstract} class(_Printable_)
+  private
+   f_Preview: IafwDocumentPreview;
+  protected
    function pm_GetBitmapForPrint: Graphics_Bitmap; virtual; abstract;
- protected
- // realized methods
-   function pm_GetPreview: IafwDocumentPreview; override;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    function Name: Il3CString; virtual; abstract;
    function ShortName: Il3CString; virtual; abstract;
    function DPI: Integer; virtual;
    function MakePreview: IafwDocumentPreview; virtual;
    procedure ClearPreview; virtual;
- protected
- // protected properties
+   function pm_GetPreview: IafwDocumentPreview; override;
+   procedure ClearFields; override;
+  protected
    property BitmapForPrint: Graphics_Bitmap
-     read pm_GetBitmapForPrint;
+    read pm_GetBitmapForPrint;
  end;//_PrintableBitmap_
 
 {$Else PrintableBitmap_imp}
 
-{$Include ..\Printing\Printable.imp.pas}
+{$IfNDef PrintableBitmap_imp_impl}
 
-// start class _PrintableBitmap_
+{$Define PrintableBitmap_imp_impl}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas}
 
 function _PrintableBitmap_.DPI: Integer;
 //#UC START# *4CDAE15C035B_4CDACCDF0368_var*
@@ -94,10 +79,12 @@ begin
 end;//_PrintableBitmap_.pm_GetPreview
 
 procedure _PrintableBitmap_.ClearFields;
- {-}
 begin
  f_Preview := nil;
  inherited;
 end;//_PrintableBitmap_.ClearFields
 
+{$EndIf PrintableBitmap_imp_impl}
+
 {$EndIf PrintableBitmap_imp}
+

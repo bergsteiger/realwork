@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , BaseSearchCardKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_BaseSearchCardLocalConstants }
- str_ut_BaseSearchCardCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_BaseSearchCardCaption'; rValue : 'Базовый поиск');
-  {* Заголовок пользовательского типа "Базовый поиск" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//Ten_BaseSearchCard.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_BaseSearchCardCaption.Init;
- {* Инициализация str_ut_BaseSearchCardCaption }
  fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
  {* Регистрация фабрики формы BaseSearchCard }
 {$If NOT Defined(NoScripts)}

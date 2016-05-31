@@ -25,6 +25,7 @@ uses
  , SearchLite_Strange_Controls
  , nsQueryInterfaces
  , vtPanel
+ , SearchUnit
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
@@ -34,7 +35,6 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
- , SearchUnit
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
@@ -58,21 +58,13 @@ type
   {* Поиск по ситуации }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_InnerBackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства InnerBackgroundPanel }
    f_BotomPanel: TvtSizeablePanel;
-    {* Поле для свойства BotomPanel }
    f_ParentZone: TvtPanel;
-    {* Поле для свойства ParentZone }
    f_ZoneContainer: TvtProportionalPanel;
-    {* Поле для свойства ZoneContainer }
    f_ChildZone: TvtPanel;
-    {* Поле для свойства ChildZone }
    f_MainZone: TvtSizeablePanel;
-    {* Поле для свойства MainZone }
   protected
    f_FormState: InsQueryFormState;
   private
@@ -150,7 +142,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -167,21 +158,17 @@ uses
  , nsQuery
  , l3InterfacesMisc
  , nsQueryUtils
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimOldSituationSearch_cutOldKeyWord_UserType
+ //#UC START# *4AE8831A02A5impl_uses*
+ , vcmEntityForm
+ , l3Base
+ //#UC END# *4AE8831A02A5impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки cutOldKeyWordLocalConstants }
- str_cutOldKeyWordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordCaption'; rValue : 'Поиск по ситуации');
-  {* Заголовок пользовательского типа "Поиск по ситуации" }
- str_cutOldKeyWordSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordSettingsCaption'; rValue : 'Поиск: По ситуации (Преемственный)');
-  {* Заголовок пользовательского типа "Поиск по ситуации" для настройки панелей инструментов }
-
 function TPrimOldSituationSearchForm.FillQuery: IQuery;
 //#UC START# *52442A050274_4AE8831A02A5_var*
 //#UC END# *52442A050274_4AE8831A02A5_var*
@@ -531,7 +518,7 @@ begin
  f_ParentZone := TvtPanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := BotomPanel;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
   FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
  end;//with DefineZone(vcm_ztParent
@@ -541,22 +528,18 @@ begin
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := ZoneContainer;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_MainZone := TvtSizeablePanel.Create(Self);
  f_MainZone.Name := 'MainZone';
  f_MainZone.Parent := ZoneContainer;
- with DefineZone(vcm_ztMain, f_MainZone) do
+ with DefineZone(vcm_ztMain, MainZone) do
  begin
  end;//with DefineZone(vcm_ztMain
 end;//TPrimOldSituationSearchForm.MakeControls
 
 initialization
- str_cutOldKeyWordCaption.Init;
- {* Инициализация str_cutOldKeyWordCaption }
- str_cutOldKeyWordSettingsCaption.Init;
- {* Инициализация str_cutOldKeyWordSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimOldSituationSearchForm);
  {* Регистрация PrimOldSituationSearch }

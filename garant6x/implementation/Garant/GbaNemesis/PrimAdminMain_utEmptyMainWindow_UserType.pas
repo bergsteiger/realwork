@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utEmptyMainWindowLocalConstants }
+ str_utEmptyMainWindowCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowCaption'; rValue : 'Главное окно');
+  {* Заголовок пользовательского типа "Главное окно" }
+ str_utEmptyMainWindowSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowSettingsCaption'; rValue : 'Главная панель инструментов');
+  {* Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов }
  {* Константы для типа формы utEmptyMainWindow }
  utEmptyMainWindowName = 'utEmptyMainWindow';
   {* Строковый идентификатор пользовательского типа "Главное окно" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utEmptyMainWindowCaption.Init;
+ {* Инициализация str_utEmptyMainWindowCaption }
+ str_utEmptyMainWindowSettingsCaption.Init;
+ {* Инициализация str_utEmptyMainWindowSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utEmptyMainWindow.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utEmptyMainWindow }

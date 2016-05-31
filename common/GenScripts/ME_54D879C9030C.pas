@@ -12,18 +12,16 @@
  _PrintableFlashWithInfo_ = {abstract} class(_PrintableFlash_)
   private
    f_InfoPreview: IafwDocumentPreview;
-    {* Поле для свойства InfoPreview }
    f_FlashPreview: IafwDocumentPreview;
-    {* Поле для свойства FlashPreview }
   protected
    function pm_GetInfoPreview: IafwDocumentPreview; virtual;
    function pm_GetFlashPreview: IafwDocumentPreview; virtual;
    function MakeDocumentPreview: IafwDocumentPreview;
    function MakeInfoPreview: IafwDocumentPreview;
    function GetDocumentForInfo: IdeDocInfo; virtual; abstract;
-   procedure ClearFields; override;
    function MakePreview: IafwDocumentPreview; override;
    procedure ClearPreview; override;
+   procedure ClearFields; override;
   protected
    property InfoPreview: IafwDocumentPreview
     read pm_GetInfoPreview;
@@ -81,13 +79,6 @@ begin
 //#UC END# *54D87A03022C_54D879C9030C_impl*
 end;//_PrintableFlashWithInfo_.MakeInfoPreview
 
-procedure _PrintableFlashWithInfo_.ClearFields;
-begin
- f_InfoPreview := nil;
- f_FlashPreview := nil;
- inherited;
-end;//_PrintableFlashWithInfo_.ClearFields
-
 function _PrintableFlashWithInfo_.MakePreview: IafwDocumentPreview;
 //#UC START# *5301CBFE023E_54D879C9030C_var*
 //#UC END# *5301CBFE023E_54D879C9030C_var*
@@ -107,6 +98,13 @@ begin
  inherited;
 //#UC END# *5592655F00B2_54D879C9030C_impl*
 end;//_PrintableFlashWithInfo_.ClearPreview
+
+procedure _PrintableFlashWithInfo_.ClearFields;
+begin
+ f_InfoPreview := nil;
+ f_FlashPreview := nil;
+ inherited;
+end;//_PrintableFlashWithInfo_.ClearFields
 
 {$EndIf PrintableFlashWithInfo_imp_impl}
 

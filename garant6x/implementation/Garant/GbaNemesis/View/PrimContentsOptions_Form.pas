@@ -1,166 +1,143 @@
 unit PrimContentsOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimContentsOptions_Form.pas"
-// Начат: 08.09.2010 17:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Contents::PrimContentsOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContentsOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimContentsOptions" MUID: (4C878FA60351)
+// Имя типа: "TPrimContentsOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_F1Specific_Controls,
-  PrimContents_Form
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimContents_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimContentsOptionsForm = {form} class(TPrimContentsForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
-     {* Экспорт в Word }
-   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Экспорт в Word }
-   {$If not defined(NoVCM)}
-   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
-     {* Перенос по словам }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Перенос по словам }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+ TPrimContentsOptionsForm = class(TPrimContentsForm)
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure EntitiesInited; override;
-     {* Вызывается после того как все операции зарегистрированы }
-   {$IfEnd} //not NoVCM
+    {* Вызывается после того как все операции зарегистрированы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+    {* Экспорт в Word }
+   procedure File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Экспорт в Word }
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimContentsOptionsForm
-
- TvcmEntityFormRef = TPrimContentsOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  nevTools,
-  nsExternalObjectPrim,
-  l3Stream,
-  k2CustomFileGenerator,
-  l3BaseStream,
-  l3Interfaces,
-  nsTypes,
-  nsToMSWordOp,
-  nsTrialSupport,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3String,
-  nsFolders,
-  l3Types,
-  evdTypes,
-  DocumentUnit,
-  k2TagGen,
-  nsExternalObjectModelPart
-  {$If not defined(NoVCM)}
-  ,
-  vcmRepOperationsCollectionItem
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , afwFacade
+ , nevTools
+ , nsExternalObjectPrim
+ , l3Stream
+ , k2CustomFileGenerator
+ , l3BaseStream
+ , l3Interfaces
+ , nsTypes
+ , nsToMSWordOp
+ , nsTrialSupport
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , nsFolders
+ , l3Types
+ , evdTypes
+ , DocumentUnit
+ , k2TagGen
+ , nsExternalObjectModelPart
+ {$If NOT Defined(NoVCM)}
+ , vcmRepOperationsCollectionItem
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C878FA60351impl_uses*
+ //#UC END# *4C878FA60351impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimContentsOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_Print_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C878FA60351test_var*
 //#UC END# *49521D8E0295_4C878FA60351test_var*
 begin
@@ -168,10 +145,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := CanPrint;
 //#UC END# *49521D8E0295_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.File_Print_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C878FA60351exec_var*
 //#UC END# *49521D8E0295_4C878FA60351exec_var*
 begin
@@ -180,10 +158,11 @@ begin
   MakePreview.Print;
 //#UC END# *49521D8E0295_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.File_Print_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C878FA60351test_var*
 //#UC END# *495220DE0298_4C878FA60351test_var*
 begin
@@ -191,10 +170,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := CanPrint;
 //#UC END# *495220DE0298_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C878FA60351exec_var*
 //#UC END# *495220DE0298_4C878FA60351exec_var*
 begin
@@ -203,10 +183,11 @@ begin
   afw.Application.PrintManager.PrintDialog(MakePreview);
 //#UC END# *495220DE0298_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C878FA60351test_var*
 //#UC END# *495220F2033A_4C878FA60351test_var*
 begin
@@ -214,10 +195,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := CanPreview;
 //#UC END# *495220F2033A_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C878FA60351exec_var*
 //#UC END# *495220F2033A_4C878FA60351exec_var*
 begin
@@ -226,9 +208,10 @@ begin
   afw.Application.PrintManager.ShowPreview(MakePreview);
 //#UC END# *495220F2033A_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimContentsOptionsForm.File_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4C878FA60351test_var*
 //#UC END# *495238EB0160_4C878FA60351test_var*
 begin
@@ -240,6 +223,7 @@ begin
 end;//TPrimContentsOptionsForm.File_ToMSWord_Test
 
 procedure TPrimContentsOptionsForm.File_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Экспорт в Word }
 //#UC START# *495238EB0160_4C878FA60351exec_var*
 
  function lp_CreateFileName(const aName: Il3CString): Il3CString;
@@ -293,8 +277,9 @@ begin
 //#UC END# *495238EB0160_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.File_ToMSWord_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C878FA60351exec_var*
 //#UC END# *4BDAF7A2005C_4C878FA60351exec_var*
 begin
@@ -311,10 +296,11 @@ begin
  end;//with ContentsTree.TreeView.Tree
 //#UC END# *4BDAF7A2005C_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.Tree_CollapseAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_4C878FA60351test_var*
 //#UC END# *4BDAF7B803CF_4C878FA60351test_var*
 begin
@@ -327,10 +313,11 @@ begin
    lstExternalObjects.Visible;
 //#UC END# *4BDAF7B803CF_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.Tree_Wrap_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_4C878FA60351exec_var*
 //#UC END# *4BDAF7B803CF_4C878FA60351exec_var*
 begin
@@ -341,10 +328,11 @@ begin
  lstExternalObjects.MultiStrokeItem := ContentsTree.MultiStrokeItem;
 //#UC END# *4BDAF7B803CF_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.Tree_Wrap_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C878FA60351test_var*
 //#UC END# *4C7D0CC90052_4C878FA60351test_var*
 begin
@@ -358,10 +346,11 @@ begin
   aParams.CallControl;
 //#UC END# *4C7D0CC90052_4C878FA60351test_impl*
 end;//TPrimContentsOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C878FA60351exec_var*
 var
  l_Sub    : IevSub;
@@ -423,10 +412,11 @@ begin
   aParams.CallControl;
 //#UC END# *4C7D0CC90052_4C878FA60351exec_impl*
 end;//TPrimContentsOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.EntitiesInited;
+ {* Вызывается после того как все операции зарегистрированы }
 //#UC START# *4AE1948900DE_4C878FA60351_var*
 //#UC END# *4AE1948900DE_4C878FA60351_var*
 begin
@@ -436,9 +426,12 @@ begin
  inherited;
 //#UC END# *4AE1948900DE_4C878FA60351_impl*
 end;//TPrimContentsOptionsForm.EntitiesInited
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimContentsOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -446,108 +439,67 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Tree, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Cut, false);
-  ShowInToolbar(en_Edit, op_Cut, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Cut, False);
+  ShowInToolbar(en_Edit, op_Cut, False);
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, false);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_File, op_ToMSWord, File_ToMSWord_Execute, File_ToMSWord_Test, nil);
-  ShowInContextMenu(en_File, op_ToMSWord, false);
-  ShowInToolbar(en_File, op_ToMSWord, false);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_ToMSWord, False);
+  ShowInToolbar(en_File, op_ToMSWord, False);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Paste, false);
-  ShowInToolbar(en_Edit, op_Paste, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Paste, False);
+  ShowInToolbar(en_Edit, op_Paste, False);
   PublishOp(en_Edit, op_SelectAll, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_SelectAll, false);
-  ShowInToolbar(en_Edit, op_SelectAll, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_SelectAll, False);
+  ShowInToolbar(en_Edit, op_SelectAll, False);
   PublishOp(en_Edit, op_Deselect, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Deselect, false);
-  ShowInToolbar(en_Edit, op_Deselect, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Deselect, False);
+  ShowInToolbar(en_Edit, op_Deselect, False);
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, nil, nil);
-  ShowInContextMenu(en_Tree, op_CollapseAll, true);
-  ShowInToolbar(en_Tree, op_CollapseAll, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Tree, op_CollapseAll, True);
+  ShowInToolbar(en_Tree, op_CollapseAll, False);
   PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Copy, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Copy, false);
-  ShowInToolbar(en_Edit, op_Copy, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Copy, False);
+  ShowInToolbar(en_Edit, op_Copy, False);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
-  ShowInContextMenu(en_DocumentBlock, op_GetCorrespondentList, true);
-  ShowInToolbar(en_DocumentBlock, op_GetCorrespondentList, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_GetRespondentList, true);
-  ShowInToolbar(en_DocumentBlock, op_GetRespondentList, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_GetTypedCorrespondentList, false);
-  ShowInToolbar(en_DocumentBlock, op_GetTypedCorrespondentList, true);
-  
-  ShowInContextMenu(en_DocumentBlock, op_GetTypedRespondentList, false);
-  ShowInToolbar(en_DocumentBlock, op_GetTypedRespondentList, true);
-  
-  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, true);
-  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_ToMSWord, true);
-  ShowInToolbar(en_DocumentBlock, op_ToMSWord, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_PrintDialog, true);
-  ShowInToolbar(en_DocumentBlock, op_PrintDialog, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_Copy, true);
-  ShowInToolbar(en_DocumentBlock, op_Copy, false);
-  
-  ShowInContextMenu(en_DocumentBlock, op_Print, false);
-  ShowInToolbar(en_DocumentBlock, op_Print, false);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
+  ShowInContextMenu(en_DocumentBlock, op_GetCorrespondentList, True);
+  ShowInToolbar(en_DocumentBlock, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_DocumentBlock, op_GetRespondentList, True);
+  ShowInToolbar(en_DocumentBlock, op_GetRespondentList, False);
+  ShowInContextMenu(en_DocumentBlock, op_GetTypedCorrespondentList, False);
+  ShowInToolbar(en_DocumentBlock, op_GetTypedCorrespondentList, True);
+  ShowInContextMenu(en_DocumentBlock, op_GetTypedRespondentList, False);
+  ShowInToolbar(en_DocumentBlock, op_GetTypedRespondentList, True);
+  ShowInContextMenu(en_DocumentBlockBookmarks, op_AddBookmark, True);
+  ShowInToolbar(en_DocumentBlockBookmarks, op_AddBookmark, False);
+  ShowInContextMenu(en_DocumentBlock, op_ToMSWord, True);
+  ShowInToolbar(en_DocumentBlock, op_ToMSWord, False);
+  ShowInContextMenu(en_DocumentBlock, op_PrintDialog, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintDialog, False);
+  ShowInContextMenu(en_DocumentBlock, op_Copy, True);
+  ShowInToolbar(en_DocumentBlock, op_Copy, False);
+  ShowInContextMenu(en_DocumentBlock, op_Print, False);
+  ShowInToolbar(en_DocumentBlock, op_Print, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimContentsOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimContentsOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimContentsOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimContentsOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftNoneLocalConstants }
+ str_dftNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftNoneCaption'; rValue : 'Документ');
+  {* Заголовок пользовательского типа "Документ" }
  {* Константы для типа формы dftNone }
  dftNoneName = 'dftNone';
   {* Строковый идентификатор пользовательского типа "Документ" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_dftNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftNoneCaption.Init;
+ {* Инициализация str_dftNoneCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftNone.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftNone }

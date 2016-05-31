@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtDictionLocalConstants }
+ str_slqtDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtDictionCaption'; rValue : 'Толковый словарь');
+  {* Заголовок пользовательского типа "Толковый словарь" }
  {* Константы для типа формы slqtDiction }
  slqtDictionName = 'slqtDiction';
   {* Строковый идентификатор пользовательского типа "Толковый словарь" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_slqtDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtDictionCaption.Init;
+ {* Инициализация str_slqtDictionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtDiction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtDiction }

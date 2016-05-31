@@ -25,12 +25,12 @@ uses
  , vtLabel
  , vtDblClickDateEdit
  , vtRadioButton
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -189,6 +189,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC6324502DAimpl_uses*
+ //#UC END# *4AC6324502DAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -690,10 +692,13 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil, true);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInContextMenu(en_Result, op_Ok, True);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
 end;//TPrimDefineSearchDateForm.InitEntities
 

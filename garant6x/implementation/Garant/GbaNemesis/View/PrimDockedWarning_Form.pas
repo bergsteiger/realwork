@@ -1,66 +1,41 @@
 unit PrimDockedWarning_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimDockedWarning_Form.pas"
-// Начат: 24.10.2011 21:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Warning::PrimDockedWarning
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDockedWarning_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDockedWarning" MUID: (4EA59DA70226)
+// Имя типа: "TPrimDockedWarningForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  WarningUserTypes_Warning_UserType,
-  PrimWarningOptions_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  DocumentAndListInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimWarningOptions_Form
+ , Document_Strange_Controls
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _WarningUserTypes_Parent_ = TPrimWarningOptionsForm;
- {$Include ..\View\WarningUserTypes.imp.pas}
- TPrimDockedWarningForm = {form} class(_WarningUserTypes_)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas}
+ TPrimDockedWarningForm = class(_WarningUserTypes_)
+  protected
    procedure WarningQueryClose(aSender: TObject); override;
-     {* Обработчик события Warning.OnQueryClose }
+    {* Обработчик события Warning.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Warning_BecomeActive_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_BecomeActive_Execute(aSubID: TnsWarningSub);
    procedure Warning_BecomeActive(const aParams: IvcmExecuteParams);
@@ -68,34 +43,32 @@ type
    procedure Warning_SwitchActive_Execute(aSubID: TnsWarningSub);
    procedure Warning_SwitchActive(const aParams: IvcmExecuteParams);
  end;//TPrimDockedWarningForm
-
- TvcmEntityFormRef = TPrimDockedWarningForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  F1Like_InternalOperations_Controls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , WarningUserTypes_Warning_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , F1Like_InternalOperations_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4EA59DA70226impl_uses*
+ //#UC END# *4EA59DA70226impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include ..\View\WarningUserTypes.imp.pas}
-
-// start class TPrimDockedWarningForm
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas}
 
 procedure TPrimDockedWarningForm.WarningQueryClose(aSender: TObject);
+ {* Обработчик события Warning.OnQueryClose }
 //#UC START# *2FE2CD3A0C24_4EA59DA70226_var*
 //#UC END# *2FE2CD3A0C24_4EA59DA70226_var*
 begin
@@ -127,8 +100,8 @@ end;//TPrimDockedWarningForm.Warning_BecomeActive_Execute
 procedure TPrimDockedWarningForm.Warning_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IWarning_BecomeActive_Params) do
-  Warning_BecomeActive_Execute(SubID);
-end;
+  Self.Warning_BecomeActive_Execute(SubID);
+end;//TPrimDockedWarningForm.Warning_BecomeActive
 
 procedure TPrimDockedWarningForm.Warning_SwitchActive_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4AE9DF3602B2_4EA59DA70226test_var*
@@ -153,34 +126,31 @@ end;//TPrimDockedWarningForm.Warning_SwitchActive_Execute
 procedure TPrimDockedWarningForm.Warning_SwitchActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IWarning_SwitchActive_Params) do
-  Warning_SwitchActive_Execute(SubID);
-end;
+  Self.Warning_SwitchActive_Execute(SubID);
+end;//TPrimDockedWarningForm.Warning_SwitchActive
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimDockedWarningForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Warning, nil);
   PublishOpWithResult(en_Warning, op_BecomeActive, Warning_BecomeActive, Warning_BecomeActive_Test, nil);
-  PublishOpWithResult(en_Warning, op_SwitchActive, Warning_SwitchActive, Warning_SwitchActive_Test, nil);{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, false);
-  {$IfEnd} //not NoVCM
-
+  PublishOpWithResult(en_Warning, op_SwitchActive, Warning_SwitchActive, Warning_SwitchActive_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDockedWarningForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\View\WarningUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDockedWarning
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDockedWarningForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDockedWarning }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

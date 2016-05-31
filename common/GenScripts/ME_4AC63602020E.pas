@@ -21,6 +21,9 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  , vtCheckBox
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -59,7 +62,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsOpenDocOnNumberData); reintroduce;
+   class function Make(const aData: InsOpenDocOnNumberData): IvcmEntityForm; reintroduce;
   public
    property Label1: TvtLabel
     read f_Label1;
@@ -92,11 +95,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC63602020Eimpl_uses*
+ //#UC END# *4AC63602020Eimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -156,7 +158,7 @@ begin
 //#UC END# *51B9E1A00192_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.LoadHistory
 
-class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData);
+class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData): IvcmEntityForm;
 var
  l_Inst : TPrimDocNumberQueryForm;
 begin

@@ -28,6 +28,7 @@ uses
  , Common_FormDefinitions_Controls
  , AutoreferatInterfaces
  , DocumentInterfaces
+ , DocumentAndListInterfaces
  , DocumentUnit
  , bsTypesNew
  , PrimNewsLine_nltMain_UserType

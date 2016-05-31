@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftConsultationLocalConstants }
+ str_lftConsultationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftConsultationCaption'; rValue : 'Консультация');
+  {* Заголовок пользовательского типа "Консультация" }
+ str_lftConsultationSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftConsultationSettingsCaption'; rValue : 'Список: Консультация');
+  {* Заголовок пользовательского типа "Консультация" для настройки панелей инструментов }
  {* Константы для типа формы lftConsultation }
  lftConsultationName = 'lftConsultation';
   {* Строковый идентификатор пользовательского типа "Консультация" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftConsultation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftConsultationCaption.Init;
+ {* Инициализация str_lftConsultationCaption }
+ str_lftConsultationSettingsCaption.Init;
+ {* Инициализация str_lftConsultationSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftConsultation.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftConsultation }

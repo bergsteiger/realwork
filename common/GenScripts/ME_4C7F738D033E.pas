@@ -22,6 +22,9 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -79,9 +82,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , WarningUserTypes_Warning_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7F738D033Eimpl_uses*
+ //#UC END# *4C7F738D033Eimpl_uses*
 ;
 
 function TPrimWarningOptionsForm.MakePreview: IafwComplexDocumentPreview;
@@ -221,11 +227,23 @@ begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Warning, nil);
   PublishOp(en_File, op_Print, File_Print_Execute, nil, nil);
+  ShowInContextMenu(en_File, op_Print, True);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, nil, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, nil, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, True);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_Warning, op_TimeMachineOffAndReset, Warning_TimeMachineOffAndReset_Execute, Warning_TimeMachineOffAndReset_Test, nil);
+  ShowInContextMenu(en_Warning, op_TimeMachineOffAndReset, True);
+  ShowInToolbar(en_Warning, op_TimeMachineOffAndReset, True);
   PublishOp(en_Warning, op_ActualRedaction, Warning_ActualRedaction_Execute, Warning_ActualRedaction_Test, nil);
+  ShowInContextMenu(en_Warning, op_ActualRedaction, True);
+  ShowInToolbar(en_Warning, op_ActualRedaction, False);
   PublishOp(en_Warning, op_TimeMachineOff, Warning_TimeMachineOff_Execute, Warning_TimeMachineOff_Test, nil);
+  ShowInContextMenu(en_Warning, op_TimeMachineOff, True);
+  ShowInToolbar(en_Warning, op_TimeMachineOff, False);
  end;//with Entities.Entities
 end;//TPrimWarningOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

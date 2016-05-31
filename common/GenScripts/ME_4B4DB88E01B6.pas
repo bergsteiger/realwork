@@ -14,7 +14,6 @@
    f_IsPageActive: Boolean;
    f_SearchArea: TnsSearchArea;
    f_ContextSearcher: IbsBaseDocumentContextSearcher;
-    {* Поле для свойства ContextSearcher }
   private
    procedure RequestCheckFragmentsCount;
    procedure CheckFocusedInPaint(aSender: TObject;
@@ -899,7 +898,6 @@ begin
   PublishOp(en_Edit, op_SelectAll, Edit_SelectAll_Execute, Edit_SelectAll_Test, nil);
   PublishOp(en_Edit, op_Deselect, Edit_Deselect_Execute, Edit_Deselect_Test, nil);
   PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
-  PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
  end;//with Entities.Entities
 end;//_DocumentBaseSearcher_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

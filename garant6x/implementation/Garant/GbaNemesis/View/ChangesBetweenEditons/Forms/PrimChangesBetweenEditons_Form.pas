@@ -1,113 +1,76 @@
 unit PrimChangesBetweenEditons_Form;
+ {* Изменения в документе }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ChangesBetweenEditons/Forms/PrimChangesBetweenEditons_Form.pas"
-// Начат: 25.05.2011 14:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::View::ChangesBetweenEditons::PrimChangesBetweenEditons
-//
-// Изменения в документе
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimChangesBetweenEditons" MUID: (4DDCD636016C)
+// Имя типа: "TPrimChangesBetweenEditonsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevTools
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_Editions_Controls,
-  BaseSearchInterfaces,
-  l3StringIDEx,
-  ChangesBetweenEditionsInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  l3Variant,
-  eeInterfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  Base_Operations_View_Controls,
-  Search_Strange_Controls,
-  nevBase,
-  evCustomEditorWindow,
-  ExternalOperationUnit,
-  afwInterfaces,
-  nevGUIInterfaces,
-  afwNavigation,
-  nevNavigation,
-  NavigationInterfaces,
-  DocumentInterfaces,
-  bsTypesNew
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3Interfaces,
-  l3InternalInterfaces,
-  k2TagGen,
-  k2CustomFileGenerator,
-  l3BaseStream,
-  DocumentAndListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  ,
-  Base_Operations_F1Specific_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  Base_Operations_Strange_Controls,
-  Common_Strange_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearchInterfaces,
-  evdTypes,
-  PrimChangesBetweenEditons_DocumentChanges_UserType
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseSearchInterfaces
+ , Base_Operations_Editions_Controls
+ , ChangesBetweenEditionsInterfaces
+ , DocumentUnit
+ , nevTools
+ , l3Variant
+ , eeInterfaces
+ , evCustomEditorWindow
+ , bsTypesNew
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , NavigationInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_View_Controls
+ , Search_Strange_Controls
+ , nevBase
+ , ExternalOperationUnit
+ , DocumentInterfaces
+ , nevGUIInterfaces
+ , afwInterfaces
+ , nevNavigation
+ , afwNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_F1Specific_Controls
+ , DocumentAndListInterfaces
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3BaseStream
+ , nsTypesNew
+ , k2CustomFileGenerator
+ , k2TagGen
+ , nsTypes
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimBaseSearchInterfaces
+ , Common_Strange_Controls
+ , Base_Operations_Strange_Controls
+ , evdTypes
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _WorkWithRedactions_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
@@ -131,25 +94,18 @@ type
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas}
  _HyperlinkOperations_Parent_ = _EditionsListCaller_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
- TPrimChangesBetweenEditonsForm = {form} class(_HyperlinkOperations_, InsBaseSearchPresentation)
+ TPrimChangesBetweenEditonsForm = class(_HyperlinkOperations_, InsBaseSearchPresentation)
   {* Изменения в документе }
- private
- // private fields
-   ViewArea : IdsChangesBetweenEditions;
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   ViewArea: IdsChangesBetweenEditions;
+  private
    procedure MakeDocumentContainer(aSender: TObject;
-     var aMade: InevDocumentContainer);
+    var aMade: InevDocumentContainer);
    procedure TextSourceDocumentChanged(aSender: TObject;
-     anOldDocument: Tl3Tag;
-     aNewDocument: Tl3Tag);
- protected
- // realized methods
+    anOldDocument: Tl3Tag;
+    aNewDocument: Tl3Tag);
+  protected
+   function Document: IDocument;
    function WindowRequired: Boolean;
    function WindowCloseable: Boolean;
    function CanCloseWindow: Boolean;
@@ -157,204 +113,193 @@ type
    function TreatSuccessSearchAsManualOpen: Boolean;
    function AutoActivateWindow: Boolean;
    function DocumentIsValid: Boolean; override;
-     {* Есть ли документ, готовый к работе }
+    {* Есть ли документ, готовый к работе }
    function RedactionCurrentPara: IeeLeafPara; override;
-     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
+    {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); override;
-     {* Переход на точку в документе }
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
-     {* Документ ИЗ которого ведёт ссылка }
+    {* Документ ИЗ которого ведёт ссылка }
    function pm_GetHyperlinkText: TevCustomEditorWindow; override;
    function CanBeChanged: Boolean; override;
-     {* Может ли документ быть изменён }
+    {* Может ли документ быть изменён }
    function IsFloating: Boolean; override;
-     {* Форма плавающая }
+    {* Форма плавающая }
    function pm_GetTextWithComments: TevCustomEditorWindow; override;
    procedure FillList(const aList: InscStatusBarItemDefsList); override;
-     {* Заполняет список операций. Для перекрытия в потомках }
+    {* Заполняет список операций. Для перекрытия в потомках }
    function Get_ContainerForBaseSearch: TnsContainerForBaseSearchInfo;
    function Get_ContextSearcher: InsContextSearcher;
    function DocumentForExport: IDocument; override;
    function pm_GetHasDoc: Boolean; override;
    function IsDrug: Boolean; override;
-   function Document_SetPosition_Execute(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub;
-    aUserType: Integer = 0): Boolean;
-   procedure Document_SetPosition(const aParams: IvcmExecuteParams);
-   procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
-     {* Вернуться в текст документа }
-   procedure Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вернуться в текст документа }
    function DocumentForSearch: IDocument; override;
-   procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
-   function Document_GetParaForPositionning_Execute: IeeLeafPara;
-   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
    function Get_NeedSaveActiveClassBeforeSearch: Boolean;
    procedure OpenRedactionGlobalLink(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour); override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    function ContinueSearchInWholeBase: Boolean; override;
    function GetRedactionOnLeftEdition: Integer; override;
- protected
- // protected methods
-   function Document: IDocument;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   function Document_SetPosition_Execute(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+    aUserType: Integer = 0): Boolean;
+   procedure Document_SetPosition(const aParams: IvcmExecuteParams);
+   procedure Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
+    {* Вернуться в текст документа }
+   procedure Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вернуться в текст документа }
+   procedure Document_GetParaForPositionning_Test(const aParams: IvcmTestParamsPrim);
+   function Document_GetParaForPositionning_Execute: IeeLeafPara;
+   procedure Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
  end;//TPrimChangesBetweenEditonsForm
-
- TvcmEntityFormRef = TPrimChangesBetweenEditonsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDef
-  {$IfEnd} //Nemesis
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  UnderControlUnit
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  DataAdapter,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  k2Tags,
-  BitmapPara_Const,
-  nsConst,
-  afwFacade,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsHyperLinkProcessor,
-  deDocInfo,
-  nsOpenUtils,
-  nsTabbedContainerUtils
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsHyperlinkProcessorTypes
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDefsList
-  {$IfEnd} //Nemesis
-  ,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  evdBlockNameAdder,
-  nsDocumentTools,
-  Windows,
-  PresentationInterfaces,
-  nsExternalObjectPrim,
-  bsUtils,
-  l3Stream,
-  l3Types,
-  nsToMSWordOp,
-  l3String,
-  nsTrialSupport,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  Printers,
-  nsExportToFileEvent,
-  nsExportToWordEvent,
-  nsSendDocumentByEMailEvent,
-  nsDocumentPrintPreviewEvent,
-  nsBaseTextOperationsConst,
-  f1MultilinkResolver,
-  evTypes,
-  nsQuestions,
-  nsExternalObjectModelPart,
-  eeInterfacesEx
-  {$If defined(Nemesis)}
-  ,
-  eePara
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  eeParaTools
-  {$IfEnd} //Nemesis
-  ,
-  bsDocumentContextSearcher,
-  nsSearchInDocumentEvent,
-  BaseTypesUnit,
-  nsSearchInDocumentDoneEvent,
-  nsSearchInDocumentNextEvent,
-  nsSearchInDocumentPrevEvent,
-  nsSearchWindowManager
-  {$If defined(Nemesis)}
-  ,
-  f1TextStyle_Const
-  {$IfEnd} //Nemesis
-  ,
-  TextSegment_Const,
-  StyledLeafPara_Const
-  {$If defined(k2ForEditor)}
-  ,
-  evSegLst
-  {$IfEnd} //k2ForEditor
-  ,
-  evCustomEditor,
-  evEditorWithOperations
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDef
+ {$IfEnd} // Defined(Nemesis)
+ , UnderControlUnit
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsHyperLinkProcessor
+ , deDocInfo
+ , nsOpenUtils
+ , nsConst
+ , afwFacade
+ , nsTabbedContainerUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsHyperlinkProcessorTypes
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , nsTrialSupport
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Printers
+ , nsExportToFileEvent
+ , nsExportToWordEvent
+ , nsSendDocumentByEMailEvent
+ , nsDocumentPrintPreviewEvent
+ , nsBaseTextOperationsConst
+ , f1MultilinkResolver
+ , Windows
+ , evTypes
+ , Classes
+ , nsQuestions
+ , nsExternalObjectModelPart
+ , nsSaveDialogExecutor
+ , l3BatchService
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , evdBlockNameAdder
+ , nsDocumentTools
+ , PresentationInterfaces
+ , nsExternalObjectPrim
+ , bsUtils
+ , l3Stream
+ , l3Types
+ , nsToMSWordOp
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsDocumentContextSearcher
+ , nsSearchInDocumentEvent
+ , BaseTypesUnit
+ , nsSearchInDocumentDoneEvent
+ , nsSearchInDocumentNextEvent
+ , nsSearchInDocumentPrevEvent
+ , nsSearchWindowManager
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , TextSegment_Const
+ , StyledLeafPara_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
+ , evCustomEditor
+ , evEditorWithOperations
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimChangesBetweenEditons_DocumentChanges_UserType
+ //#UC START# *4DDCD636016Cimpl_uses*
+ //#UC END# *4DDCD636016Cimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Local }
+ str_CompareRedactionOperationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CompareRedactionOperationCaption'; rValue : 'Сравнить полные тексты редакций');
+  {* 'Сравнить полные тексты редакций' }
+ str_ReturnToDocumentOperationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ReturnToDocumentOperationCaption'; rValue : 'Вернуться в текст документа');
+  {* 'Вернуться в текст документа' }
 
 type _Instance_R_ = TPrimChangesBetweenEditonsForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
-
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
-
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
-
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
 
@@ -364,22 +309,8 @@ type _Instance_R_ = TPrimChangesBetweenEditonsForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
-var
-   { Локализуемые строки DocumentChangesLocalConstants }
-  str_DocumentChangesCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentChangesCaption'; rValue : 'Изменения в документе');
-   { Заголовок пользовательского типа "Изменения в документе" }
-
-var
-   { Локализуемые строки Local }
-  str_CompareRedactionOperationCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CompareRedactionOperationCaption'; rValue : 'Сравнить полные тексты редакций');
-   { 'Сравнить полные тексты редакций' }
-  str_ReturnToDocumentOperationCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ReturnToDocumentOperationCaption'; rValue : 'Вернуться в текст документа');
-   { 'Вернуться в текст документа' }
-
-// start class TPrimChangesBetweenEditonsForm
-
 procedure TPrimChangesBetweenEditonsForm.MakeDocumentContainer(aSender: TObject;
-  var aMade: InevDocumentContainer);
+ var aMade: InevDocumentContainer);
 //#UC START# *4DDD07AA02FD_4DDCD636016C_var*
 //#UC END# *4DDD07AA02FD_4DDCD636016C_var*
 begin
@@ -387,17 +318,6 @@ begin
  aMade := ViewArea.DocumentContainer;
 //#UC END# *4DDD07AA02FD_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.MakeDocumentContainer
-
-procedure TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged(aSender: TObject;
-  anOldDocument: Tl3Tag;
-  aNewDocument: Tl3Tag);
-//#UC START# *5228246A01D9_4DDCD636016C_var*
-//#UC END# *5228246A01D9_4DDCD636016C_var*
-begin
-//#UC START# *5228246A01D9_4DDCD636016C_impl*
- TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
-//#UC END# *5228246A01D9_4DDCD636016C_impl*
-end;//TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged
 
 function TPrimChangesBetweenEditonsForm.Document: IDocument;
 //#UC START# *4E8B2F9B02AF_4DDCD636016C_var*
@@ -407,6 +327,17 @@ begin
  Result := ViewArea.RightEdition;
 //#UC END# *4E8B2F9B02AF_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.Document
+
+procedure TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged(aSender: TObject;
+ anOldDocument: Tl3Tag;
+ aNewDocument: Tl3Tag);
+//#UC START# *5228246A01D9_4DDCD636016C_var*
+//#UC END# *5228246A01D9_4DDCD636016C_var*
+begin
+//#UC START# *5228246A01D9_4DDCD636016C_impl*
+ TdmStdRes.CheckBaseSearchDataReady(NativeMainForm);
+//#UC END# *5228246A01D9_4DDCD636016C_impl*
+end;//TPrimChangesBetweenEditonsForm.TextSourceDocumentChanged
 
 function TPrimChangesBetweenEditonsForm.WindowRequired: Boolean;
 //#UC START# *496B4C41023E_4DDCD636016C_var*
@@ -463,6 +394,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.AutoActivateWindow
 
 function TPrimChangesBetweenEditonsForm.DocumentIsValid: Boolean;
+ {* Есть ли документ, готовый к работе }
 //#UC START# *4A7C0E1A005C_4DDCD636016C_var*
 //#UC END# *4A7C0E1A005C_4DDCD636016C_var*
 begin
@@ -472,6 +404,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.DocumentIsValid
 
 function TPrimChangesBetweenEditonsForm.RedactionCurrentPara: IeeLeafPara;
+ {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
 //#UC START# *4A7FCEA9025D_4DDCD636016C_var*
 //#UC END# *4A7FCEA9025D_4DDCD636016C_var*
 begin
@@ -481,7 +414,8 @@ begin
 end;//TPrimChangesBetweenEditonsForm.RedactionCurrentPara
 
 procedure TPrimChangesBetweenEditonsForm.GotoPoint(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4DDCD636016C_var*
 var
  l_Sub : IevSub;
@@ -503,6 +437,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.GotoPoint
 
 function TPrimChangesBetweenEditonsForm.HyperlinkDocument: IDocument;
+ {* Документ ИЗ которого ведёт ссылка }
 //#UC START# *4A8168BB0217_4DDCD636016C_var*
 //#UC END# *4A8168BB0217_4DDCD636016C_var*
 begin
@@ -521,6 +456,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.pm_GetHyperlinkText
 
 function TPrimChangesBetweenEditonsForm.CanBeChanged: Boolean;
+ {* Может ли документ быть изменён }
 //#UC START# *4A8931130363_4DDCD636016C_var*
 //#UC END# *4A8931130363_4DDCD636016C_var*
 begin
@@ -530,6 +466,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.CanBeChanged
 
 function TPrimChangesBetweenEditonsForm.IsFloating: Boolean;
+ {* Форма плавающая }
 //#UC START# *4A8A9DB0001A_4DDCD636016C_var*
 //#UC END# *4A8A9DB0001A_4DDCD636016C_var*
 begin
@@ -548,6 +485,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.pm_GetTextWithComments
 
 procedure TPrimChangesBetweenEditonsForm.FillList(const aList: InscStatusBarItemDefsList);
+ {* Заполняет список операций. Для перекрытия в потомках }
 //#UC START# *4A8E5E4702C6_4DDCD636016C_var*
 //#UC END# *4A8E5E4702C6_4DDCD636016C_var*
 begin
@@ -608,8 +546,8 @@ begin
 end;//TPrimChangesBetweenEditonsForm.IsDrug
 
 function TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub;
-  aUserType: Integer = 0): Boolean;
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aUserType: Integer = 0): Boolean;
 //#UC START# *4AE9D38A02DA_4DDCD636016Cexec_var*
 //#UC END# *4AE9D38A02DA_4DDCD636016Cexec_var*
 begin
@@ -622,10 +560,11 @@ end;//TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute
 procedure TPrimChangesBetweenEditonsForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_SetPosition_Params) do
-  ResultValue := Document_SetPosition_Execute(PointID, PointType, UserType);
-end;
+  ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
+end;//TPrimChangesBetweenEditonsForm.Document_SetPosition
 
 procedure TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Test(const aParams: IvcmTestParamsPrim);
+ {* Вернуться в текст документа }
 //#UC START# *4B1E37CE00C1_4DDCD636016Ctest_var*
 //#UC END# *4B1E37CE00C1_4DDCD636016Ctest_var*
 begin
@@ -635,6 +574,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Test
 
 procedure TPrimChangesBetweenEditonsForm.Edition_ReturnToDocument_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вернуться в текст документа }
 //#UC START# *4B1E37CE00C1_4DDCD636016Cexec_var*
 //#UC END# *4B1E37CE00C1_4DDCD636016Cexec_var*
 begin
@@ -675,8 +615,8 @@ end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Execute
 procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IDocument_GetParaForPositionning_Params) do
-  ResultValue := Document_GetParaForPositionning_Execute;
-end;
+  ResultValue := Self.Document_GetParaForPositionning_Execute;
+end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning
 
 function TPrimChangesBetweenEditonsForm.Get_NeedSaveActiveClassBeforeSearch: Boolean;
 //#UC START# *4F1D607E0027_4DDCD636016Cget_var*
@@ -689,8 +629,8 @@ begin
 end;//TPrimChangesBetweenEditonsForm.Get_NeedSaveActiveClassBeforeSearch
 
 procedure TPrimChangesBetweenEditonsForm.OpenRedactionGlobalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *53A303BE03A8_4DDCD636016C_var*
 //#UC END# *53A303BE03A8_4DDCD636016C_var*
 begin
@@ -699,8 +639,8 @@ begin
 //#UC END# *53A303BE03A8_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.OpenRedactionGlobalLink
 
-{$If not defined(NoVCM)}
 procedure TPrimChangesBetweenEditonsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4DDCD636016C_var*
 //#UC END# *4A8E8F2E0195_4DDCD636016C_var*
 begin
@@ -733,7 +673,6 @@ begin
  end;//with Text
 //#UC END# *4A8E8F2E0195_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.InitControls
-{$IfEnd} //not NoVCM
 
 function TPrimChangesBetweenEditonsForm.ContinueSearchInWholeBase: Boolean;
 //#UC START# *4B4EF0D2016A_4DDCD636016C_var*
@@ -764,21 +703,23 @@ begin
 //#UC END# *4F2BEF740060_4DDCD636016C_impl*
 end;//TPrimChangesBetweenEditonsForm.GetRedactionOnLeftEdition
 
-procedure TPrimChangesBetweenEditonsForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimChangesBetweenEditonsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsChangesBetweenEditions, ViewArea);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsChangesBetweenEditions, ViewArea);
+ end;//aNew = nil
+end;//TPrimChangesBetweenEditonsForm.SignalDataSourceChanged
 
 procedure TPrimChangesBetweenEditonsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -788,18 +729,11 @@ begin
   ContextMenuWeight(en_HyperLink, -5);
   PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
   PublishOp(en_Edition, op_ReturnToDocument, Edition_ReturnToDocument_Execute, Edition_ReturnToDocument_Test, nil);
-  PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_Print, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintDialog, true);
-  {$IfEnd} //not NoVCM
-
+  PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
  end;//with Entities.Entities
-end;
+end;//TPrimChangesBetweenEditonsForm.InitEntities
 
 procedure TPrimChangesBetweenEditonsForm.MakeControls;
 begin
@@ -807,7 +741,7 @@ begin
  with AddUsertype(DocumentChangesName,
   str_DocumentChangesCaption,
   str_DocumentChangesCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -817,26 +751,18 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(DocumentChangesName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimChangesBetweenEditonsForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_DocumentChangesCaption
- str_DocumentChangesCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_CompareRedactionOperationCaption
  str_CompareRedactionOperationCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ReturnToDocumentOperationCaption
+ {* Инициализация str_CompareRedactionOperationCaption }
  str_ReturnToDocumentOperationCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimChangesBetweenEditons
+ {* Инициализация str_ReturnToDocumentOperationCaption }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimChangesBetweenEditonsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimChangesBetweenEditons }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

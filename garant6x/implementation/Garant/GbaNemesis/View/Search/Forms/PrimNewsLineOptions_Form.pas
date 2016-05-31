@@ -1,84 +1,69 @@
 unit PrimNewsLineOptions_Form;
+ {* ПРАЙМ. Моя новостная лента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimNewsLineOptions_Form.pas"
-// Начат: 08.09.2010 20:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::Autoreferat::View::Search::PrimNewsLineOptions
-//
-// ПРАЙМ. Моя новостная лента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLineOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimNewsLineOptions" MUID: (4C87BB9C0143)
+// Имя типа: "TPrimNewsLineOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimNewsLine_Form,
-  Autoreferat_InternalOperations_Controls,
-  PrimNewsLine_nltMain_UserType
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimNewsLine_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Autoreferat_InternalOperations_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimNewsLineOptionsForm = {form} class(TPrimNewsLineForm)
+ TPrimNewsLineOptionsForm = class(TPrimNewsLineForm)
   {* ПРАЙМ. Моя новостная лента }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure NewsThemes_SelectCurrent_Test(const aParams: IvcmTestParamsPrim);
    procedure NewsThemes_SelectCurrent_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DateInterval_Open_Test(const aParams: IvcmTestParamsPrim);
    procedure DateInterval_Open_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimNewsLineOptionsForm
-
- TvcmEntityFormRef = TPrimNewsLineOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  nsNewsLine,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimNewsLineOptionsForm
+ l3ImplUses
+ , PrimNewsLine_nltMain_UserType
+ , l3String
+ , nsNewsLine
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87BB9C0143impl_uses*
+ //#UC END# *4C87BB9C0143impl_uses*
+;
 
 procedure TPrimNewsLineOptionsForm.NewsThemes_SelectCurrent_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C87BBFF0313_4C87BB9C0143test_var*
@@ -160,7 +145,10 @@ begin
 //#UC END# *4C87BC6502B9_4C87BB9C0143exec_impl*
 end;//TPrimNewsLineOptionsForm.DateInterval_Open_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimNewsLineOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -170,36 +158,26 @@ begin
   PublishFormEntity(en_DateInterval, nil);
   ContextMenuWeight(en_DateInterval, 1);
   ContextMenuWeight(en_Tree, 10);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, nil, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_NewsThemes, op_SelectCurrent, NewsThemes_SelectCurrent_Execute, NewsThemes_SelectCurrent_Test, nil);
-  ShowInContextMenu(en_NewsThemes, op_SelectCurrent, false);
-  ShowInToolbar(en_NewsThemes, op_SelectCurrent, true);
+  ShowInContextMenu(en_NewsThemes, op_SelectCurrent, False);
+  ShowInToolbar(en_NewsThemes, op_SelectCurrent, True);
   PublishOp(en_DateInterval, op_Open, DateInterval_Open_Execute, DateInterval_Open_Test, nil);
-  ShowInContextMenu(en_DateInterval, op_Open, true);
-  ShowInToolbar(en_DateInterval, op_Open, false);
+  ShowInContextMenu(en_DateInterval, op_Open, True);
+  ShowInToolbar(en_DateInterval, op_Open, False);
   ContextMenuWeight(en_DateInterval, op_Open, 1);
  end;//with Entities.Entities
- {$If not defined(NoVCM)}
- AddUserTypeExclude(nltMainName, en_Tree, op_ExpandAll, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(nltMainName, en_Tree, op_CollapseAll, false);
- {$IfEnd} //not NoVCM
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ AddUserTypeExclude(nltMainName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(nltMainName, en_Tree, op_CollapseAll, False);
+end;//TPrimNewsLineOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimNewsLineOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNewsLineOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimNewsLineOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

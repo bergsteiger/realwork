@@ -14,10 +14,6 @@ interface
 uses
  l3IntfUses
  , PrimTextLoad_Form
- , evCustomTextSource
- , evCustomEditor
- , vcmInterfaces
- , vcmEntities
  {$If Defined(Nemesis)}
  , nscTreeComboWithHistoryAndOperations
  {$IfEnd} // Defined(Nemesis)
@@ -25,6 +21,10 @@ uses
  {$If Defined(Nemesis)}
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
+ , evCustomTextSource
+ , evCustomEditor
+ , vcmInterfaces
+ , vcmEntities
 ;
 
 const
@@ -67,14 +67,12 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -83,11 +81,6 @@ uses
  , F1LikeFormWithBSKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_F1LikeFormWithBSLocalConstants }
- str_ut_F1LikeFormWithBSCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_F1LikeFormWithBSCaption'; rValue : 'Форма с текстовым редактором с базовым поиском.');
-  {* Заголовок пользовательского типа "Форма с текстовым редактором с базовым поиском." }
 
 {$R *.DFM}
 
@@ -151,8 +144,6 @@ begin
 end;//TF1LikeFormWithBSForm.MakeControls
 
 initialization
- str_ut_F1LikeFormWithBSCaption.Init;
- {* Инициализация str_ut_F1LikeFormWithBSCaption }
  fm_F1LikeFormWithBSForm.SetFactory(TF1LikeFormWithBSForm.Make);
  {* Регистрация фабрики формы F1LikeFormWithBS }
 {$If NOT Defined(NoScripts)}

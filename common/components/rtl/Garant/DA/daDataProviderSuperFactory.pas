@@ -15,10 +15,10 @@ uses
  , daDataProviderFactoryList
  , daInterfaces
  , daDataProviderParams
+ , daTypes
  , Classes
  , l3Variant
  , ddAppConfig
- , daTypes
 ;
 
 type

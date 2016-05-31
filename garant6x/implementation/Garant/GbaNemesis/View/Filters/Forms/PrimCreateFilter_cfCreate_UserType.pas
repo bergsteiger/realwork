@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cfCreateLocalConstants }
+ str_cfCreateCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfCreateCaption'; rValue : 'Создать фильтр');
+  {* Заголовок пользовательского типа "Создать фильтр" }
  {* Константы для типа формы cfCreate }
  cfCreateName = 'cfCreate';
   {* Строковый идентификатор пользовательского типа "Создать фильтр" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_cfCreate.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cfCreateCaption.Init;
+ {* Инициализация str_cfCreateCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cfCreate.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cfCreate }

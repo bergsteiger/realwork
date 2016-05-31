@@ -442,6 +442,18 @@ procedure _CommonForTextAndFlash_.SignalDataSourceChanged(const anOld: IvcmFormD
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  sdsDocInfo := nil;
+  dsDocument := nil;
+  DocumentSet := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IsdsDocInfo, sdsDocInfo);
+  Supports(aNew, IdsDocument, dsDocument);
+  aNew.CastUCC(IsdsDocument, DocumentSet);
+ end;//aNew = nil
 end;//_CommonForTextAndFlash_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -458,9 +470,6 @@ begin
   PublishOp(en_Document, op_UserCR1, nil, Document_UserCR1_Test, Document_UserCR1_GetState);
   PublishOp(en_Document, op_UserCR2, nil, Document_UserCR2_Test, Document_UserCR2_GetState);
   PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
-  PublishOp(en_Document, op_AddToControl, Document_AddToControl_Execute, Document_AddToControl_Test, Document_AddToControl_GetState);
-  PublishOp(en_Document, op_UserCR1, Document_UserCR1_Execute, Document_UserCR1_Test, Document_UserCR1_GetState);
-  PublishOp(en_Document, op_UserCR2, Document_UserCR2_Execute, Document_UserCR2_Test, Document_UserCR2_GetState);
  end;//with Entities.Entities
 end;//_CommonForTextAndFlash_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

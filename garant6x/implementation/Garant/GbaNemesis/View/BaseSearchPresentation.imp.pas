@@ -1,62 +1,47 @@
 {$IfNDef BaseSearchPresentation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearchPresentation.imp.pas"
-// Начат: 14.10.2009 18:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::BaseSearchPresentation
-//
-// Реализация представление к которому привязан базовый поиск. Используется для инкапсуляции
-// подписки/отписки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "BaseSearchPresentation" MUID: (4AD5E6A60262)
+// Имя типа: "_BaseSearchPresentation_"
 
 {$Define BaseSearchPresentation_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _BaseSearchPresentation_ = {abstract form} class(_BaseSearchPresentation_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _BaseSearchPresentation_ = {abstract} class(_BaseSearchPresentation_Parent_)
   {* Реализация представление к которому привязан базовый поиск. Используется для инкапсуляции подписки/отписки }
- private
- // private fields
-   f_BaseSearcher : InsBaseSearcher;
- public
- // realized methods
+  private
+   f_BaseSearcher: InsBaseSearcher;
+  protected
+   procedure ForceUpdateClassForHistory;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeActive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function FormCloseWasRequested: Boolean;
-     {* Окно уже попросили закрыться
+    {* Окно уже попросили закрыться
 http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655
 Скорее всего его нельзя запоминать в историю. Точнее не егго а форму БП, которая на него смотрит }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure BecomeActive; override;
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure ForceUpdateClassForHistory;
  end;//_BaseSearchPresentation_
-{$Else}
 
- _BaseSearchPresentation_ = _BaseSearchPresentation_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_BaseSearchPresentation_ = _BaseSearchPresentation_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else BaseSearchPresentation_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef BaseSearchPresentation_imp_impl}
 
-// start class _BaseSearchPresentation_
+{$Define BaseSearchPresentation_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _BaseSearchPresentation_.ForceUpdateClassForHistory;
 //#UC START# *5437B84A0305_4AD5E6A60262_var*
 //#UC END# *5437B84A0305_4AD5E6A60262_var*
@@ -67,6 +52,9 @@ begin
 end;//_BaseSearchPresentation_.ForceUpdateClassForHistory
 
 function _BaseSearchPresentation_.FormCloseWasRequested: Boolean;
+ {* Окно уже попросили закрыться
+http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330698655#comment-330698655
+Скорее всего его нельзя запоминать в историю. Точнее не егго а форму БП, которая на него смотрит }
 //#UC START# *4F22C2D00369_4AD5E6A60262_var*
 //#UC END# *4F22C2D00369_4AD5E6A60262_var*
 begin
@@ -76,6 +64,7 @@ begin
 end;//_BaseSearchPresentation_.FormCloseWasRequested
 
 procedure _BaseSearchPresentation_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AD5E6A60262_var*
 //#UC END# *479731C50290_4AD5E6A60262_var*
 begin
@@ -87,8 +76,9 @@ begin
 //#UC END# *479731C50290_4AD5E6A60262_impl*
 end;//_BaseSearchPresentation_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseSearchPresentation_.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AD5E6A60262_var*
 var
  l_NMF: IvcmContainer;
@@ -113,9 +103,9 @@ begin
  end;//f_BaseSearcher <> nil
 //#UC END# *49803F5503AA_4AD5E6A60262_impl*
 end;//_BaseSearchPresentation_.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BaseSearchPresentation_.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4AD5E6A60262_var*
 //#UC END# *4A8AE0FA03B2_4AD5E6A60262_var*
@@ -129,8 +119,10 @@ begin
  end;//f_BaseSearcher <> nil
 //#UC END# *4A8AE0FA03B2_4AD5E6A60262_impl*
 end;//_BaseSearchPresentation_.BecomeActive
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf BaseSearchPresentation_imp_impl}
 
 {$EndIf BaseSearchPresentation_imp}
+

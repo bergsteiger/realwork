@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftMedicFirmSynchroViewLocalConstants }
+ str_dftMedicFirmSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftMedicFirmSynchroViewCaption'; rValue : 'Описание фирмы (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Описание фирмы (синхронный просмотр)" }
+ str_dftMedicFirmSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftMedicFirmSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Описание фирмы');
+  {* Заголовок пользовательского типа "Описание фирмы (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dftMedicFirmSynchroView }
  dftMedicFirmSynchroViewName = 'dftMedicFirmSynchroView';
   {* Строковый идентификатор пользовательского типа "Описание фирмы (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftMedicFirmSynchroViewCaption.Init;
+ {* Инициализация str_dftMedicFirmSynchroViewCaption }
+ str_dftMedicFirmSynchroViewSettingsCaption.Init;
+ {* Инициализация str_dftMedicFirmSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftMedicFirmSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftMedicFirmSynchroView }

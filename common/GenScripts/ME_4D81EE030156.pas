@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки slqtMedicDictionLocalConstants }
+ str_slqtMedicDictionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
+  {* Заголовок пользовательского типа "Словарь медицинских терминов" }
  {* Константы для типа формы slqtMedicDiction }
  slqtMedicDictionName = 'slqtMedicDiction';
   {* Строковый идентификатор пользовательского типа "Словарь медицинских терминов" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_slqtMedicDiction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_slqtMedicDictionCaption.Init;
+ {* Инициализация str_slqtMedicDictionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_slqtMedicDiction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_slqtMedicDiction }

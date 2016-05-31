@@ -30,11 +30,13 @@ type
     {* Функция очистки полей объекта. }
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
   public
-   constructor Create(const aDataConverter: IhtDataConverter;
+   constructor Create(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IhtDataConverter;
     const aHelper: IhtDataSchemeHelper;
     const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''); reintroduce;
-   class function Make(const aDataConverter: IhtDataConverter;
+   class function Make(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IhtDataConverter;
     const aHelper: IhtDataSchemeHelper;
     const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
@@ -57,7 +59,8 @@ uses
  , SysUtils
 ;
 
-constructor ThtTabledQuery.Create(const aDataConverter: IhtDataConverter;
+constructor ThtTabledQuery.Create(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IhtDataConverter;
  const aHelper: IhtDataSchemeHelper;
  const aTable: IdaTableDescription;
  const anAlias: AnsiString = '');
@@ -70,14 +73,15 @@ begin
 //#UC END# *5551AB780328_5551AB1602F4_impl*
 end;//ThtTabledQuery.Create
 
-class function ThtTabledQuery.Make(const aDataConverter: IhtDataConverter;
+class function ThtTabledQuery.Make(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IhtDataConverter;
  const aHelper: IhtDataSchemeHelper;
  const aTable: IdaTableDescription;
  const anAlias: AnsiString = ''): IdaTabledQuery;
 var
  l_Inst : ThtTabledQuery;
 begin
- l_Inst := Create(aDataConverter, aHelper, aTable, anAlias);
+ l_Inst := Create(aFactory, aDataConverter, aHelper, aTable, anAlias);
  try
   Result := l_Inst;
  finally

@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_FromWithPanelLocalConstants }
+ str_ut_FromWithPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_FromWithPanelCaption'; rValue : 'FromWithPanel');
+  {* Заголовок пользовательского типа "FromWithPanel" }
  {* Константы для типа формы ut_FromWithPanel }
  ut_FromWithPanelName = 'ut_FromWithPanel';
   {* Строковый идентификатор пользовательского типа "FromWithPanel" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_FromWithPanelCaption.Init;
+ {* Инициализация str_ut_FromWithPanelCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_FromWithPanel.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_FromWithPanel }

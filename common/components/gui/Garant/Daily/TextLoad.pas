@@ -44,6 +44,7 @@ uses
  , k2TagGen
  , l3Variant
  , TestFrameWork
+ , TextLoad_ut_TextLoad_UserType
  , vcmBase
  {$If NOT Defined(NoVCL)}
  , Forms

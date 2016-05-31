@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftDrugInternationalNameSynonymsLocalConstants }
+ str_lftDrugInternationalNameSynonymsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftDrugInternationalNameSynonymsCaption'; rValue : 'Синонимы по международному названию');
+  {* Заголовок пользовательского типа "Синонимы по международному названию" }
  {* Константы для типа формы lftDrugInternationalNameSynonyms }
  lftDrugInternationalNameSynonymsName = 'lftDrugInternationalNameSynonyms';
   {* Строковый идентификатор пользовательского типа "Синонимы по международному названию" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftDrugInternationalNameSynonymsCaption.Init;
+ {* Инициализация str_lftDrugInternationalNameSynonymsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftDrugInternationalNameSynonyms.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftDrugInternationalNameSynonyms }

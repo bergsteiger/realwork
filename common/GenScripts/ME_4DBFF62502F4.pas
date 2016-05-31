@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки TrialModeWarningLocalConstants }
+ str_TrialModeWarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'TrialModeWarningCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы TrialModeWarning }
  TrialModeWarningName = 'TrialModeWarning';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_TrialModeWarningCaption.Init;
+ {* Инициализация str_TrialModeWarningCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_TrialModeWarning.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_TrialModeWarning }

@@ -38,8 +38,6 @@ implementation
 {$If Defined(Monitorings) AND NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -59,14 +57,9 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimMonitoringsMain_utEmptyMainWindow_UserType
+ //#UC START# *4AA919040176impl_uses*
+ //#UC END# *4AA919040176impl_uses*
 ;
-
-const
- {* Локализуемые строки utEmptyMainWindowLocalConstants }
- str_utEmptyMainWindowCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowCaption'; rValue : 'Главное окно');
-  {* Заголовок пользовательского типа "Главное окно" }
- str_utEmptyMainWindowSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowSettingsCaption'; rValue : 'Главная панель инструментов');
-  {* Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов }
 
 type _Instance_R_ = TPrimMonitoringsMainForm;
 
@@ -92,7 +85,7 @@ begin
  with AddUsertype(utEmptyMainWindowName,
   str_utEmptyMainWindowCaption,
   str_utEmptyMainWindowSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -106,10 +99,6 @@ end;//TPrimMonitoringsMainForm.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_utEmptyMainWindowCaption.Init;
- {* Инициализация str_utEmptyMainWindowCaption }
- str_utEmptyMainWindowSettingsCaption.Init;
- {* Инициализация str_utEmptyMainWindowSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMonitoringsMainForm);
  {* Регистрация PrimMonitoringsMain }

@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftRelatedSynchroViewLocalConstants }
+ str_dftRelatedSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftRelatedSynchroViewCaption'; rValue : 'Справка к документу (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Справка к документу (синхронный просмотр)" }
+ str_dftRelatedSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftRelatedSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Справка к документу');
+  {* Заголовок пользовательского типа "Справка к документу (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dftRelatedSynchroView }
  dftRelatedSynchroViewName = 'dftRelatedSynchroView';
   {* Строковый идентификатор пользовательского типа "Справка к документу (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftRelatedSynchroViewCaption.Init;
+ {* Инициализация str_dftRelatedSynchroViewCaption }
+ str_dftRelatedSynchroViewSettingsCaption.Init;
+ {* Инициализация str_dftRelatedSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftRelatedSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftRelatedSynchroView }

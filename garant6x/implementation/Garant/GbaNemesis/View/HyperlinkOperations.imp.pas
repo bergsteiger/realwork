@@ -1,24 +1,26 @@
 {$IfNDef HyperlinkOperations_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/HyperlinkOperations.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Navigation::HyperlinkOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkOperations" MUID: (4F1044DD0281)
+// Имя типа: "_HyperlinkOperations_"
 
 {$Define HyperlinkOperations_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _HyperlinkOperations_ = {abstract form} class(_HyperlinkOperations_Parent_)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _HyperlinkOperations_ = {abstract} class(_HyperlinkOperations_Parent_)
+  protected
+   procedure OpenHyperLink; virtual;
+    {* Открывает текущую ссылку на которой стоит выделение }
+   procedure AfterOpenHyperlinkInNewTab; virtual;
+   function IsHyperlinkOfType(aLinkType: Integer): Boolean;
+   function IsHyperlinkOfKind(aLinkKind: TevLinkViewKind): Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure HyperLink_Delete_Test(const aParams: IvcmTestParamsPrim);
    procedure HyperLink_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure HyperLink_Open_Test(const aParams: IvcmTestParamsPrim);
@@ -32,31 +34,25 @@
    procedure HyperLink_OpenScriptHyperLink_Test(const aParams: IvcmTestParamsPrim);
    procedure HyperLink_OpenScriptHyperLink_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure HyperLink_NavigateInternetHyperlink_Test(const aParams: IvcmTestParamsPrim);
-     {* Перейти по гиперссылке }
+    {* Перейти по гиперссылке }
    procedure HyperLink_NavigateInternetHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Перейти по гиперссылке }
- protected
- // protected methods
-   procedure OpenHyperLink; virtual;
-     {* Открывает текущую ссылку на которой стоит выделение }
-   procedure AfterOpenHyperlinkInNewTab; virtual;
-     {* Сигнатура метода AfterOpenHyperlinkInNewTab }
-   function IsHyperlinkOfType(aLinkType: Integer): Boolean;
-   function IsHyperlinkOfKind(aLinkKind: TevLinkViewKind): Boolean;
+    {* Перейти по гиперссылке }
  end;//_HyperlinkOperations_
-{$Else}
 
- _HyperlinkOperations_ = _HyperlinkOperations_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_HyperlinkOperations_ = _HyperlinkOperations_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else HyperlinkOperations_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef HyperlinkOperations_imp_impl}
 
-// start class _HyperlinkOperations_
+{$Define HyperlinkOperations_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _HyperlinkOperations_.OpenHyperLink;
+ {* Открывает текущую ссылку на которой стоит выделение }
 //#UC START# *502D447F03D5_4F1044DD0281_var*
 var
  l_HyperLink: IevHyperLink;
@@ -295,6 +291,7 @@ begin
 end;//_HyperlinkOperations_.HyperLink_OpenScriptHyperLink_Execute
 
 procedure _HyperlinkOperations_.HyperLink_NavigateInternetHyperlink_Test(const aParams: IvcmTestParamsPrim);
+ {* Перейти по гиперссылке }
 //#UC START# *5460A4DD0349_4F1044DD0281test_var*
 //#UC END# *5460A4DD0349_4F1044DD0281test_var*
 begin
@@ -304,6 +301,7 @@ begin
 end;//_HyperlinkOperations_.HyperLink_NavigateInternetHyperlink_Test
 
 procedure _HyperlinkOperations_.HyperLink_NavigateInternetHyperlink_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Перейти по гиперссылке }
 //#UC START# *5460A4DD0349_4F1044DD0281exec_var*
 //#UC END# *5460A4DD0349_4F1044DD0281exec_var*
 begin
@@ -312,33 +310,39 @@ begin
 //#UC END# *5460A4DD0349_4F1044DD0281exec_impl*
 end;//_HyperlinkOperations_.HyperLink_NavigateInternetHyperlink_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure _HyperlinkOperations_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_HyperLink, nil);
   PublishOp(en_HyperLink, op_Delete, HyperLink_Delete_Execute, HyperLink_Delete_Test, nil, true);
-  ShowInToolbar(en_HyperLink, op_Delete, false, true);
+  ShowInToolbar(en_HyperLink, op_Delete, False, true);
   PublishOp(en_HyperLink, op_Open, HyperLink_Open_Execute, HyperLink_Open_Test, nil);
-  ShowInContextMenu(en_HyperLink, op_Open, false);
-  ShowInToolbar(en_HyperLink, op_Open, false);
+  ShowInContextMenu(en_HyperLink, op_Open, False);
+  ShowInToolbar(en_HyperLink, op_Open, False);
   PublishOp(en_HyperLink, op_OpenNewWindow, HyperLink_OpenNewWindow_Execute, HyperLink_OpenNewWindow_Test, nil);
-  ShowInContextMenu(en_HyperLink, op_OpenNewWindow, true);
-  ShowInToolbar(en_HyperLink, op_OpenNewWindow, false);
+  ShowInContextMenu(en_HyperLink, op_OpenNewWindow, True);
+  ShowInToolbar(en_HyperLink, op_OpenNewWindow, False);
   ContextMenuWeight(en_HyperLink, op_OpenNewWindow, 5);
   PublishOp(en_HyperLink, op_NextHyperLink, HyperLink_NextHyperLink_Execute, nil, nil);
   PublishOp(en_HyperLink, op_PrevHyperLink, HyperLink_PrevHyperLink_Execute, nil, nil);
   PublishOp(en_HyperLink, op_OpenInNewTab, HyperLink_OpenInNewTab_Execute, HyperLink_OpenInNewTab_Test, nil);
-  ShowInContextMenu(en_HyperLink, op_OpenInNewTab, true);
+  ShowInContextMenu(en_HyperLink, op_OpenInNewTab, True);
   ContextMenuWeight(en_HyperLink, op_OpenInNewTab, 0);
   PublishOp(en_HyperLink, op_OpenScriptHyperLink, HyperLink_OpenScriptHyperLink_Execute, HyperLink_OpenScriptHyperLink_Test, nil);
-  ShowInContextMenu(en_HyperLink, op_OpenScriptHyperLink, true);
+  ShowInContextMenu(en_HyperLink, op_OpenScriptHyperLink, True);
   ContextMenuWeight(en_HyperLink, op_OpenScriptHyperLink, 0);
   PublishOp(en_HyperLink, op_NavigateInternetHyperlink, HyperLink_NavigateInternetHyperlink_Execute, HyperLink_NavigateInternetHyperlink_Test, nil);
  end;//with Entities.Entities
-end;
+end;//_HyperlinkOperations_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf HyperlinkOperations_imp_impl}
 
 {$EndIf HyperlinkOperations_imp}
+

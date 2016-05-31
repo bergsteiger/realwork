@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftAACRightLocalConstants }
+ str_dftAACRightCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAACRightCaption'; rValue : 'Правая часть Энциклопедии решений');
+  {* Заголовок пользовательского типа "Правая часть Энциклопедии решений" }
+ str_dftAACRightSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAACRightSettingsCaption'; rValue : 'Правая часть Энциклопедии решений');
+  {* Заголовок пользовательского типа "Правая часть Энциклопедии решений" для настройки панелей инструментов }
  {* Константы для типа формы dftAACRight }
  dftAACRightName = 'dftAACRight';
   {* Строковый идентификатор пользовательского типа "Правая часть Энциклопедии решений" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftAACRight.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftAACRightCaption.Init;
+ {* Инициализация str_dftAACRightCaption }
+ str_dftAACRightSettingsCaption.Init;
+ {* Инициализация str_dftAACRightSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAACRight.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftAACRight }

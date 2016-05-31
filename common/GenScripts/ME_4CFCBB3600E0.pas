@@ -62,41 +62,23 @@ type
    f_Themes: TvgRadioButtonArray;
     {* Темы }
    f_FindBtn: TvgPathButton;
-    {* Поле для свойства FindBtn }
    f_FindBackBtn: TvgPathButton;
-    {* Поле для свойства FindBackBtn }
    f_CloseBtn: TvgCloseButton;
-    {* Поле для свойства CloseBtn }
    f_AreaCombo: TvgComboBox;
-    {* Поле для свойства AreaCombo }
    f_QueryExampleLabel: TvgText;
-    {* Поле для свойства QueryExampleLabel }
    f_DropButton: TvgButton;
-    {* Поле для свойства DropButton }
    f_FoundCountLabel: TvgText;
-    {* Поле для свойства FoundCountLabel }
    f_ExampleLabel: TvgText;
-    {* Поле для свойства ExampleLabel }
    f_ContextEditPanel: TvgNonVGLayout;
-    {* Поле для свойства ContextEditPanel }
    f_Layout1: TvgLayout;
-    {* Поле для свойства Layout1 }
-   f_Layout2: TvgLayout;
-    {* Поле для свойства Layout2 }
-   f_Layout3: TvgLayout;
-    {* Поле для свойства Layout3 }
    f_vgScene1: TvgScene;
-    {* Поле для свойства vgScene1 }
    f_MoreTab: TvgComboBox;
-    {* Поле для свойства MoreTab }
    f_Border: TvgRectangle;
-    {* Поле для свойства Border }
    f_InnerBorder: TvgRectangle;
-    {* Поле для свойства InnerBorder }
    f_MostOuterRectangle: TvgRectangle;
-    {* Поле для свойства MostOuterRectangle }
    f_Rectangle1: TvgRectangle;
-    {* Поле для свойства Rectangle1 }
+   f_Layout2: TvgLayout;
+   f_Layout3: TvgLayout;
   private
    procedure DoResize(aSender: TObject);
    procedure MoreTabChange(aSender: TObject);
@@ -229,11 +211,10 @@ uses
  , SysUtils
  , l3ScreenIC
  , l3InternalInterfaces
- , l3MessageID
+ , Math
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , Math
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -241,6 +222,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CFCBB3600E0impl_uses*
+ //#UC END# *4CFCBB3600E0impl_uses*
 ;
 
 const
@@ -332,147 +315,115 @@ type _Instance_R_ = TvgRadioButtonArray;
 {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 function TNewBaseSearchForDFMForm.pm_GetFindBtn: TvgPathButton;
-//#UC START# *4CFCE561011D_4CFCBB3600E0get_var*
-//#UC END# *4CFCE561011D_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFCE561011D_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFCE561011D_4CFCBB3600E0get_impl*
+ if (f_FindBtn = nil) then
+  f_FindBtn := FindComponent('FindBtn') As TvgPathButton;
+ Result := f_FindBtn;
 end;//TNewBaseSearchForDFMForm.pm_GetFindBtn
 
 function TNewBaseSearchForDFMForm.pm_GetFindBackBtn: TvgPathButton;
-//#UC START# *4CFCE56E009C_4CFCBB3600E0get_var*
-//#UC END# *4CFCE56E009C_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFCE56E009C_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFCE56E009C_4CFCBB3600E0get_impl*
+ if (f_FindBackBtn = nil) then
+  f_FindBackBtn := FindComponent('FindBackBtn') As TvgPathButton;
+ Result := f_FindBackBtn;
 end;//TNewBaseSearchForDFMForm.pm_GetFindBackBtn
 
 function TNewBaseSearchForDFMForm.pm_GetCloseBtn: TvgCloseButton;
-//#UC START# *4CFCE5B200A9_4CFCBB3600E0get_var*
-//#UC END# *4CFCE5B200A9_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFCE5B200A9_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFCE5B200A9_4CFCBB3600E0get_impl*
+ if (f_CloseBtn = nil) then
+  f_CloseBtn := FindComponent('CloseBtn') As TvgCloseButton;
+ Result := f_CloseBtn;
 end;//TNewBaseSearchForDFMForm.pm_GetCloseBtn
 
 function TNewBaseSearchForDFMForm.pm_GetAreaCombo: TvgComboBox;
-//#UC START# *4CFE0E5F02D5_4CFCBB3600E0get_var*
-//#UC END# *4CFE0E5F02D5_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFE0E5F02D5_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFE0E5F02D5_4CFCBB3600E0get_impl*
+ if (f_AreaCombo = nil) then
+  f_AreaCombo := FindComponent('AreaCombo') As TvgComboBox;
+ Result := f_AreaCombo;
 end;//TNewBaseSearchForDFMForm.pm_GetAreaCombo
 
 function TNewBaseSearchForDFMForm.pm_GetQueryExampleLabel: TvgText;
-//#UC START# *4CFE2C9F0029_4CFCBB3600E0get_var*
-//#UC END# *4CFE2C9F0029_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFE2C9F0029_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFE2C9F0029_4CFCBB3600E0get_impl*
+ if (f_QueryExampleLabel = nil) then
+  f_QueryExampleLabel := FindComponent('QueryExampleLabel') As TvgText;
+ Result := f_QueryExampleLabel;
 end;//TNewBaseSearchForDFMForm.pm_GetQueryExampleLabel
 
 function TNewBaseSearchForDFMForm.pm_GetDropButton: TvgButton;
-//#UC START# *4CFF56750396_4CFCBB3600E0get_var*
-//#UC END# *4CFF56750396_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFF56750396_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFF56750396_4CFCBB3600E0get_impl*
+ if (f_DropButton = nil) then
+  f_DropButton := FindComponent('DropButton') As TvgButton;
+ Result := f_DropButton;
 end;//TNewBaseSearchForDFMForm.pm_GetDropButton
 
 function TNewBaseSearchForDFMForm.pm_GetFoundCountLabel: TvgText;
-//#UC START# *4CFF80CC027F_4CFCBB3600E0get_var*
-//#UC END# *4CFF80CC027F_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFF80CC027F_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFF80CC027F_4CFCBB3600E0get_impl*
+ if (f_FoundCountLabel = nil) then
+  f_FoundCountLabel := FindComponent('FoundCountLabel') As TvgText;
+ Result := f_FoundCountLabel;
 end;//TNewBaseSearchForDFMForm.pm_GetFoundCountLabel
 
 function TNewBaseSearchForDFMForm.pm_GetExampleLabel: TvgText;
-//#UC START# *4CFF86B00026_4CFCBB3600E0get_var*
-//#UC END# *4CFF86B00026_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFF86B00026_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFF86B00026_4CFCBB3600E0get_impl*
+ if (f_ExampleLabel = nil) then
+  f_ExampleLabel := FindComponent('ExampleLabel') As TvgText;
+ Result := f_ExampleLabel;
 end;//TNewBaseSearchForDFMForm.pm_GetExampleLabel
 
 function TNewBaseSearchForDFMForm.pm_GetContextEditPanel: TvgNonVGLayout;
-//#UC START# *4CFFAEBB0305_4CFCBB3600E0get_var*
-//#UC END# *4CFFAEBB0305_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFFAEBB0305_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFFAEBB0305_4CFCBB3600E0get_impl*
+ if (f_ContextEditPanel = nil) then
+  f_ContextEditPanel := FindComponent('ContextEditPanel') As TvgNonVGLayout;
+ Result := f_ContextEditPanel;
 end;//TNewBaseSearchForDFMForm.pm_GetContextEditPanel
 
 function TNewBaseSearchForDFMForm.pm_GetLayout1: TvgLayout;
-//#UC START# *4CFFB1B500DB_4CFCBB3600E0get_var*
-//#UC END# *4CFFB1B500DB_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFFB1B500DB_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFFB1B500DB_4CFCBB3600E0get_impl*
+ if (f_Layout1 = nil) then
+  f_Layout1 := FindComponent('Layout1') As TvgLayout;
+ Result := f_Layout1;
 end;//TNewBaseSearchForDFMForm.pm_GetLayout1
 
 function TNewBaseSearchForDFMForm.pm_GetvgScene1: TvgScene;
-//#UC START# *4CFFB59200DB_4CFCBB3600E0get_var*
-//#UC END# *4CFFB59200DB_4CFCBB3600E0get_var*
 begin
-//#UC START# *4CFFB59200DB_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CFFB59200DB_4CFCBB3600E0get_impl*
+ if (f_vgScene1 = nil) then
+  f_vgScene1 := FindComponent('vgScene1') As TvgScene;
+ Result := f_vgScene1;
 end;//TNewBaseSearchForDFMForm.pm_GetvgScene1
 
 function TNewBaseSearchForDFMForm.pm_GetMoreTab: TvgComboBox;
-//#UC START# *4D49931D0389_4CFCBB3600E0get_var*
-//#UC END# *4D49931D0389_4CFCBB3600E0get_var*
 begin
-//#UC START# *4D49931D0389_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D49931D0389_4CFCBB3600E0get_impl*
+ if (f_MoreTab = nil) then
+  f_MoreTab := FindComponent('MoreTab') As TvgComboBox;
+ Result := f_MoreTab;
 end;//TNewBaseSearchForDFMForm.pm_GetMoreTab
 
 function TNewBaseSearchForDFMForm.pm_GetBorder: TvgRectangle;
-//#UC START# *4D70E56F0066_4CFCBB3600E0get_var*
-//#UC END# *4D70E56F0066_4CFCBB3600E0get_var*
 begin
-//#UC START# *4D70E56F0066_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D70E56F0066_4CFCBB3600E0get_impl*
+ if (f_Border = nil) then
+  f_Border := FindComponent('Border') As TvgRectangle;
+ Result := f_Border;
 end;//TNewBaseSearchForDFMForm.pm_GetBorder
 
 function TNewBaseSearchForDFMForm.pm_GetInnerBorder: TvgRectangle;
-//#UC START# *4D70E57F00C3_4CFCBB3600E0get_var*
-//#UC END# *4D70E57F00C3_4CFCBB3600E0get_var*
 begin
-//#UC START# *4D70E57F00C3_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D70E57F00C3_4CFCBB3600E0get_impl*
+ if (f_InnerBorder = nil) then
+  f_InnerBorder := FindComponent('InnerBorder') As TvgRectangle;
+ Result := f_InnerBorder;
 end;//TNewBaseSearchForDFMForm.pm_GetInnerBorder
 
 function TNewBaseSearchForDFMForm.pm_GetMostOuterRectangle: TvgRectangle;
-//#UC START# *4D70E7DD0123_4CFCBB3600E0get_var*
-//#UC END# *4D70E7DD0123_4CFCBB3600E0get_var*
 begin
-//#UC START# *4D70E7DD0123_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D70E7DD0123_4CFCBB3600E0get_impl*
+ if (f_MostOuterRectangle = nil) then
+  f_MostOuterRectangle := FindComponent('MostOuterRectangle') As TvgRectangle;
+ Result := f_MostOuterRectangle;
 end;//TNewBaseSearchForDFMForm.pm_GetMostOuterRectangle
 
 function TNewBaseSearchForDFMForm.pm_GetRectangle1: TvgRectangle;
-//#UC START# *4DE6764D000D_4CFCBB3600E0get_var*
-//#UC END# *4DE6764D000D_4CFCBB3600E0get_var*
 begin
-//#UC START# *4DE6764D000D_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DE6764D000D_4CFCBB3600E0get_impl*
+ if (f_Rectangle1 = nil) then
+  f_Rectangle1 := FindComponent('Rectangle1') As TvgRectangle;
+ Result := f_Rectangle1;
 end;//TNewBaseSearchForDFMForm.pm_GetRectangle1
 
 function TNewBaseSearchForDFMForm.pm_GetActiveClassTab: TvgRadioButton;
@@ -491,21 +442,17 @@ begin
 end;//TNewBaseSearchForDFMForm.pm_GetActiveClassTab
 
 function TNewBaseSearchForDFMForm.pm_GetLayout2: TvgLayout;
-//#UC START# *4D51648F033D_4CFCBB3600E0get_var*
-//#UC END# *4D51648F033D_4CFCBB3600E0get_var*
 begin
-//#UC START# *4D51648F033D_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D51648F033D_4CFCBB3600E0get_impl*
+ if (f_Layout2 = nil) then
+  f_Layout2 := FindComponent('Layout2') As TvgLayout;
+ Result := f_Layout2;
 end;//TNewBaseSearchForDFMForm.pm_GetLayout2
 
 function TNewBaseSearchForDFMForm.pm_GetLayout3: TvgLayout;
-//#UC START# *4E789D5A0179_4CFCBB3600E0get_var*
-//#UC END# *4E789D5A0179_4CFCBB3600E0get_var*
 begin
-//#UC START# *4E789D5A0179_4CFCBB3600E0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E789D5A0179_4CFCBB3600E0get_impl*
+ if (f_Layout3 = nil) then
+  f_Layout3 := FindComponent('Layout3') As TvgLayout;
+ Result := f_Layout3;
 end;//TNewBaseSearchForDFMForm.pm_GetLayout3
 
 procedure TNewBaseSearchForDFMForm.TabClick(aSender: TObject);

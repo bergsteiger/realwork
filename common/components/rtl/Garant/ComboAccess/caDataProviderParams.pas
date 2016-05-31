@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , htDataProviderParams
  , pgDataProviderParams
- , daDataProviderParams
  , k2Base
+ , daDataProviderParams
 ;
 
 type

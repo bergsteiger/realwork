@@ -23,7 +23,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -41,14 +40,13 @@ type
   {* Синхронный просмотр }
   private
    f_DocView: TvtPanel;
-    {* Поле для свойства DocView }
   protected
-   : IdsSynchroView;
+   ViewArea: IdsSynchroView;
    sdsList: IsdsList;
   protected
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
-   procedure svSynchroViewQueryClose(aSender: TObject); override;
+   procedure SvSynchroViewQueryClose(aSender: TObject); override;
     {* Обработчик события svSynchroView.OnQueryClose }
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
@@ -89,15 +87,18 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
- , l3MessageID
+ , SynchroViewUserTypes_svSynchroView_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ //#UC START# *4979E75C00C7impl_uses*
+ //#UC END# *4979E75C00C7impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -161,7 +162,7 @@ begin
   Self.SynchroView_BecomeActive_Execute(FormType);
 end;//TPrimSynchroViewForm.SynchroView_BecomeActive
 
-procedure TPrimSynchroViewForm.svSynchroViewQueryClose(aSender: TObject);
+procedure TPrimSynchroViewForm.SvSynchroViewQueryClose(aSender: TObject);
  {* Обработчик события svSynchroView.OnQueryClose }
 //#UC START# *F5C4A5904D01_4979E75C00C7_var*
 //#UC END# *F5C4A5904D01_4979E75C00C7_var*
@@ -169,7 +170,7 @@ begin
 //#UC START# *F5C4A5904D01_4979E75C00C7_impl*
  op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *F5C4A5904D01_4979E75C00C7_impl*
-end;//TPrimSynchroViewForm.svSynchroViewQueryClose
+end;//TPrimSynchroViewForm.SvSynchroViewQueryClose
 
 procedure TPrimSynchroViewForm.InitControls;
  {* Процедура инициализации контролов. Для перекрытия в потомках }
@@ -189,6 +190,16 @@ procedure TPrimSynchroViewForm.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+  sdsList := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsSynchroView;
+  aNew.CastUCC(IsdsList, sdsList);
+ end;//aNew = nil
 end;//TPrimSynchroViewForm.SignalDataSourceChanged
 
 procedure TPrimSynchroViewForm.InitEntities;
@@ -209,7 +220,7 @@ begin
  f_DocView := TvtPanel.Create(Self);
  f_DocView.Name := 'DocView';
  f_DocView.Parent := Self;
- with DefineZone(vcm_ztChild, f_DocView) do
+ with DefineZone(vcm_ztChild, DocView) do
  begin
   FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
  end;//with DefineZone(vcm_ztChild

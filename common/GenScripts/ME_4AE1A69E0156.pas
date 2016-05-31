@@ -14,9 +14,8 @@
   {* Базовые операции с текстом }
   private
    f_Text: TnscEditor;
-    {* Поле для свойства Text }
    f_TextSource: TnscTextSource;
-    {* Поле для свойства TextSource }
+    {* Источник текста }
   protected
    HAFMacroReplacerFactory: IucpHAFMacroReplacerFactory;
    FilterInfoFactory: IucpFilterInfoFactory;
@@ -659,6 +658,16 @@ procedure _BaseTextOperations_.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  HAFMacroReplacerFactory := nil;
+  FilterInfoFactory := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IucpHAFMacroReplacerFactory, HAFMacroReplacerFactory);
+  Supports(aNew, IucpFilterInfoFactory, FilterInfoFactory);
+ end;//aNew = nil
 end;//_BaseTextOperations_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -671,6 +680,10 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_Redactions, nil);
+  PublishFormEntity(en_TimeMachine, nil);
+  MakeEntitySupportedByControl(en_Redactions, Text);
+  MakeEntitySupportedByControl(en_TimeMachine, Text);
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);

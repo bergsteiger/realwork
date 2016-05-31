@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utRubricatorListLocalConstants }
+ str_utRubricatorListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListCaption'; rValue : 'Правовой навигатор (линейное представление)');
+  {* Заголовок пользовательского типа "Правовой навигатор (линейное представление)" }
+ str_utRubricatorListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListSettingsCaption'; rValue : 'Правовой навигатор');
+  {* Заголовок пользовательского типа "Правовой навигатор (линейное представление)" для настройки панелей инструментов }
  {* Константы для типа формы utRubricatorList }
  utRubricatorListName = 'utRubricatorList';
   {* Строковый идентификатор пользовательского типа "Правовой навигатор (линейное представление)" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utRubricatorList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utRubricatorListCaption.Init;
+ {* Инициализация str_utRubricatorListCaption }
+ str_utRubricatorListSettingsCaption.Init;
+ {* Инициализация str_utRubricatorListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utRubricatorList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utRubricatorList }

@@ -19,8 +19,8 @@ uses
  , BaseSearchInterfaces
  , Base_Operations_Editions_Controls
  , ChangesBetweenEditionsInterfaces
- , nevTools
  , DocumentUnit
+ , nevTools
  , l3Variant
  , eeInterfaces
  , evCustomEditorWindow
@@ -52,10 +52,10 @@ uses
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
+ , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3Interfaces
  , l3BaseStream
  , nsTypesNew
  , k2CustomFileGenerator
@@ -184,11 +184,8 @@ uses
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDef
  {$IfEnd} // Defined(Nemesis)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , UnderControlUnit
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -211,7 +208,6 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
- , SysUtils
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDefsList
  {$IfEnd} // Defined(Nemesis)
@@ -235,7 +231,8 @@ uses
  , Classes
  , nsQuestions
  , nsExternalObjectModelPart
- , l3DialogService
+ , nsSaveDialogExecutor
+ , l3BatchService
  , eeInterfacesEx
  {$If Defined(Nemesis)}
  , eePara
@@ -252,6 +249,9 @@ uses
  , l3Types
  , nsToMSWordOp
  , l3String
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -269,14 +269,16 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evCustomEditor
  , evEditorWithOperations
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimChangesBetweenEditons_DocumentChanges_UserType
+ //#UC START# *4DDCD636016Cimpl_uses*
+ //#UC END# *4DDCD636016Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки DocumentChangesLocalConstants }
- str_DocumentChangesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentChangesCaption'; rValue : 'Изменения в документе');
-  {* Заголовок пользовательского типа "Изменения в документе" }
  {* Локализуемые строки Local }
  str_CompareRedactionOperationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CompareRedactionOperationCaption'; rValue : 'Сравнить полные тексты редакций');
   {* 'Сравнить полные тексты редакций' }
@@ -705,6 +707,14 @@ procedure TPrimChangesBetweenEditonsForm.SignalDataSourceChanged(const anOld: Iv
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsChangesBetweenEditions, ViewArea);
+ end;//aNew = nil
 end;//TPrimChangesBetweenEditonsForm.SignalDataSourceChanged
 
 procedure TPrimChangesBetweenEditonsForm.InitEntities;
@@ -716,9 +726,12 @@ begin
  begin
   PublishFormEntity(en_Document, nil);
   PublishFormEntity(en_Edition, nil);
+  ContextMenuWeight(en_HyperLink, -5);
   PublishOpWithResult(en_Document, op_SetPosition, Document_SetPosition, nil, nil);
   PublishOp(en_Edition, op_ReturnToDocument, Edition_ReturnToDocument_Execute, Edition_ReturnToDocument_Test, nil);
   PublishOpWithResult(en_Document, op_GetParaForPositionning, Document_GetParaForPositionning, Document_GetParaForPositionning_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
  end;//with Entities.Entities
 end;//TPrimChangesBetweenEditonsForm.InitEntities
 
@@ -728,7 +741,7 @@ begin
  with AddUsertype(DocumentChangesName,
   str_DocumentChangesCaption,
   str_DocumentChangesCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -741,8 +754,6 @@ begin
 end;//TPrimChangesBetweenEditonsForm.MakeControls
 
 initialization
- str_DocumentChangesCaption.Init;
- {* Инициализация str_DocumentChangesCaption }
  str_CompareRedactionOperationCaption.Init;
  {* Инициализация str_CompareRedactionOperationCaption }
  str_ReturnToDocumentOperationCaption.Init;

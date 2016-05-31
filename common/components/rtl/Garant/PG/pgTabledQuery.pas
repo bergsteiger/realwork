@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , daTabledQuery
  , pgConnection
- , pgInterfaces
  , daInterfaces
+ , pgInterfaces
  , daParamList
 ;
 
@@ -35,11 +35,13 @@ type
    function MakeResultSet(Unidirectional: Boolean): IdaResultSet; override;
    function MakeParamList: TdaParamList; override;
   public
-   constructor Create(const aDataConverter: IpgDataConverter;
+   constructor Create(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IpgDataConverter;
     const aTable: IdaTableDescription;
     aConnection: TpgConnection;
     const anAlias: AnsiString = ''); reintroduce;
-   class function Make(const aDataConverter: IpgDataConverter;
+   class function Make(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IpgDataConverter;
     const aTable: IdaTableDescription;
     aConnection: TpgConnection;
     const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
@@ -59,7 +61,8 @@ uses
  , daFromTable
 ;
 
-constructor TpgTabledQuery.Create(const aDataConverter: IpgDataConverter;
+constructor TpgTabledQuery.Create(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IpgDataConverter;
  const aTable: IdaTableDescription;
  aConnection: TpgConnection;
  const anAlias: AnsiString = '');
@@ -72,14 +75,15 @@ begin
 //#UC END# *55F9617402F2_55F960D502F6_impl*
 end;//TpgTabledQuery.Create
 
-class function TpgTabledQuery.Make(const aDataConverter: IpgDataConverter;
+class function TpgTabledQuery.Make(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IpgDataConverter;
  const aTable: IdaTableDescription;
  aConnection: TpgConnection;
  const anAlias: AnsiString = ''): IdaTabledQuery;
 var
  l_Inst : TpgTabledQuery;
 begin
- l_Inst := Create(aDataConverter, aTable, aConnection, anAlias);
+ l_Inst := Create(aFactory, aDataConverter, aTable, aConnection, anAlias);
  try
   Result := l_Inst;
  finally

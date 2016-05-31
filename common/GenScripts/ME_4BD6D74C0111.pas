@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utWorkJournalLocalConstants }
+ str_utWorkJournalCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utWorkJournalCaption'; rValue : 'Журнал работы');
+  {* Заголовок пользовательского типа "Журнал работы" }
  {* Константы для типа формы utWorkJournal }
  utWorkJournalName = 'utWorkJournal';
   {* Строковый идентификатор пользовательского типа "Журнал работы" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utWorkJournal.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utWorkJournalCaption.Init;
+ {* Инициализация str_utWorkJournalCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utWorkJournal.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utWorkJournal }

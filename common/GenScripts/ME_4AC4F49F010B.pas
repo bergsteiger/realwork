@@ -26,6 +26,9 @@ uses
  , vtFocusLabel
  , vtCheckBox
  , ElPopBtn
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , Windows
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -102,7 +105,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(const aData: InsStartupTips): Il3WndProcListener; reintroduce;
+   class function MakeSingleChild(const aData: InsStartupTips): IvcmEntityForm; reintroduce;
   public
    property TopPanel: TvtPanel
     read f_TopPanel;
@@ -173,11 +176,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC4F49F010Bimpl_uses*
+ //#UC END# *4AC4F49F010Bimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -301,7 +303,7 @@ begin
 //#UC END# *5268E701030F_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.ShowCheckBoxClick
 
-class function TPrimStartupTipsForm.MakeSingleChild(const aData: InsStartupTips): Il3WndProcListener;
+class function TPrimStartupTipsForm.MakeSingleChild(const aData: InsStartupTips): IvcmEntityForm;
 var
  l_Inst : TPrimStartupTipsForm;
 begin

@@ -493,13 +493,6 @@ uses
  , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
  , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
  , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
  , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
@@ -688,6 +681,18 @@ uses
  , vcmApplication in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces in 'w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces in 'w:\common\components\gui\Garant\AFW\afwInterfaces.pas'
+ , afwTypes in 'w:\common\components\gui\Garant\AFW\afwTypes.pas'
+ {$If NOT Defined(NoVCL)}
+ , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseOperationState in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationState.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmMainForm in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainForm.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
@@ -715,15 +720,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmGUI in 'w:\common\components\gui\Garant\VCM\vcmGUI.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces in 'w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , afwInterfaces in 'w:\common\components\gui\Garant\AFW\afwInterfaces.pas'
- , afwTypes in 'w:\common\components\gui\Garant\AFW\afwTypes.pas'
  {$If NOT Defined(NoVCL)}
- , ImgList in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ImgList.pas'
+ , Dialogs in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas'
  {$IfEnd} // NOT Defined(NoVCL)
- , l3TreeInterfaces in 'w:\common\components\rtl\Garant\L3\l3TreeInterfaces.pas'
+ , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
+ , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
  , vcmDialogs in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas'
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene)
@@ -1798,9 +1801,6 @@ uses
  , vcmActiveControlsCollection in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmActiveControlsCollection.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmBaseOperationState in 'w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseOperationState.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , vcmAction in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmAction.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(XE)}
@@ -2064,9 +2064,9 @@ uses
  , vcmUserTypeDefList in 'w:\common\components\gui\Garant\VCM\implementation\vcmUserTypeDefList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , IafwMenuUnlockedPostBuildPtrList in 'w:\common\components\gui\Garant\AFW\implementation\IafwMenuUnlockedPostBuildPtrList.pas'
- {$If NOT Defined(NoTB97)}
- , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
- {$IfEnd} // NOT Defined(NoTB97)
+ {$If NOT Defined(NoVCM)}
+ , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoTB97)}
  , TB97 in 'w:\common\components\rtl\external\tb97\TB97.pas'
  {$IfEnd} // NOT Defined(NoTB97)
@@ -2075,9 +2075,9 @@ uses
  {$IfEnd} // NOT Defined(NoTB97)
  , afwCustomCommonControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
  , afwCustomCommonControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
- {$If NOT Defined(NoVCM)}
- , vcmToolbar in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
- {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr in 'w:\common\components\rtl\external\tb97\TB97Tlbr.pas'
+ {$IfEnd} // NOT Defined(NoTB97)
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces in 'w:\common\components\gui\Garant\VCM\implementation\vcmLocalInterfaces.pas'
  {$IfEnd} // NOT Defined(NoVCM)
@@ -3144,13 +3144,13 @@ uses
  , nsPrimeNode in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPrimeNode.pas'
  , PrimeDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas'
  , PrimeUnit in 'w:\garant6x\implementation\Garant\GblAdapterLib\PrimeUnit.pas'
- , PrimSaveLoadUserTypes_slqtPostingOrder_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPostingOrder_UserType.pas'
- , PrimSaveLoadUserTypes_slqtLegislationReview_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas'
- , PrimSaveLoadUserTypes_slqtFilters_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtFilters_UserType.pas'
- , PrimSaveLoadUserTypes_slqtPublishSource_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPublishSource_UserType.pas'
- , PrimSaveLoadUserTypes_slqtOldKW_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtOldKW_UserType.pas'
- , PrimSaveLoadUserTypes_slqtKW_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtKW_UserType.pas'
  , PrimSaveLoadUserTypes_slqtAttribute_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtAttribute_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtKW_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtKW_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtOldKW_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtOldKW_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtPublishSource_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPublishSource_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtFilters_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtFilters_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtLegislationReview_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas'
+ , PrimSaveLoadUserTypes_slqtPostingOrder_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPostingOrder_UserType.pas'
  , PrimSaveLoadUserTypes_slqtConsult_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtConsult_UserType.pas'
  , PrimSaveLoadUserTypes_slqtInpharmSearch_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtInpharmSearch_UserType.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -3347,6 +3347,25 @@ uses
  , nsBackEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsBackEvent.pas'
  , sdsMainWindow in 'w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\sdsMainWindow.pas'
  , dsWarning in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsWarning.pas'
+ , WarningUserTypes_Warning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes_Warning_UserType.pas'
+ , BaloonWarningUserTypes_Fake_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_Fake_UserType.pas'
+ , BaloonWarningUserTypes_WarnJuror_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnJuror_UserType.pas'
+ , BaloonWarningUserTypes_WarnPreActive_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnPreActive_UserType.pas'
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnIsAbolished_UserType.pas'
+ , BaloonWarningUserTypes_WarnOnControl_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnOnControl_UserType.pas'
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnInactualDocument_UserType.pas'
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineOn_UserType.pas'
+ , BaloonWarningUserTypes_WarnRedaction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnRedaction_UserType.pas'
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineWarning_UserType.pas'
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineException_UserType.pas'
+ , BaloonWarningUserTypes_remListModified_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListModified_UserType.pas'
+ , BaloonWarningUserTypes_remListFiltered_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListFiltered_UserType.pas'
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remTimeMachineWarning_UserType.pas'
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remUnreadConsultations_UserType.pas'
+ , BaloonWarningUserTypes_remOnlineDead_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remOnlineDead_UserType.pas'
+ , BaloonWarningUserTypes_TrialModeWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_TrialModeWarning_UserType.pas'
+ , BaloonWarningUserTypes_OldBaseWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_OldBaseWarning_UserType.pas'
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas'
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDefsList in 'w:\common\components\gui\Garant\Nemesis\nscStatusBarOperationDefsList.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -3419,24 +3438,6 @@ uses
  , HelpIntfs in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\HelpIntfs.pas'
  , vtVerInf in 'w:\common\components\rtl\Garant\L3\vtVerInf.pas'
  , nsConfiguration in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsConfiguration.pas'
- , BaloonWarningUserTypes_ControlledChangingWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas'
- , BaloonWarningUserTypes_OldBaseWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_OldBaseWarning_UserType.pas'
- , BaloonWarningUserTypes_TrialModeWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_TrialModeWarning_UserType.pas'
- , BaloonWarningUserTypes_remOnlineDead_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remOnlineDead_UserType.pas'
- , BaloonWarningUserTypes_remUnreadConsultations_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remUnreadConsultations_UserType.pas'
- , BaloonWarningUserTypes_remTimeMachineWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remTimeMachineWarning_UserType.pas'
- , BaloonWarningUserTypes_remListFiltered_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListFiltered_UserType.pas'
- , BaloonWarningUserTypes_remListModified_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_remListModified_UserType.pas'
- , BaloonWarningUserTypes_WarnTimeMachineException_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineException_UserType.pas'
- , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineWarning_UserType.pas'
- , BaloonWarningUserTypes_WarnRedaction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnRedaction_UserType.pas'
- , BaloonWarningUserTypes_WarnTimeMachineOn_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnTimeMachineOn_UserType.pas'
- , BaloonWarningUserTypes_WarnInactualDocument_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnInactualDocument_UserType.pas'
- , BaloonWarningUserTypes_WarnOnControl_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnOnControl_UserType.pas'
- , BaloonWarningUserTypes_WarnIsAbolished_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnIsAbolished_UserType.pas'
- , BaloonWarningUserTypes_WarnPreActive_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnPreActive_UserType.pas'
- , BaloonWarningUserTypes_WarnJuror_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_WarnJuror_UserType.pas'
- , BaloonWarningUserTypes_Fake_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_Fake_UserType.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , MainWindowKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\MainWindowKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -3535,8 +3536,6 @@ uses
  , CompareEditions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_Controls.pas'
  , Base_Operations_Editions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Editions_Controls.pas'
  , NavigationInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\View\NavigationInterfaces.pas'
- , Base_Operations_View_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_View_Controls.pas'
- , Base_Operations_F1Specific_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas'
  {$If Defined(Nemesis)}
  , nscEditor in 'w:\common\components\gui\Garant\Nemesis\nscEditor.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -3569,6 +3568,8 @@ uses
  {$If Defined(Nemesis)}
  , eeTextSourceExport in 'w:\common\components\gui\Garant\Everest_Engine\eeTextSourceExport.pas'
  {$IfEnd} // Defined(Nemesis)
+ , Base_Operations_View_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_View_Controls.pas'
+ , Base_Operations_F1Specific_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas'
  {$If Defined(Nemesis)}
  , nscTextSource in 'w:\common\components\gui\Garant\Nemesis\nscTextSource.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -4037,9 +4038,20 @@ uses
  , nsDocumentPrintPreviewEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsDocumentPrintPreviewEvent.pas'
  , nsBaseTextOperationsConst in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsBaseTextOperationsConst.pas'
  , f1MultilinkResolver in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\f1MultilinkResolver.pas'
- , l3DialogService in 'w:\common\components\rtl\Garant\L3\l3DialogService.pas'
+ , nsSaveDialogExecutor in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogExecutor.pas'
+ , nsSaveDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas'
+ , vtSaveDialog in 'w:\common\components\gui\Garant\VT\vtSaveDialog.pas'
+ {$If Defined(Nemesis)}
+ , eeGroupBox in 'w:\common\components\gui\Garant\Nemesis\eeGroupBox.pas'
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , CommDlg in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CommDlg.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
- , l3DialogServiceImpl in 'w:\common\components\rtl\Garant\L3\l3DialogServiceImpl.pas'
+ , nsSaveDialogImpl in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialogImpl.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , SaveDialogWordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\SaveDialogWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(Nemesis)}
  , eeParaTools in 'w:\common\components\gui\Garant\Everest_Engine\eeParaTools.pas'
@@ -4047,6 +4059,7 @@ uses
  , nsDocumentTools in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsDocumentTools.pas'
  , nsDocumentPreviewWithoutBlockNames in 'w:\garant6x\implementation\Garant\GbaNemesis\Search\nsDocumentPreviewWithoutBlockNames.pas'
  , nsToMSWordOp in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\nsToMSWordOp.pas'
+ , Common_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Strange_Controls.pas'
  , bsDocumentContextSearcher in 'w:\garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas'
  , nsContextSearchParams in 'w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsContextSearchParams.pas'
  , nsFindIteratorNew in 'w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNew.pas'
@@ -4084,7 +4097,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , EditionsContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainer_Form.pas'
  , PrimEditionsContainer_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_Form.pas'
- , Common_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Strange_Controls.pas'
  , PrimEditionsContainer_utEditionsContainer_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_utEditionsContainer_UserType.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , EditionsContainerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\EditionsContainerKeywordsPack.pas'
@@ -4121,6 +4133,8 @@ uses
  , moFolders in 'w:\garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas'
  , PrimFolders_Module in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas'
  , nsFormCoordinates in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsFormCoordinates.pas'
+ , FoldersInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\FoldersInterfaces.pas'
+ , ConsultationDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas'
  , PrimFoldersTree_utSaveOpen_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utSaveOpen_UserType.pas'
  , PrimFoldersTree_utFoldersTree_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_utFoldersTree_UserType.pas'
  {$If NOT Defined(NoScripts)}
@@ -4135,6 +4149,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , kw_Folders_opOpenFrmAct in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\kw_Folders_opOpenFrmAct.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , sdsFolders in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\sdsFolders.pas'
+ , dsFolders in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\dsFolders.pas'
+ , dsFoldersTree in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\dsFoldersTree.pas'
+ , bsConsultation in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultation.pas'
+ , dsFolderElement in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\dsFolderElement.pas'
+ , deSaveObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Folders\deSaveObject.pas'
  , Folders_Strange_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders_Strange_Controls.pas'
  , Folders_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\Folders_Form.pas'
  , PrimFoldersOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersOptions_Form.pas'
@@ -4158,7 +4178,6 @@ uses
  , PrimFoldersTree_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTree_Form.pas'
  , FoldersRes in 'w:\garant6x\implementation\Garant\GbaNemesis\View\FoldersRes.pas'
  , nsFolderNodes in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsFolderNodes.pas'
- , vtSaveDialog in 'w:\common\components\gui\Garant\VT\vtSaveDialog.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , FoldersTreeKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTreeKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -4601,7 +4620,6 @@ uses
  , Document_F1Lite_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document_F1Lite_Controls.pas'
  , DictionInterfacesPrim in 'w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\DictionInterfacesPrim.pas'
  , InpharmInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Medic\InpharmInterfaces.pas'
- , ConsultationDomainInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas'
  , nevContainers in 'w:\common\components\gui\Garant\Everest\nevContainers.pas'
  , eeSubPanel in 'w:\common\components\gui\Garant\Everest_Engine\eeSubPanel.pas'
  , eeSubPanelExport in 'w:\common\components\gui\Garant\Everest_Engine\eeSubPanelExport.pas'
@@ -4695,6 +4713,7 @@ uses
  , Redactions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Redactions_Form.pas'
  , PrimRedactionsOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactionsOptions_Form.pas'
  , PrimRedactions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimRedactions_Form.pas'
+ , RedactionsUserTypes_utRedaction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes_utRedaction_UserType.pas'
  , nsEditionTree in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionTree.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , RedactionsKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\RedactionsKeywordsPack.pas'
@@ -4729,11 +4748,9 @@ uses
  , fsDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\fsDocument.pas'
  , fsAbstractDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\View\fsAbstractDocument.pas'
  , AttributesUserTypes_fDocAttribute_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fDocAttribute_UserType.pas'
- , WarningUserTypes_Warning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes_Warning_UserType.pas'
  , ListUserTypes_lftRespondent_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondent_UserType.pas'
  , ListUserTypes_lftNone_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftNone_UserType.pas'
  , ListUserTypes_lftCorrespondent_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondent_UserType.pas'
- , RedactionsUserTypes_utRedaction_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes_utRedaction_UserType.pas'
  , ListUserTypes_lftSimilarDocuments_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocuments_UserType.pas'
  , ListUserTypes_lftConsultation_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftConsultation_UserType.pas'
  , ListUserTypes_lftUserCR2_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR2_UserType.pas'
@@ -4756,13 +4773,6 @@ uses
  , Picture_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Picture_Form.pas'
  , PrimPictureOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPictureOptions_Form.pas'
  , PrimPicture_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_Form.pas'
- , nsSaveDialog in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas'
- {$If Defined(Nemesis)}
- , eeGroupBox in 'w:\common\components\gui\Garant\Nemesis\eeGroupBox.pas'
- {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoVCL)}
- , CommDlg in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CommDlg.pas'
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoImageEn)}
  , imageenproc in 'w:\common\components\rtl\external\ImageEn\src\imageenproc.pas'
  {$IfEnd} // NOT Defined(NoImageEn)
@@ -4801,6 +4811,7 @@ uses
  , nsSingleAttributeData in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeData.pas'
  , nsSingleAttributeDataObject in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeDataObject.pas'
  , nsSingleAttributeStorable in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeStorable.pas'
+ , AttributesUserTypes_fAttributeSynchroView_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas'
  , evTreeDataObject in 'w:\common\components\gui\Garant\Everest\evTreeDataObject.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , AttributesKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\AttributesKeywordsPack.pas'
@@ -4808,6 +4819,7 @@ uses
  , SynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_Form.pas'
  , PrimSynchroViewOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroViewOptions_Form.pas'
  , PrimSynchroView_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroView_Form.pas'
+ , SynchroViewUserTypes_svSynchroView_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes_svSynchroView_UserType.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , SynchroViewKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroViewKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -4873,6 +4885,7 @@ uses
  , ListInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListInfo_Form.pas'
  , PrimListInfoOptions_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfoOptions_Form.pas'
  , PrimListInfo_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfo_Form.pas'
+ , ListInfoUserTypes_liListInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes_liListInfo_UserType.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ListInfoKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListInfoKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
@@ -4883,11 +4896,8 @@ uses
  , ListAnalizerKeywordsPack in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalizerKeywordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  , fsList in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\fsList.pas'
- , ListInfoUserTypes_liListInfo_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes_liListInfo_UserType.pas'
  , FiltersUserTypes_utFilters_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes_utFilters_UserType.pas'
- , SynchroViewUserTypes_svSynchroView_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes_svSynchroView_UserType.pas'
  , ListAnalizeUserTypes_Analize_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes_Analize_UserType.pas'
- , AttributesUserTypes_fAttributeSynchroView_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas'
  , ListAnalize_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalize_Form.pas'
  , PrimListAnalize_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalize_Form.pas'
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
@@ -5232,7 +5242,6 @@ uses
  , dsConsultationMark in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationMark.pas'
  , dsConsultationList in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationList.pas'
  , bsConsultationManager in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas'
- , bsConsultation in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultation.pas'
  , sdsSendConsultation in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsSendConsultation.pas'
  , sdsQuery in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsQuery.pas'
  , ConsultationInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationInterfaces.pas'

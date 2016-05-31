@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftAutoreferatAfterSearchLocalConstants }
+ str_dftAutoreferatAfterSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAutoreferatAfterSearchCaption'; rValue : 'ПРАЙМ. Обзор изменений законодательства');
+  {* Заголовок пользовательского типа "ПРАЙМ. Обзор изменений законодательства" }
+ str_dftAutoreferatAfterSearchSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAutoreferatAfterSearchSettingsCaption'; rValue : 'Документ: ПРАЙМ. Обзор изменений законодательства');
+  {* Заголовок пользовательского типа "ПРАЙМ. Обзор изменений законодательства" для настройки панелей инструментов }
  {* Константы для типа формы dftAutoreferatAfterSearch }
  dftAutoreferatAfterSearchName = 'dftAutoreferatAfterSearch';
   {* Строковый идентификатор пользовательского типа "ПРАЙМ. Обзор изменений законодательства" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftAutoreferatAfterSearch.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftAutoreferatAfterSearchCaption.Init;
+ {* Инициализация str_dftAutoreferatAfterSearchCaption }
+ str_dftAutoreferatAfterSearchSettingsCaption.Init;
+ {* Инициализация str_dftAutoreferatAfterSearchSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAutoreferatAfterSearch.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftAutoreferatAfterSearch }

@@ -13,10 +13,10 @@ interface
 uses
  l3IntfUses
  , vcmPopupMenuPrim
- , vcmTaskPanelInterfaces
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
+ , vcmTaskPanelInterfaces
  , Classes
 ;
 

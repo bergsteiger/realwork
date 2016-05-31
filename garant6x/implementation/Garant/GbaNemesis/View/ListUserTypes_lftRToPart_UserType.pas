@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftRToPartLocalConstants }
+ str_lftRToPartCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftRToPartCaption'; rValue : 'Ссылки из фрагмента');
+  {* Заголовок пользовательского типа "Ссылки из фрагмента" }
+ str_lftRToPartSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftRToPartSettingsCaption'; rValue : 'Список: Ссылки из фрагмента');
+  {* Заголовок пользовательского типа "Ссылки из фрагмента" для настройки панелей инструментов }
  {* Константы для типа формы lftRToPart }
  lftRToPartName = 'lftRToPart';
   {* Строковый идентификатор пользовательского типа "Ссылки из фрагмента" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftRToPart.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftRToPartCaption.Init;
+ {* Инициализация str_lftRToPartCaption }
+ str_lftRToPartSettingsCaption.Init;
+ {* Инициализация str_lftRToPartSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftRToPart.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftRToPart }

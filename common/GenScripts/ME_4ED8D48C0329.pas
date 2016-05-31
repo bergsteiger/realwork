@@ -155,6 +155,14 @@ procedure _EditionsListCaller_.SignalDataSourceChanged(const anOld: IvcmFormData
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  EditionsHolder := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IsdsEditionsHolder, EditionsHolder);
+ end;//aNew = nil
 end;//_EditionsListCaller_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -172,7 +180,6 @@ begin
   PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
   PublishOp(en_Redactions, op_PrevRedaction, Redactions_PrevRedaction_Execute, Redactions_PrevRedaction_Test, nil);
   PublishOp(en_Redactions, op_NextRedaction, Redactions_NextRedaction_Execute, Redactions_NextRedaction_Test, nil);
-  PublishOp(en_Redactions, op_OpenRedactionListFrmAct, Redactions_OpenRedactionListFrmAct_Execute, Redactions_OpenRedactionListFrmAct_Test, Redactions_OpenRedactionListFrmAct_GetState);
  end;//with Entities.Entities
 end;//_EditionsListCaller_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

@@ -14,12 +14,12 @@ interface
 uses
  l3IntfUses
  , PrimTextLoad_Form
+ , evEditor
+ , evTextSource
  , evCustomTextSource
  , evCustomEditor
  , vcmInterfaces
  , vcmEntities
- , evEditor
- , evTextSource
 ;
 
 const
@@ -57,7 +57,6 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -65,7 +64,6 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , vcmStringIDExHelper
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -74,11 +72,6 @@ uses
  , TextLoadKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_TextLoadLocalConstants }
- str_ut_TextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TextLoadCaption'; rValue : 'Форма для загрузки документа');
-  {* Заголовок пользовательского типа "Форма для загрузки документа" }
 
 {$R *.DFM}
 
@@ -124,8 +117,6 @@ begin
 end;//TTextLoadForm.MakeControls
 
 initialization
- str_ut_TextLoadCaption.Init;
- {* Инициализация str_ut_TextLoadCaption }
  fm_TextLoadForm.SetFactory(TTextLoadForm.Make);
  {* Регистрация фабрики формы TextLoad }
 {$If NOT Defined(NoScripts)}

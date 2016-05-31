@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_F1LikeTextLoadLocalConstants }
+ str_ut_F1LikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_F1LikeTextLoadCaption'; rValue : 'F1LikeTextLoad');
+  {* Заголовок пользовательского типа "F1LikeTextLoad" }
  {* Константы для типа формы ut_F1LikeTextLoad }
  ut_F1LikeTextLoadName = 'ut_F1LikeTextLoad';
   {* Строковый идентификатор пользовательского типа "F1LikeTextLoad" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_F1LikeTextLoad.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_F1LikeTextLoadCaption.Init;
+ {* Инициализация str_ut_F1LikeTextLoadCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_F1LikeTextLoad.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_F1LikeTextLoad }

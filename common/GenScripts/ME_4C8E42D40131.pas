@@ -29,11 +29,9 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If Defined(Nemesis)}
  , eeShortCutEdit
  {$IfEnd} // Defined(Nemesis)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -43,11 +41,6 @@ uses
  , CustomizeToolsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_CustomizeToolsLocalConstants }
- str_ut_CustomizeToolsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeToolsCaption'; rValue : 'CustomizeTools');
-  {* Заголовок пользовательского типа "CustomizeTools" }
 
 {$R *.DFM}
 
@@ -70,8 +63,6 @@ begin
 end;//TCustomizeToolsForm.MakeControls
 
 initialization
- str_ut_CustomizeToolsCaption.Init;
- {* Инициализация str_ut_CustomizeToolsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomizeToolsForm);
  {* Регистрация CustomizeTools }

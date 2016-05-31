@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , tfwScriptingInterfaces
  , tfwDictionaryPrim
- , l3Interfaces
  , l3Variant
+ , l3Interfaces
 ;
 
 type

@@ -18,6 +18,15 @@ uses
 ;
 
 const
+ {* Локализуемые строки Local }
+ str_pi_Document_ShowVersionsComment: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment'; rValue : 'Показывать информацию об изменениях в тексте документа');
+  {* 'Показывать информацию об изменениях в тексте документа' }
+ str_pi_Document_ShowVersionsComment_Hint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment_Hint'; rValue : 'Показывать информацию об изменениях в тексте документа');
+  {* 'Показывать информацию об изменениях в тексте документа' }
+ str_pi_Document_SubPanel_ShowVersionComments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_SubPanel_ShowVersionComments'; rValue : 'Информация об изменениях');
+  {* 'Информация об изменениях' }
+ str_pi_Document_ShowVersionCommentsLinkBehaviour: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionCommentsLinkBehaviour'; rValue : 'По ссылке в информации об изменениях в тексте документа открывать');
+  {* 'По ссылке в информации об изменениях в тексте документа открывать' }
  {* Локализуемые строки ShowVersionComments }
  str_svcCollapsed: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcCollapsed'; rValue : 'В свернутом виде');
   {* 'В свернутом виде' }
@@ -28,15 +37,6 @@ const
  @str_svcCollapsed
  , @str_svcExpanded
  );
- {* Локализуемые строки Local }
- str_pi_Document_ShowVersionsComment: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment'; rValue : 'Показывать информацию об изменениях в тексте документа');
-  {* 'Показывать информацию об изменениях в тексте документа' }
- str_pi_Document_ShowVersionsComment_Hint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment_Hint'; rValue : 'Показывать информацию об изменениях в тексте документа');
-  {* 'Показывать информацию об изменениях в тексте документа' }
- str_pi_Document_SubPanel_ShowVersionComments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_SubPanel_ShowVersionComments'; rValue : 'Информация об изменениях');
-  {* 'Информация об изменениях' }
- str_pi_Document_ShowVersionCommentsLinkBehaviour: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionCommentsLinkBehaviour'; rValue : 'По ссылке в информации об изменениях в тексте документа открывать');
-  {* 'По ссылке в информации об изменениях в тексте документа открывать' }
  {* Локализуемые строки VersionCommentsLinkBegaviour }
  str_vclbComparison: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbComparison'; rValue : 'Сравнение редакций');
   {* 'Сравнение редакций' }
@@ -339,10 +339,6 @@ begin
 end;//TVersionCommentsLinkBegaviourMapImpl.Exists
 
 initialization
- str_svcCollapsed.Init;
- {* Инициализация str_svcCollapsed }
- str_svcExpanded.Init;
- {* Инициализация str_svcExpanded }
  str_pi_Document_ShowVersionsComment.Init;
  {* Инициализация str_pi_Document_ShowVersionsComment }
  str_pi_Document_ShowVersionsComment_Hint.Init;
@@ -351,6 +347,10 @@ initialization
  {* Инициализация str_pi_Document_SubPanel_ShowVersionComments }
  str_pi_Document_ShowVersionCommentsLinkBehaviour.Init;
  {* Инициализация str_pi_Document_ShowVersionCommentsLinkBehaviour }
+ str_svcCollapsed.Init;
+ {* Инициализация str_svcCollapsed }
+ str_svcExpanded.Init;
+ {* Инициализация str_svcExpanded }
  str_vclbComparison.Init;
  {* Инициализация str_vclbComparison }
  str_vclbText.Init;

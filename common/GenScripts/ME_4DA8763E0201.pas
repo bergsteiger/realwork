@@ -29,13 +29,6 @@ _WarningUserTypes_ = _WarningUserTypes_Parent_;
 {$Define WarningUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки WarningLocalConstants }
- str_WarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarningCaption'; rValue : 'Предупреждение');
-  {* Заголовок пользовательского типа "Предупреждение" }
- str_WarningSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarningSettingsCaption'; rValue : 'Документ: Предупреждение');
-  {* Заголовок пользовательского типа "Предупреждение" для настройки панелей инструментов }
-
 {$If NOT Defined(NoVCM)}
 procedure _WarningUserTypes_.MakeControls;
 begin
@@ -43,7 +36,7 @@ begin
  with AddUsertype(WarningName,
   str_WarningCaption,
   str_WarningSettingsCaption,
-  False,
+  True,
   127,
   10,
   '',
@@ -56,14 +49,7 @@ begin
 end;//_WarningUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else WarningUserTypes_imp_impl}
-
- str_WarningCaption.Init;
- {* Инициализация str_WarningCaption }
- str_WarningSettingsCaption.Init;
- {* Инициализация str_WarningSettingsCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf WarningUserTypes_imp_impl}
 
 {$EndIf WarningUserTypes_imp}

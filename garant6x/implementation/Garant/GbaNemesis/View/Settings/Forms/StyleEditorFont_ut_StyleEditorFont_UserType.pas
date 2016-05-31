@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_StyleEditorFontLocalConstants }
+ str_ut_StyleEditorFontCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_StyleEditorFontCaption'; rValue : 'Параметры шрифта');
+  {* Заголовок пользовательского типа "Параметры шрифта" }
  {* Константы для типа формы ut_StyleEditorFont }
  ut_StyleEditorFontName = 'ut_StyleEditorFont';
   {* Строковый идентификатор пользовательского типа "Параметры шрифта" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_StyleEditorFontCaption.Init;
+ {* Инициализация str_ut_StyleEditorFontCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_StyleEditorFont.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_StyleEditorFont }

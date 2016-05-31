@@ -14,9 +14,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки AACContainerLocalConstants }
+ str_AACContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContainerCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы AACContainer }
  AACContainerName = 'AACContainer';
   {* Строковый идентификатор пользовательского типа "" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_AACContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_AACContainerCaption.Init;
+ {* Инициализация str_AACContainerCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_AACContainer.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_AACContainer }

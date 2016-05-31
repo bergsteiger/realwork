@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftTranslationLocalConstants }
+ str_dftTranslationCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftTranslationCaption'; rValue : 'Перевод');
+  {* Заголовок пользовательского типа "Перевод" }
+ str_dftTranslationSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftTranslationSettingsCaption'; rValue : 'Документ: Перевод');
+  {* Заголовок пользовательского типа "Перевод" для настройки панелей инструментов }
  {* Константы для типа формы dftTranslation }
  dftTranslationName = 'dftTranslation';
   {* Строковый идентификатор пользовательского типа "Перевод" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftTranslation.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftTranslationCaption.Init;
+ {* Инициализация str_dftTranslationCaption }
+ str_dftTranslationSettingsCaption.Init;
+ {* Инициализация str_dftTranslationSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftTranslation.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftTranslation }

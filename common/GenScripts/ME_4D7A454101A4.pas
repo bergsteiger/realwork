@@ -24,7 +24,6 @@ type
  TPrimBaseSearchContainerForm = class(TPrimSaveLoadOptionsForBaseSearchForm, InsMainMenuLikeBaseSearchOwner)
   private
    f_ChildZone: TvtPanel;
-    {* Поле для свойства ChildZone }
   protected
    function IsIt: Boolean;
    {$If NOT Defined(NoVCM)}
@@ -65,6 +64,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4D7A454101A4impl_uses*
+ //#UC END# *4D7A454101A4impl_uses*
 ;
 
 function TPrimBaseSearchContainerForm.IsIt: Boolean;
@@ -121,7 +122,7 @@ begin
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := Self;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
 end;//TPrimBaseSearchContainerForm.MakeControls

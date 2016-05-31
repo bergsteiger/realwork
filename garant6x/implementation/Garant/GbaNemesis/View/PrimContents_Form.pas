@@ -1,225 +1,222 @@
 unit PrimContents_Form;
+ {* Оглавление }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimContents_Form.pas"
-// Начат: 23.01.2009 18:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Contents::PrimContents
-//
-// Оглавление
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContents_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimContents" MUID: (4979DFB700F8)
+// Имя типа: "TPrimContentsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  DynamicTreeUnit,
-  l3Interfaces,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces,
-  nevTools,
-  bsInterfaces,
-  eeInterfaces,
-  DocumentAndListInterfaces,
-  TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  nevContainers,
-  vtPanel
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  nsLogEvent,
-  DocumentInterfaces,
-  l3StringIDEx,
-  ContentsUserTypes_utDrugContents_UserType
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanelView
-  {$IfEnd} //Nemesis
-  ,
-  LegalDomain_DocumentNotifications_Controls,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  ContentsUserTypes_utContents_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vcmInterfaces {a},
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  F1TagDataProviderInterface
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsInterfaces
+ , Document_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LegalDomain_DocumentNotifications_Controls
+ , TreeInterfaces
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ , vtPanel
+ , l3TreeInterfaces
+ , DocumentUnit
+ , nevContainers
+ , afwInterfaces
+ , nevTools
+ , vtLister
+ , nscTreeViewWithAdapterDragDrop
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTasksPanelView
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeInterfaces
+ , l3Interfaces
+ , DynamicTreeUnit
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , F1TagDataProviderInterface
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Локализуемые строки Local }
+ str_ContentsPrintTitle: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ContentsPrintTitle'; rValue : '%s (оглавление)');
+  {* '%s (оглавление)' }
+
 type
  TMoveDirectionType = (
-   mdtNone
- , mdtDown
- , mdtUp
+  mdtNone
+  , mdtDown
+  , mdtUp
  );//TMoveDirectionType
 
  TnsContentItem = (
   {* Типы элементов структуры }
-   cltNone
- , cltBlock
- , cltBookmark
- , cltUserComment
- , cltPicture
- , cltPictureLink
- , cltRTF
- , cltMP3
- , cltXLS
- , cltEVD
- , cltPDF
+  cltNone
+  , cltBlock
+  , cltBookmark
+  , cltUserComment
+  , cltPicture
+  , cltPictureLink
+  , cltRTF
+  , cltMP3
+  , cltXLS
+  , cltEVD
+  , cltPDF
  );//TnsContentItem
 
  TnsFilteredLists = array [TnsContentsListType] of IFiltered;
 
  TnsListForFiltering = array [TnsContentsListType] of TvtLister;
 
-var
-  { Локализуемые строки Local }
- str_ContentsPrintTitle : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ContentsPrintTitle'; rValue : '%s (оглавление)');
-  { '%s (оглавление)' }
-
-type
  _ContentsUserTypes_Parent_ = TvcmEntityForm;
- {$Include ..\View\ContentsUserTypes.imp.pas}
- TPrimContentsForm = {form} class(_ContentsUserTypes_, InsTreeDataListener)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas}
+ TPrimContentsForm = class(_ContentsUserTypes_, InsTreeDataListener)
   {* Оглавление }
- private
- // private fields
-   f_Filtered : TnsFilteredLists;
-   f_ListForFiltering : TnsListForFiltering;
-   f_CloseDisabled : Boolean;
-   f_ContentsTreeLastUpdateTime : Longword;
-    {* http://mdp.garant.ru/pages/viewpage.action?pageId=298682625}
-   f_ContextFilterDocInfo : IdeDocInfo;
-   f_LastBlockIdForHasSimilar : Integer;
-   f_LastHasSimilar : Boolean;
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_lstBookmarks : TvtLister;
-    {* Поле для свойства lstBookmarks}
-   f_lstComments : TvtLister;
-    {* Поле для свойства lstComments}
-   f_lstExternalObjects : TvtLister;
-    {* Поле для свойства lstExternalObjects}
-   f_ContentsTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства ContentsTree}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_Tasks : TnscTasksPanelView;
-    {* Поле для свойства Tasks}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_Filtered: TnsFilteredLists;
+   f_ListForFiltering: TnsListForFiltering;
+   f_CloseDisabled: Boolean;
+   f_ContentsTreeLastUpdateTime: Longword;
+    {* http://mdp.garant.ru/pages/viewpage.action?pageId=298682625 }
+   f_ContextFilterDocInfo: IdeDocInfo;
+   f_LastBlockIdForHasSimilar: Integer;
+   f_LastHasSimilar: Boolean;
+   f_BackgroundPanel: TvtPanel;
+   f_lstBookmarks: TvtLister;
+   f_lstComments: TvtLister;
+   f_lstExternalObjects: TvtLister;
+   f_ContentsTree: TnscTreeViewWithAdapterDragDrop;
+   f_ContextFilter: TnscContextFilter;
+   f_Tasks: TnscTasksPanelView;
+  protected
+   SimpleTree: IdsSimpleTree;
+   Contents: IdsContents;
+   BaseContents: IdsBaseContents;
+   f_InternalPositioning: Integer;
+   {$If Defined(vcmUseProfilers)}
+   f_FirstCurrentChanged: Boolean;
+   {$IfEnd} // Defined(vcmUseProfilers)
+  private
    procedure GetContentsListItem(Sender: TObject;
-     Index: Integer;
-     var ItemString: Il3CString);
+    Index: Integer;
+    var ItemString: Il3CString);
    procedure InitLists;
    function GetBookmarksItemImage(Sender: TObject;
-     Index: Integer): Integer;
+    Index: Integer): Integer;
    function GetCommentsItemImage(Sender: TObject;
-     Index: Integer): Integer;
+    Index: Integer): Integer;
    function GetExternalObjectsItemImage(Sender: TObject;
-     Index: Integer): Integer;
+    Index: Integer): Integer;
    procedure ContentsListActionElement(Sender: TObject;
-     Index: Integer);
+    Index: Integer);
    procedure ContentsListCurrentChanged(Sender: TObject;
-     aNewCurrent: Integer;
-     aOldCurrent: Integer);
+    aNewCurrent: Integer;
+    aOldCurrent: Integer);
    procedure ContextFilterChange(Sender: TObject);
    procedure ContextFilterWrongContext(Sender: TObject);
    procedure ContentsTreeNewCharPressed(aChar: AnsiChar);
    procedure ContentsTreeCurrentChanged(Sender: TObject;
-     NewCurrent: Integer;
-     OldCurrent: Integer);
+    NewCurrent: Integer;
+    OldCurrent: Integer);
    function ContentsTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure ContentsTreeTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    procedure ContentsTreeActionElement(Sender: TObject;
-     Index: Integer);
+    Index: Integer);
    procedure ContentsTreeMakeTreeSource(out theTree: Il3SimpleTree);
    procedure ContentsTreeRootChanged(aSender: TObject;
-     const anOldRoot: IeeNode;
-     const aNewRoot: IeeNode);
+    const anOldRoot: IeeNode;
+    const aNewRoot: IeeNode);
    function CheckFilteredIndex(aSender: TObject;
-     anIndex: Integer): TnsContentsListIndex;
+    anIndex: Integer): TnsContentsListIndex;
    procedure GetIsContextWrong(aSender: TObject;
-     var IsWrong: Boolean);
+    var IsWrong: Boolean);
    procedure DoContentsListActionElement(Sender: TObject;
-     Index: Integer;
-     aNeedClose: Boolean);
+    Index: Integer;
+    aNeedClose: Boolean);
    function FloatingHide: Boolean;
    procedure CheckFocus;
-     {* Проверяет в форме ли фокус и если это не так, то ставит его на первый возможный контрол }
+    {* Проверяет в форме ли фокус и если это не так, то ставит его на первый возможный контрол }
    procedure CheckActionElementMode;
    procedure StoreFloatingVisible(aValue: Boolean);
- protected
- // realized methods
+  protected
+   function FindSubByID(anID: Integer): Il3SimpleNode;
+   function IsMultiSelection: Boolean;
+   procedure FillCRList(const aParams: IvcmTestParamsPrim);
+   procedure enDocumentBlockTest(const aParams: IvcmTestParamsPrim;
+    AllowMultiSelect: Boolean);
+   function MakePositionList(const aNode: IeeNode = nil): IPositionList;
+   function IsCurrentBlockOrSub: Boolean;
+   function IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
+   function ContentItemType(const aNode: IeeNode = nil): TnsContentItem;
+   function BuildSelectionList: InevFlatSubsList;
+   function TextFormUserType: Byte;
+   function CanPrintBlock: Boolean;
+   function CanPreview: Boolean;
+   function MakePreview: IafwDocumentPreview;
+   function MakeEVD: InevStorable;
+   function CanPrint: Boolean;
+   procedure SendSynchroMessage(anIndex: Integer);
+   function IsFloatingState: Boolean;
+    {* Определяет - находится ли вкладка оглавления в плавающем состоянии }
+   procedure ExpandFirstLevel;
    procedure Updated;
-     {* данные дерева были обновлены. Реакция на обновление данных
+    {* данные дерева были обновлены. Реакция на обновление данных
             приложения }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure CheckFloatingVisibility; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Contents_SetCurrent_Execute(aSub: Integer);
    procedure Contents_SetCurrent(const aParams: IvcmExecuteParams);
    procedure Contents_MoveCurrent_Execute(aSub: Integer;
@@ -230,14 +227,14 @@ type
    procedure DocumentBlock_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_GetTypedCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-   procedure DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
    procedure DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetTypedRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
-     {* Установить закладку на фрагмент }
+    {* Установить закладку на фрагмент }
    procedure DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Установить закладку на фрагмент }
+    {* Установить закладку на фрагмент }
    procedure DocumentBlock_ToMSWord_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_ToMSWord_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure DocumentBlock_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
@@ -253,223 +250,160 @@ type
    function ContentsValidator_IsDocumentAdornmentsChanged_Execute(const aNew: InsDocumentAdornments): Boolean;
    procedure ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParams);
    function Contents_HasUserComments_Execute: Boolean;
-     {* Есть ли в оглавление пользовательские комментарии }
+    {* Есть ли в оглавление пользовательские комментарии }
    procedure Contents_HasUserComments(const aParams: IvcmExecuteParams);
-     {* Есть ли в оглавление пользовательские комментарии }
+    {* Есть ли в оглавление пользовательские комментарии }
    function Contents_HasBookmarks_Execute: Boolean;
-     {* Есть ли в оглавлении закладки }
+    {* Есть ли в оглавлении закладки }
    procedure Contents_HasBookmarks(const aParams: IvcmExecuteParams);
-     {* Есть ли в оглавлении закладки }
+    {* Есть ли в оглавлении закладки }
    function Contents_ToggleContentsVisibility_Execute: Boolean;
-     {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
+    {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
    procedure Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParams);
-     {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
+    {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
    function Contents_IsContentsVisible_Execute: Boolean;
-     {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
+    {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
    procedure Contents_IsContentsVisible(const aParams: IvcmExecuteParams);
-     {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
+    {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
    procedure Comment_Changed_Execute;
    procedure Comment_Changed(const aParams: IvcmExecuteParams);
    procedure DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
    procedure DocumentBlock_GetSimilarDocsToBlock_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure CheckFloatingVisibility; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
    constructor Create(AOwner: TComponent); override;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DefaultQueryClose(aSender: TObject); override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function CanHaveCloseButtonInNavigator: Boolean; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function CanHaveOwnCloseButtonInNavigator: Boolean; override;
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   SimpleTree : IdsSimpleTree;
-   Contents : IdsContents;
-   BaseContents : IdsBaseContents;
-   f_InternalPositioning : Integer;
-  {$If defined(vcmUseProfilers) AND not defined(Admin) AND not defined(Monitorings)}
-   f_FirstCurrentChanged : Boolean;
-  {$IfEnd} //vcmUseProfilers AND not Admin AND not Monitorings
- protected
- // protected methods
-   function FindSubByID(anID: Integer): Il3SimpleNode;
-   function IsMultiSelection: Boolean;
-   procedure FillCRList(const aParams: IvcmTestParamsPrim);
-   procedure EnDocumentBlockTest(const aParams: IvcmTestParamsPrim;
-     AllowMultiSelect: Boolean);
-   function MakePositionList(const aNode: IeeNode = nil): IPositionList;
-   function IsCurrentBlockOrSub: Boolean;
-   function IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
-   function ContentItemType(const aNode: IeeNode = nil): TnsContentItem;
-   function BuildSelectionList: InevFlatSubsList;
-   function TextFormUserType: Byte;
-   function CanPrintBlock: Boolean;
-   function CanPreview: Boolean;
-   function MakePreview: IafwDocumentPreview;
-   function MakeEVD: InevStorable;
-   function CanPrint: Boolean;
-   procedure SendSynchroMessage(anIndex: Integer);
-   function IsFloatingState: Boolean;
-     {* Определяет - находится ли вкладка оглавления в плавающем состоянии }
-   procedure ExpandFirstLevel;
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property lstBookmarks: TvtLister
-     read f_lstBookmarks;
+    read f_lstBookmarks;
    property lstComments: TvtLister
-     read f_lstComments;
+    read f_lstComments;
    property lstExternalObjects: TvtLister
-     read f_lstExternalObjects;
+    read f_lstExternalObjects;
    property ContentsTree: TnscTreeViewWithAdapterDragDrop
-     read f_ContentsTree;
+    read f_ContentsTree;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
    property Tasks: TnscTasksPanelView
-     read f_Tasks;
+    read f_Tasks;
  end;//TPrimContentsForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evdTypes,
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  DataAdapter,
-  ExternalObjectUnit,
-  BaseTypesUnit,
-  nevNavigation,
-  BitmapPara_Const,
-  nevFlatSubsList,
-  l3Nodes,
-  DocumentUserTypes_dftDocument_UserType,
-  DocumentUserTypes_dftDrug_UserType,
-  nsHAFPainter,
-  evFormatHAFMacroReplacer,
-  nsDocInfoHAFMacroReplacer,
-  nsDocumentPreview,
-  l3InternalInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nevBase,
-  nsContentsTreeStorable,
-  SysUtils,
-  l3Variant,
-  bsTypesNew,
-  nsTypes,
-  DocumentRes,
-  nsFilterableTreeStruct,
-  nsContextFilterParams,
-  IOUnit,
-  eeTreeView,
-  nsConst,
-  nsTrialSupport,
-  nsToMSWordOp,
-  Printers
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3ControlsTypes
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanel
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanelGroupDescList
-  {$IfEnd} //Nemesis
-  ,
-  MainMenuNewRes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsUtils
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  nsContentsListForFiltering,
-  Windows,
-  l3SysUtils,
-  l3Tree_TLB,
-  evdTextStyle_Const,
-  l3Base,
-  Base_Operations_Strange_Controls,
-  afwFacade,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmRepOperationsCollectionItem
-  {$IfEnd} //not NoVCM
-  ,
-  nsManagers,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsLogEvent
+ , ContentsUserTypes_utDrugContents_UserType
+ , eeTreeView
+ , nsContentsTreeStorable
+ , nsConst
+ , nsTrialSupport
+ , nsToMSWordOp
+ , Printers
+ , nsHAFPainter
+ , evFormatHAFMacroReplacer
+ , nsDocInfoHAFMacroReplacer
+ , nsDocumentPreview
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ControlsTypes
+ {$If Defined(Nemesis)}
+ , nscTasksPanel
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTasksPanelGroupDescList
+ {$IfEnd} // Defined(Nemesis)
+ , MainMenuNewRes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsUtils
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , nsContentsListForFiltering
+ , Windows
+ , l3SysUtils
+ , l3Tree_TLB
+ , evdTextStyle_Const
+ , l3Base
+ , Base_Operations_Strange_Controls
+ , afwFacade
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmRepOperationsCollectionItem
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ContentsUserTypes_utContents_UserType
+ , DataAdapter
+ , ExternalObjectUnit
+ , BaseTypesUnit
+ , nevNavigation
+ , BitmapPara_Const
+ , nevFlatSubsList
+ , l3Nodes
+ , DocumentUserTypes_dftDocument_UserType
+ , DocumentUserTypes_dftDrug_UserType
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevBase
+ , SysUtils
+ , evdTypes
+ , l3Variant
+ , bsTypesNew
+ , nsTypes
+ , DocumentRes
+ , nsFilterableTreeStruct
+ , nsContextFilterParams
+ , IOUnit
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , LoggingUnit
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979DFB700F8impl_uses*
+ , Base_Operations_Editions_Controls
+ //#UC END# *4979DFB700F8impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include ..\View\ContentsUserTypes.imp.pas}
-
-var
-   { Локализуемые строки ContentsGroups }
-  str_cgContents : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgContents'; rValue : 'Оглавление');
-   { 'Оглавление' }
-  str_cgBookmarks : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgBookmarks'; rValue : 'Закладки');
-   { 'Закладки' }
-  str_cgComments : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgComments'; rValue : 'Мои комментарии');
-   { 'Мои комментарии' }
-  str_cgExternalObjects : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgExternalObjects'; rValue : 'Встроенные объекты');
-   { 'Встроенные объекты' }
-
+{$If NOT Defined(NoVCM)}
 type
-  TnsGetDocumentStructureEvent = {final} class(TnsLogEvent)
+ TnsGetDocumentStructureEvent = {final} class(TnsLogEvent)
   public
-  // public methods
    class procedure Log(const aDoc: IDocument);
-  end;//TnsGetDocumentStructureEvent
+ end;//TnsGetDocumentStructureEvent
 
-// start class TnsGetDocumentStructureEvent
+const
+ {* Локализуемые строки ContentsGroups }
+ str_cgContents: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgContents'; rValue : 'Оглавление');
+  {* 'Оглавление' }
+ str_cgBookmarks: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgBookmarks'; rValue : 'Закладки');
+  {* 'Закладки' }
+ str_cgComments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgComments'; rValue : 'Мои комментарии');
+  {* 'Мои комментарии' }
+ str_cgExternalObjects: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cgExternalObjects'; rValue : 'Встроенные объекты');
+  {* 'Встроенные объекты' }
 
 class procedure TnsGetDocumentStructureEvent.Log(const aDoc: IDocument);
 //#UC START# *4B150E0B0174_4B150DFE035D_var*
@@ -484,674 +418,16 @@ begin
 //#UC END# *4B150E0B0174_4B150DFE035D_impl*
 end;//TnsGetDocumentStructureEvent.Log
 
-procedure TPrimContentsForm.GetContentsListItem(Sender: TObject;
-  Index: Integer;
-  var ItemString: Il3CString);
-//#UC START# *4D2DE4040157_4979DFB700F8_var*
-//#UC END# *4D2DE4040157_4979DFB700F8_var*
-begin
-//#UC START# *4D2DE4040157_4979DFB700F8_impl*
- if (BaseContents = nil) then
-  ItemString := l3CStr('')
- else
-  ItemString := nsCStr(BaseContents.ContentsListItem[CheckFilteredIndex(Sender, Index)]);
-//#UC END# *4D2DE4040157_4979DFB700F8_impl*
-end;//TPrimContentsForm.GetContentsListItem
-
-procedure TPrimContentsForm.InitLists;
-//#UC START# *4D2DEC970359_4979DFB700F8_var*
-var
- l_Tree: InsContentsTree;
-//#UC END# *4D2DEC970359_4979DFB700F8_var*
-begin
-//#UC START# *4D2DEC970359_4979DFB700F8_impl*
- //Tasks.Visible := false;
- with Tasks do
- begin
-  GroupImages := dmMainMenuNew.ilSmallIcons;
-  CollapseGroupImage := 1;
-  ExpandGroupImage := 0;
-  ImageList := dmStdRes.SmallImageList;
-  GroupColor := cGarant2011GradientStartColor{c_MainMenuColor};
- end;//with Tasks
-
- lstBookmarks.BorderStyle := bsNone;
- lstComments.BorderStyle := bsNone;
- lstExternalObjects.BorderStyle := bsNone;
-
- lstBookmarks.UseStyleTable := true;
- lstComments.UseStyleTable := true;
- lstExternalObjects.UseStyleTable := true;
- 
- lstBookmarks.MultiStrokeItem := ContentsTree.MultiStrokeItem;
- lstComments.MultiStrokeItem := ContentsTree.MultiStrokeItem;
- lstExternalObjects.MultiStrokeItem := ContentsTree.MultiStrokeItem;
-
- CheckActionElementMode;
-
- if (BaseContents = nil) then
- begin
-  lstBookmarks.Visible := false;
-  lstComments.Visible := false;
-  lstExternalObjects.Visible := false;
-  ContentsTree.Visible := false;
- end//BaseContents = nil
- else
- begin
-  if (BaseContents.Bookmarks = nil) then
-   lstBookmarks.Total := 0
-  else
-   lstBookmarks.Total := BaseContents.Bookmarks.Count;
-  if (BaseContents.Comments = nil) then
-   lstComments.Total := 0
-  else
-   lstComments.Total := BaseContents.Comments.Count;
-  if (BaseContents.ExternalObjects = nil) then
-   lstExternalObjects.Total := 0
-  else
-   lstExternalObjects.Total := BaseContents.ExternalObjects.Count;
-
-  lstBookmarks.Visible := (lstBookmarks.Total > 0);
-  lstComments.Visible := (lstComments.Total > 0);
-  lstExternalObjects.Visible := (lstExternalObjects.Total > 0);
-
-  lstBookmarks.Align := alBottom;
-  lstComments.Align := alBottom;
-  lstExternalObjects.Align := alBottom;
-
-  lstBookmarks.OnGetStrItem := GetContentsListItem;
-  lstComments.OnGetStrItem := GetContentsListItem;
-  lstExternalObjects.OnGetStrItem := GetContentsListItem;
-
-  lstBookmarks.Images := BaseContents.ImageList.Hack;
-  lstComments.Images := BaseContents.ImageList.Hack;
-  lstExternalObjects.Images := BaseContents.ImageList.Hack;
-
-  lstBookmarks.OnGetItemImageIndex := GetBookmarksItemImage;
-  lstComments.OnGetItemImageIndex := GetCommentsItemImage;
-  lstExternalObjects.OnGetItemImageIndex := GetExternalObjectsItemImage;
-
-  lstBookmarks.OnActionElement := ContentsListActionElement;
-  lstComments.OnActionElement := ContentsListActionElement;
-  lstExternalObjects.OnActionElement := ContentsListActionElement;
-
-  lstBookmarks.OnCurrentChanged := ContentsListCurrentChanged;
-  lstComments.OnCurrentChanged := ContentsListCurrentChanged;
-  lstExternalObjects.OnCurrentChanged := ContentsListCurrentChanged;
-
-  with ContentsTree do
-  begin
-   Images := BaseContents.ImageList.Hack;
-   if not Supports(TreeStruct, InsContentsTree, l_Tree) OR
-      l_Tree.RootResetted then
-   begin
-    TreeStruct := BaseContents.SimpleTree;
-    ExpandFirstLevel;
-    Invalidate;
-   end;//not Supports(TreeStruct, InsContentsTree, l_Tree)
-  end;//with ContentsTree
-  if (Dispatcher.History <> nil) AND
-     // - http://mdp.garant.ru/pages/viewpage.action?pageId=557849585
-     (not Dispatcher.History.InBF) AND
-     ((f_ContextFilterDocInfo = nil) OR
-     ((f_ContextFilterDocInfo <> nil) AND
-      (not f_ContextFilterDocInfo.IsSame(BaseContents.DocInfo)))) then
-  begin
-   ContextFilter.AssignState(BaseContents.CurrentContextFilter);
-   f_ContextFilterDocInfo := BaseContents.DocInfo;
-  end;
-  ContentsTree.Visible := (ContentsTree.Total > 0);
-  Tasks.TasksPanel :=
-   TnscTasksPanel.Make(ClassName,
-                       [
-                        TnscTasksPanelGroupDesc_C(@str_cgContents, ContentsTree),
-                        TnscTasksPanelGroupDesc_C(@str_cgBookmarks, lstBookmarks),
-                        TnscTasksPanelGroupDesc_C(@str_cgComments, lstComments),
-                        TnscTasksPanelGroupDesc_C(@str_cgExternalObjects, lstExternalObjects)
-                       ]);
-  Tasks.MakeTasksPanel;
-  Tasks.Visible := true;
-  Tasks.Align := alClient;
- end;//BaseContents = nil
- Op_DocumentSubPanel_UpdateSubPanel.Call(Aggregate);
-//#UC END# *4D2DEC970359_4979DFB700F8_impl*
-end;//TPrimContentsForm.InitLists
-
-function TPrimContentsForm.GetBookmarksItemImage(Sender: TObject;
-  Index: Integer): Integer;
-//#UC START# *4D2EDE4E0338_4979DFB700F8_var*
-//#UC END# *4D2EDE4E0338_4979DFB700F8_var*
-begin
-//#UC START# *4D2EDE4E0338_4979DFB700F8_impl*
- Result := diilBookmarkIcon;
-//#UC END# *4D2EDE4E0338_4979DFB700F8_impl*
-end;//TPrimContentsForm.GetBookmarksItemImage
-
-function TPrimContentsForm.GetCommentsItemImage(Sender: TObject;
-  Index: Integer): Integer;
-//#UC START# *4D2EDE8C005E_4979DFB700F8_var*
-//#UC END# *4D2EDE8C005E_4979DFB700F8_var*
-begin
-//#UC START# *4D2EDE8C005E_4979DFB700F8_impl*
- Result := diilUserCommentIcon;
-//#UC END# *4D2EDE8C005E_4979DFB700F8_impl*
-end;//TPrimContentsForm.GetCommentsItemImage
-
-function TPrimContentsForm.GetExternalObjectsItemImage(Sender: TObject;
-  Index: Integer): Integer;
-//#UC START# *4D2EDEBF001D_4979DFB700F8_var*
-var
- l_D : TExternalObjectData;
-//#UC END# *4D2EDEBF001D_4979DFB700F8_var*
-begin
-//#UC START# *4D2EDEBF001D_4979DFB700F8_impl*
- Result := -1;
- Index := CheckFilteredIndex(Sender, Index).rIndex;
- if (BaseContents.ExternalObjects <> nil) AND
-    (Index < BaseContents.ExternalObjects.Count)  then
- begin
-  BaseContents.ExternalObjects.pm_GetItem(Index, l_D);
-  Case l_D.rType of
-   EOT_PIC: // Картинка в формате BMP
-    Result := diilPictureIcon;
-   EOT_JPG:
-    Result := diilPictureIcon;
-   EOT_PNG:
-    Result := diilPictureIcon;
-   EOT_GIF:
-    Result := diilPictureIcon;
-   EOT_RTF, EOT_DOC, EOT_DOCX: // Документы Word, http://mdp.garant.ru/pages/viewpage.action?pageId=346757718
-    Result := diilRTF;
-   EOT_XLS, EOT_XLSX: // Таблица в формате XLS
-    Result := diilExcel;
-   EOT_MP3:
-    Result := diilMusic;
-   EOT_EVD:
-    Result := diilDocumentIcon;
-   EOT_TIF:
-    Result := diilPictureIcon;
-   EOT_PDF:
-    Result := diilAcrobat;
-   EOT_PPT: // Файлы PowerPoint
-    Result := diilPictureIcon;
-   EOT_CDR: // Файлы CorelDraw
-    Result := diilPictureIcon;
-   EOT_XML, EOT_XSD: // Документ XML
-    Result := diilXMLIcon;
-   else
-    Result := diilUSRIcon;
-  end;//Case l_D.rType
- end;//BaseContents.ExternalObjects <> nil
-//#UC END# *4D2EDEBF001D_4979DFB700F8_impl*
-end;//TPrimContentsForm.GetExternalObjectsItemImage
-
-procedure TPrimContentsForm.ContentsListActionElement(Sender: TObject;
-  Index: Integer);
-//#UC START# *4D2EE8650170_4979DFB700F8_var*
-//#UC END# *4D2EE8650170_4979DFB700F8_var*
-begin
-//#UC START# *4D2EE8650170_4979DFB700F8_impl*
- DoContentsListActionElement(Sender, Index, true);
-//#UC END# *4D2EE8650170_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsListActionElement
-
-procedure TPrimContentsForm.ContentsListCurrentChanged(Sender: TObject;
-  aNewCurrent: Integer;
-  aOldCurrent: Integer);
-//#UC START# *4D2EECA201F1_4979DFB700F8_var*
-//#UC END# *4D2EECA201F1_4979DFB700F8_var*
-begin
-//#UC START# *4D2EECA201F1_4979DFB700F8_impl*
- if (aOldCurrent <> -1) and
-    (aOldCurrent <> aNewCurrent) then
-  DoContentsListActionElement(Sender, aNewCurrent, false);
-//#UC END# *4D2EECA201F1_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsListCurrentChanged
-
-procedure TPrimContentsForm.ContextFilterChange(Sender: TObject);
-//#UC START# *4D3719CB031B_4979DFB700F8_var*
-var
- l_Filtered: Il3SimpleTree;
- l_Node: Il3SimpleNode;
- l_NewNodeIndex: Integer;
- l_LFF : IListForFiltering;
- l_ListType : TnsContentsListType;
-//#UC END# *4D3719CB031B_4979DFB700F8_var*
-var
- l_CF : IContextFilter;
-begin
-//#UC START# *4D3719CB031B_4979DFB700F8_impl*
- if (BaseContents <> nil) then
- begin
-  Inc(f_InternalPositioning);
-  try
-   // - тут будем фильтровать списки
-   l_CF := defDataAdapter.NativeAdapter.MakeContextFilter;
-   if TnsFilterableTreeStruct.
-       FillContextFilter(l_CF,
-                         TnsContextFilterParams.Make(gi_cpContents),
-                         ContextFilter.Context) then
-   begin
-    for l_ListType := Low(TnsContentsListType) to High(TnsContentsListType) do
-    begin
-     if f_ListForFiltering[l_ListType].Visible then
-     begin
-      l_LFF := TnsContentsListForFiltering.Make(l_ListType, BaseContents);
-      l_CF.Filtrate(l_LFF, f_Filtered[l_ListType]);
-      if (f_Filtered[l_ListType] = nil) then
-       f_ListForFiltering[l_ListType].Total := 0
-      else
-       f_ListForFiltering[l_ListType].Total := f_Filtered[l_ListType].Count;
-     end;//f_ListForFiltering[l_ListType].Visible
-    end;//for l_ListType
-   end//TnsFilterableTreeStruct.FillContextFilter
-   else
-   begin
-    Finalize(f_Filtered);
-    for l_ListType := Low(TnsContentsListType) to High(TnsContentsListType) do
-     if f_ListForFiltering[l_ListType].Visible then
-      f_ListForFiltering[l_ListType].Total := BaseContents.ContentsListCount[l_ListType];
-   end;//TnsFilterableTreeStruct.FillContextFilter
-   // - закончили фильтровать списки
-   l_Node := ContentsTree.GetCurrentNode;
-   try
-    l_Filtered := BaseContents.FiltrateByContext(ContentsTree.TreeStruct, l_Node,
-     ContextFilter.MakeState, l_NewNodeIndex);
-    if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
-    begin
-     // Без Changing/Changed плющит позиционирование. К-135598249
-     ContentsTree.Changing;
-     try
-      ContentsTree.TreeStruct := l_Filtered;
-      if (l_Node <> nil) then
-       ContentsTree.GotoOnNode(l_Node);
-     finally
-      ContentsTree.Changed;
-     end;//try..finally
-     // Если нода пропала встаем на самый первый видимый узел. К-135598249
-     if not ContentsTree.GetCurrentNode.IsSame(l_Node) then
-      ContentsTree.Current := 0;
-    end;//Assigned(l_Filtered)
-   finally
-    l_Node := nil;
-   end;//try..finally
-  finally
-   Dec(f_InternalPositioning);
-  end;//try..finally
-  SendSynchroMessage(ContentsTree.TreeView.Current);
- end;//BaseContents <> nil
- Op_DocumentSubPanel_UpdateSubPanel.Call(Aggregate);
-//#UC END# *4D3719CB031B_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContextFilterChange
-
-procedure TPrimContentsForm.ContextFilterWrongContext(Sender: TObject);
-//#UC START# *4D371A00001E_4979DFB700F8_var*
-//#UC END# *4D371A00001E_4979DFB700F8_var*
-begin
-//#UC START# *4D371A00001E_4979DFB700F8_impl*
- nsBeepWrongContext;
-//#UC END# *4D371A00001E_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContextFilterWrongContext
-
-procedure TPrimContentsForm.ContentsTreeNewCharPressed(aChar: AnsiChar);
-//#UC START# *4D371DC703BB_4979DFB700F8_var*
-//#UC END# *4D371DC703BB_4979DFB700F8_var*
-begin
-//#UC START# *4D371DC703BB_4979DFB700F8_impl*
- ContextFilter.PressChar(aChar);
-//#UC END# *4D371DC703BB_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeNewCharPressed
-
-procedure TPrimContentsForm.ContentsTreeCurrentChanged(Sender: TObject;
-  NewCurrent: Integer;
-  OldCurrent: Integer);
-//#UC START# *4D372007016B_4979DFB700F8_var*
-//#UC END# *4D372007016B_4979DFB700F8_var*
-begin
-//#UC START# *4D372007016B_4979DFB700F8_impl*
- if (OldCurrent <> -1) and
-    (OldCurrent <> NewCurrent) then
-  SendSynchroMessage(NewCurrent);
-//#UC END# *4D372007016B_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeCurrentChanged
-
-function TPrimContentsForm.ContentsTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *4D37206D034E_4979DFB700F8_var*
-const
- nsContentObjectItem = [cltRTF, cltMP3, cltXLS, cltEVD, cltPDF];
-  {* Элементы структуры являющиеся объектами. }
-var
- l_ChildNode : IeeNode;
- l_Node      : IeeNode;
- l_ItemType  : TnsContentItem;
-//#UC END# *4D37206D034E_4979DFB700F8_var*
-begin
-//#UC START# *4D37206D034E_4979DFB700F8_impl*
- Result := -1;
- l_Node := ContentsTree.TreeView.GetNode(Index);
- try
-  case ContentItemType(l_Node) of
-   cltNone :
-    begin
-     if l_Node.HasChild then
-     begin
-      l_ChildNode := l_Node.ChildNode;
-      try
-       l_ItemType := ContentItemType(l_ChildNode);
-       case l_ItemType of
-        cltNone:
-         Result := diilFolderIcon;
-        cltBlock:
-         Result := diilSubAndBlockIcon;
-        cltBookmark:
-         Result := diilFolderIcon;
-        cltUserComment:
-         Result := diilFolderIcon;
-        cltPictureLink, cltPicture :
-         Result := diilPictureFolderIcon;
-        else
-         if l_ItemType in nsContentObjectItem then
-          Result := diilObjectFolderIcon
-         else
-          Assert(False);
-       end//case ContentItemType(l_ChildNode) of
-      finally
-       l_ChildNode := nil;
-      end;
-     end
-     else
-      if l_Node.GetLevelForParent(ContentsTree.TreeView.Tree.Root) = 1 then
-       Result := diilFolderIcon
-      else
-       Result := diilDocumentIcon;
-    end;
-   cltBlock:
-    if l_Node.ID = 0 then
-     Result := diilDocumentIcon
-    else
-     Result := diilSubAndBlockIcon;
-   cltBookmark:
-    Result := diilBookmarkIcon;
-   cltUserComment:
-    Result := diilUserCommentIcon;
-   cltPicture:
-    Result := diilPictureIcon;
-   cltPictureLink:
-    Result := diilPictureLinkIcon;
-   cltMP3:
-    Result := diilMusic;
-   cltRTF:
-    Result := diilRTF;
-   cltXLS:
-    Result := diilExcel;
-   cltEVD:
-    Result := diilDocumentIcon;
-   cltPDF:
-    Result := diilAcrobat;
-   else
-    Assert(False);
-  end;//case ContentItemType(l_Node) of
- finally
-  l_Node := nil;
- end;//try..finally
-//#UC END# *4D37206D034E_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeGetItemImage
-
-procedure TPrimContentsForm.ContentsTreeTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
-//#UC START# *4D3720A5030E_4979DFB700F8_var*
-//#UC END# *4D3720A5030E_4979DFB700F8_var*
-begin
-//#UC START# *4D3720A5030E_4979DFB700F8_impl*
- if (anOldTree <> nil) then
-  anOldTree.Unsubscribe(InsTreeDataListener(Self));
- if (aNewTree <> nil) then
-  aNewTree.Subscribe(InsTreeDataListener(Self));
- {$IfDef vcmUseProfilers}
- // Завершим работу профайлера по открытию документа:
- if not f_FirstCurrentChanged then
- begin
-  ProfilersManager.Document.ContentsTreeOpened;
-  f_FirstCurrentChanged := True;
- end;//not f_FirstCurrentChanged
- {$EndIf vcmUseProfilers}
- if (aNewTree <> nil) then
-  ExpandFirstLevel;
-//#UC END# *4D3720A5030E_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeTreeChanged
-
-procedure TPrimContentsForm.ContentsTreeActionElement(Sender: TObject;
-  Index: Integer);
-//#UC START# *4D3720DE0381_4979DFB700F8_var*
-//#UC END# *4D3720DE0381_4979DFB700F8_var*
-begin
-//#UC START# *4D3720DE0381_4979DFB700F8_impl*
- SendSynchroMessage(ContentsTree.TreeView.Current);
- FloatingHide;
-//#UC END# *4D3720DE0381_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeActionElement
-
-procedure TPrimContentsForm.ContentsTreeMakeTreeSource(out theTree: Il3SimpleTree);
-//#UC START# *4D37210000EE_4979DFB700F8_var*
-//#UC END# *4D37210000EE_4979DFB700F8_var*
-begin
-//#UC START# *4D37210000EE_4979DFB700F8_impl*
- if (SimpleTree <> nil) then
-  theTree := SimpleTree.SimpleTree
- else
-  theTree := nil;
-
- if not (csDestroying in ComponentState) then
-  if (BaseContents <> nil) then
-   TnsGetDocumentStructureEvent.Log(BaseContents.DocInfo.Doc);
-//#UC END# *4D37210000EE_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeMakeTreeSource
-
-procedure TPrimContentsForm.ContentsTreeRootChanged(aSender: TObject;
-  const anOldRoot: IeeNode;
-  const aNewRoot: IeeNode);
-//#UC START# *4D372122006B_4979DFB700F8_var*
-
-(* function lp_FindBlockOrSub(const anIntf: IeeNode): Boolean;
- begin//lp_FindBlockOrSub
-  Result := IsNodeBlockOrSub(anIntf);
- end;//lp_FindBlockOrSub*)
-
-var
- l_Tree: InsContentsTree;
-//#UC END# *4D372122006B_4979DFB700F8_var*
-begin
-//#UC START# *4D372122006B_4979DFB700F8_impl*
- // Скорей всего TreeStruct равен nil и последующее к нему обращение вызовет его создание...
- if aNewRoot = nil then
-  Exit;
-(* Supports(ContentsTree.TreeView.Tree.IterateF(eeL2NA(@lp_FindBlockOrSub),
-                                              imCheckResult or imOneLevel),
-          Il3SimpleNode,
-          f_ContentsNode);*)
- if Supports(ContentsTree.TreeStruct, InsContentsTree, l_Tree) then
- begin
-  if l_Tree.RootResetted then
-   ExpandFirstLevel;
-  l_Tree.DataReceived;
- end;//Supports(ContentsTree.TreeStruct, InsContentsTree, l_Tree)
-//#UC END# *4D372122006B_4979DFB700F8_impl*
-end;//TPrimContentsForm.ContentsTreeRootChanged
-
-function TPrimContentsForm.CheckFilteredIndex(aSender: TObject;
-  anIndex: Integer): TnsContentsListIndex;
-//#UC START# *4D40508101A1_4979DFB700F8_var*
-var
- l_Index : TnsContentsListType;
-//#UC END# *4D40508101A1_4979DFB700F8_var*
-begin
-//#UC START# *4D40508101A1_4979DFB700F8_impl*
- Result.rIndex := anIndex;
- Byte(Result.rListType) := 255; 
- for l_Index := Low(TnsContentsListType) to High(TnsContentsListType) do
-  if (f_ListForFiltering[l_Index] = aSender) then
-  begin
-   Result.rListType := l_Index;
-   break;
-  end;//f_ListForFiltering[l_Index] = aSender
- Assert(Byte(Result.rListType) <= Ord(High(TnsContentsListType)));
- if (f_Filtered[Result.rListType] <> nil) then
- begin
-  Assert(Result.rIndex < f_Filtered[Result.rListType].Count);
-  Result.rIndex  := f_Filtered[Result.rListType].Items[Result.rIndex];
- end;//f_Filtered[Result.rListType] <> nil
-//#UC END# *4D40508101A1_4979DFB700F8_impl*
-end;//TPrimContentsForm.CheckFilteredIndex
-
-procedure TPrimContentsForm.GetIsContextWrong(aSender: TObject;
-  var IsWrong: Boolean);
-//#UC START# *4D42A67803C6_4979DFB700F8_var*
-var
- l_Index : TnsContentsListType;
- l_SomeListVisible : Boolean;
-//#UC END# *4D42A67803C6_4979DFB700F8_var*
-begin
-//#UC START# *4D42A67803C6_4979DFB700F8_impl*
- if IsWrong then
- begin
-  for l_Index := Low(l_Index) to High(l_Index) do
-   if f_ListForFiltering[l_Index].Visible AND
-      (f_ListForFiltering[l_Index].Total > 0) then
-   begin
-    IsWrong := false;
-    Exit;
-   end;//f_ListForFiltering[l_Index].Visible
- end//IsWrong
- else
- begin
-  if ContentsTree.Visible AND (ContentsTree.Total > 0) then
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=265396831
-  // - типа в оглавлении всё хорошо - значит не надо и дёргаться
-   Exit;
-  l_SomeListVisible := false;
-  for l_Index := Low(l_Index) to High(l_Index) do
-   if f_ListForFiltering[l_Index].Visible then
-   begin
-    l_SomeListVisible := true;
-    break;
-   end;//f_ListForFiltering[l_Index].Visible
-  if l_SomeListVisible then
-  begin
-   for l_Index := Low(l_Index) to High(l_Index) do
-    if f_ListForFiltering[l_Index].Visible AND
-       (f_ListForFiltering[l_Index].Total > 0) then
-     Exit;
-   IsWrong := true;
-  end;//l_SomeListVisible
- end;//IsWrong
-//#UC END# *4D42A67803C6_4979DFB700F8_impl*
-end;//TPrimContentsForm.GetIsContextWrong
-
-procedure TPrimContentsForm.DoContentsListActionElement(Sender: TObject;
-  Index: Integer;
-  aNeedClose: Boolean);
-//#UC START# *4E7B3A8F00D6_4979DFB700F8_var*
-//#UC END# *4E7B3A8F00D6_4979DFB700F8_var*
-begin
-//#UC START# *4E7B3A8F00D6_4979DFB700F8_impl*
- Op_Document_SetPosition.Call(Aggregate,
-                              BaseContents.
-                               ContentsListParaID[CheckFilteredIndex(Sender, Index)],
-                              dptPara,
-                              TextFormUserType);
- if aNeedClose then
-  FloatingHide;                             
-//#UC END# *4E7B3A8F00D6_4979DFB700F8_impl*
-end;//TPrimContentsForm.DoContentsListActionElement
-
-function TPrimContentsForm.FloatingHide: Boolean;
-//#UC START# *4E7B3D1A016A_4979DFB700F8_var*
-var
- l_P : TafwCustomForm;
-//#UC END# *4E7B3D1A016A_4979DFB700F8_var*
-begin
-//#UC START# *4E7B3D1A016A_4979DFB700F8_impl*
- Result := false;
- if IsFloatingState then
- begin
-  l_P := afw.GetAnotherParentForm(Self);
-  Assert(l_P <> nil);
-  if (l_P <> nil) then
-  begin
-   l_P.Hide;
-   StoreFloatingVisible(l_P.Visible);
-   Result := true;
-  end;//l_P <> nil
- end;//IsFloatingState
-//#UC END# *4E7B3D1A016A_4979DFB700F8_impl*
-end;//TPrimContentsForm.FloatingHide
-
-procedure TPrimContentsForm.CheckFocus;
-//#UC START# *4E7B450302F4_4979DFB700F8_var*
-//#UC END# *4E7B450302F4_4979DFB700F8_var*
-begin
-//#UC START# *4E7B450302F4_4979DFB700F8_impl*
- if Self.FloatingVisible then
-  if not Focused then
-   if CanFocus then
-   begin
-    SetFocus;
-    if ContentsTree.Visible AND ContentsTree.CanFocus then
-     ContentsTree.SetFocus
-    else
-    if lstBookmarks.Visible AND lstBookmarks.CanFocus then
-     lstBookmarks.SetFocus
-    else
-    if lstExternalObjects.Visible AND lstExternalObjects.CanFocus then
-     lstExternalObjects.SetFocus
-    else
-    if lstComments.Visible AND lstComments.CanFocus then
-     lstComments.SetFocus;
-   end;//CanFocus
-//#UC END# *4E7B450302F4_4979DFB700F8_impl*
-end;//TPrimContentsForm.CheckFocus
-
-procedure TPrimContentsForm.CheckActionElementMode;
-//#UC START# *4E7B486801E4_4979DFB700F8_var*
-//#UC END# *4E7B486801E4_4979DFB700F8_var*
-begin
-//#UC START# *4E7B486801E4_4979DFB700F8_impl*
- if IsFloatingState then
- begin
-  ContentsTree.ActionElementMode := l3_amDoubleClick;
-  lstBookmarks.ActionElementMode := l3_amDoubleClick;
-  lstComments.ActionElementMode := l3_amDoubleClick;
-  lstExternalObjects.ActionElementMode := l3_amDoubleClick;
- end//IsFloatingState
- else
- begin
-  ContentsTree.ActionElementMode := l3_amSecondSingleClick;
-  lstBookmarks.ActionElementMode := l3_amSecondSingleClick;
-  lstComments.ActionElementMode := l3_amSecondSingleClick;
-  lstExternalObjects.ActionElementMode := l3_amSecondSingleClick;
- end;//IsFloatingState
-//#UC END# *4E7B486801E4_4979DFB700F8_impl*
-end;//TPrimContentsForm.CheckActionElementMode
-
-procedure TPrimContentsForm.StoreFloatingVisible(aValue: Boolean);
-//#UC START# *4E7B54800149_4979DFB700F8_var*
-//#UC END# *4E7B54800149_4979DFB700F8_var*
-begin
-//#UC START# *4E7B54800149_4979DFB700F8_impl*
- Self.FloatingVisible := aValue;
-//#UC END# *4E7B54800149_4979DFB700F8_impl*
-end;//TPrimContentsForm.StoreFloatingVisible
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas}
 
 function TPrimContentsForm.FindSubByID(anID: Integer): Il3SimpleNode;
+var l_CurrentNode: Il3SimpleNode;
+var l_Tree: InsContentsTree;
 
  function IsSubValid(const aNode: Il3SimpleNode): Boolean;
+ var l_Sub: IevSub;
  //#UC START# *4A9D4CD30114__var*
-//#UC END# *4A9D4CD30114__var*
- var
-  l_Sub : IevSub;
+ //#UC END# *4A9D4CD30114__var*
  begin
  //#UC START# *4A9D4CD30114__impl*
   Result := Supports(aNode, IevSub, l_Sub) and
@@ -1162,9 +438,6 @@ function TPrimContentsForm.FindSubByID(anID: Integer): Il3SimpleNode;
 
 //#UC START# *4A9D4CAB00DD_4979DFB700F8_var*
 //#UC END# *4A9D4CAB00DD_4979DFB700F8_var*
-var
- l_CurrentNode : Il3SimpleNode;
- l_Tree : InsContentsTree;
 begin
 //#UC START# *4A9D4CAB00DD_4979DFB700F8_impl*
  l_CurrentNode := ContentsTree.GetCurrentNode;
@@ -1188,10 +461,9 @@ begin
 end;//TPrimContentsForm.IsMultiSelection
 
 procedure TPrimContentsForm.FillCRList(const aParams: IvcmTestParamsPrim);
+var l_List: IvcmNodes;
 //#UC START# *4C2AEAB600F4_4979DFB700F8_var*
 //#UC END# *4C2AEAB600F4_4979DFB700F8_var*
-var
- l_List : IvcmNodes;
 begin
 //#UC START# *4C2AEAB600F4_4979DFB700F8_impl*
  l_List := aParams.Op.SubNodes;
@@ -1216,8 +488,8 @@ begin
 //#UC END# *4C2AEAB600F4_4979DFB700F8_impl*
 end;//TPrimContentsForm.FillCRList
 
-procedure TPrimContentsForm.EnDocumentBlockTest(const aParams: IvcmTestParamsPrim;
-  AllowMultiSelect: Boolean);
+procedure TPrimContentsForm.enDocumentBlockTest(const aParams: IvcmTestParamsPrim;
+ AllowMultiSelect: Boolean);
 //#UC START# *4C2AF3B20159_4979DFB700F8_var*
 //#UC END# *4C2AF3B20159_4979DFB700F8_var*
 begin
@@ -1227,7 +499,7 @@ begin
  else
   aParams.Op.Flag[vcm_ofEnabled] := IsCurrentBlockOrSub;
 //#UC END# *4C2AF3B20159_4979DFB700F8_impl*
-end;//TPrimContentsForm.EnDocumentBlockTest
+end;//TPrimContentsForm.enDocumentBlockTest
 
 function TPrimContentsForm.MakePositionList(const aNode: IeeNode = nil): IPositionList;
 //#UC START# *4C2AF5150266_4979DFB700F8_var*
@@ -1272,12 +544,13 @@ begin
 end;//TPrimContentsForm.IsCurrentBlockOrSub
 
 function TPrimContentsForm.IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
+var l_Block: IevDocumentPart;
+var l_Sub: IevDocumentPart;
 
- function LpIsNodeBlockOrSub(const aNode: IeeNode): Boolean;
+ function lp_IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
+ var l_ChildNode: IeeNode;
  //#UC START# *4C2AF8A4011C__var*
  //#UC END# *4C2AF8A4011C__var*
- var
-  l_ChildNode : IeeNode;
  begin
  //#UC START# *4C2AF8A4011C__impl*
   case ContentItemType(aNode) of
@@ -1301,13 +574,10 @@ function TPrimContentsForm.IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
     Result := false;
   end;//case ContentItemType(aNode
  //#UC END# *4C2AF8A4011C__impl*
- end;//LpIsNodeBlockOrSub
+ end;//lp_IsNodeBlockOrSub
 
 //#UC START# *4C2AF7F6023A_4979DFB700F8_var*
 //#UC END# *4C2AF7F6023A_4979DFB700F8_var*
-var
- l_Block : IevDocumentPart;
- l_Sub : IevDocumentPart;
 begin
 //#UC START# *4C2AF7F6023A_4979DFB700F8_impl*
  Result := (Supports(aNode, IevDocumentPart, l_Block) or
@@ -1572,7 +842,573 @@ begin
 //#UC END# *4D2DA7CA00F6_4979DFB700F8_impl*
 end;//TPrimContentsForm.SendSynchroMessage
 
+procedure TPrimContentsForm.GetContentsListItem(Sender: TObject;
+ Index: Integer;
+ var ItemString: Il3CString);
+//#UC START# *4D2DE4040157_4979DFB700F8_var*
+//#UC END# *4D2DE4040157_4979DFB700F8_var*
+begin
+//#UC START# *4D2DE4040157_4979DFB700F8_impl*
+ if (BaseContents = nil) then
+  ItemString := l3CStr('')
+ else
+  ItemString := nsCStr(BaseContents.ContentsListItem[CheckFilteredIndex(Sender, Index)]);
+//#UC END# *4D2DE4040157_4979DFB700F8_impl*
+end;//TPrimContentsForm.GetContentsListItem
+
+procedure TPrimContentsForm.InitLists;
+//#UC START# *4D2DEC970359_4979DFB700F8_var*
+var
+ l_Tree: InsContentsTree;
+//#UC END# *4D2DEC970359_4979DFB700F8_var*
+begin
+//#UC START# *4D2DEC970359_4979DFB700F8_impl*
+ //Tasks.Visible := false;
+ with Tasks do
+ begin
+  GroupImages := dmMainMenuNew.ilSmallIcons;
+  CollapseGroupImage := 1;
+  ExpandGroupImage := 0;
+  ImageList := dmStdRes.SmallImageList;
+  GroupColor := cGarant2011GradientStartColor{c_MainMenuColor};
+ end;//with Tasks
+
+ lstBookmarks.BorderStyle := bsNone;
+ lstComments.BorderStyle := bsNone;
+ lstExternalObjects.BorderStyle := bsNone;
+
+ lstBookmarks.UseStyleTable := true;
+ lstComments.UseStyleTable := true;
+ lstExternalObjects.UseStyleTable := true;
+ 
+ lstBookmarks.MultiStrokeItem := ContentsTree.MultiStrokeItem;
+ lstComments.MultiStrokeItem := ContentsTree.MultiStrokeItem;
+ lstExternalObjects.MultiStrokeItem := ContentsTree.MultiStrokeItem;
+
+ CheckActionElementMode;
+
+ if (BaseContents = nil) then
+ begin
+  lstBookmarks.Visible := false;
+  lstComments.Visible := false;
+  lstExternalObjects.Visible := false;
+  ContentsTree.Visible := false;
+ end//BaseContents = nil
+ else
+ begin
+  if (BaseContents.Bookmarks = nil) then
+   lstBookmarks.Total := 0
+  else
+   lstBookmarks.Total := BaseContents.Bookmarks.Count;
+  if (BaseContents.Comments = nil) then
+   lstComments.Total := 0
+  else
+   lstComments.Total := BaseContents.Comments.Count;
+  if (BaseContents.ExternalObjects = nil) then
+   lstExternalObjects.Total := 0
+  else
+   lstExternalObjects.Total := BaseContents.ExternalObjects.Count;
+
+  lstBookmarks.Visible := (lstBookmarks.Total > 0);
+  lstComments.Visible := (lstComments.Total > 0);
+  lstExternalObjects.Visible := (lstExternalObjects.Total > 0);
+
+  lstBookmarks.Align := alBottom;
+  lstComments.Align := alBottom;
+  lstExternalObjects.Align := alBottom;
+
+  lstBookmarks.OnGetStrItem := GetContentsListItem;
+  lstComments.OnGetStrItem := GetContentsListItem;
+  lstExternalObjects.OnGetStrItem := GetContentsListItem;
+
+  lstBookmarks.Images := BaseContents.ImageList.Hack;
+  lstComments.Images := BaseContents.ImageList.Hack;
+  lstExternalObjects.Images := BaseContents.ImageList.Hack;
+
+  lstBookmarks.OnGetItemImageIndex := GetBookmarksItemImage;
+  lstComments.OnGetItemImageIndex := GetCommentsItemImage;
+  lstExternalObjects.OnGetItemImageIndex := GetExternalObjectsItemImage;
+
+  lstBookmarks.OnActionElement := ContentsListActionElement;
+  lstComments.OnActionElement := ContentsListActionElement;
+  lstExternalObjects.OnActionElement := ContentsListActionElement;
+
+  lstBookmarks.OnCurrentChanged := ContentsListCurrentChanged;
+  lstComments.OnCurrentChanged := ContentsListCurrentChanged;
+  lstExternalObjects.OnCurrentChanged := ContentsListCurrentChanged;
+
+  with ContentsTree do
+  begin
+   Images := BaseContents.ImageList.Hack;
+   if not Supports(TreeStruct, InsContentsTree, l_Tree) OR
+      l_Tree.RootResetted then
+   begin
+    TreeStruct := BaseContents.SimpleTree;
+    ExpandFirstLevel;
+    Invalidate;
+   end;//not Supports(TreeStruct, InsContentsTree, l_Tree)
+  end;//with ContentsTree
+  if (Dispatcher.History <> nil) AND
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=557849585
+     (not Dispatcher.History.InBF) AND
+     ((f_ContextFilterDocInfo = nil) OR
+     ((f_ContextFilterDocInfo <> nil) AND
+      (not f_ContextFilterDocInfo.IsSame(BaseContents.DocInfo)))) then
+  begin
+   ContextFilter.AssignState(BaseContents.CurrentContextFilter);
+   f_ContextFilterDocInfo := BaseContents.DocInfo;
+  end;
+  ContentsTree.Visible := (ContentsTree.Total > 0);
+  Tasks.TasksPanel :=
+   TnscTasksPanel.Make(ClassName,
+                       [
+                        TnscTasksPanelGroupDesc_C(@str_cgContents, ContentsTree),
+                        TnscTasksPanelGroupDesc_C(@str_cgBookmarks, lstBookmarks),
+                        TnscTasksPanelGroupDesc_C(@str_cgComments, lstComments),
+                        TnscTasksPanelGroupDesc_C(@str_cgExternalObjects, lstExternalObjects)
+                       ]);
+  Tasks.MakeTasksPanel;
+  Tasks.Visible := true;
+  Tasks.Align := alClient;
+ end;//BaseContents = nil
+ Op_DocumentSubPanel_UpdateSubPanel.Call(Aggregate);
+//#UC END# *4D2DEC970359_4979DFB700F8_impl*
+end;//TPrimContentsForm.InitLists
+
+function TPrimContentsForm.GetBookmarksItemImage(Sender: TObject;
+ Index: Integer): Integer;
+//#UC START# *4D2EDE4E0338_4979DFB700F8_var*
+//#UC END# *4D2EDE4E0338_4979DFB700F8_var*
+begin
+//#UC START# *4D2EDE4E0338_4979DFB700F8_impl*
+ Result := diilBookmarkIcon;
+//#UC END# *4D2EDE4E0338_4979DFB700F8_impl*
+end;//TPrimContentsForm.GetBookmarksItemImage
+
+function TPrimContentsForm.GetCommentsItemImage(Sender: TObject;
+ Index: Integer): Integer;
+//#UC START# *4D2EDE8C005E_4979DFB700F8_var*
+//#UC END# *4D2EDE8C005E_4979DFB700F8_var*
+begin
+//#UC START# *4D2EDE8C005E_4979DFB700F8_impl*
+ Result := diilUserCommentIcon;
+//#UC END# *4D2EDE8C005E_4979DFB700F8_impl*
+end;//TPrimContentsForm.GetCommentsItemImage
+
+function TPrimContentsForm.GetExternalObjectsItemImage(Sender: TObject;
+ Index: Integer): Integer;
+//#UC START# *4D2EDEBF001D_4979DFB700F8_var*
+var
+ l_D : TExternalObjectData;
+//#UC END# *4D2EDEBF001D_4979DFB700F8_var*
+begin
+//#UC START# *4D2EDEBF001D_4979DFB700F8_impl*
+ Result := -1;
+ Index := CheckFilteredIndex(Sender, Index).rIndex;
+ if (BaseContents.ExternalObjects <> nil) AND
+    (Index < BaseContents.ExternalObjects.Count)  then
+ begin
+  BaseContents.ExternalObjects.pm_GetItem(Index, l_D);
+  Case l_D.rType of
+   EOT_PIC: // Картинка в формате BMP
+    Result := diilPictureIcon;
+   EOT_JPG:
+    Result := diilPictureIcon;
+   EOT_PNG:
+    Result := diilPictureIcon;
+   EOT_GIF:
+    Result := diilPictureIcon;
+   EOT_RTF, EOT_DOC, EOT_DOCX: // Документы Word, http://mdp.garant.ru/pages/viewpage.action?pageId=346757718
+    Result := diilRTF;
+   EOT_XLS, EOT_XLSX: // Таблица в формате XLS
+    Result := diilExcel;
+   EOT_MP3:
+    Result := diilMusic;
+   EOT_EVD:
+    Result := diilDocumentIcon;
+   EOT_TIF:
+    Result := diilPictureIcon;
+   EOT_PDF:
+    Result := diilAcrobat;
+   EOT_PPT: // Файлы PowerPoint
+    Result := diilPictureIcon;
+   EOT_CDR: // Файлы CorelDraw
+    Result := diilPictureIcon;
+   EOT_XML, EOT_XSD: // Документ XML
+    Result := diilXMLIcon;
+   else
+    Result := diilUSRIcon;
+  end;//Case l_D.rType
+ end;//BaseContents.ExternalObjects <> nil
+//#UC END# *4D2EDEBF001D_4979DFB700F8_impl*
+end;//TPrimContentsForm.GetExternalObjectsItemImage
+
+procedure TPrimContentsForm.ContentsListActionElement(Sender: TObject;
+ Index: Integer);
+//#UC START# *4D2EE8650170_4979DFB700F8_var*
+//#UC END# *4D2EE8650170_4979DFB700F8_var*
+begin
+//#UC START# *4D2EE8650170_4979DFB700F8_impl*
+ DoContentsListActionElement(Sender, Index, true);
+//#UC END# *4D2EE8650170_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsListActionElement
+
+procedure TPrimContentsForm.ContentsListCurrentChanged(Sender: TObject;
+ aNewCurrent: Integer;
+ aOldCurrent: Integer);
+//#UC START# *4D2EECA201F1_4979DFB700F8_var*
+//#UC END# *4D2EECA201F1_4979DFB700F8_var*
+begin
+//#UC START# *4D2EECA201F1_4979DFB700F8_impl*
+ if (aOldCurrent <> -1) and
+    (aOldCurrent <> aNewCurrent) then
+  DoContentsListActionElement(Sender, aNewCurrent, false);
+//#UC END# *4D2EECA201F1_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsListCurrentChanged
+
+procedure TPrimContentsForm.ContextFilterChange(Sender: TObject);
+var l_CF: IContextFilter;
+//#UC START# *4D3719CB031B_4979DFB700F8_var*
+var
+ l_Filtered: Il3SimpleTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+ l_LFF : IListForFiltering;
+ l_ListType : TnsContentsListType;
+//#UC END# *4D3719CB031B_4979DFB700F8_var*
+begin
+//#UC START# *4D3719CB031B_4979DFB700F8_impl*
+ if (BaseContents <> nil) then
+ begin
+  Inc(f_InternalPositioning);
+  try
+   // - тут будем фильтровать списки
+   l_CF := defDataAdapter.NativeAdapter.MakeContextFilter;
+   if TnsFilterableTreeStruct.
+       FillContextFilter(l_CF,
+                         TnsContextFilterParams.Make(gi_cpContents),
+                         ContextFilter.Context) then
+   begin
+    for l_ListType := Low(TnsContentsListType) to High(TnsContentsListType) do
+    begin
+     if f_ListForFiltering[l_ListType].Visible then
+     begin
+      l_LFF := TnsContentsListForFiltering.Make(l_ListType, BaseContents);
+      l_CF.Filtrate(l_LFF, f_Filtered[l_ListType]);
+      if (f_Filtered[l_ListType] = nil) then
+       f_ListForFiltering[l_ListType].Total := 0
+      else
+       f_ListForFiltering[l_ListType].Total := f_Filtered[l_ListType].Count;
+     end;//f_ListForFiltering[l_ListType].Visible
+    end;//for l_ListType
+   end//TnsFilterableTreeStruct.FillContextFilter
+   else
+   begin
+    Finalize(f_Filtered);
+    for l_ListType := Low(TnsContentsListType) to High(TnsContentsListType) do
+     if f_ListForFiltering[l_ListType].Visible then
+      f_ListForFiltering[l_ListType].Total := BaseContents.ContentsListCount[l_ListType];
+   end;//TnsFilterableTreeStruct.FillContextFilter
+   // - закончили фильтровать списки
+   l_Node := ContentsTree.GetCurrentNode;
+   try
+    l_Filtered := BaseContents.FiltrateByContext(ContentsTree.TreeStruct, l_Node,
+     ContextFilter.MakeState, l_NewNodeIndex);
+    if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
+    begin
+     // Без Changing/Changed плющит позиционирование. К-135598249
+     ContentsTree.Changing;
+     try
+      ContentsTree.TreeStruct := l_Filtered;
+      if (l_Node <> nil) then
+       ContentsTree.GotoOnNode(l_Node);
+     finally
+      ContentsTree.Changed;
+     end;//try..finally
+     // Если нода пропала встаем на самый первый видимый узел. К-135598249
+     if not ContentsTree.GetCurrentNode.IsSame(l_Node) then
+      ContentsTree.Current := 0;
+    end;//Assigned(l_Filtered)
+   finally
+    l_Node := nil;
+   end;//try..finally
+  finally
+   Dec(f_InternalPositioning);
+  end;//try..finally
+  SendSynchroMessage(ContentsTree.TreeView.Current);
+ end;//BaseContents <> nil
+ Op_DocumentSubPanel_UpdateSubPanel.Call(Aggregate);
+//#UC END# *4D3719CB031B_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContextFilterChange
+
+procedure TPrimContentsForm.ContextFilterWrongContext(Sender: TObject);
+//#UC START# *4D371A00001E_4979DFB700F8_var*
+//#UC END# *4D371A00001E_4979DFB700F8_var*
+begin
+//#UC START# *4D371A00001E_4979DFB700F8_impl*
+ nsBeepWrongContext;
+//#UC END# *4D371A00001E_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContextFilterWrongContext
+
+procedure TPrimContentsForm.ContentsTreeNewCharPressed(aChar: AnsiChar);
+//#UC START# *4D371DC703BB_4979DFB700F8_var*
+//#UC END# *4D371DC703BB_4979DFB700F8_var*
+begin
+//#UC START# *4D371DC703BB_4979DFB700F8_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *4D371DC703BB_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeNewCharPressed
+
+procedure TPrimContentsForm.ContentsTreeCurrentChanged(Sender: TObject;
+ NewCurrent: Integer;
+ OldCurrent: Integer);
+//#UC START# *4D372007016B_4979DFB700F8_var*
+//#UC END# *4D372007016B_4979DFB700F8_var*
+begin
+//#UC START# *4D372007016B_4979DFB700F8_impl*
+ if (OldCurrent <> -1) and
+    (OldCurrent <> NewCurrent) then
+  SendSynchroMessage(NewCurrent);
+//#UC END# *4D372007016B_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeCurrentChanged
+
+function TPrimContentsForm.ContentsTreeGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *4D37206D034E_4979DFB700F8_var*
+const
+ nsContentObjectItem = [cltRTF, cltMP3, cltXLS, cltEVD, cltPDF];
+  {* Элементы структуры являющиеся объектами. }
+var
+ l_ChildNode : IeeNode;
+ l_Node      : IeeNode;
+ l_ItemType  : TnsContentItem;
+//#UC END# *4D37206D034E_4979DFB700F8_var*
+begin
+//#UC START# *4D37206D034E_4979DFB700F8_impl*
+ Result := -1;
+ l_Node := ContentsTree.TreeView.GetNode(Index);
+ try
+  case ContentItemType(l_Node) of
+   cltNone :
+    begin
+     if l_Node.HasChild then
+     begin
+      l_ChildNode := l_Node.ChildNode;
+      try
+       l_ItemType := ContentItemType(l_ChildNode);
+       case l_ItemType of
+        cltNone:
+         Result := diilFolderIcon;
+        cltBlock:
+         Result := diilSubAndBlockIcon;
+        cltBookmark:
+         Result := diilFolderIcon;
+        cltUserComment:
+         Result := diilFolderIcon;
+        cltPictureLink, cltPicture :
+         Result := diilPictureFolderIcon;
+        else
+         if l_ItemType in nsContentObjectItem then
+          Result := diilObjectFolderIcon
+         else
+          Assert(False);
+       end//case ContentItemType(l_ChildNode) of
+      finally
+       l_ChildNode := nil;
+      end;
+     end
+     else
+      if l_Node.GetLevelForParent(ContentsTree.TreeView.Tree.Root) = 1 then
+       Result := diilFolderIcon
+      else
+       Result := diilDocumentIcon;
+    end;
+   cltBlock:
+    if l_Node.ID = 0 then
+     Result := diilDocumentIcon
+    else
+     Result := diilSubAndBlockIcon;
+   cltBookmark:
+    Result := diilBookmarkIcon;
+   cltUserComment:
+    Result := diilUserCommentIcon;
+   cltPicture:
+    Result := diilPictureIcon;
+   cltPictureLink:
+    Result := diilPictureLinkIcon;
+   cltMP3:
+    Result := diilMusic;
+   cltRTF:
+    Result := diilRTF;
+   cltXLS:
+    Result := diilExcel;
+   cltEVD:
+    Result := diilDocumentIcon;
+   cltPDF:
+    Result := diilAcrobat;
+   else
+    Assert(False);
+  end;//case ContentItemType(l_Node) of
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *4D37206D034E_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeGetItemImage
+
+procedure TPrimContentsForm.ContentsTreeTreeChanged(aSender: TObject;
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
+//#UC START# *4D3720A5030E_4979DFB700F8_var*
+//#UC END# *4D3720A5030E_4979DFB700F8_var*
+begin
+//#UC START# *4D3720A5030E_4979DFB700F8_impl*
+ if (anOldTree <> nil) then
+  anOldTree.Unsubscribe(InsTreeDataListener(Self));
+ if (aNewTree <> nil) then
+  aNewTree.Subscribe(InsTreeDataListener(Self));
+ {$IfDef vcmUseProfilers}
+ // Завершим работу профайлера по открытию документа:
+ if not f_FirstCurrentChanged then
+ begin
+  ProfilersManager.Document.ContentsTreeOpened;
+  f_FirstCurrentChanged := True;
+ end;//not f_FirstCurrentChanged
+ {$EndIf vcmUseProfilers}
+ if (aNewTree <> nil) then
+  ExpandFirstLevel;
+//#UC END# *4D3720A5030E_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeTreeChanged
+
+procedure TPrimContentsForm.ContentsTreeActionElement(Sender: TObject;
+ Index: Integer);
+//#UC START# *4D3720DE0381_4979DFB700F8_var*
+//#UC END# *4D3720DE0381_4979DFB700F8_var*
+begin
+//#UC START# *4D3720DE0381_4979DFB700F8_impl*
+ SendSynchroMessage(ContentsTree.TreeView.Current);
+ FloatingHide;
+//#UC END# *4D3720DE0381_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeActionElement
+
+procedure TPrimContentsForm.ContentsTreeMakeTreeSource(out theTree: Il3SimpleTree);
+//#UC START# *4D37210000EE_4979DFB700F8_var*
+//#UC END# *4D37210000EE_4979DFB700F8_var*
+begin
+//#UC START# *4D37210000EE_4979DFB700F8_impl*
+ if (SimpleTree <> nil) then
+  theTree := SimpleTree.SimpleTree
+ else
+  theTree := nil;
+
+ if not (csDestroying in ComponentState) then
+  if (BaseContents <> nil) then
+   TnsGetDocumentStructureEvent.Log(BaseContents.DocInfo.Doc);
+//#UC END# *4D37210000EE_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeMakeTreeSource
+
+procedure TPrimContentsForm.ContentsTreeRootChanged(aSender: TObject;
+ const anOldRoot: IeeNode;
+ const aNewRoot: IeeNode);
+//#UC START# *4D372122006B_4979DFB700F8_var*
+
+(* function lp_FindBlockOrSub(const anIntf: IeeNode): Boolean;
+ begin//lp_FindBlockOrSub
+  Result := IsNodeBlockOrSub(anIntf);
+ end;//lp_FindBlockOrSub*)
+
+var
+ l_Tree: InsContentsTree;
+//#UC END# *4D372122006B_4979DFB700F8_var*
+begin
+//#UC START# *4D372122006B_4979DFB700F8_impl*
+ // Скорей всего TreeStruct равен nil и последующее к нему обращение вызовет его создание...
+ if aNewRoot = nil then
+  Exit;
+(* Supports(ContentsTree.TreeView.Tree.IterateF(eeL2NA(@lp_FindBlockOrSub),
+                                              imCheckResult or imOneLevel),
+          Il3SimpleNode,
+          f_ContentsNode);*)
+ if Supports(ContentsTree.TreeStruct, InsContentsTree, l_Tree) then
+ begin
+  if l_Tree.RootResetted then
+   ExpandFirstLevel;
+  l_Tree.DataReceived;
+ end;//Supports(ContentsTree.TreeStruct, InsContentsTree, l_Tree)
+//#UC END# *4D372122006B_4979DFB700F8_impl*
+end;//TPrimContentsForm.ContentsTreeRootChanged
+
+function TPrimContentsForm.CheckFilteredIndex(aSender: TObject;
+ anIndex: Integer): TnsContentsListIndex;
+//#UC START# *4D40508101A1_4979DFB700F8_var*
+var
+ l_Index : TnsContentsListType;
+//#UC END# *4D40508101A1_4979DFB700F8_var*
+begin
+//#UC START# *4D40508101A1_4979DFB700F8_impl*
+ Result.rIndex := anIndex;
+ Byte(Result.rListType) := 255; 
+ for l_Index := Low(TnsContentsListType) to High(TnsContentsListType) do
+  if (f_ListForFiltering[l_Index] = aSender) then
+  begin
+   Result.rListType := l_Index;
+   break;
+  end;//f_ListForFiltering[l_Index] = aSender
+ Assert(Byte(Result.rListType) <= Ord(High(TnsContentsListType)));
+ if (f_Filtered[Result.rListType] <> nil) then
+ begin
+  Assert(Result.rIndex < f_Filtered[Result.rListType].Count);
+  Result.rIndex  := f_Filtered[Result.rListType].Items[Result.rIndex];
+ end;//f_Filtered[Result.rListType] <> nil
+//#UC END# *4D40508101A1_4979DFB700F8_impl*
+end;//TPrimContentsForm.CheckFilteredIndex
+
+procedure TPrimContentsForm.GetIsContextWrong(aSender: TObject;
+ var IsWrong: Boolean);
+//#UC START# *4D42A67803C6_4979DFB700F8_var*
+var
+ l_Index : TnsContentsListType;
+ l_SomeListVisible : Boolean;
+//#UC END# *4D42A67803C6_4979DFB700F8_var*
+begin
+//#UC START# *4D42A67803C6_4979DFB700F8_impl*
+ if IsWrong then
+ begin
+  for l_Index := Low(l_Index) to High(l_Index) do
+   if f_ListForFiltering[l_Index].Visible AND
+      (f_ListForFiltering[l_Index].Total > 0) then
+   begin
+    IsWrong := false;
+    Exit;
+   end;//f_ListForFiltering[l_Index].Visible
+ end//IsWrong
+ else
+ begin
+  if ContentsTree.Visible AND (ContentsTree.Total > 0) then
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=265396831
+  // - типа в оглавлении всё хорошо - значит не надо и дёргаться
+   Exit;
+  l_SomeListVisible := false;
+  for l_Index := Low(l_Index) to High(l_Index) do
+   if f_ListForFiltering[l_Index].Visible then
+   begin
+    l_SomeListVisible := true;
+    break;
+   end;//f_ListForFiltering[l_Index].Visible
+  if l_SomeListVisible then
+  begin
+   for l_Index := Low(l_Index) to High(l_Index) do
+    if f_ListForFiltering[l_Index].Visible AND
+       (f_ListForFiltering[l_Index].Total > 0) then
+     Exit;
+   IsWrong := true;
+  end;//l_SomeListVisible
+ end;//IsWrong
+//#UC END# *4D42A67803C6_4979DFB700F8_impl*
+end;//TPrimContentsForm.GetIsContextWrong
+
 function TPrimContentsForm.IsFloatingState: Boolean;
+ {* Определяет - находится ли вкладка оглавления в плавающем состоянии }
 //#UC START# *4E79E72D00A5_4979DFB700F8_var*
 var
  l_P : TafwCustomForm;
@@ -1589,6 +1425,102 @@ begin
  end;//l_P <> nil
 //#UC END# *4E79E72D00A5_4979DFB700F8_impl*
 end;//TPrimContentsForm.IsFloatingState
+
+procedure TPrimContentsForm.DoContentsListActionElement(Sender: TObject;
+ Index: Integer;
+ aNeedClose: Boolean);
+//#UC START# *4E7B3A8F00D6_4979DFB700F8_var*
+//#UC END# *4E7B3A8F00D6_4979DFB700F8_var*
+begin
+//#UC START# *4E7B3A8F00D6_4979DFB700F8_impl*
+ Op_Document_SetPosition.Call(Aggregate,
+                              BaseContents.
+                               ContentsListParaID[CheckFilteredIndex(Sender, Index)],
+                              dptPara,
+                              TextFormUserType);
+ if aNeedClose then
+  FloatingHide;                             
+//#UC END# *4E7B3A8F00D6_4979DFB700F8_impl*
+end;//TPrimContentsForm.DoContentsListActionElement
+
+function TPrimContentsForm.FloatingHide: Boolean;
+//#UC START# *4E7B3D1A016A_4979DFB700F8_var*
+var
+ l_P : TafwCustomForm;
+//#UC END# *4E7B3D1A016A_4979DFB700F8_var*
+begin
+//#UC START# *4E7B3D1A016A_4979DFB700F8_impl*
+ Result := false;
+ if IsFloatingState then
+ begin
+  l_P := afw.GetAnotherParentForm(Self);
+  Assert(l_P <> nil);
+  if (l_P <> nil) then
+  begin
+   l_P.Hide;
+   StoreFloatingVisible(l_P.Visible);
+   Result := true;
+  end;//l_P <> nil
+ end;//IsFloatingState
+//#UC END# *4E7B3D1A016A_4979DFB700F8_impl*
+end;//TPrimContentsForm.FloatingHide
+
+procedure TPrimContentsForm.CheckFocus;
+ {* Проверяет в форме ли фокус и если это не так, то ставит его на первый возможный контрол }
+//#UC START# *4E7B450302F4_4979DFB700F8_var*
+//#UC END# *4E7B450302F4_4979DFB700F8_var*
+begin
+//#UC START# *4E7B450302F4_4979DFB700F8_impl*
+ if Self.FloatingVisible then
+  if not Focused then
+   if CanFocus then
+   begin
+    SetFocus;
+    if ContentsTree.Visible AND ContentsTree.CanFocus then
+     ContentsTree.SetFocus
+    else
+    if lstBookmarks.Visible AND lstBookmarks.CanFocus then
+     lstBookmarks.SetFocus
+    else
+    if lstExternalObjects.Visible AND lstExternalObjects.CanFocus then
+     lstExternalObjects.SetFocus
+    else
+    if lstComments.Visible AND lstComments.CanFocus then
+     lstComments.SetFocus;
+   end;//CanFocus
+//#UC END# *4E7B450302F4_4979DFB700F8_impl*
+end;//TPrimContentsForm.CheckFocus
+
+procedure TPrimContentsForm.CheckActionElementMode;
+//#UC START# *4E7B486801E4_4979DFB700F8_var*
+//#UC END# *4E7B486801E4_4979DFB700F8_var*
+begin
+//#UC START# *4E7B486801E4_4979DFB700F8_impl*
+ if IsFloatingState then
+ begin
+  ContentsTree.ActionElementMode := l3_amDoubleClick;
+  lstBookmarks.ActionElementMode := l3_amDoubleClick;
+  lstComments.ActionElementMode := l3_amDoubleClick;
+  lstExternalObjects.ActionElementMode := l3_amDoubleClick;
+ end//IsFloatingState
+ else
+ begin
+  ContentsTree.ActionElementMode := l3_amSecondSingleClick;
+  lstBookmarks.ActionElementMode := l3_amSecondSingleClick;
+  lstComments.ActionElementMode := l3_amSecondSingleClick;
+  lstExternalObjects.ActionElementMode := l3_amSecondSingleClick;
+ end;//IsFloatingState
+//#UC END# *4E7B486801E4_4979DFB700F8_impl*
+end;//TPrimContentsForm.CheckActionElementMode
+
+procedure TPrimContentsForm.StoreFloatingVisible(aValue: Boolean);
+//#UC START# *4E7B54800149_4979DFB700F8_var*
+//#UC END# *4E7B54800149_4979DFB700F8_var*
+begin
+//#UC START# *4E7B54800149_4979DFB700F8_impl*
+ Self.FloatingVisible := aValue;
+//#UC END# *4E7B54800149_4979DFB700F8_impl*
+end;//TPrimContentsForm.StoreFloatingVisible
 
 procedure TPrimContentsForm.ExpandFirstLevel;
 //#UC START# *4AEF076A02D6_4979DFB700F8_var*
@@ -1607,6 +1539,8 @@ begin
 end;//TPrimContentsForm.ExpandFirstLevel
 
 procedure TPrimContentsForm.Updated;
+ {* данные дерева были обновлены. Реакция на обновление данных
+            приложения }
 //#UC START# *48FF6D200201_4979DFB700F8_var*
 //#UC END# *48FF6D200201_4979DFB700F8_var*
 begin
@@ -1646,11 +1580,11 @@ end;//TPrimContentsForm.Contents_SetCurrent_Execute
 procedure TPrimContentsForm.Contents_SetCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContents_SetCurrent_Params) do
-  Contents_SetCurrent_Execute(Sub);
-end;
+  Self.Contents_SetCurrent_Execute(Sub);
+end;//TPrimContentsForm.Contents_SetCurrent
 
 procedure TPrimContentsForm.Contents_MoveCurrent_Execute(aSub: Integer;
-  aDown: Boolean);
+ aDown: Boolean);
 //#UC START# *4A9D4A560164_4979DFB700F8exec_var*
 
  procedure PositionOnNode(const aNode: Il3SimpleNode);
@@ -1719,8 +1653,8 @@ end;//TPrimContentsForm.Contents_MoveCurrent_Execute
 procedure TPrimContentsForm.Contents_MoveCurrent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContents_MoveCurrent_Params) do
-  Contents_MoveCurrent_Execute(Sub, Down);
-end;
+  Self.Contents_MoveCurrent_Execute(Sub, Down);
+end;//TPrimContentsForm.Contents_MoveCurrent
 
 procedure TPrimContentsForm.DocumentBlock_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2AEDB3003B_4979DFB700F8test_var*
@@ -1810,15 +1744,6 @@ begin
 //#UC END# *4C2AEDDA0335_4979DFB700F8test_impl*
 end;//TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_Test
 
-procedure TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C2AEDDA0335_4979DFB700F8getstate_var*
-//#UC END# *4C2AEDDA0335_4979DFB700F8getstate_var*
-begin
-//#UC START# *4C2AEDDA0335_4979DFB700F8getstate_impl*
- // - ничего не делаем
-//#UC END# *4C2AEDDA0335_4979DFB700F8getstate_impl*
-end;//TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_GetState
-
 procedure TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C2AEDDA0335_4979DFB700F8exec_var*
 var
@@ -1839,6 +1764,15 @@ begin
  end;//l_PositionList <> nil
 //#UC END# *4C2AEDDA0335_4979DFB700F8exec_impl*
 end;//TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_Execute
+
+procedure TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_GetState(var State: TvcmOperationStateIndex);
+//#UC START# *4C2AEDDA0335_4979DFB700F8getstate_var*
+//#UC END# *4C2AEDDA0335_4979DFB700F8getstate_var*
+begin
+//#UC START# *4C2AEDDA0335_4979DFB700F8getstate_impl*
+ // - ничего не делаем
+//#UC END# *4C2AEDDA0335_4979DFB700F8getstate_impl*
+end;//TPrimContentsForm.DocumentBlock_GetTypedCorrespondentList_GetState
 
 procedure TPrimContentsForm.DocumentBlock_GetTypedRespondentList_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2AEDE7028C_4979DFB700F8test_var*
@@ -1877,6 +1811,7 @@ begin
 end;//TPrimContentsForm.DocumentBlock_GetTypedRespondentList_Execute
 
 procedure TPrimContentsForm.DocumentBlockBookmarks_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+ {* Установить закладку на фрагмент }
 //#UC START# *4C3B1AEA0127_4979DFB700F8test_var*
 var
  l_Sub: IevSub;
@@ -1891,6 +1826,7 @@ begin
 end;//TPrimContentsForm.DocumentBlockBookmarks_AddBookmark_Test
 
 procedure TPrimContentsForm.DocumentBlockBookmarks_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Установить закладку на фрагмент }
 //#UC START# *4C3B1AEA0127_4979DFB700F8exec_var*
 var
  l_eeNode: IeeNode;
@@ -2163,10 +2099,11 @@ end;//TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged_Execute
 procedure TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContentsValidator_IsDocumentAdornmentsChanged_Params) do
-  ResultValue := ContentsValidator_IsDocumentAdornmentsChanged_Execute(New);
-end;
+  ResultValue := Self.ContentsValidator_IsDocumentAdornmentsChanged_Execute(New);
+end;//TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged
 
 function TPrimContentsForm.Contents_HasUserComments_Execute: Boolean;
+ {* Есть ли в оглавление пользовательские комментарии }
 //#UC START# *4DF1FCA6008C_4979DFB700F8exec_var*
 //#UC END# *4DF1FCA6008C_4979DFB700F8exec_var*
 begin
@@ -2176,12 +2113,14 @@ begin
 end;//TPrimContentsForm.Contents_HasUserComments_Execute
 
 procedure TPrimContentsForm.Contents_HasUserComments(const aParams: IvcmExecuteParams);
+ {* Есть ли в оглавление пользовательские комментарии }
 begin
  with (aParams.Data As IContents_HasUserComments_Params) do
-  ResultValue := Contents_HasUserComments_Execute;
-end;
+  ResultValue := Self.Contents_HasUserComments_Execute;
+end;//TPrimContentsForm.Contents_HasUserComments
 
 function TPrimContentsForm.Contents_HasBookmarks_Execute: Boolean;
+ {* Есть ли в оглавлении закладки }
 //#UC START# *4DF1FCC602EE_4979DFB700F8exec_var*
 //#UC END# *4DF1FCC602EE_4979DFB700F8exec_var*
 begin
@@ -2191,12 +2130,14 @@ begin
 end;//TPrimContentsForm.Contents_HasBookmarks_Execute
 
 procedure TPrimContentsForm.Contents_HasBookmarks(const aParams: IvcmExecuteParams);
+ {* Есть ли в оглавлении закладки }
 begin
  with (aParams.Data As IContents_HasBookmarks_Params) do
-  ResultValue := Contents_HasBookmarks_Execute;
-end;
+  ResultValue := Self.Contents_HasBookmarks_Execute;
+end;//TPrimContentsForm.Contents_HasBookmarks
 
 function TPrimContentsForm.Contents_ToggleContentsVisibility_Execute: Boolean;
+ {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
 //#UC START# *4E79E67402E7_4979DFB700F8exec_var*
 var
  l_P : TafwCustomForm;
@@ -2219,12 +2160,14 @@ begin
 end;//TPrimContentsForm.Contents_ToggleContentsVisibility_Execute
 
 procedure TPrimContentsForm.Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParams);
+ {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
 begin
  with (aParams.Data As IContents_ToggleContentsVisibility_Params) do
-  ResultValue := Contents_ToggleContentsVisibility_Execute;
-end;
+  ResultValue := Self.Contents_ToggleContentsVisibility_Execute;
+end;//TPrimContentsForm.Contents_ToggleContentsVisibility
 
 function TPrimContentsForm.Contents_IsContentsVisible_Execute: Boolean;
+ {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
 //#UC START# *4E79E6C4018D_4979DFB700F8exec_var*
 var
  l_P : TafwCustomForm;
@@ -2245,10 +2188,11 @@ begin
 end;//TPrimContentsForm.Contents_IsContentsVisible_Execute
 
 procedure TPrimContentsForm.Contents_IsContentsVisible(const aParams: IvcmExecuteParams);
+ {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
 begin
  with (aParams.Data As IContents_IsContentsVisible_Params) do
-  ResultValue := Contents_IsContentsVisible_Execute;
-end;
+  ResultValue := Self.Contents_IsContentsVisible_Execute;
+end;//TPrimContentsForm.Contents_IsContentsVisible
 
 procedure TPrimContentsForm.Comment_Changed_Execute;
 //#UC START# *4EAAE5C40089_4979DFB700F8exec_var*
@@ -2262,8 +2206,8 @@ end;//TPrimContentsForm.Comment_Changed_Execute
 
 procedure TPrimContentsForm.Comment_Changed(const aParams: IvcmExecuteParams);
 begin
- Comment_Changed_Execute;
-end;
+ Self.Comment_Changed_Execute;
+end;//TPrimContentsForm.Comment_Changed
 
 procedure TPrimContentsForm.DocumentBlock_GetSimilarDocsToBlock_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *5587AA310201_4979DFB700F8test_var*
@@ -2301,6 +2245,7 @@ begin
 end;//TPrimContentsForm.DocumentBlock_GetSimilarDocsToBlock_Execute
 
 procedure TPrimContentsForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4979DFB700F8_var*
 //#UC END# *479731C50290_4979DFB700F8_var*
 begin
@@ -2342,9 +2287,9 @@ begin
 //#UC END# *47D1602000C6_4979DFB700F8_impl*
 end;//TPrimContentsForm.Create
 
-{$If not defined(NoVCM)}
 procedure TPrimContentsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4979DFB700F8_var*
 //#UC END# *497469C90140_4979DFB700F8_var*
 begin
@@ -2359,10 +2304,9 @@ begin
  f_LastHasSimilar := False;
 //#UC END# *497469C90140_4979DFB700F8_impl*
 end;//TPrimContentsForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimContentsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979DFB700F8_var*
 //#UC END# *4A8E8F2E0195_4979DFB700F8_var*
 begin
@@ -2432,9 +2376,7 @@ begin
  InitLists;
 //#UC END# *4A8E8F2E0195_4979DFB700F8_impl*
 end;//TPrimContentsForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimContentsForm.DefaultQueryClose(aSender: TObject);
 //#UC START# *4E7A030702C6_4979DFB700F8_var*
 var
@@ -2460,9 +2402,7 @@ begin
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=595963346
 //#UC END# *4E7A030702C6_4979DFB700F8_impl*
 end;//TPrimContentsForm.DefaultQueryClose
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimContentsForm.CheckFloatingVisibility;
 //#UC START# *4E7A13AE01BC_4979DFB700F8_var*
 var
@@ -2484,9 +2424,7 @@ begin
  end;//IsFloatingState
 //#UC END# *4E7A13AE01BC_4979DFB700F8_impl*
 end;//TPrimContentsForm.CheckFloatingVisibility
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimContentsForm.CanHaveCloseButtonInNavigator: Boolean;
 //#UC START# *4F619BCE008A_4979DFB700F8_var*
 //#UC END# *4F619BCE008A_4979DFB700F8_var*
@@ -2496,9 +2434,7 @@ begin
  // - бред конечно, но так - правильно, а на самом деле f_CloseDisabled - должна называться f_IsFloatingNow
 //#UC END# *4F619BCE008A_4979DFB700F8_impl*
 end;//TPrimContentsForm.CanHaveCloseButtonInNavigator
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimContentsForm.CanHaveOwnCloseButtonInNavigator: Boolean;
 //#UC START# *4F6A0EE50047_4979DFB700F8_var*
 //#UC END# *4F6A0EE50047_4979DFB700F8_var*
@@ -2507,27 +2443,35 @@ begin
  Result := false;
 //#UC END# *4F6A0EE50047_4979DFB700F8_impl*
 end;//TPrimContentsForm.CanHaveOwnCloseButtonInNavigator
-{$IfEnd} //not NoVCM
 
-procedure TPrimContentsForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimContentsForm.ClearFields;
+begin
+ Finalize(f_Filtered);
+ Finalize(f_ListForFiltering);
+ inherited;
+end;//TPrimContentsForm.ClearFields
+
+procedure TPrimContentsForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   SimpleTree := nil;
   Contents := nil;
   BaseContents := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsSimpleTree, SimpleTree);
-  Supports(aDsNew, IdsContents, Contents);
-  Supports(aDsNew, IdsBaseContents, BaseContents);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsSimpleTree, SimpleTree);
+  Supports(aNew, IdsContents, Contents);
+  Supports(aNew, IdsBaseContents, BaseContents);
+ end;//aNew = nil
+end;//TPrimContentsForm.SignalDataSourceChanged
 
 procedure TPrimContentsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -2564,12 +2508,12 @@ begin
   PublishOp(en_DocumentBlock, op_Print, DocumentBlock_Print_Execute, DocumentBlock_Print_Test, nil);
   ContextMenuWeight(en_DocumentBlock, op_Print, 20);
   PublishOp(en_DocumentBlock, op_PrintPreview, DocumentBlock_PrintPreview_Execute, DocumentBlock_PrintPreview_Test, nil);
-  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, true);
-  ShowInToolbar(en_DocumentBlock, op_PrintPreview, false);
+  ShowInContextMenu(en_DocumentBlock, op_PrintPreview, True);
+  ShowInToolbar(en_DocumentBlock, op_PrintPreview, False);
   ContextMenuWeight(en_DocumentBlock, op_PrintPreview, 35);
   PublishOp(en_DocumentBlock, op_Select, DocumentBlock_Select_Execute, DocumentBlock_Select_Test, nil);
-  ShowInContextMenu(en_DocumentBlock, op_Select, true);
-  ShowInToolbar(en_DocumentBlock, op_Select, false);
+  ShowInContextMenu(en_DocumentBlock, op_Select, True);
+  ShowInToolbar(en_DocumentBlock, op_Select, False);
   ContextMenuWeight(en_DocumentBlock, op_Select, 50);
   PublishOpWithResult(en_ContentsValidator, op_IsDocumentAdornmentsChanged, ContentsValidator_IsDocumentAdornmentsChanged, nil, nil);
   PublishOpWithResult(en_Contents, op_HasUserComments, Contents_HasUserComments, nil, nil);
@@ -2578,22 +2522,22 @@ begin
   PublishOpWithResult(en_Contents, op_IsContentsVisible, Contents_IsContentsVisible, nil, nil);
   PublishOpWithResult(en_Comment, op_Changed, Comment_Changed, nil, nil);
   PublishOp(en_DocumentBlock, op_GetSimilarDocsToBlock, DocumentBlock_GetSimilarDocsToBlock_Execute, DocumentBlock_GetSimilarDocsToBlock_Test, nil);
-  ShowInToolbar(en_DocumentBlock, op_GetSimilarDocsToBlock, true);
+  ShowInToolbar(en_DocumentBlock, op_GetSimilarDocsToBlock, True);
   ContextMenuWeight(en_DocumentBlock, op_GetSimilarDocsToBlock, 71);
  end;//with Entities.Entities
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetCorrespondentList, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetRespondentList, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedCorrespondentList, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedRespondentList, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlockBookmarks, op_AddBookmark, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_ToMSWord, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintDialog, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Copy, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Print, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintPreview, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Select, false);
- AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetSimilarDocsToBlock, false);
-end;
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetCorrespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetRespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedCorrespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetTypedRespondentList, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlockBookmarks, op_AddBookmark, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_ToMSWord, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintDialog, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Copy, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Print, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_PrintPreview, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_Select, False);
+ AddUserTypeExclude(utDrugContentsName, en_DocumentBlock, op_GetSimilarDocsToBlock, False);
+end;//TPrimContentsForm.InitEntities
 
 procedure TPrimContentsForm.MakeControls;
 begin
@@ -2619,37 +2563,24 @@ begin
  f_Tasks := TnscTasksPanelView.Create(Self);
  f_Tasks.Name := 'Tasks';
  f_Tasks.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimContentsForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\View\ContentsUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ContentsPrintTitle
  str_ContentsPrintTitle.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cgContents
+ {* Инициализация str_ContentsPrintTitle }
  str_cgContents.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cgBookmarks
+ {* Инициализация str_cgContents }
  str_cgBookmarks.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cgComments
+ {* Инициализация str_cgBookmarks }
  str_cgComments.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cgExternalObjects
+ {* Инициализация str_cgComments }
  str_cgExternalObjects.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimContents
+ {* Инициализация str_cgExternalObjects }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimContentsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimContents }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

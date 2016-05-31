@@ -1,97 +1,88 @@
 {$IfNDef StatusBarDocumentItems_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/StatusBarDocumentItems.imp.pas"
-// Начат: 02.02.2009
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::CommonForDocumentAndFlash::StatusBarDocumentItems
-//
-// Операции с документом, отображаемые в статусной строке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "StatusBarDocumentItems" MUID: (498721A60125)
+// Имя типа: "_StatusBarDocumentItems_"
 
 {$Define StatusBarDocumentItems_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _StatusBarItems_Parent_ = _StatusBarDocumentItems_Parent_;
- {$Include ..\View\StatusBarItems.imp.pas}
- _StatusBarDocumentItems_ = {abstract form} class(_StatusBarItems_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
+ _StatusBarDocumentItems_ = {abstract} class(_StatusBarItems_)
   {* Операции с документом, отображаемые в статусной строке }
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
- protected
- // realized methods
-   procedure Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
-     {* Следующий документ в списке }
-   procedure Document_NextDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Следующий документ в списке }
-   procedure Document_ReturnToList_Test(const aParams: IvcmTestParamsPrim);
-     {* Вернуться в списк }
-   procedure Document_ReturnToList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Вернуться в списк }
-   procedure FillList(const aList: InscStatusBarItemDefsList); override;
-     {* Заполняет список операций. Для перекрытия в потомках }
-   procedure Document_PrevDocumentInList_Test(const aParams: IvcmTestParamsPrim);
-     {* Предыдущий документ в списке }
-   procedure Document_PrevDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предыдущий документ в списке }
-   procedure Document_DocumentIsUseful_Test(const aParams: IvcmTestParamsPrim);
-     {* Нравится }
-   procedure Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
-     {* Нравится }
-   procedure Document_DocumentIsUseful_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Нравится }
-   procedure Document_DocumentIsUseless_Test(const aParams: IvcmTestParamsPrim);
-     {* Не нравится }
-   procedure Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
-     {* Не нравится }
-   procedure Document_DocumentIsUseless_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Не нравится }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   ucbDocumentFromList : IucbDocumentFromList;
-   dsBaseDocument : IdsBaseDocument;
- protected
- // protected methods
+  protected
+   ucbDocumentFromList: IucbDocumentFromList;
+   dsBaseDocument: IdsBaseDocument;
+  protected
    procedure OpenDocumentInListOpExecute(aNext: Boolean);
-     {* Предыдущий/следующий в списке. Выполнение }
+    {* Предыдущий/следующий в списке. Выполнение }
    procedure OpenDocumentInListOpTest(const aParams: IvcmTestParamsPrim;
     aNext: Boolean);
-     {* Предыдущий/следующий в списке. Тестирование }
+    {* Предыдущий/следующий в списке. Тестирование }
    procedure ReturnToListOpExecute;
-     {* Вернуться в список. Выполнение }
+    {* Вернуться в список. Выполнение }
    procedure ReturnToListOpTest(const aParams: IvcmTestParamsPrim);
-     {* Вернуться в список. Тестирование }
+    {* Вернуться в список. Тестирование }
+   procedure FillList(const aList: InscStatusBarItemDefsList); override;
+    {* Заполняет список операций. Для перекрытия в потомках }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
+    {* Следующий документ в списке }
+   procedure Document_NextDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Следующий документ в списке }
+   procedure Document_ReturnToList_Test(const aParams: IvcmTestParamsPrim);
+    {* Вернуться в списк }
+   procedure Document_ReturnToList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Вернуться в списк }
+   procedure Document_PrevDocumentInList_Test(const aParams: IvcmTestParamsPrim);
+    {* Предыдущий документ в списке }
+   procedure Document_PrevDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Предыдущий документ в списке }
+   procedure Document_DocumentIsUseful_Test(const aParams: IvcmTestParamsPrim);
+    {* Нравится }
+   procedure Document_DocumentIsUseful_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Нравится }
+   procedure Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
+    {* Нравится }
+   procedure Document_DocumentIsUseless_Test(const aParams: IvcmTestParamsPrim);
+    {* Не нравится }
+   procedure Document_DocumentIsUseless_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Не нравится }
+   procedure Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
+    {* Не нравится }
  end;//_StatusBarDocumentItems_
-{$Else}
 
- _StatusBarItems_Parent_ = _StatusBarDocumentItems_Parent_;
- {$Include ..\View\StatusBarItems.imp.pas}
- _StatusBarDocumentItems_ = _StatusBarItems_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_StatusBarItems_Parent_ = _StatusBarDocumentItems_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
+_StatusBarDocumentItems_ = _StatusBarItems_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else StatusBarDocumentItems_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef StatusBarDocumentItems_imp_impl}
 
+{$Define StatusBarDocumentItems_imp_impl}
 
-{$Include ..\View\StatusBarItems.imp.pas}
-
-// start class _StatusBarDocumentItems_
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
 procedure _StatusBarDocumentItems_.OpenDocumentInListOpExecute(aNext: Boolean);
+ {* Предыдущий/следующий в списке. Выполнение }
 //#UC START# *4988147F0063_498721A60125_var*
 var
  l_DocInfo     : IdeDocInfo;
@@ -109,7 +100,8 @@ begin
 end;//_StatusBarDocumentItems_.OpenDocumentInListOpExecute
 
 procedure _StatusBarDocumentItems_.OpenDocumentInListOpTest(const aParams: IvcmTestParamsPrim;
-  aNext: Boolean);
+ aNext: Boolean);
+ {* Предыдущий/следующий в списке. Тестирование }
 //#UC START# *4988148302B3_498721A60125_var*
 //#UC END# *4988148302B3_498721A60125_var*
 begin
@@ -126,6 +118,7 @@ begin
 end;//_StatusBarDocumentItems_.OpenDocumentInListOpTest
 
 procedure _StatusBarDocumentItems_.ReturnToListOpExecute;
+ {* Вернуться в список. Выполнение }
 //#UC START# *4988149B0392_498721A60125_var*
 //#UC END# *4988149B0392_498721A60125_var*
 begin
@@ -136,6 +129,7 @@ begin
 end;//_StatusBarDocumentItems_.ReturnToListOpExecute
 
 procedure _StatusBarDocumentItems_.ReturnToListOpTest(const aParams: IvcmTestParamsPrim);
+ {* Вернуться в список. Тестирование }
 //#UC START# *498814A0026F_498721A60125_var*
 //#UC END# *498814A0026F_498721A60125_var*
 begin
@@ -146,6 +140,7 @@ begin
 end;//_StatusBarDocumentItems_.ReturnToListOpTest
 
 procedure _StatusBarDocumentItems_.Document_NextDocumentInList_Test(const aParams: IvcmTestParamsPrim);
+ {* Следующий документ в списке }
 //#UC START# *49880FD20039_498721A60125test_var*
 //#UC END# *49880FD20039_498721A60125test_var*
 begin
@@ -155,6 +150,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_NextDocumentInList_Test
 
 procedure _StatusBarDocumentItems_.Document_NextDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Следующий документ в списке }
 //#UC START# *49880FD20039_498721A60125exec_var*
 //#UC END# *49880FD20039_498721A60125exec_var*
 begin
@@ -164,6 +160,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_NextDocumentInList_Execute
 
 procedure _StatusBarDocumentItems_.Document_ReturnToList_Test(const aParams: IvcmTestParamsPrim);
+ {* Вернуться в списк }
 //#UC START# *49880FE90145_498721A60125test_var*
 //#UC END# *49880FE90145_498721A60125test_var*
 begin
@@ -173,6 +170,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_ReturnToList_Test
 
 procedure _StatusBarDocumentItems_.Document_ReturnToList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Вернуться в списк }
 //#UC START# *49880FE90145_498721A60125exec_var*
 //#UC END# *49880FE90145_498721A60125exec_var*
 begin
@@ -182,6 +180,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_ReturnToList_Execute
 
 procedure _StatusBarDocumentItems_.FillList(const aList: InscStatusBarItemDefsList);
+ {* Заполняет список операций. Для перекрытия в потомках }
 //#UC START# *4A8E5E4702C6_498721A60125_var*
 var
  l_Operation: InscStatusBarOperationDef;
@@ -219,6 +218,7 @@ begin
 end;//_StatusBarDocumentItems_.FillList
 
 procedure _StatusBarDocumentItems_.Document_PrevDocumentInList_Test(const aParams: IvcmTestParamsPrim);
+ {* Предыдущий документ в списке }
 //#UC START# *4FE1BA1303D3_498721A60125test_var*
 //#UC END# *4FE1BA1303D3_498721A60125test_var*
 begin
@@ -228,6 +228,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_PrevDocumentInList_Test
 
 procedure _StatusBarDocumentItems_.Document_PrevDocumentInList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предыдущий документ в списке }
 //#UC START# *4FE1BA1303D3_498721A60125exec_var*
 //#UC END# *4FE1BA1303D3_498721A60125exec_var*
 begin
@@ -237,6 +238,7 @@ begin
 end;//_StatusBarDocumentItems_.Document_PrevDocumentInList_Execute
 
 procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_Test(const aParams: IvcmTestParamsPrim);
+ {* Нравится }
 //#UC START# *4FE1EF1201D6_498721A60125test_var*
 var
  l_Likeable: ILikeable;
@@ -250,16 +252,8 @@ begin
 //#UC END# *4FE1EF1201D6_498721A60125test_impl*
 end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_Test
 
-procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4FE1EF1201D6_498721A60125getstate_var*
-//#UC END# *4FE1EF1201D6_498721A60125getstate_var*
-begin
-//#UC START# *4FE1EF1201D6_498721A60125getstate_impl*
- State := vcm_DefaultOperationState;
-//#UC END# *4FE1EF1201D6_498721A60125getstate_impl*
-end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_GetState
-
 procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Нравится }
 //#UC START# *4FE1EF1201D6_498721A60125exec_var*
 //#UC END# *4FE1EF1201D6_498721A60125exec_var*
 begin
@@ -268,7 +262,18 @@ begin
 //#UC END# *4FE1EF1201D6_498721A60125exec_impl*
 end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_Execute
 
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseful_GetState(var State: TvcmOperationStateIndex);
+ {* Нравится }
+//#UC START# *4FE1EF1201D6_498721A60125getstate_var*
+//#UC END# *4FE1EF1201D6_498721A60125getstate_var*
+begin
+//#UC START# *4FE1EF1201D6_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1201D6_498721A60125getstate_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseful_GetState
+
 procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_Test(const aParams: IvcmTestParamsPrim);
+ {* Не нравится }
 //#UC START# *4FE1EF1B039A_498721A60125test_var*
 var
  l_Likeable: ILikeable;
@@ -282,16 +287,8 @@ begin
 //#UC END# *4FE1EF1B039A_498721A60125test_impl*
 end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_Test
 
-procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4FE1EF1B039A_498721A60125getstate_var*
-//#UC END# *4FE1EF1B039A_498721A60125getstate_var*
-begin
-//#UC START# *4FE1EF1B039A_498721A60125getstate_impl*
- State := vcm_DefaultOperationState;
-//#UC END# *4FE1EF1B039A_498721A60125getstate_impl*
-end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_GetState
-
 procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Не нравится }
 //#UC START# *4FE1EF1B039A_498721A60125exec_var*
 //#UC END# *4FE1EF1B039A_498721A60125exec_var*
 begin
@@ -300,7 +297,18 @@ begin
 //#UC END# *4FE1EF1B039A_498721A60125exec_impl*
 end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_Execute
 
+procedure _StatusBarDocumentItems_.Document_DocumentIsUseless_GetState(var State: TvcmOperationStateIndex);
+ {* Не нравится }
+//#UC START# *4FE1EF1B039A_498721A60125getstate_var*
+//#UC END# *4FE1EF1B039A_498721A60125getstate_var*
+begin
+//#UC START# *4FE1EF1B039A_498721A60125getstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4FE1EF1B039A_498721A60125getstate_impl*
+end;//_StatusBarDocumentItems_.Document_DocumentIsUseless_GetState
+
 procedure _StatusBarDocumentItems_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_498721A60125_var*
 //#UC END# *479731C50290_498721A60125_var*
 begin
@@ -309,46 +317,54 @@ begin
 //#UC END# *479731C50290_498721A60125_impl*
 end;//_StatusBarDocumentItems_.Cleanup
 
-procedure _StatusBarDocumentItems_.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure _StatusBarDocumentItems_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ucbDocumentFromList := nil;
   dsBaseDocument := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IucbDocumentFromList, ucbDocumentFromList);
-  Supports(aDsNew, IdsBaseDocument, dsBaseDocument);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IucbDocumentFromList, ucbDocumentFromList);
+  Supports(aNew, IdsBaseDocument, dsBaseDocument);
+ end;//aNew = nil
+end;//_StatusBarDocumentItems_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _StatusBarDocumentItems_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Document, nil);
   PublishOp(en_Document, op_NextDocumentInList, Document_NextDocumentInList_Execute, Document_NextDocumentInList_Test, nil);
-  ShowInContextMenu(en_Document, op_NextDocumentInList, false);
-  ShowInToolbar(en_Document, op_NextDocumentInList, false);
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, False);
   PublishOp(en_Document, op_ReturnToList, Document_ReturnToList_Execute, Document_ReturnToList_Test, nil);
-  ShowInContextMenu(en_Document, op_ReturnToList, false);
-  ShowInToolbar(en_Document, op_ReturnToList, false);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, False);
   PublishOp(en_Document, op_PrevDocumentInList, Document_PrevDocumentInList_Execute, Document_PrevDocumentInList_Test, nil);
-  ShowInContextMenu(en_Document, op_PrevDocumentInList, false);
-  ShowInToolbar(en_Document, op_PrevDocumentInList, false);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
   PublishOp(en_Document, op_DocumentIsUseful, Document_DocumentIsUseful_Execute, Document_DocumentIsUseful_Test, Document_DocumentIsUseful_GetState);
-  ShowInContextMenu(en_Document, op_DocumentIsUseful, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseful, false);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
   PublishOp(en_Document, op_DocumentIsUseless, Document_DocumentIsUseless_Execute, Document_DocumentIsUseless_Test, Document_DocumentIsUseless_GetState);
-  ShowInContextMenu(en_Document, op_DocumentIsUseless, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseless, false);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
  end;//with Entities.Entities
-end;
+end;//_StatusBarDocumentItems_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf StatusBarDocumentItems_imp_impl}
 
 {$EndIf StatusBarDocumentItems_imp}
+

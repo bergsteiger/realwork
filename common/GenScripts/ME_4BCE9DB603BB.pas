@@ -50,6 +50,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
  , TestFrameWork
+ , elCustomEdit_ut_elCustomEdit_UserType
 ;
 
 {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}

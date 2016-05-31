@@ -344,10 +344,6 @@ begin
   PublishOp(en_SubPanelSettings, op_ShowSpecial, SubPanelSettings_ShowSpecial_Execute, SubPanelSettings_ShowSpecial_Test, nil);
   PublishOp(en_SubPanelSettings, op_ShowInfo, SubPanelSettings_ShowInfo_Execute, SubPanelSettings_ShowInfo_Test, nil);
   PublishOp(en_Document, op_ShowTechComments, Document_ShowTechComments_Execute, Document_ShowTechComments_Test, Document_ShowTechComments_GetState);
-  PublishOp(en_Document, op_ShowJurorComments, Document_ShowJurorComments_Execute, Document_ShowJurorComments_Test, Document_ShowJurorComments_GetState);
-  PublishOp(en_Document, op_ShowUserComments, Document_ShowUserComments_Execute, Document_ShowUserComments_Test, Document_ShowUserComments_GetState);
-  PublishOp(en_Document, op_ShowTechComments, Document_ShowTechComments_Execute, Document_ShowTechComments_Test, Document_ShowTechComments_GetState);
-  PublishOp(en_Document, op_ShowVersionComments, Document_ShowVersionComments_Execute, Document_ShowVersionComments_Test, Document_ShowVersionComments_GetState);
  end;//with Entities.Entities
 end;//_DocumentPresentation_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

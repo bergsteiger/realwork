@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnRedactionLocalConstants }
+ str_WarnRedactionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnRedactionCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnRedaction }
  WarnRedactionName = 'WarnRedaction';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnRedaction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnRedactionCaption.Init;
+ {* Инициализация str_WarnRedactionCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnRedaction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnRedaction }

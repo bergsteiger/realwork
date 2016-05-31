@@ -1,320 +1,381 @@
 unit PrimPicture_Form;
+ {* Рисунок }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimPicture_Form.pas"
-// Начат: 15.09.2009 21:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Picture::PrimPicture
-//
-// Рисунок
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPicture" MUID: (4AAFCFB0014B)
+// Имя типа: "TPrimPictureForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages,
-  SysUtils,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  L10nInterfaces,
-  DocumentDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  nsSaveDialog,
-  l3StringIDEx
-  {$If not defined(NoImageEn)}
-  ,
-  imageenproc
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  PrimPicture_pfImage_UserType,
-  Controls {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
+ , DocumentDomainInterfaces
+ , L10nInterfaces
+ , nsSaveDialog
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoImageEn)}
+ , imageenview
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoImageEn)}
+ , imageenproc
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , l3Interfaces
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { Messages }
  CM_AFTER_INIT = Messages.WM_USER + 201;
 
 type
- TRange0_24 = 0..24;
+ TRange0_24 = 0 .. 24;
 
  TIntegerArray0_24 = array [TRange0_24] of Integer;
 
- TDelphiBitmap = Graphics.TBitmap;
+ TDelphiBitmap = TBitmap;
   {* Это нужно, чтобы избежать конфликтов между Graphics.TBitmap и Windows.TBitmap.
 Спасибо, Borland. }
 
  IPictureFormState = interface(IvcmBase)
-   ['{D1A52FF2-C978-4BD9-85E1-50127AB5E9C4}']
-   function GetCaption: Il3CString;
-   function GetBitmap: TDelphiBitmap;
-   function GetScale: Integer;
-   function GetFileName: TFileName;
-   function GetInitialDir: AnsiString;
-   function GetInfo: InsLinkedObjectDescription;
+  ['{D1A52FF2-C978-4BD9-85E1-50127AB5E9C4}']
+  function GetCaption: Il3CString;
+  function GetBitmap: TDelphiBitmap;
+  function GetScale: Integer;
+  function GetFileName: TFileName;
+  function GetInitialDir: AnsiString;
+  function GetInfo: InsLinkedObjectDescription;
  end;//IPictureFormState
 
- TPictureFormState = class(TvcmCacheableBase {$If not defined(NoVCM)}, IvcmBase{$IfEnd} //not NoVCM
+ TPictureFormState = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  , IPictureFormState)
- private
- // private fields
-   f_Caption : Il3CString;
-   f_Bitmap : TDelphiBitmap;
-   f_Scale : Integer;
-   f_FileName : TFileName;
-   f_InitialDir : AnsiString;
-   f_Info : InsLinkedObjectDescription;
- protected
- // realized methods
+  private
+   f_Caption: Il3CString;
+   f_Bitmap: TDelphiBitmap;
+   f_Scale: Integer;
+   f_FileName: TFileName;
+   f_InitialDir: AnsiString;
+   f_Info: InsLinkedObjectDescription;
+  protected
    function GetCaption: Il3CString;
    function GetBitmap: TDelphiBitmap;
    function GetScale: Integer;
    function GetFileName: TFileName;
    function GetInitialDir: AnsiString;
    function GetInfo: InsLinkedObjectDescription;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aCaption: Il3CString;
-     aBitmap: TDelphiBitmap;
-     aScale: Integer;
-     const aFileName: TFileName;
-     const aInitialDir: AnsiString;
-     const aInfo: InsLinkedObjectDescription); reintroduce;
+    aBitmap: TDelphiBitmap;
+    aScale: Integer;
+    const aFileName: TFileName;
+    const aInitialDir: AnsiString;
+    const aInfo: InsLinkedObjectDescription); reintroduce;
    class function Make(const aCaption: Il3CString;
-     aBitmap: TDelphiBitmap;
-     aScale: Integer;
-     const aFileName: TFileName;
-     const aInitialDir: AnsiString;
-     const aInfo: InsLinkedObjectDescription): IPictureFormState; reintroduce;
-     {* Сигнатура фабрики TPictureFormState.Make }
+    aBitmap: TDelphiBitmap;
+    aScale: Integer;
+    const aFileName: TFileName;
+    const aInitialDir: AnsiString;
+    const aInfo: InsLinkedObjectDescription): IPictureFormState; reintroduce;
  end;//TPictureFormState
 
-const
-  { Picture Const }
- FixedScales : TIntegerArray0_24 = (1, 2, 5, 10, 25, 50, 75, 100, 125, 150 , 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000);
-
-type
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimPictureForm = {form} class(_vcmChromeLikeTabIconUpdater_)
+ TPrimPictureForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Рисунок }
- private
- // private fields
-   f_InitViewer : Boolean;
-   f_ieIO : TImageEnIO;
-    {* Поле для свойства ieIO}
-   f_ieViewer : TImageEnView;
-    {* Поле для свойства ieViewer}
-   f_ieProc : TImageEnProc;
-    {* Поле для свойства ieProc}
-   f_Scale : Integer;
-    {* Поле для свойства Scale}
-   f_SaveDialog : TnsSaveDialog;
-    {* Поле для свойства SaveDialog}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_InitViewer: Boolean;
+   f_ieIO: TImageEnIO;
+   f_ieViewer: TImageEnView;
+   f_ieProc: TImageEnProc;
+   f_Scale: Integer;
+   f_SaveDialog: TnsSaveDialog;
+  protected
+   f_Info: InsLinkedObjectDescription;
+   f_ValueMap: InsSpecialStringValueMap;
+  private
    procedure AfterInit(var Message: TMessage); message CM_AFTER_INIT;
- protected
- // property methods
+  protected
    function Get_Scale: Integer;
    procedure Set_Scale(aValue: Integer);
- protected
- // realized methods
-   procedure Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
-   procedure Picture_InitNewContent(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- protected
- // protected fields
-   f_Info : InsLinkedObjectDescription;
-   f_ValueMap : InsSpecialStringValueMap;
- protected
- // protected methods
    function GetSaveDialog: TnsSaveDialog;
    procedure FitInWindow;
    function CanEnlarge: Boolean;
    function CanShrink: Boolean;
    procedure Enlarge;
    procedure Shrink;
- protected
- // protected properties
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetTabImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Picture_InitNewContent_Execute(const aData: InsLinkedObjectData);
+   procedure Picture_InitNewContent(const aParams: IvcmExecuteParams);
+  protected
    property Scale: Integer
-     read Get_Scale
-     write Set_Scale;
- public
- // public properties
+    read Get_Scale
+    write Set_Scale;
+  public
    property ieIO: TImageEnIO
-     read f_ieIO;
+    read f_ieIO;
    property ieViewer: TImageEnView
-     read f_ieViewer;
+    read f_ieViewer;
    property ieProc: TImageEnProc
-     read f_ieProc;
+    read f_ieProc;
    property SaveDialog: TnsSaveDialog
-     read f_SaveDialog;
+    read f_SaveDialog;
  end;//TPrimPictureForm
-{$IfEnd} //not Admin AND not Monitorings
+
+const
+ FixedScales: TIntegerArray0_24 = (1, 2, 5, 10, 25, 50, 75, 100, 125, 150 , 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000);
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Stream,
-  Classes,
-  l3String,
-  Windows,
-  l3ValueMap,
-  nsTypes,
-  afwFacade,
-  nsTrialSupport
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Bitmap,
-  nsConst,
-  nsValueMaps
-  {$If not defined(NoImageEn)}
-  ,
-  hyieutils
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  hyiedefs
-  {$IfEnd} //not NoImageEn
-  ,
-  JclSysInfo
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  nsValueMapsIDs,
-  l3InterfacesMisc
-  {$If not defined(NoImageEn)}
-  ,
-  giflzw
-  {$IfEnd} //not NoImageEn
-  ,
-  nsTabbedInterfaceTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3Stream
+ , Classes
+ , l3String
+ , Windows
+ , l3ValueMap
+ , nsTypes
+ , afwFacade
+ , nsTrialSupport
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Bitmap
+ , nsConst
+ , nsValueMaps
+ {$If NOT Defined(NoImageEn)}
+ , hyieutils
+ {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoImageEn)}
+ , hyiedefs
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , JclSysInfo
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsValueMapsIDs
+ , l3InterfacesMisc
+ {$If NOT Defined(NoImageEn)}
+ , giflzw
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimPicture_pfImage_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAFCFB0014Bimpl_uses*
+ //#UC END# *4AAFCFB0014Bimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+constructor TPictureFormState.Create(const aCaption: Il3CString;
+ aBitmap: TDelphiBitmap;
+ aScale: Integer;
+ const aFileName: TFileName;
+ const aInitialDir: AnsiString;
+ const aInfo: InsLinkedObjectDescription);
+//#UC START# *524951840150_52494F8A0055_var*
+//#UC END# *524951840150_52494F8A0055_var*
+begin
+//#UC START# *524951840150_52494F8A0055_impl*
+ inherited Create;
+ f_Caption := aCaption;
+ f_Bitmap := Graphics.TBitmap.Create;
+ f_Scale := aScale;
+ f_Bitmap.Assign(aBitmap);
+ f_FileName := aFileName;
+ f_InitialDir := aInitialDir;
+ f_Info := aInfo;
+//#UC END# *524951840150_52494F8A0055_impl*
+end;//TPictureFormState.Create
+
+class function TPictureFormState.Make(const aCaption: Il3CString;
+ aBitmap: TDelphiBitmap;
+ aScale: Integer;
+ const aFileName: TFileName;
+ const aInitialDir: AnsiString;
+ const aInfo: InsLinkedObjectDescription): IPictureFormState;
+var
+ l_Inst : TPictureFormState;
+begin
+ l_Inst := Create(aCaption, aBitmap, aScale, aFileName, aInitialDir, aInfo);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TPictureFormState.Make
+
+function TPictureFormState.GetCaption: Il3CString;
+//#UC START# *52494EE802F8_52494F8A0055_var*
+//#UC END# *52494EE802F8_52494F8A0055_var*
+begin
+//#UC START# *52494EE802F8_52494F8A0055_impl*
+ Result := f_Caption;
+//#UC END# *52494EE802F8_52494F8A0055_impl*
+end;//TPictureFormState.GetCaption
+
+function TPictureFormState.GetBitmap: TDelphiBitmap;
+//#UC START# *52494EF50330_52494F8A0055_var*
+//#UC END# *52494EF50330_52494F8A0055_var*
+begin
+//#UC START# *52494EF50330_52494F8A0055_impl*
+ Result := f_Bitmap;
+//#UC END# *52494EF50330_52494F8A0055_impl*
+end;//TPictureFormState.GetBitmap
+
+function TPictureFormState.GetScale: Integer;
+//#UC START# *52494F19039C_52494F8A0055_var*
+//#UC END# *52494F19039C_52494F8A0055_var*
+begin
+//#UC START# *52494F19039C_52494F8A0055_impl*
+ Result := f_Scale;
+//#UC END# *52494F19039C_52494F8A0055_impl*
+end;//TPictureFormState.GetScale
+
+function TPictureFormState.GetFileName: TFileName;
+//#UC START# *52494F2E0141_52494F8A0055_var*
+//#UC END# *52494F2E0141_52494F8A0055_var*
+begin
+//#UC START# *52494F2E0141_52494F8A0055_impl*
+ Result := f_FileName;
+//#UC END# *52494F2E0141_52494F8A0055_impl*
+end;//TPictureFormState.GetFileName
+
+function TPictureFormState.GetInitialDir: AnsiString;
+//#UC START# *52494F3D0323_52494F8A0055_var*
+//#UC END# *52494F3D0323_52494F8A0055_var*
+begin
+//#UC START# *52494F3D0323_52494F8A0055_impl*
+ Result := f_InitialDir;
+//#UC END# *52494F3D0323_52494F8A0055_impl*
+end;//TPictureFormState.GetInitialDir
+
+function TPictureFormState.GetInfo: InsLinkedObjectDescription;
+//#UC START# *52494F4F0135_52494F8A0055_var*
+//#UC END# *52494F4F0135_52494F8A0055_var*
+begin
+//#UC START# *52494F4F0135_52494F8A0055_impl*
+ Result := f_Info;
+//#UC END# *52494F4F0135_52494F8A0055_impl*
+end;//TPictureFormState.GetInfo
+
+procedure TPictureFormState.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52494F8A0055_var*
+//#UC END# *479731C50290_52494F8A0055_var*
+begin
+//#UC START# *479731C50290_52494F8A0055_impl*
+ f_Caption := nil;
+ f_Info := nil;
+ FreeAndNil(f_Bitmap);
+ inherited;
+//#UC END# *479731C50290_52494F8A0055_impl*
+end;//TPictureFormState.Cleanup
 
 type _Instance_R_ = TPrimPictureForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
-var
-   { Локализуемые строки pfImageLocalConstants }
-  str_pfImageCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageCaption'; rValue : 'Просмотр графического объекта');
-   { Заголовок пользовательского типа "Просмотр графического объекта" }
-  str_pfImageSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageSettingsCaption'; rValue : 'Документ: Просмотр графического объекта');
-   { Заголовок пользовательского типа "Просмотр графического объекта" для настройки панелей инструментов }
+function TPrimPictureForm.Get_Scale: Integer;
+//#UC START# *4C87765001CE_4AAFCFB0014Bget_var*
+//#UC END# *4C87765001CE_4AAFCFB0014Bget_var*
+begin
+//#UC START# *4C87765001CE_4AAFCFB0014Bget_impl*
+ Result := f_Scale;
+// Result := Integer(GetLongint(pi_Document_ImageScale, dv_Document_ImageScale));
+//#UC END# *4C87765001CE_4AAFCFB0014Bget_impl*
+end;//TPrimPictureForm.Get_Scale
 
-// start class TPrimPictureForm
+procedure TPrimPictureForm.Set_Scale(aValue: Integer);
+//#UC START# *4C87765001CE_4AAFCFB0014Bset_var*
+//#UC END# *4C87765001CE_4AAFCFB0014Bset_var*
+begin
+//#UC START# *4C87765001CE_4AAFCFB0014Bset_impl*
+ if aValue < 1 then
+  FitInWindow
+ else
+ begin
+  f_Scale := aValue;
+  ieViewer.AutoFit := False;
+  ieViewer.Zoom := f_Scale;
+ end;
+// PutLongint(pi_Document_ImageScale, Longint(aPercentage));
+ {Image.Align := alNone;
+ Image.Width  := (Image.Picture.Width  * f_Scale) div 100;
+ Image.Height := (Image.Picture.Height * f_Scale) div 100;
+ }
+//#UC END# *4C87765001CE_4AAFCFB0014Bset_impl*
+end;//TPrimPictureForm.Set_Scale
 
 function TPrimPictureForm.GetSaveDialog: TnsSaveDialog;
 //#UC START# *5245B8BC031D_4AAFCFB0014B_var*
@@ -389,142 +450,6 @@ begin
   end;
 //#UC END# *4C87761302DC_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.Shrink
-// start class TPictureFormState
-
-constructor TPictureFormState.Create(const aCaption: Il3CString;
-  aBitmap: TDelphiBitmap;
-  aScale: Integer;
-  const aFileName: TFileName;
-  const aInitialDir: AnsiString;
-  const aInfo: InsLinkedObjectDescription);
-//#UC START# *524951840150_52494F8A0055_var*
-//#UC END# *524951840150_52494F8A0055_var*
-begin
-//#UC START# *524951840150_52494F8A0055_impl*
- inherited Create;
- f_Caption := aCaption;
- f_Bitmap := Graphics.TBitmap.Create;
- f_Scale := aScale;
- f_Bitmap.Assign(aBitmap);
- f_FileName := aFileName;
- f_InitialDir := aInitialDir;
- f_Info := aInfo;
-//#UC END# *524951840150_52494F8A0055_impl*
-end;//TPictureFormState.Create
-
-class function TPictureFormState.Make(const aCaption: Il3CString;
-  aBitmap: TDelphiBitmap;
-  aScale: Integer;
-  const aFileName: TFileName;
-  const aInitialDir: AnsiString;
-  const aInfo: InsLinkedObjectDescription): IPictureFormState;
-var
- l_Inst : TPictureFormState;
-begin
- l_Inst := Create(aCaption, aBitmap, aScale, aFileName, aInitialDir, aInfo);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TPictureFormState.GetCaption: Il3CString;
-//#UC START# *52494EE802F8_52494F8A0055_var*
-//#UC END# *52494EE802F8_52494F8A0055_var*
-begin
-//#UC START# *52494EE802F8_52494F8A0055_impl*
- Result := f_Caption;
-//#UC END# *52494EE802F8_52494F8A0055_impl*
-end;//TPictureFormState.GetCaption
-
-function TPictureFormState.GetBitmap: TDelphiBitmap;
-//#UC START# *52494EF50330_52494F8A0055_var*
-//#UC END# *52494EF50330_52494F8A0055_var*
-begin
-//#UC START# *52494EF50330_52494F8A0055_impl*
- Result := f_Bitmap;
-//#UC END# *52494EF50330_52494F8A0055_impl*
-end;//TPictureFormState.GetBitmap
-
-function TPictureFormState.GetScale: Integer;
-//#UC START# *52494F19039C_52494F8A0055_var*
-//#UC END# *52494F19039C_52494F8A0055_var*
-begin
-//#UC START# *52494F19039C_52494F8A0055_impl*
- Result := f_Scale;
-//#UC END# *52494F19039C_52494F8A0055_impl*
-end;//TPictureFormState.GetScale
-
-function TPictureFormState.GetFileName: TFileName;
-//#UC START# *52494F2E0141_52494F8A0055_var*
-//#UC END# *52494F2E0141_52494F8A0055_var*
-begin
-//#UC START# *52494F2E0141_52494F8A0055_impl*
- Result := f_FileName;
-//#UC END# *52494F2E0141_52494F8A0055_impl*
-end;//TPictureFormState.GetFileName
-
-function TPictureFormState.GetInitialDir: AnsiString;
-//#UC START# *52494F3D0323_52494F8A0055_var*
-//#UC END# *52494F3D0323_52494F8A0055_var*
-begin
-//#UC START# *52494F3D0323_52494F8A0055_impl*
- Result := f_InitialDir;
-//#UC END# *52494F3D0323_52494F8A0055_impl*
-end;//TPictureFormState.GetInitialDir
-
-function TPictureFormState.GetInfo: InsLinkedObjectDescription;
-//#UC START# *52494F4F0135_52494F8A0055_var*
-//#UC END# *52494F4F0135_52494F8A0055_var*
-begin
-//#UC START# *52494F4F0135_52494F8A0055_impl*
- Result := f_Info;
-//#UC END# *52494F4F0135_52494F8A0055_impl*
-end;//TPictureFormState.GetInfo
-
-procedure TPictureFormState.Cleanup;
-//#UC START# *479731C50290_52494F8A0055_var*
-//#UC END# *479731C50290_52494F8A0055_var*
-begin
-//#UC START# *479731C50290_52494F8A0055_impl*
- f_Caption := nil;
- f_Info := nil;
- FreeAndNil(f_Bitmap);
- inherited;
-//#UC END# *479731C50290_52494F8A0055_impl*
-end;//TPictureFormState.Cleanup
-
-function TPrimPictureForm.Get_Scale: Integer;
-//#UC START# *4C87765001CE_4AAFCFB0014Bget_var*
-//#UC END# *4C87765001CE_4AAFCFB0014Bget_var*
-begin
-//#UC START# *4C87765001CE_4AAFCFB0014Bget_impl*
- Result := f_Scale;
-// Result := Integer(GetLongint(pi_Document_ImageScale, dv_Document_ImageScale));
-//#UC END# *4C87765001CE_4AAFCFB0014Bget_impl*
-end;//TPrimPictureForm.Get_Scale
-
-procedure TPrimPictureForm.Set_Scale(aValue: Integer);
-//#UC START# *4C87765001CE_4AAFCFB0014Bset_var*
-//#UC END# *4C87765001CE_4AAFCFB0014Bset_var*
-begin
-//#UC START# *4C87765001CE_4AAFCFB0014Bset_impl*
- if aValue < 1 then
-  FitInWindow
- else
- begin
-  f_Scale := aValue;
-  ieViewer.AutoFit := False;
-  ieViewer.Zoom := f_Scale;
- end;
-// PutLongint(pi_Document_ImageScale, Longint(aPercentage));
- {Image.Align := alNone;
- Image.Width  := (Image.Picture.Width  * f_Scale) div 100;
- Image.Height := (Image.Picture.Height * f_Scale) div 100;
- }
-//#UC END# *4C87765001CE_4AAFCFB0014Bset_impl*
-end;//TPrimPictureForm.Set_Scale
 
 procedure TPrimPictureForm.AfterInit(var Message: TMessage);
 //#UC START# *52493BD40232_4AAFCFB0014B_var*
@@ -573,10 +498,11 @@ end;//TPrimPictureForm.Picture_InitNewContent_Execute
 procedure TPrimPictureForm.Picture_InitNewContent(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IPicture_InitNewContent_Params) do
-  Picture_InitNewContent_Execute(Data);
-end;
+  Self.Picture_InitNewContent_Execute(Data);
+end;//TPrimPictureForm.Picture_InitNewContent
 
 procedure TPrimPictureForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AAFCFB0014B_var*
 //#UC END# *479731C50290_4AAFCFB0014B_var*
 begin
@@ -614,10 +540,10 @@ begin
 //#UC END# *47A042E100E2_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.InitFields
 
-{$If not defined(NoVCM)}
 function TPrimPictureForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_4AAFCFB0014B_var*
 var
  l_Scale : Integer;
@@ -635,11 +561,10 @@ begin
  end;
 //#UC END# *49806ED503D5_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoSaveState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimPictureForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4AAFCFB0014B_var*
 var
  l_PictureFormState : IPictureFormState;
@@ -665,10 +590,9 @@ begin
   Assert(False);
 //#UC END# *49807428008C_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimPictureForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AAFCFB0014B_var*
 //#UC END# *4A8E8F2E0195_4AAFCFB0014B_var*
 begin
@@ -710,9 +634,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimPictureForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AAFCFB0014B_var*
 //#UC END# *4F7C65380244_4AAFCFB0014B_var*
@@ -724,18 +646,8 @@ begin
  end;
 //#UC END# *4F7C65380244_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
 
-procedure TPrimPictureForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_ValueMap := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimPictureForm.ClearFields
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimPictureForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AAFCFB0014B_var*
 //#UC END# *543E3AA801D0_4AAFCFB0014B_var*
@@ -744,9 +656,17 @@ begin
  Result := nsTabIconIndex(titMain);
 //#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPictureForm.ClearFields;
+begin
+ f_ValueMap := nil;
+ inherited;
+end;//TPrimPictureForm.ClearFields
 
 procedure TPrimPictureForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -754,17 +674,15 @@ begin
   PublishFormEntity(en_Picture, nil);
   PublishOpWithResult(en_Picture, op_InitNewContent, Picture_InitNewContent, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimPictureForm.InitEntities
 
 procedure TPrimPictureForm.MakeControls;
 begin
  inherited;
- f_ieIO := TImageEnIO.Create(Self);
- f_ieIO.Name := 'ieIO';
  with AddUsertype(pfImageName,
   str_pfImageCaption,
   str_pfImageSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -774,33 +692,25 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(pfImageName
+ f_ieIO := TImageEnIO.Create(Self);
+ f_ieIO.Name := 'ieIO';
  f_ieViewer := TImageEnView.Create(Self);
  f_ieViewer.Name := 'ieViewer';
  f_ieViewer.Parent := Self;
  f_ieProc := TImageEnProc.Create(Self);
  f_ieProc.Name := 'ieProc';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimPictureForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
 //#UC START# *52496599037C*
  DefGIF_LZWDECOMPFUNC:= GIFLZWDecompress;
  DefGIF_LZWCOMPFUNC:= GIFLZWCompress;
 //#UC END# *52496599037C*
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pfImageCaption
- str_pfImageCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_pfImageSettingsCaption
- str_pfImageSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimPicture
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPictureForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimPicture }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

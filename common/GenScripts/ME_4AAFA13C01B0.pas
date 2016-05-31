@@ -26,6 +26,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3StringIDEx
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -45,7 +48,6 @@ type
   private
    f_OnUpdate: Boolean;
    f_tvPostings: TeeTreeView;
-    {* Поле для свойства tvPostings }
   private
    function Save: Boolean;
     {* Функция проверяет необходимость сохранения запроса программы.
@@ -138,22 +140,15 @@ uses
  , nsQueryInterfaces
  , l3TreeInterfaces
  , DataAdapter
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimPostingsList_MyPostingList_UserType
+ //#UC START# *4AAFA13C01B0impl_uses*
+ //#UC END# *4AAFA13C01B0impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки MyPostingListLocalConstants }
- str_MyPostingListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MyPostingListCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
-  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
-
 function TPrimPostingsListForm.pm_GetIsNeedSave: Boolean;
 //#UC START# *52826BBE03A6_4AAFA13C01B0get_var*
 //#UC END# *52826BBE03A6_4AAFA13C01B0get_var*
@@ -538,10 +533,20 @@ begin
  begin
   PublishFormEntity(en_PostingToolBar, nil);
   PublishOp(en_PostingToolBar, op_ptNewTheme, PostingToolBar_ptNewTheme_Execute, PostingToolBar_ptNewTheme_Test, nil, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptNewTheme, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptNewTheme, True, true);
   PublishOp(en_PostingToolBar, op_ptEditPosting, PostingToolBar_ptEditPosting_Execute, PostingToolBar_ptEditPosting_Test, nil, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptEditPosting, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptEditPosting, False, true);
   PublishOp(en_PostingToolBar, op_ptDeletePosting, PostingToolBar_ptDeletePosting_Execute, PostingToolBar_ptDeletePosting_Test, nil, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptDeletePosting, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptDeletePosting, True, true);
   PublishOp(en_PostingToolBar, op_SavePostList, PostingToolBar_SavePostList_Execute, PostingToolBar_SavePostList_Test, nil);
+  ShowInContextMenu(en_PostingToolBar, op_SavePostList, True);
+  ShowInToolbar(en_PostingToolBar, op_SavePostList, True);
   PublishOp(en_PostingToolBar, op_ExportSelected, PostingToolBar_ExportSelected_Execute, PostingToolBar_ExportSelected_Test, nil);
+  ShowInContextMenu(en_PostingToolBar, op_ExportSelected, True);
+  ShowInToolbar(en_PostingToolBar, op_ExportSelected, False);
  end;//with Entities.Entities
 end;//TPrimPostingsListForm.InitEntities
 
@@ -551,7 +556,7 @@ begin
  with AddUsertype(MyPostingListName,
   str_MyPostingListCaption,
   str_MyPostingListCaption,
-  False,
+  True,
   145,
   -1,
   '',
@@ -567,8 +572,6 @@ begin
 end;//TPrimPostingsListForm.MakeControls
 
 initialization
- str_MyPostingListCaption.Init;
- {* Инициализация str_MyPostingListCaption }
  str_PrimeFilter.Init;
  {* Инициализация str_PrimeFilter }
  str_ExportPrimeTitle.Init;

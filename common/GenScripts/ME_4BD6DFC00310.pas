@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utStyleEditorExampleLocalConstants }
+ str_utStyleEditorExampleCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorExampleCaption'; rValue : 'Текстовое окно редактора стилей');
+  {* Заголовок пользовательского типа "Текстовое окно редактора стилей" }
  {* Константы для типа формы utStyleEditorExample }
  utStyleEditorExampleName = 'utStyleEditorExample';
   {* Строковый идентификатор пользовательского типа "Текстовое окно редактора стилей" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utStyleEditorExample.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utStyleEditorExampleCaption.Init;
+ {* Инициализация str_utStyleEditorExampleCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utStyleEditorExample.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utStyleEditorExample }

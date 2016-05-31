@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnInactualDocumentLocalConstants }
+ str_WarnInactualDocumentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnInactualDocumentCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnInactualDocument }
  WarnInactualDocumentName = 'WarnInactualDocument';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnInactualDocumentCaption.Init;
+ {* Инициализация str_WarnInactualDocumentCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnInactualDocument.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnInactualDocument }

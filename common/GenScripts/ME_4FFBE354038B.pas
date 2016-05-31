@@ -27,16 +27,6 @@ _DocumentWithFlashUserTypes_ = _DocumentWithFlashUserTypes_Parent_;
 {$Define DocumentWithFlashUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки dwftMainLocalConstants }
- str_dwftMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftMainCaption'; rValue : 'Схема');
-  {* Заголовок пользовательского типа "Схема" }
- {* Локализуемые строки dwftSynchroLocalConstants }
- str_dwftSynchroCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroCaption'; rValue : 'Схема (синхронный просмотр)');
-  {* Заголовок пользовательского типа "Схема (синхронный просмотр)" }
- str_dwftSynchroSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroSettingsCaption'; rValue : 'Синхронный просмотр: Схема');
-  {* Заголовок пользовательского типа "Схема (синхронный просмотр)" для настройки панелей инструментов }
-
 {$If NOT Defined(NoVCM)}
 procedure _DocumentWithFlashUserTypes_.MakeControls;
 begin
@@ -44,7 +34,7 @@ begin
  with AddUsertype(dwftMainName,
   str_dwftMainCaption,
   str_dwftMainCaption,
-  False,
+  True,
   21,
   -1,
   '',
@@ -57,7 +47,7 @@ begin
  with AddUsertype(dwftSynchroName,
   str_dwftSynchroCaption,
   str_dwftSynchroSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -70,16 +60,7 @@ begin
 end;//_DocumentWithFlashUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else DocumentWithFlashUserTypes_imp_impl}
-
- str_dwftMainCaption.Init;
- {* Инициализация str_dwftMainCaption }
- str_dwftSynchroCaption.Init;
- {* Инициализация str_dwftSynchroCaption }
- str_dwftSynchroSettingsCaption.Init;
- {* Инициализация str_dwftSynchroSettingsCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf DocumentWithFlashUserTypes_imp_impl}
 
 {$EndIf DocumentWithFlashUserTypes_imp}

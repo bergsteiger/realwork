@@ -13,8 +13,8 @@ uses
  , l3ProtoObject
  , daInterfaces
  , daDataProviderParams
- , ddAppConfig
  , daTypes
+ , ddAppConfig
 ;
 
 type

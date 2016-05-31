@@ -1,197 +1,155 @@
 unit AACTextContainerPrim_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/AAC/Forms/AACTextContainerPrim_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Пользовательские сервисы::AAC::View::AAC::AACTextContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACTextContainerPrim_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "AACTextContainerPrim" MUID: (500406E901E5)
+// Имя типа: "TAACTextContainerPrimForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces,
-  Classes,
-  evCustomEditorWindow
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  nevGUIInterfaces,
-  vtPanel,
-  vtLabel,
-  l3StringIDEx,
-  nscSimpleEditorForDialogs,
-  AACContainerPrim_Form
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , AACContainerPrim_Form
+ , afwInterfaces
+ , vtProportionalPanel
+ , vtPanel
+ , nscSimpleEditorForDialogs
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtSizeablePanel
+ , vtScrollBar
+ , nevGUIInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { Константы для ААК }
  LeftIndentDeltaForAACRight = 26;
 
 type
- TAACTextContainerPrimForm = {form} class(TAACContainerPrimForm {$If not defined(DesignTimeLibrary)}, IafwStyleTableSpy{$IfEnd} //not DesignTimeLibrary
+ TAACTextContainerPrimForm = class(TAACContainerPrimForm{$If NOT Defined(DesignTimeLibrary)}
+ , IafwStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
  )
- private
- // private fields
-   f_EdWriteToUsBufferAlreadyAssigned : Boolean;
-   f_InSetupWriteToUsEditor : Boolean;
-   f_pnWriteToUs : TvtPanel;
-    {* Поле для свойства pnWriteToUs}
-   f_edWriteToUs : TnscSimpleEditorForDialogs;
-    {* Поле для свойства edWriteToUs}
-   f_pnSeeAlso : TvtPanel;
-    {* Поле для свойства pnSeeAlso}
-   f_lblSeeAlso : TvtLabel;
-    {* Поле для свойства lblSeeAlso}
-   f_pnLinkToContent : TvtPanel;
-    {* Поле для свойства pnLinkToContent}
-   f_pbLinkToContent : TPaintBox;
-    {* Поле для свойства pbLinkToContent}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_EdWriteToUsBufferAlreadyAssigned: Boolean;
+   f_InSetupWriteToUsEditor: Boolean;
+   f_pnWriteToUs: TvtPanel;
+   f_edWriteToUs: TnscSimpleEditorForDialogs;
+   f_pnSeeAlso: TvtPanel;
+   f_lblSeeAlso: TvtLabel;
+    {* См. также }
+   f_pnLinkToContent: TvtPanel;
+   f_pbLinkToContent: TPaintBox;
+  private
    procedure SetupWriteToUsEditor;
-     {* Сигнатура метода SetupWriteToUsEditor }
-   procedure LblLinkToContentClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure PbLinkToContentPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure PnWriteToUsResize(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
-   {$If not defined(DesignTimeLibrary)}
+   procedure lblLinkToContentClick(Sender: TObject);
+   procedure pbLinkToContentPaint(Sender: TObject);
+   procedure pnWriteToUsResize(Sender: TObject);
+  protected
+   procedure edWriteToUsGetHotSpotInfo(Sender: TObject;
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+   {$If NOT Defined(DesignTimeLibrary)}
    procedure StyleTableChanged;
-     {* таблица стилей изменилась. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // overridden protected methods
+    {* таблица стилей изменилась. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoSetJumpTo(aJumpTo: TevJumpToEvent); override;
- protected
- // protected methods
-   procedure EdWriteToUsGetHotSpotInfo(Sender: TObject;
-     const aHotSpot: IevHotSpot;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
- public
- // public properties
-
-
-
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property pnWriteToUs: TvtPanel
-     read f_pnWriteToUs;
+    read f_pnWriteToUs;
    property edWriteToUs: TnscSimpleEditorForDialogs
-     read f_edWriteToUs;
+    read f_edWriteToUs;
    property pnSeeAlso: TvtPanel
-     read f_pnSeeAlso;
+    read f_pnSeeAlso;
    property lblSeeAlso: TvtLabel
-     read f_lblSeeAlso;
-     {* См. также }
-
-
+    read f_lblSeeAlso;
+    {* См. также }
    property pnLinkToContent: TvtPanel
-     read f_pnLinkToContent;
+    read f_pnLinkToContent;
    property pbLinkToContent: TPaintBox
-     read f_pbLinkToContent;
+    read f_pbLinkToContent;
  end;//TAACTextContainerPrimForm
-
- TvcmContainerFormRef = TAACTextContainerPrimForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base,
-  bsHyperLinkProcessorPrim,
-  vtPngImgList
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  Graphics,
-  vtScrollBar
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  bsTypesNew,
-  nsConst,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , Classes
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , bsTypesNew
+ , nsConst
+ , l3Base
+ , bsHyperLinkProcessorPrim
+ , vtPngImgList
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *500406E901E5impl_uses*
+ //#UC END# *500406E901E5impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки Local }
-  str_WriteToUsDoc : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WriteToUsDoc'; rValue : '{justification:ev_itCenter}'#$D#$A +
+const
+ {* Локализуемые строки Local }
+ str_WriteToUsDoc: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WriteToUsDoc'; rValue : '{justification:ev_itCenter}'#$D#$A +
 's#69. Есть предложения и пожелания? [Напишите нам|' +
 'script:''http://www.garant.ru/company/about/feedback/?typemessage=offer&thememessage=eos&docid='' ' +
 'контрол::Text textform:GetDocumentID IntToStr Cat ' +
 '''&messageid=1&complect_id='' Cat GetEncryptedComplectId Cat browse]'#$D#$A +
 '{/justification}');
-   { '[justification:ev_itCenter]'#$D#$A +
+  {* '[justification:ev_itCenter]'#$D#$A +
 's#69. Есть предложения и пожелания? [Напишите нам|' +
 'script:''http://www.garant.ru/company/about/feedback/?typemessage=offer&thememessage=eos&docid='' ' +
 'контрол::Text textform:GetDocumentID IntToStr Cat ' +
 '''&messageid=1&complect_id='' Cat GetEncryptedComplectId Cat browse]'#$D#$A +
 '[/justification]' }
-
-// start class TAACTextContainerPrimForm
 
 procedure TAACTextContainerPrimForm.SetupWriteToUsEditor;
 //#UC START# *5006F8AA0374_500406E901E5_var*
@@ -221,16 +179,16 @@ begin
 //#UC END# *5006F8AA0374_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.SetupWriteToUsEditor
 
-procedure TAACTextContainerPrimForm.LblLinkToContentClick(Sender: TObject);
+procedure TAACTextContainerPrimForm.lblLinkToContentClick(Sender: TObject);
 //#UC START# *502A7459031B_500406E901E5_var*
 //#UC END# *502A7459031B_500406E901E5_var*
 begin
 //#UC START# *502A7459031B_500406E901E5_impl*
  nsOpenDocumentByNumber(57970000 + c_InternalDocShift, 0, dptSub, false)
 //#UC END# *502A7459031B_500406E901E5_impl*
-end;//TAACTextContainerPrimForm.LblLinkToContentClick
+end;//TAACTextContainerPrimForm.lblLinkToContentClick
 
-procedure TAACTextContainerPrimForm.PbLinkToContentPaint(Sender: TObject);
+procedure TAACTextContainerPrimForm.pbLinkToContentPaint(Sender: TObject);
 //#UC START# *502B5F09037C_500406E901E5_var*
 //#UC END# *502B5F09037C_500406E901E5_var*
 begin
@@ -245,31 +203,32 @@ begin
      False);
 
 //#UC END# *502B5F09037C_500406E901E5_impl*
-end;//TAACTextContainerPrimForm.PbLinkToContentPaint
+end;//TAACTextContainerPrimForm.pbLinkToContentPaint
 
-procedure TAACTextContainerPrimForm.PnWriteToUsResize(Sender: TObject);
+procedure TAACTextContainerPrimForm.pnWriteToUsResize(Sender: TObject);
 //#UC START# *50375C820252_500406E901E5_var*
 //#UC END# *50375C820252_500406E901E5_var*
 begin
 //#UC START# *50375C820252_500406E901E5_impl*
  SetupWriteToUsEditor;
 //#UC END# *50375C820252_500406E901E5_impl*
-end;//TAACTextContainerPrimForm.PnWriteToUsResize
+end;//TAACTextContainerPrimForm.pnWriteToUsResize
 
-procedure TAACTextContainerPrimForm.EdWriteToUsGetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+procedure TAACTextContainerPrimForm.edWriteToUsGetHotSpotInfo(Sender: TObject;
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *5049C7C0027F_500406E901E5_var*
 //#UC END# *5049C7C0027F_500406E901E5_var*
 begin
 //#UC START# *5049C7C0027F_500406E901E5_impl*
  theInfo.rHint := nil; // не показываем хинт:  http://mdp.garant.ru/pages/viewpage.action?pageId=390583477
 //#UC END# *5049C7C0027F_500406E901E5_impl*
-end;//TAACTextContainerPrimForm.EdWriteToUsGetHotSpotInfo
+end;//TAACTextContainerPrimForm.edWriteToUsGetHotSpotInfo
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TAACTextContainerPrimForm.StyleTableChanged;
+ {* таблица стилей изменилась. }
 //#UC START# *467D2CB10135_500406E901E5_var*
 //#UC END# *467D2CB10135_500406E901E5_var*
 begin
@@ -278,9 +237,10 @@ begin
  SetupWriteToUsEditor;
 //#UC END# *467D2CB10135_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.StyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TAACTextContainerPrimForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_500406E901E5_var*
 //#UC END# *479731C50290_500406E901E5_var*
 begin
@@ -292,9 +252,10 @@ begin
 //#UC END# *479731C50290_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TAACTextContainerPrimForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_500406E901E5_var*
 //#UC END# *497469C90140_500406E901E5_var*
 begin
@@ -305,10 +266,11 @@ begin
   SetupWriteToUsEditor;
 //#UC END# *497469C90140_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TAACTextContainerPrimForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_500406E901E5_var*
 //#UC END# *4A8E8F2E0195_500406E901E5_var*
 begin
@@ -408,7 +370,7 @@ begin
  pnlRightTop.Visible := False;
 //#UC END# *4A8E8F2E0195_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TAACTextContainerPrimForm.DoSetJumpTo(aJumpTo: TevJumpToEvent);
 //#UC START# *503CE3500038_500406E901E5_var*
@@ -419,6 +381,7 @@ begin
 //#UC END# *503CE3500038_500406E901E5_impl*
 end;//TAACTextContainerPrimForm.DoSetJumpTo
 
+{$If NOT Defined(NoVCM)}
 procedure TAACTextContainerPrimForm.MakeControls;
 begin
  inherited;
@@ -450,18 +413,16 @@ begin
  f_pbLinkToContent.Name := 'pbLinkToContent';
  f_pbLinkToContent.Parent := pnLinkToContent;
  pnLeft.Parent := pnLeftForScroll;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TAACTextContainerPrimForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_WriteToUsDoc
  str_WriteToUsDoc.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация AACTextContainerPrim
+ {* Инициализация str_WriteToUsDoc }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAACTextContainerPrimForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация AACTextContainerPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

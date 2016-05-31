@@ -19,6 +19,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Autoreferat_InternalOperations_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -58,10 +61,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87BB9C0143impl_uses*
+ //#UC END# *4C87BB9C0143impl_uses*
 ;
-
-type
- // ExcludeTree
 
 procedure TPrimNewsLineOptionsForm.NewsThemes_SelectCurrent_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C87BBFF0313_4C87BB9C0143test_var*
@@ -154,11 +156,20 @@ begin
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_NewsThemes, nil);
   PublishFormEntity(en_DateInterval, nil);
+  ContextMenuWeight(en_DateInterval, 1);
+  ContextMenuWeight(en_Tree, 10);
   PublishOp(en_Tree, op_ExpandAll, nil, nil, nil);
   PublishOp(en_Tree, op_CollapseAll, nil, nil, nil);
   PublishOp(en_NewsThemes, op_SelectCurrent, NewsThemes_SelectCurrent_Execute, NewsThemes_SelectCurrent_Test, nil);
+  ShowInContextMenu(en_NewsThemes, op_SelectCurrent, False);
+  ShowInToolbar(en_NewsThemes, op_SelectCurrent, True);
   PublishOp(en_DateInterval, op_Open, DateInterval_Open_Execute, DateInterval_Open_Test, nil);
+  ShowInContextMenu(en_DateInterval, op_Open, True);
+  ShowInToolbar(en_DateInterval, op_Open, False);
+  ContextMenuWeight(en_DateInterval, op_Open, 1);
  end;//with Entities.Entities
+ AddUserTypeExclude(nltMainName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(nltMainName, en_Tree, op_CollapseAll, False);
 end;//TPrimNewsLineOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

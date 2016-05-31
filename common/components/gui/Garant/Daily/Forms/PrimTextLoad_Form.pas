@@ -15,8 +15,8 @@ uses
  , vcmEntityForm
  , evCustomTextSource
  , evCustomEditor
- , vcmExternalInterfaces
  , evLoadDocumentManager
+ , vcmExternalInterfaces
 ;
 
 type
@@ -57,6 +57,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , vcmInterfaces
  , StdRes
+ //#UC START# *4C9B20790302impl_uses*
+ //#UC END# *4C9B20790302impl_uses*
 ;
 
 procedure TPrimTextLoadForm.AfterLoad;

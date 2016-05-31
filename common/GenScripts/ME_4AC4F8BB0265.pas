@@ -28,6 +28,9 @@ uses
  , vtLabel
  , vtButton
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -82,7 +85,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsTurnOnTimeMachine): BadFactoryType; reintroduce;
+   class function Make(const aData: InsTurnOnTimeMachine): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -151,9 +154,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC4F8BB0265impl_uses*
+ //#UC END# *4AC4F8BB0265impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -239,7 +241,7 @@ begin
 //#UC END# *527A22A30368_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.pbDialogIconPaint
 
-class function TPrimTurnOnTimeMachineForm.Make(const aData: InsTurnOnTimeMachine): BadFactoryType;
+class function TPrimTurnOnTimeMachineForm.Make(const aData: InsTurnOnTimeMachine): IvcmEntityForm;
 var
  l_Inst : TPrimTurnOnTimeMachineForm;
 begin
@@ -433,8 +435,6 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
  end;//with Entities.Entities
 end;//TPrimTurnOnTimeMachineForm.InitEntities
 

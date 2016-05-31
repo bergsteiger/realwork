@@ -1,90 +1,78 @@
 unit PrimFiltersOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Filters/Forms/PrimFiltersOptions_Form.pas"
-// Начат: 02.09.2010 12:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Filters::View::Filters::PrimFiltersOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFiltersOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimFiltersOptions" MUID: (4C7F5A5800CD)
+// Имя типа: "TPrimFiltersOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimFilters_Form,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  Search_Strange_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Filters_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimFilters_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Strange_Controls
+ , Filters_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimFiltersOptionsForm = {form} class(TPrimFiltersForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimFiltersOptionsForm = class(TPrimFiltersForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
-     {* Перенос по словам }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Перенос по словам }
-   {$IfEnd} //not NoVCM
+    {* Перенос по словам }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Filters_Clear_Test(const aParams: IvcmTestParamsPrim);
    procedure Filters_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Filters_New_Test(const aParams: IvcmTestParamsPrim);
    procedure Filters_New_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Filters_Refresh_Test(const aParams: IvcmTestParamsPrim);
@@ -94,51 +82,47 @@ type
    procedure Filter_PersistentFilter_Test(const aParams: IvcmTestParamsPrim);
    procedure Filter_PersistentFilter_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Filter_RenameFilter_Test(const aParams: IvcmTestParamsPrim);
-     {* Переименовать }
+    {* Переименовать }
    procedure Filter_RenameFilter_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Переименовать }
+    {* Переименовать }
    procedure Filters_InternalClear_Execute;
    procedure Filters_InternalClear(const aParams: IvcmExecuteParams);
  end;//TPrimFiltersOptionsForm
-
- TvcmEntityFormRef = TPrimFiltersOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  eeInterfaces,
-  BaseTreeSupportUnit,
-  nsFiltersInterfaces,
-  SimpleListInterfaces,
-  SysUtils,
-  nsFolders,
-  nsOpenUtils,
-  nsUtils,
-  nsFolderFilterInfo,
-  bsTypes,
-  FoldersDomainInterfaces,
-  deFilter,
-  FiltersUnit,
-  l3Tree_TLB,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , eeInterfaces
+ , BaseTreeSupportUnit
+ , nsFiltersInterfaces
+ , SimpleListInterfaces
+ , SysUtils
+ , nsFolders
+ , nsOpenUtils
+ , nsUtils
+ , nsFolderFilterInfo
+ , bsTypes
+ , FoldersDomainInterfaces
+ , deFilter
+ , FiltersUnit
+ , l3Tree_TLB
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7F5A5800CDimpl_uses*
+ //#UC END# *4C7F5A5800CDimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimFiltersOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C7F5A5800CDtest_var*
 //#UC END# *4BDAF7880236_4C7F5A5800CDtest_var*
 begin
@@ -147,10 +131,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_4C7F5A5800CDtest_impl*
 end;//TPrimFiltersOptionsForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4C7F5A5800CDexec_var*
 //#UC END# *4BDAF7880236_4C7F5A5800CDexec_var*
 begin
@@ -158,10 +143,11 @@ begin
  aParams.CallControl;
 //#UC END# *4BDAF7880236_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Tree_ExpandAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C7F5A5800CDtest_var*
 //#UC END# *4BDAF7A2005C_4C7F5A5800CDtest_var*
 begin
@@ -170,10 +156,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_4C7F5A5800CDtest_impl*
 end;//TPrimFiltersOptionsForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4C7F5A5800CDexec_var*
 //#UC END# *4BDAF7A2005C_4C7F5A5800CDexec_var*
 begin
@@ -181,10 +168,11 @@ begin
  aParams.CallControl;
 //#UC END# *4BDAF7A2005C_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Tree_CollapseAll_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_Wrap_Test(const aParams: IvcmTestParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_4C7F5A5800CDtest_var*
 //#UC END# *4BDAF7B803CF_4C7F5A5800CDtest_var*
 begin
@@ -193,10 +181,11 @@ begin
   aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7B803CF_4C7F5A5800CDtest_impl*
 end;//TPrimFiltersOptionsForm.Tree_Wrap_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Tree_Wrap_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Перенос по словам }
 //#UC START# *4BDAF7B803CF_4C7F5A5800CDexec_var*
 //#UC END# *4BDAF7B803CF_4C7F5A5800CDexec_var*
 begin
@@ -204,7 +193,7 @@ begin
  aParams.CallControl;
 //#UC END# *4BDAF7B803CF_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Tree_Wrap_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFiltersOptionsForm.Filters_Clear_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C52AA040095_4C7F5A5800CDtest_var*
@@ -224,8 +213,9 @@ begin
 //#UC END# *4C52AA040095_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Filters_Clear_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7F5A5800CDtest_var*
 //#UC END# *4C7D0CC90052_4C7F5A5800CDtest_var*
 begin
@@ -233,10 +223,11 @@ begin
  Filter_Edit_Test(aParams);
 //#UC END# *4C7D0CC90052_4C7F5A5800CDtest_impl*
 end;//TPrimFiltersOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7F5A5800CDexec_var*
 var
  l_CurNode: Il3Node;
@@ -265,7 +256,7 @@ begin
  end;//with FiltersList
 //#UC END# *4C7D0CC90052_4C7F5A5800CDexec_impl*
 end;//TPrimFiltersOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimFiltersOptionsForm.Filters_New_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C7F5CBD0071_4C7F5A5800CDtest_var*
@@ -378,6 +369,7 @@ begin
 end;//TPrimFiltersOptionsForm.Filter_PersistentFilter_Execute
 
 procedure TPrimFiltersOptionsForm.Filter_RenameFilter_Test(const aParams: IvcmTestParamsPrim);
+ {* Переименовать }
 //#UC START# *4CB7004603CF_4C7F5A5800CDtest_var*
 var
  l_Filter : InsFilterNode;
@@ -389,6 +381,7 @@ begin
 end;//TPrimFiltersOptionsForm.Filter_RenameFilter_Test
 
 procedure TPrimFiltersOptionsForm.Filter_RenameFilter_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Переименовать }
 //#UC START# *4CB7004603CF_4C7F5A5800CDexec_var*
 var
  l_Filter: IFilterFromQuery;
@@ -411,10 +404,13 @@ end;//TPrimFiltersOptionsForm.Filters_InternalClear_Execute
 
 procedure TPrimFiltersOptionsForm.Filters_InternalClear(const aParams: IvcmExecuteParams);
 begin
- Filters_InternalClear_Execute;
-end;
+ Self.Filters_InternalClear_Execute;
+end;//TPrimFiltersOptionsForm.Filters_InternalClear
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimFiltersOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -428,63 +424,51 @@ begin
   ContextMenuWeight(en_Filters, 10);
   ContextMenuWeight(en_Tree, 40);
   ContextMenuWeight(en_Filters, 10);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_Wrap, Tree_Wrap_Execute, Tree_Wrap_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_Filters, op_Clear, Filters_Clear_Execute, Filters_Clear_Test, nil);
-  ShowInContextMenu(en_Filters, op_Clear, true);
-  ShowInToolbar(en_Filters, op_Clear, true);
+  ShowInContextMenu(en_Filters, op_Clear, True);
+  ShowInToolbar(en_Filters, op_Clear, True);
   ContextMenuWeight(en_Filters, op_Clear, 20);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, nil);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   ContextMenuWeight(en_Edit, op_Delete, -10);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_Filters, op_New, Filters_New_Execute, Filters_New_Test, nil);
   ContextMenuWeight(en_Filters, op_New, 10);
   PublishOp(en_Filters, op_Refresh, Filters_Refresh_Execute, Filters_Refresh_Test, nil);
   ContextMenuWeight(en_Filters, op_Refresh, 30);
   PublishOp(en_Filter, op_Activate, nil, nil, nil);
-  ShowInContextMenu(en_Filter, op_Activate, true);
-  ShowInToolbar(en_Filter, op_Activate, false);
+  ShowInContextMenu(en_Filter, op_Activate, True);
+  ShowInToolbar(en_Filter, op_Activate, False);
   ContextMenuWeight(en_Filter, op_Activate, 10);
   PublishOp(en_Filter, op_Edit, Filter_Edit_Execute, Filter_Edit_Test, nil);
   ContextMenuWeight(en_Filter, op_Edit, 20);
   PublishOp(en_Filter, op_PersistentFilter, Filter_PersistentFilter_Execute, Filter_PersistentFilter_Test, nil);
-  ShowInContextMenu(en_Filter, op_PersistentFilter, true);
-  ShowInToolbar(en_Filter, op_PersistentFilter, false);
+  ShowInContextMenu(en_Filter, op_PersistentFilter, True);
+  ShowInToolbar(en_Filter, op_PersistentFilter, False);
   ContextMenuWeight(en_Filter, op_PersistentFilter, 30);
   PublishOp(en_Filters, op_FiltersListOpen, nil, nil, nil);
-  ShowInContextMenu(en_Filters, op_FiltersListOpen, false);
-  ShowInToolbar(en_Filters, op_FiltersListOpen, false);
+  ShowInContextMenu(en_Filters, op_FiltersListOpen, False);
+  ShowInToolbar(en_Filters, op_FiltersListOpen, False);
   ContextMenuWeight(en_Filters, op_FiltersListOpen, 20);
   PublishOp(en_Filter, op_RenameFilter, Filter_RenameFilter_Execute, Filter_RenameFilter_Test, nil);
-  ShowInContextMenu(en_Filter, op_RenameFilter, true);
+  ShowInContextMenu(en_Filter, op_RenameFilter, True);
   ContextMenuWeight(en_Filter, op_RenameFilter, 50);
   PublishOpWithResult(en_Filters, op_InternalClear, Filters_InternalClear, nil, nil);
-  ShowInContextMenu(en_Filter, op_CreateFilter, true);
-  ShowInToolbar(en_Filter, op_CreateFilter, false);
+  ShowInContextMenu(en_Filter, op_CreateFilter, True);
+  ShowInToolbar(en_Filter, op_CreateFilter, False);
   ContextMenuWeight(en_Filter, op_CreateFilter, 40);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimFiltersOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimFiltersOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimFiltersOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimFiltersOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnJurorLocalConstants }
+ str_WarnJurorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnJurorCaption'; rValue : 'Юридическое предупреждение');
+  {* Заголовок пользовательского типа "Юридическое предупреждение" }
  {* Константы для типа формы WarnJuror }
  WarnJurorName = 'WarnJuror';
   {* Строковый идентификатор пользовательского типа "Юридическое предупреждение" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_WarnJuror.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnJurorCaption.Init;
+ {* Инициализация str_WarnJurorCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnJuror.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnJuror }

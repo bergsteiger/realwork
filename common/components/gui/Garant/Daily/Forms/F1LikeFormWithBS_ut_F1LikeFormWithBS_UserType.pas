@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_F1LikeFormWithBSLocalConstants }
+ str_ut_F1LikeFormWithBSCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_F1LikeFormWithBSCaption'; rValue : 'Форма с текстовым редактором с базовым поиском.');
+  {* Заголовок пользовательского типа "Форма с текстовым редактором с базовым поиском." }
  {* Константы для типа формы ut_F1LikeFormWithBS }
  ut_F1LikeFormWithBSName = 'ut_F1LikeFormWithBS';
   {* Строковый идентификатор пользовательского типа "Форма с текстовым редактором с базовым поиском." }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_F1LikeFormWithBS.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_F1LikeFormWithBSCaption.Init;
+ {* Инициализация str_ut_F1LikeFormWithBSCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_F1LikeFormWithBS.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_F1LikeFormWithBS }

@@ -13,17 +13,18 @@ uses
  l3IntfUses
  , l3Interfaces
  , UnderControlInterfaces
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
 ;
 
 const
  {* Локализуемые строки Messages }
+ str_InActualDocumentAction_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InActualDocumentAction_CheckCaption'; rValue : 'Не оповещать об изменениях в этом документе в пределах сеанса');
+  {* 'Не оповещать об изменениях в этом документе в пределах сеанса' }
  str_InActualDocumentAction: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'InActualDocumentAction'; rValue : '%s ' + #13#10 +
 'Актуальная информация представлена в интернет-версии системы ГАРАНТ');
   {* '%s ' + #13#10 +
 'Актуальная информация представлена в интернет-версии системы ГАРАНТ' }
- str_InActualDocumentAction_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InActualDocumentAction_CheckCaption'; rValue : 'Не оповещать об изменениях в этом документе в пределах сеанса');
 
 function bsControlStatusHint(aStatus: Integer;
  aNeedPrefix: Boolean): Il3CString;
@@ -37,9 +38,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
  , UnderControlUnit
  , l3String
  {$If NOT Defined(NoVCM)}
@@ -50,6 +48,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Bits
  , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 const
@@ -210,10 +211,8 @@ initialization
  {* Инициализация str_csDocumentu }
  str_csDocumentEvents.Init;
  {* Инициализация str_csDocumentEvents }
- str_InActualDocumentAction_Choice_OpenInternetVersion.Init;
- {* Инициализация str_InActualDocumentAction_Choice_OpenInternetVersion }
- str_InActualDocumentAction_Choice_StayInCurrentEdition.Init;
- {* Инициализация str_InActualDocumentAction_Choice_StayInCurrentEdition }
+ str_InActualDocumentAction_CheckCaption.Init;
+ {* Инициализация str_InActualDocumentAction_CheckCaption }
  str_InActualDocumentAction.Init;
  str_InActualDocumentAction.AddChoice(str_InActualDocumentAction_Choice_OpenInternetVersion);
  str_InActualDocumentAction.AddChoice(str_InActualDocumentAction_Choice_StayInCurrentEdition);
@@ -221,8 +220,10 @@ initialization
  str_InActualDocumentAction.SetCheckCaption(str_InActualDocumentAction_CheckCaption);
  str_InActualDocumentAction.SetDlgType(mtConfirmation);
  {* Инициализация str_InActualDocumentAction }
- str_InActualDocumentAction_CheckCaption.Init;
- {* Инициализация str_InActualDocumentAction_CheckCaption }
+ str_InActualDocumentAction_Choice_OpenInternetVersion.Init;
+ {* Инициализация str_InActualDocumentAction_Choice_OpenInternetVersion }
+ str_InActualDocumentAction_Choice_StayInCurrentEdition.Init;
+ {* Инициализация str_InActualDocumentAction_Choice_StayInCurrentEdition }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

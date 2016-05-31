@@ -1,177 +1,136 @@
 unit PrimStyleEditorNavigator_Form;
+ {* Дерево стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorNavigator_Form.pas"
-// Начат: 28.10.2009 14:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorNavigator
-//
-// Дерево стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorNavigator" MUID: (4AE8247501DA)
+// Имя типа: "TPrimStyleEditorNavigatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Messages,
-  l3ControlsTypes,
-  eeInterfaces,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  eeTreeViewExport
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Settings_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  l3TreeInterfaces,
-  PrimStyleEditorNavigator_utStyleEditorNavigator_UserType,
-  l3Interfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Settings_Strange_Controls
+ , nscTreeViewWithAdapterDragDrop
+ , Messages
+ , eeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { WM_AFTERINSERT const }
  WM_AFTERINSERT = WM_USER  + 111;
 
 type
- TPrimStyleEditorNavigatorForm = {form} class(TvcmEntityForm)
+ TPrimStyleEditorNavigatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Дерево стилей }
- private
- // private fields
-   f_StyleTreeView : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства StyleTreeView}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_StyleTreeView: TnscTreeViewWithAdapterDragDrop;
+  private
    function StyleTreeViewGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure StyleTreeViewCurrentChanged(aSender: TObject;
-     aNewCurrent: Integer;
-     aOldCurrent: Integer);
-     {* событие для обработки изменения текущего элемента }
+    aNewCurrent: Integer;
+    aOldCurrent: Integer);
    procedure StyleTreeViewRootChanged(aSender: TObject;
-     const anOldRoot: IeeNode;
-     const aNewRoot: IeeNode);
+    const anOldRoot: IeeNode;
+    const aNewRoot: IeeNode);
    function GetStyleIdFromTreeByIndex(aIndex: Integer): Integer;
    procedure SendToAggregateSetNewContentNotify(aStyleId: Integer);
    function GetStyleIdFromNode(const aNode: IeeNode): Integer;
    procedure WMAfterInsert(var aMsg: TMessage); message WM_AFTERINSERT;
- protected
- // realized methods
+  protected
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
-     {* ReloadStylesTree }
+    {* ReloadStylesTree }
    procedure StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParams);
-     {* ReloadStylesTree }
+    {* ReloadStylesTree }
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
- public
- // public properties
+  public
    property StyleTreeView: TnscTreeViewWithAdapterDragDrop
-     read f_StyleTreeView;
+    read f_StyleTreeView;
  end;//TPrimStyleEditorNavigatorForm
-
- TvcmEntityFormRef = TPrimStyleEditorNavigatorForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evStyleInterface,
-  eeNode,
-  l3Nodes,
-  nsStyleEditor,
-  l3Tree_TLB,
-  afwFacade,
-  SysUtils,
-  afwInterfaces,
-  l3Base,
-  evdStyles,
-  l3Types
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  StyleTableRes,
-  evdTextStyle_Const,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , evStyleInterface
+ , eeNode
+ , l3Nodes
+ , nsStyleEditor
+ , l3Tree_TLB
+ , afwFacade
+ , SysUtils
+ , afwInterfaces
+ , l3Base
+ , evdStyles
+ , l3Types
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , StyleTableRes
+ , l3TreeInterfaces
+ , evdTextStyle_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorNavigator_utStyleEditorNavigator_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AE8247501DAimpl_uses*
+ , eeTreeViewExport
+ , eeTreeView
+ , l3ControlsTypes
+ //#UC END# *4AE8247501DAimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utStyleEditorNavigatorLocalConstants }
-  str_utStyleEditorNavigatorCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorCaption'; rValue : 'Дерево стилей');
-   { Заголовок пользовательского типа "Дерево стилей" }
-  str_utStyleEditorNavigatorSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorSettingsCaption'; rValue : 'Дерево стилей');
-   { Заголовок пользовательского типа "Дерево стилей" для настройки панелей инструментов }
-
-// start class TPrimStyleEditorNavigatorForm
-
+{$If NOT Defined(NoVCM)}
 function TPrimStyleEditorNavigatorForm.StyleTreeViewGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *527214490340_4AE8247501DA_var*
 //#UC END# *527214490340_4AE8247501DA_var*
 begin
@@ -190,8 +149,8 @@ begin
 end;//TPrimStyleEditorNavigatorForm.StyleTreeViewGetItemImage
 
 procedure TPrimStyleEditorNavigatorForm.StyleTreeViewCurrentChanged(aSender: TObject;
-  aNewCurrent: Integer;
-  aOldCurrent: Integer);
+ aNewCurrent: Integer;
+ aOldCurrent: Integer);
 //#UC START# *527214520382_4AE8247501DA_var*
 //#UC END# *527214520382_4AE8247501DA_var*
 begin
@@ -202,8 +161,8 @@ begin
 end;//TPrimStyleEditorNavigatorForm.StyleTreeViewCurrentChanged
 
 procedure TPrimStyleEditorNavigatorForm.StyleTreeViewRootChanged(aSender: TObject;
-  const anOldRoot: IeeNode;
-  const aNewRoot: IeeNode);
+ const anOldRoot: IeeNode;
+ const aNewRoot: IeeNode);
 //#UC START# *5272145F0183_4AE8247501DA_var*
 //#UC END# *5272145F0183_4AE8247501DA_var*
 begin
@@ -259,6 +218,7 @@ begin
 end;//TPrimStyleEditorNavigatorForm.WMAfterInsert
 
 procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute(const aStyleName: Il3CString);
+ {* ReloadStylesTree }
 //#UC START# *4AE8250D03D5_4AE8247501DAexec_var*
  function lp_IsInArray(const aArray: array of Integer; aValue: Integer): Boolean;
  var
@@ -395,10 +355,11 @@ begin
 end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute
 
 procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParams);
+ {* ReloadStylesTree }
 begin
  with (aParams.Data As IStyleEditor_ReloadStylesTree_Params) do
-  StyleEditor_ReloadStylesTree_Execute(StyleName);
-end;
+  Self.StyleEditor_ReloadStylesTree_Execute(StyleName);
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree
 
 procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable_Execute;
 //#UC START# *4AF8660E0079_4AE8247501DAexec_var*
@@ -418,8 +379,8 @@ end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable_Execute
 
 procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
 begin
- StyleEditor_ReloadStyleTable_Execute;
-end;
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorNavigatorForm.InitFields;
 //#UC START# *47A042E100E2_4AE8247501DA_var*
@@ -437,8 +398,8 @@ begin
 //#UC END# *47A042E100E2_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimStyleEditorNavigatorForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE8247501DA_var*
 //#UC END# *4A8E8F2E0195_4AE8247501DA_var*
 begin
@@ -465,9 +426,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AE8247501DA_var*
 //#UC END# *4F7C65380244_4AE8247501DA_var*
@@ -476,9 +435,10 @@ begin
  PostMessage(Handle, WM_AFTERINSERT, 0, 0);
 //#UC END# *4F7C65380244_4AE8247501DA_impl*
 end;//TPrimStyleEditorNavigatorForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
 
 procedure TPrimStyleEditorNavigatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -487,18 +447,15 @@ begin
   PublishOpWithResult(en_StyleEditor, op_ReloadStylesTree, StyleEditor_ReloadStylesTree, nil, nil);
   PublishOpWithResult(en_StyleEditor, op_ReloadStyleTable, StyleEditor_ReloadStyleTable, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimStyleEditorNavigatorForm.InitEntities
 
 procedure TPrimStyleEditorNavigatorForm.MakeControls;
 begin
  inherited;
- f_StyleTreeView := TnscTreeViewWithAdapterDragDrop.Create(Self);
- f_StyleTreeView.Name := 'StyleTreeView';
- f_StyleTreeView.Parent := Self;
  with AddUsertype(utStyleEditorNavigatorName,
   str_utStyleEditorNavigatorCaption,
   str_utStyleEditorNavigatorSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -508,22 +465,17 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utStyleEditorNavigatorName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ f_StyleTreeView := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_StyleTreeView.Name := 'StyleTreeView';
+ f_StyleTreeView.Parent := Self;
+end;//TPrimStyleEditorNavigatorForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utStyleEditorNavigatorCaption
- str_utStyleEditorNavigatorCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utStyleEditorNavigatorSettingsCaption
- str_utStyleEditorNavigatorSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStyleEditorNavigator
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorNavigatorForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStyleEditorNavigator }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -16,9 +16,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки fAttributeSynchroViewLocalConstants }
+ str_fAttributeSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fAttributeSynchroViewCaption'; rValue : 'Информация о документе (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Информация о документе (синхронный просмотр)" }
  {* Константы для типа формы fAttributeSynchroView }
  fAttributeSynchroViewName = 'fAttributeSynchroView';
   {* Строковый идентификатор пользовательского типа "Информация о документе (синхронный просмотр)" }
@@ -59,6 +63,8 @@ end;//Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_fAttributeSynchroViewCaption.Init;
+ {* Инициализация str_fAttributeSynchroViewCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_fAttributeSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_fAttributeSynchroView }

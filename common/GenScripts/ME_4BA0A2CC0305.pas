@@ -137,6 +137,14 @@ procedure _UnderControlResetter_.SignalDataSourceChanged(const anOld: IvcmFormDa
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ucpUnderControl := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IucpUnderControl, ucpUnderControl);
+ end;//aNew = nil
 end;//_UnderControlResetter_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 

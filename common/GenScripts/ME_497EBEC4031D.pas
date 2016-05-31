@@ -21,10 +21,10 @@ uses
  , Autoreferat_InternalOperations_Controls
  , AutoreferatInterfaces
  , nscTreeViewForNewsLine
+ , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , l3TreeInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,8 +34,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  , l3ProtoObject
+ , l3MessageID
 ;
 
 const
@@ -82,7 +82,6 @@ type
    f_InDataChanging: Boolean;
    f_CurrentNewsLineIndex: Integer;
    f_DateList: TnscTreeViewForNewsLine;
-    {* Поле для свойства DateList }
   protected
    sdsAutoreferat: IsdsAutoreferat;
    f_UpdateFlag: Boolean;
@@ -177,31 +176,32 @@ uses
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , PrimMonitoringsWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimNewsLine_nltMain_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EBEC4031Dimpl_uses*
+ , Classes
+ , Forms
+ , l3ControlsTypes
+ //#UC END# *497EBEC4031Dimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
 const
- {* Локализуемые строки nltMainLocalConstants }
- str_nltMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nltMainCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
-  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
- str_nltMainSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nltMainSettingsCaption'; rValue : 'ПРАЙМ. Моя новостная лента (вкладка)');
-  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" для настройки панелей инструментов }
  {* Варианты выбора для диалога NewsLineIsNotSetup }
  str_NewsLineIsNotSetup_Choice_FillForm: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'NewsLineIsNotSetup_Choice_FillForm'; rValue : 'Заполнить анкету');
   {* 'Заполнить анкету' }
@@ -572,6 +572,14 @@ procedure TPrimNewsLineForm.SignalDataSourceChanged(const anOld: IvcmFormDataSou
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  sdsAutoreferat := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IsdsAutoreferat, sdsAutoreferat);
+ end;//aNew = nil
 end;//TPrimNewsLineForm.SignalDataSourceChanged
 
 procedure TPrimNewsLineForm.InitEntities;
@@ -596,7 +604,7 @@ begin
  with AddUsertype(nltMainName,
   str_nltMainCaption,
   str_nltMainSettingsCaption,
-  False,
+  True,
   145,
   -1,
   '',
@@ -612,22 +620,6 @@ begin
 end;//TPrimNewsLineForm.MakeControls
 
 initialization
- str_nltMainCaption.Init;
- {* Инициализация str_nltMainCaption }
- str_nltMainSettingsCaption.Init;
- {* Инициализация str_nltMainSettingsCaption }
- str_NewsLineIsNotSetup_Choice_FillForm.Init;
- {* Инициализация str_NewsLineIsNotSetup_Choice_FillForm }
- str_NewsLineIsNotSetup_Choice_ViewFullNewsLine.Init;
- {* Инициализация str_NewsLineIsNotSetup_Choice_ViewFullNewsLine }
- str_FormFillIsNotFinished_Choice_Continue.Init;
- {* Инициализация str_FormFillIsNotFinished_Choice_Continue }
- str_FormFillIsNotFinished_Choice_Exit.Init;
- {* Инициализация str_FormFillIsNotFinished_Choice_Exit }
- str_PrimeIsOffline_Choice_Ok.Init;
- {* Инициализация str_PrimeIsOffline_Choice_Ok }
- str_PrimeIsOffline_Choice_Details.Init;
- {* Инициализация str_PrimeIsOffline_Choice_Details }
  str_NewsLineIsNotSetup.Init;
  str_NewsLineIsNotSetup.AddChoice(str_NewsLineIsNotSetup_Choice_FillForm);
  str_NewsLineIsNotSetup.AddChoice(str_NewsLineIsNotSetup_Choice_ViewFullNewsLine);
@@ -646,6 +638,18 @@ initialization
  str_PrimeIsOffline.AddDefaultChoice(str_PrimeIsOffline_Choice_Ok);
  str_PrimeIsOffline.SetDlgType(mtError);
  {* Инициализация str_PrimeIsOffline }
+ str_NewsLineIsNotSetup_Choice_FillForm.Init;
+ {* Инициализация str_NewsLineIsNotSetup_Choice_FillForm }
+ str_NewsLineIsNotSetup_Choice_ViewFullNewsLine.Init;
+ {* Инициализация str_NewsLineIsNotSetup_Choice_ViewFullNewsLine }
+ str_FormFillIsNotFinished_Choice_Continue.Init;
+ {* Инициализация str_FormFillIsNotFinished_Choice_Continue }
+ str_FormFillIsNotFinished_Choice_Exit.Init;
+ {* Инициализация str_FormFillIsNotFinished_Choice_Exit }
+ str_PrimeIsOffline_Choice_Ok.Init;
+ {* Инициализация str_PrimeIsOffline_Choice_Ok }
+ str_PrimeIsOffline_Choice_Details.Init;
+ {* Инициализация str_PrimeIsOffline_Choice_Details }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimNewsLineForm);
  {* Регистрация PrimNewsLine }

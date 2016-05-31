@@ -66,9 +66,8 @@ type
   {* Предупреждение }
   private
    f_Viewer: TnscEditor;
-    {* Поле для свойства Viewer }
   protected
-   : IdsWarning;
+   ViewArea: IdsWarning;
   private
    procedure MakeDocumentContainer(Sender: TObject;
     var aMade: InevDocumentContainer);
@@ -149,9 +148,7 @@ uses
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
  , nevBase
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , Base_Operations_Editions_Controls
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -168,6 +165,28 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , WarningUserTypes_Warning_UserType
+ , BaloonWarningUserTypes_Fake_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
  //#UC START# *4979E5520222impl_uses*
  //#UC END# *4979E5520222impl_uses*
 ;
@@ -419,6 +438,14 @@ procedure TPrimWarningForm.SignalDataSourceChanged(const anOld: IvcmFormDataSour
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsWarning;
+ end;//aNew = nil
 end;//TPrimWarningForm.SignalDataSourceChanged
 
 procedure TPrimWarningForm.InitEntities;

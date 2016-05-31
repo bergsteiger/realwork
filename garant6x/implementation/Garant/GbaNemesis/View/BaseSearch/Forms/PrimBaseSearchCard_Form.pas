@@ -1,87 +1,56 @@
 unit PrimBaseSearchCard_Form;
+ {* Базовый поиск }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/PrimBaseSearchCard_Form.pas"
-// Начат: 21.09.2009 20:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::PrimBaseSearchCard
-//
-// Базовый поиск
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchCard_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearchCard" MUID: (4AB7A3210135)
+// Имя типа: "TPrimBaseSearchCardForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  nevBase,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nevGUIInterfaces,
-  vtPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  BaseSearchInterfaces,
-  nsMainMenuNew
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  ,
-  l3StringIDEx,
-  nscSimpleEditor,
-  PrimWorkJournalInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscLister
-  {$IfEnd} //Nemesis
-  ,
-  vcmEntityForm {a},
-  Messages
-  {$If defined(Nemesis)}
-  ,
-  nscInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  Windows
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseSearchInterfaces
+ , PrimWorkJournalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , nsMainMenuNew
+ , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscLister
+ {$IfEnd} // Defined(Nemesis)
+ , nscSimpleEditor
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevBase
+ , nevGUIInterfaces
+ , Classes
+ , afwInterfaces
+ {$If Defined(Nemesis)}
+ , nscInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , Windows
+ , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _BaseSearchPresentationFor296635421_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
@@ -89,54 +58,48 @@ type
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
  _nscFormWithArrangeGrid_Parent_ = _vcmScrollableFormWithWheelSupport_;
  {$Include w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas}
- TPrimBaseSearchCardForm = {form} class(_nscFormWithArrangeGrid_, InsBaseSearchPresentation, InsWorkJournalListener, Il3WndProcRetListener, Il3Listener)
+ TPrimBaseSearchCardForm = class(_nscFormWithArrangeGrid_, InsBaseSearchPresentation, InsWorkJournalListener, Il3WndProcRetListener, Il3Listener)
   {* Базовый поиск }
- private
- // private fields
-   f_qhBaseSearch : TQHRec;
-   f_pnlMain : TvtPanel;
-    {* Поле для свойства pnlMain}
-   f_hfBaseSearch : TnscHideField;
-    {* Поле для свойства hfBaseSearch}
-   f_lrBaseSearch : TnscLister;
-    {* Поле для свойства lrBaseSearch}
-   f_CardTextLabel : TnscSimpleEditor;
-    {* Поле для свойства CardTextLabel}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-   function LrBaseSearchGetItemCursor(aSender: TObject;
-     aIndex: Integer): TCursor;
-   procedure LrBaseSearchGetItemFont(Sender: TObject;
-     Index: Integer;
-     const aFont: Il3Font);
-   procedure LrBaseSearchGetStrItem(Sender: TObject;
-     Index: Integer;
-     var ItemString: Il3CString);
-   procedure LrBaseSearchActionElement(Sender: TObject;
-     Index: Integer);
-   procedure VcmEntityFormLoadState(const aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Loaded: Boolean);
-   procedure VcmEntityFormSaveState(out aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Saved: Boolean);
-   procedure CardTextLabelTextSourceTnscSimpleEditorCardTextLabelGetControlItemImg(aSender: TObject;
-     const aControl: TnevControlInfo;
-     out theImageInfo: TnevControlImageInfo);
+  private
+   f_qhBaseSearch: TQHRec;
+   f_pnlMain: TvtPanel;
+   f_hfBaseSearch: TnscHideField;
+    {* История запросов }
+   f_lrBaseSearch: TnscLister;
+   f_CardTextLabel: TnscSimpleEditor;
+  private
+   function lrBaseSearchGetItemCursor(aSender: TObject;
+    aIndex: Integer): TCursor;
+   procedure lrBaseSearchGetItemFont(Sender: TObject;
+    Index: Integer;
+    const aFont: Il3Font);
+   procedure lrBaseSearchGetStrItem(Sender: TObject;
+    Index: Integer;
+    var ItemString: Il3CString);
+   procedure lrBaseSearchActionElement(Sender: TObject;
+    Index: Integer);
+   procedure vcmEntityFormLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Loaded: Boolean);
+   procedure vcmEntityFormSaveState(out aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Saved: Boolean);
+   procedure CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg(aSender: TObject;
+    const aControl: TnevControlInfo;
+    out theImageInfo: TnevControlImageInfo);
    function CardTextLabelMouseAction(const aHotSpot: IevHotSpot;
-     aButton: Tl3MouseButton;
-     anAction: Tl3MouseAction;
-     Keys: TShiftState;
-     var NeedAsyncLoop: Boolean): Boolean;
+    aButton: Tl3MouseButton;
+    anAction: Tl3MouseAction;
+    Keys: TShiftState;
+    var NeedAsyncLoop: Boolean): Boolean;
    procedure CardTextLabelGetHotSpotInfo(Sender: TObject;
-     const aHotSpot: IevHotSpot;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
- protected
- // realized methods
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+  protected
+   procedure LoadQueryHistory;
+   function QueryProcessor: InsBaseSearchQueryDataProcessor;
+   procedure CardTextLabelResize(aSender: TObject);
    function WindowRequired: Boolean;
    function WindowCloseable: Boolean;
    function CanCloseWindow: Boolean;
@@ -144,124 +107,119 @@ type
    function TreatSuccessSearchAsManualOpen: Boolean;
    function AutoActivateWindow: Boolean;
    procedure JournalShrinked;
-   {$If not defined(NoVCM)}
-   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
    function Get_ContainerForBaseSearch: TnsContainerForBaseSearchInfo;
    function Get_ContextSearcher: InsContextSearcher;
    function Get_NeedSaveActiveClassBeforeSearch: Boolean;
    procedure WndProcRetListenerNotify(Msg: PCWPRetStruct;
-     var theResult: Tl3HookProcResult);
-    {$If defined(Nemesis)}
+    var theResult: Tl3HookProcResult);
+   {$If Defined(Nemesis)}
    function GridParentControl: TWinControl; override;
-    {$IfEnd} //Nemesis
-    {$If defined(Nemesis)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If Defined(Nemesis)}
    function DoBuildGrid: InscArrangeGrid; override;
-    {$IfEnd} //Nemesis
-    {$If defined(Nemesis)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If Defined(Nemesis)}
    procedure DoRecalcGrid(const aGrid: InscArrangeGrid); override;
-    {$IfEnd} //Nemesis
- public
- // realized methods
-   function SupportDisabled: Boolean;
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure LoadQueryHistory;
-     {* Сигнатура метода LoadQueryHistory }
-   function QueryProcessor: InsBaseSearchQueryDataProcessor;
-   procedure CardTextLabelResize(aSender: TObject);
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function SupportDisabled: Boolean;
+  public
    property pnlMain: TvtPanel
-     read f_pnlMain;
+    read f_pnlMain;
    property hfBaseSearch: TnscHideField
-     read f_hfBaseSearch;
-     {* История запросов }
+    read f_hfBaseSearch;
+    {* История запросов }
    property lrBaseSearch: TnscLister
-     read f_lrBaseSearch;
+    read f_lrBaseSearch;
    property CardTextLabel: TnscSimpleEditor
-     read f_CardTextLabel;
+    read f_CardTextLabel;
  end;//TPrimBaseSearchCardForm
-
- TvcmEntityFormRef = TPrimBaseSearchCardForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Defaults,
-  SearchUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nevTools,
-  vtUtils,
-  SearchRes,
-  nsConst,
-  evdTextStyle_Const,
-  Graphics,
-  l3Memory,
-  l3String,
-  MainMenuNewRes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3ControlsTypes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGridCell
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscFixedHeightControlCell
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGrid
-  {$IfEnd} //Nemesis
-  ,
-  l3ListenersManager,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils,
-  l3Base,
-  l3InterfacesMisc,
-  nsBaseSearchService,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3Defaults
+ , SearchUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , vtUtils
+ , SearchRes
+ , nsConst
+ , evdTextStyle_Const
+ , Graphics
+ , l3Memory
+ , l3String
+ , MainMenuNewRes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ControlsTypes
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscArrangeGridCell
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscFixedHeightControlCell
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscArrangeGrid
+ {$IfEnd} // Defined(Nemesis)
+ , l3ListenersManager
+ {$If NOT Defined(NoVCM)}
+ , vcmHistoryService
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AB7A3210135impl_uses*
+ //#UC END# *4AB7A3210135impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки BaseSearchLocalConst }
+ str_BaseSearch: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'BaseSearch'; rValue : 'Базовый поиск');
+  {* 'Базовый поиск' }
+ str_QueryHistory: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'QueryHistory'; rValue : 'История запросов');
+  {* 'История запросов' }
 
 type _Instance_R_ = TPrimBaseSearchCardForm;
 
@@ -269,152 +227,7 @@ type _Instance_R_ = TPrimBaseSearchCardForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
 
-
 {$Include w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas}
-
-var
-   { Локализуемые строки BaseSearchLocalConst }
-  str_BaseSearch : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'BaseSearch'; rValue : 'Базовый поиск');
-   { 'Базовый поиск' }
-  str_QueryHistory : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'QueryHistory'; rValue : 'История запросов');
-   { 'История запросов' }
-
-// start class TPrimBaseSearchCardForm
-
-function TPrimBaseSearchCardForm.LrBaseSearchGetItemCursor(aSender: TObject;
-  aIndex: Integer): TCursor;
-//#UC START# *51237E59012E_4AB7A3210135_var*
-//#UC END# *51237E59012E_4AB7A3210135_var*
-begin
-//#UC START# *51237E59012E_4AB7A3210135_impl*
- if (aIndex <> -1) and (f_qhBaseSearch.rH.Count > 0) then
-  Result := crHandPoint
- else
-  Result := crDefault;
-//#UC END# *51237E59012E_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.LrBaseSearchGetItemCursor
-
-procedure TPrimBaseSearchCardForm.LrBaseSearchGetItemFont(Sender: TObject;
-  Index: Integer;
-  const aFont: Il3Font);
-//#UC START# *51237E6503D6_4AB7A3210135_var*
-//#UC END# *51237E6503D6_4AB7A3210135_var*
-begin
-//#UC START# *51237E6503D6_4AB7A3210135_impl*
- with aFont do
-  ForeColor := c_MainMenuColor;
- if (Index mod 2 = 0) then
-  aFont.BackColor := c_mmSecondItemColor
- else
-  aFont.BackColor := c_mmTreeColor;
-//#UC END# *51237E6503D6_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.LrBaseSearchGetItemFont
-
-procedure TPrimBaseSearchCardForm.LrBaseSearchGetStrItem(Sender: TObject;
-  Index: Integer;
-  var ItemString: Il3CString);
-//#UC START# *51237E7003BF_4AB7A3210135_var*
-//#UC END# *51237E7003BF_4AB7A3210135_var*
-begin
-//#UC START# *51237E7003BF_4AB7A3210135_impl*
- ItemString := nsMakeQueryStr(f_qhBaseSearch, Index);
-//#UC END# *51237E7003BF_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.LrBaseSearchGetStrItem
-
-procedure TPrimBaseSearchCardForm.LrBaseSearchActionElement(Sender: TObject;
-  Index: Integer);
-//#UC START# *51237E8901DC_4AB7A3210135_var*
-var
- l_Query : IQuery;
- l_QueryProcessor: InsBaseSearchQueryDataProcessor;
-//#UC END# *51237E8901DC_4AB7A3210135_var*
-begin
-//#UC START# *51237E8901DC_4AB7A3210135_impl*
- l_QueryProcessor := QueryProcessor;
- if (f_qhBaseSearch.rH.Count > 0) and
-   Supports(f_qhBaseSearch.rH[Index], IQuery, l_Query) and
-   Assigned(l_QueryProcessor) then
-  l_QueryProcessor.SetDataFromQuery(l_Query);
-//#UC END# *51237E8901DC_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.LrBaseSearchActionElement
-
-procedure TPrimBaseSearchCardForm.VcmEntityFormLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Loaded: Boolean);
-//#UC START# *51237ED3031C_4AB7A3210135_var*
-//#UC END# *51237ED3031C_4AB7A3210135_var*
-begin
-//#UC START# *51237ED3031C_4AB7A3210135_impl*
- LoadQueryHistory;
-//#UC END# *51237ED3031C_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.VcmEntityFormLoadState
-
-procedure TPrimBaseSearchCardForm.VcmEntityFormSaveState(out aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Saved: Boolean);
-//#UC START# *51237EDB0222_4AB7A3210135_var*
-var
- l_Fake: TvcmBase;
-//#UC END# *51237EDB0222_4AB7A3210135_var*
-begin
-//#UC START# *51237EDB0222_4AB7A3210135_impl*
- if (aStateType = vcm_stContent) then
- begin
-  l_Fake := TvcmBase.Create;
-  try
-   Supports(l_Fake, IvcmBase, aState);
-  finally
-   vcmFree(l_Fake);
-  end;//try..finally
- end;//aStateType = vcm_stContent
-//#UC END# *51237EDB0222_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.VcmEntityFormSaveState
-
-procedure TPrimBaseSearchCardForm.CardTextLabelTextSourceTnscSimpleEditorCardTextLabelGetControlItemImg(aSender: TObject;
-  const aControl: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo);
-//#UC START# *51237F970395_4AB7A3210135_var*
-var
- l_Para : InevPara;
-//#UC END# *51237F970395_4AB7A3210135_var*
-begin
-//#UC START# *51237F970395_4AB7A3210135_impl*
- theImageInfo.rImageList := vtMakeImageListWrapper(nsSearchRes.ImageList);
- theImageInfo.rFirstIndex := 0;
- if aControl.rControl.AsObject.QT(InevPara, l_Para) then
- begin
-  if (l_Para.OwnerObj.PID = 1) then
-   theImageInfo.rFirstIndex := 3;
- end;//aControl.QT(InevPara, l_Para)
-//#UC END# *51237F970395_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.CardTextLabelTextSourceTnscSimpleEditorCardTextLabelGetControlItemImg
-
-function TPrimBaseSearchCardForm.CardTextLabelMouseAction(const aHotSpot: IevHotSpot;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  Keys: TShiftState;
-  var NeedAsyncLoop: Boolean): Boolean;
-//#UC START# *51237FB70279_4AB7A3210135_var*
-//#UC END# *51237FB70279_4AB7A3210135_var*
-begin
-//#UC START# *51237FB70279_4AB7A3210135_impl*
- Result := true;
- NeedAsyncLoop := false;
-//#UC END# *51237FB70279_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.CardTextLabelMouseAction
-
-procedure TPrimBaseSearchCardForm.CardTextLabelGetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
-//#UC START# *5123803503BC_4AB7A3210135_var*
-//#UC END# *5123803503BC_4AB7A3210135_var*
-begin
-//#UC START# *5123803503BC_4AB7A3210135_impl*
- theInfo.rHint := nil;
- theInfo.rCursor := ev_csArrow;
-//#UC END# *5123803503BC_4AB7A3210135_impl*
-end;//TPrimBaseSearchCardForm.CardTextLabelGetHotSpotInfo
 
 procedure TPrimBaseSearchCardForm.LoadQueryHistory;
 //#UC START# *51237AB402B9_4AB7A3210135_var*
@@ -451,6 +264,141 @@ begin
  Supports(NativeMainForm, InsBaseSearchQueryDataProcessor, Result);
 //#UC END# *51237AFE01D0_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.QueryProcessor
+
+function TPrimBaseSearchCardForm.lrBaseSearchGetItemCursor(aSender: TObject;
+ aIndex: Integer): TCursor;
+//#UC START# *51237E59012E_4AB7A3210135_var*
+//#UC END# *51237E59012E_4AB7A3210135_var*
+begin
+//#UC START# *51237E59012E_4AB7A3210135_impl*
+ if (aIndex <> -1) and (f_qhBaseSearch.rH.Count > 0) then
+  Result := crHandPoint
+ else
+  Result := crDefault;
+//#UC END# *51237E59012E_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.lrBaseSearchGetItemCursor
+
+procedure TPrimBaseSearchCardForm.lrBaseSearchGetItemFont(Sender: TObject;
+ Index: Integer;
+ const aFont: Il3Font);
+//#UC START# *51237E6503D6_4AB7A3210135_var*
+//#UC END# *51237E6503D6_4AB7A3210135_var*
+begin
+//#UC START# *51237E6503D6_4AB7A3210135_impl*
+ with aFont do
+  ForeColor := c_MainMenuColor;
+ if (Index mod 2 = 0) then
+  aFont.BackColor := c_mmSecondItemColor
+ else
+  aFont.BackColor := c_mmTreeColor;
+//#UC END# *51237E6503D6_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.lrBaseSearchGetItemFont
+
+procedure TPrimBaseSearchCardForm.lrBaseSearchGetStrItem(Sender: TObject;
+ Index: Integer;
+ var ItemString: Il3CString);
+//#UC START# *51237E7003BF_4AB7A3210135_var*
+//#UC END# *51237E7003BF_4AB7A3210135_var*
+begin
+//#UC START# *51237E7003BF_4AB7A3210135_impl*
+ ItemString := nsMakeQueryStr(f_qhBaseSearch, Index);
+//#UC END# *51237E7003BF_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.lrBaseSearchGetStrItem
+
+procedure TPrimBaseSearchCardForm.lrBaseSearchActionElement(Sender: TObject;
+ Index: Integer);
+//#UC START# *51237E8901DC_4AB7A3210135_var*
+var
+ l_Query : IQuery;
+ l_QueryProcessor: InsBaseSearchQueryDataProcessor;
+//#UC END# *51237E8901DC_4AB7A3210135_var*
+begin
+//#UC START# *51237E8901DC_4AB7A3210135_impl*
+ l_QueryProcessor := QueryProcessor;
+ if (f_qhBaseSearch.rH.Count > 0) and
+   Supports(f_qhBaseSearch.rH[Index], IQuery, l_Query) and
+   Assigned(l_QueryProcessor) then
+  l_QueryProcessor.SetDataFromQuery(l_Query);
+//#UC END# *51237E8901DC_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.lrBaseSearchActionElement
+
+procedure TPrimBaseSearchCardForm.vcmEntityFormLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Loaded: Boolean);
+//#UC START# *51237ED3031C_4AB7A3210135_var*
+//#UC END# *51237ED3031C_4AB7A3210135_var*
+begin
+//#UC START# *51237ED3031C_4AB7A3210135_impl*
+ LoadQueryHistory;
+//#UC END# *51237ED3031C_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.vcmEntityFormLoadState
+
+procedure TPrimBaseSearchCardForm.vcmEntityFormSaveState(out aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Saved: Boolean);
+//#UC START# *51237EDB0222_4AB7A3210135_var*
+var
+ l_Fake: TvcmBase;
+//#UC END# *51237EDB0222_4AB7A3210135_var*
+begin
+//#UC START# *51237EDB0222_4AB7A3210135_impl*
+ if (aStateType = vcm_stContent) then
+ begin
+  l_Fake := TvcmBase.Create;
+  try
+   Supports(l_Fake, IvcmBase, aState);
+  finally
+   vcmFree(l_Fake);
+  end;//try..finally
+ end;//aStateType = vcm_stContent
+//#UC END# *51237EDB0222_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.vcmEntityFormSaveState
+
+procedure TPrimBaseSearchCardForm.CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg(aSender: TObject;
+ const aControl: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo);
+//#UC START# *51237F970395_4AB7A3210135_var*
+var
+ l_Para : InevPara;
+//#UC END# *51237F970395_4AB7A3210135_var*
+begin
+//#UC START# *51237F970395_4AB7A3210135_impl*
+ theImageInfo.rImageList := vtMakeImageListWrapper(nsSearchRes.ImageList);
+ theImageInfo.rFirstIndex := 0;
+ if aControl.rControl.AsObject.QT(InevPara, l_Para) then
+ begin
+  if (l_Para.OwnerObj.PID = 1) then
+   theImageInfo.rFirstIndex := 3;
+ end;//aControl.QT(InevPara, l_Para)
+//#UC END# *51237F970395_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg
+
+function TPrimBaseSearchCardForm.CardTextLabelMouseAction(const aHotSpot: IevHotSpot;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ Keys: TShiftState;
+ var NeedAsyncLoop: Boolean): Boolean;
+//#UC START# *51237FB70279_4AB7A3210135_var*
+//#UC END# *51237FB70279_4AB7A3210135_var*
+begin
+//#UC START# *51237FB70279_4AB7A3210135_impl*
+ Result := true;
+ NeedAsyncLoop := false;
+//#UC END# *51237FB70279_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.CardTextLabelMouseAction
+
+procedure TPrimBaseSearchCardForm.CardTextLabelGetHotSpotInfo(Sender: TObject;
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+//#UC START# *5123803503BC_4AB7A3210135_var*
+//#UC END# *5123803503BC_4AB7A3210135_var*
+begin
+//#UC START# *5123803503BC_4AB7A3210135_impl*
+ theInfo.rHint := nil;
+ theInfo.rCursor := ev_csArrow;
+//#UC END# *5123803503BC_4AB7A3210135_impl*
+end;//TPrimBaseSearchCardForm.CardTextLabelGetHotSpotInfo
 
 procedure TPrimBaseSearchCardForm.CardTextLabelResize(aSender: TObject);
 //#UC START# *530D96990038_4AB7A3210135_var*
@@ -525,8 +473,8 @@ begin
 //#UC END# *4A83AA610299_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.JournalShrinked
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A8AD47D0357_4AB7A3210135exec_var*
 var
  l_QueryProcessor: InsBaseSearchQueryDataProcessor;
@@ -543,7 +491,6 @@ begin
   end;//try..except
 //#UC END# *4A8AD47D0357_4AB7A3210135exec_impl*
 end;//TPrimBaseSearchCardForm.Result_OkExt_Execute
-{$IfEnd} //not NoVCM
 
 function TPrimBaseSearchCardForm.SupportDisabled: Boolean;
 //#UC START# *4ACA17770179_4AB7A3210135_var*
@@ -583,7 +530,7 @@ begin
 end;//TPrimBaseSearchCardForm.Get_NeedSaveActiveClassBeforeSearch
 
 procedure TPrimBaseSearchCardForm.WndProcRetListenerNotify(Msg: PCWPRetStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF9200A0_4AB7A3210135_var*
  function lp_TopHwnd: THandle;
  var
@@ -603,7 +550,7 @@ begin
 //#UC END# *4F79CF9200A0_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.WndProcRetListenerNotify
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 function TPrimBaseSearchCardForm.GridParentControl: TWinControl;
 //#UC START# *530496230291_4AB7A3210135_var*
 //#UC END# *530496230291_4AB7A3210135_var*
@@ -612,9 +559,9 @@ begin
  Result := pnlMain;
 //#UC END# *530496230291_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.GridParentControl
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 function TPrimBaseSearchCardForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *530496BF0361_4AB7A3210135_var*
 //#UC END# *530496BF0361_4AB7A3210135_var*
@@ -631,9 +578,9 @@ begin
  end;
 //#UC END# *530496BF0361_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.DoBuildGrid
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 procedure TPrimBaseSearchCardForm.DoRecalcGrid(const aGrid: InscArrangeGrid);
 //#UC START# *5304972201A1_4AB7A3210135_var*
 //#UC END# *5304972201A1_4AB7A3210135_var*
@@ -652,9 +599,10 @@ begin
  end;//aGrid <> nil
 //#UC END# *5304972201A1_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.DoRecalcGrid
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 procedure TPrimBaseSearchCardForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AB7A3210135_var*
 //#UC END# *479731C50290_4AB7A3210135_var*
 begin
@@ -697,8 +645,8 @@ begin
 //#UC END# *47EA4E9002C6_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AB7A3210135_var*
 //#UC END# *4A8E8F2E0195_4AB7A3210135_var*
 begin
@@ -780,9 +728,7 @@ begin
  RecalcGrid;
 //#UC END# *4A8E8F2E0195_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchCardForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AB7A3210135_var*
 //#UC END# *4F7C65380244_4AB7A3210135_var*
@@ -792,22 +738,20 @@ begin
  Tl3ListenersManager.Add(Self as Il3Listener);
 //#UC END# *4F7C65380244_4AB7A3210135_impl*
 end;//TPrimBaseSearchCardForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
 
 procedure TPrimBaseSearchCardForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_OkExt, false);
-  ShowInToolbar(en_Result, op_OkExt, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, False);
  end;//with Entities.Entities
-end;
+end;//TPrimBaseSearchCardForm.InitEntities
 
 procedure TPrimBaseSearchCardForm.MakeControls;
 begin
@@ -825,22 +769,18 @@ begin
  f_CardTextLabel := TnscSimpleEditor.Create(Self);
  f_CardTextLabel.Name := 'CardTextLabel';
  f_CardTextLabel.Parent := pnlMain;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimBaseSearchCardForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_BaseSearch
  str_BaseSearch.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_QueryHistory
+ {* Инициализация str_BaseSearch }
  str_QueryHistory.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimBaseSearchCard
+ {* Инициализация str_QueryHistory }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimBaseSearchCardForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimBaseSearchCard }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

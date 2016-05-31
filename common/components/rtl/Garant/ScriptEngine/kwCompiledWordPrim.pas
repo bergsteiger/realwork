@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , kwCompiledWordPrimPrim
  , tfwScriptingInterfaces
- , tfwKeyWordPrim
  , tfwWordRefList
+ , tfwKeyWordPrim
 ;
 
 type

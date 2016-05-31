@@ -13,9 +13,9 @@ uses
  l3IntfUses
  , l3ProtoObject
  , ncsReplyDecsriptionList
+ , ncsReplyDescription
  , ncsMessage
  , Windows
- , ncsReplyDescription
  , SyncObjs
 ;
 

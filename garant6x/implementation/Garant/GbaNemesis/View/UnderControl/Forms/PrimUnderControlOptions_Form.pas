@@ -1,88 +1,75 @@
 unit PrimUnderControlOptions_Form;
+ {* На контроле }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/UnderControl/Forms/PrimUnderControlOptions_Form.pas"
-// Начат: 01.09.2010 16:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::UnderControl::View::UnderControl::PrimUnderControlOptions
-//
-// На контроле
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControlOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimUnderControlOptions" MUID: (4C7E4A45018F)
+// Имя типа: "TPrimUnderControlOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  FoldersDomainInterfaces,
-  L10nInterfaces,
-  PrimUnderControl_Form,
-  UnderControl_Strange_Controls,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimUnderControl_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , UnderControl_Strange_Controls
+ , L10nInterfaces
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimUnderControlOptionsForm = {form} class(TPrimUnderControlForm)
+ TPrimUnderControlOptionsForm = class(TPrimUnderControlForm)
   {* На контроле }
- private
- // private fields
-   f_SortTypeMap : InsIntegerValueMap;
- protected
-  procedure InitEntities; override;
- protected
- // property methods
+  private
+   f_SortTypeMap: InsIntegerValueMap;
+  protected
    function pm_GetUnderControlInfo: InsUnderControlInfo;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+   procedure enControlCenterNullListTest(const aParams: IvcmTestParamsPrim);
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
-     {* Вставка }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Вставка }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ControlCenter_Add_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ControlCenter_CreateList_Test(const aParams: IvcmTestParamsPrim);
    procedure ControlCenter_CreateList_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -94,62 +81,51 @@ type
    procedure ControledObject_Open_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure ControledObject_ClearStatus_Test(const aParams: IvcmTestParamsPrim);
    procedure ControledObject_ClearStatus_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure EnControlCenterNullListTest(const aParams: IvcmTestParamsPrim);
- protected
- // protected properties
+  protected
    property UnderControlInfo: InsUnderControlInfo
-     read pm_GetUnderControlInfo;
+    read pm_GetUnderControlInfo;
  end;//TPrimUnderControlOptionsForm
-
- TvcmEntityFormRef = TPrimUnderControlOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  eeInterfaces,
-  SysUtils,
-  nsValueMaps,
-  nsValueMapsIDs
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  nsFolders,
-  nsOpenUtils,
-  nsFolderFilterInfo
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  Base_Operations_Editions_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , eeInterfaces
+ , SysUtils
+ , nsValueMaps
+ , nsValueMapsIDs
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , nsFolders
+ , nsOpenUtils
+ , nsFolderFilterInfo
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Editions_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7E4A45018Fimpl_uses*
+ //#UC END# *4C7E4A45018Fimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+function TPrimUnderControlOptionsForm.pm_GetUnderControlInfo: InsUnderControlInfo;
+//#UC START# *4C7E4FB400A8_4C7E4A45018Fget_var*
+//#UC END# *4C7E4FB400A8_4C7E4A45018Fget_var*
+begin
+//#UC START# *4C7E4FB400A8_4C7E4A45018Fget_impl*
+ Supports(UnderControlList.TreeStruct, InsUnderControlInfo, Result);
+//#UC END# *4C7E4FB400A8_4C7E4A45018Fget_impl*
+end;//TPrimUnderControlOptionsForm.pm_GetUnderControlInfo
 
-// start class TPrimUnderControlOptionsForm
-
-procedure TPrimUnderControlOptionsForm.EnControlCenterNullListTest(const aParams: IvcmTestParamsPrim);
+procedure TPrimUnderControlOptionsForm.enControlCenterNullListTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C7E584D02A3_4C7E4A45018F_var*
 //#UC END# *4C7E584D02A3_4C7E4A45018F_var*
 begin
@@ -162,19 +138,11 @@ begin
    Op.Flag[vcm_ofEnabled] := False;
  end;
 //#UC END# *4C7E584D02A3_4C7E4A45018F_impl*
-end;//TPrimUnderControlOptionsForm.EnControlCenterNullListTest
+end;//TPrimUnderControlOptionsForm.enControlCenterNullListTest
 
-function TPrimUnderControlOptionsForm.pm_GetUnderControlInfo: InsUnderControlInfo;
-//#UC START# *4C7E4FB400A8_4C7E4A45018Fget_var*
-//#UC END# *4C7E4FB400A8_4C7E4A45018Fget_var*
-begin
-//#UC START# *4C7E4FB400A8_4C7E4A45018Fget_impl*
- Supports(UnderControlList.TreeStruct, InsUnderControlInfo, Result);
-//#UC END# *4C7E4FB400A8_4C7E4A45018Fget_impl*
-end;//TPrimUnderControlOptionsForm.pm_GetUnderControlInfo
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.Edit_Paste_Test(const aParams: IvcmTestParamsPrim);
+ {* Вставка }
 //#UC START# *49EDFA3701B0_4C7E4A45018Ftest_var*
 //#UC END# *49EDFA3701B0_4C7E4A45018Ftest_var*
 begin
@@ -182,10 +150,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *49EDFA3701B0_4C7E4A45018Ftest_impl*
 end;//TPrimUnderControlOptionsForm.Edit_Paste_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4C7D0C7B0185_4C7E4A45018Ftest_var*
 //#UC END# *4C7D0C7B0185_4C7E4A45018Ftest_var*
 begin
@@ -193,10 +162,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4C7D0C7B0185_4C7E4A45018Ftest_impl*
 end;//TPrimUnderControlOptionsForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7E4A45018Ftest_var*
 //#UC END# *4C7D0CC90052_4C7E4A45018Ftest_var*
 begin
@@ -204,21 +174,11 @@ begin
  enControlCenterNullListTest(aParams);
 //#UC END# *4C7D0CC90052_4C7E4A45018Ftest_impl*
 end;//TPrimUnderControlOptionsForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimUnderControlOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_var*
-//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_var*
-begin
-//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*
- State := st_user_Edit_Delete_Controlled;
-//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*
-end;//TPrimUnderControlOptionsForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *4C7D0CC90052_4C7E4A45018Fexec_var*
 var
  l_Node: IeeNode;
@@ -258,7 +218,19 @@ begin
  end;
 //#UC END# *4C7D0CC90052_4C7E4A45018Fexec_impl*
 end;//TPrimUnderControlOptionsForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimUnderControlOptionsForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_var*
+//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_var*
+begin
+//#UC START# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*
+ State := st_user_Edit_Delete_Controlled;
+//#UC END# *4C7D0CC90052_4C7E4A45018Fgetstate_impl*
+end;//TPrimUnderControlOptionsForm.Edit_Delete_GetState
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimUnderControlOptionsForm.ControlCenter_Add_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C7E4B830292_4C7E4A45018Fexec_var*
@@ -436,8 +408,9 @@ begin
 //#UC END# *4C7E4C470330_4C7E4A45018Fexec_impl*
 end;//TPrimUnderControlOptionsForm.ControledObject_ClearStatus_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4C7E4A45018F_var*
 //#UC END# *49803F5503AA_4C7E4A45018F_var*
 begin
@@ -446,18 +419,18 @@ begin
  f_SortTypeMap := nsIntegerMapManager.Map[imap_UnderControlSortType];
 //#UC END# *49803F5503AA_4C7E4A45018F_impl*
 end;//TPrimUnderControlOptionsForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimUnderControlOptionsForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_SortTypeMap := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimUnderControlOptionsForm.ClearFields
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimUnderControlOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -468,50 +441,41 @@ begin
   ContextMenuWeight(en_Edit, 10);
   ContextMenuWeight(en_ControledObject, 20);
   ContextMenuWeight(en_Tree, 30);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Paste, nil, Edit_Paste_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Copy, nil, Edit_Copy_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   ContextMenuWeight(en_Edit, op_Delete, -10);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_ControlCenter, op_Add, ControlCenter_Add_Execute, nil, nil);
-  ShowInContextMenu(en_ControlCenter, op_Add, false);
-  ShowInToolbar(en_ControlCenter, op_Add, true);
+  ShowInContextMenu(en_ControlCenter, op_Add, False);
+  ShowInToolbar(en_ControlCenter, op_Add, True);
   PublishOp(en_ControlCenter, op_CreateList, ControlCenter_CreateList_Execute, ControlCenter_CreateList_Test, nil);
-  ShowInContextMenu(en_ControlCenter, op_CreateList, false);
-  ShowInToolbar(en_ControlCenter, op_CreateList, true);
+  ShowInContextMenu(en_ControlCenter, op_CreateList, False);
+  ShowInToolbar(en_ControlCenter, op_CreateList, True);
   PublishOp(en_ControlCenter, op_Sort, ControlCenter_Sort_Execute, ControlCenter_Sort_Test, nil);
-  ShowInContextMenu(en_ControlCenter, op_Sort, false);
-  ShowInToolbar(en_ControlCenter, op_Sort, true);
+  ShowInContextMenu(en_ControlCenter, op_Sort, False);
+  ShowInToolbar(en_ControlCenter, op_Sort, True);
   PublishOp(en_ControlCenter, op_ClearAllStatus, ControlCenter_ClearAllStatus_Execute, ControlCenter_ClearAllStatus_Test, nil);
-  ShowInContextMenu(en_ControlCenter, op_ClearAllStatus, false);
-  ShowInToolbar(en_ControlCenter, op_ClearAllStatus, true);
+  ShowInContextMenu(en_ControlCenter, op_ClearAllStatus, False);
+  ShowInToolbar(en_ControlCenter, op_ClearAllStatus, True);
   PublishOp(en_ControledObject, op_Open, ControledObject_Open_Execute, ControledObject_Open_Test, nil);
-  ShowInContextMenu(en_ControledObject, op_Open, true);
-  ShowInToolbar(en_ControledObject, op_Open, false);
+  ShowInContextMenu(en_ControledObject, op_Open, True);
+  ShowInToolbar(en_ControledObject, op_Open, False);
   PublishOp(en_ControledObject, op_ClearStatus, ControledObject_ClearStatus_Execute, ControledObject_ClearStatus_Test, nil);
-  ShowInContextMenu(en_ControledObject, op_ClearStatus, true);
-  ShowInToolbar(en_ControledObject, op_ClearStatus, true);
-  ShowInContextMenu(en_Document, op_ShowChanges, true);
-  ShowInToolbar(en_Document, op_ShowChanges, false);
+  ShowInContextMenu(en_ControledObject, op_ClearStatus, True);
+  ShowInToolbar(en_ControledObject, op_ClearStatus, True);
+  ShowInContextMenu(en_Document, op_ShowChanges, True);
+  ShowInToolbar(en_Document, op_ShowChanges, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimUnderControlOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimUnderControlOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUnderControlOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimUnderControlOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,139 +1,95 @@
 unit NewBaseSearchForDFM_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/NewBaseSearchForDFM_Form.pas"
-// Начат: 06.12.2010 13:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::NewBaseSearchForDFM
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "NewBaseSearchForDFM" MUID: (4CFCBB3600E0)
+// Имя типа: "TNewBaseSearchForDFMForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3ProtoDataContainer,
-  BaseSearchInterfaces,
-  l3StringIDEx,
-  PrimBaseSearchOptions_Form
-  {$If not defined(NoVGScene)}
-  ,
-  vg_controls
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_listbox
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_objects
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_scene
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_layouts
-  {$IfEnd} //not NoVGScene
-  ,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimBaseSearchOptions_Form
+ {$If NOT Defined(NoVGScene)}
+ , vg_controls
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_listbox
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_objects
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_layouts
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_scene
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , l3Interfaces
+ , BaseSearchInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TvgRadioButtonItem = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rButton : TvgRadioButton;
-   rClass : InsBaseSearchClass;
- public
-    function EQ(const anOther: TvgRadioButtonItem): Boolean;
+ TvgRadioButtonItem = object
+  public
+   rButton: TvgRadioButton;
+   rClass: InsBaseSearchClass;
+  public
+   function EQ(const anOther: TvgRadioButtonItem): Boolean;
  end;//TvgRadioButtonItem
 
  _ItemType_ = TvgRadioButtonItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvgRadioButtonArray = class(_l3RecordWithEQList_)
  end;//TvgRadioButtonArray
 
- TNewBaseSearchForDFMForm = {form} class(TPrimBaseSearchOptionsForm)
- private
- // private fields
-   f_Themes : TvgRadioButtonArray;
-    {* Темы}
-   f_FindBtn : TvgPathButton;
-    {* Поле для свойства FindBtn}
-   f_FindBackBtn : TvgPathButton;
-    {* Поле для свойства FindBackBtn}
-   f_CloseBtn : TvgCloseButton;
-    {* Поле для свойства CloseBtn}
-   f_AreaCombo : TvgComboBox;
-    {* Поле для свойства AreaCombo}
-   f_QueryExampleLabel : TvgText;
-    {* Поле для свойства QueryExampleLabel}
-   f_DropButton : TvgButton;
-    {* Поле для свойства DropButton}
-   f_FoundCountLabel : TvgText;
-    {* Поле для свойства FoundCountLabel}
-   f_ExampleLabel : TvgText;
-    {* Поле для свойства ExampleLabel}
-   f_ContextEditPanel : TvgNonVGLayout;
-    {* Поле для свойства ContextEditPanel}
-   f_Layout1 : TvgLayout;
-    {* Поле для свойства Layout1}
-   f_Layout2 : TvgLayout;
-    {* Поле для свойства Layout2}
-   f_Layout3 : TvgLayout;
-    {* Поле для свойства Layout3}
-   f_vgScene1 : TvgScene;
-    {* Поле для свойства vgScene1}
-   f_MoreTab : TvgComboBox;
-    {* Поле для свойства MoreTab}
-   f_Border : TvgRectangle;
-    {* Поле для свойства Border}
-   f_InnerBorder : TvgRectangle;
-    {* Поле для свойства InnerBorder}
-   f_MostOuterRectangle : TvgRectangle;
-    {* Поле для свойства MostOuterRectangle}
-   f_Rectangle1 : TvgRectangle;
-    {* Поле для свойства Rectangle1}
- private
- // private methods
+ TNewBaseSearchForDFMForm = class(TPrimBaseSearchOptionsForm)
+  private
+   f_Themes: TvgRadioButtonArray;
+    {* Темы }
+   f_FindBtn: TvgPathButton;
+   f_FindBackBtn: TvgPathButton;
+   f_CloseBtn: TvgCloseButton;
+   f_AreaCombo: TvgComboBox;
+   f_QueryExampleLabel: TvgText;
+   f_DropButton: TvgButton;
+   f_FoundCountLabel: TvgText;
+   f_ExampleLabel: TvgText;
+   f_ContextEditPanel: TvgNonVGLayout;
+   f_Layout1: TvgLayout;
+   f_vgScene1: TvgScene;
+   f_MoreTab: TvgComboBox;
+   f_Border: TvgRectangle;
+   f_InnerBorder: TvgRectangle;
+   f_MostOuterRectangle: TvgRectangle;
+   f_Rectangle1: TvgRectangle;
+   f_Layout2: TvgLayout;
+   f_Layout3: TvgLayout;
+  private
    procedure DoResize(aSender: TObject);
    procedure MoreTabChange(aSender: TObject);
    procedure DoSearch(aTag: Integer;
-     aReallyNeedSearch: Boolean;
-     aUpdateClassBeforeSearch: Boolean);
+    aReallyNeedSearch: Boolean;
+    aUpdateClassBeforeSearch: Boolean);
    procedure DoRealignLayout1(aSender: TObject);
    procedure TabChange(aSender: TObject);
    procedure ContextEditFocusChanged(aSender: TObject);
    procedure DoEmptyAddingClick(aSender: TObject);
- protected
- // property methods
+  protected
    function pm_GetFindBtn: TvgPathButton;
    function pm_GetFindBackBtn: TvgPathButton;
    function pm_GetCloseBtn: TvgCloseButton;
@@ -144,17 +100,18 @@ type
    function pm_GetExampleLabel: TvgText;
    function pm_GetContextEditPanel: TvgNonVGLayout;
    function pm_GetLayout1: TvgLayout;
-   function pm_GetLayout2: TvgLayout;
-   function pm_GetLayout3: TvgLayout;
-   function pm_GetVgScene1: TvgScene;
+   function pm_GetvgScene1: TvgScene;
    function pm_GetMoreTab: TvgComboBox;
    function pm_GetBorder: TvgRectangle;
    function pm_GetInnerBorder: TvgRectangle;
    function pm_GetMostOuterRectangle: TvgRectangle;
    function pm_GetRectangle1: TvgRectangle;
    function pm_GetActiveClassTab: TvgRadioButton;
- protected
- // realized methods
+   function pm_GetLayout2: TvgLayout;
+   function pm_GetLayout3: TvgLayout;
+   procedure TabClick(aSender: TObject);
+   function AddListItem(aParent: TvgComboBox;
+    const aStr: Il3CString): TvgListBoxItem;
    procedure AdjustParamsPagesHeight; override;
    procedure SetUpFindButtons; override;
    procedure SetupClasses(aFromUpdate: Boolean); override;
@@ -171,150 +128,377 @@ type
    procedure SetupThemePages; override;
    procedure DoCheckFragmentsCount(const aFragmentsCountSuffix: Il3CString); override;
    procedure DoExampleChanged(const anExampleText: Il3CString); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure BeforeRelease; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ApplyCurrentExample; override;
-     {* Сигнатура метода ApplyCurrentExample }
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    function NeedSetMyFocus: Boolean; override;
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure TabClick(aSender: TObject);
-   function AddListItem(aParent: TvgComboBox;
-     const aStr: Il3CString): TvgListBoxItem;
- protected
- // protected properties
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property ActiveClassTab: TvgRadioButton
-     read pm_GetActiveClassTab;
- public
- // public properties
+    read pm_GetActiveClassTab;
+  public
    property FindBtn: TvgPathButton
-     read pm_GetFindBtn;
+    read pm_GetFindBtn;
    property FindBackBtn: TvgPathButton
-     read pm_GetFindBackBtn;
+    read pm_GetFindBackBtn;
    property CloseBtn: TvgCloseButton
-     read pm_GetCloseBtn;
+    read pm_GetCloseBtn;
    property AreaCombo: TvgComboBox
-     read pm_GetAreaCombo;
+    read pm_GetAreaCombo;
    property QueryExampleLabel: TvgText
-     read pm_GetQueryExampleLabel;
+    read pm_GetQueryExampleLabel;
    property DropButton: TvgButton
-     read pm_GetDropButton;
+    read pm_GetDropButton;
    property FoundCountLabel: TvgText
-     read pm_GetFoundCountLabel;
+    read pm_GetFoundCountLabel;
    property ExampleLabel: TvgText
-     read pm_GetExampleLabel;
+    read pm_GetExampleLabel;
    property ContextEditPanel: TvgNonVGLayout
-     read pm_GetContextEditPanel;
+    read pm_GetContextEditPanel;
    property Layout1: TvgLayout
-     read pm_GetLayout1;
-   property Layout2: TvgLayout
-     read pm_GetLayout2;
-   property Layout3: TvgLayout
-     read pm_GetLayout3;
+    read pm_GetLayout1;
    property vgScene1: TvgScene
-     read pm_GetVgScene1;
+    read pm_GetvgScene1;
    property MoreTab: TvgComboBox
-     read pm_GetMoreTab;
+    read pm_GetMoreTab;
    property Border: TvgRectangle
-     read pm_GetBorder;
+    read pm_GetBorder;
    property InnerBorder: TvgRectangle
-     read pm_GetInnerBorder;
+    read pm_GetInnerBorder;
    property MostOuterRectangle: TvgRectangle
-     read pm_GetMostOuterRectangle;
+    read pm_GetMostOuterRectangle;
    property Rectangle1: TvgRectangle
-     read pm_GetRectangle1;
+    read pm_GetRectangle1;
+   property Layout2: TvgLayout
+    read pm_GetLayout2;
+   property Layout3: TvgLayout
+    read pm_GetLayout3;
  end;//TNewBaseSearchForDFMForm
 
- TvcmEntityFormRef = TNewBaseSearchForDFMForm;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
 function TvgRadioButtonItem_C(const aClass: InsBaseSearchClass): TvgRadioButtonItem; overload;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
 function TvgRadioButtonItem_C(aButton: TvgRadioButton;
-     const aClass: InsBaseSearchClass): TvgRadioButtonItem; overload;
-{$IfEnd} //not Admin AND not Monitorings
+ const aClass: InsBaseSearchClass): TvgRadioButtonItem; overload;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Math,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3String,
-  nsConst
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  l3ControlsTypes,
-  l3ScreenIC,
-  l3InternalInterfaces,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3String
+ , nsConst
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3MinMax
+ , Graphics
+ , l3ControlsTypes
+ , l3Base
+ , SysUtils
+ , l3ScreenIC
+ , l3InternalInterfaces
+ , Math
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , RTLConsts
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CFCBB3600E0impl_uses*
+ //#UC END# *4CFCBB3600E0impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+const
+ {* Локализуемые строки AreaStrings }
+ str_asEverywhere: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asEverywhere'; rValue : 'Везде');
+  {* 'Везде' }
+ str_asListDocuments: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asListDocuments'; rValue : 'Список: в документах');
+  {* 'Список: в документах' }
+ str_asListNames: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asListNames'; rValue : 'Список: в названиях');
+  {* 'Список: в названиях' }
+ str_asDocument: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asDocument'; rValue : 'В документе');
+  {* 'В документе' }
+ {* Локализуемые строки ExampleText }
+ str_etExample: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'etExample'; rValue : 'Пример:');
+  {* 'Пример:' }
+ str_etFoundCount: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'etFoundCount'; rValue : 'Всего найдено');
+  {* 'Всего найдено' }
+ {* Локализуемые строки MoreTabConsts }
+ str_mtcMore: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mtcMore'; rValue : 'Еще');
+  {* 'Еще' }
+ {* Локализуемые строки Local }
+ str_ClassNotInBase: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ClassNotInBase'; rValue : 'Данный вид информации отсутствует в Вашем комплекте');
+  {* 'Данный вид информации отсутствует в Вашем комплекте' }
+ str_FoundFragmentCountHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'FoundFragmentCountHint'; rValue : 'Количество найденных в документе вхождений с искомым контекстом');
+  {* 'Количество найденных в документе вхождений с искомым контекстом' }
 
+function TvgRadioButtonItem_C(const aClass: InsBaseSearchClass): TvgRadioButtonItem;
+//#UC START# *4DE6712F01AA_4DE66EAE0351_var*
+//#UC END# *4DE6712F01AA_4DE66EAE0351_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4DE6712F01AA_4DE66EAE0351_impl*
+ Result.rClass := aClass;
+//#UC END# *4DE6712F01AA_4DE66EAE0351_impl*
+end;//TvgRadioButtonItem_C
+
+function TvgRadioButtonItem_C(aButton: TvgRadioButton;
+ const aClass: InsBaseSearchClass): TvgRadioButtonItem;
+//#UC START# *4DE6734A00D5_4DE66EAE0351_var*
+//#UC END# *4DE6734A00D5_4DE66EAE0351_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4DE6734A00D5_4DE66EAE0351_impl*
+ Result.rButton := aButton;
+ Result.rClass := aClass;
+//#UC END# *4DE6734A00D5_4DE66EAE0351_impl*
+end;//TvgRadioButtonItem_C
+
+function TvgRadioButtonItem.EQ(const anOther: TvgRadioButtonItem): Boolean;
+//#UC START# *4DE6709D02E9_4DE66EAE0351_var*
+//#UC END# *4DE6709D02E9_4DE66EAE0351_var*
+begin
+//#UC START# *4DE6709D02E9_4DE66EAE0351_impl*
+ Result := (rClass = anOther.rClass) OR (rClass.IsSame(anOther.rClass));
+ if Result then
+  Result := (anOther.rButton = nil) OR (rButton = anOther.rButton);
+//#UC END# *4DE6709D02E9_4DE66EAE0351_impl*
+end;//TvgRadioButtonItem.EQ
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4CFCF49601B1_var*
+//#UC END# *47B2C42A0163_4CFCF49601B1_var*
+begin
+//#UC START# *47B2C42A0163_4CFCF49601B1_impl*
+ Assert(False);
+//#UC END# *47B2C42A0163_4CFCF49601B1_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4CFCF49601B1_var*
+//#UC END# *47B99D4503A2_4CFCF49601B1_var*
+begin
+//#UC START# *47B99D4503A2_4CFCF49601B1_impl*
+ Result := -1;
+ Assert(False);
+//#UC END# *47B99D4503A2_4CFCF49601B1_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TvgRadioButtonArray;
+
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
+
+function TNewBaseSearchForDFMForm.pm_GetFindBtn: TvgPathButton;
+begin
+ if (f_FindBtn = nil) then
+  f_FindBtn := FindComponent('FindBtn') As TvgPathButton;
+ Result := f_FindBtn;
+end;//TNewBaseSearchForDFMForm.pm_GetFindBtn
+
+function TNewBaseSearchForDFMForm.pm_GetFindBackBtn: TvgPathButton;
+begin
+ if (f_FindBackBtn = nil) then
+  f_FindBackBtn := FindComponent('FindBackBtn') As TvgPathButton;
+ Result := f_FindBackBtn;
+end;//TNewBaseSearchForDFMForm.pm_GetFindBackBtn
+
+function TNewBaseSearchForDFMForm.pm_GetCloseBtn: TvgCloseButton;
+begin
+ if (f_CloseBtn = nil) then
+  f_CloseBtn := FindComponent('CloseBtn') As TvgCloseButton;
+ Result := f_CloseBtn;
+end;//TNewBaseSearchForDFMForm.pm_GetCloseBtn
+
+function TNewBaseSearchForDFMForm.pm_GetAreaCombo: TvgComboBox;
+begin
+ if (f_AreaCombo = nil) then
+  f_AreaCombo := FindComponent('AreaCombo') As TvgComboBox;
+ Result := f_AreaCombo;
+end;//TNewBaseSearchForDFMForm.pm_GetAreaCombo
+
+function TNewBaseSearchForDFMForm.pm_GetQueryExampleLabel: TvgText;
+begin
+ if (f_QueryExampleLabel = nil) then
+  f_QueryExampleLabel := FindComponent('QueryExampleLabel') As TvgText;
+ Result := f_QueryExampleLabel;
+end;//TNewBaseSearchForDFMForm.pm_GetQueryExampleLabel
+
+function TNewBaseSearchForDFMForm.pm_GetDropButton: TvgButton;
+begin
+ if (f_DropButton = nil) then
+  f_DropButton := FindComponent('DropButton') As TvgButton;
+ Result := f_DropButton;
+end;//TNewBaseSearchForDFMForm.pm_GetDropButton
+
+function TNewBaseSearchForDFMForm.pm_GetFoundCountLabel: TvgText;
+begin
+ if (f_FoundCountLabel = nil) then
+  f_FoundCountLabel := FindComponent('FoundCountLabel') As TvgText;
+ Result := f_FoundCountLabel;
+end;//TNewBaseSearchForDFMForm.pm_GetFoundCountLabel
+
+function TNewBaseSearchForDFMForm.pm_GetExampleLabel: TvgText;
+begin
+ if (f_ExampleLabel = nil) then
+  f_ExampleLabel := FindComponent('ExampleLabel') As TvgText;
+ Result := f_ExampleLabel;
+end;//TNewBaseSearchForDFMForm.pm_GetExampleLabel
+
+function TNewBaseSearchForDFMForm.pm_GetContextEditPanel: TvgNonVGLayout;
+begin
+ if (f_ContextEditPanel = nil) then
+  f_ContextEditPanel := FindComponent('ContextEditPanel') As TvgNonVGLayout;
+ Result := f_ContextEditPanel;
+end;//TNewBaseSearchForDFMForm.pm_GetContextEditPanel
+
+function TNewBaseSearchForDFMForm.pm_GetLayout1: TvgLayout;
+begin
+ if (f_Layout1 = nil) then
+  f_Layout1 := FindComponent('Layout1') As TvgLayout;
+ Result := f_Layout1;
+end;//TNewBaseSearchForDFMForm.pm_GetLayout1
+
+function TNewBaseSearchForDFMForm.pm_GetvgScene1: TvgScene;
+begin
+ if (f_vgScene1 = nil) then
+  f_vgScene1 := FindComponent('vgScene1') As TvgScene;
+ Result := f_vgScene1;
+end;//TNewBaseSearchForDFMForm.pm_GetvgScene1
+
+function TNewBaseSearchForDFMForm.pm_GetMoreTab: TvgComboBox;
+begin
+ if (f_MoreTab = nil) then
+  f_MoreTab := FindComponent('MoreTab') As TvgComboBox;
+ Result := f_MoreTab;
+end;//TNewBaseSearchForDFMForm.pm_GetMoreTab
+
+function TNewBaseSearchForDFMForm.pm_GetBorder: TvgRectangle;
+begin
+ if (f_Border = nil) then
+  f_Border := FindComponent('Border') As TvgRectangle;
+ Result := f_Border;
+end;//TNewBaseSearchForDFMForm.pm_GetBorder
+
+function TNewBaseSearchForDFMForm.pm_GetInnerBorder: TvgRectangle;
+begin
+ if (f_InnerBorder = nil) then
+  f_InnerBorder := FindComponent('InnerBorder') As TvgRectangle;
+ Result := f_InnerBorder;
+end;//TNewBaseSearchForDFMForm.pm_GetInnerBorder
+
+function TNewBaseSearchForDFMForm.pm_GetMostOuterRectangle: TvgRectangle;
+begin
+ if (f_MostOuterRectangle = nil) then
+  f_MostOuterRectangle := FindComponent('MostOuterRectangle') As TvgRectangle;
+ Result := f_MostOuterRectangle;
+end;//TNewBaseSearchForDFMForm.pm_GetMostOuterRectangle
+
+function TNewBaseSearchForDFMForm.pm_GetRectangle1: TvgRectangle;
+begin
+ if (f_Rectangle1 = nil) then
+  f_Rectangle1 := FindComponent('Rectangle1') As TvgRectangle;
+ Result := f_Rectangle1;
+end;//TNewBaseSearchForDFMForm.pm_GetRectangle1
+
+function TNewBaseSearchForDFMForm.pm_GetActiveClassTab: TvgRadioButton;
+//#UC START# *4DE66D94033D_4CFCBB3600E0get_var*
 var
-   { Локализуемые строки AreaStrings }
-  str_asEverywhere : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asEverywhere'; rValue : 'Везде');
-   { 'Везде' }
-  str_asListDocuments : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asListDocuments'; rValue : 'Список: в документах');
-   { 'Список: в документах' }
-  str_asListNames : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asListNames'; rValue : 'Список: в названиях');
-   { 'Список: в названиях' }
-  str_asDocument : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'asDocument'; rValue : 'В документе');
-   { 'В документе' }
+ l_I : Integer;
+//#UC END# *4DE66D94033D_4CFCBB3600E0get_var*
+begin
+//#UC START# *4DE66D94033D_4CFCBB3600E0get_impl*
+ l_I := f_Themes.IndexOf(TvgRadioButtonItem_C(f_BaseSearcher.WindowData.ActiveClass));
+ if (l_I < 0) then
+  Result := nil
+ else
+  Result := f_Themes[l_I].rButton;
+//#UC END# *4DE66D94033D_4CFCBB3600E0get_impl*
+end;//TNewBaseSearchForDFMForm.pm_GetActiveClassTab
 
+function TNewBaseSearchForDFMForm.pm_GetLayout2: TvgLayout;
+begin
+ if (f_Layout2 = nil) then
+  f_Layout2 := FindComponent('Layout2') As TvgLayout;
+ Result := f_Layout2;
+end;//TNewBaseSearchForDFMForm.pm_GetLayout2
+
+function TNewBaseSearchForDFMForm.pm_GetLayout3: TvgLayout;
+begin
+ if (f_Layout3 = nil) then
+  f_Layout3 := FindComponent('Layout3') As TvgLayout;
+ Result := f_Layout3;
+end;//TNewBaseSearchForDFMForm.pm_GetLayout3
+
+procedure TNewBaseSearchForDFMForm.TabClick(aSender: TObject);
+//#UC START# *4CFE4BA60063_4CFCBB3600E0_var*
+//#UC END# *4CFE4BA60063_4CFCBB3600E0_var*
+begin
+//#UC START# *4CFE4BA60063_4CFCBB3600E0_impl*
+// Assert(Sender Is TvgRadioButton);
+(* if not TvgRadioButton(Sender).IsChecked then
+  Exit;*)
+// DoSearch(TvgRadioButton(Sender).Tag);
+//#UC END# *4CFE4BA60063_4CFCBB3600E0_impl*
+end;//TNewBaseSearchForDFMForm.TabClick
+
+function TNewBaseSearchForDFMForm.AddListItem(aParent: TvgComboBox;
+ const aStr: Il3CString): TvgListBoxItem;
+//#UC START# *4D3D7176028B_4CFCBB3600E0_var*
 var
-   { Локализуемые строки ExampleText }
-  str_etExample : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'etExample'; rValue : 'Пример:');
-   { 'Пример:' }
-  str_etFoundCount : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'etFoundCount'; rValue : 'Всего найдено');
-   { 'Всего найдено' }
-
-var
-   { Локализуемые строки MoreTabConsts }
-  str_mtcMore : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mtcMore'; rValue : 'Еще');
-   { 'Еще' }
-
-var
-   { Локализуемые строки Local }
-  str_ClassNotInBase : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ClassNotInBase'; rValue : 'Данный вид информации отсутствует в Вашем комплекте');
-   { 'Данный вид информации отсутствует в Вашем комплекте' }
-  str_FoundFragmentCountHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'FoundFragmentCountHint'; rValue : 'Количество найденных в документе вхождений с искомым контекстом');
-   { 'Количество найденных в документе вхождений с искомым контекстом' }
-
-// start class TNewBaseSearchForDFMForm
+ l_Item: TvgListBoxItem;
+//#UC END# *4D3D7176028B_4CFCBB3600E0_var*
+begin
+//#UC START# *4D3D7176028B_4CFCBB3600E0_impl*
+ l_Item := TvgListBoxItem.Create(nil);
+ l_Item.Parent := aParent.ListBox;
+ if (aParent = MoreTab) then
+  l_Item.Resource := {'docSetElementStyle'}'moreButtonElementStyle'
+ else
+ if (aParent = AreaCombo) then
+  l_Item.Resource := 'docSetElementStyle'
+ else
+  Assert(False); 
+ l_Item.Binding['text'] := l3WideString(aStr);
+ if (aParent = MoreTab) then
+ begin
+  l_Item.Font.Size := 11;
+  l_Item.Font.Family := 'Tahoma';
+ end//aParent = MoreTab
+ else
+ begin
+  l_Item.Font.Size := 12;
+  l_Item.Font.Family := 'Arial';
+ end;//aParent = MoreTab
+ Result := l_Item;
+ //l_Item.Font.Style := vgFontBold;
+//#UC END# *4D3D7176028B_4CFCBB3600E0_impl*
+end;//TNewBaseSearchForDFMForm.AddListItem
 
 procedure TNewBaseSearchForDFMForm.DoResize(aSender: TObject);
 //#UC START# *4D4AA2B500C8_4CFCBB3600E0_var*
@@ -351,8 +535,8 @@ begin
 end;//TNewBaseSearchForDFMForm.MoreTabChange
 
 procedure TNewBaseSearchForDFMForm.DoSearch(aTag: Integer;
-  aReallyNeedSearch: Boolean;
-  aUpdateClassBeforeSearch: Boolean);
+ aReallyNeedSearch: Boolean;
+ aUpdateClassBeforeSearch: Boolean);
 //#UC START# *4D4BD7C902EA_4CFCBB3600E0_var*
 
 var
@@ -487,261 +671,6 @@ begin
  ApplyCurrentExample;
 //#UC END# *4E7899330095_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.DoEmptyAddingClick
-
-function TNewBaseSearchForDFMForm.pm_GetFindBtn: TvgPathButton;
-begin
- if (f_FindBtn = nil) then
-  f_FindBtn := FindComponent('FindBtn') As TvgPathButton;
- Result := f_FindBtn;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetFindBackBtn: TvgPathButton;
-begin
- if (f_FindBackBtn = nil) then
-  f_FindBackBtn := FindComponent('FindBackBtn') As TvgPathButton;
- Result := f_FindBackBtn;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetCloseBtn: TvgCloseButton;
-begin
- if (f_CloseBtn = nil) then
-  f_CloseBtn := FindComponent('CloseBtn') As TvgCloseButton;
- Result := f_CloseBtn;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetAreaCombo: TvgComboBox;
-begin
- if (f_AreaCombo = nil) then
-  f_AreaCombo := FindComponent('AreaCombo') As TvgComboBox;
- Result := f_AreaCombo;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetQueryExampleLabel: TvgText;
-begin
- if (f_QueryExampleLabel = nil) then
-  f_QueryExampleLabel := FindComponent('QueryExampleLabel') As TvgText;
- Result := f_QueryExampleLabel;
-end;
-
-procedure TNewBaseSearchForDFMForm.TabClick(aSender: TObject);
-//#UC START# *4CFE4BA60063_4CFCBB3600E0_var*
-//#UC END# *4CFE4BA60063_4CFCBB3600E0_var*
-begin
-//#UC START# *4CFE4BA60063_4CFCBB3600E0_impl*
-// Assert(Sender Is TvgRadioButton);
-(* if not TvgRadioButton(Sender).IsChecked then
-  Exit;*)
-// DoSearch(TvgRadioButton(Sender).Tag);
-//#UC END# *4CFE4BA60063_4CFCBB3600E0_impl*
-end;//TNewBaseSearchForDFMForm.TabClick
-
-function TNewBaseSearchForDFMForm.pm_GetDropButton: TvgButton;
-begin
- if (f_DropButton = nil) then
-  f_DropButton := FindComponent('DropButton') As TvgButton;
- Result := f_DropButton;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetFoundCountLabel: TvgText;
-begin
- if (f_FoundCountLabel = nil) then
-  f_FoundCountLabel := FindComponent('FoundCountLabel') As TvgText;
- Result := f_FoundCountLabel;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetExampleLabel: TvgText;
-begin
- if (f_ExampleLabel = nil) then
-  f_ExampleLabel := FindComponent('ExampleLabel') As TvgText;
- Result := f_ExampleLabel;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetContextEditPanel: TvgNonVGLayout;
-begin
- if (f_ContextEditPanel = nil) then
-  f_ContextEditPanel := FindComponent('ContextEditPanel') As TvgNonVGLayout;
- Result := f_ContextEditPanel;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetLayout1: TvgLayout;
-begin
- if (f_Layout1 = nil) then
-  f_Layout1 := FindComponent('Layout1') As TvgLayout;
- Result := f_Layout1;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetLayout2: TvgLayout;
-begin
- if (f_Layout2 = nil) then
-  f_Layout2 := FindComponent('Layout2') As TvgLayout;
- Result := f_Layout2;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetLayout3: TvgLayout;
-begin
- if (f_Layout3 = nil) then
-  f_Layout3 := FindComponent('Layout3') As TvgLayout;
- Result := f_Layout3;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetVgScene1: TvgScene;
-begin
- if (f_vgScene1 = nil) then
-  f_vgScene1 := FindComponent('vgScene1') As TvgScene;
- Result := f_vgScene1;
-end;
-
-function TNewBaseSearchForDFMForm.AddListItem(aParent: TvgComboBox;
-  const aStr: Il3CString): TvgListBoxItem;
-//#UC START# *4D3D7176028B_4CFCBB3600E0_var*
-var
- l_Item: TvgListBoxItem;
-//#UC END# *4D3D7176028B_4CFCBB3600E0_var*
-begin
-//#UC START# *4D3D7176028B_4CFCBB3600E0_impl*
- l_Item := TvgListBoxItem.Create(nil);
- l_Item.Parent := aParent.ListBox;
- if (aParent = MoreTab) then
-  l_Item.Resource := {'docSetElementStyle'}'moreButtonElementStyle'
- else
- if (aParent = AreaCombo) then
-  l_Item.Resource := 'docSetElementStyle'
- else
-  Assert(False); 
- l_Item.Binding['text'] := l3WideString(aStr);
- if (aParent = MoreTab) then
- begin
-  l_Item.Font.Size := 11;
-  l_Item.Font.Family := 'Tahoma';
- end//aParent = MoreTab
- else
- begin
-  l_Item.Font.Size := 12;
-  l_Item.Font.Family := 'Arial';
- end;//aParent = MoreTab
- Result := l_Item;
- //l_Item.Font.Style := vgFontBold;
-//#UC END# *4D3D7176028B_4CFCBB3600E0_impl*
-end;//TNewBaseSearchForDFMForm.AddListItem
-
-function TNewBaseSearchForDFMForm.pm_GetMoreTab: TvgComboBox;
-begin
- if (f_MoreTab = nil) then
-  f_MoreTab := FindComponent('MoreTab') As TvgComboBox;
- Result := f_MoreTab;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetBorder: TvgRectangle;
-begin
- if (f_Border = nil) then
-  f_Border := FindComponent('Border') As TvgRectangle;
- Result := f_Border;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetInnerBorder: TvgRectangle;
-begin
- if (f_InnerBorder = nil) then
-  f_InnerBorder := FindComponent('InnerBorder') As TvgRectangle;
- Result := f_InnerBorder;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetMostOuterRectangle: TvgRectangle;
-begin
- if (f_MostOuterRectangle = nil) then
-  f_MostOuterRectangle := FindComponent('MostOuterRectangle') As TvgRectangle;
- Result := f_MostOuterRectangle;
-end;
-
-function TNewBaseSearchForDFMForm.pm_GetRectangle1: TvgRectangle;
-begin
- if (f_Rectangle1 = nil) then
-  f_Rectangle1 := FindComponent('Rectangle1') As TvgRectangle;
- Result := f_Rectangle1;
-end;
-// start class TvgRadioButtonItem
-
-function TvgRadioButtonItem.EQ(const anOther: TvgRadioButtonItem): Boolean;
-//#UC START# *4DE6709D02E9_4DE66EAE0351_var*
-//#UC END# *4DE6709D02E9_4DE66EAE0351_var*
-begin
-//#UC START# *4DE6709D02E9_4DE66EAE0351_impl*
- Result := (rClass = anOther.rClass) OR (rClass.IsSame(anOther.rClass));
- if Result then
-  Result := (anOther.rButton = nil) OR (rButton = anOther.rButton);
-//#UC END# *4DE6709D02E9_4DE66EAE0351_impl*
-end;//TvgRadioButtonItem.EQ
-
-function TvgRadioButtonItem_C(const aClass: InsBaseSearchClass): TvgRadioButtonItem;
-//#UC START# *4DE6712F01AA_4DE66EAE0351_var*
-//#UC END# *4DE6712F01AA_4DE66EAE0351_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4DE6712F01AA_4DE66EAE0351_impl*
- Result.rClass := aClass;
-//#UC END# *4DE6712F01AA_4DE66EAE0351_impl*
-end;//TvgRadioButtonItem.C
-
-
-function TvgRadioButtonItem_C(aButton: TvgRadioButton;
-         const aClass: InsBaseSearchClass): TvgRadioButtonItem;
-//#UC START# *4DE6734A00D5_4DE66EAE0351_var*
-//#UC END# *4DE6734A00D5_4DE66EAE0351_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4DE6734A00D5_4DE66EAE0351_impl*
- Result.rButton := aButton;
- Result.rClass := aClass;
-//#UC END# *4DE6734A00D5_4DE66EAE0351_impl*
-end;//TvgRadioButtonItem.C
-
-// start class TvgRadioButtonArray
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
-//#UC START# *47B2C42A0163_4CFCF49601B1_var*
-//#UC END# *47B2C42A0163_4CFCF49601B1_var*
-begin
-//#UC START# *47B2C42A0163_4CFCF49601B1_impl*
- Assert(False);
-//#UC END# *47B2C42A0163_4CFCF49601B1_impl*
-end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer;
-//#UC START# *47B99D4503A2_4CFCF49601B1_var*
-//#UC END# *47B99D4503A2_4CFCF49601B1_var*
-begin
-//#UC START# *47B99D4503A2_4CFCF49601B1_impl*
- Result := -1;
- Assert(False);
-//#UC END# *47B99D4503A2_4CFCF49601B1_impl*
-end;//CompareExistingItems
-
-type _Instance_R_ = TvgRadioButtonArray;
-
-{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
-
-// start class TNewBaseSearchForDFMForm
-
-function TNewBaseSearchForDFMForm.pm_GetActiveClassTab: TvgRadioButton;
-//#UC START# *4DE66D94033D_4CFCBB3600E0get_var*
-var
- l_I : Integer;
-//#UC END# *4DE66D94033D_4CFCBB3600E0get_var*
-begin
-//#UC START# *4DE66D94033D_4CFCBB3600E0get_impl*
- l_I := f_Themes.IndexOf(TvgRadioButtonItem_C(f_BaseSearcher.WindowData.ActiveClass));
- if (l_I < 0) then
-  Result := nil
- else
-  Result := f_Themes[l_I].rButton;
-//#UC END# *4DE66D94033D_4CFCBB3600E0get_impl*
-end;//TNewBaseSearchForDFMForm.pm_GetActiveClassTab
 
 procedure TNewBaseSearchForDFMForm.AdjustParamsPagesHeight;
 //#UC START# *4CF4D1AD01B3_4CFCBB3600E0_var*
@@ -1268,6 +1197,7 @@ begin
 end;//TNewBaseSearchForDFMForm.DoExampleChanged
 
 procedure TNewBaseSearchForDFMForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CFCBB3600E0_var*
 //#UC END# *479731C50290_4CFCBB3600E0_var*
 begin
@@ -1291,8 +1221,9 @@ begin
 //#UC END# *49BFC98902FF_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.BeforeRelease
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TNewBaseSearchForDFMForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4CFCBB3600E0_var*
 //#UC END# *4A8E8F2E0195_4CFCBB3600E0_var*
 begin
@@ -1333,7 +1264,7 @@ begin
  ContextEdit.OnFocusChanged := ContextEditFocusChanged;
 //#UC END# *4A8E8F2E0195_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TNewBaseSearchForDFMForm.ApplyCurrentExample;
 //#UC START# *4B13B419036C_4CFCBB3600E0_var*
@@ -1347,7 +1278,7 @@ begin
 //#UC END# *4B13B419036C_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.ApplyCurrentExample
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TNewBaseSearchForDFMForm.NeedSetMyFocus: Boolean;
 //#UC START# *4B4F13E80365_4CFCBB3600E0_var*
 //#UC END# *4B4F13E80365_4CFCBB3600E0_var*
@@ -1359,50 +1290,38 @@ begin
   Result := inherited NeedSetMyFocus;
 //#UC END# *4B4F13E80365_4CFCBB3600E0_impl*
 end;//TNewBaseSearchForDFMForm.NeedSetMyFocus
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$If NOT Defined(NoVCM)}
+procedure TNewBaseSearchForDFMForm.MakeControls;
+begin
+ inherited;
+end;//TNewBaseSearchForDFMForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_asEverywhere
  str_asEverywhere.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_asListDocuments
+ {* Инициализация str_asEverywhere }
  str_asListDocuments.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_asListNames
+ {* Инициализация str_asListDocuments }
  str_asListNames.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_asDocument
+ {* Инициализация str_asListNames }
  str_asDocument.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_etExample
+ {* Инициализация str_asDocument }
  str_etExample.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_etFoundCount
+ {* Инициализация str_etExample }
  str_etFoundCount.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_mtcMore
+ {* Инициализация str_etFoundCount }
  str_mtcMore.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ClassNotInBase
+ {* Инициализация str_mtcMore }
  str_ClassNotInBase.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_FoundFragmentCountHint
+ {* Инициализация str_ClassNotInBase }
  str_FoundFragmentCountHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация NewBaseSearchForDFM
+ {* Инициализация str_FoundFragmentCountHint }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TNewBaseSearchForDFMForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация NewBaseSearchForDFM }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

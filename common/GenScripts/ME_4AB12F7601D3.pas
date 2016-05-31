@@ -20,6 +20,9 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , eeMemoWithEditOperations
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentDomainInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -53,7 +56,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsLinkedObjectDescription): BadFactoryType; reintroduce;
+   class function Make(const aData: InsLinkedObjectDescription): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -88,15 +91,17 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AB12F7601D3impl_uses*
+ //#UC END# *4AB12F7601D3impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): BadFactoryType;
+class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): IvcmEntityForm;
 var
  l_Inst : TPrimPictureInfoForm;
 begin
@@ -182,7 +187,9 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
+  ToolbarAtBottom(en_Result);
+  PublishFormEntity(en_Edit, nil);
+  MakeEntitySupportedByControl(en_Edit, Info);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
  end;//with Entities.Entities
 end;//TPrimPictureInfoForm.InitEntities

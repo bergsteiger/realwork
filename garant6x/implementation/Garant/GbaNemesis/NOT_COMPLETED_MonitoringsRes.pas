@@ -40,7 +40,6 @@ implementation
 uses
  l3ImplUses
  , moCommonPost
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

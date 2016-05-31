@@ -39,7 +39,6 @@ uses
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
  , Base_Operations_Editions_Controls
- , l3StringIDEx
  , nsLogEvent
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -68,7 +67,6 @@ type
   private
    f_LocalPositioning: Integer;
    f_RedactionTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства RedactionTree }
   protected
    dsEditions: IdsEditions;
   private
@@ -121,7 +119,7 @@ type
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    function CanBeChanged: Boolean; override;
     {* Может ли документ быть изменён }
-   procedure utRedactionQueryClose(aSender: TObject); override;
+   procedure UtRedactionQueryClose(aSender: TObject); override;
     {* Обработчик события utRedaction.OnQueryClose }
    {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -196,16 +194,14 @@ uses
  , afwFacade
  , l3Variant
  , Windows
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
  , UnderControlUnit
- , l3MessageID
+ , RedactionsUserTypes_utRedaction_UserType
  , Types
  {$If Defined(Nemesis)}
  , eeTreeMisc
@@ -218,6 +214,11 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , l3ScreenIC
  , l3Units
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *497A12850078impl_uses*
+ //#UC END# *497A12850078impl_uses*
 ;
 
 class procedure TnsViewDocumentEditionListEvent.Log(const aDoc: IDocument);
@@ -679,7 +680,7 @@ begin
 //#UC END# *4EC4CE180122_497A12850078exec_impl*
 end;//TPrimRedactionsForm.Editions_BuildChangedFragments_Execute
 
-procedure TPrimRedactionsForm.utRedactionQueryClose(aSender: TObject);
+procedure TPrimRedactionsForm.UtRedactionQueryClose(aSender: TObject);
  {* Обработчик события utRedaction.OnQueryClose }
 //#UC START# *E2975B7BD13F_497A12850078_var*
 //#UC END# *E2975B7BD13F_497A12850078_var*
@@ -688,7 +689,7 @@ begin
  afw.Settings.SaveBoolean(pi_Document_Sheets_Redactions, False);
  SafeClose;
 //#UC END# *E2975B7BD13F_497A12850078_impl*
-end;//TPrimRedactionsForm.utRedactionQueryClose
+end;//TPrimRedactionsForm.UtRedactionQueryClose
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimRedactionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -807,6 +808,14 @@ procedure TPrimRedactionsForm.SignalDataSourceChanged(const anOld: IvcmFormDataS
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  dsEditions := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsEditions, dsEditions);
+ end;//aNew = nil
 end;//TPrimRedactionsForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -821,7 +830,11 @@ begin
   PublishFormEntity(en_Editions, nil);
   PublishOpWithResult(en_Editions, op_SetCurrent, Editions_SetCurrent, nil, nil);
   PublishOp(en_Editions, op_DoCompareEditions, Editions_DoCompareEditions_Execute, Editions_DoCompareEditions_Test, nil);
+  ShowInContextMenu(en_Editions, op_DoCompareEditions, False);
+  ShowInToolbar(en_Editions, op_DoCompareEditions, True);
   PublishOp(en_Editions, op_BuildChangedFragments, Editions_BuildChangedFragments_Execute, Editions_BuildChangedFragments_Test, nil);
+  ShowInContextMenu(en_Editions, op_BuildChangedFragments, False);
+  ShowInToolbar(en_Editions, op_BuildChangedFragments, True);
  end;//with Entities.Entities
 end;//TPrimRedactionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

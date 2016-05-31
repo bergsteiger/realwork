@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , nsSubPrim
  , l3Variant
- , nevBase
  , nevTools
+ , nevBase
 ;
 
 type

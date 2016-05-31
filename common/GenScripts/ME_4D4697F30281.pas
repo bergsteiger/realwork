@@ -14,9 +14,9 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
+ , vtOutlinerControl
  , vcmInterfaces
  , vcmEntities
- , vtOutlinerControl
 ;
 
 const
@@ -51,11 +51,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -64,11 +62,6 @@ uses
  , OutlinerFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_OutlinerFormLocalConstants }
- str_ut_OutlinerFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_OutlinerFormCaption'; rValue : 'Форма для тестирования списка');
-  {* Заголовок пользовательского типа "Форма для тестирования списка" }
 
 {$R *.DFM}
 
@@ -105,8 +98,6 @@ begin
 end;//TOutlinerFormForm.MakeControls
 
 initialization
- str_ut_OutlinerFormCaption.Init;
- {* Инициализация str_ut_OutlinerFormCaption }
  fm_OutlinerFormForm.SetFactory(TOutlinerFormForm.Make);
  {* Регистрация фабрики формы OutlinerForm }
 {$If NOT Defined(NoScripts)}

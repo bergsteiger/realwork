@@ -1,61 +1,52 @@
 {$IfNDef BlockSelector_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BlockSelector.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::BlockSelector
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "BlockSelector" MUID: (4C0686B8005B)
+// Имя типа: "_BlockSelector_"
 
 {$Define BlockSelector_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _BlockSelector_ = {abstract form} class(_BlockSelector_Parent_)
- private
- // private fields
-   f_NotFoundBlocks : Tl3LongintList;
-    {* Не найденные блоки}
-   f_FoundBlocks : TnsFoundBlocksList;
-    {* Найденные блоки}
- protected
- // overridden protected methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _BlockSelector_ = {abstract} class(_BlockSelector_Parent_)
+  private
+   f_NotFoundBlocks: Tl3LongintList;
+    {* Не найденные блоки }
+   f_FoundBlocks: TnsFoundBlocksList;
+    {* Найденные блоки }
+  protected
+   procedure ClearBlocksInfo;
+    {* Очищает информацию о найденных и ненайденных блоках }
+   function NeedGotoNeighbours: Boolean; virtual; abstract;
+    {* Надо ли переходить на соседей блока }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure ClearBlocksInfo;
-     {* Очищает информацию о найденных и ненайденных блоках }
-   function NeedGotoNeighbours: Boolean; virtual; abstract;
-     {* Надо ли переходить на соседей блока }
- public
- // public methods
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function GotoBlock(const aBlock: IevDocumentPart): Boolean;
-     {* Переходит на ближайший возможный блок }
+    {* Переходит на ближайший возможный блок }
    function GotoSub(const aPara: IeePara): Boolean;
-     {* Переход на Sub принадлежащий параграфу }
+    {* Переход на Sub принадлежащий параграфу }
  end;//_BlockSelector_
-{$Else}
 
- _BlockSelector_ = _BlockSelector_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_BlockSelector_ = _BlockSelector_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else BlockSelector_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef BlockSelector_imp_impl}
 
-// start class _BlockSelector_
+{$Define BlockSelector_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _BlockSelector_.GotoBlock(const aBlock: IevDocumentPart): Boolean;
+ {* Переходит на ближайший возможный блок }
 //#UC START# *4C06874C0070_4C0686B8005B_var*
 
  function IsActive(const aBlock : IevDocumentPart): Boolean;
@@ -265,6 +256,7 @@ begin
 end;//_BlockSelector_.GotoBlock
 
 procedure _BlockSelector_.ClearBlocksInfo;
+ {* Очищает информацию о найденных и ненайденных блоках }
 //#UC START# *4C0688930095_4C0686B8005B_var*
 //#UC END# *4C0688930095_4C0686B8005B_var*
 begin
@@ -275,10 +267,10 @@ begin
 end;//_BlockSelector_.ClearBlocksInfo
 
 function _BlockSelector_.GotoSub(const aPara: IeePara): Boolean;
+ {* Переход на Sub принадлежащий параграфу }
+var l_SubList: IeeSubList;
 //#UC START# *4C0691370291_4C0686B8005B_var*
 //#UC END# *4C0691370291_4C0686B8005B_var*
-var
- l_SubList : IeeSubList;
 begin
 //#UC START# *4C0691370291_4C0686B8005B_impl*
  Result := true;
@@ -292,6 +284,7 @@ begin
 end;//_BlockSelector_.GotoSub
 
 procedure _BlockSelector_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4C0686B8005B_var*
 //#UC END# *479731C50290_4C0686B8005B_var*
 begin
@@ -301,9 +294,10 @@ begin
 //#UC END# *479731C50290_4C0686B8005B_impl*
 end;//_BlockSelector_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _BlockSelector_.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4C0686B8005B_var*
 //#UC END# *497469C90140_4C0686B8005B_var*
 begin
@@ -312,8 +306,10 @@ begin
  ClearBlocksInfo;
 //#UC END# *497469C90140_4C0686B8005B_impl*
 end;//_BlockSelector_.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf BlockSelector_imp_impl}
 
 {$EndIf BlockSelector_imp}
+

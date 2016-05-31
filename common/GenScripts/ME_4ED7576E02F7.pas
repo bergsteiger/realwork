@@ -38,7 +38,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  , BaloonWarningUserTypes_remListModified_UserType
  , bsUtils
  , Document_Const

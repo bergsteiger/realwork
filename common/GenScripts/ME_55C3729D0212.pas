@@ -14,8 +14,8 @@ uses
  , l3Interfaces
  , tfwScriptingInterfaces
  , tfwScriptingTypes
- , tfwTypeInfo
  , tfwValueTypes
+ , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

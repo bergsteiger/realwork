@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки FakeLocalConstants }
+ str_FakeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'FakeCaption'; rValue : 'Предупреждение');
+  {* Заголовок пользовательского типа "Предупреждение" }
  {* Константы для типа формы Fake }
  FakeName = 'Fake';
   {* Строковый идентификатор пользовательского типа "Предупреждение" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_Fake.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_FakeCaption.Init;
+ {* Инициализация str_FakeCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_Fake.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_Fake }

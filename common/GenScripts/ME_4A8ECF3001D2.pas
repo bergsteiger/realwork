@@ -102,6 +102,7 @@ uses
  , LoggingUnit
  , SysUtils
  , l3Base
+ , PrimNewsLine_nltMain_UserType
  , NewsLine_Form
  , fsAutoreferat
  , fsAutoreferatAfterSearch

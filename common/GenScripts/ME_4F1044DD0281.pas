@@ -320,12 +320,22 @@ begin
  begin
   PublishFormEntity(en_HyperLink, nil);
   PublishOp(en_HyperLink, op_Delete, HyperLink_Delete_Execute, HyperLink_Delete_Test, nil, true);
+  ShowInToolbar(en_HyperLink, op_Delete, False, true);
   PublishOp(en_HyperLink, op_Open, HyperLink_Open_Execute, HyperLink_Open_Test, nil);
+  ShowInContextMenu(en_HyperLink, op_Open, False);
+  ShowInToolbar(en_HyperLink, op_Open, False);
   PublishOp(en_HyperLink, op_OpenNewWindow, HyperLink_OpenNewWindow_Execute, HyperLink_OpenNewWindow_Test, nil);
+  ShowInContextMenu(en_HyperLink, op_OpenNewWindow, True);
+  ShowInToolbar(en_HyperLink, op_OpenNewWindow, False);
+  ContextMenuWeight(en_HyperLink, op_OpenNewWindow, 5);
   PublishOp(en_HyperLink, op_NextHyperLink, HyperLink_NextHyperLink_Execute, nil, nil);
   PublishOp(en_HyperLink, op_PrevHyperLink, HyperLink_PrevHyperLink_Execute, nil, nil);
   PublishOp(en_HyperLink, op_OpenInNewTab, HyperLink_OpenInNewTab_Execute, HyperLink_OpenInNewTab_Test, nil);
+  ShowInContextMenu(en_HyperLink, op_OpenInNewTab, True);
+  ContextMenuWeight(en_HyperLink, op_OpenInNewTab, 0);
   PublishOp(en_HyperLink, op_OpenScriptHyperLink, HyperLink_OpenScriptHyperLink_Execute, HyperLink_OpenScriptHyperLink_Test, nil);
+  ShowInContextMenu(en_HyperLink, op_OpenScriptHyperLink, True);
+  ContextMenuWeight(en_HyperLink, op_OpenScriptHyperLink, 0);
   PublishOp(en_HyperLink, op_NavigateInternetHyperlink, HyperLink_NavigateInternetHyperlink_Execute, HyperLink_NavigateInternetHyperlink_Test, nil);
  end;//with Entities.Entities
 end;//_HyperlinkOperations_.InitEntities

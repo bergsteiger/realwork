@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftUserCR1LocalConstants }
+ str_lftUserCR1Caption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftUserCR1Caption'; rValue : 'Настраиваемая вкладка связанных документов 1');
+  {* Заголовок пользовательского типа "Настраиваемая вкладка связанных документов 1" }
+ str_lftUserCR1SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftUserCR1SettingsCaption'; rValue : 'Список: Ссылки из документа (вид информации)/Ссылки на документ (вид информации)');
+  {* Заголовок пользовательского типа "Настраиваемая вкладка связанных документов 1" для настройки панелей инструментов }
  {* Константы для типа формы lftUserCR1 }
  lftUserCR1Name = 'lftUserCR1';
   {* Строковый идентификатор пользовательского типа "Настраиваемая вкладка связанных документов 1" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftUserCR1.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftUserCR1Caption.Init;
+ {* Инициализация str_lftUserCR1Caption }
+ str_lftUserCR1SettingsCaption.Init;
+ {* Инициализация str_lftUserCR1SettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftUserCR1.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftUserCR1 }

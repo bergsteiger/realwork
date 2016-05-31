@@ -20,6 +20,7 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Document_Strange_Controls
+ , nscTreeViewWithAdapterDragDrop
  , afwInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -29,9 +30,11 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , nscTreeViewWithAdapterDragDrop
 ;
 
 type
@@ -143,11 +146,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8647C8024Eimpl_uses*
+ //#UC END# *4C8647C8024Eimpl_uses*
 ;
 
 function TPrimAttributesOptionsForm.MakePreview: IafwDocumentPreview;
@@ -403,11 +405,25 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Attribute, nil);
+  ContextMenuWeight(en_File, 10);
+  ContextMenuWeight(en_Edit, 20);
+  ContextMenuWeight(en_Attribute, 30);
+  ContextMenuWeight(en_Tree, 40);
   PublishOp(en_File, op_Print, File_Print_Execute, File_Print_Test, nil);
+  ShowInContextMenu(en_File, op_Print, True);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
+  ShowInContextMenu(en_File, op_PrintDialog, False);
+  ShowInToolbar(en_File, op_PrintDialog, True);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
+  ShowInContextMenu(en_File, op_PrintPreview, True);
+  ShowInToolbar(en_File, op_PrintPreview, True);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, Edit_Copy_GetState);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
   PublishOp(en_Attribute, op_Copy, Attribute_Copy_Execute, Attribute_Copy_Test, nil);
+  ShowInContextMenu(en_Attribute, op_Copy, True);
+  ShowInToolbar(en_Attribute, op_Copy, False);
  end;//with Entities.Entities
 end;//TPrimAttributesOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

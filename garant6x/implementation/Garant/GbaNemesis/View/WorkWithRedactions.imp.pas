@@ -1,54 +1,48 @@
 {$IfNDef WorkWithRedactions_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkWithRedactions.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::WorkWithRedactions
-//
-// Работа с редакциями документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "WorkWithRedactions" MUID: (4A7B03ED01E3)
+// Имя типа: "_WorkWithRedactions_"
 
 {$Define WorkWithRedactions_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _WorkWithRedactions_ = {abstract form} class(_WorkWithRedactions_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _WorkWithRedactions_ = {abstract} class(_WorkWithRedactions_Parent_)
   {* Работа с редакциями документа }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   procedure Document_CompareEditions_Test(const aParams: IvcmTestParamsPrim);
-     {* Сравнение редакций }
-   procedure Document_CompareEditions_GetState(var State: TvcmOperationStateIndex);
-     {* Сравнение редакций }
-   procedure Document_CompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сравнение редакций }
- protected
- // protected methods
+  protected
    function CaneHaveDocumentCompareEditionsOperation: Boolean; virtual;
    function GetRedactionOnLeftEdition: Integer; virtual;
    function RedactionCurrentPara: IeeLeafPara; virtual; abstract;
-     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
+    {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    function CanBeChanged: Boolean; virtual; abstract;
-     {* Может ли документ быть изменён }
+    {* Может ли документ быть изменён }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Document_CompareEditions_Test(const aParams: IvcmTestParamsPrim);
+    {* Сравнение редакций }
+   procedure Document_CompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сравнение редакций }
+   procedure Document_CompareEditions_GetState(var State: TvcmOperationStateIndex);
+    {* Сравнение редакций }
  end;//_WorkWithRedactions_
-{$Else}
 
- _WorkWithRedactions_ = _WorkWithRedactions_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_WorkWithRedactions_ = _WorkWithRedactions_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else WorkWithRedactions_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef WorkWithRedactions_imp_impl}
 
-// start class _WorkWithRedactions_
+{$Define WorkWithRedactions_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _WorkWithRedactions_.CaneHaveDocumentCompareEditionsOperation: Boolean;
 //#UC START# *4EF354C8018B_4A7B03ED01E3_var*
 //#UC END# *4EF354C8018B_4A7B03ED01E3_var*
@@ -68,6 +62,7 @@ begin
 end;//_WorkWithRedactions_.GetRedactionOnLeftEdition
 
 procedure _WorkWithRedactions_.Document_CompareEditions_Test(const aParams: IvcmTestParamsPrim);
+ {* Сравнение редакций }
 //#UC START# *4C7BAEB4010E_4A7B03ED01E3test_var*
 var
  l_State : IDocumentState;
@@ -85,7 +80,21 @@ begin
 //#UC END# *4C7BAEB4010E_4A7B03ED01E3test_impl*
 end;//_WorkWithRedactions_.Document_CompareEditions_Test
 
+procedure _WorkWithRedactions_.Document_CompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сравнение редакций }
+//#UC START# *4C7BAEB4010E_4A7B03ED01E3exec_var*
+//#UC END# *4C7BAEB4010E_4A7B03ED01E3exec_var*
+begin
+//#UC START# *4C7BAEB4010E_4A7B03ED01E3exec_impl*
+ if (_Instance_R_(Self).Document <> nil) then
+  TdmStdRes.MakeCompareEditions(_Instance_R_(Self).Document,
+                                RedactionCurrentPara,
+                                GetRedactionOnLeftEdition);
+//#UC END# *4C7BAEB4010E_4A7B03ED01E3exec_impl*
+end;//_WorkWithRedactions_.Document_CompareEditions_Execute
+
 procedure _WorkWithRedactions_.Document_CompareEditions_GetState(var State: TvcmOperationStateIndex);
+ {* Сравнение редакций }
 //#UC START# *4C7BAEB4010E_4A7B03ED01E3getstate_var*
 var
  l_C : IControllable;
@@ -105,19 +114,10 @@ begin
 //#UC END# *4C7BAEB4010E_4A7B03ED01E3getstate_impl*
 end;//_WorkWithRedactions_.Document_CompareEditions_GetState
 
-procedure _WorkWithRedactions_.Document_CompareEditions_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4C7BAEB4010E_4A7B03ED01E3exec_var*
-//#UC END# *4C7BAEB4010E_4A7B03ED01E3exec_var*
-begin
-//#UC START# *4C7BAEB4010E_4A7B03ED01E3exec_impl*
- if (_Instance_R_(Self).Document <> nil) then
-  TdmStdRes.MakeCompareEditions(_Instance_R_(Self).Document,
-                                RedactionCurrentPara,
-                                GetRedactionOnLeftEdition);
-//#UC END# *4C7BAEB4010E_4A7B03ED01E3exec_impl*
-end;//_WorkWithRedactions_.Document_CompareEditions_Execute
-
+{$If NOT Defined(NoVCM)}
 procedure _WorkWithRedactions_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -125,8 +125,11 @@ begin
   PublishFormEntity(en_Document, nil);
   PublishOp(en_Document, op_CompareEditions, Document_CompareEditions_Execute, Document_CompareEditions_Test, Document_CompareEditions_GetState);
  end;//with Entities.Entities
-end;
+end;//_WorkWithRedactions_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf WorkWithRedactions_imp_impl}
 
 {$EndIf WorkWithRedactions_imp}
+

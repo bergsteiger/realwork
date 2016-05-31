@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftNoneLocalConstants }
+ str_lftNoneCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftNoneCaption'; rValue : 'Список');
+  {* Заголовок пользовательского типа "Список" }
  {* Константы для типа формы lftNone }
  lftNoneName = 'lftNone';
   {* Строковый идентификатор пользовательского типа "Список" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_lftNone.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftNoneCaption.Init;
+ {* Инициализация str_lftNoneCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftNone.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftNone }

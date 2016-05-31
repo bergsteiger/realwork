@@ -1,43 +1,37 @@
 {$IfNDef RegionableForm_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Skins"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Skins/RegionableForm.imp.pas"
-// Начат: 27.10.2010
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Интерфейсные элементы::NewInterface2010::Skins::Core::RegionableForm
-//
-// Форма с поддержкой региона
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "RegionableForm" MUID: (4CC809BC0082)
+// Имя типа: "_RegionableForm_"
 
 {$Define RegionableForm_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _RegionableControl_Parent_ = _RegionableForm_Parent_;
  {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
- _RegionableForm_ = {abstract form} class(_RegionableControl_)
+ _RegionableForm_ = {abstract} class(_RegionableControl_)
   {* Форма с поддержкой региона }
  end;//_RegionableForm_
-{$Else}
 
- _RegionableControl_Parent_ = _RegionableForm_Parent_;
- {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
- _RegionableForm_ = _RegionableControl_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_RegionableControl_Parent_ = _RegionableForm_Parent_;
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
+_RegionableForm_ = _RegionableControl_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else RegionableForm_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef RegionableForm_imp_impl}
 
+{$Define RegionableForm_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf RegionableForm_imp_impl}
 
 {$EndIf RegionableForm_imp}
+

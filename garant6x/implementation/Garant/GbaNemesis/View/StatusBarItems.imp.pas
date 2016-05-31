@@ -1,81 +1,68 @@
 {$IfNDef StatusBarItems_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/StatusBarItems.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::StatusBar::StatusBarItems
-//
-// Базовая форма, публикующая свои операции в статусной строке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "StatusBarItems" MUID: (4A8E5BBF0391)
+// Имя типа: "_StatusBarItems_"
 
 {$Define StatusBarItems_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _StatusBarItems_ = {abstract form} class(_StatusBarItems_Parent_ {$If defined(Nemesis)}, InscStatusBarItemsProvider{$IfEnd} //Nemesis
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _StatusBarItems_ = {abstract} class(_StatusBarItems_Parent_{$If Defined(Nemesis)}
+ , InscStatusBarItemsProvider
+ {$IfEnd} // Defined(Nemesis)
  )
   {* Базовая форма, публикующая свои операции в статусной строке }
- private
- // private fields
-   f_StatusBarItems : InscStatusBarItemDefsList;
-   f_StatusBarPublished : Boolean;
- private
- // private methods
+  private
+   f_StatusBarItems: InscStatusBarItemDefsList;
+   f_StatusBarPublished: Boolean;
+  private
    procedure RegisterOps;
-     {* Реристрирует операции }
+    {* Реристрирует операции }
    procedure UnregisterOps;
-     {* Отрегистрирует операции }
- protected
- // realized methods
-   {$If defined(Nemesis)}
+    {* Отрегистрирует операции }
+  protected
+   function NeedsStatusBarItems: Boolean; virtual;
+    {* Определяет, что операции в статусной строке таки надо публиковать }
+   procedure FillList(const aList: InscStatusBarItemDefsList); virtual; abstract;
+    {* Заполняет список операций. Для перекрытия в потомках }
+   {$If Defined(Nemesis)}
    function Get_Items: InscStatusBarItemDefsList;
-   {$IfEnd} //Nemesis
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(Nemesis)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure ReleaseResources; override;
-     {* Сигнатура метода ReleaseResources }
-    {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function NeedsStatusBarItems: Boolean; virtual;
-     {* Определяет, что операции в статусной строке таки надо публиковать }
-   procedure FillList(const aList: InscStatusBarItemDefsList); virtual; abstract;
-     {* Заполняет список операций. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_StatusBarItems_
-{$Else}
 
- _StatusBarItems_ = _StatusBarItems_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_StatusBarItems_ = _StatusBarItems_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else StatusBarItems_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef StatusBarItems_imp_impl}
 
-// start class _StatusBarItems_
+{$Define StatusBarItems_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _StatusBarItems_.RegisterOps;
+ {* Реристрирует операции }
+var l_Form: IafwMainForm;
+var l_Visualizer: InscStatusBarItemsVisualizer;
 //#UC START# *4A8E5C6702D1_4A8E5BBF0391_var*
 //#UC END# *4A8E5C6702D1_4A8E5BBF0391_var*
-var
- l_Form : IafwMainForm;
- l_Visualizer : InscStatusBarItemsVisualizer;
 begin
 //#UC START# *4A8E5C6702D1_4A8E5BBF0391_impl*
  if not f_StatusBarPublished then
@@ -99,11 +86,11 @@ begin
 end;//_StatusBarItems_.RegisterOps
 
 procedure _StatusBarItems_.UnregisterOps;
+ {* Отрегистрирует операции }
+var l_Form: IafwMainForm;
+var l_Visualizer: InscStatusBarItemsVisualizer;
 //#UC START# *4A8E5C7903DE_4A8E5BBF0391_var*
 //#UC END# *4A8E5C7903DE_4A8E5BBF0391_var*
-var
- l_Form : IafwMainForm;
- l_Visualizer : InscStatusBarItemsVisualizer;
 begin
 //#UC START# *4A8E5C7903DE_4A8E5BBF0391_impl*
  if f_StatusBarPublished then
@@ -123,6 +110,7 @@ begin
 end;//_StatusBarItems_.UnregisterOps
 
 function _StatusBarItems_.NeedsStatusBarItems: Boolean;
+ {* Определяет, что операции в статусной строке таки надо публиковать }
 //#UC START# *4A8E5CEC021F_4A8E5BBF0391_var*
 //#UC END# *4A8E5CEC021F_4A8E5BBF0391_var*
 begin
@@ -131,7 +119,7 @@ begin
 //#UC END# *4A8E5CEC021F_4A8E5BBF0391_impl*
 end;//_StatusBarItems_.NeedsStatusBarItems
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 function _StatusBarItems_.Get_Items: InscStatusBarItemDefsList;
 //#UC START# *498036B8002E_4A8E5BBF0391get_var*
 //#UC END# *498036B8002E_4A8E5BBF0391get_var*
@@ -140,9 +128,10 @@ begin
  Result := f_StatusBarItems;
 //#UC END# *498036B8002E_4A8E5BBF0391get_impl*
 end;//_StatusBarItems_.Get_Items
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 procedure _StatusBarItems_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A8E5BBF0391_var*
 //#UC END# *479731C50290_4A8E5BBF0391_var*
 begin
@@ -153,9 +142,10 @@ begin
 //#UC END# *479731C50290_4A8E5BBF0391_impl*
 end;//_StatusBarItems_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _StatusBarItems_.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4A8E5BBF0391_var*
 //#UC END# *497469C90140_4A8E5BBF0391_var*
 begin
@@ -169,10 +159,11 @@ begin
  end;//NeedsStatusBarItems
 //#UC END# *497469C90140_4A8E5BBF0391_impl*
 end;//_StatusBarItems_.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _StatusBarItems_.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4A8E5BBF0391_var*
 //#UC END# *49803F5503AA_4A8E5BBF0391_var*
 begin
@@ -182,9 +173,9 @@ begin
   RegisterOps;
 //#UC END# *49803F5503AA_4A8E5BBF0391_impl*
 end;//_StatusBarItems_.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _StatusBarItems_.ReleaseResources;
 //#UC START# *538C374A00B7_4A8E5BBF0391_var*
 //#UC END# *538C374A00B7_4A8E5BBF0391_var*
@@ -195,8 +186,10 @@ begin
  f_StatusBarItems := nil;
 //#UC END# *538C374A00B7_4A8E5BBF0391_impl*
 end;//_StatusBarItems_.ReleaseResources
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf StatusBarItems_imp_impl}
 
 {$EndIf StatusBarItems_imp}
+

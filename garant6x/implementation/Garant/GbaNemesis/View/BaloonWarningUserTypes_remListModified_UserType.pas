@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки remListModifiedLocalConstants }
+ str_remListModifiedCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remListModifiedCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы remListModified }
  remListModifiedName = 'remListModified';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_remListModified.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_remListModifiedCaption.Init;
+ {* Инициализация str_remListModifiedCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remListModified.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_remListModified }

@@ -12,8 +12,8 @@ interface
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , dt_Types
  , evCustomEditorWindow
+ , dt_Types
  {$If Defined(AppClientSide)}
  , Main
  {$IfEnd} // Defined(AppClientSide)

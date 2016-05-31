@@ -1,57 +1,50 @@
 {$IfNDef HyperlinkProcessorForDocumentCompare_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/HyperlinkProcessorForDocumentCompare.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Navigation::HyperlinkProcessorForDocumentCompare
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessorForDocumentCompare" MUID: (4E9C33A802C8)
+// Имя типа: "_HyperlinkProcessorForDocumentCompare_"
 
 {$Define HyperlinkProcessorForDocumentCompare_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _HyperlinkProcessorForDocumentCompare_ = {abstract form} class(_HyperlinkProcessorForDocumentCompare_Parent_)
- private
- // private methods
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _HyperlinkProcessorForDocumentCompare_ = {abstract} class(_HyperlinkProcessorForDocumentCompare_Parent_)
+  private
    procedure DoGetNonHyperlinkInfo(Sender: TObject;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
-     {* Возвращает информацию о стиле сравнения }
- protected
- // overridden protected methods
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+    {* Возвращает информацию о стиле сравнения }
+  protected
    procedure GetNonHyperlinkInfo(Sender: TObject;
     const aHotSpot: IevHotSpot;
     const aKeys: TafwCursorState;
     var theInfo: TafwCursorInfo); override;
-     {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
+    {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
  end;//_HyperlinkProcessorForDocumentCompare_
-{$Else}
 
- _HyperlinkProcessorForDocumentCompare_ = _HyperlinkProcessorForDocumentCompare_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_HyperlinkProcessorForDocumentCompare_ = _HyperlinkProcessorForDocumentCompare_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else HyperlinkProcessorForDocumentCompare_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef HyperlinkProcessorForDocumentCompare_imp_impl}
 
-// start class _HyperlinkProcessorForDocumentCompare_
+{$Define HyperlinkProcessorForDocumentCompare_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _HyperlinkProcessorForDocumentCompare_.DoGetNonHyperlinkInfo(Sender: TObject;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+ {* Возвращает информацию о стиле сравнения }
+var l_Tag: Tl3Tag;
+var l_Point: InevBasePoint;
+var l_Pos: Integer;
+var l_P: Il3CString;
+var l_S: Il3CString;
 //#UC START# *4A8912820378_4E9C33A802C8_var*
 //#UC END# *4A8912820378_4E9C33A802C8_var*
-var
- l_Tag : Tl3Tag;
- l_Point : InevBasePoint;
- l_Pos : Integer;
- l_P : Il3CString;
- l_S : Il3CString;
 begin
 //#UC START# *4A8912820378_4E9C33A802C8_impl*
  if (Sender As TevCustomEditorWindow).GetPtPoint(aKeys.rPoint, l_Point) then
@@ -83,9 +76,10 @@ begin
 end;//_HyperlinkProcessorForDocumentCompare_.DoGetNonHyperlinkInfo
 
 procedure _HyperlinkProcessorForDocumentCompare_.GetNonHyperlinkInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+ {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
 //#UC START# *4A890E81030B_4E9C33A802C8_var*
 //#UC END# *4A890E81030B_4E9C33A802C8_var*
 begin
@@ -93,7 +87,9 @@ begin
  DoGetNonHyperlinkInfo(Sender, aKeys, theInfo);
 //#UC END# *4A890E81030B_4E9C33A802C8_impl*
 end;//_HyperlinkProcessorForDocumentCompare_.GetNonHyperlinkInfo
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf HyperlinkProcessorForDocumentCompare_imp_impl}
 
 {$EndIf HyperlinkProcessorForDocumentCompare_imp}
+

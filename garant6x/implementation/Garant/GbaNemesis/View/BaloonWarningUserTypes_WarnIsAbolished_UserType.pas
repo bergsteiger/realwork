@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnIsAbolishedLocalConstants }
+ str_WarnIsAbolishedCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnIsAbolishedCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnIsAbolished }
  WarnIsAbolishedName = 'WarnIsAbolished';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnIsAbolishedCaption.Init;
+ {* Инициализация str_WarnIsAbolishedCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnIsAbolished.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnIsAbolished }

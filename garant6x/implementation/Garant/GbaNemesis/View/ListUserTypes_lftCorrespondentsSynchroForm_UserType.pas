@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftCorrespondentsSynchroFormLocalConstants }
+ str_lftCorrespondentsSynchroFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftCorrespondentsSynchroFormCaption'; rValue : 'Синхронный просмотр (ссылки на документ)');
+  {* Заголовок пользовательского типа "Синхронный просмотр (ссылки на документ)" }
+ str_lftCorrespondentsSynchroFormSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftCorrespondentsSynchroFormSettingsCaption'; rValue : 'Синхронный просмотр: Списки ссылок на документ');
+  {* Заголовок пользовательского типа "Синхронный просмотр (ссылки на документ)" для настройки панелей инструментов }
  {* Константы для типа формы lftCorrespondentsSynchroForm }
  lftCorrespondentsSynchroFormName = 'lftCorrespondentsSynchroForm';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр (ссылки на документ)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftCorrespondentsSynchroFormCaption.Init;
+ {* Инициализация str_lftCorrespondentsSynchroFormCaption }
+ str_lftCorrespondentsSynchroFormSettingsCaption.Init;
+ {* Инициализация str_lftCorrespondentsSynchroFormSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftCorrespondentsSynchroForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftCorrespondentsSynchroForm }

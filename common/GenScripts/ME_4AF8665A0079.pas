@@ -24,6 +24,9 @@ uses
  , nevGUIInterfaces
  , afwInterfaces
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AF8665A0079intf_uses*
@@ -41,11 +44,8 @@ type
  )
   private
    f_TextSource: TnscTextSource;
-    {* Поле для свойства TextSource }
    f_EditorPanel: TvtPanel;
-    {* Поле для свойства EditorPanel }
    f_Editor: TeeEditorWithoutOperations;
-    {* Поле для свойства Editor }
   private
    procedure EditorGetHotSpotInfo(Sender: TObject;
     const aHotSpot: IevHotSpot;
@@ -85,7 +85,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -110,27 +109,19 @@ uses
  , l3String
  , l3Base
  , StyledLeafPara_Const
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorExample_utStyleEditorExample_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AF8665A0079impl_uses*
+ , evCustomEditorWindow
  //#UC END# *4AF8665A0079impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utStyleEditorExampleLocalConstants }
- str_utStyleEditorExampleCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorExampleCaption'; rValue : 'Текстовое окно редактора стилей');
-  {* Заголовок пользовательского типа "Текстовое окно редактора стилей" }
-
 procedure TPrimStyleEditorExampleForm.EditorGetHotSpotInfo(Sender: TObject;
  const aHotSpot: IevHotSpot;
  const aKeys: TafwCursorState;
@@ -280,7 +271,7 @@ begin
  with AddUsertype(utStyleEditorExampleName,
   str_utStyleEditorExampleCaption,
   str_utStyleEditorExampleCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -305,8 +296,6 @@ end;//TPrimStyleEditorExampleForm.MakeControls
 //#UC END# *4AF8665A0079impl*
 
 initialization
- str_utStyleEditorExampleCaption.Init;
- {* Инициализация str_utStyleEditorExampleCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorExampleForm);
  {* Регистрация PrimStyleEditorExample }

@@ -12,9 +12,9 @@ interface
 uses
  l3IntfUses
  , tfwCompilingWord
+ , l3Interfaces
  , tfwScriptingInterfaces
  , kwCompiledWordPrim
- , l3Interfaces
 ;
 
 type

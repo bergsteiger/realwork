@@ -53,15 +53,11 @@ type
    f_TabTable: InscTabTable;
    f_ArrangeCount: Integer;
    f_pnlMain: TvtPanel;
-    {* Поле для свойства pnlMain }
-   f_hfLastOpenDocs: TnscHideField;
-    {* Поле для свойства hfLastOpenDocs }
-   f_tvLastOpenDocs: TnscTreeViewHotTruck;
-    {* Поле для свойства tvLastOpenDocs }
    f_Grid: InscArrangeGrid;
-    {* Поле для свойства Grid }
    f_TreeStyle: TnsTreeStyleManager;
-    {* Поле для свойства TreeStyle }
+   f_hfLastOpenDocs: TnscHideField;
+    {* Последние открытые документы }
+   f_tvLastOpenDocs: TnscTreeViewHotTruck;
   private
    procedure GridSizeChanged(aSender: TObject);
     {* изменился размер таблицы, возможно нужно будет изменить размер скроллеров }
@@ -145,9 +141,6 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , nsQueryInterfaces
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -165,6 +158,11 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , nsOpenUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4958DD7002B6impl_uses*
+ //#UC END# *4958DD7002B6impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}

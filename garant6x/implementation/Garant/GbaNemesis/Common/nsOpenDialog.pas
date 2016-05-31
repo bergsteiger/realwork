@@ -60,10 +60,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3StringIDEx
  , eeCheckBox
  , SysUtils
  , l3Base
@@ -77,7 +77,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , CommDlg
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

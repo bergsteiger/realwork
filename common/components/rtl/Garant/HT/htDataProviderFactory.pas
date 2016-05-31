@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , daDataProviderFactory
  , daDataProviderParams
- , ddAppConfig
  , daInterfaces
+ , ddAppConfig
 ;
 
 type

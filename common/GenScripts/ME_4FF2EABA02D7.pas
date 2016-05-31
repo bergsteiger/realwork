@@ -38,8 +38,8 @@ uses
  , FoldersDomainInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , DocumentUserTypes_dftAACRight_UserType
  , BaloonWarningUserTypes_WarnJuror_UserType
  , nsTypes

@@ -17,10 +17,13 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , vtProportionalPanel
- , vtPanel
  , vtScrollBar
+ , vtPanel
  , vtSizeablePanel
  , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmContainerForm
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,27 +37,16 @@ type
   private
    f_TabCaption: IvcmCString;
    f_pnBack: TvtProportionalPanel;
-    {* Поле для свойства pnBack }
    f_pnRightEx: TvtPanel;
-    {* Поле для свойства pnRightEx }
    f_pnRightForScroll: TvtPanel;
-    {* Поле для свойства pnRightForScroll }
    f_pnRight: TvtPanel;
-    {* Поле для свойства pnRight }
    f_pnlRightTop: TvtPanel;
-    {* Поле для свойства pnlRightTop }
    f_scrRight: TvtScrollBar;
-    {* Поле для свойства scrRight }
    f_pnLeftEx: TvtSizeablePanel;
-    {* Поле для свойства pnLeftEx }
    f_pnLeftForScroll: TvtPanel;
-    {* Поле для свойства pnLeftForScroll }
    f_pnlLeftTop: TvtPanel;
-    {* Поле для свойства pnlLeftTop }
    f_pnLeft: TvtPanel;
-    {* Поле для свойства pnLeft }
    f_scrLeft: TvtScrollBar;
-    {* Поле для свойства scrLeft }
   protected
    function DoGetVScrollBar(aLeft: Boolean): TvtScrollBar; virtual;
    procedure DoSetJumpTo(aJumpTo: TevJumpToEvent); virtual;
@@ -112,34 +104,23 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , nsConst
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , AACContainerPrim_AACContainer_UserType
  , AACContainerPrim_AACContentsContainer_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4FF2E935019Aimpl_uses*
+ //#UC END# *4FF2E935019Aimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки AACContainerLocalConstants }
- str_AACContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContainerCaption'; rValue : '');
-  {* Заголовок пользовательского типа "" }
- {* Локализуемые строки AACContentsContainerLocalConstants }
- str_AACContentsContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContentsContainerCaption'; rValue : '');
-  {* Заголовок пользовательского типа "" }
-
 function TAACContainerPrimForm.DoGetVScrollBar(aLeft: Boolean): TvtScrollBar;
 //#UC START# *503CE2E2021B_4FF2E935019A_var*
 //#UC END# *503CE2E2021B_4FF2E935019A_var*
@@ -307,7 +288,7 @@ begin
  with AddUsertype(AACContainerName,
   str_AACContainerCaption,
   str_AACContainerCaption,
-  False,
+  True,
   21,
   -1,
   '',
@@ -320,7 +301,7 @@ begin
  with AddUsertype(AACContentsContainerName,
   str_AACContentsContainerCaption,
   str_AACContentsContainerCaption,
-  False,
+  True,
   21,
   -1,
   '',
@@ -342,7 +323,7 @@ begin
  f_pnRight := TvtPanel.Create(Self);
  f_pnRight.Name := 'pnRight';
  f_pnRight.Parent := pnRightForScroll;
- with DefineZone(vcm_ztMain, f_pnRight) do
+ with DefineZone(vcm_ztMain, pnRight) do
  begin
  end;//with DefineZone(vcm_ztMain
  f_pnlRightTop := TvtPanel.Create(Self);
@@ -363,7 +344,7 @@ begin
  f_pnLeft := TvtPanel.Create(Self);
  f_pnLeft.Name := 'pnLeft';
  f_pnLeft.Parent := pnLeftForScroll;
- with DefineZone(vcm_ztChild, f_pnLeft) do
+ with DefineZone(vcm_ztChild, pnLeft) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_scrLeft := TvtScrollBar.Create(Self);
@@ -372,10 +353,6 @@ begin
 end;//TAACContainerPrimForm.MakeControls
 
 initialization
- str_AACContainerCaption.Init;
- {* Инициализация str_AACContainerCaption }
- str_AACContentsContainerCaption.Init;
- {* Инициализация str_AACContentsContainerCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAACContainerPrimForm);
  {* Регистрация AACContainerPrim }

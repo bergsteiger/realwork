@@ -1,43 +1,37 @@
 {$IfNDef BaseDocumentForDocumentModule_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseDocumentForDocumentModule.imp.pas"
-// Начат: 27.01.2009 17:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::BaseDocument::BaseDocumentForDocumentModule
-//
-// Форма для работы с документом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "BaseDocumentForDocumentModule" MUID: (497F142501FA)
+// Имя типа: "_BaseDocumentForDocumentModule_"
 
 {$Define BaseDocumentForDocumentModule_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _BaseDocument_Parent_ = _BaseDocumentForDocumentModule_Parent_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
- _BaseDocumentForDocumentModule_ = {abstract form} class(_BaseDocument_)
+ _BaseDocumentForDocumentModule_ = {abstract} class(_BaseDocument_)
   {* Форма для работы с документом }
  end;//_BaseDocumentForDocumentModule_
-{$Else}
 
- _BaseDocument_Parent_ = _BaseDocumentForDocumentModule_Parent_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
- _BaseDocumentForDocumentModule_ = _BaseDocument_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_BaseDocument_Parent_ = _BaseDocumentForDocumentModule_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
+_BaseDocumentForDocumentModule_ = _BaseDocument_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else BaseDocumentForDocumentModule_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef BaseDocumentForDocumentModule_imp_impl}
 
+{$Define BaseDocumentForDocumentModule_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf BaseDocumentForDocumentModule_imp_impl}
 
 {$EndIf BaseDocumentForDocumentModule_imp}
+

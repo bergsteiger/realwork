@@ -1,123 +1,113 @@
 {$IfNDef CommonForTextAndFlash_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/CommonForTextAndFlash.imp.pas"
-// Начат: 02.02.2009 13:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::CommonForDocumentAndFlash::CommonForTextAndFlash
-//
-// Общее для документов и флеш-схем
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "CommonForTextAndFlash" MUID: (4986C5B30130)
+// Имя типа: "_CommonForTextAndFlash_"
 
 {$Define CommonForTextAndFlash_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _CommonForTextAndFlashAndMedicFirmList_Parent_ = _CommonForTextAndFlash_Parent_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
  _StatusBarDocumentItems_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
- {$Include ..\View\StatusBarDocumentItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
  _UnderControlResetter_Parent_ = _StatusBarDocumentItems_;
- {$Include ..\View\UnderControlResetter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
  _HyperlinkToDocumentProducer_Parent_ = _UnderControlResetter_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
- _CommonForTextAndFlash_ = {abstract form} class(_HyperlinkToDocumentProducer_)
+ _CommonForTextAndFlash_ = {abstract} class(_HyperlinkToDocumentProducer_)
   {* Общее для документов и флеш-схем }
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
- private
- // private methods
+  protected
+   sdsDocInfo: IsdsDocInfo;
+   dsDocument: IdsDocument;
+    {* Документ (контроллер области ввода) в виде IdsDocument. Может быть nil }
+   DocumentSet: IsdsDocument;
+    {* Прецедент IsdsDocument }
+  private
    function GetControllable(var aDoc: IDocument): IControllable;
- protected
- // realized methods
-   procedure Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
-     {* Поставить на контроль }
-   procedure Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
-     {* Поставить на контроль }
-   procedure Document_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Поставить на контроль }
-   procedure Document_UserCR1_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_UserCR1_GetState(var State: TvcmOperationStateIndex);
-     {* Коллеги, это что? }
-   procedure Document_UserCR2_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_UserCR2_GetState(var State: TvcmOperationStateIndex);
-     {* Коллеги, это что? }
-   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
-     {* Добавить закладку }
-   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Добавить закладку }
+  protected
+   procedure OpenCRListOpTest(const aParams: IvcmTestParamsPrim;
+    aCRType: TlstCRType;
+    aTyped: Boolean = True);
+    {* Пользовательские СКР. Тестирование }
+   procedure OpenUserCRListOpGetState(var State: TvcmOperationStateIndex;
+    aType: TnsUserCRListId);
+    {* Пользовательские СКР. Получение состояния }
+   procedure OpenUserCRListOpTest(const aParams: IvcmTestParamsPrim;
+    aType: TnsUserCRListId);
+    {* Открыть типизированый СКР. Тестирование }
+   procedure OpenCRListOpExecute(aType: TlstCRType;
+    const aValue: Il3SimpleNode);
+    {* Открыть типизированый СКР. Выполнение }
+   procedure OpenRelatedDocOpTest(const aParams: IvcmTestParamsPrim);
+   function CanAddToControl: Boolean; virtual;
+    {* Можно ли поставить на контроль }
+   procedure SetBookmark; virtual; abstract;
+    {* Устанавливает закладку на текущее место текущего документа }
+   function CanAddBookmark: Boolean; virtual; abstract;
+    {* Можно ли сейчас добавлять закладку }
+   function FormIsMainInDocumentSet: Boolean;
    function CanUnControl: Boolean; override;
    function pm_GetHyperlinkDocID: Integer; override;
    function pm_GetHyperlinkDocumentName: Il3CString; override;
- protected
- // protected fields
-   sdsDocInfo : IsdsDocInfo;
-   dsDocument : IdsDocument;
-    {* Документ (контроллер области ввода) в виде IdsDocument. Может быть nil}
-   DocumentSet : IsdsDocument;
-    {* Прецедент IsdsDocument}
- protected
- // protected methods
-   procedure OpenCRListOpTest(const aParams: IvcmTestParamsPrim;
-     aCRType: TlstCRType;
-     aTyped: Boolean = True);
-     {* Пользовательские СКР. Тестирование }
-   procedure OpenUserCRListOpGetState(var State: TvcmOperationStateIndex;
-     aType: TnsUserCRListId);
-     {* Пользовательские СКР. Получение состояния }
-   procedure OpenUserCRListOpTest(const aParams: IvcmTestParamsPrim;
-     aType: TnsUserCRListId);
-     {* Открыть типизированый СКР. Тестирование }
-   procedure OpenCRListOpExecute(aType: TlstCRType;
-    const aValue: Il3SimpleNode);
-     {* Открыть типизированый СКР. Выполнение }
-   procedure OpenRelatedDocOpTest(const aParams: IvcmTestParamsPrim);
-   function CanAddToControl: Boolean; virtual;
-     {* Можно ли поставить на контроль }
-   procedure SetBookmark; virtual; abstract;
-     {* Устанавливает закладку на текущее место текущего документа }
-   function CanAddBookmark: Boolean; virtual; abstract;
-     {* Можно ли сейчас добавлять закладку }
-   function FormIsMainInDocumentSet: Boolean;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+    {* Поставить на контроль }
+   procedure Document_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Поставить на контроль }
+   procedure Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
+    {* Поставить на контроль }
+   procedure Document_UserCR1_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_UserCR1_GetState(var State: TvcmOperationStateIndex);
+    {* Коллеги, это что? }
+   procedure Document_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_UserCR2_GetState(var State: TvcmOperationStateIndex);
+    {* Коллеги, это что? }
+   procedure Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+    {* Добавить закладку }
+   procedure Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Добавить закладку }
  end;//_CommonForTextAndFlash_
-{$Else}
 
- _CommonForTextAndFlashAndMedicFirmList_Parent_ = _CommonForTextAndFlash_Parent_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
- _StatusBarDocumentItems_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
- {$Include ..\View\StatusBarDocumentItems.imp.pas}
- _UnderControlResetter_Parent_ = _StatusBarDocumentItems_;
- {$Include ..\View\UnderControlResetter.imp.pas}
- _HyperlinkToDocumentProducer_Parent_ = _UnderControlResetter_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
- _CommonForTextAndFlash_ = _HyperlinkToDocumentProducer_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_CommonForTextAndFlashAndMedicFirmList_Parent_ = _CommonForTextAndFlash_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
+_StatusBarDocumentItems_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
+_UnderControlResetter_Parent_ = _StatusBarDocumentItems_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
+_HyperlinkToDocumentProducer_Parent_ = _UnderControlResetter_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
+_CommonForTextAndFlash_ = _HyperlinkToDocumentProducer_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else CommonForTextAndFlash_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef CommonForTextAndFlash_imp_impl}
 
+{$Define CommonForTextAndFlash_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
-{$Include ..\View\StatusBarDocumentItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
 
-
-{$Include ..\View\UnderControlResetter.imp.pas}
-
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
-
-// start class _CommonForTextAndFlash_
 
 function _CommonForTextAndFlash_.GetControllable(var aDoc: IDocument): IControllable;
 //#UC START# *4A1FEF7C0243_4986C5B30130_var*
@@ -140,13 +130,13 @@ begin
 end;//_CommonForTextAndFlash_.GetControllable
 
 procedure _CommonForTextAndFlash_.OpenCRListOpTest(const aParams: IvcmTestParamsPrim;
-  aCRType: TlstCRType;
-  aTyped: Boolean = True);
+ aCRType: TlstCRType;
+ aTyped: Boolean = True);
+ {* Пользовательские СКР. Тестирование }
+var l_List: IvcmNodes;
+var l_Strings: IvcmStrings;
 //#UC START# *4A1FEFB30146_4986C5B30130_var*
 //#UC END# *4A1FEFB30146_4986C5B30130_var*
-var
- l_List : IvcmNodes;
- l_Strings : IvcmStrings;
 begin
 //#UC START# *4A1FEFB30146_4986C5B30130_impl*
  if (sdsDocInfo <> nil)then
@@ -177,7 +167,8 @@ begin
 end;//_CommonForTextAndFlash_.OpenCRListOpTest
 
 procedure _CommonForTextAndFlash_.OpenUserCRListOpGetState(var State: TvcmOperationStateIndex;
-  aType: TnsUserCRListId);
+ aType: TnsUserCRListId);
+ {* Пользовательские СКР. Получение состояния }
 //#UC START# *4A1FF27B0152_4986C5B30130_var*
 //#UC END# *4A1FF27B0152_4986C5B30130_var*
 begin
@@ -200,7 +191,8 @@ begin
 end;//_CommonForTextAndFlash_.OpenUserCRListOpGetState
 
 procedure _CommonForTextAndFlash_.OpenUserCRListOpTest(const aParams: IvcmTestParamsPrim;
-  aType: TnsUserCRListId);
+ aType: TnsUserCRListId);
+ {* Открыть типизированый СКР. Тестирование }
 //#UC START# *4A1FF47600B8_4986C5B30130_var*
 //#UC END# *4A1FF47600B8_4986C5B30130_var*
 begin
@@ -223,7 +215,8 @@ begin
 end;//_CommonForTextAndFlash_.OpenUserCRListOpTest
 
 procedure _CommonForTextAndFlash_.OpenCRListOpExecute(aType: TlstCRType;
-  const aValue: Il3SimpleNode);
+ const aValue: Il3SimpleNode);
+ {* Открыть типизированый СКР. Выполнение }
 //#UC START# *4986E7110341_4986C5B30130_var*
 var
  l_Node : INodeBase;
@@ -253,6 +246,7 @@ begin
 end;//_CommonForTextAndFlash_.OpenRelatedDocOpTest
 
 function _CommonForTextAndFlash_.CanAddToControl: Boolean;
+ {* Можно ли поставить на контроль }
 //#UC START# *4988675A0308_4986C5B30130_var*
 //#UC END# *4988675A0308_4986C5B30130_var*
 begin
@@ -273,6 +267,7 @@ begin
 end;//_CommonForTextAndFlash_.FormIsMainInDocumentSet
 
 procedure _CommonForTextAndFlash_.Document_AddToControl_Test(const aParams: IvcmTestParamsPrim);
+ {* Поставить на контроль }
 //#UC START# *498863B203D0_4986C5B30130test_var*
 var
  l_Controllable : IControllable;
@@ -291,28 +286,8 @@ begin
 //#UC END# *498863B203D0_4986C5B30130test_impl*
 end;//_CommonForTextAndFlash_.Document_AddToControl_Test
 
-procedure _CommonForTextAndFlash_.Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *498863B203D0_4986C5B30130getstate_var*
-var
- l_Controllable : IControllable;
- l_Doc          : IDocument;
-//#UC END# *498863B203D0_4986C5B30130getstate_var*
-begin
-//#UC START# *498863B203D0_4986C5B30130getstate_impl*
- l_Controllable := GetControllable(l_Doc);
- if (l_Controllable <> nil) then
- try
-  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
-   State := st_user_Document_AddToControl_RemoveFromControl
-  else
-   State := vcm_DefaultOperationState;
- finally
-  l_Controllable := nil;
- end;//try..finally
-//#UC END# *498863B203D0_4986C5B30130getstate_impl*
-end;//_CommonForTextAndFlash_.Document_AddToControl_GetState
-
 procedure _CommonForTextAndFlash_.Document_AddToControl_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Поставить на контроль }
 //#UC START# *498863B203D0_4986C5B30130exec_var*
 var
  l_Controllable : IControllable;
@@ -340,7 +315,30 @@ begin
 //#UC END# *498863B203D0_4986C5B30130exec_impl*
 end;//_CommonForTextAndFlash_.Document_AddToControl_Execute
 
+procedure _CommonForTextAndFlash_.Document_AddToControl_GetState(var State: TvcmOperationStateIndex);
+ {* Поставить на контроль }
+//#UC START# *498863B203D0_4986C5B30130getstate_var*
+var
+ l_Controllable : IControllable;
+ l_Doc          : IDocument;
+//#UC END# *498863B203D0_4986C5B30130getstate_var*
+begin
+//#UC START# *498863B203D0_4986C5B30130getstate_impl*
+ l_Controllable := GetControllable(l_Doc);
+ if (l_Controllable <> nil) then
+ try
+  if TdmStdRes.IsCurEditionActual(l_Doc) and l_Controllable.GetControlled then
+   State := st_user_Document_AddToControl_RemoveFromControl
+  else
+   State := vcm_DefaultOperationState;
+ finally
+  l_Controllable := nil;
+ end;//try..finally
+//#UC END# *498863B203D0_4986C5B30130getstate_impl*
+end;//_CommonForTextAndFlash_.Document_AddToControl_GetState
+
 procedure _CommonForTextAndFlash_.Document_UserCR1_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *4989C7D30219_4986C5B30130test_var*
 //#UC END# *4989C7D30219_4986C5B30130test_var*
 begin
@@ -350,6 +348,7 @@ begin
 end;//_CommonForTextAndFlash_.Document_UserCR1_Test
 
 procedure _CommonForTextAndFlash_.Document_UserCR1_GetState(var State: TvcmOperationStateIndex);
+ {* Коллеги, это что? }
 //#UC START# *4989C7D30219_4986C5B30130getstate_var*
 //#UC END# *4989C7D30219_4986C5B30130getstate_var*
 begin
@@ -359,6 +358,7 @@ begin
 end;//_CommonForTextAndFlash_.Document_UserCR1_GetState
 
 procedure _CommonForTextAndFlash_.Document_UserCR2_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *4989C96003C4_4986C5B30130test_var*
 //#UC END# *4989C96003C4_4986C5B30130test_var*
 begin
@@ -368,6 +368,7 @@ begin
 end;//_CommonForTextAndFlash_.Document_UserCR2_Test
 
 procedure _CommonForTextAndFlash_.Document_UserCR2_GetState(var State: TvcmOperationStateIndex);
+ {* Коллеги, это что? }
 //#UC START# *4989C96003C4_4986C5B30130getstate_var*
 //#UC END# *4989C96003C4_4986C5B30130getstate_var*
 begin
@@ -377,6 +378,7 @@ begin
 end;//_CommonForTextAndFlash_.Document_UserCR2_GetState
 
 procedure _CommonForTextAndFlash_.Document_AddBookmark_Test(const aParams: IvcmTestParamsPrim);
+ {* Добавить закладку }
 //#UC START# *4989D06D014E_4986C5B30130test_var*
 //#UC END# *4989D06D014E_4986C5B30130test_var*
 begin
@@ -386,6 +388,7 @@ begin
 end;//_CommonForTextAndFlash_.Document_AddBookmark_Test
 
 procedure _CommonForTextAndFlash_.Document_AddBookmark_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Добавить закладку }
 //#UC START# *4989D06D014E_4986C5B30130exec_var*
 //#UC END# *4989D06D014E_4986C5B30130exec_var*
 begin
@@ -434,25 +437,30 @@ begin
 //#UC END# *4CDD1A02013D_4986C5B30130get_impl*
 end;//_CommonForTextAndFlash_.pm_GetHyperlinkDocumentName
 
-procedure _CommonForTextAndFlash_.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure _CommonForTextAndFlash_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   sdsDocInfo := nil;
   dsDocument := nil;
   DocumentSet := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  aDsNew.CastUCC(IsdsDocInfo, sdsDocInfo);
-  Supports(aDsNew, IdsDocument, dsDocument);
-  aDsNew.CastUCC(IsdsDocument, DocumentSet);
- end;//aDsNew = nil
-end;
+  aNew.CastUCC(IsdsDocInfo, sdsDocInfo);
+  Supports(aNew, IdsDocument, dsDocument);
+  aNew.CastUCC(IsdsDocument, DocumentSet);
+ end;//aNew = nil
+end;//_CommonForTextAndFlash_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _CommonForTextAndFlash_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -463,8 +471,11 @@ begin
   PublishOp(en_Document, op_UserCR2, nil, Document_UserCR2_Test, Document_UserCR2_GetState);
   PublishOp(en_Document, op_AddBookmark, Document_AddBookmark_Execute, Document_AddBookmark_Test, nil);
  end;//with Entities.Entities
-end;
+end;//_CommonForTextAndFlash_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf CommonForTextAndFlash_imp_impl}
 
 {$EndIf CommonForTextAndFlash_imp}
+

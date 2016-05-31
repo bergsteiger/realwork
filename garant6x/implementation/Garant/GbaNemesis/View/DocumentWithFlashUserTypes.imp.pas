@@ -1,57 +1,40 @@
 {$IfNDef DocumentWithFlashUserTypes_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DocumentWithFlashUserTypes.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::DocumentWithFlashUserTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "DocumentWithFlashUserTypes" MUID: (4FFBE354038B)
+// Имя типа: "_DocumentWithFlashUserTypes_"
 
 {$Define DocumentWithFlashUserTypes_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _DocumentWithFlashUserTypes_ = {abstract form} class(_DocumentWithFlashUserTypes_Parent_)
- protected
-  procedure MakeControls; override;
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _DocumentWithFlashUserTypes_ = {abstract} class(_DocumentWithFlashUserTypes_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_DocumentWithFlashUserTypes_
-{$Else}
 
- _DocumentWithFlashUserTypes_ = _DocumentWithFlashUserTypes_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_DocumentWithFlashUserTypes_ = _DocumentWithFlashUserTypes_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else DocumentWithFlashUserTypes_imp}
 
 {$IfNDef DocumentWithFlashUserTypes_imp_impl}
+
 {$Define DocumentWithFlashUserTypes_imp_impl}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки dwftMainLocalConstants }
-  str_dwftMainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftMainCaption'; rValue : 'Схема');
-   { Заголовок пользовательского типа "Схема" }
-
-var
-   { Локализуемые строки dwftSynchroLocalConstants }
-  str_dwftSynchroCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroCaption'; rValue : 'Схема (синхронный просмотр)');
-   { Заголовок пользовательского типа "Схема (синхронный просмотр)" }
-  str_dwftSynchroSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftSynchroSettingsCaption'; rValue : 'Синхронный просмотр: Схема');
-   { Заголовок пользовательского типа "Схема (синхронный просмотр)" для настройки панелей инструментов }
-
-// start class _DocumentWithFlashUserTypes_
-
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
 procedure _DocumentWithFlashUserTypes_.MakeControls;
 begin
  inherited;
  with AddUsertype(dwftMainName,
   str_dwftMainCaption,
   str_dwftMainCaption,
-  true,
+  True,
   21,
   -1,
   '',
@@ -64,7 +47,7 @@ begin
  with AddUsertype(dwftSynchroName,
   str_dwftSynchroCaption,
   str_dwftSynchroSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -74,19 +57,11 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(dwftSynchroName
-end;
+end;//_DocumentWithFlashUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else  DocumentWithFlashUserTypes_imp_impl}
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_dwftMainCaption
- str_dwftMainCaption.Init;
-// Инициализация str_dwftSynchroCaption
- str_dwftSynchroCaption.Init;
-// Инициализация str_dwftSynchroSettingsCaption
- str_dwftSynchroSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf DocumentWithFlashUserTypes_imp_impl}
+
 {$EndIf DocumentWithFlashUserTypes_imp}
+

@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки remTimeMachineWarningLocalConstants }
+ str_remTimeMachineWarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'remTimeMachineWarningCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы remTimeMachineWarning }
  remTimeMachineWarningName = 'remTimeMachineWarning';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_remTimeMachineWarningCaption.Init;
+ {* Инициализация str_remTimeMachineWarningCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_remTimeMachineWarning.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_remTimeMachineWarning }

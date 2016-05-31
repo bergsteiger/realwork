@@ -1,105 +1,93 @@
 unit PrimPostingsList_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Monitorings/Forms/PrimPostingsList_Form.pas"
-// Начат: 15.09.2009 18:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::PostingOrder::View::Monitorings::PrimPostingsList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsList_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPostingsList" MUID: (4AAFA13C01B0)
+// Имя типа: "TPrimPostingsListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Interfaces,
-  l3ControlsTypes,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nsPostingsLine
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  PostingOrder_Strange_Controls,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimPostingsList_MyPostingList_UserType,
-  l3TreeInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PostingOrder_Strange_Controls
+ , eeTreeView
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
-var
-  { Локализуемые строки Local }
- str_PrimeFilter : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimeFilter'; rValue : 'Ленты новостей|*.xml');
-  { 'Ленты новостей|*.xml' }
- str_ExportPrimeTitle : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportPrimeTitle'; rValue : 'Экспорт выделенных лент');
-  { 'Экспорт выделенных лент' }
+const
+ {* Локализуемые строки Local }
+ str_PrimeFilter: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimeFilter'; rValue : 'Ленты новостей|*.xml');
+  {* 'Ленты новостей|*.xml' }
+ str_ExportPrimeTitle: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportPrimeTitle'; rValue : 'Экспорт выделенных лент');
+  {* 'Экспорт выделенных лент' }
 
 type
- TPrimPostingsListForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_OnUpdate : Boolean;
-   f_tvPostings : TeeTreeView;
-    {* Поле для свойства tvPostings}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimPostingsListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_OnUpdate: Boolean;
+   f_tvPostings: TeeTreeView;
+  private
    function Save: Boolean;
-     {* Функция проверяет необходимость сохранения запроса программы.
+    {* Функция проверяет необходимость сохранения запроса программы.
 Возвращает False, если пользователь нажал "Нет" в предложении сохранить запрос. }
-   function TvPostingsGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
-   procedure TvPostingsCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+   function tvPostingsGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+   procedure tvPostingsCurrentChanged(Sender: TObject;
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure OnAddNode(aIndex: Integer);
    procedure OnDeleteNode(aIndex: Integer);
    procedure OnCaptionChange(aIndex: Integer;
-     const aNewCaption: Il3CString);
- protected
- // property methods
+    const aNewCaption: Il3CString);
+  protected
    function pm_GetIsNeedSave: Boolean;
- protected
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure PostingToolBar_ptNewTheme_Test(const aParams: IvcmTestParamsPrim);
    procedure PostingToolBar_ptNewTheme_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure PostingToolBar_ptEditPosting_Test(const aParams: IvcmTestParamsPrim);
@@ -110,91 +98,70 @@ type
    procedure PostingToolBar_SavePostList_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure PostingToolBar_ExportSelected_Test(const aParams: IvcmTestParamsPrim);
    procedure PostingToolBar_ExportSelected_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- private
- // private properties
+  private
    property IsNeedSave: Boolean
-     read pm_GetIsNeedSave;
-     {* определяет нужно ли сохранять текущие результаты работы при смене тематики или закрытии приложения. }
- public
- // public properties
+    read pm_GetIsNeedSave;
+    {* определяет нужно ли сохранять текущие результаты работы при смене тематики или закрытии приложения. }
+  public
    property tvPostings: TeeTreeView
-     read f_tvPostings;
+    read f_tvPostings;
  end;//TPrimPostingsListForm
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  nsPostingsTreeSingle
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  vtSaveDialog,
-  PrimeDomainInterfaces,
-  SearchUnit,
-  SysUtils,
-  eeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  nsTypes,
-  PrimeUnit,
-  evdTextStyle_Const
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  SearchRes,
-  OldTreeInterfaces,
-  nsQueryInterfaces,
-  DataAdapter,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtSaveDialog
+ , PrimeDomainInterfaces
+ , SearchUnit
+ , SysUtils
+ , eeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , PrimeUnit
+ , evdTextStyle_Const
+ , l3ControlsTypes
+ , nsPostingsTreeSingle
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SearchRes
+ , OldTreeInterfaces
+ , nsQueryInterfaces
+ , l3TreeInterfaces
+ , DataAdapter
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimPostingsList_MyPostingList_UserType
+ //#UC START# *4AAFA13C01B0impl_uses*
+ //#UC END# *4AAFA13C01B0impl_uses*
+;
 
-{$If not defined(Admin)}
-
-var
-   { Локализуемые строки MyPostingListLocalConstants }
-  str_MyPostingListCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MyPostingListCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
-   { Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
-
-// start class TPrimPostingsListForm
+{$If NOT Defined(NoVCM)}
+function TPrimPostingsListForm.pm_GetIsNeedSave: Boolean;
+//#UC START# *52826BBE03A6_4AAFA13C01B0get_var*
+//#UC END# *52826BBE03A6_4AAFA13C01B0get_var*
+begin
+//#UC START# *52826BBE03A6_4AAFA13C01B0get_impl*
+ with TnsPostingsTreeSingle.Instance do
+  Result := not f_OnUpdate and (MgrSearch <> nil) and MgrSearch.Modified and Ask(qr_SavePosting);
+//#UC END# *52826BBE03A6_4AAFA13C01B0get_impl*
+end;//TPrimPostingsListForm.pm_GetIsNeedSave
 
 function TPrimPostingsListForm.Save: Boolean;
+ {* Функция проверяет необходимость сохранения запроса программы.
+Возвращает False, если пользователь нажал "Нет" в предложении сохранить запрос. }
 //#UC START# *4C84F272012A_4AAFA13C01B0_var*
 //#UC END# *4C84F272012A_4AAFA13C01B0_var*
 begin
@@ -206,9 +173,9 @@ begin
 //#UC END# *4C84F272012A_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.Save
 
-function TPrimPostingsListForm.TvPostingsGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+function TPrimPostingsListForm.tvPostingsGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *528262650131_4AAFA13C01B0_var*
 //#UC END# *528262650131_4AAFA13C01B0_var*
 begin
@@ -216,18 +183,18 @@ begin
  aImages := nsSearchRes.SearchItemsImageList; 
  Result := siilNewsLineThemeForCreate;
 //#UC END# *528262650131_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.TvPostingsGetItemImage
+end;//TPrimPostingsListForm.tvPostingsGetItemImage
 
-procedure TPrimPostingsListForm.TvPostingsCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
+procedure TPrimPostingsListForm.tvPostingsCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *5282636A000F_4AAFA13C01B0_var*
 //#UC END# *5282636A000F_4AAFA13C01B0_var*
 begin
 //#UC START# *5282636A000F_4AAFA13C01B0_impl*
  PostingToolBar_ptEditPosting_Execute(vcmParams);
 //#UC END# *5282636A000F_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.TvPostingsCurrentChanged
+end;//TPrimPostingsListForm.tvPostingsCurrentChanged
 
 procedure TPrimPostingsListForm.OnAddNode(aIndex: Integer);
 //#UC START# *5282655D0103_4AAFA13C01B0_var*
@@ -257,7 +224,7 @@ begin
 end;//TPrimPostingsListForm.OnDeleteNode
 
 procedure TPrimPostingsListForm.OnCaptionChange(aIndex: Integer;
-  const aNewCaption: Il3CString);
+ const aNewCaption: Il3CString);
 //#UC START# *52826586022D_4AAFA13C01B0_var*
 var
  l_Node: InsWrapperNode;
@@ -276,16 +243,6 @@ begin
   Assert(False);
 //#UC END# *52826586022D_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.OnCaptionChange
-
-function TPrimPostingsListForm.pm_GetIsNeedSave: Boolean;
-//#UC START# *52826BBE03A6_4AAFA13C01B0get_var*
-//#UC END# *52826BBE03A6_4AAFA13C01B0get_var*
-begin
-//#UC START# *52826BBE03A6_4AAFA13C01B0get_impl*
- with TnsPostingsTreeSingle.Instance do
-  Result := not f_OnUpdate and (MgrSearch <> nil) and MgrSearch.Modified and Ask(qr_SavePosting);
-//#UC END# *52826BBE03A6_4AAFA13C01B0get_impl*
-end;//TPrimPostingsListForm.pm_GetIsNeedSave
 
 procedure TPrimPostingsListForm.PostingToolBar_ptNewTheme_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C84EE020054_4AAFA13C01B0test_var*
@@ -448,6 +405,7 @@ begin
 end;//TPrimPostingsListForm.PostingToolBar_ExportSelected_Execute
 
 procedure TPrimPostingsListForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AAFA13C01B0_var*
 //#UC END# *479731C50290_4AAFA13C01B0_var*
 begin
@@ -507,8 +465,8 @@ begin
 //#UC END# *47EA4E9002C6_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimPostingsListForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AAFA13C01B0_var*
 var
  l_Root: Il3SimpleRootNode;
@@ -521,9 +479,7 @@ begin
   Assert(False);
 //#UC END# *49803F5503AA_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimPostingsListForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_4AAFA13C01B0_var*
 //#UC END# *4980407F0076_4AAFA13C01B0_var*
@@ -539,10 +495,9 @@ begin
  {$ifend}
 //#UC END# *4980407F0076_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.CallCloseQuery
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimPostingsListForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AAFA13C01B0_var*
 //#UC END# *4A8E8F2E0195_4AAFA13C01B0_var*
 begin
@@ -568,31 +523,32 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimPostingsListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_PostingToolBar, nil);
   PublishOp(en_PostingToolBar, op_ptNewTheme, PostingToolBar_ptNewTheme_Execute, PostingToolBar_ptNewTheme_Test, nil, true);
-  ShowInContextMenu(en_PostingToolBar, op_ptNewTheme, true, true);
-  ShowInToolbar(en_PostingToolBar, op_ptNewTheme, true, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptNewTheme, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptNewTheme, True, true);
   PublishOp(en_PostingToolBar, op_ptEditPosting, PostingToolBar_ptEditPosting_Execute, PostingToolBar_ptEditPosting_Test, nil, true);
-  ShowInContextMenu(en_PostingToolBar, op_ptEditPosting, true, true);
-  ShowInToolbar(en_PostingToolBar, op_ptEditPosting, false, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptEditPosting, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptEditPosting, False, true);
   PublishOp(en_PostingToolBar, op_ptDeletePosting, PostingToolBar_ptDeletePosting_Execute, PostingToolBar_ptDeletePosting_Test, nil, true);
-  ShowInContextMenu(en_PostingToolBar, op_ptDeletePosting, true, true);
-  ShowInToolbar(en_PostingToolBar, op_ptDeletePosting, true, true);
+  ShowInContextMenu(en_PostingToolBar, op_ptDeletePosting, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptDeletePosting, True, true);
   PublishOp(en_PostingToolBar, op_SavePostList, PostingToolBar_SavePostList_Execute, PostingToolBar_SavePostList_Test, nil);
-  ShowInContextMenu(en_PostingToolBar, op_SavePostList, true);
-  ShowInToolbar(en_PostingToolBar, op_SavePostList, true);
+  ShowInContextMenu(en_PostingToolBar, op_SavePostList, True);
+  ShowInToolbar(en_PostingToolBar, op_SavePostList, True);
   PublishOp(en_PostingToolBar, op_ExportSelected, PostingToolBar_ExportSelected_Execute, PostingToolBar_ExportSelected_Test, nil);
-  ShowInContextMenu(en_PostingToolBar, op_ExportSelected, true);
-  ShowInToolbar(en_PostingToolBar, op_ExportSelected, false);
+  ShowInContextMenu(en_PostingToolBar, op_ExportSelected, True);
+  ShowInToolbar(en_PostingToolBar, op_ExportSelected, False);
  end;//with Entities.Entities
-end;
+end;//TPrimPostingsListForm.InitEntities
 
 procedure TPrimPostingsListForm.MakeControls;
 begin
@@ -600,7 +556,7 @@ begin
  with AddUsertype(MyPostingListName,
   str_MyPostingListCaption,
   str_MyPostingListCaption,
-  true,
+  True,
   145,
   -1,
   '',
@@ -613,26 +569,18 @@ begin
  f_tvPostings := TeeTreeView.Create(Self);
  f_tvPostings.Name := 'tvPostings';
  f_tvPostings.Parent := Self;
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimPostingsListForm.MakeControls
 
 initialization
-{$If not defined(Admin)}
-// Инициализация str_MyPostingListCaption
- str_MyPostingListCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_PrimeFilter
  str_PrimeFilter.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_ExportPrimeTitle
+ {* Инициализация str_PrimeFilter }
  str_ExportPrimeTitle.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimPostingsList
+ {* Инициализация str_ExportPrimeTitle }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPostingsListForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimPostingsList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

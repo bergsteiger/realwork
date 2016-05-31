@@ -21,7 +21,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -41,11 +40,10 @@ type
   {* Атрибуты документа }
   private
    f_tvAttributes: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvAttributes }
   protected
    CoDS: IdsAttributes;
   protected
-   procedure fDocAttributeQueryClose(aSender: TObject); override;
+   procedure FDocAttributeQueryClose(aSender: TObject); override;
     {* Обработчик события fDocAttribute.OnQueryClose }
    procedure DoTabActivate; override;
     {* Реакция на переключение вкладки }
@@ -77,15 +75,25 @@ uses
  , nsSingleAttributeData
  , F1Like_InternalOperations_Controls
  , Common_Strange_Controls
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  , nsManagers
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
- , l3MessageID
+ , AttributesUserTypes_fDocAttribute_UserType
+ , AttributesUserTypes_fAttributeSynchroView_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4979DA14019Aimpl_uses*
+ //#UC END# *4979DA14019Aimpl_uses*
 ;
 
 type
@@ -115,7 +123,7 @@ type _Instance_R_ = TPrimAttributesForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas}
 
-procedure TPrimAttributesForm.fDocAttributeQueryClose(aSender: TObject);
+procedure TPrimAttributesForm.FDocAttributeQueryClose(aSender: TObject);
  {* Обработчик события fDocAttribute.OnQueryClose }
 //#UC START# *37BE60CD03ED_4979DA14019A_var*
 //#UC END# *37BE60CD03ED_4979DA14019A_var*
@@ -126,7 +134,7 @@ begin
  else
   op_Switcher_SetFirstPageActive.Call(Container);
 //#UC END# *37BE60CD03ED_4979DA14019A_impl*
-end;//TPrimAttributesForm.fDocAttributeQueryClose
+end;//TPrimAttributesForm.FDocAttributeQueryClose
 
 procedure TPrimAttributesForm.DoTabActivate;
  {* Реакция на переключение вкладки }
@@ -144,6 +152,14 @@ procedure TPrimAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataS
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  CoDS := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsAttributes, CoDS);
+ end;//aNew = nil
 end;//TPrimAttributesForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 

@@ -21,15 +21,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Base_Operations_Editions_Controls
  , nscTreeViewWithAdapterDragDrop
+ , l3Interfaces
  , l3TreeInterfaces
  , eeInterfaces
- , l3Interfaces
- {$If NOT Defined(NoVCL)}
- , ImgList
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
  , nsTypes
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -47,7 +47,6 @@ type
   {* На контроле }
   private
    f_UnderControlList: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства UnderControlList }
   private
    procedure UnderControlListSelectChanged(Sender: TObject;
     Index: LongInt;
@@ -136,7 +135,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , SysUtils
  , UnderControlUnit
  , DocumentUnit
@@ -165,25 +163,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(Nemesis)}
  , eeTreeMisc
  {$IfEnd} // Defined(Nemesis)
  , nsFolders
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimUnderControl_utUnderControl_UserType
+ //#UC START# *4A7C349D02CBimpl_uses*
+ , l3ControlsTypes
+ , vtLister
+ //#UC END# *4A7C349D02CBimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utUnderControlLocalConstants }
- str_utUnderControlCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlCaption'; rValue : 'Документы на контроле');
-  {* Заголовок пользовательского типа "Документы на контроле" }
- str_utUnderControlSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlSettingsCaption'; rValue : 'Документы на контроле (вкладка)');
-  {* Заголовок пользовательского типа "Документы на контроле" для настройки панелей инструментов }
-
 function TPrimUnderControlForm.CanCompareEditions(const aNode: Il3SimpleNode;
  WithState: Boolean): Boolean;
 //#UC START# *4B88CAAF01CF_4A7C349D02CB_var*
@@ -740,6 +734,7 @@ begin
   PublishFormEntity(en_ControlCenter, nil);
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_Document, nil);
+  MakeEntitySupportedByControl(en_Tree, UnderControlList);
   PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
   PublishOpWithResult(en_ControlCenter, op_Refresh, ControlCenter_Refresh, nil, nil);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
@@ -754,7 +749,7 @@ begin
  with AddUsertype(utUnderControlName,
   str_utUnderControlCaption,
   str_utUnderControlSettingsCaption,
-  False,
+  True,
   67,
   -1,
   '',
@@ -770,10 +765,6 @@ begin
 end;//TPrimUnderControlForm.MakeControls
 
 initialization
- str_utUnderControlCaption.Init;
- {* Инициализация str_utUnderControlCaption }
- str_utUnderControlSettingsCaption.Init;
- {* Инициализация str_utUnderControlSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUnderControlForm);
  {* Регистрация PrimUnderControl }

@@ -265,10 +265,9 @@ type
  TdaJoinKind = (
   {* Тип соединения таблиц в запросах }
   da_jkInner
-  , da_jkParentOuter
-  , da_jkChildOuter
+  , da_jkLeftOuter
+  , da_jkRightOuter
   , da_jkFullOuter
-  , da_jkCartesian
  );//TdaJoinKind
 
  TdaSessionID = LongInt;

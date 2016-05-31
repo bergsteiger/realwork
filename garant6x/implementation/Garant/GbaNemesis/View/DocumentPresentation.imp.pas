@@ -1,85 +1,77 @@
 {$IfNDef DocumentPresentation_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DocumentPresentation.imp.pas"
-// Начат: 07.08.2009 15:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::DocumentPresentation
-//
-// Представление документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "DocumentPresentation" MUID: (4A7C0BF5008B)
+// Имя типа: "_DocumentPresentation_"
 
 {$Define DocumentPresentation_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _DocumentPresentation_ = {abstract form} class(_DocumentPresentation_Parent_)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _DocumentPresentation_ = {abstract} class(_DocumentPresentation_Parent_)
   {* Представление документа }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   procedure Document_ShowJurorComments_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать юридические комментарии }
-   procedure Document_ShowJurorComments_GetState(var State: TvcmOperationStateIndex);
-     {* Показать юридические комментарии }
-   procedure Document_ShowJurorComments_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать юридические комментарии }
-   procedure Document_ShowUserComments_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать комментарии пользователя }
-   procedure Document_ShowUserComments_GetState(var State: TvcmOperationStateIndex);
-     {* Показать комментарии пользователя }
-   procedure Document_ShowUserComments_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать комментарии пользователя }
-   procedure Document_ShowVersionComments_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать информацию о версии }
-   procedure Document_ShowVersionComments_GetState(var State: TvcmOperationStateIndex);
-     {* Показать информацию о версии }
-   procedure Document_ShowVersionComments_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать информацию о версии }
-   procedure Document_ShowCommentsGroup_Test(const aParams: IvcmTestParamsPrim);
-     {* Комментарии }
-   procedure Document_ShowCommentsGroup_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Комментарии }
-   procedure SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
-     {* Показывать спецсимволы }
-   procedure SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показывать спецсимволы }
-   procedure SubPanelSettings_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
-     {* Показывать блоки }
-   procedure SubPanelSettings_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показывать блоки }
-   procedure Document_ShowTechComments_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать технические комментарии }
-   procedure Document_ShowTechComments_GetState(var State: TvcmOperationStateIndex);
-     {* Показать технические комментарии }
-   procedure Document_ShowTechComments_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать технические комментарии }
- protected
- // protected methods
+  protected
    procedure DoDocumentShowTechCommentsExecute; virtual;
    function DocumentIsValid: Boolean; virtual; abstract;
-     {* Есть ли документ, готовый к работе }
+    {* Есть ли документ, готовый к работе }
    procedure InvertVersionCommentsVisibleByUser;
    procedure VersionCommentsVisibleInvertedByUser(NewState: Boolean); virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure Document_ShowJurorComments_Test(const aParams: IvcmTestParamsPrim);
+    {* Показать юридические комментарии }
+   procedure Document_ShowJurorComments_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать юридические комментарии }
+   procedure Document_ShowJurorComments_GetState(var State: TvcmOperationStateIndex);
+    {* Показать юридические комментарии }
+   procedure Document_ShowUserComments_Test(const aParams: IvcmTestParamsPrim);
+    {* Показать комментарии пользователя }
+   procedure Document_ShowUserComments_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать комментарии пользователя }
+   procedure Document_ShowUserComments_GetState(var State: TvcmOperationStateIndex);
+    {* Показать комментарии пользователя }
+   procedure Document_ShowVersionComments_Test(const aParams: IvcmTestParamsPrim);
+    {* Показать информацию о версии }
+   procedure Document_ShowVersionComments_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать информацию о версии }
+   procedure Document_ShowVersionComments_GetState(var State: TvcmOperationStateIndex);
+    {* Показать информацию о версии }
+   procedure Document_ShowCommentsGroup_Test(const aParams: IvcmTestParamsPrim);
+    {* Комментарии }
+   procedure Document_ShowCommentsGroup_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Комментарии }
+   procedure SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
+    {* Показывать спецсимволы }
+   procedure SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показывать спецсимволы }
+   procedure SubPanelSettings_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+    {* Показывать блоки }
+   procedure SubPanelSettings_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показывать блоки }
+   procedure Document_ShowTechComments_Test(const aParams: IvcmTestParamsPrim);
+    {* Показать технические комментарии }
+   procedure Document_ShowTechComments_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Показать технические комментарии }
+   procedure Document_ShowTechComments_GetState(var State: TvcmOperationStateIndex);
+    {* Показать технические комментарии }
  end;//_DocumentPresentation_
-{$Else}
 
- _DocumentPresentation_ = _DocumentPresentation_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_DocumentPresentation_ = _DocumentPresentation_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else DocumentPresentation_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef DocumentPresentation_imp_impl}
 
-// start class _DocumentPresentation_
+{$Define DocumentPresentation_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _DocumentPresentation_.DoDocumentShowTechCommentsExecute;
 //#UC START# *4C8DCD3B015C_4A7C0BF5008B_var*
 //#UC END# *4C8DCD3B015C_4A7C0BF5008B_var*
@@ -117,6 +109,7 @@ begin
 end;//_DocumentPresentation_.VersionCommentsVisibleInvertedByUser
 
 procedure _DocumentPresentation_.Document_ShowJurorComments_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать юридические комментарии }
 //#UC START# *4A7C0AFD02BA_4A7C0BF5008Btest_var*
 //#UC END# *4A7C0AFD02BA_4A7C0BF5008Btest_var*
 begin
@@ -125,7 +118,19 @@ begin
 //#UC END# *4A7C0AFD02BA_4A7C0BF5008Btest_impl*
 end;//_DocumentPresentation_.Document_ShowJurorComments_Test
 
+procedure _DocumentPresentation_.Document_ShowJurorComments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать юридические комментарии }
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
+begin
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  ShowComments := not(ShowComments);
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
+end;//_DocumentPresentation_.Document_ShowJurorComments_Execute
+
 procedure _DocumentPresentation_.Document_ShowJurorComments_GetState(var State: TvcmOperationStateIndex);
+ {* Показать юридические комментарии }
 //#UC START# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_var*
 //#UC END# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_var*
 begin
@@ -140,17 +145,8 @@ begin
 //#UC END# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_impl*
 end;//_DocumentPresentation_.Document_ShowJurorComments_GetState
 
-procedure _DocumentPresentation_.Document_ShowJurorComments_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
-//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
-begin
-//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
- with _Instance_R_(Self).Text do
-  ShowComments := not(ShowComments);
-//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
-end;//_DocumentPresentation_.Document_ShowJurorComments_Execute
-
 procedure _DocumentPresentation_.Document_ShowUserComments_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать комментарии пользователя }
 //#UC START# *4A7C0B1D0319_4A7C0BF5008Btest_var*
 //#UC END# *4A7C0B1D0319_4A7C0BF5008Btest_var*
 begin
@@ -159,7 +155,19 @@ begin
 //#UC END# *4A7C0B1D0319_4A7C0BF5008Btest_impl*
 end;//_DocumentPresentation_.Document_ShowUserComments_Test
 
+procedure _DocumentPresentation_.Document_ShowUserComments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать комментарии пользователя }
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
+begin
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  ShowUserComments := not(ShowUserComments);
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
+end;//_DocumentPresentation_.Document_ShowUserComments_Execute
+
 procedure _DocumentPresentation_.Document_ShowUserComments_GetState(var State: TvcmOperationStateIndex);
+ {* Показать комментарии пользователя }
 //#UC START# *4A7C0B1D0319_4A7C0BF5008Bgetstate_var*
 //#UC END# *4A7C0B1D0319_4A7C0BF5008Bgetstate_var*
 begin
@@ -174,17 +182,8 @@ begin
 //#UC END# *4A7C0B1D0319_4A7C0BF5008Bgetstate_impl*
 end;//_DocumentPresentation_.Document_ShowUserComments_GetState
 
-procedure _DocumentPresentation_.Document_ShowUserComments_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
-//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
-begin
-//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
- with _Instance_R_(Self).Text do
-  ShowUserComments := not(ShowUserComments);
-//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
-end;//_DocumentPresentation_.Document_ShowUserComments_Execute
-
 procedure _DocumentPresentation_.Document_ShowVersionComments_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать информацию о версии }
 //#UC START# *4A7C0B4503AB_4A7C0BF5008Btest_var*
 //#UC END# *4A7C0B4503AB_4A7C0BF5008Btest_var*
 begin
@@ -193,7 +192,18 @@ begin
 //#UC END# *4A7C0B4503AB_4A7C0BF5008Btest_impl*
 end;//_DocumentPresentation_.Document_ShowVersionComments_Test
 
+procedure _DocumentPresentation_.Document_ShowVersionComments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать информацию о версии }
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
+begin
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
+ InvertVersionCommentsVisibleByUser;
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
+end;//_DocumentPresentation_.Document_ShowVersionComments_Execute
+
 procedure _DocumentPresentation_.Document_ShowVersionComments_GetState(var State: TvcmOperationStateIndex);
+ {* Показать информацию о версии }
 //#UC START# *4A7C0B4503AB_4A7C0BF5008Bgetstate_var*
 //#UC END# *4A7C0B4503AB_4A7C0BF5008Bgetstate_var*
 begin
@@ -208,16 +218,8 @@ begin
 //#UC END# *4A7C0B4503AB_4A7C0BF5008Bgetstate_impl*
 end;//_DocumentPresentation_.Document_ShowVersionComments_GetState
 
-procedure _DocumentPresentation_.Document_ShowVersionComments_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
-//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
-begin
-//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
- InvertVersionCommentsVisibleByUser;
-//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
-end;//_DocumentPresentation_.Document_ShowVersionComments_Execute
-
 procedure _DocumentPresentation_.Document_ShowCommentsGroup_Test(const aParams: IvcmTestParamsPrim);
+ {* Комментарии }
 //#UC START# *4A7C14810289_4A7C0BF5008Btest_var*
 var
  l_List: IvcmItems;
@@ -235,6 +237,7 @@ begin
 end;//_DocumentPresentation_.Document_ShowCommentsGroup_Test
 
 procedure _DocumentPresentation_.Document_ShowCommentsGroup_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Комментарии }
 //#UC START# *4A7C14810289_4A7C0BF5008Bexec_var*
 //#UC END# *4A7C14810289_4A7C0BF5008Bexec_var*
 begin
@@ -244,6 +247,7 @@ begin
 end;//_DocumentPresentation_.Document_ShowCommentsGroup_Execute
 
 procedure _DocumentPresentation_.SubPanelSettings_ShowSpecial_Test(const aParams: IvcmTestParamsPrim);
+ {* Показывать спецсимволы }
 //#UC START# *4A7C18B20241_4A7C0BF5008Btest_var*
 //#UC END# *4A7C18B20241_4A7C0BF5008Btest_var*
 begin
@@ -254,6 +258,7 @@ begin
 end;//_DocumentPresentation_.SubPanelSettings_ShowSpecial_Test
 
 procedure _DocumentPresentation_.SubPanelSettings_ShowSpecial_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показывать спецсимволы }
 //#UC START# *4A7C18B20241_4A7C0BF5008Bexec_var*
 //#UC END# *4A7C18B20241_4A7C0BF5008Bexec_var*
 begin
@@ -264,6 +269,7 @@ begin
 end;//_DocumentPresentation_.SubPanelSettings_ShowSpecial_Execute
 
 procedure _DocumentPresentation_.SubPanelSettings_ShowInfo_Test(const aParams: IvcmTestParamsPrim);
+ {* Показывать блоки }
 //#UC START# *4A7C1F420169_4A7C0BF5008Btest_var*
 //#UC END# *4A7C1F420169_4A7C0BF5008Btest_var*
 begin
@@ -275,6 +281,7 @@ begin
 end;//_DocumentPresentation_.SubPanelSettings_ShowInfo_Test
 
 procedure _DocumentPresentation_.SubPanelSettings_ShowInfo_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показывать блоки }
 //#UC START# *4A7C1F420169_4A7C0BF5008Bexec_var*
 //#UC END# *4A7C1F420169_4A7C0BF5008Bexec_var*
 begin
@@ -285,6 +292,7 @@ begin
 end;//_DocumentPresentation_.SubPanelSettings_ShowInfo_Execute
 
 procedure _DocumentPresentation_.Document_ShowTechComments_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать технические комментарии }
 //#UC START# *4A82C33A0105_4A7C0BF5008Btest_var*
 //#UC END# *4A82C33A0105_4A7C0BF5008Btest_var*
 begin
@@ -293,7 +301,18 @@ begin
 //#UC END# *4A82C33A0105_4A7C0BF5008Btest_impl*
 end;//_DocumentPresentation_.Document_ShowTechComments_Test
 
+procedure _DocumentPresentation_.Document_ShowTechComments_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать технические комментарии }
+//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_var*
+//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_var*
+begin
+//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_impl*
+ DoDocumentShowTechCommentsExecute;
+//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_impl*
+end;//_DocumentPresentation_.Document_ShowTechComments_Execute
+
 procedure _DocumentPresentation_.Document_ShowTechComments_GetState(var State: TvcmOperationStateIndex);
+ {* Показать технические комментарии }
 //#UC START# *4A82C33A0105_4A7C0BF5008Bgetstate_var*
 //#UC END# *4A82C33A0105_4A7C0BF5008Bgetstate_var*
 begin
@@ -308,16 +327,10 @@ begin
 //#UC END# *4A82C33A0105_4A7C0BF5008Bgetstate_impl*
 end;//_DocumentPresentation_.Document_ShowTechComments_GetState
 
-procedure _DocumentPresentation_.Document_ShowTechComments_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_var*
-//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_var*
-begin
-//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_impl*
- DoDocumentShowTechCommentsExecute;
-//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_impl*
-end;//_DocumentPresentation_.Document_ShowTechComments_Execute
-
+{$If NOT Defined(NoVCM)}
 procedure _DocumentPresentation_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -332,8 +345,11 @@ begin
   PublishOp(en_SubPanelSettings, op_ShowInfo, SubPanelSettings_ShowInfo_Execute, SubPanelSettings_ShowInfo_Test, nil);
   PublishOp(en_Document, op_ShowTechComments, Document_ShowTechComments_Execute, Document_ShowTechComments_Test, Document_ShowTechComments_GetState);
  end;//with Entities.Entities
-end;
+end;//_DocumentPresentation_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf DocumentPresentation_imp_impl}
 
 {$EndIf DocumentPresentation_imp}
+

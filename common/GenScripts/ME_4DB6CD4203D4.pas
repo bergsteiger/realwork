@@ -14,8 +14,8 @@ uses
  l3IntfUses
  , tfwRegisterableWordPrim
  , l3Interfaces
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
 ;
 
 type

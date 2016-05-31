@@ -1,113 +1,94 @@
 unit PrimWarningOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimWarningOptions_Form.pas"
-// Начат: 02.09.2010 13:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Warning::PrimWarningOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarningOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimWarningOptions" MUID: (4C7F738D033E)
+// Имя типа: "TPrimWarningOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimWarning_Form,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimWarning_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimWarningOptionsForm = {form} class(TPrimWarningForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimWarningOptionsForm = class(TPrimWarningForm)
+  protected
+   function MakePreview: IafwComplexDocumentPreview;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Warning_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_TimeMachineOffAndReset_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Warning_ActualRedaction_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_ActualRedaction_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Warning_TimeMachineOff_Test(const aParams: IvcmTestParamsPrim);
    procedure Warning_TimeMachineOff_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function MakePreview: IafwComplexDocumentPreview;
  end;//TPrimWarningOptionsForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  nsTypes,
-  Base_Operations_Strange_Controls,
-  nsDocInfoHAFMacroReplacer
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  evFormatHAFMacroReplacer,
-  Common_Strange_Controls,
-  WarningUserTypes_Warning_UserType
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimWarningOptionsForm
+ l3ImplUses
+ , afwFacade
+ , nsTypes
+ , Base_Operations_Strange_Controls
+ , nsDocInfoHAFMacroReplacer
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evFormatHAFMacroReplacer
+ , Common_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , WarningUserTypes_Warning_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C7F738D033Eimpl_uses*
+ //#UC END# *4C7F738D033Eimpl_uses*
+;
 
 function TPrimWarningOptionsForm.MakePreview: IafwComplexDocumentPreview;
 //#UC START# *4C7F77A50276_4C7F738D033E_var*
@@ -124,8 +105,9 @@ begin
 //#UC END# *4C7F77A50276_4C7F738D033E_impl*
 end;//TPrimWarningOptionsForm.MakePreview
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimWarningOptionsForm.File_Print_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать }
 //#UC START# *49521D8E0295_4C7F738D033Eexec_var*
 var
  l_Preview : IafwComplexDocumentPreview;
@@ -137,10 +119,11 @@ begin
   l_Preview.Print;
 //#UC END# *49521D8E0295_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.File_Print_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimWarningOptionsForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_4C7F738D033Eexec_var*
 //#UC END# *495220DE0298_4C7F738D033Eexec_var*
 begin
@@ -149,10 +132,11 @@ begin
   afw.Application.PrintManager.PrintDialog(MakePreview);
 //#UC END# *495220DE0298_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimWarningOptionsForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_4C7F738D033Eexec_var*
 //#UC END# *495220F2033A_4C7F738D033Eexec_var*
 begin
@@ -160,7 +144,7 @@ begin
  TdmStdRes.MakePreview(MakePreview);
 //#UC END# *495220F2033A_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimWarningOptionsForm.Warning_TimeMachineOffAndReset_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C7F753E02BC_4C7F738D033Etest_var*
@@ -219,9 +203,10 @@ begin
 //#UC END# *4C7F75660342_4C7F738D033Eexec_impl*
 end;//TPrimWarningOptionsForm.Warning_TimeMachineOff_Execute
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimWarningOptionsForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4C7F738D033E_var*
 //#UC END# *497469C90140_4C7F738D033E_var*
 begin
@@ -229,51 +214,45 @@ begin
  inherited;
 //#UC END# *497469C90140_4C7F738D033E_impl*
 end;//TPrimWarningOptionsForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimWarningOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Warning, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Print, File_Print_Execute, nil, nil);
-  ShowInContextMenu(en_File, op_Print, true);
-  ShowInToolbar(en_File, op_Print, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Print, True);
+  ShowInToolbar(en_File, op_Print, False);
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, nil, nil);
-  ShowInContextMenu(en_File, op_PrintDialog, true);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, nil, nil);
-  ShowInContextMenu(en_File, op_PrintPreview, true);
-  ShowInToolbar(en_File, op_PrintPreview, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_File, op_PrintPreview, True);
+  ShowInToolbar(en_File, op_PrintPreview, False);
   PublishOp(en_Warning, op_TimeMachineOffAndReset, Warning_TimeMachineOffAndReset_Execute, Warning_TimeMachineOffAndReset_Test, nil);
-  ShowInContextMenu(en_Warning, op_TimeMachineOffAndReset, true);
-  ShowInToolbar(en_Warning, op_TimeMachineOffAndReset, true);
+  ShowInContextMenu(en_Warning, op_TimeMachineOffAndReset, True);
+  ShowInToolbar(en_Warning, op_TimeMachineOffAndReset, True);
   PublishOp(en_Warning, op_ActualRedaction, Warning_ActualRedaction_Execute, Warning_ActualRedaction_Test, nil);
-  ShowInContextMenu(en_Warning, op_ActualRedaction, true);
-  ShowInToolbar(en_Warning, op_ActualRedaction, false);
+  ShowInContextMenu(en_Warning, op_ActualRedaction, True);
+  ShowInToolbar(en_Warning, op_ActualRedaction, False);
   PublishOp(en_Warning, op_TimeMachineOff, Warning_TimeMachineOff_Execute, Warning_TimeMachineOff_Test, nil);
-  ShowInContextMenu(en_Warning, op_TimeMachineOff, true);
-  ShowInToolbar(en_Warning, op_TimeMachineOff, false);
+  ShowInContextMenu(en_Warning, op_TimeMachineOff, True);
+  ShowInToolbar(en_Warning, op_TimeMachineOff, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimWarningOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimWarningOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimWarningOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimWarningOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

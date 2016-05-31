@@ -24,16 +24,22 @@ uses
  , BaseTypesUnit
  , nscTreeViewWithAdapterDragDrop
  , vtPanel
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , nscSimpleEditor
- {$If Defined(Nemesis)}
- , nscTextSource
- {$IfEnd} // Defined(Nemesis)
  , DynamicTreeUnit
  , l3TreeInterfaces
  , MainMenuUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
@@ -41,12 +47,6 @@ uses
  , afwNavigation
  , nevTools
  , nevGUIInterfaces
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3ProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
@@ -92,17 +92,11 @@ type
   private
    f_LinkType: TNavigatorMenuItemType;
    f_RubricatorList: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства RubricatorList }
    f_TopPanel: TvtPanel;
-    {* Поле для свойства TopPanel }
-   f_PaintBox: TPaintBox;
-    {* Поле для свойства PaintBox }
-   f_NewDocLabel: TnscSimpleEditor;
-    {* Поле для свойства NewDocLabel }
    f_DelimiterPanel: TvtPanel;
-    {* Поле для свойства DelimiterPanel }
    f_ExampleTextSource: TnscTextSource;
-    {* Поле для свойства ExampleTextSource }
+   f_PaintBox: TPaintBox;
+   f_NewDocLabel: TnscSimpleEditor;
   protected
    f_SetCurrentLock: Integer;
   private
@@ -195,7 +189,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , SysUtils
  {$If NOT Defined(NoVCM)}
  , vcmBase
@@ -229,29 +222,24 @@ uses
  , deDocInfo
  , evdStyles
  , nsTabbedInterfaceTypes
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsRubricatorList
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimRubricator_utRubricatorList_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AA68CA10101impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4AA68CA10101impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utRubricatorListLocalConstants }
- str_utRubricatorListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListCaption'; rValue : 'Правовой навигатор (линейное представление)');
-  {* Заголовок пользовательского типа "Правовой навигатор (линейное представление)" }
- str_utRubricatorListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListSettingsCaption'; rValue : 'Правовой навигатор');
-  {* Заголовок пользовательского типа "Правовой навигатор (линейное представление)" для настройки панелей инструментов }
-
 constructor TnsRubricatorState.Create(aNewDocLabelVisible: Boolean;
  aLinkType: TNavigatorMenuItemType);
 //#UC START# *4AA78D81011E_4AA78D4B020B_var*
@@ -809,11 +797,15 @@ begin
   PublishFormEntity(en_Rubricator, nil);
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_Rubric, nil);
+  ContextMenuWeight(en_Tree, 10);
+  MakeEntitySupportedByControl(en_Edit, RubricatorList);
+  MakeEntitySupportedByControl(en_Tree, RubricatorList);
   PublishOpWithResult(en_Rubricator, op_SetListRoot, Rubricator_SetListRoot, nil, nil);
   PublishOpWithResult(en_Rubricator, op_InitListRoot, Rubricator_InitListRoot, nil, nil);
   PublishOpWithResult(en_Rubricator, op_Synchronize, Rubricator_Synchronize, nil, nil);
   PublishOpWithResult(en_Rubricator, op_GetRoot, Rubricator_GetRoot, nil, nil);
   PublishOp(en_Rubric, op_Execute, Rubric_Execute_Execute, nil, nil);
+  ShowInContextMenu(en_Rubric, op_Execute, True);
  end;//with Entities.Entities
 end;//TPrimRubricatorForm.InitEntities
 
@@ -823,7 +815,7 @@ begin
  with AddUsertype(utRubricatorListName,
   str_utRubricatorListCaption,
   str_utRubricatorListSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -853,10 +845,6 @@ begin
 end;//TPrimRubricatorForm.MakeControls
 
 initialization
- str_utRubricatorListCaption.Init;
- {* Инициализация str_utRubricatorListCaption }
- str_utRubricatorListSettingsCaption.Init;
- {* Инициализация str_utRubricatorListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRubricatorForm);
  {* Регистрация PrimRubricator }

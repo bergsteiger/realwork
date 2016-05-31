@@ -13,8 +13,8 @@ interface
 uses
  l3IntfUses
  , tfwCompilingWord
- , tfwScriptingInterfaces
  , kwIncluded
+ , tfwScriptingInterfaces
  , kwCompiledWordPrim
  , l3Interfaces
 ;

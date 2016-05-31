@@ -1,84 +1,73 @@
 unit PrimBaseSearchOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/PrimBaseSearchOptions_Form.pas"
-// Начат: 27.10.2010 13:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::PrimBaseSearchOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearchOptions" MUID: (4CC7F0CE0267)
+// Имя типа: "TPrimBaseSearchOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimBaseSearch_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimBaseSearch_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimBaseSearchOptionsForm = {form} class(TPrimBaseSearchForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+ TPrimBaseSearchOptionsForm = class(TPrimBaseSearchForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
-     {* Найти далее }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Найти далее }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Найти далее }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Найти далее }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimBaseSearchOptionsForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CC7F0CE0267impl_uses*
+ //#UC END# *4CC7F0CE0267impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimBaseSearchOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchOptionsForm.Edit_FindNext_Test(const aParams: IvcmTestParamsPrim);
+ {* Найти далее }
 //#UC START# *495130C40123_4CC7F0CE0267test_var*
 //#UC END# *495130C40123_4CC7F0CE0267test_var*
 begin
@@ -86,10 +75,11 @@ begin
  // - ничего не делаем
 //#UC END# *495130C40123_4CC7F0CE0267test_impl*
 end;//TPrimBaseSearchOptionsForm.Edit_FindNext_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchOptionsForm.Edit_FindNext_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Найти далее }
 //#UC START# *495130C40123_4CC7F0CE0267exec_var*
 //#UC END# *495130C40123_4CC7F0CE0267exec_var*
 begin
@@ -97,9 +87,9 @@ begin
  DoFindBtnClick;
 //#UC END# *495130C40123_4CC7F0CE0267exec_impl*
 end;//TPrimBaseSearchOptionsForm.Edit_FindNext_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchOptionsForm.Edit_FindPrev_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *49FEDE4703B8_4CC7F0CE0267test_var*
 //#UC END# *49FEDE4703B8_4CC7F0CE0267test_var*
@@ -108,9 +98,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := Assigned(f_BaseSearcher) and f_BaseSearcher.WindowData.FindBackEnabled;
 //#UC END# *49FEDE4703B8_4CC7F0CE0267test_impl*
 end;//TPrimBaseSearchOptionsForm.Edit_FindPrev_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchOptionsForm.Edit_FindPrev_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *49FEDE4703B8_4CC7F0CE0267exec_var*
 //#UC END# *49FEDE4703B8_4CC7F0CE0267exec_var*
@@ -119,41 +109,32 @@ begin
  DoFindBackBtnClick;
 //#UC END# *49FEDE4703B8_4CC7F0CE0267exec_impl*
 end;//TPrimBaseSearchOptionsForm.Edit_FindPrev_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimBaseSearchOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Edit, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_FindNext, Edit_FindNext_Execute, Edit_FindNext_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Undo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Undo, False);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
-  ShowInContextMenu(en_Edit, op_Redo, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Redo, False);
   PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimBaseSearchOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimBaseSearchOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimBaseSearchOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimBaseSearchOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

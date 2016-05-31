@@ -37,8 +37,8 @@ uses
  , FoldersDomainInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , DocumentUserTypes_dftAACContentsRight_UserType
 ;
 

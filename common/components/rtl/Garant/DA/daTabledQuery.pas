@@ -23,8 +23,9 @@ type
    f_WhereCondition: IdaCondition;
    f_FromClause: IdaFromClause;
    f_OrderBy: TdaSortFieldList;
+   f_Factory: IdaTableQueryFactory;
   private
-   function BuildFromClause: AnsiString;
+   function BuildFromClause(const aHelper: IdaParamListHelper): AnsiString;
    function BuildSelectClause: AnsiString;
    function BuildWhereClause(const aHelper: IdaParamListHelper): AnsiString;
    function BuildOrderByClause: AnsiString;
@@ -47,7 +48,8 @@ type
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
   public
-   constructor Create(const aDataConverter: IdaDataConverter;
+   constructor Create(const aFactory: IdaTableQueryFactory;
+    const aDataConverter: IdaDataConverter;
     const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''); reintroduce;
   protected
@@ -60,6 +62,8 @@ type
     read f_FromClause;
    property OrderBy: TdaSortFieldList
     read f_OrderBy;
+   property Factory: IdaTableQueryFactory
+    read f_Factory;
  end;//TdaTabledQuery
 
 implementation
@@ -80,7 +84,8 @@ begin
 //#UC END# *5600FAC103DE_5600FA2301B9set_impl*
 end;//TdaTabledQuery.pm_SetWhereCondition
 
-constructor TdaTabledQuery.Create(const aDataConverter: IdaDataConverter;
+constructor TdaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
+ const aDataConverter: IdaDataConverter;
  const aTable: IdaTableDescription;
  const anAlias: AnsiString = '');
 //#UC START# *5600FB3903DE_5600FA2301B9_var*
@@ -95,7 +100,7 @@ begin
 //#UC END# *5600FB3903DE_5600FA2301B9_impl*
 end;//TdaTabledQuery.Create
 
-function TdaTabledQuery.BuildFromClause: AnsiString;
+function TdaTabledQuery.BuildFromClause(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *56050F450363_5600FA2301B9_var*
 //#UC END# *56050F450363_5600FA2301B9_var*
 begin
@@ -287,6 +292,7 @@ procedure TdaTabledQuery.ClearFields;
 begin
  WhereCondition := nil;
  f_FromClause := nil;
+ f_Factory := nil;
  inherited;
 end;//TdaTabledQuery.ClearFields
 

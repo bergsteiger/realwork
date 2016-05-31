@@ -13,9 +13,9 @@ uses
  l3IntfUses
  , l3Interfaces
  , tfwTypeInfo
- , l3Variant
  , tfwScriptingInterfaces
  , Types
+ , l3Variant
  , tfwDictionaryPrim
  , TypInfo
 ;

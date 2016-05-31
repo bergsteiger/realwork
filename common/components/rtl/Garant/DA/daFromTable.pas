@@ -12,11 +12,13 @@ uses
  l3IntfUses
  , l3ProtoObject
  , daInterfaces
+ , daTypes
 ;
 
 type
  TdaFromTable = class(Tl3ProtoObject, IdaFromTable, IdaFromClause)
   private
+   f_Factory: IdaTableQueryFactory;
    f_Table: IdaTableDescription;
    f_Prepared: Boolean;
    f_TableAlias: AnsiString;
@@ -24,17 +26,23 @@ type
    procedure pm_SetPrepared(aValue: Boolean); virtual;
    function Get_TableAlias: AnsiString;
    function Get_Table: IdaTableDescription;
-   function BuildSQLValue: AnsiString;
+   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
    function HasTable(const aTable: IdaTableDescription): Boolean;
    function FindTable(const aTableAlias: AnsiString): IdaFromTable;
+   function Join(const aRight: IdaFromClause;
+    aKind: TdaJoinKind): IdaFromClause;
+   function IsRelationsConditionsValid: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   constructor Create(const aTable: IdaTableDescription;
+   constructor Create(const aFactory: IdaTableQueryFactory;
+    const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''); reintroduce; virtual;
-   class function Make(const aTable: IdaTableDescription;
+   class function Make(const aFactory: IdaTableQueryFactory;
+    const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaFromClause; reintroduce;
    procedure IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
+   procedure IterateRelationConditionsF(anAction: daFromClauseIterator_IterateRelationConditionsF_Action);
   protected
    property Table: IdaTableDescription
     read f_Table;
@@ -63,7 +71,8 @@ begin
 //#UC END# *55FFB1C600AB_55FFB14A031Cset_impl*
 end;//TdaFromTable.pm_SetPrepared
 
-constructor TdaFromTable.Create(const aTable: IdaTableDescription;
+constructor TdaFromTable.Create(const aFactory: IdaTableQueryFactory;
+ const aTable: IdaTableDescription;
  const anAlias: AnsiString = '');
 //#UC START# *55530BE50143_55FFB14A031C_var*
 //#UC END# *55530BE50143_55FFB14A031C_var*
@@ -75,12 +84,13 @@ begin
 //#UC END# *55530BE50143_55FFB14A031C_impl*
 end;//TdaFromTable.Create
 
-class function TdaFromTable.Make(const aTable: IdaTableDescription;
+class function TdaFromTable.Make(const aFactory: IdaTableQueryFactory;
+ const aTable: IdaTableDescription;
  const anAlias: AnsiString = ''): IdaFromClause;
 var
  l_Inst : TdaFromTable;
 begin
- l_Inst := Create(aTable, anAlias);
+ l_Inst := Create(aFactory, aTable, anAlias);
  try
   Result := l_Inst;
  finally
@@ -106,7 +116,7 @@ begin
 //#UC END# *555363590242_55FFB14A031Cget_impl*
 end;//TdaFromTable.Get_Table
 
-function TdaFromTable.BuildSQLValue: AnsiString;
+function TdaFromTable.BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *5608E5F20118_55FFB14A031C_var*
 //#UC END# *5608E5F20118_55FFB14A031C_var*
 begin
@@ -146,6 +156,36 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *574443A401BE_55FFB14A031C_impl*
 end;//TdaFromTable.IterateTablesF
+
+function TdaFromTable.Join(const aRight: IdaFromClause;
+ aKind: TdaJoinKind): IdaFromClause;
+//#UC START# *574570790329_55FFB14A031C_var*
+//#UC END# *574570790329_55FFB14A031C_var*
+begin
+//#UC START# *574570790329_55FFB14A031C_impl*
+ Result := f_Factory.MakeJoin(Self, aRight, aKind);
+//#UC END# *574570790329_55FFB14A031C_impl*
+end;//TdaFromTable.Join
+
+function TdaFromTable.IsRelationsConditionsValid: Boolean;
+//#UC START# *57480BE20140_55FFB14A031C_var*
+//#UC END# *57480BE20140_55FFB14A031C_var*
+begin
+//#UC START# *57480BE20140_55FFB14A031C_impl*
+ Result := True;
+//#UC END# *57480BE20140_55FFB14A031C_impl*
+end;//TdaFromTable.IsRelationsConditionsValid
+
+procedure TdaFromTable.IterateRelationConditionsF(anAction: daFromClauseIterator_IterateRelationConditionsF_Action);
+//#UC START# *574824090133_55FFB14A031C_var*
+var
+ Hack : Pointer absolute anAction;
+//#UC END# *574824090133_55FFB14A031C_var*
+begin
+//#UC START# *574824090133_55FFB14A031C_impl*
+ l3FreeLocalStub(Hack);
+//#UC END# *574824090133_55FFB14A031C_impl*
+end;//TdaFromTable.IterateRelationConditionsF
 
 procedure TdaFromTable.Cleanup;
  {* Функция очистки полей объекта. }

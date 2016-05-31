@@ -22,12 +22,12 @@ uses
  , tfwMainDictionary
  , tfwInitedDictionariesList
  , tfwWordRefList
- , tfwStreamFactory
  , l3Interfaces
+ , tfwStreamFactory
  , tfwTypeInfo
- , l3Variant
  , Types
  , tfwDictionaryPrim
+ , l3Variant
  , TypInfo
  , kwCompiledWordPrim
 ;

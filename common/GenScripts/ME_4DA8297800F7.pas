@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnOnControlLocalConstants }
+ str_WarnOnControlCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnOnControlCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnOnControl }
  WarnOnControlName = 'WarnOnControl';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnOnControl.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnOnControlCaption.Init;
+ {* Инициализация str_WarnOnControlCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnOnControl.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnOnControl }

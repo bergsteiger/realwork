@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftSimilarDocumentsToFragmentLocalConstants }
+ str_lftSimilarDocumentsToFragmentCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsToFragmentCaption'; rValue : 'Похожие к фрагменту');
+  {* Заголовок пользовательского типа "Похожие к фрагменту" }
+ str_lftSimilarDocumentsToFragmentSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsToFragmentSettingsCaption'; rValue : 'Список: Похожие к фрагменту');
+  {* Заголовок пользовательского типа "Похожие к фрагменту" для настройки панелей инструментов }
  {* Константы для типа формы lftSimilarDocumentsToFragment }
  lftSimilarDocumentsToFragmentName = 'lftSimilarDocumentsToFragment';
   {* Строковый идентификатор пользовательского типа "Похожие к фрагменту" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftSimilarDocumentsToFragmentCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsToFragmentCaption }
+ str_lftSimilarDocumentsToFragmentSettingsCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsToFragmentSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSimilarDocumentsToFragment.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftSimilarDocumentsToFragment }

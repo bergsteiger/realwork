@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_OutlinerFormLocalConstants }
+ str_ut_OutlinerFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_OutlinerFormCaption'; rValue : 'Форма для тестирования списка');
+  {* Заголовок пользовательского типа "Форма для тестирования списка" }
  {* Константы для типа формы ut_OutlinerForm }
  ut_OutlinerFormName = 'ut_OutlinerForm';
   {* Строковый идентификатор пользовательского типа "Форма для тестирования списка" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_OutlinerForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_OutlinerFormCaption.Init;
+ {* Инициализация str_ut_OutlinerFormCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_OutlinerForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_OutlinerForm }

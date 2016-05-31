@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utConfigurationListLocalConstants }
+ str_utConfigurationListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListCaption'; rValue : 'Конфигурации');
+  {* Заголовок пользовательского типа "Конфигурации" }
+ str_utConfigurationListSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListSettingsCaption'; rValue : 'Конфигурации (вкладка)');
+  {* Заголовок пользовательского типа "Конфигурации" для настройки панелей инструментов }
  {* Константы для типа формы utConfigurationList }
  utConfigurationListName = 'utConfigurationList';
   {* Строковый идентификатор пользовательского типа "Конфигурации" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utConfigurationList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utConfigurationListCaption.Init;
+ {* Инициализация str_utConfigurationListCaption }
+ str_utConfigurationListSettingsCaption.Init;
+ {* Инициализация str_utConfigurationListSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utConfigurationList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utConfigurationList }

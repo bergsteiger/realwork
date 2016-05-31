@@ -27,18 +27,6 @@ _ContentsUserTypes_ = _ContentsUserTypes_Parent_;
 {$Define ContentsUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки utContentsLocalConstants }
- str_utContentsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsCaption'; rValue : 'Структура документа');
-  {* Заголовок пользовательского типа "Структура документа" }
- str_utContentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsSettingsCaption'; rValue : 'Документ: Структура (вкладка)');
-  {* Заголовок пользовательского типа "Структура документа" для настройки панелей инструментов }
- {* Локализуемые строки utDrugContentsLocalConstants }
- str_utDrugContentsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsCaption'; rValue : 'Структура препарата');
-  {* Заголовок пользовательского типа "Структура препарата" }
- str_utDrugContentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsSettingsCaption'; rValue : 'Препарат: Структура (вкладка)');
-  {* Заголовок пользовательского типа "Структура препарата" для настройки панелей инструментов }
-
 {$If NOT Defined(NoVCM)}
 procedure _ContentsUserTypes_.MakeControls;
 begin
@@ -46,7 +34,7 @@ begin
  with AddUsertype(utContentsName,
   str_utContentsCaption,
   str_utContentsSettingsCaption,
-  False,
+  True,
   66,
   40,
   '',
@@ -59,7 +47,7 @@ begin
  with AddUsertype(utDrugContentsName,
   str_utDrugContentsCaption,
   str_utDrugContentsSettingsCaption,
-  False,
+  True,
   66,
   40,
   '',
@@ -72,18 +60,7 @@ begin
 end;//_ContentsUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else ContentsUserTypes_imp_impl}
-
- str_utContentsCaption.Init;
- {* Инициализация str_utContentsCaption }
- str_utContentsSettingsCaption.Init;
- {* Инициализация str_utContentsSettingsCaption }
- str_utDrugContentsCaption.Init;
- {* Инициализация str_utDrugContentsCaption }
- str_utDrugContentsSettingsCaption.Init;
- {* Инициализация str_utDrugContentsSettingsCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf ContentsUserTypes_imp_impl}
 
 {$EndIf ContentsUserTypes_imp}

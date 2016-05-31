@@ -1,529 +1,400 @@
 unit PrimDocumentWithFlash_Form;
+ {* Документ-схема }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimDocumentWithFlash_Form.pas"
-// Начат: 27.01.2009 13:15
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::DocumentWithFlash::PrimDocumentWithFlash
-//
-// Документ-схема
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDocumentWithFlash" MUID: (497EDE780363)
+// Имя типа: "TPrimDocumentWithFlashForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages,
-  l3SimpleObject,
-  bsTypes,
-  DocumentAndListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoFlash)}
-  ,
-  vtShockwaveFlashEx
-  {$IfEnd} //not NoFlash
-  ,
-  nevGUIInterfaces,
-  afwNavigation,
-  nevNavigation,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  Search_Strange_Controls,
-  Common_Strange_Controls,
-  DocumentWithFlashUserTypes_dwftSynchro_UserType,
-  DocInfoInterfaces,
-  l3TabbedContainersDispatcher,
-  vcmEntityForm {a},
-  vcmControllers {a},
-  UnderControlUnit,
-  l3TreeInterfaces,
-  WorkWithDocumentInterfaces,
-  BaseDocumentWithAttributesInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  UnderControlInterfaces,
-  l3Interfaces,
-  Hypertext_Controls_Controls
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  DocumentWithFlashUserTypes_dwftMain_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  DocumentInterfaces,
-  l3Bitmap,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  eeInterfaces,
-  nsTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Search_Strange_Controls
+ , Common_Strange_Controls
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocInfoInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ {$If NOT Defined(NoFlash)}
+ , vtShockwaveFlashEx
+ {$IfEnd} // NOT Defined(NoFlash)
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ , nevGUIInterfaces
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypes
+ , Messages
+ , nevNavigation
+ , afwNavigation
+ , l3Interfaces
+ , DocumentInterfaces
+ , l3TreeInterfaces
+ , eeInterfaces
+ , nsTypes
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Base_Operations_Strange_Controls
+ , WorkWithDocumentInterfaces
+ , UnderControlUnit
+ , BaseDocumentWithAttributesInterfaces
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , UnderControlInterfaces
+ , Hypertext_Controls_Controls
+ , l3Bitmap
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , l3SimpleObject
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { Ссылки }
+ {* Ссылки }
  c_OpenDoc = Messages.WM_User + 100;
  c_OpenDocInNewTab = c_OpenDoc + 1;
 
 type
  InsDocumentWithFlashState = interface(IvcmBase)
-   ['{5F467A22-A292-4360-B74C-CCA62C7A957B}']
-   function pm_GetFrame: Integer;
-   property Frame: Integer
-     read pm_GetFrame;
-     {* номер кадра }
+  ['{5F467A22-A292-4360-B74C-CCA62C7A957B}']
+  function pm_GetFrame: Integer;
+  property Frame: Integer
+   read pm_GetFrame;
+   {* номер кадра }
  end;//InsDocumentWithFlashState
 
  TnsDocumentWithFlashState = class(Tl3SimpleObject, InsDocumentWithFlashState)
- private
- // private fields
-   f_Frame : Integer;
- protected
- // realized methods
+  private
+   f_Frame: Integer;
+  protected
    function pm_GetFrame: Integer;
- public
- // public methods
+  public
    constructor Create(aFrame: Integer); reintroduce;
    class function Make(aFrame: Integer): InsDocumentWithFlashState; reintroduce;
  end;//TnsDocumentWithFlashState
 
  _BaseDocumentForDocumentModule_Parent_ = TvcmEntityForm;
- {$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _CommonForTextAndFlashOperations_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include ..\View\CommonForTextAndFlashOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
  _DocumentWithFlashUserTypes_Parent_ = _CommonForTextAndFlashOperations_;
- {$Include ..\View\DocumentWithFlashUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _DocumentWithFlashUserTypes_;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  _PrintableFlashWithInfo_Parent_ = _vcmChromeLikeTabIconUpdater_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
- TPrimDocumentWithFlashForm = {form} class(_PrintableFlashWithInfo_, Il3TabbedContainersListener)
+ TPrimDocumentWithFlashForm = class(_PrintableFlashWithInfo_, Il3TabbedContainersListener{$If NOT Defined(NoVCM)}
+ , IvcmSelectedTabDependent
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Документ-схема }
- private
- // private fields
-   f_FlashLoaded : Boolean;
-   f_Flash : TvtShockwaveFlashEx;
-    {* Поле для свойства Flash}
-   f_Editor : TnscEditor;
-    {* Поле для свойства Editor}
-   f_FromHistory : Boolean;
-    {* Поле для свойства FromHistory}
-   f_State : InsDocumentWithFlashState;
-    {* Поле для свойства State}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
- private
- // private methods
+  private
+   f_FlashTop: Integer;
+   f_FlashLoaded: Boolean;
+   f_Flash: TvtShockwaveFlashEx;
+    {* компонент для проигрывания flash-роликов }
+   f_Editor: TnscEditor;
+    {* сообщение о том, что плеер не установлен в системе }
+   f_FromHistory: Boolean;
+    {* форму открытили переходом по истории. Нужно чтобы сделать загрузку по требованию }
+   f_State: InsDocumentWithFlashState;
+    {* состояние ролика }
+  protected
+   bsFlash: IbsFlash;
+   dsBaseDocument: IdsBaseDocument;
+  private
    procedure UpdateCaption;
    procedure OnChangeFrameInFlash(aSender: TObject);
    procedure OpenDocument(aDocID: Integer;
-     aPosID: Integer;
-     aOpenKind: TvcmMainFormOpenKind);
+    aPosID: Integer;
+    aOpenKind: TvcmMainFormOpenKind);
    procedure WMSetFocus(var Msg: TWMSetFocus); message WM_SETFOCUS;
- protected
- // property methods
+  protected
    function pm_GetDocument: IDocument;
    function pm_GetFlash: TvtShockwaveFlashEx;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить в папки }
-   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить в папки }
-   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
-     {* Загрузить из папок }
-   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Загрузить из папок }
-   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
-     {* Коллеги, это что? }
-   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Информация о документе }
-   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Информация о документе }
-   function Loadable_Load_Execute(const aNode: IeeNode;
-    const aData: IUnknown;
-    anOp: TListLogicOperation = LLO_NONE): Boolean;
-     {* Коллеги, кто может описать этот метод? }
-   procedure Loadable_Load(const aParams: IvcmExecuteParams);
-     {* Коллеги, кто может описать этот метод? }
-   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Справка к документу }
-   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Справка к документу }
-   procedure SetBookmark; override;
-     {* Устанавливает закладку на текущее место текущего документа }
-   function CanAddBookmark: Boolean; override;
-     {* Можно ли сейчас добавлять закладку }
-   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки на документ }
-   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки на документ }
-   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки из документа }
-   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки из документа }
-   function Document_AttributesCanBeClosed_Execute: Boolean;
-     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
-     {* Это кандидат на перенос в Facet или что-то подобное }
-   procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки на документ (вид информации) }
-   procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки на документ (вид информации) }
-   procedure Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Ссылки из документа (вид информации) }
-   procedure Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Ссылки из документа (вид информации) }
-   procedure Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
-   procedure Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
-   function pm_GetFlashForPrint: TvtShockwaveFlashEx; override;
-   function Name: Il3CString; override;
-   function ShortName: Il3CString; override;
-   function GetDocumentForInfo: IdeDocInfo; override;
-   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   function NeedsStatusBarItems: Boolean; override;
-     {* Определяет, что операции в статусной строке таки надо публиковать }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure PageActive; override;
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-   procedure DoPrintExecute(const aParams: IvcmExecuteParamsPrim); override;
-   procedure DoPreviewExecute(const aParams: IvcmExecuteParamsPrim); override;
-   function MakePreview: IafwDocumentPreview; override;
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetCanDefineFormSetIcon: Boolean; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- public
- // overridden public methods
-   constructor Create(AOwner: TComponent); override;
-   {$If not defined(NoVCM)}
-   procedure SetPositionByDS; override;
-     {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   bsFlash : IbsFlash;
-   dsBaseDocument : IdsBaseDocument;
- protected
- // protected methods
    function DocumentOnJumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
-     {* Переход по ссылке }
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
+    {* Переход по ссылке }
    procedure OnFSCommand(aSender: TObject;
     const command: WideString;
     const args: WideString);
-     {* обработка ссылок в ролике }
+    {* обработка ссылок в ролике }
    procedure OnLoadFlash(aSender: TObject);
-     {* загрузить ролик по требованию }
+    {* загрузить ролик по требованию }
    procedure DoLoadFlash;
-     {* загрузить ролик }
+    {* загрузить ролик }
    procedure AddToWorkJournal;
    procedure DocumentGetHotSpotInfo(Sender: TObject;
     const aHotSpot: IevHotSpot;
     const aKeys: TafwCursorState;
     var theInfo: TafwCursorInfo);
-     {* вид курсора }
+    {* вид курсора }
    procedure OpenCRListTest(const aParams: IvcmTestParamsPrim;
     aType: TlstCRType);
- protected
- // protected properties
+   procedure SetBookmark; override;
+    {* Устанавливает закладку на текущее место текущего документа }
+   function CanAddBookmark: Boolean; override;
+    {* Можно ли сейчас добавлять закладку }
+   function pm_GetFlashForPrint: TvtShockwaveFlashEx; override;
+   function Name: Il3CString; override;
+   function ShortName: Il3CString; override;
+   procedure TabBecomeActive;
+   procedure TabBecomeInactive;
+   function GetDocumentForInfo: IdeDocInfo; override;
+   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure WndProc(var Message: TMessage); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function NeedsStatusBarItems: Boolean; override;
+    {* Определяет, что операции в статусной строке таки надо публиковать }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure PageActive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure DoPrintExecute(const aParams: IvcmExecuteParamsPrim); override;
+   procedure DoPreviewExecute(const aParams: IvcmExecuteParamsPrim); override;
+   function MakePreview: IafwDocumentPreview; override;
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetTabImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetCanDefineFormSetIcon: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить в папки }
+   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить в папки }
+   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+    {* Загрузить из папок }
+   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Загрузить из папок }
+   procedure Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList_Execute(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode);
+    {* Коллеги, это что? }
+   procedure Document_OpenRespondentList(const aParams: IvcmExecuteParams);
+    {* Коллеги, это что? }
+   procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Информация о документе }
+   procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Информация о документе }
+   function Loadable_Load_Execute(const aNode: IeeNode;
+    const aData: IUnknown;
+    anOp: TListLogicOperation = LLO_NONE): Boolean;
+    {* Коллеги, кто может описать этот метод? }
+   procedure Loadable_Load(const aParams: IvcmExecuteParams);
+    {* Коллеги, кто может описать этот метод? }
+   procedure Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Справка к документу }
+   procedure Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ }
+   procedure Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки из документа }
+   procedure Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа }
+   function Document_AttributesCanBeClosed_Execute: Boolean;
+    {* Это кандидат на перенос в Facet или что-то подобное }
+   procedure Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
+    {* Это кандидат на перенос в Facet или что-то подобное }
+   procedure Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки на документ (вид информации) }
+   procedure Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки на документ (вид информации) }
+   procedure Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+    {* Ссылки из документа (вид информации) }
+   procedure Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Ссылки из документа (вид информации) }
+   procedure Document_GetGraphicImage_Test(const aParams: IvcmTestParamsPrim);
+   procedure Document_GetGraphicImage_Execute(const aParams: IvcmExecuteParamsPrim);
+   constructor Create(AOwner: TComponent); override;
+   {$If NOT Defined(NoVCM)}
+   procedure SetPositionByDS; override;
+    {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property Document: IDocument
-     read pm_GetDocument;
-     {* Адаптерный документ }
+    read pm_GetDocument;
+    {* Адаптерный документ }
    property Flash: TvtShockwaveFlashEx
-     read pm_GetFlash;
-     {* компонент для проигрывания flash-роликов }
+    read pm_GetFlash;
+    {* компонент для проигрывания flash-роликов }
    property Editor: TnscEditor
-     read f_Editor
-     write f_Editor;
-     {* сообщение о том, что плеер не установлен в системе }
+    read f_Editor
+    write f_Editor;
+    {* сообщение о том, что плеер не установлен в системе }
    property FromHistory: Boolean
-     read f_FromHistory
-     write f_FromHistory;
-     {* форму открытили переходом по истории. Нужно чтобы сделать загрузку по требованию }
+    read f_FromHistory
+    write f_FromHistory;
+    {* форму открытили переходом по истории. Нужно чтобы сделать загрузку по требованию }
    property State: InsDocumentWithFlashState
-     read f_State
-     write f_State;
-     {* состояние ролика }
+    read f_State
+    write f_State;
+    {* состояние ролика }
  end;//TPrimDocumentWithFlashForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ShellAPI,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a},
-  nsDocumentTools,
-  FoldersDomainInterfaces,
-  nsUtils,
-  nsConst,
-  l3Variant,
-  k2Tags
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  FlashUtils,
-  Windows,
-  nsExternalObjectPrim,
-  l3String,
-  DataAdapter,
-  BaseTreeSupportUnit,
-  BaseTypesUnit,
-  nsOpenUtils,
-  FoldersUnit,
-  Document_Const,
-  bsTypesNew,
-  nsDocumentPrintEvent,
-  nsDocumentPrintPreviewEvent,
-  LoggingInterfaces,
-  nscDocumentHistory
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a},
-  bsUtils,
-  DynamicTreeUnit,
-  ExternalObjectUnit,
-  nsDocumentFromListNavigationEvent
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarItemDef
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDef
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarDelimiterDef
-  {$IfEnd} //Nemesis
-  ,
-  DocumentUtil
-  {$If defined(Nemesis)}
-  ,
-  nscStatusBarOperationDefsList
-  {$IfEnd} //Nemesis
-  ,
-  afwFacade,
-  Common_FormDefinitions_Controls,
-  evConstStringData,
-  evdHyperlinkInfo,
-  nsHyperlinkToDocumentProducerConst,
-  l3MessageID
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsDocumentPreview,
-  afwComplexDocumentPreview,
-  evBitmapDataObject,
-  nsFixedHAFMacroReplacer,
-  nsObjectPreview,
-  nevBase,
-  nsHAFPainter
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TPrimDocumentWithFlashForm;
-
-{$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
-
-{$Include ..\View\CommonForTextAndFlashOperations.imp.pas}
-
-{$Include ..\View\DocumentWithFlashUserTypes.imp.pas}
-
-
-{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
+ l3ImplUses
+ , DocumentWithFlashUserTypes_dwftSynchro_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsDocumentTools
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , nsConst
+ , l3Variant
+ , k2Tags
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , FlashUtils
+ , Windows
+ , nsExternalObjectPrim
+ , l3String
+ , DataAdapter
+ , BaseTreeSupportUnit
+ , BaseTypesUnit
+ , nsOpenUtils
+ , FoldersUnit
+ , Document_Const
+ , bsTypesNew
+ , nsDocumentPrintEvent
+ , nsDocumentPrintPreviewEvent
+ , LoggingInterfaces
+ , nscDocumentHistory
+ , SysUtils
+ , bsUtils
+ , DynamicTreeUnit
+ , ExternalObjectUnit
+ , nsDocumentFromListNavigationEvent
+ {$If Defined(Nemesis)}
+ , nscStatusBarItemDef
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDef
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscStatusBarDelimiterDef
+ {$IfEnd} // Defined(Nemesis)
+ , DocumentUtil
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
+ , afwFacade
+ , Common_FormDefinitions_Controls
+ , evConstStringData
+ , l3Base
+ , evdHyperlinkInfo
+ , nsHyperlinkToDocumentProducerConst
+ , DocumentWithFlashUserTypes_dwftMain_UserType
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsDocumentPreview
+ , afwComplexDocumentPreview
+ , evBitmapDataObject
+ , nsFixedHAFMacroReplacer
+ , nsObjectPreview
+ , nevBase
+ , nsHAFPainter
+ , ShellAPI
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *497EDE780363impl_uses*
+ //#UC END# *497EDE780363impl_uses*
+;
 
 const
-   { FlashCommands }
-  c_FSCommandOpen = 'open';
-  c_FSCommandOpenTab = 'open_tab';
-
-// start class TPrimDocumentWithFlashForm
-
-procedure TPrimDocumentWithFlashForm.UpdateCaption;
-//#UC START# *544656D00099_497EDE780363_var*
-//#UC END# *544656D00099_497EDE780363_var*
-begin
-//#UC START# *544656D00099_497EDE780363_impl*
- case UserType of
-  dwftMain:
-   CCaption := DataSource.DisplayName;
-   // - http://mdp.garant.ru/pages/viewpage.action?pageId=565269766
-  else
-   CCaption := nsCStr(CurUserType.Caption);
- end;
-//#UC END# *544656D00099_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.UpdateCaption
-
-procedure TPrimDocumentWithFlashForm.OnChangeFrameInFlash(aSender: TObject);
-//#UC START# *5595389C014A_497EDE780363_var*
-//#UC END# *5595389C014A_497EDE780363_var*
-begin
-//#UC START# *5595389C014A_497EDE780363_impl*
- ClearPreview;
-//#UC END# *5595389C014A_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.OnChangeFrameInFlash
-
-procedure TPrimDocumentWithFlashForm.OpenDocument(aDocID: Integer;
-  aPosID: Integer;
-  aOpenKind: TvcmMainFormOpenKind);
-//#UC START# *560A2EB9008B_497EDE780363_var*
-//#UC END# *560A2EB9008B_497EDE780363_var*
-begin
-//#UC START# *560A2EB9008B_497EDE780363_impl*
- nsOpenDocumentByNumber(aDocID, aPosID, dptSub, True, False, aOpenKind);
-//#UC END# *560A2EB9008B_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.OpenDocument
-
-function TPrimDocumentWithFlashForm.DocumentOnJumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
-//#UC START# *4A23B242004C_497EDE780363_var*
-//#UC END# *4A23B242004C_497EDE780363_var*
-var
- l_HL : IevHyperlink;
- l_Form : IvcmEntityForm;
-begin
-//#UC START# *4A23B242004C_497EDE780363_impl*
- Result := False;
- if Supports(aMoniker, IevHyperlink, l_HL) then
- begin
-  case l_HL.ID of
-   Ord(cnsFlashActiveXInstallLinkId):
-   begin
-    ShellExecute(0, 'open', c_FlashActiveXInstallURL, nil, nil, SW_SHOWNORMAL);
-    Result := True;
-   end;//Ord(cnsFlashActiveXInstallLinkId)
-   else
-    Assert(false);
-  end;//case l_HL.ID of
- end;//if Supports(aMoniker, IevHyperlink, l_HL) then
-//#UC END# *4A23B242004C_497EDE780363_impl*
-end;//TPrimDocumentWithFlashForm.DocumentOnJumpTo
-// start class TnsDocumentWithFlashState
+ c_FSCommandOpen = 'open';
+ c_FSCommandOpenTab = 'open_tab';
 
 constructor TnsDocumentWithFlashState.Create(aFrame: Integer);
 //#UC START# *49900CC302D0_498855F60137_var*
@@ -545,7 +416,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDocumentWithFlashState.Make
 
 function TnsDocumentWithFlashState.pm_GetFrame: Integer;
 //#UC START# *49900C5303E7_498855F60137get_var*
@@ -555,6 +426,18 @@ begin
  Result := f_Frame;
 //#UC END# *49900C5303E7_498855F60137get_impl*
 end;//TnsDocumentWithFlashState.pm_GetFrame
+
+type _Instance_R_ = TPrimDocumentWithFlashForm;
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas}
+
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
 
 function TPrimDocumentWithFlashForm.pm_GetDocument: IDocument;
 //#UC START# *4988194E02F8_497EDE780363get_var*
@@ -647,9 +530,71 @@ begin
 //#UC END# *498845CE003C_497EDE780363get_impl*
 end;//TPrimDocumentWithFlashForm.pm_GetFlash
 
+function TPrimDocumentWithFlashForm.DocumentOnJumpTo(Sender: TObject;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
+ {* Переход по ссылке }
+var l_HL: IevHyperlink;
+var l_Form: IvcmEntityForm;
+//#UC START# *4A23B242004C_497EDE780363_var*
+//#UC END# *4A23B242004C_497EDE780363_var*
+begin
+//#UC START# *4A23B242004C_497EDE780363_impl*
+ Result := False;
+ if Supports(aMoniker, IevHyperlink, l_HL) then
+ begin
+  case l_HL.ID of
+   Ord(cnsFlashActiveXInstallLinkId):
+   begin
+    ShellExecute(0, 'open', c_FlashActiveXInstallURL, nil, nil, SW_SHOWNORMAL);
+    Result := True;
+   end;//Ord(cnsFlashActiveXInstallLinkId)
+   else
+    Assert(false);
+  end;//case l_HL.ID of
+ end;//if Supports(aMoniker, IevHyperlink, l_HL) then
+//#UC END# *4A23B242004C_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.DocumentOnJumpTo
+
+procedure TPrimDocumentWithFlashForm.UpdateCaption;
+//#UC START# *544656D00099_497EDE780363_var*
+//#UC END# *544656D00099_497EDE780363_var*
+begin
+//#UC START# *544656D00099_497EDE780363_impl*
+ case UserType of
+  dwftMain:
+   CCaption := DataSource.DisplayName;
+   // - http://mdp.garant.ru/pages/viewpage.action?pageId=565269766
+  else
+   CCaption := nsCStr(CurUserType.Caption);
+ end;
+//#UC END# *544656D00099_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.UpdateCaption
+
+procedure TPrimDocumentWithFlashForm.OnChangeFrameInFlash(aSender: TObject);
+//#UC START# *5595389C014A_497EDE780363_var*
+//#UC END# *5595389C014A_497EDE780363_var*
+begin
+//#UC START# *5595389C014A_497EDE780363_impl*
+ ClearPreview;
+//#UC END# *5595389C014A_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.OnChangeFrameInFlash
+
+procedure TPrimDocumentWithFlashForm.OpenDocument(aDocID: Integer;
+ aPosID: Integer;
+ aOpenKind: TvcmMainFormOpenKind);
+//#UC START# *560A2EB9008B_497EDE780363_var*
+//#UC END# *560A2EB9008B_497EDE780363_var*
+begin
+//#UC START# *560A2EB9008B_497EDE780363_impl*
+ nsOpenDocumentByNumber(aDocID, aPosID, dptSub, True, False, aOpenKind);
+//#UC END# *560A2EB9008B_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.OpenDocument
+
 procedure TPrimDocumentWithFlashForm.OnFSCommand(aSender: TObject;
-  const command: WideString;
-  const args: WideString);
+ const command: WideString;
+ const args: WideString);
+ {* обработка ссылок в ролике }
 //#UC START# *4988487A023D_497EDE780363_var*
 type
  TFSCommandKind = (fscNone, fscOpen, fscOpenTab);
@@ -688,6 +633,7 @@ begin
 end;//TPrimDocumentWithFlashForm.OnFSCommand
 
 procedure TPrimDocumentWithFlashForm.OnLoadFlash(aSender: TObject);
+ {* загрузить ролик по требованию }
 //#UC START# *498848DB00BD_497EDE780363_var*
 //#UC END# *498848DB00BD_497EDE780363_var*
 begin
@@ -697,6 +643,7 @@ begin
 end;//TPrimDocumentWithFlashForm.OnLoadFlash
 
 procedure TPrimDocumentWithFlashForm.DoLoadFlash;
+ {* загрузить ролик }
 //#UC START# *49884900020F_497EDE780363_var*
 
   procedure lp_LoadFlash;
@@ -765,9 +712,10 @@ begin
 end;//TPrimDocumentWithFlashForm.AddToWorkJournal
 
 procedure TPrimDocumentWithFlashForm.DocumentGetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+ {* вид курсора }
 //#UC START# *49884FB500EB_497EDE780363_var*
 //#UC END# *49884FB500EB_497EDE780363_var*
 begin
@@ -778,7 +726,7 @@ begin
 end;//TPrimDocumentWithFlashForm.DocumentGetHotSpotInfo
 
 procedure TPrimDocumentWithFlashForm.OpenCRListTest(const aParams: IvcmTestParamsPrim;
-  aType: TlstCRType);
+ aType: TlstCRType);
 //#UC START# *498859BF027A_497EDE780363_var*
 var
  l_List: IvcmNodes;
@@ -806,8 +754,9 @@ begin
 //#UC END# *5449221E001D_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.WMSetFocus
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_497EDE780363test_var*
 //#UC END# *495235F401C0_497EDE780363test_var*
 begin
@@ -815,10 +764,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := false;
 //#UC END# *495235F401C0_497EDE780363test_impl*
 end;//TPrimDocumentWithFlashForm.File_Save_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_497EDE780363exec_var*
 //#UC END# *495235F401C0_497EDE780363exec_var*
 begin
@@ -826,9 +776,10 @@ begin
  Assert(false);
 //#UC END# *495235F401C0_497EDE780363exec_impl*
 end;//TPrimDocumentWithFlashForm.File_Save_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDocumentWithFlashForm.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить в папки }
 //#UC START# *49885D540232_497EDE780363test_var*
 //#UC END# *49885D540232_497EDE780363test_var*
 begin
@@ -838,6 +789,7 @@ begin
 end;//TPrimDocumentWithFlashForm.File_SaveToFolder_Test
 
 procedure TPrimDocumentWithFlashForm.File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить в папки }
 //#UC START# *49885D540232_497EDE780363exec_var*
 //#UC END# *49885D540232_497EDE780363exec_var*
 begin
@@ -847,6 +799,7 @@ begin
 end;//TPrimDocumentWithFlashForm.File_SaveToFolder_Execute
 
 procedure TPrimDocumentWithFlashForm.File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+ {* Загрузить из папок }
 //#UC START# *49885D59018D_497EDE780363test_var*
 //#UC END# *49885D59018D_497EDE780363test_var*
 begin
@@ -856,6 +809,7 @@ begin
 end;//TPrimDocumentWithFlashForm.File_LoadFromFolder_Test
 
 procedure TPrimDocumentWithFlashForm.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Загрузить из папок }
 //#UC START# *49885D59018D_497EDE780363exec_var*
 //#UC END# *49885D59018D_497EDE780363exec_var*
 begin
@@ -867,6 +821,7 @@ begin
 end;//TPrimDocumentWithFlashForm.File_LoadFromFolder_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *4988752302F4_497EDE780363test_var*
 //#UC END# *4988752302F4_497EDE780363test_var*
 begin
@@ -876,7 +831,8 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Test
 
 procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
 //#UC START# *4988752302F4_497EDE780363exec_var*
 //#UC END# *4988752302F4_497EDE780363exec_var*
 begin
@@ -888,12 +844,14 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
+ {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
-  Document_OpenCorrespondentList_Execute(Kind, CRType);
-end;
+  Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
+end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList
 
 procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Коллеги, это что? }
 //#UC START# *49888E8003B9_497EDE780363test_var*
 //#UC END# *49888E8003B9_497EDE780363test_var*
 begin
@@ -903,7 +861,8 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Test
 
 procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
+ const aCRType: Il3SimpleNode);
+ {* Коллеги, это что? }
 //#UC START# *49888E8003B9_497EDE780363exec_var*
 //#UC END# *49888E8003B9_497EDE780363exec_var*
 begin
@@ -915,12 +874,14 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
+ {* Коллеги, это что? }
 begin
  with (aParams.Data As IDocument_OpenRespondentList_Params) do
-  Document_OpenRespondentList_Execute(Kind, CRType);
-end;
+  Self.Document_OpenRespondentList_Execute(Kind, CRType);
+end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList
 
 procedure TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Информация о документе }
 //#UC START# *498891640253_497EDE780363test_var*
 //#UC END# *498891640253_497EDE780363test_var*
 begin
@@ -930,6 +891,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о документе }
 //#UC START# *498891640253_497EDE780363exec_var*
 //#UC END# *498891640253_497EDE780363exec_var*
 begin
@@ -939,8 +901,9 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetAttributesFrmAct_Execute
 
 function TPrimDocumentWithFlashForm.Loadable_Load_Execute(const aNode: IeeNode;
-  const aData: IUnknown;
-  anOp: TListLogicOperation = LLO_NONE): Boolean;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
+ {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_497EDE780363exec_var*
 var
  l_FolderNode : INode;
@@ -976,12 +939,14 @@ begin
 end;//TPrimDocumentWithFlashForm.Loadable_Load_Execute
 
 procedure TPrimDocumentWithFlashForm.Loadable_Load(const aParams: IvcmExecuteParams);
+ {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
-  ResultValue := Loadable_Load_Execute(Node, Data, nOp);
-end;
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimDocumentWithFlashForm.Loadable_Load
 
 procedure TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Справка к документу }
 //#UC START# *498993C801DC_497EDE780363test_var*
 //#UC END# *498993C801DC_497EDE780363test_var*
 begin
@@ -991,6 +956,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Справка к документу }
 //#UC START# *498993C801DC_497EDE780363exec_var*
 //#UC END# *498993C801DC_497EDE780363exec_var*
 begin
@@ -1000,6 +966,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetRelatedDocFrmAct_Execute
 
 procedure TPrimDocumentWithFlashForm.SetBookmark;
+ {* Устанавливает закладку на текущее место текущего документа }
 //#UC START# *4989CD040306_497EDE780363_var*
 var
  l_Bookmark : IBookmark;
@@ -1021,6 +988,7 @@ begin
 end;//TPrimDocumentWithFlashForm.SetBookmark
 
 function TPrimDocumentWithFlashForm.CanAddBookmark: Boolean;
+ {* Можно ли сейчас добавлять закладку }
 //#UC START# *4989CF90010A_497EDE780363_var*
 //#UC END# *4989CF90010A_497EDE780363_var*
 begin
@@ -1030,6 +998,7 @@ begin
 end;//TPrimDocumentWithFlashForm.CanAddBookmark
 
 procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки на документ }
 //#UC START# *4989D65C0275_497EDE780363test_var*
 //#UC END# *4989D65C0275_497EDE780363test_var*
 begin
@@ -1039,6 +1008,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ }
 //#UC START# *4989D65C0275_497EDE780363exec_var*
 //#UC END# *4989D65C0275_497EDE780363exec_var*
 begin
@@ -1048,6 +1018,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentList_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_GetRespondentList_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки из документа }
 //#UC START# *4989D8430128_497EDE780363test_var*
 //#UC END# *4989D8430128_497EDE780363test_var*
 begin
@@ -1057,6 +1028,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetRespondentList_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetRespondentList_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа }
 //#UC START# *4989D8430128_497EDE780363exec_var*
 //#UC END# *4989D8430128_497EDE780363exec_var*
 begin
@@ -1066,6 +1038,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetRespondentList_Execute
 
 function TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute: Boolean;
+ {* Это кандидат на перенос в Facet или что-то подобное }
 //#UC START# *4989DE3702CF_497EDE780363exec_var*
 //#UC END# *4989DE3702CF_497EDE780363exec_var*
 begin
@@ -1075,12 +1048,14 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
+ {* Это кандидат на перенос в Facet или что-то подобное }
 begin
  with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
-  ResultValue := Document_AttributesCanBeClosed_Execute;
-end;
+  ResultValue := Self.Document_AttributesCanBeClosed_Execute;
+end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed
 
 procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки на документ (вид информации) }
 //#UC START# *4AF329F6002A_497EDE780363test_var*
 //#UC END# *4AF329F6002A_497EDE780363test_var*
 begin
@@ -1090,6 +1065,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки на документ (вид информации) }
 //#UC START# *4AF329F6002A_497EDE780363exec_var*
 //#UC END# *4AF329F6002A_497EDE780363exec_var*
 begin
@@ -1099,6 +1075,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetCorrespondentListExFrmAct_Execute
 
 procedure TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Ссылки из документа (вид информации) }
 //#UC START# *4AF329FD014D_497EDE780363test_var*
 //#UC END# *4AF329FD014D_497EDE780363test_var*
 begin
@@ -1108,6 +1085,7 @@ begin
 end;//TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Test
 
 procedure TPrimDocumentWithFlashForm.Document_GetRespondentListExFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Ссылки из документа (вид информации) }
 //#UC START# *4AF329FD014D_497EDE780363exec_var*
 //#UC END# *4AF329FD014D_497EDE780363exec_var*
 begin
@@ -1161,6 +1139,27 @@ begin
 //#UC END# *4CDAD29D0169_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.ShortName
 
+procedure TPrimDocumentWithFlashForm.TabBecomeActive;
+//#UC START# *54868B67034A_497EDE780363_var*
+//#UC END# *54868B67034A_497EDE780363_var*
+begin
+//#UC START# *54868B67034A_497EDE780363_impl*
+ f_Flash.Visible := True;
+ f_Flash.FitToParent;
+ f_Flash.Top := f_FlashTop;
+//#UC END# *54868B67034A_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.TabBecomeActive
+
+procedure TPrimDocumentWithFlashForm.TabBecomeInactive;
+//#UC START# *54868B84029F_497EDE780363_var*
+//#UC END# *54868B84029F_497EDE780363_var*
+begin
+//#UC START# *54868B84029F_497EDE780363_impl*
+ f_FlashTop := f_Flash.Top;
+ f_Flash.Visible := False;
+//#UC END# *54868B84029F_497EDE780363_impl*
+end;//TPrimDocumentWithFlashForm.TabBecomeInactive
+
 function TPrimDocumentWithFlashForm.GetDocumentForInfo: IdeDocInfo;
 //#UC START# *54D8913B03A6_497EDE780363_var*
 //#UC END# *54D8913B03A6_497EDE780363_var*
@@ -1181,6 +1180,7 @@ begin
 end;//TPrimDocumentWithFlashForm.NotifyContainersChanged
 
 procedure TPrimDocumentWithFlashForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_497EDE780363_var*
 //#UC END# *479731C50290_497EDE780363_var*
 begin
@@ -1204,7 +1204,7 @@ begin
 //#UC END# *47D1602000C6_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.Create
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimDocumentWithFlashForm.WndProc(var Message: TMessage);
 //#UC START# *47E136A80191_497EDE780363_var*
 var
@@ -1224,11 +1224,12 @@ begin
  OpenDocument(Message.WParam, Message.LParam, l_OpenKind);
 //#UC END# *47E136A80191_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.WndProc
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EDE780363_var*
  procedure lp_AddDocumentToHistory;
  begin
@@ -1297,10 +1298,11 @@ begin
  g_Dispatcher.UnlockActionUpdate;
 //#UC END# *497469C90140_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EDE780363_var*
 //#UC END# *49803F5503AA_497EDE780363_var*
 begin
@@ -1311,9 +1313,9 @@ begin
  inherited;
 //#UC END# *49803F5503AA_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_497EDE780363_var*
 //#UC END# *4980407F0076_497EDE780363_var*
@@ -1323,12 +1325,13 @@ begin
  AddToWorkJournal;
 //#UC END# *4980407F0076_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.CallCloseQuery
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_497EDE780363_var*
 //#UC END# *49806ED503D5_497EDE780363_var*
 begin
@@ -1343,11 +1346,12 @@ begin
   Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoSaveState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TPrimDocumentWithFlashForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497EDE780363_var*
 //#UC END# *49807428008C_497EDE780363_var*
 begin
@@ -1362,10 +1366,11 @@ begin
   Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoLoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.SetPositionByDS;
+ {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
 //#UC START# *498953170108_497EDE780363_var*
 //#UC END# *498953170108_497EDE780363_var*
 begin
@@ -1386,9 +1391,10 @@ begin
  end;//dsDocument <> nil
 //#UC END# *498953170108_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.SetPositionByDS
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TPrimDocumentWithFlashForm.NeedsStatusBarItems: Boolean;
+ {* Определяет, что операции в статусной строке таки надо публиковать }
 //#UC START# *4A8E5CEC021F_497EDE780363_var*
 //#UC END# *4A8E5CEC021F_497EDE780363_var*
 begin
@@ -1397,8 +1403,9 @@ begin
 //#UC END# *4A8E5CEC021F_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.NeedsStatusBarItems
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EDE780363_var*
 //#UC END# *4A8E8F2E0195_497EDE780363_var*
 begin
@@ -1410,9 +1417,9 @@ begin
  Tl3TabbedContainersDispatcher.Instance.Subscribe(Self);
 //#UC END# *4A8E8F2E0195_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.PageActive;
 //#UC START# *4C52E8030278_497EDE780363_var*
 //#UC END# *4C52E8030278_497EDE780363_var*
@@ -1423,16 +1430,7 @@ begin
   TnscDocumentHistory.Instance.AddDocument(Document.GetInternalId);
 //#UC END# *4C52E8030278_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.PageActive
-{$IfEnd} //not NoVCM
-
-procedure TPrimDocumentWithFlashForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- State := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimDocumentWithFlashForm.ClearFields
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimDocumentWithFlashForm.DoPrintExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *51A45199015E_497EDE780363_var*
@@ -1476,7 +1474,7 @@ begin
 //#UC END# *5301CBFE023E_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.MakePreview
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimDocumentWithFlashForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_497EDE780363_var*
 //#UC END# *543E3AA801D0_497EDE780363_var*
@@ -1488,9 +1486,9 @@ begin
   Result := 0;
 //#UC END# *543E3AA801D0_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon: Boolean;
 //#UC START# *544609B9032D_497EDE780363_var*
 //#UC END# *544609B9032D_497EDE780363_var*
@@ -1499,25 +1497,36 @@ begin
  Result := (UserType <> dwftSynchro);
 //#UC END# *544609B9032D_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-procedure TPrimDocumentWithFlashForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimDocumentWithFlashForm.ClearFields;
+begin
+ State := nil;
+ inherited;
+end;//TPrimDocumentWithFlashForm.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimDocumentWithFlashForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   bsFlash := nil;
   dsBaseDocument := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  aDsNew.CastUCC(IbsFlash, bsFlash);
-  Supports(aDsNew, IdsBaseDocument, dsBaseDocument);
- end;//aDsNew = nil
-end;
+  aNew.CastUCC(IbsFlash, bsFlash);
+  Supports(aNew, IdsBaseDocument, dsBaseDocument);
+ end;//aNew = nil
+end;//TPrimDocumentWithFlashForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1525,10 +1534,7 @@ begin
   PublishFormEntity(en_File, nil);
   PublishFormEntity(en_Document, nil);
   PublishFormEntity(en_Loadable, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
   PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
   PublishOpWithResult(en_Document, op_OpenCorrespondentList, Document_OpenCorrespondentList, Document_OpenCorrespondentList_Test, nil);
@@ -1543,32 +1549,29 @@ begin
   PublishOp(en_Document, op_GetRespondentListExFrmAct, Document_GetRespondentListExFrmAct_Execute, Document_GetRespondentListExFrmAct_Test, nil);
   PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
  end;//with Entities.Entities
- AddUserTypeExclude(dwftSynchroName, en_Document, op_NextDocumentInList, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_ReturnToList, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_AddToControl, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetAttributesFrmAct, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRelatedDocFrmAct, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR1, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR2, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentList, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentList, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_AttributesCanBeClosed, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentListExFrmAct, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentListExFrmAct, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_PrevDocumentInList, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseful, false);
- AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseless, false);
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_AttributesCanBeClosed, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseful, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseless, False);
+end;//TPrimDocumentWithFlashForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\View\DocumentWithFlashUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDocumentWithFlash
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDocumentWithFlashForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDocumentWithFlash }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -1,193 +1,151 @@
 unit PrimWorkJournal_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkJournal/Forms/PrimWorkJournal_Form.pas"
-// Начат: 27.04.2010 16:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::WorkJournal::View::WorkJournal::PrimWorkJournal
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimWorkJournal" MUID: (4BD6D6EA0075)
+// Имя типа: "TPrimWorkJournalForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  l3ControlsTypes,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  WorkJournal_Strange_Controls,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  PrimWorkJournal_utWorkJournal_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Strange_Controls
+ , WorkJournal_Strange_Controls
+ , nscTreeViewWithAdapterDragDrop
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimWorkJournalForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_JournalTree : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства JournalTree}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ TPrimWorkJournalForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_JournalTree: TnscTreeViewWithAdapterDragDrop;
+  private
    procedure JournalTreeMakeTreeSource(out theTree: Il3SimpleTree);
    function JournalTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure JournalTreeActionElement(Sender: TObject;
-     Index: LongInt);
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+    Index: LongInt);
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SetupFormLayout; override;
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
    procedure SavedQuery_OpenQuery_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure SavedQuery_ExecuteQuery_Test(const aParams: IvcmTestParamsPrim);
    procedure SavedQuery_ExecuteQuery_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Journal_Clear_Test(const aParams: IvcmTestParamsPrim);
    procedure Journal_Clear_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure SetActiveControl; override;
-     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // public properties
+    {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property JournalTree: TnscTreeViewWithAdapterDragDrop
-     read f_JournalTree;
+    read f_JournalTree;
  end;//TPrimWorkJournalForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FoldersRes,
-  DynamicTreeUnit,
-  SysUtils,
-  UserJournalUnit,
-  eeInterfaces,
-  BaseTypesUnit,
-  nsOpenUtils,
-  nsQueryUtils,
-  SearchUnit,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  evdTextStyle_Const,
-  l3Interfaces,
-  nsConst,
-  afwFacade
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , FoldersRes
+ , DynamicTreeUnit
+ , SysUtils
+ , UserJournalUnit
+ , eeInterfaces
+ , BaseTypesUnit
+ , nsOpenUtils
+ , nsQueryUtils
+ , SearchUnit
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , evdTextStyle_Const
+ , l3Interfaces
+ , nsConst
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimWorkJournal_utWorkJournal_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4BD6D6EA0075impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4BD6D6EA0075impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utWorkJournalLocalConstants }
-  str_utWorkJournalCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utWorkJournalCaption'; rValue : 'Журнал работы');
-   { Заголовок пользовательского типа "Журнал работы" }
-
-// start class TPrimWorkJournalForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimWorkJournalForm.JournalTreeMakeTreeSource(out theTree: Il3SimpleTree);
 //#UC START# *527D09DB0041_4BD6D6EA0075_var*
 //#UC END# *527D09DB0041_4BD6D6EA0075_var*
@@ -198,8 +156,8 @@ begin
 end;//TPrimWorkJournalForm.JournalTreeMakeTreeSource
 
 function TPrimWorkJournalForm.JournalTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *527D09E502F1_4BD6D6EA0075_var*
 var
  l_eeNode: IeeNode;
@@ -233,7 +191,7 @@ begin
 end;//TPrimWorkJournalForm.JournalTreeGetItemImage
 
 procedure TPrimWorkJournalForm.JournalTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *527D09F100BA_4BD6D6EA0075_var*
 var
  //l_Params: IvcmExecuteParams;
@@ -265,8 +223,8 @@ begin
 //#UC END# *527D09F100BA_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.JournalTreeActionElement
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4BD6D6EA0075test_var*
 //#UC END# *494F89C30197_4BD6D6EA0075test_var*
 begin
@@ -274,21 +232,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
 //#UC END# *494F89C30197_4BD6D6EA0075test_impl*
 end;//TPrimWorkJournalForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimWorkJournalForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_4BD6D6EA0075getstate_var*
-//#UC END# *494F89C30197_4BD6D6EA0075getstate_var*
-begin
-//#UC START# *494F89C30197_4BD6D6EA0075getstate_impl*
- // - ничего не делаем
-//#UC END# *494F89C30197_4BD6D6EA0075getstate_impl*
-end;//TPrimWorkJournalForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4BD6D6EA0075exec_var*
 //#UC END# *494F89C30197_4BD6D6EA0075exec_var*
 begin
@@ -296,10 +242,19 @@ begin
  TdmStdRes.MakeWorkJournal.Delete(JournalTree.GetCurrentNode);
 //#UC END# *494F89C30197_4BD6D6EA0075exec_impl*
 end;//TPrimWorkJournalForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
+procedure TPrimWorkJournalForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD6D6EA0075getstate_var*
+//#UC END# *494F89C30197_4BD6D6EA0075getstate_var*
+begin
+//#UC START# *494F89C30197_4BD6D6EA0075getstate_impl*
+ // - ничего не делаем
+//#UC END# *494F89C30197_4BD6D6EA0075getstate_impl*
+end;//TPrimWorkJournalForm.Edit_Delete_GetState
+
 procedure TPrimWorkJournalForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4BD6D6EA0075test_var*
 //#UC END# *4BDAF7880236_4BD6D6EA0075test_var*
 begin
@@ -307,10 +262,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
 //#UC END# *4BDAF7880236_4BD6D6EA0075test_impl*
 end;//TPrimWorkJournalForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4BD6D6EA0075test_var*
 //#UC END# *4BDAF7A2005C_4BD6D6EA0075test_var*
 begin
@@ -318,7 +272,6 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := JournalTree.TreeView.Current >= 0;
 //#UC END# *4BDAF7A2005C_4BD6D6EA0075test_impl*
 end;//TPrimWorkJournalForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
 
 procedure TPrimWorkJournalForm.SavedQuery_OpenQuery_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C3F3421036A_4BD6D6EA0075test_var*
@@ -440,8 +393,8 @@ begin
 //#UC END# *4C3F348402AC_4BD6D6EA0075exec_impl*
 end;//TPrimWorkJournalForm.Journal_Clear_Execute
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4BD6D6EA0075_var*
 //#UC END# *49803F5503AA_4BD6D6EA0075_var*
 begin
@@ -450,10 +403,9 @@ begin
  JournalTree.Images := nsFoldersRes.FoldersItemImages;
 //#UC END# *49803F5503AA_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4BD6D6EA0075_var*
 //#UC END# *4A8E8F2E0195_4BD6D6EA0075_var*
 begin
@@ -483,10 +435,9 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.SetActiveControl;
+ {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_4BD6D6EA0075_var*
 //#UC END# *4AC3803A03CD_4BD6D6EA0075_var*
 begin
@@ -494,10 +445,9 @@ begin
  Windows.SetFocus(JournalTree.Handle);
 //#UC END# *4AC3803A03CD_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetActiveControl
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimWorkJournalForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4BD6D6EA0075_var*
 //#UC END# *529332B40230_4BD6D6EA0075_var*
 begin
@@ -507,9 +457,10 @@ begin
  Height := 478;
 //#UC END# *529332B40230_4BD6D6EA0075_impl*
 end;//TPrimWorkJournalForm.SetupFormLayout
-{$IfEnd} //not NoVCM
 
 procedure TPrimWorkJournalForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -519,33 +470,24 @@ begin
   PublishFormEntity(en_SavedQuery, nil);
   PublishFormEntity(en_Journal, nil);
   ContextMenuWeight(en_Tree, 1);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  ShowInContextMenu(en_Edit, op_Delete, true);
-  ShowInToolbar(en_Edit, op_Delete, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  ShowInContextMenu(en_Tree, op_ExpandAll, true);
-  ShowInToolbar(en_Tree, op_ExpandAll, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Tree, op_ExpandAll, True);
+  ShowInToolbar(en_Tree, op_ExpandAll, True);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  ShowInContextMenu(en_Tree, op_CollapseAll, true);
-  ShowInToolbar(en_Tree, op_CollapseAll, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Tree, op_CollapseAll, True);
+  ShowInToolbar(en_Tree, op_CollapseAll, True);
   PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
-  ShowInContextMenu(en_SavedQuery, op_OpenQuery, true);
+  ShowInContextMenu(en_SavedQuery, op_OpenQuery, True);
   PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
-  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, true);
+  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, True);
   PublishOp(en_Journal, op_Clear, Journal_Clear_Execute, Journal_Clear_Test, nil);
-  ShowInContextMenu(en_Journal, op_Clear, true);
-  ShowInToolbar(en_Journal, op_Clear, true);
+  ShowInContextMenu(en_Journal, op_Clear, True);
+  ShowInToolbar(en_Journal, op_Clear, True);
  end;//with Entities.Entities
-end;
+end;//TPrimWorkJournalForm.InitEntities
 
 procedure TPrimWorkJournalForm.MakeControls;
 begin
@@ -553,7 +495,7 @@ begin
  with AddUsertype(utWorkJournalName,
   str_utWorkJournalCaption,
   str_utWorkJournalCaption,
-  true,
+  True,
   128,
   -1,
   '',
@@ -566,18 +508,14 @@ begin
  f_JournalTree := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_JournalTree.Name := 'JournalTree';
  f_JournalTree.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimWorkJournalForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utWorkJournalCaption
- str_utWorkJournalCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimWorkJournal
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimWorkJournalForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimWorkJournal }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

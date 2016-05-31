@@ -29,6 +29,9 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,7 +43,6 @@ type
  )
   private
    f_JournalTree: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства JournalTree }
   private
    procedure JournalTreeMakeTreeSource(out theTree: Il3SimpleTree);
    function JournalTreeGetItemImage(Sender: TObject;
@@ -111,7 +113,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , FoldersRes
  , DynamicTreeUnit
  , SysUtils
@@ -132,25 +133,19 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimWorkJournal_utWorkJournal_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4BD6D6EA0075impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4BD6D6EA0075impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utWorkJournalLocalConstants }
- str_utWorkJournalCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utWorkJournalCaption'; rValue : 'Журнал работы');
-  {* Заголовок пользовательского типа "Журнал работы" }
-
 procedure TPrimWorkJournalForm.JournalTreeMakeTreeSource(out theTree: Il3SimpleTree);
 //#UC START# *527D09DB0041_4BD6D6EA0075_var*
 //#UC END# *527D09DB0041_4BD6D6EA0075_var*
@@ -474,12 +469,23 @@ begin
   PublishFormEntity(en_Tree, nil);
   PublishFormEntity(en_SavedQuery, nil);
   PublishFormEntity(en_Journal, nil);
+  ContextMenuWeight(en_Tree, 1);
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
+  ShowInContextMenu(en_Edit, op_Delete, True);
+  ShowInToolbar(en_Edit, op_Delete, True);
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
+  ShowInContextMenu(en_Tree, op_ExpandAll, True);
+  ShowInToolbar(en_Tree, op_ExpandAll, True);
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
+  ShowInContextMenu(en_Tree, op_CollapseAll, True);
+  ShowInToolbar(en_Tree, op_CollapseAll, True);
   PublishOp(en_SavedQuery, op_OpenQuery, SavedQuery_OpenQuery_Execute, SavedQuery_OpenQuery_Test, nil);
+  ShowInContextMenu(en_SavedQuery, op_OpenQuery, True);
   PublishOp(en_SavedQuery, op_ExecuteQuery, SavedQuery_ExecuteQuery_Execute, SavedQuery_ExecuteQuery_Test, nil);
+  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, True);
   PublishOp(en_Journal, op_Clear, Journal_Clear_Execute, Journal_Clear_Test, nil);
+  ShowInContextMenu(en_Journal, op_Clear, True);
+  ShowInToolbar(en_Journal, op_Clear, True);
  end;//with Entities.Entities
 end;//TPrimWorkJournalForm.InitEntities
 
@@ -489,7 +495,7 @@ begin
  with AddUsertype(utWorkJournalName,
   str_utWorkJournalCaption,
   str_utWorkJournalCaption,
-  False,
+  True,
   128,
   -1,
   '',
@@ -505,8 +511,6 @@ begin
 end;//TPrimWorkJournalForm.MakeControls
 
 initialization
- str_utWorkJournalCaption.Init;
- {* Инициализация str_utWorkJournalCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimWorkJournalForm);
  {* Регистрация PrimWorkJournal }

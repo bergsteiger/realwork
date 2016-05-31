@@ -1,54 +1,56 @@
 {$IfNDef CommonForTextAndFlashOperations_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/CommonForTextAndFlashOperations.imp.pas"
-// Начат: 13.11.2010 15:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::CommonForDocumentAndFlash::CommonForTextAndFlashOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "CommonForTextAndFlashOperations" MUID: (4CDE81A402A9)
+// Имя типа: "_CommonForTextAndFlashOperations_"
 
 {$Define CommonForTextAndFlashOperations_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
- {$Include ..\View\CommonForTextAndFlash.imp.pas}
- _CommonForTextAndFlashOperations_ = {abstract form} class(_CommonForTextAndFlash_)
- protected
-  procedure InitEntities; override;
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
+ _CommonForTextAndFlashOperations_ = {abstract} class(_CommonForTextAndFlash_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_CommonForTextAndFlashOperations_
-{$Else}
 
- _CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
- {$Include ..\View\CommonForTextAndFlash.imp.pas}
- _CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
+_CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else CommonForTextAndFlashOperations_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef CommonForTextAndFlashOperations_imp_impl}
 
-{$Include ..\View\CommonForTextAndFlash.imp.pas}
+{$Define CommonForTextAndFlashOperations_imp_impl}
 
-// start class _CommonForTextAndFlashOperations_
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
 
+{$If NOT Defined(NoVCM)}
 procedure _CommonForTextAndFlashOperations_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  
-  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, false);
-  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, false);
+  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, False);
+  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, False);
  end;//with Entities.Entities
-end;
+end;//_CommonForTextAndFlashOperations_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf CommonForTextAndFlashOperations_imp_impl}
 
 {$EndIf CommonForTextAndFlashOperations_imp}
+

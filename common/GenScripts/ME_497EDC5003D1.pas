@@ -18,8 +18,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , ConsultationDomainInterfaces
  , vtGroupBox
- , vtRadioButton
  , vtPanel
+ , vtRadioButton
  , vtLabel
  , eeMemoWithEditOperations
  , bsTypes
@@ -42,25 +42,23 @@ type
   {* Оценка консультации }
   private
    f_gbMark: TvtGroupBox;
-    {* Поле для свойства gbMark }
-   f_rbNotSure: TvtRadioButton;
-    {* Поле для свойства rbNotSure }
-   f_rbTwo: TvtRadioButton;
-    {* Поле для свойства rbTwo }
-   f_rbThree: TvtRadioButton;
-    {* Поле для свойства rbThree }
-   f_rbFour: TvtRadioButton;
-    {* Поле для свойства rbFour }
-   f_rbFive: TvtRadioButton;
-    {* Поле для свойства rbFive }
+    {* Оценка: }
    f_pnlHelp: TvtPanel;
-    {* Поле для свойства pnlHelp }
-   f_lblHelp: TvtLabel;
-    {* Поле для свойства lblHelp }
    f_gbComment: TvtGroupBox;
-    {* Поле для свойства gbComment }
+    {* Комментарий к Вашей оценке: }
+   f_rbNotSure: TvtRadioButton;
+    {* Затрудняюсь ответить (оценка 0) }
+   f_rbTwo: TvtRadioButton;
+    {* Плохо (оценка 2) }
+   f_rbThree: TvtRadioButton;
+    {* Удовлетворительно (оценка 3) }
+   f_rbFour: TvtRadioButton;
+    {* Хорошо (оценка 4) }
+   f_rbFive: TvtRadioButton;
+    {* Отлично (оценка 5) }
+   f_lblHelp: TvtLabel;
+    {* Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн». }
    f_mComment: TeeMemoWithEditOperations;
-    {* Поле для свойства mComment }
   protected
    DSMark: IdsConsultationMark;
     {* Оценка консультации }
@@ -121,7 +119,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -129,25 +126,22 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Types
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ConsultationWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimConsultationMark_utcmMain_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EDC5003D1impl_uses*
+ //#UC END# *497EDC5003D1impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utcmMainLocalConstants }
- str_utcmMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utcmMainCaption'; rValue : 'Оценка ответа');
-  {* Заголовок пользовательского типа "Оценка ответа" }
-
 procedure TPrimConsultationMarkForm.rbNotSureClick(Sender: TObject);
 //#UC START# *5176B3D003B4_497EDC5003D1_var*
 //#UC END# *5176B3D003B4_497EDC5003D1_var*
@@ -333,6 +327,14 @@ procedure TPrimConsultationMarkForm.SignalDataSourceChanged(const anOld: IvcmFor
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  DSMark := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsConsultationMark, DSMark);
+ end;//aNew = nil
 end;//TPrimConsultationMarkForm.SignalDataSourceChanged
 
 procedure TPrimConsultationMarkForm.MakeControls;
@@ -392,8 +394,6 @@ begin
 end;//TPrimConsultationMarkForm.MakeControls
 
 initialization
- str_utcmMainCaption.Init;
- {* Инициализация str_utcmMainCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimConsultationMarkForm);
  {* Регистрация PrimConsultationMark }

@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftDictEntryLocalConstants }
+ str_dftDictEntryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDictEntryCaption'; rValue : 'Текст словарной статьи');
+  {* Заголовок пользовательского типа "Текст словарной статьи" }
+ str_dftDictEntrySettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDictEntrySettingsCaption'; rValue : 'Толковый словарь: Текст словарной статьи');
+  {* Заголовок пользовательского типа "Текст словарной статьи" для настройки панелей инструментов }
  {* Константы для типа формы dftDictEntry }
  dftDictEntryName = 'dftDictEntry';
   {* Строковый идентификатор пользовательского типа "Текст словарной статьи" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftDictEntry.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftDictEntryCaption.Init;
+ {* Инициализация str_dftDictEntryCaption }
+ str_dftDictEntrySettingsCaption.Init;
+ {* Инициализация str_dftDictEntrySettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDictEntry.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftDictEntry }

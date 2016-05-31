@@ -17,6 +17,9 @@ uses
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -58,6 +61,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CC7F0CE0267impl_uses*
+ //#UC END# *4CC7F0CE0267impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -117,7 +122,9 @@ begin
   PublishFormEntity(en_Edit, nil);
   PublishOp(en_Edit, op_FindNext, Edit_FindNext_Execute, Edit_FindNext_Test, nil);
   PublishOp(en_Edit, op_Undo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Undo, False);
   PublishOp(en_Edit, op_Redo, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Redo, False);
   PublishOp(en_Edit, op_FindPrev, Edit_FindPrev_Execute, Edit_FindPrev_Test, nil);
  end;//with Entities.Entities
 end;//TPrimBaseSearchOptionsForm.InitEntities

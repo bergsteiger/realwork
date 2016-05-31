@@ -1,59 +1,40 @@
 {$IfNDef ContentsUserTypes_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/ContentsUserTypes.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Base Forms::ContentsUserTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "ContentsUserTypes" MUID: (4FFB039302AA)
+// Имя типа: "_ContentsUserTypes_"
 
 {$Define ContentsUserTypes_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _ContentsUserTypes_ = {abstract form} class(_ContentsUserTypes_Parent_)
- protected
-  procedure MakeControls; override;
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _ContentsUserTypes_ = {abstract} class(_ContentsUserTypes_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_ContentsUserTypes_
-{$Else}
 
- _ContentsUserTypes_ = _ContentsUserTypes_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_ContentsUserTypes_ = _ContentsUserTypes_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else ContentsUserTypes_imp}
 
 {$IfNDef ContentsUserTypes_imp_impl}
+
 {$Define ContentsUserTypes_imp_impl}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utContentsLocalConstants }
-  str_utContentsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsCaption'; rValue : 'Структура документа');
-   { Заголовок пользовательского типа "Структура документа" }
-  str_utContentsSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsSettingsCaption'; rValue : 'Документ: Структура (вкладка)');
-   { Заголовок пользовательского типа "Структура документа" для настройки панелей инструментов }
-
-var
-   { Локализуемые строки utDrugContentsLocalConstants }
-  str_utDrugContentsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsCaption'; rValue : 'Структура препарата');
-   { Заголовок пользовательского типа "Структура препарата" }
-  str_utDrugContentsSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDrugContentsSettingsCaption'; rValue : 'Препарат: Структура (вкладка)');
-   { Заголовок пользовательского типа "Структура препарата" для настройки панелей инструментов }
-
-// start class _ContentsUserTypes_
-
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
 procedure _ContentsUserTypes_.MakeControls;
 begin
  inherited;
  with AddUsertype(utContentsName,
   str_utContentsCaption,
   str_utContentsSettingsCaption,
-  true,
+  True,
   66,
   40,
   '',
@@ -66,7 +47,7 @@ begin
  with AddUsertype(utDrugContentsName,
   str_utDrugContentsCaption,
   str_utDrugContentsSettingsCaption,
-  true,
+  True,
   66,
   40,
   '',
@@ -76,21 +57,11 @@ begin
   vcm_ccEnable) do
  begin
  end;//with AddUsertype(utDrugContentsName
-end;
+end;//_ContentsUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else  ContentsUserTypes_imp_impl}
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utContentsCaption
- str_utContentsCaption.Init;
-// Инициализация str_utContentsSettingsCaption
- str_utContentsSettingsCaption.Init;
-// Инициализация str_utDrugContentsCaption
- str_utDrugContentsCaption.Init;
-// Инициализация str_utDrugContentsSettingsCaption
- str_utDrugContentsSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf ContentsUserTypes_imp_impl}
+
 {$EndIf ContentsUserTypes_imp}
+

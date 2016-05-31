@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utStyleEditorNavigatorLocalConstants }
+ str_utStyleEditorNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorCaption'; rValue : 'Дерево стилей');
+  {* Заголовок пользовательского типа "Дерево стилей" }
+ str_utStyleEditorNavigatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorSettingsCaption'; rValue : 'Дерево стилей');
+  {* Заголовок пользовательского типа "Дерево стилей" для настройки панелей инструментов }
  {* Константы для типа формы utStyleEditorNavigator }
  utStyleEditorNavigatorName = 'utStyleEditorNavigator';
   {* Строковый идентификатор пользовательского типа "Дерево стилей" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utStyleEditorNavigatorCaption.Init;
+ {* Инициализация str_utStyleEditorNavigatorCaption }
+ str_utStyleEditorNavigatorSettingsCaption.Init;
+ {* Инициализация str_utStyleEditorNavigatorSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utStyleEditorNavigator.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utStyleEditorNavigator }

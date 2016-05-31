@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utContentsLocalConstants }
+ str_utContentsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsCaption'; rValue : 'Структура документа');
+  {* Заголовок пользовательского типа "Структура документа" }
+ str_utContentsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utContentsSettingsCaption'; rValue : 'Документ: Структура (вкладка)');
+  {* Заголовок пользовательского типа "Структура документа" для настройки панелей инструментов }
  {* Константы для типа формы utContents }
  utContentsName = 'utContents';
   {* Строковый идентификатор пользовательского типа "Структура документа" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utContents.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utContentsCaption.Init;
+ {* Инициализация str_utContentsCaption }
+ str_utContentsSettingsCaption.Init;
+ {* Инициализация str_utContentsSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utContents.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utContents }

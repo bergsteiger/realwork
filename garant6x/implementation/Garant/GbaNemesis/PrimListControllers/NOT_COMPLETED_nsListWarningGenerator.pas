@@ -47,7 +47,24 @@ uses
  , bsUtils
  , Document_Const
  , k2Tags
- , l3MessageID
+ , WarningUserTypes_Warning_UserType
+ , BaloonWarningUserTypes_Fake_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
 ;
 
 const

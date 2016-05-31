@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cutOldKeyWordLocalConstants }
+ str_cutOldKeyWordCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordCaption'; rValue : 'Поиск по ситуации');
+  {* Заголовок пользовательского типа "Поиск по ситуации" }
+ str_cutOldKeyWordSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordSettingsCaption'; rValue : 'Поиск: По ситуации (Преемственный)');
+  {* Заголовок пользовательского типа "Поиск по ситуации" для настройки панелей инструментов }
  {* Константы для типа формы cutOldKeyWord }
  cutOldKeyWordName = 'cutOldKeyWord';
   {* Строковый идентификатор пользовательского типа "Поиск по ситуации" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_cutOldKeyWord.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cutOldKeyWordCaption.Init;
+ {* Инициализация str_cutOldKeyWordCaption }
+ str_cutOldKeyWordSettingsCaption.Init;
+ {* Инициализация str_cutOldKeyWordSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutOldKeyWord.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cutOldKeyWord }

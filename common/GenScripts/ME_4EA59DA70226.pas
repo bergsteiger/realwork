@@ -15,7 +15,9 @@ uses
  , PrimWarningOptions_Form
  , Document_Strange_Controls
  , DocumentAndListInterfaces
- , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -56,17 +58,12 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4EA59DA70226impl_uses*
+ //#UC END# *4EA59DA70226impl_uses*
 ;
-
-type
- // PrintOperationsInclude
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas}
 
@@ -143,6 +140,8 @@ begin
   PublishFormEntity(en_Warning, nil);
   PublishOpWithResult(en_Warning, op_BecomeActive, Warning_BecomeActive, Warning_BecomeActive_Test, nil);
   PublishOpWithResult(en_Warning, op_SwitchActive, Warning_SwitchActive, Warning_SwitchActive_Test, nil);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, False);
  end;//with Entities.Entities
 end;//TPrimDockedWarningForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

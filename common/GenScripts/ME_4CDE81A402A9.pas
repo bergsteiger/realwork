@@ -41,6 +41,11 @@ procedure _CommonForTextAndFlashOperations_.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, False);
+  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, False);
+ end;//with Entities.Entities
 end;//_CommonForTextAndFlashOperations_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

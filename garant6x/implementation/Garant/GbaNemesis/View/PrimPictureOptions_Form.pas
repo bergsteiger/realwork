@@ -1,102 +1,86 @@
 unit PrimPictureOptions_Form;
+ {* Рисунок }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimPictureOptions_Form.pas"
-// Начат: 08.09.2010 14:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Picture::PrimPictureOptions
-//
-// Рисунок
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPictureOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPictureOptions" MUID: (4C8768010125)
+// Имя типа: "TPrimPictureOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimPicture_Form,
-  Common_Strange_Controls,
-  l3Interfaces,
-  afwInterfaces,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimPicture_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
+ , l3Interfaces
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _PrintableBitmap_Parent_ = TPrimPictureForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
- TPrimPictureOptionsForm = {form} class(_PrintableBitmap_)
+ TPrimPictureOptionsForm = class(_PrintableBitmap_)
   {* Рисунок }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   function pm_GetBitmapForPrint: Graphics_Bitmap; override;
+   function Name: Il3CString; override;
+   function ShortName: Il3CString; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure File_Save_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Сохранить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
-     {* Информация о документе }
-   procedure Document_GetAttributesFrmAct_GetState(var State: TvcmOperationStateIndex);
-     {* Информация о документе }
+    {* Информация о документе }
    procedure Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Информация о документе }
-   {$If not defined(NoVCM)}
+    {* Информация о документе }
+   procedure Document_GetAttributesFrmAct_GetState(var State: TvcmOperationStateIndex);
+    {* Информация о документе }
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Копировать }
-   {$IfEnd} //not NoVCM
+    {* Копировать }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Picture_Resize_Test(const aParams: IvcmTestParamsPrim);
    procedure Picture_Resize_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Picture_Enlarge_Test(const aParams: IvcmTestParamsPrim);
@@ -107,53 +91,46 @@ type
    procedure Picture_ActualSize_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Picture_FitInWIndow_Test(const aParams: IvcmTestParamsPrim);
    procedure Picture_FitInWIndow_Execute(const aParams: IvcmExecuteParamsPrim);
-   function pm_GetBitmapForPrint: Graphics_Bitmap; override;
-   function Name: Il3CString; override;
-   function ShortName: Il3CString; override;
  end;//TPrimPictureOptionsForm
-
- TvcmEntityFormRef = TPrimPictureOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTrialSupport,
-  afwFacade,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  L10nInterfaces,
-  SysUtils,
-  l3String,
-  l3ValueMap,
-  nsTypes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  evBitmapDataObject,
-  nsFixedHAFMacroReplacer,
-  nsObjectPreview,
-  nevBase,
-  nsHAFPainter,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , nsTrialSupport
+ , afwFacade
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , L10nInterfaces
+ , SysUtils
+ , Classes
+ , l3String
+ , l3ValueMap
+ , nsTypes
+ , evBitmapDataObject
+ , nsFixedHAFMacroReplacer
+ , nsObjectPreview
+ , nevBase
+ , nsHAFPainter
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8768010125impl_uses*
+ //#UC END# *4C8768010125impl_uses*
+;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
 
-// start class TPrimPictureOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.File_Save_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4C8768010125test_var*
 //#UC END# *495235F401C0_4C8768010125test_var*
 begin
@@ -162,10 +139,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := True;
 //#UC END# *495235F401C0_4C8768010125test_impl*
 end;//TPrimPictureOptionsForm.File_Save_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.File_Save_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить }
 //#UC START# *495235F401C0_4C8768010125exec_var*
 var
  l_FileExt: string;
@@ -201,21 +179,11 @@ begin
  end;//with GetSaveDialog do
 //#UC END# *495235F401C0_4C8768010125exec_impl*
 end;//TPrimPictureOptionsForm.File_Save_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
-procedure TPrimPictureOptionsForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C762C910358_4C8768010125getstate_var*
-//#UC END# *4C762C910358_4C8768010125getstate_var*
-begin
-//#UC START# *4C762C910358_4C8768010125getstate_impl*
- State := st_user_Result_Cancel_Close;
-//#UC END# *4C762C910358_4C8768010125getstate_impl*
-end;//TPrimPictureOptionsForm.Result_Cancel_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4C8768010125exec_var*
 //#UC END# *4C762C910358_4C8768010125exec_var*
 begin
@@ -226,9 +194,22 @@ begin
   Dispatcher.History.Back;
 //#UC END# *4C762C910358_4C8768010125exec_impl*
 end;//TPrimPictureOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TPrimPictureOptionsForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
+//#UC START# *4C762C910358_4C8768010125getstate_var*
+//#UC END# *4C762C910358_4C8768010125getstate_var*
+begin
+//#UC START# *4C762C910358_4C8768010125getstate_impl*
+ State := st_user_Result_Cancel_Close;
+//#UC END# *4C762C910358_4C8768010125getstate_impl*
+end;//TPrimPictureOptionsForm.Result_Cancel_GetState
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Test(const aParams: IvcmTestParamsPrim);
+ {* Информация о документе }
 //#UC START# *4C7B9EBC01AC_4C8768010125test_var*
 //#UC END# *4C7B9EBC01AC_4C8768010125test_var*
 begin
@@ -238,16 +219,8 @@ begin
 //#UC END# *4C7B9EBC01AC_4C8768010125test_impl*
 end;//TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Test
 
-procedure TPrimPictureOptionsForm.Document_GetAttributesFrmAct_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4C7B9EBC01AC_4C8768010125getstate_var*
-//#UC END# *4C7B9EBC01AC_4C8768010125getstate_var*
-begin
-//#UC START# *4C7B9EBC01AC_4C8768010125getstate_impl*
- State := st_user_Document_GetAttributesFrmAct_Picture;
-//#UC END# *4C7B9EBC01AC_4C8768010125getstate_impl*
-end;//TPrimPictureOptionsForm.Document_GetAttributesFrmAct_GetState
-
 procedure TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Информация о документе }
 //#UC START# *4C7B9EBC01AC_4C8768010125exec_var*
 //#UC END# *4C7B9EBC01AC_4C8768010125exec_var*
 begin
@@ -256,8 +229,19 @@ begin
 //#UC END# *4C7B9EBC01AC_4C8768010125exec_impl*
 end;//TPrimPictureOptionsForm.Document_GetAttributesFrmAct_Execute
 
-{$If not defined(NoVCM)}
+procedure TPrimPictureOptionsForm.Document_GetAttributesFrmAct_GetState(var State: TvcmOperationStateIndex);
+ {* Информация о документе }
+//#UC START# *4C7B9EBC01AC_4C8768010125getstate_var*
+//#UC END# *4C7B9EBC01AC_4C8768010125getstate_var*
+begin
+//#UC START# *4C7B9EBC01AC_4C8768010125getstate_impl*
+ State := st_user_Document_GetAttributesFrmAct_Picture;
+//#UC END# *4C7B9EBC01AC_4C8768010125getstate_impl*
+end;//TPrimPictureOptionsForm.Document_GetAttributesFrmAct_GetState
+
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.Edit_Copy_Test(const aParams: IvcmTestParamsPrim);
+ {* Копировать }
 //#UC START# *4C7D0C7B0185_4C8768010125test_var*
 //#UC END# *4C7D0C7B0185_4C8768010125test_var*
 begin
@@ -266,10 +250,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := True; 
 //#UC END# *4C7D0C7B0185_4C8768010125test_impl*
 end;//TPrimPictureOptionsForm.Edit_Copy_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.Edit_Copy_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Копировать }
 //#UC START# *4C7D0C7B0185_4C8768010125exec_var*
 //#UC END# *4C7D0C7B0185_4C8768010125exec_var*
 begin
@@ -277,7 +262,7 @@ begin
  ieProc.CopyToClipboard;
 //#UC END# *4C7D0C7B0185_4C8768010125exec_impl*
 end;//TPrimPictureOptionsForm.Edit_Copy_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimPictureOptionsForm.Picture_Resize_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C876C1F014C_4C8768010125test_var*
@@ -419,7 +404,10 @@ begin
 //#UC END# *4CDAD29D0169_4C8768010125_impl*
 end;//TPrimPictureOptionsForm.ShortName
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -428,68 +416,48 @@ begin
   PublishFormEntity(en_Document, nil);
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_Picture, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
-  ShowInContextMenu(en_File, op_Save, true);
-  ShowInToolbar(en_File, op_Save, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_File, op_Save, True);
+  ShowInToolbar(en_File, op_Save, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
-  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, false);
-  ShowInToolbar(en_Document, op_GetAttributesFrmAct, true);
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
-  ShowInContextMenu(en_Edit, op_Copy, true);
-  ShowInToolbar(en_Edit, op_Copy, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
   PublishOp(en_Picture, op_Resize, Picture_Resize_Execute, Picture_Resize_Test, nil);
-  ShowInContextMenu(en_Picture, op_Resize, false);
-  ShowInToolbar(en_Picture, op_Resize, true);
+  ShowInContextMenu(en_Picture, op_Resize, False);
+  ShowInToolbar(en_Picture, op_Resize, True);
   PublishOp(en_Picture, op_Enlarge, Picture_Enlarge_Execute, Picture_Enlarge_Test, nil);
-  ShowInContextMenu(en_Picture, op_Enlarge, true);
-  ShowInToolbar(en_Picture, op_Enlarge, true);
+  ShowInContextMenu(en_Picture, op_Enlarge, True);
+  ShowInToolbar(en_Picture, op_Enlarge, True);
   PublishOp(en_Picture, op_Shrink, Picture_Shrink_Execute, Picture_Shrink_Test, nil);
-  ShowInContextMenu(en_Picture, op_Shrink, true);
-  ShowInToolbar(en_Picture, op_Shrink, true);
+  ShowInContextMenu(en_Picture, op_Shrink, True);
+  ShowInToolbar(en_Picture, op_Shrink, True);
   PublishOp(en_Picture, op_ActualSize, Picture_ActualSize_Execute, Picture_ActualSize_Test, nil);
-  ShowInContextMenu(en_Picture, op_ActualSize, true);
-  ShowInToolbar(en_Picture, op_ActualSize, true);
+  ShowInContextMenu(en_Picture, op_ActualSize, True);
+  ShowInToolbar(en_Picture, op_ActualSize, True);
   PublishOp(en_Picture, op_FitInWIndow, Picture_FitInWIndow_Execute, Picture_FitInWIndow_Test, nil);
-  ShowInContextMenu(en_Picture, op_FitInWIndow, true);
-  ShowInToolbar(en_Picture, op_FitInWIndow, true);{$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_Print, false);
-  ShowInToolbar(en_File, op_Print, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintDialog, true);
-  ShowInToolbar(en_File, op_PrintDialog, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
-  
-  ShowInContextMenu(en_File, op_PrintPreview, false);
-  ShowInToolbar(en_File, op_PrintPreview, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Picture, op_FitInWIndow, True);
+  ShowInToolbar(en_Picture, op_FitInWIndow, True);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimPictureOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimPictureOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPictureOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimPictureOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

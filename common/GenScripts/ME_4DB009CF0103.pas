@@ -16,8 +16,8 @@ uses
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , l3Interfaces
- , l3Variant
  , Types
+ , l3Variant
  , TypInfo
 ;
 

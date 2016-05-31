@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ControlledChangingWarningLocalConstants }
+ str_ControlledChangingWarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ControlledChangingWarningCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы ControlledChangingWarning }
  ControlledChangingWarningName = 'ControlledChangingWarning';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ControlledChangingWarningCaption.Init;
+ {* Инициализация str_ControlledChangingWarningCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ControlledChangingWarning.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ControlledChangingWarning }

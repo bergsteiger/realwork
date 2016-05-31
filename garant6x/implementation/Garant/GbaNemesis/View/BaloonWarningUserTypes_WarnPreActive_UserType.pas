@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnPreActiveLocalConstants }
+ str_WarnPreActiveCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnPreActiveCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnPreActive }
  WarnPreActiveName = 'WarnPreActive';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnPreActive.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnPreActiveCaption.Init;
+ {* Инициализация str_WarnPreActiveCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnPreActive.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnPreActive }

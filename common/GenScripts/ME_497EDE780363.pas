@@ -37,6 +37,8 @@ uses
  , Messages
  , nevNavigation
  , afwNavigation
+ , l3Interfaces
+ , DocumentInterfaces
  , l3TreeInterfaces
  , eeInterfaces
  , nsTypes
@@ -47,8 +49,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3Interfaces
- , DocumentInterfaces
  , Base_Operations_Strange_Controls
  , WorkWithDocumentInterfaces
  , UnderControlUnit
@@ -63,7 +63,6 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
- , l3StringIDEx
  , l3SimpleObject
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
@@ -113,13 +112,13 @@ type
    f_FlashTop: Integer;
    f_FlashLoaded: Boolean;
    f_Flash: TvtShockwaveFlashEx;
-    {* ѕоле дл€ свойства Flash }
+    {* компонент дл€ проигрывани€ flash-роликов }
    f_Editor: TnscEditor;
-    {* ѕоле дл€ свойства Editor }
+    {* сообщение о том, что плеер не установлен в системе }
    f_FromHistory: Boolean;
-    {* ѕоле дл€ свойства FromHistory }
+    {* форму открытили переходом по истории. Ќужно чтобы сделать загрузку по требованию }
    f_State: InsDocumentWithFlashState;
-    {* ѕоле дл€ свойства State }
+    {* состо€ние ролика }
   protected
    bsFlash: IbsFlash;
    dsBaseDocument: IdsBaseDocument;
@@ -201,7 +200,6 @@ type
    {$If NOT Defined(NoVCM)}
    procedure PageActive; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    procedure DoPrintExecute(const aParams: IvcmExecuteParamsPrim); override;
    procedure DoPreviewExecute(const aParams: IvcmExecuteParamsPrim); override;
    function MakePreview: IafwDocumentPreview; override;
@@ -211,6 +209,7 @@ type
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetCanDefineFormSetIcon: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -350,9 +349,7 @@ uses
  , nsDocumentPrintPreviewEvent
  , LoggingInterfaces
  , nscDocumentHistory
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  , bsUtils
  , DynamicTreeUnit
  , ExternalObjectUnit
@@ -370,14 +367,13 @@ uses
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDefsList
  {$IfEnd} // Defined(Nemesis)
- , SysUtils
  , afwFacade
  , Common_FormDefinitions_Controls
  , evConstStringData
  , l3Base
  , evdHyperlinkInfo
  , nsHyperlinkToDocumentProducerConst
- , l3MessageID
+ , DocumentWithFlashUserTypes_dwftMain_UserType
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -389,10 +385,12 @@ uses
  , nevBase
  , nsHAFPainter
  , ShellAPI
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *497EDE780363impl_uses*
+ //#UC END# *497EDE780363impl_uses*
 ;
-
-type
- // ExcludeForSynchro
 
 const
  c_FSCommandOpen = 'open';
@@ -1434,12 +1432,6 @@ begin
 end;//TPrimDocumentWithFlashForm.PageActive
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimDocumentWithFlashForm.ClearFields;
-begin
- State := nil;
- inherited;
-end;//TPrimDocumentWithFlashForm.ClearFields
-
 procedure TPrimDocumentWithFlashForm.DoPrintExecute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *51A45199015E_497EDE780363_var*
 var
@@ -1507,11 +1499,27 @@ begin
 end;//TPrimDocumentWithFlashForm.DoGetCanDefineFormSetIcon
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
+procedure TPrimDocumentWithFlashForm.ClearFields;
+begin
+ State := nil;
+ inherited;
+end;//TPrimDocumentWithFlashForm.ClearFields
+
 {$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  bsFlash := nil;
+  dsBaseDocument := nil;
+ end//aNew = nil
+ else
+ begin
+  aNew.CastUCC(IbsFlash, bsFlash);
+  Supports(aNew, IdsBaseDocument, dsBaseDocument);
+ end;//aNew = nil
 end;//TPrimDocumentWithFlashForm.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -1540,8 +1548,22 @@ begin
   PublishOp(en_Document, op_GetCorrespondentListExFrmAct, Document_GetCorrespondentListExFrmAct_Execute, Document_GetCorrespondentListExFrmAct_Test, nil);
   PublishOp(en_Document, op_GetRespondentListExFrmAct, Document_GetRespondentListExFrmAct_Execute, Document_GetRespondentListExFrmAct_Test, nil);
   PublishOp(en_Document, op_GetGraphicImage, Document_GetGraphicImage_Execute, Document_GetGraphicImage_Test, nil);
-  PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
  end;//with Entities.Entities
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_NextDocumentInList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_ReturnToList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_AddToControl, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetAttributesFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRelatedDocFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR1, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_UserCR2, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_AttributesCanBeClosed, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetCorrespondentListExFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_GetRespondentListExFrmAct, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_PrevDocumentInList, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseful, False);
+ AddUserTypeExclude(dwftSynchroName, en_Document, op_DocumentIsUseless, False);
 end;//TPrimDocumentWithFlashForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

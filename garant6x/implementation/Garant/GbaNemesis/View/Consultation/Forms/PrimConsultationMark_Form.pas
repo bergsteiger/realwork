@@ -1,231 +1,191 @@
 unit PrimConsultationMark_Form;
+ {* Оценка консультации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Consultation/Forms/PrimConsultationMark_Form.pas"
-// Начат: 27.01.2009 13:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Пользовательские сервисы::Consultation::View::Consultation::PrimConsultationMark
-//
-// Оценка консультации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimConsultationMark" MUID: (497EDC5003D1)
+// Имя типа: "TPrimConsultationMarkForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes,
-  bsTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  ConsultationDomainInterfaces,
-  eeMemoWithEditOperations,
-  vtGroupBox,
-  vtLabel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtRadioButton,
-  PrimConsultationMark_utcmMain_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ConsultationDomainInterfaces
+ , vtGroupBox
+ , vtPanel
+ , vtRadioButton
+ , vtLabel
+ , eeMemoWithEditOperations
+ , bsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { Constants }
  c_TextCommentLen = 6000;
 
 type
- TPrimConsultationMarkForm = {form} class(TvcmEntityForm)
+ TPrimConsultationMarkForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Оценка консультации }
- private
- // private fields
-   f_gbMark : TvtGroupBox;
-    {* Поле для свойства gbMark}
-   f_rbNotSure : TvtRadioButton;
-    {* Поле для свойства rbNotSure}
-   f_rbTwo : TvtRadioButton;
-    {* Поле для свойства rbTwo}
-   f_rbThree : TvtRadioButton;
-    {* Поле для свойства rbThree}
-   f_rbFour : TvtRadioButton;
-    {* Поле для свойства rbFour}
-   f_rbFive : TvtRadioButton;
-    {* Поле для свойства rbFive}
-   f_pnlHelp : TvtPanel;
-    {* Поле для свойства pnlHelp}
-   f_lblHelp : TvtLabel;
-    {* Поле для свойства lblHelp}
-   f_gbComment : TvtGroupBox;
-    {* Поле для свойства gbComment}
-   f_mComment : TeeMemoWithEditOperations;
-    {* Поле для свойства mComment}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure MakeControls; override;
- private
- // private methods
-   procedure RbNotSureClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbFiveClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbFourClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbThreeClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbTwoClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+  private
+   f_gbMark: TvtGroupBox;
+    {* Оценка: }
+   f_pnlHelp: TvtPanel;
+   f_gbComment: TvtGroupBox;
+    {* Комментарий к Вашей оценке: }
+   f_rbNotSure: TvtRadioButton;
+    {* Затрудняюсь ответить (оценка 0) }
+   f_rbTwo: TvtRadioButton;
+    {* Плохо (оценка 2) }
+   f_rbThree: TvtRadioButton;
+    {* Удовлетворительно (оценка 3) }
+   f_rbFour: TvtRadioButton;
+    {* Хорошо (оценка 4) }
+   f_rbFive: TvtRadioButton;
+    {* Отлично (оценка 5) }
+   f_lblHelp: TvtLabel;
+    {* Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн». }
+   f_mComment: TeeMemoWithEditOperations;
+  protected
+   DSMark: IdsConsultationMark;
+    {* Оценка консультации }
+  private
+   procedure rbNotSureClick(Sender: TObject);
+   procedure rbFiveClick(Sender: TObject);
+   procedure rbFourClick(Sender: TObject);
+   procedure rbThreeClick(Sender: TObject);
+   procedure rbTwoClick(Sender: TObject);
    procedure PlaceComponents;
-     {* Сигнатура метода PlaceComponents }
    procedure ChangeMark(aMark: TbsConsultationMark);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   DSMark : IdsConsultationMark;
-    {* Оценка консультации}
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property gbMark: TvtGroupBox
-     read f_gbMark;
-     {* Оценка: }
-   property rbNotSure: TvtRadioButton
-     read f_rbNotSure;
-     {* Затрудняюсь ответить (оценка 0) }
-   property rbTwo: TvtRadioButton
-     read f_rbTwo;
-     {* Плохо (оценка 2) }
-   property rbThree: TvtRadioButton
-     read f_rbThree;
-     {* Удовлетворительно (оценка 3) }
-   property rbFour: TvtRadioButton
-     read f_rbFour;
-     {* Хорошо (оценка 4) }
-   property rbFive: TvtRadioButton
-     read f_rbFive;
-     {* Отлично (оценка 5) }
+    read f_gbMark;
+    {* Оценка: }
    property pnlHelp: TvtPanel
-     read f_pnlHelp;
-   property lblHelp: TvtLabel
-     read f_lblHelp;
-     {* Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн». }
+    read f_pnlHelp;
    property gbComment: TvtGroupBox
-     read f_gbComment;
-     {* Комментарий к Вашей оценке: }
+    read f_gbComment;
+    {* Комментарий к Вашей оценке: }
+   property rbNotSure: TvtRadioButton
+    read f_rbNotSure;
+    {* Затрудняюсь ответить (оценка 0) }
+   property rbTwo: TvtRadioButton
+    read f_rbTwo;
+    {* Плохо (оценка 2) }
+   property rbThree: TvtRadioButton
+    read f_rbThree;
+    {* Удовлетворительно (оценка 3) }
+   property rbFour: TvtRadioButton
+    read f_rbFour;
+    {* Хорошо (оценка 4) }
+   property rbFive: TvtRadioButton
+    read f_rbFive;
+    {* Отлично (оценка 5) }
+   property lblHelp: TvtLabel
+    read f_lblHelp;
+    {* Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн». }
    property mComment: TeeMemoWithEditOperations
-     read f_mComment;
+    read f_mComment;
  end;//TPrimConsultationMarkForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Types,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Types
+ {$If NOT Defined(NoScripts)}
+ , ConsultationWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimConsultationMark_utcmMain_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EDC5003D1impl_uses*
+ //#UC END# *497EDC5003D1impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utcmMainLocalConstants }
-  str_utcmMainCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utcmMainCaption'; rValue : 'Оценка ответа');
-   { Заголовок пользовательского типа "Оценка ответа" }
-
-// start class TPrimConsultationMarkForm
-
-procedure TPrimConsultationMarkForm.RbNotSureClick(Sender: TObject);
+{$If NOT Defined(NoVCM)}
+procedure TPrimConsultationMarkForm.rbNotSureClick(Sender: TObject);
 //#UC START# *5176B3D003B4_497EDC5003D1_var*
 //#UC END# *5176B3D003B4_497EDC5003D1_var*
 begin
 //#UC START# *5176B3D003B4_497EDC5003D1_impl*
  ChangeMark(bs_cmNotSure);
 //#UC END# *5176B3D003B4_497EDC5003D1_impl*
-end;//TPrimConsultationMarkForm.RbNotSureClick
+end;//TPrimConsultationMarkForm.rbNotSureClick
 
-procedure TPrimConsultationMarkForm.RbFiveClick(Sender: TObject);
+procedure TPrimConsultationMarkForm.rbFiveClick(Sender: TObject);
 //#UC START# *5176B3E200C1_497EDC5003D1_var*
 //#UC END# *5176B3E200C1_497EDC5003D1_var*
 begin
 //#UC START# *5176B3E200C1_497EDC5003D1_impl*
  ChangeMark(bs_cmFive);
 //#UC END# *5176B3E200C1_497EDC5003D1_impl*
-end;//TPrimConsultationMarkForm.RbFiveClick
+end;//TPrimConsultationMarkForm.rbFiveClick
 
-procedure TPrimConsultationMarkForm.RbFourClick(Sender: TObject);
+procedure TPrimConsultationMarkForm.rbFourClick(Sender: TObject);
 //#UC START# *5176B3F200F4_497EDC5003D1_var*
 //#UC END# *5176B3F200F4_497EDC5003D1_var*
 begin
 //#UC START# *5176B3F200F4_497EDC5003D1_impl*
  ChangeMark(bs_cmFour);
 //#UC END# *5176B3F200F4_497EDC5003D1_impl*
-end;//TPrimConsultationMarkForm.RbFourClick
+end;//TPrimConsultationMarkForm.rbFourClick
 
-procedure TPrimConsultationMarkForm.RbThreeClick(Sender: TObject);
+procedure TPrimConsultationMarkForm.rbThreeClick(Sender: TObject);
 //#UC START# *5176B3FD0292_497EDC5003D1_var*
 //#UC END# *5176B3FD0292_497EDC5003D1_var*
 begin
 //#UC START# *5176B3FD0292_497EDC5003D1_impl*
  ChangeMark(bs_cmThree);
 //#UC END# *5176B3FD0292_497EDC5003D1_impl*
-end;//TPrimConsultationMarkForm.RbThreeClick
+end;//TPrimConsultationMarkForm.rbThreeClick
 
-procedure TPrimConsultationMarkForm.RbTwoClick(Sender: TObject);
+procedure TPrimConsultationMarkForm.rbTwoClick(Sender: TObject);
 //#UC START# *5176B4060002_497EDC5003D1_var*
 //#UC END# *5176B4060002_497EDC5003D1_var*
 begin
 //#UC START# *5176B4060002_497EDC5003D1_impl*
  ChangeMark(bs_cmTwo);
 //#UC END# *5176B4060002_497EDC5003D1_impl*
-end;//TPrimConsultationMarkForm.RbTwoClick
+end;//TPrimConsultationMarkForm.rbTwoClick
 
 procedure TPrimConsultationMarkForm.PlaceComponents;
 //#UC START# *5176B4200040_497EDC5003D1_var*
@@ -259,8 +219,8 @@ begin
 //#UC END# *5176B42C0279_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.ChangeMark
 
-{$If not defined(NoVCM)}
 procedure TPrimConsultationMarkForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EDC5003D1_var*
 //#UC END# *4A8E8F2E0195_497EDC5003D1_var*
 begin
@@ -362,21 +322,20 @@ begin
   mComment.TextSource.DocumentContainer.DocumentLimits.BruttoCharLimit := c_TextCommentLen;
 //#UC END# *4A8E8F2E0195_497EDC5003D1_impl*
 end;//TPrimConsultationMarkForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimConsultationMarkForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimConsultationMarkForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   DSMark := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsConsultationMark, DSMark);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsConsultationMark, DSMark);
+ end;//aNew = nil
+end;//TPrimConsultationMarkForm.SignalDataSourceChanged
 
 procedure TPrimConsultationMarkForm.MakeControls;
 begin
@@ -384,7 +343,7 @@ begin
  with AddUsertype(utcmMainName,
   str_utcmMainCaption,
   str_utcmMainCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -432,18 +391,14 @@ begin
  f_mComment := TeeMemoWithEditOperations.Create(Self);
  f_mComment.Name := 'mComment';
  f_mComment.Parent := gbComment;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimConsultationMarkForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utcmMainCaption
- str_utcmMainCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimConsultationMark
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimConsultationMarkForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimConsultationMark }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

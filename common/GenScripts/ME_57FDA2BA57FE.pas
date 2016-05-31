@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
+ str_ut_CustomizeTasksPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
+  {* Заголовок пользовательского типа "Редактор панели задач" }
  {* Константы для типа формы ut_CustomizeTasksPanel }
  ut_CustomizeTasksPanelName = 'ut_CustomizeTasksPanel';
   {* Строковый идентификатор пользовательского типа "Редактор панели задач" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_CustomizeTasksPanel.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_CustomizeTasksPanelCaption.Init;
+ {* Инициализация str_ut_CustomizeTasksPanelCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_CustomizeTasksPanel.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_CustomizeTasksPanel }

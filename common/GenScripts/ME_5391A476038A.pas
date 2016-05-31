@@ -21,10 +21,13 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , F1_Without_Usecases_DocumentsCacheOperations_Controls
  , vtPanel
- , eeTreeView
  , vtSizeablePanel
+ , eeTreeView
  , evMemo
  , vtLabel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -38,29 +41,17 @@ type
   {* Используемые ресурсы }
   private
    f_pnTagTree: TvtPanel;
-    {* Поле для свойства pnTagTree }
-   f_TagTree: TeeTreeView;
-    {* Поле для свойства TagTree }
-   f_pnMemClasses: TvtSizeablePanel;
-    {* Поле для свойства pnMemClasses }
-   f_memClasses: TevMemo;
-    {* Поле для свойства memClasses }
    f_pnSummary: TvtSizeablePanel;
-    {* Поле для свойства pnSummary }
+   f_TagTree: TeeTreeView;
+   f_pnMemClasses: TvtSizeablePanel;
+   f_memClasses: TevMemo;
    f_lbLocalMemory: TvtLabel;
-    {* Поле для свойства lbLocalMemory }
    f_lbObjectMemory: TvtLabel;
-    {* Поле для свойства lbObjectMemory }
    f_lbObjectCount: TvtLabel;
-    {* Поле для свойства lbObjectCount }
    f_lbGlobalMemory: TvtLabel;
-    {* Поле для свойства lbGlobalMemory }
    f_lbDocumentsInCacheCount: TvtLabel;
-    {* Поле для свойства lbDocumentsInCacheCount }
    f_lbAllLocalMemory: TvtLabel;
-    {* Поле для свойства lbAllLocalMemory }
    f_lbTotalMemory: TvtLabel;
-    {* Поле для свойства lbTotalMemory }
   private
    procedure UpdateDocumentsInCacheCount;
   protected
@@ -146,11 +137,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *5391A476038Aimpl_uses*
+ //#UC END# *5391A476038Aimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -427,9 +417,13 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_DocumentsCache, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_DocumentsCache, op_Clear, DocumentsCache_Clear_Execute, nil, nil);
+  ShowInToolbar(en_DocumentsCache, op_Clear, True);
   PublishOp(en_DocumentsCache, op_Disable, DocumentsCache_Disable_Execute, DocumentsCache_Disable_Test, DocumentsCache_Disable_GetState);
+  ShowInToolbar(en_DocumentsCache, op_Disable, True);
  end;//with Entities.Entities
 end;//TMemoryUsagePrimForm.InitEntities
 

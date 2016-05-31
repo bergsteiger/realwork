@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки nltMainLocalConstants }
+ str_nltMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nltMainCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
+  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
+ str_nltMainSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nltMainSettingsCaption'; rValue : 'ПРАЙМ. Моя новостная лента (вкладка)');
+  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" для настройки панелей инструментов }
  {* Константы для типа формы nltMain }
  nltMainName = 'nltMain';
   {* Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_nltMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_nltMainCaption.Init;
+ {* Инициализация str_nltMainCaption }
+ str_nltMainSettingsCaption.Init;
+ {* Инициализация str_nltMainSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_nltMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_nltMain }

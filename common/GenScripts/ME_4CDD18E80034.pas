@@ -148,8 +148,14 @@ begin
   PublishFormEntity(en_Text, nil);
   PublishFormEntity(en_Document, nil);
   PublishOp(en_File, op_MakeHyperlinkToDocument, File_MakeHyperlinkToDocument_Execute, File_MakeHyperlinkToDocument_Test, nil);
+  ShowInContextMenu(en_File, op_MakeHyperlinkToDocument, False);
+  ShowInToolbar(en_File, op_MakeHyperlinkToDocument, False);
   PublishOp(en_Text, op_MakeHyperlinkToDocument, Text_MakeHyperlinkToDocument_Execute, Text_MakeHyperlinkToDocument_Test, nil);
+  ShowInContextMenu(en_Text, op_MakeHyperlinkToDocument, True);
+  ShowInToolbar(en_Text, op_MakeHyperlinkToDocument, False);
   PublishOp(en_Document, op_MakeHyperlinkToDocument, Document_MakeHyperlinkToDocument_Execute, Document_MakeHyperlinkToDocument_Test, nil);
+  ShowInContextMenu(en_Document, op_MakeHyperlinkToDocument, True);
+  ShowInToolbar(en_Document, op_MakeHyperlinkToDocument, False);
  end;//with Entities.Entities
 end;//_HyperlinkToDocumentProducer_.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

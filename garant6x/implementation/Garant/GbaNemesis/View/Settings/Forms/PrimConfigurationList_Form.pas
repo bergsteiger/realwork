@@ -1,135 +1,116 @@
 unit PrimConfigurationList_Form;
+ {* Конфигурации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimConfigurationList_Form.pas"
-// Начат: 27.04.2010 22:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimConfigurationList
-//
-// Конфигурации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimConfigurationList" MUID: (4BD7279101C5)
+// Имя типа: "TPrimConfigurationListForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SettingsUnit,
-  l3Interfaces,
-  l3ControlsTypes,
-  eeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Settings_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  PrimConfigurationList_utConfigurationList_UserType,
-  l3TreeInterfaces,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Settings_Strange_Controls
+ , nscTreeViewWithAdapterDragDrop
+ , l3Interfaces
+ , eeInterfaces
+ , SettingsUnit
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimConfigurationListForm = {form} class(TvcmEntityForm)
+ TPrimConfigurationListForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Конфигурации }
- private
- // private fields
-   f_tvConfs : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvConfs}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-   function TvConfsGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
-   procedure TvConfsGetItemFont(Sender: TObject;
-     Index: LongInt;
-     const aFont: Il3Font);
-     {* event to get Font of the item cell
-событие для получения шрифта элемента. }
-   procedure TvConfsActionElement(Sender: TObject;
-     Index: LongInt);
-   function TvConfsGetItemIconHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* event to get Hint String; }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  private
+   f_tvConfs: TnscTreeViewWithAdapterDragDrop;
+  private
+   function tvConfsGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+   procedure tvConfsGetItemFont(Sender: TObject;
+    Index: LongInt;
+    const aFont: Il3Font);
+   procedure tvConfsActionElement(Sender: TObject;
+    Index: LongInt);
+   function tvConfsGetItemIconHint(Sender: TObject;
+    Index: LongInt): Il3CString;
+  protected
+   procedure OpenConf(const aConf: IeeNode = nil);
+   procedure SetActiveConf;
+   function IsCurrentConfChanged: Boolean;
+    {* определяет изменена ли текущая конфигурация }
+   function IsCurrentReadOnly: Boolean;
+    {* текущая конфигурация предустановлена }
+   class function GetConfImage(aConfType: TConfigurationType;
+    aActive: Boolean;
+    aChange: Boolean = False): Integer;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Удалить }
-   {$IfEnd} //not NoVCM
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+    {* Удалить }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Switcher_BecomeActive_Execute;
    procedure Switcher_BecomeActive(const aParams: IvcmExecuteParams);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure PopupMenu_DoActive_Test(const aParams: IvcmTestParamsPrim);
    procedure PopupMenu_DoActive_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure PopupMenu_Modify_Test(const aParams: IvcmTestParamsPrim);
@@ -142,169 +123,49 @@ type
    procedure PopupMenu_RestoreConf_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure PopupMenu_SaveAsDefaultConf_Test(const aParams: IvcmTestParamsPrim);
    procedure PopupMenu_SaveAsDefaultConf_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure OpenConf(const aConf: IeeNode = nil);
-   procedure SetActiveConf;
-   function IsCurrentConfChanged: Boolean;
-     {* определяет изменена ли текущая конфигурация }
-   function IsCurrentReadOnly: Boolean;
-     {* текущая конфигурация предустановлена }
-   class function GetConfImage(aConfType: TConfigurationType;
-     aActive: Boolean;
-     aChange: Boolean = False): Integer;
- public
- // public properties
+  public
    property tvConfs: TnscTreeViewWithAdapterDragDrop
-     read f_tvConfs;
+    read f_tvConfs;
  end;//TPrimConfigurationListForm
-
- TvcmEntityFormRef = TPrimConfigurationListForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConfigInterfaces,
-  SysUtils,
-  nsConfigurationList
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  Graphics,
-  eeTreeView,
-  Math,
-  ConfigurationListRes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , ConfigInterfaces
+ , SysUtils
+ , nsConfigurationList
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , eeTreeView
+ , Math
+ , ConfigurationListRes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , PrimConfigurationListWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimConfigurationList_utConfigurationList_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4BD7279101C5impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4BD7279101C5impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utConfigurationListLocalConstants }
-  str_utConfigurationListCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListCaption'; rValue : 'Конфигурации');
-   { Заголовок пользовательского типа "Конфигурации" }
-  str_utConfigurationListSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utConfigurationListSettingsCaption'; rValue : 'Конфигурации (вкладка)');
-   { Заголовок пользовательского типа "Конфигурации" для настройки панелей инструментов }
-
-// start class TPrimConfigurationListForm
-
-function TPrimConfigurationListForm.TvConfsGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *51715EE202AC_4BD7279101C5_var*
-var
- l_Node : InsConfigNode;
- l_eeNode : IeeNode;
-//#UC END# *51715EE202AC_4BD7279101C5_var*
-begin
-//#UC START# *51715EE202AC_4BD7279101C5_impl*
- l_eeNode := tvConfs.TreeView.GetNode(Index);
- try
-  if Supports(l_eeNode, InsConfigNode, l_Node) then
-  try
-   Result := GetConfImage(l_Node.Config.Configuration.GetType,
-    l_Node.COnfig.IsActive, l_Node.Config.IsDifferFromDefault);
-  finally
-   l_Node := nil;
-  end
-  else
-   Result := -1;
- finally
-  l_eeNode := nil;
- end;
-//#UC END# *51715EE202AC_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.TvConfsGetItemImage
-
-procedure TPrimConfigurationListForm.TvConfsGetItemFont(Sender: TObject;
-  Index: LongInt;
-  const aFont: Il3Font);
-//#UC START# *51715F4A00F1_4BD7279101C5_var*
-var
- l_Node : IeeNode;
- l_Conf : InsConfigNode;
-//#UC END# *51715F4A00F1_4BD7279101C5_var*
-begin
-//#UC START# *51715F4A00F1_4BD7279101C5_impl*
- l_Node := tvConfs.TreeView.GetNode(Index);
- try
-  if Assigned(l_Node) and Supports(l_Node, InsConfigNode, l_Conf) then
-  try
-   { Шрифт для текущей конфигурации }
-   if l_Conf.Config.IsActive then
-    with aFont do
-     Style := Style + [fsBold];
-  finally
-   l_Conf := nil;
-  end;
- finally
-  l_Node := nil;
- end;
-//#UC END# *51715F4A00F1_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.TvConfsGetItemFont
-
-procedure TPrimConfigurationListForm.TvConfsActionElement(Sender: TObject;
-  Index: LongInt);
-//#UC START# *51715F570116_4BD7279101C5_var*
-//#UC END# *51715F570116_4BD7279101C5_var*
-begin
-//#UC START# *51715F570116_4BD7279101C5_impl*
- SetActiveConf;
-//#UC END# *51715F570116_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.TvConfsActionElement
-
-function TPrimConfigurationListForm.TvConfsGetItemIconHint(Sender: TObject;
-  Index: LongInt): Il3CString;
-//#UC START# *51715F680175_4BD7279101C5_var*
-var
- l_Node : IeeNode;
- l_Conf : InsConfigNode;
-//#UC END# *51715F680175_4BD7279101C5_var*
-begin
-//#UC START# *51715F680175_4BD7279101C5_impl*
- Result := nil;
- with TeeTreeView(Sender) do
-  l_Node := tvConfs.TreeView.GetNode(Index);
-  try
-   if Supports(l_Node, InsConfigNode, l_Conf) then
-   try
-    Result := l_Conf.Config.ConfigHint;
-   finally
-    l_Conf := nil;
-   end;//try..finally
-  finally
-   l_Node := nil;
-  end;//try..finally
-//#UC END# *51715F680175_4BD7279101C5_impl*
-end;//TPrimConfigurationListForm.TvConfsGetItemIconHint
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimConfigurationListForm.OpenConf(const aConf: IeeNode = nil);
 //#UC START# *4C408D790107_4BD7279101C5_var*
 var
@@ -351,6 +212,7 @@ begin
 end;//TPrimConfigurationListForm.SetActiveConf
 
 function TPrimConfigurationListForm.IsCurrentConfChanged: Boolean;
+ {* определяет изменена ли текущая конфигурация }
 //#UC START# *4C408DAB0071_4BD7279101C5_var*
 var
  lConfNode : InsConfigNode;
@@ -369,6 +231,7 @@ begin
 end;//TPrimConfigurationListForm.IsCurrentConfChanged
 
 function TPrimConfigurationListForm.IsCurrentReadOnly: Boolean;
+ {* текущая конфигурация предустановлена }
 //#UC START# *4C408DC602F1_4BD7279101C5_var*
 var
  l_ConfChild : InsConfigNode;
@@ -386,9 +249,98 @@ begin
 //#UC END# *4C408DC602F1_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.IsCurrentReadOnly
 
+function TPrimConfigurationListForm.tvConfsGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *51715EE202AC_4BD7279101C5_var*
+var
+ l_Node : InsConfigNode;
+ l_eeNode : IeeNode;
+//#UC END# *51715EE202AC_4BD7279101C5_var*
+begin
+//#UC START# *51715EE202AC_4BD7279101C5_impl*
+ l_eeNode := tvConfs.TreeView.GetNode(Index);
+ try
+  if Supports(l_eeNode, InsConfigNode, l_Node) then
+  try
+   Result := GetConfImage(l_Node.Config.Configuration.GetType,
+    l_Node.COnfig.IsActive, l_Node.Config.IsDifferFromDefault);
+  finally
+   l_Node := nil;
+  end
+  else
+   Result := -1;
+ finally
+  l_eeNode := nil;
+ end;
+//#UC END# *51715EE202AC_4BD7279101C5_impl*
+end;//TPrimConfigurationListForm.tvConfsGetItemImage
+
+procedure TPrimConfigurationListForm.tvConfsGetItemFont(Sender: TObject;
+ Index: LongInt;
+ const aFont: Il3Font);
+//#UC START# *51715F4A00F1_4BD7279101C5_var*
+var
+ l_Node : IeeNode;
+ l_Conf : InsConfigNode;
+//#UC END# *51715F4A00F1_4BD7279101C5_var*
+begin
+//#UC START# *51715F4A00F1_4BD7279101C5_impl*
+ l_Node := tvConfs.TreeView.GetNode(Index);
+ try
+  if Assigned(l_Node) and Supports(l_Node, InsConfigNode, l_Conf) then
+  try
+   { Шрифт для текущей конфигурации }
+   if l_Conf.Config.IsActive then
+    with aFont do
+     Style := Style + [fsBold];
+  finally
+   l_Conf := nil;
+  end;
+ finally
+  l_Node := nil;
+ end;
+//#UC END# *51715F4A00F1_4BD7279101C5_impl*
+end;//TPrimConfigurationListForm.tvConfsGetItemFont
+
+procedure TPrimConfigurationListForm.tvConfsActionElement(Sender: TObject;
+ Index: LongInt);
+//#UC START# *51715F570116_4BD7279101C5_var*
+//#UC END# *51715F570116_4BD7279101C5_var*
+begin
+//#UC START# *51715F570116_4BD7279101C5_impl*
+ SetActiveConf;
+//#UC END# *51715F570116_4BD7279101C5_impl*
+end;//TPrimConfigurationListForm.tvConfsActionElement
+
+function TPrimConfigurationListForm.tvConfsGetItemIconHint(Sender: TObject;
+ Index: LongInt): Il3CString;
+//#UC START# *51715F680175_4BD7279101C5_var*
+var
+ l_Node : IeeNode;
+ l_Conf : InsConfigNode;
+//#UC END# *51715F680175_4BD7279101C5_var*
+begin
+//#UC START# *51715F680175_4BD7279101C5_impl*
+ Result := nil;
+ with TeeTreeView(Sender) do
+  l_Node := tvConfs.TreeView.GetNode(Index);
+  try
+   if Supports(l_Node, InsConfigNode, l_Conf) then
+   try
+    Result := l_Conf.Config.ConfigHint;
+   finally
+    l_Conf := nil;
+   end;//try..finally
+  finally
+   l_Node := nil;
+  end;//try..finally
+//#UC END# *51715F680175_4BD7279101C5_impl*
+end;//TPrimConfigurationListForm.tvConfsGetItemIconHint
+
 class function TPrimConfigurationListForm.GetConfImage(aConfType: TConfigurationType;
-  aActive: Boolean;
-  aChange: Boolean = False): Integer;
+ aActive: Boolean;
+ aChange: Boolean = False): Integer;
 //#UC START# *517176BE0397_4BD7279101C5_var*
 //#UC END# *517176BE0397_4BD7279101C5_var*
 begin
@@ -410,8 +362,8 @@ begin
 //#UC END# *517176BE0397_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.GetConfImage
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Edit_Delete_Test(const aParams: IvcmTestParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4BD7279101C5test_var*
 var
  l_Conf : InsConfigNode;
@@ -431,21 +383,9 @@ begin
  end;//try..finally
 //#UC END# *494F89C30197_4BD7279101C5test_impl*
 end;//TPrimConfigurationListForm.Edit_Delete_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimConfigurationListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *494F89C30197_4BD7279101C5getstate_var*
-//#UC END# *494F89C30197_4BD7279101C5getstate_var*
-begin
-//#UC START# *494F89C30197_4BD7279101C5getstate_impl*
- inherited;
-//#UC END# *494F89C30197_4BD7279101C5getstate_impl*
-end;//TPrimConfigurationListForm.Edit_Delete_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Edit_Delete_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Удалить }
 //#UC START# *494F89C30197_4BD7279101C5exec_var*
 var
  l_ConfNode : InsConfigNode;
@@ -469,7 +409,16 @@ begin
  end;
 //#UC END# *494F89C30197_4BD7279101C5exec_impl*
 end;//TPrimConfigurationListForm.Edit_Delete_Execute
-{$IfEnd} //not NoVCM
+
+procedure TPrimConfigurationListForm.Edit_Delete_GetState(var State: TvcmOperationStateIndex);
+ {* Удалить }
+//#UC START# *494F89C30197_4BD7279101C5getstate_var*
+//#UC END# *494F89C30197_4BD7279101C5getstate_var*
+begin
+//#UC START# *494F89C30197_4BD7279101C5getstate_impl*
+ inherited;
+//#UC END# *494F89C30197_4BD7279101C5getstate_impl*
+end;//TPrimConfigurationListForm.Edit_Delete_GetState
 
 procedure TPrimConfigurationListForm.Switcher_BecomeActive_Execute;
 //#UC START# *4A9807F801F9_4BD7279101C5exec_var*
@@ -482,11 +431,11 @@ end;//TPrimConfigurationListForm.Switcher_BecomeActive_Execute
 
 procedure TPrimConfigurationListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
- Switcher_BecomeActive_Execute;
-end;
+ Self.Switcher_BecomeActive_Execute;
+end;//TPrimConfigurationListForm.Switcher_BecomeActive
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4BD7279101C5test_var*
 //#UC END# *4BDAF7880236_4BD7279101C5test_var*
 begin
@@ -494,10 +443,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_4BD7279101C5test_impl*
 end;//TPrimConfigurationListForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Tree_ExpandAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4BD7279101C5exec_var*
 //#UC END# *4BDAF7880236_4BD7279101C5exec_var*
 begin
@@ -505,10 +453,9 @@ begin
  inherited;
 //#UC END# *4BDAF7880236_4BD7279101C5exec_impl*
 end;//TPrimConfigurationListForm.Tree_ExpandAll_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4BD7279101C5test_var*
 //#UC END# *4BDAF7A2005C_4BD7279101C5test_var*
 begin
@@ -516,10 +463,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_4BD7279101C5test_impl*
 end;//TPrimConfigurationListForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.Tree_CollapseAll_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4BD7279101C5exec_var*
 //#UC END# *4BDAF7A2005C_4BD7279101C5exec_var*
 begin
@@ -527,7 +473,6 @@ begin
  inherited;
 //#UC END# *4BDAF7A2005C_4BD7279101C5exec_impl*
 end;//TPrimConfigurationListForm.Tree_CollapseAll_Execute
-{$IfEnd} //not NoVCM
 
 procedure TPrimConfigurationListForm.PopupMenu_DoActive_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C4088D301A1_4BD7279101C5test_var*
@@ -711,8 +656,8 @@ begin
 //#UC END# *4C408C950385_4BD7279101C5exec_impl*
 end;//TPrimConfigurationListForm.PopupMenu_SaveAsDefaultConf_Execute
 
-{$If not defined(NoVCM)}
 procedure TPrimConfigurationListForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4BD7279101C5_var*
 //#UC END# *4A8E8F2E0195_4BD7279101C5_var*
 begin
@@ -737,9 +682,10 @@ begin
  tvConfs.TreeView.Tree.Root := ConfigurationList.ConfigTree;
 //#UC END# *4A8E8F2E0195_4BD7279101C5_impl*
 end;//TPrimConfigurationListForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimConfigurationListForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -754,41 +700,32 @@ begin
   ContextMenuWeight(en_Tree, 40);
   MakeEntitySupportedByControl(en_Edit, tvConfs);
   MakeEntitySupportedByControl(en_Tree, tvConfs);
-  {$If not defined(NoVCM)}
   PublishOp(en_Edit, op_Delete, Edit_Delete_Execute, Edit_Delete_Test, Edit_Delete_GetState);
-  {$IfEnd} //not NoVCM
-
   PublishOpWithResult(en_Switcher, op_BecomeActive, Switcher_BecomeActive, nil, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, Tree_ExpandAll_Execute, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, Tree_CollapseAll_Execute, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_PopupMenu, op_DoActive, PopupMenu_DoActive_Execute, PopupMenu_DoActive_Test, nil);
-  ShowInContextMenu(en_PopupMenu, op_DoActive, true);
-  ShowInToolbar(en_PopupMenu, op_DoActive, true);
+  ShowInContextMenu(en_PopupMenu, op_DoActive, True);
+  ShowInToolbar(en_PopupMenu, op_DoActive, True);
   PublishOp(en_PopupMenu, op_Modify, PopupMenu_Modify_Execute, PopupMenu_Modify_Test, nil);
-  ShowInContextMenu(en_PopupMenu, op_Modify, true);
-  ShowInToolbar(en_PopupMenu, op_Modify, true);
+  ShowInContextMenu(en_PopupMenu, op_Modify, True);
+  ShowInToolbar(en_PopupMenu, op_Modify, True);
   PublishOp(en_PopupMenu, op_CopyConfig, PopupMenu_CopyConfig_Execute, PopupMenu_CopyConfig_Test, nil);
-  ShowInContextMenu(en_PopupMenu, op_CopyConfig, true);
-  ShowInToolbar(en_PopupMenu, op_CopyConfig, true);
+  ShowInContextMenu(en_PopupMenu, op_CopyConfig, True);
+  ShowInToolbar(en_PopupMenu, op_CopyConfig, True);
   PublishOp(en_PopupMenu, op_ConfInfo, PopupMenu_ConfInfo_Execute, nil, nil);
-  ShowInContextMenu(en_PopupMenu, op_ConfInfo, true);
-  ShowInToolbar(en_PopupMenu, op_ConfInfo, true);
+  ShowInContextMenu(en_PopupMenu, op_ConfInfo, True);
+  ShowInToolbar(en_PopupMenu, op_ConfInfo, True);
   PublishOp(en_PopupMenu, op_RestoreAllSettings, PopupMenu_RestoreAllSettings_Execute, nil, nil);
-  ShowInContextMenu(en_PopupMenu, op_RestoreAllSettings, true);
-  ShowInToolbar(en_PopupMenu, op_RestoreAllSettings, true);
+  ShowInContextMenu(en_PopupMenu, op_RestoreAllSettings, True);
+  ShowInToolbar(en_PopupMenu, op_RestoreAllSettings, True);
   PublishOp(en_PopupMenu, op_RestoreConf, PopupMenu_RestoreConf_Execute, PopupMenu_RestoreConf_Test, nil);
-  ShowInToolbar(en_PopupMenu, op_RestoreConf, true);
+  ShowInToolbar(en_PopupMenu, op_RestoreConf, True);
   PublishOp(en_PopupMenu, op_SaveAsDefaultConf, PopupMenu_SaveAsDefaultConf_Execute, PopupMenu_SaveAsDefaultConf_Test, nil);
-  ShowInContextMenu(en_PopupMenu, op_SaveAsDefaultConf, true);
-  ShowInToolbar(en_PopupMenu, op_SaveAsDefaultConf, true);
+  ShowInContextMenu(en_PopupMenu, op_SaveAsDefaultConf, True);
+  ShowInToolbar(en_PopupMenu, op_SaveAsDefaultConf, True);
  end;//with Entities.Entities
-end;
+end;//TPrimConfigurationListForm.InitEntities
 
 procedure TPrimConfigurationListForm.MakeControls;
 begin
@@ -796,7 +733,7 @@ begin
  with AddUsertype(utConfigurationListName,
   str_utConfigurationListCaption,
   str_utConfigurationListSettingsCaption,
-  true,
+  True,
   74,
   30,
   '',
@@ -809,22 +746,14 @@ begin
  f_tvConfs := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvConfs.Name := 'tvConfs';
  f_tvConfs.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimConfigurationListForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utConfigurationListCaption
- str_utConfigurationListCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utConfigurationListSettingsCaption
- str_utConfigurationListSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimConfigurationList
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimConfigurationListForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimConfigurationList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -1,458 +1,185 @@
 unit PrimUnderControl_Form;
+ {* На контроле }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/UnderControl/Forms/PrimUnderControl_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::UnderControl::View::UnderControl::PrimUnderControl
-//
-// На контроле
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControl\Forms\PrimUnderControl_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimUnderControl" MUID: (4A7C349D02CB)
+// Имя типа: "TPrimUnderControlForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ControlsTypes,
-  eeInterfaces,
-  eeTreeView,
-  FoldersDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  Base_Operations_Editions_Controls,
-  Base_Operations_Strange_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  Search_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  PrimUnderControl_utUnderControl_UserType,
-  nsTypes,
-  vcmExternalInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Search_Strange_Controls
+ , FoldersDomainInterfaces
+ , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Editions_Controls
+ , nscTreeViewWithAdapterDragDrop
+ , l3Interfaces
+ , l3TreeInterfaces
+ , eeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimUnderControlForm = {form} class(TvcmEntityForm, InsUnderControlRootListener)
+ TPrimUnderControlForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , InsUnderControlRootListener)
   {* На контроле }
- private
- // private fields
-   f_UnderControlList : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства UnderControlList}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_UnderControlList: TnscTreeViewWithAdapterDragDrop;
+  private
    procedure UnderControlListSelectChanged(Sender: TObject;
-     Index: LongInt;
-     var SelectedState: Integer);
-     {* event to notify of a selection change }
+    Index: LongInt;
+    var SelectedState: Integer);
    function UnderControlListGetItemIconHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* event to get Hint String; }
+    Index: LongInt): Il3CString;
    procedure UnderControlListMakeTreeSource(out theTree: Il3SimpleTree);
    function UnderControlListGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    function UnderControlListGetItemTextHint(Sender: TObject;
-     Index: LongInt): Il3CString;
-     {* получение hint-а при задерке курсора над текстом. }
+    Index: LongInt): Il3CString;
    procedure UnderControlListActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure UnderControlListCurrentChanged(Sender: TObject;
-     aNewCurrent: LongInt;
-     aOldCurrent: LongInt);
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure UnderControlListGetItemFont(Sender: TObject;
-     Index: LongInt;
-     const aFont: Il3Font);
-     {* event to get Font of the item cell
-событие для получения шрифта элемента. }
-   procedure VcmEntityFormGetStatus(aSender: TObject;
-     out theStatus: TvcmStatusStrings);
+    Index: LongInt;
+    const aFont: Il3Font);
+   procedure vcmEntityFormGetStatus(aSender: TObject;
+    out theStatus: TvcmStatusStrings);
    procedure StatusParamsShow;
-     {* Сигнатура метода StatusParamsShow }
- protected
- // realized methods
+  protected
+   function CanCompareEditions(const aNode: Il3SimpleNode;
+    WithState: Boolean): Boolean;
+   procedure CompareEditions(const aNode: Il3SimpleNode);
+   function IsChangeObjects: Boolean;
+    {* определяет есть ли измененный объект в списке }
+   function IsObjectChanged(const aNode: IeeNode): Boolean;
+    {* определяет является ли объект измененным }
+   procedure ResetElementStatus(const aNode: IeeNode);
+   procedure UpdateRoot;
+   procedure Updated;
+    {* список обновился }
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SetupFormLayout; override;
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function Loadable_Load_Execute(const aNode: IeeNode;
     const aData: IUnknown;
     anOp: TListLogicOperation = LLO_NONE): Boolean;
-     {* Коллеги, кто может описать этот метод? }
+    {* Коллеги, кто может описать этот метод? }
    procedure Loadable_Load(const aParams: IvcmExecuteParams);
-     {* Коллеги, кто может описать этот метод? }
-   procedure Updated;
-     {* список обновился }
+    {* Коллеги, кто может описать этот метод? }
    procedure ControlCenter_Refresh_Execute;
    procedure ControlCenter_Refresh(const aParams: IvcmExecuteParams);
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Развернуть все }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Развернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
-     {* Свернуть все }
-   {$IfEnd} //not NoVCM
+    {* Свернуть все }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Document_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
-     {* Показать изменения }
-   procedure Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
-     {* Показать изменения }
+    {* Показать изменения }
    procedure Document_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Показать изменения }
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function CanCompareEditions(const aNode: Il3SimpleNode;
-     WithState: Boolean): Boolean;
-   procedure CompareEditions(const aNode: Il3SimpleNode);
-   function IsChangeObjects: Boolean;
-     {* определяет есть ли измененный объект в списке }
-   function IsObjectChanged(const aNode: IeeNode): Boolean;
-     {* определяет является ли объект измененным }
-   procedure ResetElementStatus(const aNode: IeeNode);
-   procedure UpdateRoot;
- protected
- // protected properties
+    {* Показать изменения }
+   procedure Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
+    {* Показать изменения }
+  protected
    property UnderControlList: TnscTreeViewWithAdapterDragDrop
-     read f_UnderControlList;
+    read f_UnderControlList;
  end;//TPrimUnderControlForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If defined(Nemesis)}
-  ,
-  eeTreeMisc
-  {$IfEnd} //Nemesis
-  ,
-  nsFolders,
-  SysUtils,
-  UnderControlUnit,
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  FoldersUnit,
-  BaseTreeSupportUnit
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  l3InterfacesMisc,
-  ControlStatusUtils,
-  nsFolderNodes,
-  BaseTypesUnit,
-  IOUnit,
-  FoldersRes,
-  l3Base,
-  l3String,
-  nsOpenUtils,
-  nsQuestionsWithChoices
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ , UnderControlUnit
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , FoldersUnit
+ , BaseTreeSupportUnit
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , l3InterfacesMisc
+ , ControlStatusUtils
+ , nsFolderNodes
+ , BaseTypesUnit
+ , IOUnit
+ , FoldersRes
+ , l3Base
+ , l3String
+ , nsOpenUtils
+ , nsQuestionsWithChoices
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , eeTreeMisc
+ {$IfEnd} // Defined(Nemesis)
+ , nsFolders
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimUnderControl_utUnderControl_UserType
+ //#UC START# *4A7C349D02CBimpl_uses*
+ , l3ControlsTypes
+ , vtLister
+ //#UC END# *4A7C349D02CBimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utUnderControlLocalConstants }
-  str_utUnderControlCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlCaption'; rValue : 'Документы на контроле');
-   { Заголовок пользовательского типа "Документы на контроле" }
-  str_utUnderControlSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlSettingsCaption'; rValue : 'Документы на контроле (вкладка)');
-   { Заголовок пользовательского типа "Документы на контроле" для настройки панелей инструментов }
-
-// start class TPrimUnderControlForm
-
-procedure TPrimUnderControlForm.UnderControlListSelectChanged(Sender: TObject;
-  Index: LongInt;
-  var SelectedState: Integer);
-//#UC START# *527B587200CA_4A7C349D02CB_var*
-//#UC END# *527B587200CA_4A7C349D02CB_var*
-begin
-//#UC START# *527B587200CA_4A7C349D02CB_impl*
- StatusParamsShow;
-//#UC END# *527B587200CA_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListSelectChanged
-
-function TPrimUnderControlForm.UnderControlListGetItemIconHint(Sender: TObject;
-  Index: LongInt): Il3CString;
-//#UC START# *527B588701E5_4A7C349D02CB_var*
-var
- l_CurNode: IeeNode;
- l_ControlledNode: InsUnderControlNode;
-//#UC END# *527B588701E5_4A7C349D02CB_var*
-begin
-//#UC START# *527B588701E5_4A7C349D02CB_impl*
- l_CurNode := UnderControlList.TreeView.GetNode(Index);
- try
-  if l3BQueryInterface(l_CurNode, InsUnderControlNode, l_ControlledNode) then
-  try
-   Result := bsControlStatusHint(l_ControlledNode.Status, true);
-  finally
-   l_ControlledNode := nil;
-  end//try..finally
-  else
-   Result := nil;
- finally
-  l_CurNode := nil;
- end;//try..finally
-//#UC END# *527B588701E5_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListGetItemIconHint
-
-procedure TPrimUnderControlForm.UnderControlListMakeTreeSource(out theTree: Il3SimpleTree);
-//#UC START# *527B58910002_4A7C349D02CB_var*
-//#UC END# *527B58910002_4A7C349D02CB_var*
-begin
-//#UC START# *527B58910002_4A7C349D02CB_impl*
- theTree := TnsUnderControlTree.Make;
-//#UC END# *527B58910002_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListMakeTreeSource
-
-function TPrimUnderControlForm.UnderControlListGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
-//#UC START# *527B58980313_4A7C349D02CB_var*
-var
- l_CurNode        : IeeNode;
- l_ControlledNode : InsUnderControlNode;
- l_Status         : Integer;
-const
- cImageMap : array [TItemStatus] of Integer = (
-  UCDocument_Abolished, // IS_ABOLISHED // Утратил силу
-  UCDocument_Active, // IS_ACTIVE // Действующий
-  UCDocument_Preactive, // IS_PREACTIVE // Не вступил в силу
-  UCDocument_Unknown // IS_UNKNOWN // Неопределен
- );
-//#UC END# *527B58980313_4A7C349D02CB_var*
-begin
-//#UC START# *527B58980313_4A7C349D02CB_impl*
- l_CurNode := UnderControlList.TreeView.GetNode(Index);
- try
-  if l3BQueryInterface(l_CurNode, InsUnderControlNode, l_ControlledNode) then
-   try
-    l_Status := l_ControlledNode.Status;
-    if l_Status and CS_DELETED = CS_DELETED then
-     Result := UCStatus_DeletedIcon
-    else
-    if l_Status and CS_ACTIVE = CS_ACTIVE then
-     Result := UCStatus_ActiveIcon
-    else
-    if l_Status and CS_CHANGED = CS_CHANGED then
-     Result := UCStatus_ChangedIcon
-    else
-    if l_Status and CS_ABOLISHED = CS_ABOLISHED then
-     Result := UCStatus_AbolishedIcon
-    else
-    if l_Status and CS_REGISTERED = CS_REGISTERED then
-     Result := UCStatus_RegistredMUIcon
-    else
-    if l_Status and CS_NOT_REGISTERED = CS_NOT_REGISTERED then
-     Result := UCStatus_NotRegistredMUIcon
-    else
-     Result := cImageMap[l_ControlledNode.DocumentStatus];
-   finally
-    l_ControlledNode := nil;
-   end
-  else
-  begin
-   aImages := dmStdRes.ImageList;
-   Result := 115; // (i) - информация
-  end;
- finally
-  l_CurNode := nil;
- end;
-//#UC END# *527B58980313_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListGetItemImage
-
-function TPrimUnderControlForm.UnderControlListGetItemTextHint(Sender: TObject;
-  Index: LongInt): Il3CString;
-//#UC START# *527B58A30059_4A7C349D02CB_var*
-var
- l_eeNode: IeeNode;
- l_Control: IControllable;
- l_Hint: IString;
-//#UC END# *527B58A30059_4A7C349D02CB_var*
-begin
-//#UC START# *527B58A30059_4A7C349D02CB_impl*
- Result := nil;
- if (Index >= 0) then
- begin
-  l_eeNode := UnderControlList.TreeView.GetNode(Index);
-  try
-   if Supports(l_eeNode, IControllable, l_Control) then
-   begin
-    l_Control.GetName(l_Hint);
-    Result := nsCStr(l_Hint);
-    if l3Same(Result, l_eeNode.Text) then
-     Result := nil;
-   end;
-  finally
-   l_eeNode := nil;
-  end;//try..finally
- end;//Index >= 0
-//#UC END# *527B58A30059_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListGetItemTextHint
-
-procedure TPrimUnderControlForm.UnderControlListActionElement(Sender: TObject;
-  Index: LongInt);
-//#UC START# *527B58AB02FB_4A7C349D02CB_var*
-//#UC END# *527B58AB02FB_4A7C349D02CB_var*
-begin
-//#UC START# *527B58AB02FB_4A7C349D02CB_impl*
- if CanCompareEditions(UnderControlList.GetNode(Index), True) then
- case MessageDlg(str_ChangedDocumentOnControl) of
-  -1: OpenControllableElement(self.as_IvcmEntityForm, UnderControlList.GetNode(Index),
-   vcm_okInCurrentTab);
-  -2: CompareEditions(UnderControlList.GetNode(Index));
- end
- else
-  OpenControllableElement(self.as_IvcmEntityForm, UnderControlList.GetNode(Index),
-   vcm_okInCurrentTab);
-//#UC END# *527B58AB02FB_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListActionElement
-
-procedure TPrimUnderControlForm.UnderControlListCurrentChanged(Sender: TObject;
-  aNewCurrent: LongInt;
-  aOldCurrent: LongInt);
-//#UC START# *527B58B30211_4A7C349D02CB_var*
-//#UC END# *527B58B30211_4A7C349D02CB_var*
-begin
-//#UC START# *527B58B30211_4A7C349D02CB_impl*
- StatusParamsShow;
-//#UC END# *527B58B30211_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListCurrentChanged
-
-procedure TPrimUnderControlForm.UnderControlListGetItemFont(Sender: TObject;
-  Index: LongInt;
-  const aFont: Il3Font);
-//#UC START# *527B58BA038B_4A7C349D02CB_var*
-var
- l_CurNode: IeeNode;
- l_ControlledNode: InsUnderControlNode;
-//#UC END# *527B58BA038B_4A7C349D02CB_var*
-begin
-//#UC START# *527B58BA038B_4A7C349D02CB_impl*
- l_CurNode := UnderControlList.TreeView.GetNode(Index);
- try
-  if Supports(l_CurNode, InsUnderControlNode, l_ControlledNode) then
-  try
-   if LongWord(l_ControlledNode.Status) <> CS_NONE then
-    aFont.Style := [fsBold];
-  finally
-   l_ControlledNode := nil;
-  end;
- finally
-  l_CurNode := nil;
- end;
-//#UC END# *527B58BA038B_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.UnderControlListGetItemFont
-
-procedure TPrimUnderControlForm.VcmEntityFormGetStatus(aSender: TObject;
-  out theStatus: TvcmStatusStrings);
-//#UC START# *527B58FA0051_4A7C349D02CB_var*
-var
- l_Node: InsUnderControlNode;
-//#UC END# *527B58FA0051_4A7C349D02CB_var*
-begin
-//#UC START# *527B58FA0051_4A7C349D02CB_impl*
- if Length(theStatus.rStrings) <> 1 then
-  SetLength(theStatus.rStrings, 1);
- theStatus.rStrings[0] := nil;
-
- if (UnderControlList.TreeView.Tree.Root <> nil) and
-    not ((UnderControlList.TreeView.Tree.Root.AllChildrenCount = 1) and
-         not Supports(UnderControlList.TreeView.Tree.Root.ChildNode, InsUnderControlNode, l_Node)) then
- with UnderControlList.TreeView.Tree.Root do
- begin
-  if UnderControlList.TreeView.Current >= 0 then
-   theStatus.rStrings[0] := vcmFmt(str_ucsStatusWithSelected, [UnderControlList.TreeView.Current + 1, AllChildrenCount, UnderControlList.TreeView.Tree.SelectedCount])
-  else
-   theStatus.rStrings[0] := vcmFmt(str_ucsStatusWithOutSelected, [AllChildrenCount, UnderControlList.TreeView.Tree.SelectedCount]);
- end;
-//#UC END# *527B58FA0051_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.VcmEntityFormGetStatus
-
-procedure TPrimUnderControlForm.StatusParamsShow;
-//#UC START# *527B591500AD_4A7C349D02CB_var*
-//#UC END# *527B591500AD_4A7C349D02CB_var*
-begin
-//#UC START# *527B591500AD_4A7C349D02CB_impl*
- if Dispatcher <> nil then
-  Dispatcher.UpdateStatus;
-//#UC END# *527B591500AD_4A7C349D02CB_impl*
-end;//TPrimUnderControlForm.StatusParamsShow
-
+{$If NOT Defined(NoVCM)}
 function TPrimUnderControlForm.CanCompareEditions(const aNode: Il3SimpleNode;
-  WithState: Boolean): Boolean;
+ WithState: Boolean): Boolean;
 //#UC START# *4B88CAAF01CF_4A7C349D02CB_var*
 var
  l_C: InsUnderControlNode;
@@ -516,6 +243,7 @@ begin
 end;//TPrimUnderControlForm.CompareEditions
 
 function TPrimUnderControlForm.IsChangeObjects: Boolean;
+ {* определяет есть ли измененный объект в списке }
 //#UC START# *4C7E504C01E1_4A7C349D02CB_var*
 var
  lChange : Boolean;
@@ -537,6 +265,7 @@ begin
 end;//TPrimUnderControlForm.IsChangeObjects
 
 function TPrimUnderControlForm.IsObjectChanged(const aNode: IeeNode): Boolean;
+ {* определяет является ли объект измененным }
 //#UC START# *4C7E506D0050_4A7C349D02CB_var*
 var
  l_UCNode : InsUnderControlNode;
@@ -578,9 +307,229 @@ begin
 //#UC END# *4C7E558F0001_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.UpdateRoot
 
+procedure TPrimUnderControlForm.UnderControlListSelectChanged(Sender: TObject;
+ Index: LongInt;
+ var SelectedState: Integer);
+//#UC START# *527B587200CA_4A7C349D02CB_var*
+//#UC END# *527B587200CA_4A7C349D02CB_var*
+begin
+//#UC START# *527B587200CA_4A7C349D02CB_impl*
+ StatusParamsShow;
+//#UC END# *527B587200CA_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListSelectChanged
+
+function TPrimUnderControlForm.UnderControlListGetItemIconHint(Sender: TObject;
+ Index: LongInt): Il3CString;
+//#UC START# *527B588701E5_4A7C349D02CB_var*
+var
+ l_CurNode: IeeNode;
+ l_ControlledNode: InsUnderControlNode;
+//#UC END# *527B588701E5_4A7C349D02CB_var*
+begin
+//#UC START# *527B588701E5_4A7C349D02CB_impl*
+ l_CurNode := UnderControlList.TreeView.GetNode(Index);
+ try
+  if l3BQueryInterface(l_CurNode, InsUnderControlNode, l_ControlledNode) then
+  try
+   Result := bsControlStatusHint(l_ControlledNode.Status, true);
+  finally
+   l_ControlledNode := nil;
+  end//try..finally
+  else
+   Result := nil;
+ finally
+  l_CurNode := nil;
+ end;//try..finally
+//#UC END# *527B588701E5_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListGetItemIconHint
+
+procedure TPrimUnderControlForm.UnderControlListMakeTreeSource(out theTree: Il3SimpleTree);
+//#UC START# *527B58910002_4A7C349D02CB_var*
+//#UC END# *527B58910002_4A7C349D02CB_var*
+begin
+//#UC START# *527B58910002_4A7C349D02CB_impl*
+ theTree := TnsUnderControlTree.Make;
+//#UC END# *527B58910002_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListMakeTreeSource
+
+function TPrimUnderControlForm.UnderControlListGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *527B58980313_4A7C349D02CB_var*
+var
+ l_CurNode        : IeeNode;
+ l_ControlledNode : InsUnderControlNode;
+ l_Status         : Integer;
+const
+ cImageMap : array [TItemStatus] of Integer = (
+  UCDocument_Abolished, // IS_ABOLISHED // Утратил силу
+  UCDocument_Active, // IS_ACTIVE // Действующий
+  UCDocument_Preactive, // IS_PREACTIVE // Не вступил в силу
+  UCDocument_Unknown // IS_UNKNOWN // Неопределен
+ );
+//#UC END# *527B58980313_4A7C349D02CB_var*
+begin
+//#UC START# *527B58980313_4A7C349D02CB_impl*
+ l_CurNode := UnderControlList.TreeView.GetNode(Index);
+ try
+  if l3BQueryInterface(l_CurNode, InsUnderControlNode, l_ControlledNode) then
+   try
+    l_Status := l_ControlledNode.Status;
+    if l_Status and CS_DELETED = CS_DELETED then
+     Result := UCStatus_DeletedIcon
+    else
+    if l_Status and CS_ACTIVE = CS_ACTIVE then
+     Result := UCStatus_ActiveIcon
+    else
+    if l_Status and CS_CHANGED = CS_CHANGED then
+     Result := UCStatus_ChangedIcon
+    else
+    if l_Status and CS_ABOLISHED = CS_ABOLISHED then
+     Result := UCStatus_AbolishedIcon
+    else
+    if l_Status and CS_REGISTERED = CS_REGISTERED then
+     Result := UCStatus_RegistredMUIcon
+    else
+    if l_Status and CS_NOT_REGISTERED = CS_NOT_REGISTERED then
+     Result := UCStatus_NotRegistredMUIcon
+    else
+     Result := cImageMap[l_ControlledNode.DocumentStatus];
+   finally
+    l_ControlledNode := nil;
+   end
+  else
+  begin
+   aImages := dmStdRes.ImageList;
+   Result := 115; // (i) - информация
+  end;
+ finally
+  l_CurNode := nil;
+ end;
+//#UC END# *527B58980313_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListGetItemImage
+
+function TPrimUnderControlForm.UnderControlListGetItemTextHint(Sender: TObject;
+ Index: LongInt): Il3CString;
+//#UC START# *527B58A30059_4A7C349D02CB_var*
+var
+ l_eeNode: IeeNode;
+ l_Control: IControllable;
+ l_Hint: IString;
+//#UC END# *527B58A30059_4A7C349D02CB_var*
+begin
+//#UC START# *527B58A30059_4A7C349D02CB_impl*
+ Result := nil;
+ if (Index >= 0) then
+ begin
+  l_eeNode := UnderControlList.TreeView.GetNode(Index);
+  try
+   if Supports(l_eeNode, IControllable, l_Control) then
+   begin
+    l_Control.GetName(l_Hint);
+    Result := nsCStr(l_Hint);
+    if l3Same(Result, l_eeNode.Text) then
+     Result := nil;
+   end;
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//Index >= 0
+//#UC END# *527B58A30059_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListGetItemTextHint
+
+procedure TPrimUnderControlForm.UnderControlListActionElement(Sender: TObject;
+ Index: LongInt);
+//#UC START# *527B58AB02FB_4A7C349D02CB_var*
+//#UC END# *527B58AB02FB_4A7C349D02CB_var*
+begin
+//#UC START# *527B58AB02FB_4A7C349D02CB_impl*
+ if CanCompareEditions(UnderControlList.GetNode(Index), True) then
+ case MessageDlg(str_ChangedDocumentOnControl) of
+  -1: OpenControllableElement(self.as_IvcmEntityForm, UnderControlList.GetNode(Index),
+   vcm_okInCurrentTab);
+  -2: CompareEditions(UnderControlList.GetNode(Index));
+ end
+ else
+  OpenControllableElement(self.as_IvcmEntityForm, UnderControlList.GetNode(Index),
+   vcm_okInCurrentTab);
+//#UC END# *527B58AB02FB_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListActionElement
+
+procedure TPrimUnderControlForm.UnderControlListCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
+//#UC START# *527B58B30211_4A7C349D02CB_var*
+//#UC END# *527B58B30211_4A7C349D02CB_var*
+begin
+//#UC START# *527B58B30211_4A7C349D02CB_impl*
+ StatusParamsShow;
+//#UC END# *527B58B30211_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListCurrentChanged
+
+procedure TPrimUnderControlForm.UnderControlListGetItemFont(Sender: TObject;
+ Index: LongInt;
+ const aFont: Il3Font);
+//#UC START# *527B58BA038B_4A7C349D02CB_var*
+var
+ l_CurNode: IeeNode;
+ l_ControlledNode: InsUnderControlNode;
+//#UC END# *527B58BA038B_4A7C349D02CB_var*
+begin
+//#UC START# *527B58BA038B_4A7C349D02CB_impl*
+ l_CurNode := UnderControlList.TreeView.GetNode(Index);
+ try
+  if Supports(l_CurNode, InsUnderControlNode, l_ControlledNode) then
+  try
+   if LongWord(l_ControlledNode.Status) <> CS_NONE then
+    aFont.Style := [fsBold];
+  finally
+   l_ControlledNode := nil;
+  end;
+ finally
+  l_CurNode := nil;
+ end;
+//#UC END# *527B58BA038B_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.UnderControlListGetItemFont
+
+procedure TPrimUnderControlForm.vcmEntityFormGetStatus(aSender: TObject;
+ out theStatus: TvcmStatusStrings);
+//#UC START# *527B58FA0051_4A7C349D02CB_var*
+var
+ l_Node: InsUnderControlNode;
+//#UC END# *527B58FA0051_4A7C349D02CB_var*
+begin
+//#UC START# *527B58FA0051_4A7C349D02CB_impl*
+ if Length(theStatus.rStrings) <> 1 then
+  SetLength(theStatus.rStrings, 1);
+ theStatus.rStrings[0] := nil;
+
+ if (UnderControlList.TreeView.Tree.Root <> nil) and
+    not ((UnderControlList.TreeView.Tree.Root.AllChildrenCount = 1) and
+         not Supports(UnderControlList.TreeView.Tree.Root.ChildNode, InsUnderControlNode, l_Node)) then
+ with UnderControlList.TreeView.Tree.Root do
+ begin
+  if UnderControlList.TreeView.Current >= 0 then
+   theStatus.rStrings[0] := vcmFmt(str_ucsStatusWithSelected, [UnderControlList.TreeView.Current + 1, AllChildrenCount, UnderControlList.TreeView.Tree.SelectedCount])
+  else
+   theStatus.rStrings[0] := vcmFmt(str_ucsStatusWithOutSelected, [AllChildrenCount, UnderControlList.TreeView.Tree.SelectedCount]);
+ end;
+//#UC END# *527B58FA0051_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.vcmEntityFormGetStatus
+
+procedure TPrimUnderControlForm.StatusParamsShow;
+//#UC START# *527B591500AD_4A7C349D02CB_var*
+//#UC END# *527B591500AD_4A7C349D02CB_var*
+begin
+//#UC START# *527B591500AD_4A7C349D02CB_impl*
+ if Dispatcher <> nil then
+  Dispatcher.UpdateStatus;
+//#UC END# *527B591500AD_4A7C349D02CB_impl*
+end;//TPrimUnderControlForm.StatusParamsShow
+
 function TPrimUnderControlForm.Loadable_Load_Execute(const aNode: IeeNode;
-  const aData: IUnknown;
-  anOp: TListLogicOperation = LLO_NONE): Boolean;
+ const aData: IUnknown;
+ anOp: TListLogicOperation = LLO_NONE): Boolean;
+ {* Коллеги, кто может описать этот метод? }
 //#UC START# *49895A2102E8_4A7C349D02CBexec_var*
 var
  l_Node         : INode;
@@ -624,12 +573,14 @@ begin
 end;//TPrimUnderControlForm.Loadable_Load_Execute
 
 procedure TPrimUnderControlForm.Loadable_Load(const aParams: IvcmExecuteParams);
+ {* Коллеги, кто может описать этот метод? }
 begin
  with (aParams.Data As ILoadable_Load_Params) do
-  ResultValue := Loadable_Load_Execute(Node, Data, nOp);
-end;
+  ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
+end;//TPrimUnderControlForm.Loadable_Load
 
 procedure TPrimUnderControlForm.Updated;
+ {* список обновился }
 //#UC START# *499043510214_4A7C349D02CB_var*
 //#UC END# *499043510214_4A7C349D02CB_var*
 begin
@@ -649,11 +600,11 @@ end;//TPrimUnderControlForm.ControlCenter_Refresh_Execute
 
 procedure TPrimUnderControlForm.ControlCenter_Refresh(const aParams: IvcmExecuteParams);
 begin
- ControlCenter_Refresh_Execute;
-end;
+ Self.ControlCenter_Refresh_Execute;
+end;//TPrimUnderControlForm.ControlCenter_Refresh
 
-{$If not defined(NoVCM)}
 procedure TPrimUnderControlForm.Tree_ExpandAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Развернуть все }
 //#UC START# *4BDAF7880236_4A7C349D02CBtest_var*
 //#UC END# *4BDAF7880236_4A7C349D02CBtest_var*
 begin
@@ -661,10 +612,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7880236_4A7C349D02CBtest_impl*
 end;//TPrimUnderControlForm.Tree_ExpandAll_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimUnderControlForm.Tree_CollapseAll_Test(const aParams: IvcmTestParamsPrim);
+ {* Свернуть все }
 //#UC START# *4BDAF7A2005C_4A7C349D02CBtest_var*
 //#UC END# *4BDAF7A2005C_4A7C349D02CBtest_var*
 begin
@@ -672,9 +622,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := False;
 //#UC END# *4BDAF7A2005C_4A7C349D02CBtest_impl*
 end;//TPrimUnderControlForm.Tree_CollapseAll_Test
-{$IfEnd} //not NoVCM
 
 procedure TPrimUnderControlForm.Document_ShowChanges_Test(const aParams: IvcmTestParamsPrim);
+ {* Показать изменения }
 //#UC START# *4DD1260D02D1_4A7C349D02CBtest_var*
 //#UC END# *4DD1260D02D1_4A7C349D02CBtest_var*
 begin
@@ -683,16 +633,8 @@ begin
 //#UC END# *4DD1260D02D1_4A7C349D02CBtest_impl*
 end;//TPrimUnderControlForm.Document_ShowChanges_Test
 
-procedure TPrimUnderControlForm.Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_var*
-//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_var*
-begin
-//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
- State := vcm_DefaultOperationState;
-//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
-end;//TPrimUnderControlForm.Document_ShowChanges_GetState
-
 procedure TPrimUnderControlForm.Document_ShowChanges_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Показать изменения }
 //#UC START# *4DD1260D02D1_4A7C349D02CBexec_var*
 //#UC END# *4DD1260D02D1_4A7C349D02CBexec_var*
 begin
@@ -701,7 +643,18 @@ begin
 //#UC END# *4DD1260D02D1_4A7C349D02CBexec_impl*
 end;//TPrimUnderControlForm.Document_ShowChanges_Execute
 
+procedure TPrimUnderControlForm.Document_ShowChanges_GetState(var State: TvcmOperationStateIndex);
+ {* Показать изменения }
+//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_var*
+//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_var*
+begin
+//#UC START# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
+ State := vcm_DefaultOperationState;
+//#UC END# *4DD1260D02D1_4A7C349D02CBgetstate_impl*
+end;//TPrimUnderControlForm.Document_ShowChanges_GetState
+
 procedure TPrimUnderControlForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A7C349D02CB_var*
 //#UC END# *479731C50290_4A7C349D02CB_var*
 begin
@@ -729,8 +682,8 @@ begin
 //#UC END# *47A042E100E2_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimUnderControlForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A7C349D02CB_var*
 //#UC END# *4A8E8F2E0195_4A7C349D02CB_var*
 begin
@@ -757,10 +710,9 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimUnderControlForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4A7C349D02CB_var*
 //#UC END# *529332B40230_4A7C349D02CB_var*
 begin
@@ -770,9 +722,10 @@ begin
  Height := 480;
 //#UC END# *529332B40230_4A7C349D02CB_impl*
 end;//TPrimUnderControlForm.SetupFormLayout
-{$IfEnd} //not NoVCM
 
 procedure TPrimUnderControlForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -784,17 +737,11 @@ begin
   MakeEntitySupportedByControl(en_Tree, UnderControlList);
   PublishOpWithResult(en_Loadable, op_Load, Loadable_Load, nil, nil);
   PublishOpWithResult(en_ControlCenter, op_Refresh, ControlCenter_Refresh, nil, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_ExpandAll, nil, Tree_ExpandAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOp(en_Document, op_ShowChanges, Document_ShowChanges_Execute, Document_ShowChanges_Test, Document_ShowChanges_GetState);
  end;//with Entities.Entities
-end;
+end;//TPrimUnderControlForm.InitEntities
 
 procedure TPrimUnderControlForm.MakeControls;
 begin
@@ -802,7 +749,7 @@ begin
  with AddUsertype(utUnderControlName,
   str_utUnderControlCaption,
   str_utUnderControlSettingsCaption,
-  true,
+  True,
   67,
   -1,
   '',
@@ -815,22 +762,14 @@ begin
  f_UnderControlList := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_UnderControlList.Name := 'UnderControlList';
  f_UnderControlList.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimUnderControlForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utUnderControlCaption
- str_utUnderControlCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utUnderControlSettingsCaption
- str_utUnderControlSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimUnderControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimUnderControlForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimUnderControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

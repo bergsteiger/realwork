@@ -1,165 +1,131 @@
 unit PrimStyleEditorExample_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorExample_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorExample
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorExample_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorExample" MUID: (4AF8665A0079)
+// Имя типа: "TPrimStyleEditorExampleForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces,
-  evCustomEditorWindow
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  nevGUIInterfaces,
-  vtPanel,
-  Settings_Strange_Controls,
-  l3StringIDEx,
-  eeEditorWithoutOperations
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimStyleEditorExample_utStyleEditorExample_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Settings_Strange_Controls
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , eeEditorWithoutOperations
+ , nevGUIInterfaces
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AF8665A0079intf_uses*
+ //#UC END# *4AF8665A0079intf_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-//#UC START# *4AF8665A0079ci*
-//#UC END# *4AF8665A0079ci*
-//#UC START# *4AF8665A0079cit*
-//#UC END# *4AF8665A0079cit*
- TPrimStyleEditorExampleForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_TextSource : TnscTextSource;
-    {* Поле для свойства TextSource}
-   f_EditorPanel : TvtPanel;
-    {* Поле для свойства EditorPanel}
-   f_Editor : TeeEditorWithoutOperations;
-    {* Поле для свойства Editor}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+ //#UC START# *4AF8665A0079ci*
+ //#UC END# *4AF8665A0079ci*
+ //#UC START# *4AF8665A0079cit*
+ //#UC END# *4AF8665A0079cit*
+ TPrimStyleEditorExampleForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_TextSource: TnscTextSource;
+   f_EditorPanel: TvtPanel;
+   f_Editor: TeeEditorWithoutOperations;
+  private
    procedure EditorGetHotSpotInfo(Sender: TObject;
-     const aHotSpot: IevHotSpot;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
- protected
- // realized methods
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+  protected
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // public properties
+  public
    property TextSource: TnscTextSource
-     read f_TextSource;
+    read f_TextSource;
    property EditorPanel: TvtPanel
-     read f_EditorPanel;
+    read f_EditorPanel;
    property Editor: TeeEditorWithoutOperations
-     read f_Editor;
-//#UC START# *4AF8665A0079publ*
-//#UC END# *4AF8665A0079publ*
+    read f_Editor;
+ //#UC START# *4AF8665A0079publ*
+ //#UC END# *4AF8665A0079publ*
  end;//TPrimStyleEditorExampleForm
-
- TvcmEntityFormRef = TPrimStyleEditorExampleForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Variant,
-  nevTools,
-  l3InterfacesMisc
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  TextSegment_Const,
-  k2Tags,
-  evdNativeReader,
-  Classes,
-  afwFacade,
-  l3Memory,
-  l3Filer,
-  l3Stream,
-  l3String,
-  l3Base,
-  StyledLeafPara_Const,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Variant
+ , nevTools
+ , l3InterfacesMisc
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , TextSegment_Const
+ , k2Tags
+ , evdNativeReader
+ , Classes
+ , afwFacade
+ , l3Memory
+ , l3Filer
+ , l3Stream
+ , l3String
+ , l3Base
+ , StyledLeafPara_Const
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorExample_utStyleEditorExample_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AF8665A0079impl_uses*
+ , evCustomEditorWindow
+ //#UC END# *4AF8665A0079impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utStyleEditorExampleLocalConstants }
-  str_utStyleEditorExampleCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorExampleCaption'; rValue : 'Текстовое окно редактора стилей');
-   { Заголовок пользовательского типа "Текстовое окно редактора стилей" }
-
-// start class TPrimStyleEditorExampleForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorExampleForm.EditorGetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *526A83CD00ED_4AF8665A0079_var*
 var
  l_TagWrap: Il3TagRef;
@@ -212,8 +178,8 @@ end;//TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable_Execute
 
 procedure TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
 begin
- StyleEditor_ReloadStyleTable_Execute;
-end;
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorExampleForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorExampleForm.InitFields;
 //#UC START# *47A042E100E2_4AF8665A0079_var*
@@ -264,8 +230,8 @@ begin
 //#UC END# *47A042E100E2_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimStyleEditorExampleForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AF8665A0079_var*
 //#UC END# *4A8E8F2E0195_4AF8665A0079_var*
 begin
@@ -286,9 +252,10 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AF8665A0079_impl*
 end;//TPrimStyleEditorExampleForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimStyleEditorExampleForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -296,17 +263,15 @@ begin
   PublishFormEntity(en_StyleEditor, nil);
   PublishOpWithResult(en_StyleEditor, op_ReloadStyleTable, StyleEditor_ReloadStyleTable, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimStyleEditorExampleForm.InitEntities
 
 procedure TPrimStyleEditorExampleForm.MakeControls;
 begin
  inherited;
- f_TextSource := TnscTextSource.Create(Self);
- f_TextSource.Name := 'TextSource';
  with AddUsertype(utStyleEditorExampleName,
   str_utStyleEditorExampleCaption,
   str_utStyleEditorExampleCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -316,28 +281,26 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utStyleEditorExampleName
+ f_TextSource := TnscTextSource.Create(Self);
+ f_TextSource.Name := 'TextSource';
  f_EditorPanel := TvtPanel.Create(Self);
  f_EditorPanel.Name := 'EditorPanel';
  f_EditorPanel.Parent := Self;
  f_Editor := TeeEditorWithoutOperations.Create(Self);
  f_Editor.Name := 'Editor';
  f_Editor.Parent := EditorPanel;
-end;
+end;//TPrimStyleEditorExampleForm.MakeControls
 
 //#UC START# *4AF8665A0079impl*
 {$R PrimStyleEditorExample_Form.res}
 //#UC END# *4AF8665A0079impl*
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utStyleEditorExampleCaption
- str_utStyleEditorExampleCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStyleEditorExample
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorExampleForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStyleEditorExample }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

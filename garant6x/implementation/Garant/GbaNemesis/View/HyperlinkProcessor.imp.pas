@@ -1,34 +1,69 @@
 {$IfNDef HyperlinkProcessor_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/HyperlinkProcessor.imp.pas"
-// Начат: 11.08.2009 15:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Navigation::HyperlinkProcessor
-//
-// Обработчик гиперссылок
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessor" MUID: (4A815C200111)
+// Имя типа: "_HyperlinkProcessor_"
 
 {$Define HyperlinkProcessor_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _HyperlinkProcessor_ = {abstract form} class(_HyperlinkProcessor_Parent_, IbsHyperLinkProcessorHelper)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _HyperlinkProcessor_ = {abstract} class(_HyperlinkProcessor_Parent_, IbsHyperLinkProcessorHelper)
   {* Обработчик гиперссылок }
- protected
- // property methods
+  protected
    function pm_GetHyperlinkText: TevCustomEditorWindow; virtual; abstract;
- protected
- // realized methods
+   function JumpTo(Sender: TObject;
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
+    {* Обработчик гиперссылки }
+   procedure GetHotSpotInfo(Sender: TObject;
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
+    {* Обработчик события OnGetHotSpotInfo }
+   procedure DoSetHyperlinkCallStatus(aValue: Boolean); virtual;
+    {* Выставляет флаг, определяющий произведенный переход по ссылке }
+   function NeedJumpTo(const aHyperlink: IevHyperlink): Boolean; virtual;
+   function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; virtual;
+   function MakeContainerForBehaviour(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
+   function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; virtual; abstract;
+    {* Обработчик внешней операции }
+   function DoMakeLinkDocInfo(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal): IdeDocInfo; virtual;
+   function DoProcessLocalLink(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; virtual;
+    {* Обработка локальных ссылок }
+   function DoProcessGlobalLink(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; virtual;
+   procedure GotoPoint(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); virtual; abstract;
+    {* Переход на точку в документе }
+   procedure OpenRedactionLocalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); virtual; abstract;
+    {* Открывает локальную ссылку на другую редакцию }
+   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); virtual; abstract;
+   function HyperlinkDocument: IDocument; virtual; abstract;
+    {* Документ ИЗ которого ведёт ссылка }
+   procedure GetNonHyperlinkInfo(Sender: TObject;
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo); virtual;
+    {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
+   function IsFloating: Boolean; virtual; abstract;
+    {* Форма плавающая }
+   procedure DoCheckLinkInfo(const aLink: IevHyperlink); virtual;
    function MakeContainer: IvcmContainer;
-     {* Создать параметры на которых будут делаться вызовы операций }
+    {* Создать параметры на которых будут делаться вызовы операций }
    function MakeNewMainWindow: IvcmContainer;
-     {* Открыть новое главное окно и вернуть параметры для него }
+    {* Открыть новое главное окно и вернуть параметры для него }
    function ProcessExternalOperation(const anOperation: IExternalOperation): Boolean;
    procedure CheckLinkInfo(const aLink: IevHyperlink);
    function MakeLinkDocInfo(const aDocument: IDocument;
@@ -43,87 +78,35 @@
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
    function MakeTabbedContainer(aNeedActivate: Boolean): IvcmContainer;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function JumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
-     {* Обработчик гиперссылки }
-   procedure GetHotSpotInfo(Sender: TObject;
-     const aHotSpot: IevHotSpot;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
-     {* Обработчик события OnGetHotSpotInfo }
-   procedure DoSetHyperlinkCallStatus(aValue: Boolean); virtual;
-     {* Выставляет флаг, определяющий произведенный переход по ссылке }
-   function NeedJumpTo(const aHyperlink: IevHyperlink): Boolean; virtual;
-   function GetBehaviourFromEffects(anEffects: TafwJumpToEffects): TbsProcessHyperLinkBehaviour; virtual;
-   function MakeContainerForBehaviour(aBehaviour: TbsProcessHyperLinkBehaviour): IvcmContainer;
-   function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; virtual; abstract;
-     {* Обработчик внешней операции }
-   function DoMakeLinkDocInfo(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal): IdeDocInfo; virtual;
-   function DoProcessLocalLink(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; virtual;
-     {* Обработка локальных ссылок }
-   function DoProcessGlobalLink(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; virtual;
-   procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); virtual; abstract;
-     {* Переход на точку в документе }
-   procedure OpenRedactionLocalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); virtual; abstract;
-     {* Открывает локальную ссылку на другую редакцию }
-   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); virtual; abstract;
-   function HyperlinkDocument: IDocument; virtual; abstract;
-     {* Документ ИЗ которого ведёт ссылка }
-   procedure GetNonHyperlinkInfo(Sender: TObject;
-    const aHotSpot: IevHotSpot;
-    const aKeys: TafwCursorState;
-    var theInfo: TafwCursorInfo); virtual;
-     {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
-   function IsFloating: Boolean; virtual; abstract;
-     {* Форма плавающая }
-   procedure DoCheckLinkInfo(const aLink: IevHyperlink); virtual;
- protected
- // protected properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property HyperlinkText: TevCustomEditorWindow
-     read pm_GetHyperlinkText;
-     {* Текст, содержащий гиперссылку }
+    read pm_GetHyperlinkText;
+    {* Текст, содержащий гиперссылку }
  end;//_HyperlinkProcessor_
-{$Else}
 
- _HyperlinkProcessor_ = _HyperlinkProcessor_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_HyperlinkProcessor_ = _HyperlinkProcessor_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else HyperlinkProcessor_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef HyperlinkProcessor_imp_impl}
 
-// start class _HyperlinkProcessor_
+{$Define HyperlinkProcessor_imp_impl}
 
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _HyperlinkProcessor_.JumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
+ {* Обработчик гиперссылки }
+var l_Hyperlink: IevHyperlink;
 //#UC START# *4A8199EE00F2_4A815C200111_var*
 //#UC END# *4A8199EE00F2_4A815C200111_var*
-var
- l_Hyperlink : IevHyperlink;
 begin
 //#UC START# *4A8199EE00F2_4A815C200111_impl*
  Result := false;
@@ -158,13 +141,13 @@ begin
 end;//_HyperlinkProcessor_.JumpTo
 
 procedure _HyperlinkProcessor_.GetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+ {* Обработчик события OnGetHotSpotInfo }
+var l_Hyperlink: IevHyperlink;
 //#UC START# *4A82C02701E4_4A815C200111_var*
 //#UC END# *4A82C02701E4_4A815C200111_var*
-var
- l_Hyperlink : IevHyperlink;
 begin
 //#UC START# *4A82C02701E4_4A815C200111_impl*
  if Supports(aHotSpot, IevHyperlink, l_Hyperlink) then
@@ -175,6 +158,7 @@ begin
 end;//_HyperlinkProcessor_.GetHotSpotInfo
 
 procedure _HyperlinkProcessor_.DoSetHyperlinkCallStatus(aValue: Boolean);
+ {* Выставляет флаг, определяющий произведенный переход по ссылке }
 //#UC START# *4F382E2D01C1_4A815C200111_var*
 //#UC END# *4F382E2D01C1_4A815C200111_var*
 begin
@@ -265,8 +249,8 @@ begin
 end;//_HyperlinkProcessor_.MakeContainerForBehaviour
 
 function _HyperlinkProcessor_.DoMakeLinkDocInfo(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal): IdeDocInfo;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal): IdeDocInfo;
 //#UC START# *4A815FB3005D_4A815C200111_var*
 //#UC END# *4A815FB3005D_4A815C200111_var*
 begin
@@ -276,9 +260,10 @@ begin
 end;//_HyperlinkProcessor_.DoMakeLinkDocInfo
 
 function _HyperlinkProcessor_.DoProcessLocalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ {* Обработка локальных ссылок }
 //#UC START# *4A8160720125_4A815C200111_var*
 //#UC END# *4A8160720125_4A815C200111_var*
 begin
@@ -303,9 +288,9 @@ begin
 end;//_HyperlinkProcessor_.DoProcessLocalLink
 
 function _HyperlinkProcessor_.DoProcessGlobalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
 //#UC START# *53A2F4B30119_4A815C200111_var*
 //#UC END# *53A2F4B30119_4A815C200111_var*
 begin
@@ -319,9 +304,10 @@ begin
 end;//_HyperlinkProcessor_.DoProcessGlobalLink
 
 procedure _HyperlinkProcessor_.GetNonHyperlinkInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+ {* Возвращает информацию о курсоре НЕ НАД ССЫЛКОЙ }
 //#UC START# *4A890E81030B_4A815C200111_var*
 //#UC END# *4A890E81030B_4A815C200111_var*
 begin
@@ -340,6 +326,7 @@ begin
 end;//_HyperlinkProcessor_.DoCheckLinkInfo
 
 function _HyperlinkProcessor_.MakeContainer: IvcmContainer;
+ {* Создать параметры на которых будут делаться вызовы операций }
 //#UC START# *4A7687C702C8_4A815C200111_var*
 //#UC END# *4A7687C702C8_4A815C200111_var*
 begin
@@ -352,6 +339,7 @@ begin
 end;//_HyperlinkProcessor_.MakeContainer
 
 function _HyperlinkProcessor_.MakeNewMainWindow: IvcmContainer;
+ {* Открыть новое главное окно и вернуть параметры для него }
 //#UC START# *4A7687F0016D_4A815C200111_var*
 //#UC END# *4A7687F0016D_4A815C200111_var*
 begin
@@ -385,8 +373,8 @@ begin
 end;//_HyperlinkProcessor_.CheckLinkInfo
 
 function _HyperlinkProcessor_.MakeLinkDocInfo(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal): IdeDocInfo;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal): IdeDocInfo;
 //#UC START# *4A79216102C6_4A815C200111_var*
 //#UC END# *4A79216102C6_4A815C200111_var*
 begin
@@ -396,9 +384,9 @@ begin
 end;//_HyperlinkProcessor_.MakeLinkDocInfo
 
 function _HyperlinkProcessor_.ProcessLocalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
 //#UC START# *4A7928E80375_4A815C200111_var*
 //#UC END# *4A7928E80375_4A815C200111_var*
 begin
@@ -408,9 +396,9 @@ begin
 end;//_HyperlinkProcessor_.ProcessLocalLink
 
 function _HyperlinkProcessor_.ProcessGlobalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
 //#UC START# *53A2EF1B036C_4A815C200111_var*
 //#UC END# *53A2EF1B036C_4A815C200111_var*
 begin
@@ -428,8 +416,9 @@ begin
 //#UC END# *53A812BE013E_4A815C200111_impl*
 end;//_HyperlinkProcessor_.MakeTabbedContainer
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _HyperlinkProcessor_.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A815C200111_var*
 //#UC END# *4A8E8F2E0195_4A815C200111_var*
 begin
@@ -442,8 +431,10 @@ begin
  end;//with HyperlinkText
 //#UC END# *4A8E8F2E0195_4A815C200111_impl*
 end;//_HyperlinkProcessor_.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf HyperlinkProcessor_imp_impl}
 
 {$EndIf HyperlinkProcessor_imp}
+

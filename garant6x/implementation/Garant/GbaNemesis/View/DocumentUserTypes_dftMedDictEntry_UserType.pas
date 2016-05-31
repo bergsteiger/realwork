@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftMedDictEntryLocalConstants }
+ str_dftMedDictEntryCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftMedDictEntryCaption'; rValue : 'Описание медицинского термина');
+  {* Заголовок пользовательского типа "Описание медицинского термина" }
+ str_dftMedDictEntrySettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftMedDictEntrySettingsCaption'; rValue : 'Словарь медицинских терминов: Описание медицинского термина');
+  {* Заголовок пользовательского типа "Описание медицинского термина" для настройки панелей инструментов }
  {* Константы для типа формы dftMedDictEntry }
  dftMedDictEntryName = 'dftMedDictEntry';
   {* Строковый идентификатор пользовательского типа "Описание медицинского термина" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftMedDictEntry.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftMedDictEntryCaption.Init;
+ {* Инициализация str_dftMedDictEntryCaption }
+ str_dftMedDictEntrySettingsCaption.Init;
+ {* Инициализация str_dftMedDictEntrySettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftMedDictEntry.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftMedDictEntry }

@@ -1,114 +1,86 @@
 unit PrimWarning_Form;
+ {* Предупреждение }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimWarning_Form.pas"
-// Начат: 23.01.2009 18:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Warning::PrimWarning
-//
-// Предупреждение
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarning_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimWarning" MUID: (4979E5520222)
+// Имя типа: "TPrimWarningForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwInterfaces,
-  nevTools,
-  eeInterfaces,
-  DocumentAndListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  Document_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  afwDockingInterfaces,
-  DocumentUnit,
-  ExternalOperationUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  evCustomEditorWindow,
-  nevGUIInterfaces,
-  afwNavigation,
-  nevNavigation,
-  NavigationInterfaces,
-  DocumentInterfaces,
-  bsTypesNew,
-  vcmExternalInterfaces {a}
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Document_Strange_Controls
+ , afwInterfaces
+ , afwDockingInterfaces
+ , DocumentAndListInterfaces
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ , eeInterfaces
+ , nevTools
+ , DocumentUnit
+ , evCustomEditorWindow
+ , bsTypesNew
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , NavigationInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ExternalOperationUnit
+ , DocumentInterfaces
+ , nevGUIInterfaces
+ , nevNavigation
+ , afwNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4979E5520222intf_uses*
+ //#UC END# *4979E5520222intf_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-//#UC START# *4979E5520222ci*
+ //#UC START# *4979E5520222ci*
  {$IfOpt D+}
   {$IfNDef Console}
    {.$Define DebugViewer}
   {$EndIf  Console}
  {$EndIf D+}
-//#UC END# *4979E5520222ci*
+ //#UC END# *4979E5520222ci*
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = TvcmEntityForm;
- {$Include ..\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
-//#UC START# *4979E5520222cit*
-//#UC END# *4979E5520222cit*
- TPrimWarningForm = {form} class(_HyperlinkProcessorWithOwnLocalLink_, IafwFormView, IafwDockableControl)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
+ //#UC START# *4979E5520222cit*
+ //#UC END# *4979E5520222cit*
+ TPrimWarningForm = class(_HyperlinkProcessorWithOwnLocalLink_, IafwFormView, IafwDockableControl)
   {* Предупреждение }
- private
- // private fields
-   f_Viewer : TnscEditor;
-    {* Поле для свойства Viewer}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_Viewer: TnscEditor;
+  protected
+   ViewArea: IdsWarning;
+  private
    procedure MakeDocumentContainer(Sender: TObject;
-     var aMade: InevDocumentContainer);
- protected
- // realized methods
+    var aMade: InevDocumentContainer);
+  protected
+   procedure PositionOnRequestedSub(aSubID: TnsWarningSub);
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); override;
-     {* Переход на точку в документе }
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
-     {* Документ ИЗ которого ведёт ссылка }
+    {* Документ ИЗ которого ведёт ссылка }
    function pm_GetHyperlinkText: TevCustomEditorWindow; override;
    function IsFloating: Boolean; override;
-     {* Форма плавающая }
-   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = false);
-   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
+    {* Форма плавающая }
    function CalculateHeightByWidth(var theWidth: Integer;
     aForceLoadData: Boolean): Integer;
    procedure SetBackColor(aColor: TafwColor);
@@ -116,137 +88,118 @@ type
    procedure OpenRedactionGlobalLink(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour); override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   ViewArea : IdsWarning;
- protected
- // protected methods
-   procedure PositionOnRequestedSub(aSubID: TnsWarningSub);
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
+   procedure System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
+  public
    property Viewer: TnscEditor
-     read f_Viewer;
-//#UC START# *4979E5520222publ*
-//#UC END# *4979E5520222publ*
+    read f_Viewer;
+ //#UC START# *4979E5520222publ*
+ //#UC END# *4979E5520222publ*
  end;//TPrimWarningForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Base_Operations_Strange_Controls,
-  F1Like_InternalOperations_Controls
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  TextPara_Const,
-  k2Tags,
-  l3ScreenIC,
-  l3InternalInterfaces,
-  l3String,
-  l3Chars,
-  l3Types,
-  evDef,
-  l3MinMax,
-  Graphics,
-  DocumentUserTypes_dftDocument_UserType,
-  DocumentUserTypes_dftDrug_UserType,
-  nsWarningDocumentContainer
-  {$If defined(Nemesis)}
-  ,
-  eeTextSourceExport
-  {$IfEnd} //Nemesis
-  ,
-  WarningUserTypes_Warning_UserType,
-  BaloonWarningUserTypes_Fake_UserType,
-  BaloonWarningUserTypes_WarnJuror_UserType,
-  BaloonWarningUserTypes_WarnPreActive_UserType,
-  BaloonWarningUserTypes_WarnIsAbolished_UserType,
-  BaloonWarningUserTypes_WarnOnControl_UserType,
-  BaloonWarningUserTypes_WarnInactualDocument_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineOn_UserType,
-  BaloonWarningUserTypes_WarnRedaction_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineException_UserType,
-  BaloonWarningUserTypes_remListModified_UserType,
-  BaloonWarningUserTypes_remListFiltered_UserType,
-  BaloonWarningUserTypes_remTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_remUnreadConsultations_UserType,
-  BaloonWarningUserTypes_remOnlineDead_UserType,
-  BaloonWarningUserTypes_TrialModeWarning_UserType,
-  BaloonWarningUserTypes_OldBaseWarning_UserType,
-  BaloonWarningUserTypes_ControlledChangingWarning_UserType,
-  nevBase
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  nsConst,
-  afwFacade
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsHyperLinkProcessor,
-  deDocInfo,
-  nsOpenUtils,
-  nsTabbedContainerUtils
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsHyperlinkProcessorTypes,
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Base_Operations_Strange_Controls
+ , F1Like_InternalOperations_Controls
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , TextPara_Const
+ , k2Tags
+ , l3ScreenIC
+ , l3InternalInterfaces
+ , l3String
+ , l3Chars
+ , l3Types
+ , evDef
+ , l3MinMax
+ , Graphics
+ , DocumentUserTypes_dftDocument_UserType
+ , DocumentUserTypes_dftDrug_UserType
+ , nsWarningDocumentContainer
+ {$If Defined(Nemesis)}
+ , eeTextSourceExport
+ {$IfEnd} // Defined(Nemesis)
+ , nevBase
+ , Base_Operations_Editions_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsHyperLinkProcessor
+ , deDocInfo
+ , nsOpenUtils
+ , nsConst
+ , afwFacade
+ , nsTabbedContainerUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsHyperlinkProcessorTypes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , WarningUserTypes_Warning_UserType
+ , BaloonWarningUserTypes_Fake_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
+ //#UC START# *4979E5520222impl_uses*
+ //#UC END# *4979E5520222impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TPrimWarningForm;
 
-{$Include ..\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
-
-// start class TPrimWarningForm
-
-procedure TPrimWarningForm.MakeDocumentContainer(Sender: TObject;
-  var aMade: InevDocumentContainer);
-//#UC START# *4F153B0E0018_4979E5520222_var*
-//#UC END# *4F153B0E0018_4979E5520222_var*
-begin
-//#UC START# *4F153B0E0018_4979E5520222_impl*
- Assert(ViewArea <> nil);
- aMade := TnsWarningDocumentContainer.Make(ViewArea, UserType);
-//#UC END# *4F153B0E0018_4979E5520222_impl*
-end;//TPrimWarningForm.MakeDocumentContainer
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
 procedure TPrimWarningForm.PositionOnRequestedSub(aSubID: TnsWarningSub);
+var l_Sub: IeeSub;
 //#UC START# *4AE9DF9401A6_4979E5520222_var*
 //#UC END# *4AE9DF9401A6_4979E5520222_var*
-var
- l_Sub : IeeSub;
 begin
 //#UC START# *4AE9DF9401A6_4979E5520222_impl*
  l_Sub := Viewer.Editor.Data.Document.Subs.SubsByID[Ord(aSubID)];
@@ -256,8 +209,20 @@ begin
 //#UC END# *4AE9DF9401A6_4979E5520222_impl*
 end;//TPrimWarningForm.PositionOnRequestedSub
 
+procedure TPrimWarningForm.MakeDocumentContainer(Sender: TObject;
+ var aMade: InevDocumentContainer);
+//#UC START# *4F153B0E0018_4979E5520222_var*
+//#UC END# *4F153B0E0018_4979E5520222_var*
+begin
+//#UC START# *4F153B0E0018_4979E5520222_impl*
+ Assert(ViewArea <> nil);
+ aMade := TnsWarningDocumentContainer.Make(ViewArea, UserType);
+//#UC END# *4F153B0E0018_4979E5520222_impl*
+end;//TPrimWarningForm.MakeDocumentContainer
+
 procedure TPrimWarningForm.GotoPoint(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4979E5520222_var*
 //#UC END# *4A8164E801AE_4979E5520222_var*
 begin
@@ -267,6 +232,7 @@ begin
 end;//TPrimWarningForm.GotoPoint
 
 function TPrimWarningForm.HyperlinkDocument: IDocument;
+ {* Документ ИЗ которого ведёт ссылка }
 //#UC START# *4A8168BB0217_4979E5520222_var*
 //#UC END# *4A8168BB0217_4979E5520222_var*
 begin
@@ -288,6 +254,7 @@ begin
 end;//TPrimWarningForm.pm_GetHyperlinkText
 
 function TPrimWarningForm.IsFloating: Boolean;
+ {* Форма плавающая }
 //#UC START# *4A8A9DB0001A_4979E5520222_var*
 //#UC END# *4A8A9DB0001A_4979E5520222_var*
 begin
@@ -296,7 +263,7 @@ begin
 //#UC END# *4A8A9DB0001A_4979E5520222_impl*
 end;//TPrimWarningForm.IsFloating
 
-procedure TPrimWarningForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = false);
+procedure TPrimWarningForm.System_TimeMachineStateChange_Execute(aStayInCurrentRedaction: Boolean = False);
 //#UC START# *4A8EF367029E_4979E5520222exec_var*
 //#UC END# *4A8EF367029E_4979E5520222exec_var*
 begin
@@ -310,11 +277,11 @@ end;//TPrimWarningForm.System_TimeMachineStateChange_Execute
 procedure TPrimWarningForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
-  System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
-end;
+  Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
+end;//TPrimWarningForm.System_TimeMachineStateChange
 
 function TPrimWarningForm.CalculateHeightByWidth(var theWidth: Integer;
-  aForceLoadData: Boolean): Integer;
+ aForceLoadData: Boolean): Integer;
 //#UC START# *4D8CA46002BE_4979E5520222_var*
 const
  cSherMagicLen = 50;
@@ -416,8 +383,8 @@ begin
 end;//TPrimWarningForm.CanBeDockedInto
 
 procedure TPrimWarningForm.OpenRedactionGlobalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *53A303BE03A8_4979E5520222_var*
 //#UC END# *53A303BE03A8_4979E5520222_var*
 begin
@@ -426,9 +393,9 @@ begin
 //#UC END# *53A303BE03A8_4979E5520222_impl*
 end;//TPrimWarningForm.OpenRedactionGlobalLink
 
-{$If not defined(NoVCM)}
 procedure TPrimWarningForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4979E5520222_var*
 //#UC END# *497469C90140_4979E5520222_var*
 begin
@@ -447,10 +414,9 @@ begin
  end;//Assigned(ViewArea)
 //#UC END# *497469C90140_4979E5520222_impl*
 end;//TPrimWarningForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimWarningForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979E5520222_var*
 //#UC END# *4A8E8F2E0195_4979E5520222_var*
 begin
@@ -467,23 +433,24 @@ begin
  (Viewer.TextSource As TeeTextSourceExport).OnMakeDocumentContainer := Self.MakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4979E5520222_impl*
 end;//TPrimWarningForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimWarningForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimWarningForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsWarning;
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsWarning;
+ end;//aNew = nil
+end;//TPrimWarningForm.SignalDataSourceChanged
 
 procedure TPrimWarningForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -491,7 +458,7 @@ begin
   PublishFormEntity(en_System, nil);
   PublishOpWithResult(en_System, op_TimeMachineStateChange, System_TimeMachineStateChange, nil, nil, true);
  end;//with Entities.Entities
-end;
+end;//TPrimWarningForm.InitEntities
 
 procedure TPrimWarningForm.MakeControls;
 begin
@@ -499,17 +466,17 @@ begin
  f_Viewer := TnscEditor.Create(Self);
  f_Viewer.Name := 'Viewer';
  f_Viewer.Parent := Self;
-end;
+end;//TPrimWarningForm.MakeControls
 
 //#UC START# *4979E5520222impl*
 //#UC END# *4979E5520222impl*
 
-{$IfEnd} //not Admin AND not Monitorings
-
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimWarning
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimWarningForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimWarning }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

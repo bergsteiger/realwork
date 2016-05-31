@@ -248,7 +248,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(const aData: InsBaseSearcherWindowData): InsSearchWindow; reintroduce;
+   class function MakeSingleChild(const aData: InsBaseSearcherWindowData): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
@@ -303,7 +303,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3ProtoObject
  , afwInterfaces
  , SysUtils
@@ -328,7 +327,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsSearchWindowManager
  , nsBaseSearchService
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -339,12 +337,14 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , l3Chars
+ , PrimBaseSearch_BaseSearch_UserType
  , afwFacade
  , l3Base
- , PrimBaseSearch_BaseSearch_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AB791130260impl_uses*
+ //#UC END# *4AB791130260impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -381,9 +381,6 @@ var g_TnsUseBackSearchButtonEvent: TnsUseBackSearchButtonEvent = nil;
 const
  cMaxLen = 300;
  c_FlashTimes = 2;
- {* Локализуемые строки BaseSearchLocalConstants }
- str_BaseSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'BaseSearchCaption'; rValue : 'Базовый поиск');
-  {* Заголовок пользовательского типа "Базовый поиск" }
 
 procedure TnsUseBaseSearchExampleEventFree;
  {* Метод освобождения экземпляра синглетона TnsUseBaseSearchExampleEvent }
@@ -568,12 +565,10 @@ type _Instance_R_ = TPrimBaseSearchForm;
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
 
 function TPrimBaseSearchForm.pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
-//#UC START# *4CF4D1240072_4AB791130260get_var*
-//#UC END# *4CF4D1240072_4AB791130260get_var*
 begin
-//#UC START# *4CF4D1240072_4AB791130260get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CF4D1240072_4AB791130260get_impl*
+ if (f_ContextEdit = nil) then
+  f_ContextEdit := FindComponent('ContextEdit') As TnscTreeComboWithHistoryAndOperations;
+ Result := f_ContextEdit;
 end;//TPrimBaseSearchForm.pm_GetContextEdit
 
 procedure TPrimBaseSearchForm.AfterSearcherSet;
@@ -946,7 +941,7 @@ begin
 //#UC END# *506AB26A0032_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CMVisibleChanged
 
-class function TPrimBaseSearchForm.MakeSingleChild(const aData: InsBaseSearcherWindowData): InsSearchWindow;
+class function TPrimBaseSearchForm.MakeSingleChild(const aData: InsBaseSearcherWindowData): IvcmEntityForm;
 var
  l_Inst : TPrimBaseSearchForm;
 begin
@@ -1668,12 +1663,17 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_EnclosedForms, nil);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, nil);
+  ShowInContextMenu(en_Result, op_OkExt, True);
+  ShowInToolbar(en_Result, op_OkExt, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, False);
   PublishOp(en_EnclosedForms, op_CloseChild, EnclosedForms_CloseChild_Execute, EnclosedForms_CloseChild_Test, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
-  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, Result_OkExt_GetState);
+  ShowInContextMenu(en_EnclosedForms, op_CloseChild, False);
+  ShowInToolbar(en_EnclosedForms, op_CloseChild, False);
  end;//with Entities.Entities
 end;//TPrimBaseSearchForm.InitEntities
 
@@ -1683,7 +1683,7 @@ begin
  with AddUsertype(BaseSearchName,
   str_BaseSearchCaption,
   str_BaseSearchCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -1698,8 +1698,6 @@ begin
 end;//TPrimBaseSearchForm.MakeControls
 
 initialization
- str_BaseSearchCaption.Init;
- {* Инициализация str_BaseSearchCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimBaseSearchForm);
  {* Регистрация PrimBaseSearch }

@@ -31,6 +31,9 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -108,17 +111,19 @@ uses
  , l3String
  , l3ValueMap
  , nsTypes
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , evBitmapDataObject
  , nsFixedHAFMacroReplacer
  , nsObjectPreview
  , nevBase
  , nsHAFPainter
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8768010125impl_uses*
+ //#UC END# *4C8768010125impl_uses*
 ;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
@@ -412,14 +417,38 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_Picture, nil);
   PublishOp(en_File, op_Save, File_Save_Execute, File_Save_Test, nil);
+  ShowInContextMenu(en_File, op_Save, True);
+  ShowInToolbar(en_File, op_Save, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Document, op_GetAttributesFrmAct, Document_GetAttributesFrmAct_Execute, Document_GetAttributesFrmAct_Test, Document_GetAttributesFrmAct_GetState);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
   PublishOp(en_Edit, op_Copy, Edit_Copy_Execute, Edit_Copy_Test, nil);
+  ShowInContextMenu(en_Edit, op_Copy, True);
+  ShowInToolbar(en_Edit, op_Copy, True);
   PublishOp(en_Picture, op_Resize, Picture_Resize_Execute, Picture_Resize_Test, nil);
+  ShowInContextMenu(en_Picture, op_Resize, False);
+  ShowInToolbar(en_Picture, op_Resize, True);
   PublishOp(en_Picture, op_Enlarge, Picture_Enlarge_Execute, Picture_Enlarge_Test, nil);
+  ShowInContextMenu(en_Picture, op_Enlarge, True);
+  ShowInToolbar(en_Picture, op_Enlarge, True);
   PublishOp(en_Picture, op_Shrink, Picture_Shrink_Execute, Picture_Shrink_Test, nil);
+  ShowInContextMenu(en_Picture, op_Shrink, True);
+  ShowInToolbar(en_Picture, op_Shrink, True);
   PublishOp(en_Picture, op_ActualSize, Picture_ActualSize_Execute, Picture_ActualSize_Test, nil);
+  ShowInContextMenu(en_Picture, op_ActualSize, True);
+  ShowInToolbar(en_Picture, op_ActualSize, True);
   PublishOp(en_Picture, op_FitInWIndow, Picture_FitInWIndow_Execute, Picture_FitInWIndow_Test, nil);
+  ShowInContextMenu(en_Picture, op_FitInWIndow, True);
+  ShowInToolbar(en_Picture, op_FitInWIndow, True);
+  ShowInContextMenu(en_File, op_Print, False);
+  ShowInToolbar(en_File, op_Print, True);
+  ShowInContextMenu(en_File, op_PrintDialog, True);
+  ShowInToolbar(en_File, op_PrintDialog, False);
+  ShowInContextMenu(en_File, op_PrintPreview, False);
+  ShowInToolbar(en_File, op_PrintPreview, True);
  end;//with Entities.Entities
 end;//TPrimPictureOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

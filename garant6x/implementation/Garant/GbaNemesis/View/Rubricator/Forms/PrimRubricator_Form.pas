@@ -1,197 +1,160 @@
 unit PrimRubricator_Form;
+ {* Правовой навигатор }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Rubricator/Forms/PrimRubricator_Form.pas"
-// Начат: 08.09.2009 20:56
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Rubricator::View::Rubricator::PrimRubricator
-//
-// Правовой навигатор
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\PrimRubricator_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimRubricator" MUID: (4AA68CA10101)
+// Имя типа: "TPrimRubricatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  DynamicTreeUnit,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  eeTextSourceExport
-  {$IfEnd} //Nemesis
-  ,
-  Classes,
-  nevTools,
-  l3ControlsTypes,
-  evCustomEditorWindow
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  nevGUIInterfaces,
-  afwNavigation,
-  vtPanel,
-  Common_Rubricator_Controls
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  Rubricator_Strange_Controls,
-  nscSimpleEditor,
-  vtLister,
-  MainMenuUnit
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  vtOutliner,
-  nscTreeViewWithAdapterDragDrop,
-  PrimRubricator_utRubricatorList_UserType,
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Common_Rubricator_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Rubricator_Strange_Controls
+ , BaseTypesUnit
+ , nscTreeViewWithAdapterDragDrop
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nscSimpleEditor
+ , DynamicTreeUnit
+ , l3TreeInterfaces
+ , MainMenuUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ , afwNavigation
+ , nevTools
+ , nevGUIInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- InsRubricatorState = interface(IUnknown{, IvcmBase})
-   ['{E4FB5DDB-8888-4F1E-8408-E4D56CCB1FBD}']
-   function Get_NewDocLabelVisible: Boolean;
-   function Get_LinkType: TNavigatorMenuItemType;
-   property NewDocLabelVisible: Boolean
-     read Get_NewDocLabelVisible;
-   property LinkType: TNavigatorMenuItemType
-     read Get_LinkType;
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
+ InsRubricatorState = interface
+  ['{E4FB5DDB-8888-4F1E-8408-E4D56CCB1FBD}']
+  function Get_NewDocLabelVisible: Boolean;
+  function Get_LinkType: TNavigatorMenuItemType;
+  function As_IvcmBase: IvcmBase;
+   {* Метод приведения нашего интерфейса к IvcmBase }
+  property NewDocLabelVisible: Boolean
+   read Get_NewDocLabelVisible;
+  property LinkType: TNavigatorMenuItemType
+   read Get_LinkType;
  end;//InsRubricatorState
 
- TnsRubricatorState = class(Tl3ProtoObject, InsRubricatorState, IvcmBase {from InsRubricatorState})
- private
- // private fields
-   f_NewDocLabelVisible : Boolean;
-   f_LinkType : TNavigatorMenuItemType;
- protected
- // realized methods
+ TnsRubricatorState = class(Tl3ProtoObject, InsRubricatorState{$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_NewDocLabelVisible: Boolean;
+   f_LinkType: TNavigatorMenuItemType;
+  protected
+   function As_IvcmBase: IvcmBase;
+    {* Метод приведения нашего интерфейса к IvcmBase }
    function Get_NewDocLabelVisible: Boolean;
    function Get_LinkType: TNavigatorMenuItemType;
- public
- // public methods
+  public
    constructor Create(aNewDocLabelVisible: Boolean;
     aLinkType: TNavigatorMenuItemType); reintroduce;
    class function Make(aNewDocLabelVisible: Boolean;
     aLinkType: TNavigatorMenuItemType): InsRubricatorState; reintroduce;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
  end;//TnsRubricatorState
 
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
- TPrimRubricatorForm = {form} class(_vcmChromeLikeTabIconUpdater_)
+ TPrimRubricatorForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Правовой навигатор }
- private
- // private fields
-   f_LinkType : TNavigatorMenuItemType;
-   f_RubricatorList : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства RubricatorList}
-   f_TopPanel : TvtPanel;
-    {* Поле для свойства TopPanel}
-   f_PaintBox : TPaintBox;
-    {* Поле для свойства PaintBox}
-   f_NewDocLabel : TnscSimpleEditor;
-    {* Поле для свойства NewDocLabel}
-   f_DelimiterPanel : TvtPanel;
-    {* Поле для свойства DelimiterPanel}
-   f_ExampleTextSource : TnscTextSource;
-    {* Поле для свойства ExampleTextSource}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_LinkType: TNavigatorMenuItemType;
+   f_RubricatorList: TnscTreeViewWithAdapterDragDrop;
+   f_TopPanel: TvtPanel;
+   f_DelimiterPanel: TvtPanel;
+   f_ExampleTextSource: TnscTextSource;
+   f_PaintBox: TPaintBox;
+   f_NewDocLabel: TnscSimpleEditor;
+  protected
+   f_SetCurrentLock: Integer;
+  private
    procedure InternalInitRoot(const aNode: Il3SimpleNode;
-     const aRootToKeep: INodeBase;
-     const aMenuSectionItemToKeep: ISectionItem);
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem);
    procedure RubricatorListActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    function RubricatorListGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
    procedure RubricatorListTreeChanged(aSender: TObject;
-     const anOldTree: Il3SimpleTree;
-     const aNewTree: Il3SimpleTree);
+    const anOldTree: Il3SimpleTree;
+    const aNewTree: Il3SimpleTree);
    function NewDocLabelJumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
    procedure ExampleTextSourceMakeDocumentContainer(Sender: TObject;
-     var aMade: InevDocumentContainer);
+    var aMade: InevDocumentContainer);
    procedure NewDocLabelBreakingPara(aSender: TObject;
-     out aHandled: Boolean);
+    out aHandled: Boolean);
    procedure PaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NewDocLabelGetHotSpotInfo(Sender: TObject;
-     const aHotSpot: IevHotSpot;
-     const aKeys: TafwCursorState;
-     var theInfo: TafwCursorInfo);
+    const aHotSpot: IevHotSpot;
+    const aKeys: TafwCursorState;
+    var theInfo: TafwCursorInfo);
    procedure CallGarant;
-     {* Сигнатура метода CallGarant }
-   procedure VcmEntityFormSaveState(out aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Saved: Boolean);
-   procedure VcmEntityFormLoadState(const aState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Loaded: Boolean);
- protected
- // realized methods
+   procedure vcmEntityFormSaveState(out aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Saved: Boolean);
+   procedure vcmEntityFormLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Loaded: Boolean);
+  protected
+   procedure InternalSetRoot(const aNode: Il3SimpleNode;
+    const aRootToKeep: INodeBase;
+    const aMenuSectionItemToKeep: ISectionItem);
+   procedure RubricExecute;
+   procedure UpdateTopPanel(aNodeType: TNavigatorMenuItemType);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+   function DoGetTabImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem);
@@ -205,132 +168,137 @@ type
    function Rubricator_GetRoot_Execute: Il3SimpleNode;
    procedure Rubricator_GetRoot(const aParams: IvcmExecuteParams);
    procedure Rubric_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-   function DoGetTabImageIndex: Integer; override;
-    {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
- protected
- // protected fields
-   f_SetCurrentLock : Integer;
- protected
- // protected methods
-   procedure InternalSetRoot(const aNode: Il3SimpleNode;
-     const aRootToKeep: INodeBase;
-     const aMenuSectionItemToKeep: ISectionItem);
-   procedure RubricExecute;
-     {* Сигнатура метода RubricExecute }
-   procedure UpdateTopPanel(aNodeType: TNavigatorMenuItemType);
- public
- // public properties
+  public
    property RubricatorList: TnscTreeViewWithAdapterDragDrop
-     read f_RubricatorList;
+    read f_RubricatorList;
    property TopPanel: TvtPanel
-     read f_TopPanel;
-   property PaintBox: TPaintBox
-     read f_PaintBox;
-   property NewDocLabel: TnscSimpleEditor
-     read f_NewDocLabel;
+    read f_TopPanel;
    property DelimiterPanel: TvtPanel
-     read f_DelimiterPanel;
+    read f_DelimiterPanel;
    property ExampleTextSource: TnscTextSource
-     read f_ExampleTextSource;
+    read f_ExampleTextSource;
+   property PaintBox: TPaintBox
+    read f_PaintBox;
+   property NewDocLabel: TnscSimpleEditor
+    read f_NewDocLabel;
  end;//TPrimRubricatorForm
-
- TvcmEntityFormRef = TPrimRubricatorForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsRubricatorList,
-  l3Base,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  RubricatorRes,
-  Common_Strange_Controls,
-  RubricatorInterfaces,
-  evdTextStyle_Const,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3Memory,
-  nevNavigation,
-  afwFacade,
-  l3String,
-  nsExternalObjectPrim,
-  nsTypes,
-  nsConst,
-  DataAdapter,
-  DynamicDocListUnit,
-  DocumentUnit,
-  nsUtils,
-  bsTypes,
-  deDocInfo,
-  evdStyles,
-  nsTabbedInterfaceTypes,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , RubricatorRes
+ , Common_Strange_Controls
+ , RubricatorInterfaces
+ , evdTextStyle_Const
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Memory
+ , nevNavigation
+ , afwFacade
+ , l3String
+ , nsExternalObjectPrim
+ , nsTypes
+ , nsConst
+ , DataAdapter
+ , DynamicDocListUnit
+ , DocumentUnit
+ , nsUtils
+ , bsTypes
+ , deDocInfo
+ , evdStyles
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsRubricatorList
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimRubricator_utRubricatorList_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AA68CA10101impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4AA68CA10101impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+constructor TnsRubricatorState.Create(aNewDocLabelVisible: Boolean;
+ aLinkType: TNavigatorMenuItemType);
+//#UC START# *4AA78D81011E_4AA78D4B020B_var*
+//#UC END# *4AA78D81011E_4AA78D4B020B_var*
+begin
+//#UC START# *4AA78D81011E_4AA78D4B020B_impl*
+ inherited Create;
+ f_NewDocLabelVisible := aNewDocLabelVisible;
+ f_LinkType := aLinkType;
+//#UC END# *4AA78D81011E_4AA78D4B020B_impl*
+end;//TnsRubricatorState.Create
+
+class function TnsRubricatorState.Make(aNewDocLabelVisible: Boolean;
+ aLinkType: TNavigatorMenuItemType): InsRubricatorState;
+var
+ l_Inst : TnsRubricatorState;
+begin
+ l_Inst := Create(aNewDocLabelVisible, aLinkType);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TnsRubricatorState.Make
+
+function TnsRubricatorState.As_IvcmBase: IvcmBase;
+ {* Метод приведения нашего интерфейса к IvcmBase }
+begin
+ Result := Self;
+end;//TnsRubricatorState.As_IvcmBase
+
+function TnsRubricatorState.Get_NewDocLabelVisible: Boolean;
+//#UC START# *4AA78D1501FF_4AA78D4B020Bget_var*
+//#UC END# *4AA78D1501FF_4AA78D4B020Bget_var*
+begin
+//#UC START# *4AA78D1501FF_4AA78D4B020Bget_impl*
+ Result := f_NewDocLabelVisible;
+//#UC END# *4AA78D1501FF_4AA78D4B020Bget_impl*
+end;//TnsRubricatorState.Get_NewDocLabelVisible
+
+function TnsRubricatorState.Get_LinkType: TNavigatorMenuItemType;
+//#UC START# *4AA78D2C012A_4AA78D4B020Bget_var*
+//#UC END# *4AA78D2C012A_4AA78D4B020Bget_var*
+begin
+//#UC START# *4AA78D2C012A_4AA78D4B020Bget_impl*
+ Result := f_LinkType;
+//#UC END# *4AA78D2C012A_4AA78D4B020Bget_impl*
+end;//TnsRubricatorState.Get_LinkType
 
 type _Instance_R_ = TPrimRubricatorForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
-var
-   { Локализуемые строки utRubricatorListLocalConstants }
-  str_utRubricatorListCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListCaption'; rValue : 'Правовой навигатор (линейное представление)');
-   { Заголовок пользовательского типа "Правовой навигатор (линейное представление)" }
-  str_utRubricatorListSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRubricatorListSettingsCaption'; rValue : 'Правовой навигатор');
-   { Заголовок пользовательского типа "Правовой навигатор (линейное представление)" для настройки панелей инструментов }
-
-// start class TPrimRubricatorForm
-
 procedure TPrimRubricatorForm.InternalInitRoot(const aNode: Il3SimpleNode;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem);
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
+var l_Node: INodeBase;
 //#UC START# *4AA781EA039B_4AA68CA10101_var*
 //#UC END# *4AA781EA039B_4AA68CA10101_var*
-var
- l_Node : INodeBase;
 begin
 //#UC START# *4AA781EA039B_4AA68CA10101_impl*
  Inc(f_SetCurrentLock);
@@ -352,8 +320,22 @@ begin
 //#UC END# *4AA781EA039B_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.InternalInitRoot
 
+procedure TPrimRubricatorForm.InternalSetRoot(const aNode: Il3SimpleNode;
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
+//#UC START# *4AA7824B03DF_4AA68CA10101_var*
+//#UC END# *4AA7824B03DF_4AA68CA10101_var*
+begin
+//#UC START# *4AA7824B03DF_4AA68CA10101_impl*
+ with RubricatorList.TreeStruct do
+  if not aNode.IsSame(RootNode) then
+   Dispatcher.History.SaveState(Self.As_IvcmEntityForm); //Запись в историю
+ InternalInitRoot(aNode, aRootToKeep, aMenuSectionItemToKeep);
+//#UC END# *4AA7824B03DF_4AA68CA10101_impl*
+end;//TPrimRubricatorForm.InternalSetRoot
+
 procedure TPrimRubricatorForm.RubricatorListActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *525D4BD701CF_4AA68CA10101_var*
 //#UC END# *525D4BD701CF_4AA68CA10101_var*
 begin
@@ -364,8 +346,8 @@ begin
 end;//TPrimRubricatorForm.RubricatorListActionElement
 
 function TPrimRubricatorForm.RubricatorListGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *525D4BE202AC_4AA68CA10101_var*
 var
  l_AdapterNode : INodeBase;
@@ -384,8 +366,8 @@ begin
 end;//TPrimRubricatorForm.RubricatorListGetItemImage
 
 procedure TPrimRubricatorForm.RubricatorListTreeChanged(aSender: TObject;
-  const anOldTree: Il3SimpleTree;
-  const aNewTree: Il3SimpleTree);
+ const anOldTree: Il3SimpleTree;
+ const aNewTree: Il3SimpleTree);
 //#UC START# *525D4CF902DC_4AA68CA10101_var*
 //#UC END# *525D4CF902DC_4AA68CA10101_var*
 begin
@@ -397,8 +379,8 @@ begin
 end;//TPrimRubricatorForm.RubricatorListTreeChanged
 
 function TPrimRubricatorForm.NewDocLabelJumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
 //#UC START# *525D4D05018C_4AA68CA10101_var*
 //#UC END# *525D4D05018C_4AA68CA10101_var*
 begin
@@ -409,7 +391,7 @@ begin
 end;//TPrimRubricatorForm.NewDocLabelJumpTo
 
 procedure TPrimRubricatorForm.ExampleTextSourceMakeDocumentContainer(Sender: TObject;
-  var aMade: InevDocumentContainer);
+ var aMade: InevDocumentContainer);
 //#UC START# *525D4D190205_4AA68CA10101_var*
 //#UC END# *525D4D190205_4AA68CA10101_var*
 begin
@@ -419,7 +401,7 @@ begin
 end;//TPrimRubricatorForm.ExampleTextSourceMakeDocumentContainer
 
 procedure TPrimRubricatorForm.NewDocLabelBreakingPara(aSender: TObject;
-  out aHandled: Boolean);
+ out aHandled: Boolean);
 //#UC START# *525D4D28010E_4AA68CA10101_var*
 //#UC END# *525D4D28010E_4AA68CA10101_var*
 begin
@@ -447,9 +429,9 @@ begin
 end;//TPrimRubricatorForm.PaintBoxPaint
 
 procedure TPrimRubricatorForm.NewDocLabelGetHotSpotInfo(Sender: TObject;
-  const aHotSpot: IevHotSpot;
-  const aKeys: TafwCursorState;
-  var theInfo: TafwCursorInfo);
+ const aHotSpot: IevHotSpot;
+ const aKeys: TafwCursorState;
+ var theInfo: TafwCursorInfo);
 //#UC START# *525D4D3F0361_4AA68CA10101_var*
 //#UC END# *525D4D3F0361_4AA68CA10101_var*
 begin
@@ -480,54 +462,6 @@ begin
  end;
 //#UC END# *525D4D500351_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.CallGarant
-
-procedure TPrimRubricatorForm.VcmEntityFormSaveState(out aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Saved: Boolean);
-//#UC START# *525E7A2D0076_4AA68CA10101_var*
-//#UC END# *525E7A2D0076_4AA68CA10101_var*
-begin
-//#UC START# *525E7A2D0076_4AA68CA10101_impl*
- if aStateType = vcm_stContent then
- begin
-  aState := TnsRubricatorState.Make(TopPanel.Visible, f_LinkType).As_IvcmBase;
-  Saved := True;
- end;
-//#UC END# *525E7A2D0076_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.VcmEntityFormSaveState
-
-procedure TPrimRubricatorForm.VcmEntityFormLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Loaded: Boolean);
-//#UC START# *525E7A6300A6_4AA68CA10101_var*
-var
- l_State: InsRubricatorState;
-//#UC END# *525E7A6300A6_4AA68CA10101_var*
-begin
-//#UC START# *525E7A6300A6_4AA68CA10101_impl*
- if (aStateType = vcm_stContent) and Supports(aState, InsRubricatorState, l_State) then
- begin
-  TopPanel.Visible := l_State.NewDocLabelVisible;
-  DelimiterPanel.Visible := not TopPanel.Visible;
-  f_LinkType := l_State.LinkType;
-  Loaded := True;
- end;
-//#UC END# *525E7A6300A6_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.VcmEntityFormLoadState
-
-procedure TPrimRubricatorForm.InternalSetRoot(const aNode: Il3SimpleNode;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem);
-//#UC START# *4AA7824B03DF_4AA68CA10101_var*
-//#UC END# *4AA7824B03DF_4AA68CA10101_var*
-begin
-//#UC START# *4AA7824B03DF_4AA68CA10101_impl*
- with RubricatorList.TreeStruct do
-  if not aNode.IsSame(RootNode) then
-   Dispatcher.History.SaveState(Self.As_IvcmEntityForm); //Запись в историю
- InternalInitRoot(aNode, aRootToKeep, aMenuSectionItemToKeep);
-//#UC END# *4AA7824B03DF_4AA68CA10101_impl*
-end;//TPrimRubricatorForm.InternalSetRoot
 
 procedure TPrimRubricatorForm.RubricExecute;
 //#UC START# *525D4DC500E2_4AA68CA10101_var*
@@ -621,61 +555,44 @@ begin
   l_Para.Collapsed := aNodeType = NM_MONITORINGS;
 //#UC END# *525D4DF700DE_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.UpdateTopPanel
-// start class TnsRubricatorState
 
-constructor TnsRubricatorState.Create(aNewDocLabelVisible: Boolean;
-  aLinkType: TNavigatorMenuItemType);
-//#UC START# *4AA78D81011E_4AA78D4B020B_var*
-//#UC END# *4AA78D81011E_4AA78D4B020B_var*
+procedure TPrimRubricatorForm.vcmEntityFormSaveState(out aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Saved: Boolean);
+//#UC START# *525E7A2D0076_4AA68CA10101_var*
+//#UC END# *525E7A2D0076_4AA68CA10101_var*
 begin
-//#UC START# *4AA78D81011E_4AA78D4B020B_impl*
- inherited Create;
- f_NewDocLabelVisible := aNewDocLabelVisible;
- f_LinkType := aLinkType;
-//#UC END# *4AA78D81011E_4AA78D4B020B_impl*
-end;//TnsRubricatorState.Create
+//#UC START# *525E7A2D0076_4AA68CA10101_impl*
+ if aStateType = vcm_stContent then
+ begin
+  aState := TnsRubricatorState.Make(TopPanel.Visible, f_LinkType).As_IvcmBase;
+  Saved := True;
+ end;
+//#UC END# *525E7A2D0076_4AA68CA10101_impl*
+end;//TPrimRubricatorForm.vcmEntityFormSaveState
 
-class function TnsRubricatorState.Make(aNewDocLabelVisible: Boolean;
-  aLinkType: TNavigatorMenuItemType): InsRubricatorState;
+procedure TPrimRubricatorForm.vcmEntityFormLoadState(const aState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Loaded: Boolean);
+//#UC START# *525E7A6300A6_4AA68CA10101_var*
 var
- l_Inst : TnsRubricatorState;
+ l_State: InsRubricatorState;
+//#UC END# *525E7A6300A6_4AA68CA10101_var*
 begin
- l_Inst := Create(aNewDocLabelVisible, aLinkType);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-
-function TnsRubricatorState.Get_NewDocLabelVisible: Boolean;
-//#UC START# *4AA78D1501FF_4AA78D4B020Bget_var*
-//#UC END# *4AA78D1501FF_4AA78D4B020Bget_var*
-begin
-//#UC START# *4AA78D1501FF_4AA78D4B020Bget_impl*
- Result := f_NewDocLabelVisible;
-//#UC END# *4AA78D1501FF_4AA78D4B020Bget_impl*
-end;//TnsRubricatorState.Get_NewDocLabelVisible
-
-function TnsRubricatorState.Get_LinkType: TNavigatorMenuItemType;
-//#UC START# *4AA78D2C012A_4AA78D4B020Bget_var*
-//#UC END# *4AA78D2C012A_4AA78D4B020Bget_var*
-begin
-//#UC START# *4AA78D2C012A_4AA78D4B020Bget_impl*
- Result := f_LinkType;
-//#UC END# *4AA78D2C012A_4AA78D4B020Bget_impl*
-end;//TnsRubricatorState.Get_LinkType
-
-// Методы преобразования к реализуемым интерфейсам
-
-function TnsRubricatorState.As_IvcmBase: IvcmBase;
-begin
- Result := Self;
-end;
+//#UC START# *525E7A6300A6_4AA68CA10101_impl*
+ if (aStateType = vcm_stContent) and Supports(aState, InsRubricatorState, l_State) then
+ begin
+  TopPanel.Visible := l_State.NewDocLabelVisible;
+  DelimiterPanel.Visible := not TopPanel.Visible;
+  f_LinkType := l_State.LinkType;
+  Loaded := True;
+ end;
+//#UC END# *525E7A6300A6_4AA68CA10101_impl*
+end;//TPrimRubricatorForm.vcmEntityFormLoadState
 
 procedure TPrimRubricatorForm.Rubricator_SetListRoot_Execute(const aNode: Il3SimpleNode;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem);
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
 //#UC START# *4AA7805301DC_4AA68CA10101exec_var*
 //#UC END# *4AA7805301DC_4AA68CA10101exec_var*
 begin
@@ -693,12 +610,12 @@ end;//TPrimRubricatorForm.Rubricator_SetListRoot_Execute
 procedure TPrimRubricatorForm.Rubricator_SetListRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_SetListRoot_Params) do
-  Rubricator_SetListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
-end;
+  Self.Rubricator_SetListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
+end;//TPrimRubricatorForm.Rubricator_SetListRoot
 
 procedure TPrimRubricatorForm.Rubricator_InitListRoot_Execute(const aNode: Il3SimpleNode;
-  const aRootToKeep: INodeBase;
-  const aMenuSectionItemToKeep: ISectionItem);
+ const aRootToKeep: INodeBase;
+ const aMenuSectionItemToKeep: ISectionItem);
 //#UC START# *4AA7806601AE_4AA68CA10101exec_var*
 //#UC END# *4AA7806601AE_4AA68CA10101exec_var*
 begin
@@ -716,8 +633,8 @@ end;//TPrimRubricatorForm.Rubricator_InitListRoot_Execute
 procedure TPrimRubricatorForm.Rubricator_InitListRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_InitListRoot_Params) do
-  Rubricator_InitListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
-end;
+  Self.Rubricator_InitListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
+end;//TPrimRubricatorForm.Rubricator_InitListRoot
 
 procedure TPrimRubricatorForm.Rubricator_Synchronize_Execute;
 //#UC START# *4AA7809901AE_4AA68CA10101exec_var*
@@ -730,8 +647,8 @@ end;//TPrimRubricatorForm.Rubricator_Synchronize_Execute
 
 procedure TPrimRubricatorForm.Rubricator_Synchronize(const aParams: IvcmExecuteParams);
 begin
- Rubricator_Synchronize_Execute;
-end;
+ Self.Rubricator_Synchronize_Execute;
+end;//TPrimRubricatorForm.Rubricator_Synchronize
 
 function TPrimRubricatorForm.Rubricator_GetRoot_Execute: Il3SimpleNode;
 //#UC START# *4B02CFA303DA_4AA68CA10101exec_var*
@@ -748,8 +665,8 @@ end;//TPrimRubricatorForm.Rubricator_GetRoot_Execute
 procedure TPrimRubricatorForm.Rubricator_GetRoot(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IRubricator_GetRoot_Params) do
-  ResultValue := Rubricator_GetRoot_Execute;
-end;
+  ResultValue := Self.Rubricator_GetRoot_Execute;
+end;//TPrimRubricatorForm.Rubricator_GetRoot
 
 procedure TPrimRubricatorForm.Rubric_Execute_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C4433150077_4AA68CA10101exec_var*
@@ -761,6 +678,7 @@ begin
 end;//TPrimRubricatorForm.Rubric_Execute_Execute
 
 procedure TPrimRubricatorForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AA68CA10101_var*
 //#UC END# *479731C50290_4AA68CA10101_var*
 begin
@@ -783,8 +701,8 @@ begin
 //#UC END# *47A042E100E2_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimRubricatorForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AA68CA10101_var*
 //#UC END# *4A8E8F2E0195_4AA68CA10101_var*
 begin
@@ -856,9 +774,8 @@ begin
   OnMakeDocumentContainer := ExampleTextSourceMakeDocumentContainer;
 //#UC END# *4A8E8F2E0195_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimRubricatorForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AA68CA10101_var*
 //#UC END# *543E3AA801D0_4AA68CA10101_var*
@@ -867,9 +784,11 @@ begin
  Result := nsTabIconIndex(titRubricator);
 //#UC END# *543E3AA801D0_4AA68CA10101_impl*
 end;//TPrimRubricatorForm.DoGetTabImageIndex
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 procedure TPrimRubricatorForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -886,20 +805,17 @@ begin
   PublishOpWithResult(en_Rubricator, op_Synchronize, Rubricator_Synchronize, nil, nil);
   PublishOpWithResult(en_Rubricator, op_GetRoot, Rubricator_GetRoot, nil, nil);
   PublishOp(en_Rubric, op_Execute, Rubric_Execute_Execute, nil, nil);
-  ShowInContextMenu(en_Rubric, op_Execute, true);
+  ShowInContextMenu(en_Rubric, op_Execute, True);
  end;//with Entities.Entities
-end;
+end;//TPrimRubricatorForm.InitEntities
 
 procedure TPrimRubricatorForm.MakeControls;
 begin
  inherited;
- f_RubricatorList := TnscTreeViewWithAdapterDragDrop.Create(Self);
- f_RubricatorList.Name := 'RubricatorList';
- f_RubricatorList.Parent := Self;
  with AddUsertype(utRubricatorListName,
   str_utRubricatorListCaption,
   str_utRubricatorListSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -909,6 +825,9 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utRubricatorListName
+ f_RubricatorList := TnscTreeViewWithAdapterDragDrop.Create(Self);
+ f_RubricatorList.Name := 'RubricatorList';
+ f_RubricatorList.Parent := Self;
  f_TopPanel := TvtPanel.Create(Self);
  f_TopPanel.Name := 'TopPanel';
  f_TopPanel.Parent := Self;
@@ -923,22 +842,14 @@ begin
  f_DelimiterPanel.Parent := Self;
  f_ExampleTextSource := TnscTextSource.Create(Self);
  f_ExampleTextSource.Name := 'ExampleTextSource';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimRubricatorForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utRubricatorListCaption
- str_utRubricatorListCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utRubricatorListSettingsCaption
- str_utRubricatorListSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimRubricator
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRubricatorForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimRubricator }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

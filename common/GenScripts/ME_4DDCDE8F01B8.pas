@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки DocumentChangesLocalConstants }
+ str_DocumentChangesCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentChangesCaption'; rValue : 'Изменения в документе');
+  {* Заголовок пользовательского типа "Изменения в документе" }
  {* Константы для типа формы DocumentChanges }
  DocumentChangesName = 'DocumentChanges';
   {* Строковый идентификатор пользовательского типа "Изменения в документе" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_DocumentChanges.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_DocumentChangesCaption.Init;
+ {* Инициализация str_DocumentChangesCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_DocumentChanges.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_DocumentChanges }

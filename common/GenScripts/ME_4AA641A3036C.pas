@@ -20,11 +20,11 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , QueryCardInterfaces
- , SearchUnit
- , DynamicDocListUnit
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
+ , DynamicDocListUnit
  , SimpleListInterfaces
  , bsTypes
  , PrimPrimListInterfaces

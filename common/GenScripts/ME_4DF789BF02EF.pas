@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , PostingOrder_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -53,10 +56,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4DF789BF02EFimpl_uses*
+ //#UC END# *4DF789BF02EFimpl_uses*
 ;
-
-type
- // ExcludeTree
 
 procedure TPrimPostingsListOptionsForm.SearchSupport_ActivatePostingsListForm_Execute;
 //#UC START# *553FAEED007A_4DF789BF02EFexec_var*
@@ -93,7 +95,11 @@ begin
   PublishOp(en_Tree, op_ExpandAll, nil, nil, nil);
   PublishOp(en_Tree, op_CollapseAll, nil, nil, nil);
   PublishOpWithResult(en_SearchSupport, op_ActivatePostingsListForm, SearchSupport_ActivatePostingsListForm, nil, nil);
+  ShowInContextMenu(en_PostingToolBar, op_ptEditPosting, True, true);
+  ShowInToolbar(en_PostingToolBar, op_ptEditPosting, True, true);
  end;//with Entities.Entities
+ AddUserTypeExclude(MyPostingListName, en_Tree, op_ExpandAll, False);
+ AddUserTypeExclude(MyPostingListName, en_Tree, op_CollapseAll, False);
 end;//TPrimPostingsListOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

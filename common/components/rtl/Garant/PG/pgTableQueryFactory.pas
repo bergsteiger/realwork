@@ -45,6 +45,16 @@ type
     const aQuery: IdaTabledQuery): IdaCondition;
    function MakeSortField(const aSelectField: IdaSelectField;
     aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
+   function MakeJoin(const aLeft: IdaFromClause;
+    const aRight: IdaFromClause;
+    aKind: TdaJoinKind): IdaFromClause;
+   function MakeJoinCondition(const aLeftTableAlias: AnsiString;
+    const aLeftField: IdaFieldDescription;
+    const aRightTableAlias: AnsiString;
+    const aRightField: IdaFieldDescription): IdaCondition;
+   function MakeSimpleFromClause(const aTable: IdaTableDescription;
+    const anAlias: AnsiString): IdaFromClause;
+   function MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -68,6 +78,9 @@ uses
  , daLogicCondition
  , daSubQueryCondition
  , daSortField
+ , daJoin
+ , daJoinCondition
+ , daFromTable
 ;
 
 constructor TpgTableQueryFactory.Create(const aDataConverter: IpgDataConverter;
@@ -184,6 +197,51 @@ begin
  Result := TdaSortField.Make(aSelectField, aSortOrder);
 //#UC END# *56811844032C_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeSortField
+
+function TpgTableQueryFactory.MakeJoin(const aLeft: IdaFromClause;
+ const aRight: IdaFromClause;
+ aKind: TdaJoinKind): IdaFromClause;
+//#UC START# *574584D802F6_55F81B3F024D_var*
+//#UC END# *574584D802F6_55F81B3F024D_var*
+begin
+//#UC START# *574584D802F6_55F81B3F024D_impl*
+ Result := TdaJoin.Make(Self, aLeft, aRight, aKind);
+//#UC END# *574584D802F6_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeJoin
+
+function TpgTableQueryFactory.MakeJoinCondition(const aLeftTableAlias: AnsiString;
+ const aLeftField: IdaFieldDescription;
+ const aRightTableAlias: AnsiString;
+ const aRightField: IdaFieldDescription): IdaCondition;
+//#UC START# *574BF2B20123_55F81B3F024D_var*
+//#UC END# *574BF2B20123_55F81B3F024D_var*
+begin
+//#UC START# *574BF2B20123_55F81B3F024D_impl*
+ Result := TdaJoinCondition.Make(aLeftTableAlias, aLeftField, aRightTableAlias, aRightField);
+//#UC END# *574BF2B20123_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeJoinCondition
+
+function TpgTableQueryFactory.MakeSimpleFromClause(const aTable: IdaTableDescription;
+ const anAlias: AnsiString): IdaFromClause;
+//#UC START# *574C32760314_55F81B3F024D_var*
+//#UC END# *574C32760314_55F81B3F024D_var*
+begin
+//#UC START# *574C32760314_55F81B3F024D_impl*
+ Assert(anAlias <> '');
+ Result := TdaFromTable.Make(Self, aTable, anAlias);
+//#UC END# *574C32760314_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeSimpleFromClause
+
+function TpgTableQueryFactory.MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
+//#UC START# *574C32D802C6_55F81B3F024D_var*
+//#UC END# *574C32D802C6_55F81B3F024D_var*
+begin
+//#UC START# *574C32D802C6_55F81B3F024D_impl*
+ Result := nil;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *574C32D802C6_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeJoinQuery
 
 procedure TpgTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

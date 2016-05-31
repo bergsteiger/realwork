@@ -49,8 +49,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +57,6 @@ uses
  , StartupTipsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_StartupTipsLocalConstants }
- str_ut_StartupTipsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_StartupTipsCaption'; rValue : 'Совет дня');
-  {* Заголовок пользовательского типа "Совет дня" }
 
 {$R *.DFM}
 
@@ -88,8 +81,6 @@ end;//TefStartupTips.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_ut_StartupTipsCaption.Init;
- {* Инициализация str_ut_StartupTipsCaption }
  fm_efStartupTips.SetFactory(TefStartupTips.Make);
  {* Регистрация фабрики формы StartupTips }
 {$If NOT Defined(NoScripts)}

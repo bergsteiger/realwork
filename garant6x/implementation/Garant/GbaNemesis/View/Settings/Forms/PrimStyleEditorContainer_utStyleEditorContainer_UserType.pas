@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utStyleEditorContainerLocalConstants }
+ str_utStyleEditorContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorContainerCaption'; rValue : 'Редактор стилей');
+  {* Заголовок пользовательского типа "Редактор стилей" }
  {* Константы для типа формы utStyleEditorContainer }
  utStyleEditorContainerName = 'utStyleEditorContainer';
   {* Строковый идентификатор пользовательского типа "Редактор стилей" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utStyleEditorContainer.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utStyleEditorContainerCaption.Init;
+ {* Инициализация str_utStyleEditorContainerCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utStyleEditorContainer.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utStyleEditorContainer }

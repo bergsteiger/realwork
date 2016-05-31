@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utRedactionLocalConstants }
+ str_utRedactionCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRedactionCaption'; rValue : 'Редакции');
+  {* Заголовок пользовательского типа "Редакции" }
+ str_utRedactionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utRedactionSettingsCaption'; rValue : 'Документ: Редакции (вкладка)');
+  {* Заголовок пользовательского типа "Редакции" для настройки панелей инструментов }
  {* Константы для типа формы utRedaction }
  utRedactionName = 'utRedaction';
   {* Строковый идентификатор пользовательского типа "Редакции" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utRedaction.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utRedactionCaption.Init;
+ {* Инициализация str_utRedactionCaption }
+ str_utRedactionSettingsCaption.Init;
+ {* Инициализация str_utRedactionSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utRedaction.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utRedaction }

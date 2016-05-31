@@ -130,6 +130,7 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
+ , WarningUserTypes_Warning_UserType
 ;
 
 type _Instance_R_ = TsdsDocumentWithFlash;

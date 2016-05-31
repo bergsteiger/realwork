@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftProducedDrugsSynchroFormLocalConstants }
+ str_lftProducedDrugsSynchroFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftProducedDrugsSynchroFormCaption'; rValue : 'Синхронный просмотр (выпускаемые препараты)');
+  {* Заголовок пользовательского типа "Синхронный просмотр (выпускаемые препараты)" }
+ str_lftProducedDrugsSynchroFormSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftProducedDrugsSynchroFormSettingsCaption'; rValue : 'Синхронный просмотр: Выпускаемые препараты');
+  {* Заголовок пользовательского типа "Синхронный просмотр (выпускаемые препараты)" для настройки панелей инструментов }
  {* Константы для типа формы lftProducedDrugsSynchroForm }
  lftProducedDrugsSynchroFormName = 'lftProducedDrugsSynchroForm';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр (выпускаемые препараты)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftProducedDrugsSynchroFormCaption.Init;
+ {* Инициализация str_lftProducedDrugsSynchroFormCaption }
+ str_lftProducedDrugsSynchroFormSettingsCaption.Init;
+ {* Инициализация str_lftProducedDrugsSynchroFormSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftProducedDrugsSynchroForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftProducedDrugsSynchroForm }

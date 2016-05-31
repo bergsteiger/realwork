@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utUnderControlLocalConstants }
+ str_utUnderControlCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlCaption'; rValue : 'Документы на контроле');
+  {* Заголовок пользовательского типа "Документы на контроле" }
+ str_utUnderControlSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utUnderControlSettingsCaption'; rValue : 'Документы на контроле (вкладка)');
+  {* Заголовок пользовательского типа "Документы на контроле" для настройки панелей инструментов }
  {* Константы для типа формы utUnderControl }
  utUnderControlName = 'utUnderControl';
   {* Строковый идентификатор пользовательского типа "Документы на контроле" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_utUnderControl.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utUnderControlCaption.Init;
+ {* Инициализация str_utUnderControlCaption }
+ str_utUnderControlSettingsCaption.Init;
+ {* Инициализация str_utUnderControlSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utUnderControl.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utUnderControl }

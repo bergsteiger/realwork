@@ -1,218 +1,202 @@
 {$IfNDef PrimText_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimText.imp.pas"
-// Начат: 23.12.2008 20:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::PrimText::PrimText
-//
-// Форма для работы с текстом документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimText" MUID: (495118ED00F6)
+// Имя типа: "_PrimText_"
 
 {$Define PrimText_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- InsDataSourceChangedInfo = interface(IUnknown)
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+type
+ InsDataSourceChangedInfo = interface
   {* Данные об обновлении источника данных }
-   ['{BB6DBD5C-6A17-4E47-B09C-6E92D971D857}']
-   function pm_GetFromHistory: Boolean;
-   function pm_GetNeedProcess: Boolean;
-   procedure pm_SetNeedProcess(aValue: Boolean);
-   procedure Init(aFromHistory: Boolean);
-   function Clone: InsDataSourceChangedInfo;
-   property FromHistory: Boolean
-     read pm_GetFromHistory;
-   property NeedProcess: Boolean
-     read pm_GetNeedProcess
-     write pm_SetNeedProcess;
-     {* (!) Это что за ужас? }
+  ['{BB6DBD5C-6A17-4E47-B09C-6E92D971D857}']
+  function pm_GetFromHistory: Boolean;
+  function pm_GetNeedProcess: Boolean;
+  procedure pm_SetNeedProcess(aValue: Boolean);
+  procedure Init(aFromHistory: Boolean);
+  function Clone: InsDataSourceChangedInfo;
+  property FromHistory: Boolean
+   read pm_GetFromHistory;
+  property NeedProcess: Boolean
+   read pm_GetNeedProcess
+   write pm_SetNeedProcess;
+   {* (!) Это что за ужас? }
  end;//InsDataSourceChangedInfo
 
- InsTextFormHistory = interface(IUnknown{, IvcmBase})
+ InsTextFormHistory = interface
   {* Данные формы для истории }
-   ['{41614567-92A0-493C-B9A1-A8B69CB63B42}']
-   function pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
-   property FormDataChangedInfo: InsDataSourceChangedInfo
-     read pm_GetFormDataChangedInfo;
-     {* Информация об изменённых данных формы }
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
+  ['{41614567-92A0-493C-B9A1-A8B69CB63B42}']
+  function pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
+  function As_IvcmBase: IvcmBase;
+   {* Метод приведения нашего интерфейса к IvcmBase }
+  property FormDataChangedInfo: InsDataSourceChangedInfo
+   read pm_GetFormDataChangedInfo;
+   {* Информация об изменённых данных формы }
  end;//InsTextFormHistory
 
  _BaseDocumentForDocumentModule_Parent_ = _PrimText_Parent_;
- {$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _afwSettingChanged_Parent_ = _BaseDocumentForDocumentModule_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _nsUserSettingsListener_Parent_ = _afwSettingChanged_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _BaseTextOperations_Parent_ = _nsUserSettingsListener_;
- {$Include ..\View\BaseTextOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
  _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
- {$Include ..\View\DocumentBaseSearcher.imp.pas}
- _PrimText_ = {abstract form} class(_DocumentBaseSearcher_, Il3TabbedContainersListener)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
+ _PrimText_ = {abstract} class(_DocumentBaseSearcher_, Il3TabbedContainersListener)
   {* Форма для работы с текстом документа }
- private
- // private fields
-   f_SubPanel : TeeSubPanel;
-    {* Поле для свойства SubPanel}
-   f_HScroll : TvtScrollBar;
-    {* Поле для свойства HScroll}
-   f_FormDataChangedInfo : InsDataSourceChangedInfo;
-    {* Поле для свойства FormDataChangedInfo}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_SubPanel: TeeSubPanel;
+   f_HScroll: TvtScrollBar;
+   f_FormDataChangedInfo: InsDataSourceChangedInfo;
+  protected
+   ViewArea: IdsBaseDocument;
+    {* Базовый документ }
+   BaseSearchSupportQuery: IucbBaseSearchSupportQuery;
+  private
    procedure RequestCheckFragmentsCount;
    procedure ScrollBarChange(aSender: TObject);
    procedure AddToWorkJournal;
-     {* Сохраняет текущий документ в Журнал Работы }
+    {* Сохраняет текущий документ в Журнал Работы }
    function IsDocumentForSaveInWorkJournal: Boolean;
-     {* Определяет - нужно ли сохранять текущий документ в Журнал Работы }
- protected
- // property methods
+    {* Определяет - нужно ли сохранять текущий документ в Журнал Работы }
+  protected
    function pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
    function pm_GetDocument: IDocument;
- protected
- // realized methods
-   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
-     {* Сохранить в папки }
-   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Сохранить в папки }
-   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
-     {* Загрузить из папок }
-   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Загрузить из папок }
+   function GetParaIDForSaveInWorkJournal: Integer; virtual;
+   function NeedSaveInWorkJournal: Boolean; virtual;
    function DocumentForExport: IDocument; override;
    function pm_GetHasDoc: Boolean; override;
    function IsDrug: Boolean; override;
    function DocumentForSearch: IDocument; override;
    procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function CallCloseQuery(aCaller: TCustomForm): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoSaveState(out theState: IvcmBase;
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoLoadState(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoEditFindContextTest(const aParams: IvcmTestParamsPrim); override;
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function GetDocumentShortName(const aDoc: IDocument;
-     aExportSelection: Boolean): Il3CString; override;
- protected
- // protected fields
-   ViewArea : IdsBaseDocument;
-    {* Базовый документ}
-   BaseSearchSupportQuery : IucbBaseSearchSupportQuery;
- protected
- // protected methods
-   function GetParaIDForSaveInWorkJournal: Integer; virtual;
-   function NeedSaveInWorkJournal: Boolean; virtual;
- protected
- // protected properties
+    aExportSelection: Boolean): Il3CString; override;
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
+    {* Сохранить в папки }
+   procedure File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Сохранить в папки }
+   procedure File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+    {* Загрузить из папок }
+   procedure File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Загрузить из папок }
+  protected
    property FormDataChangedInfo: InsDataSourceChangedInfo
-     read pm_GetFormDataChangedInfo
-     write f_FormDataChangedInfo;
- public
- // public properties
+    read pm_GetFormDataChangedInfo
+    write f_FormDataChangedInfo;
+  public
    property SubPanel: TeeSubPanel
-     read f_SubPanel;
+    read f_SubPanel;
    property HScroll: TvtScrollBar
-     read f_HScroll;
+    read f_HScroll;
    property Document: IDocument
-     read pm_GetDocument;
-     {* Адаптерный документ. Зачем-то }
+    read pm_GetDocument;
+    {* Адаптерный документ. Зачем-то }
  end;//_PrimText_
-{$Else}
 
- _BaseDocumentForDocumentModule_Parent_ = _PrimText_Parent_;
- {$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
- _afwSettingChanged_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
- _nsUserSettingsListener_Parent_ = _afwSettingChanged_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
- _BaseTextOperations_Parent_ = _nsUserSettingsListener_;
- {$Include ..\View\BaseTextOperations.imp.pas}
- _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
- {$Include ..\View\DocumentBaseSearcher.imp.pas}
- _PrimText_ = _DocumentBaseSearcher_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_BaseDocumentForDocumentModule_Parent_ = _PrimText_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
+_afwSettingChanged_Parent_ = _BaseDocumentForDocumentModule_;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
+_nsUserSettingsListener_Parent_ = _afwSettingChanged_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
+_BaseTextOperations_Parent_ = _nsUserSettingsListener_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
+_DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
+_PrimText_ = _DocumentBaseSearcher_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else PrimText_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef PrimText_imp_impl}
 
+{$Define PrimText_imp_impl}
 
-{$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
-
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
-
-
-{$Include ..\View\BaseTextOperations.imp.pas}
-
-
-{$Include ..\View\DocumentBaseSearcher.imp.pas}
-
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 type
-  TnsDataSourceChangedInfo = class(Tl3SimpleObject, InsDataSourceChangedInfo)
+ TnsDataSourceChangedInfo = class(Tl3SimpleObject, InsDataSourceChangedInfo)
   private
-  // private fields
-   f_FromHistory : Boolean;
-   f_Old : IvcmFormDataSource;
-   f_NeedProcess : Boolean;
+   f_FromHistory: Boolean;
+   f_Old: IvcmFormDataSource;
+   f_NeedProcess: Boolean;
   protected
-  // realized methods
    procedure Init(aFromHistory: Boolean);
    function Clone: InsDataSourceChangedInfo;
    function pm_GetFromHistory: Boolean;
    function pm_GetNeedProcess: Boolean;
    procedure pm_SetNeedProcess(aValue: Boolean);
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    class function Make: InsDataSourceChangedInfo; reintroduce;
-     {* Фабричный метод }
-  end;//TnsDataSourceChangedInfo
+    {* Фабричный метод }
+ end;//TnsDataSourceChangedInfo
 
-// start class TnsDataSourceChangedInfo
+ TnsTextFormHistory = class(Tl3SimpleObject, InsTextFormHistory{$If NOT Defined(NoVCM)}
+ , IvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_DataSourceChangedInfo: InsDataSourceChangedInfo;
+  protected
+   function As_IvcmBase: IvcmBase;
+    {* Метод приведения нашего интерфейса к IvcmBase }
+   function pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aDataSourceChangedInfo: InsDataSourceChangedInfo); reintroduce;
+   class function Make(const aDataSourceChangedInfo: InsDataSourceChangedInfo): IvcmBase; reintroduce;
+ end;//TnsTextFormHistory
 
 class function TnsDataSourceChangedInfo.Make: InsDataSourceChangedInfo;
+ {* Фабричный метод }
 var
  l_Inst : TnsDataSourceChangedInfo;
 begin
@@ -222,7 +206,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsDataSourceChangedInfo.Make
 
 procedure TnsDataSourceChangedInfo.Init(aFromHistory: Boolean);
 //#UC START# *49538FDE013D_49539788003E_var*
@@ -276,6 +260,7 @@ begin
 end;//TnsDataSourceChangedInfo.pm_SetNeedProcess
 
 procedure TnsDataSourceChangedInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49539788003E_var*
 //#UC END# *479731C50290_49539788003E_var*
 begin
@@ -284,29 +269,6 @@ begin
  inherited;
 //#UC END# *479731C50290_49539788003E_impl*
 end;//TnsDataSourceChangedInfo.Cleanup
-
-type
-  TnsTextFormHistory = class(Tl3SimpleObject, InsTextFormHistory, IvcmBase {from InsTextFormHistory})
-  private
-  // private fields
-   f_DataSourceChangedInfo : InsDataSourceChangedInfo;
-  protected
-  // realized methods
-   function pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
-  protected
-  // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  public
-  // public methods
-   constructor Create(const aDataSourceChangedInfo: InsDataSourceChangedInfo); reintroduce;
-   class function Make(const aDataSourceChangedInfo: InsDataSourceChangedInfo): IvcmBase; reintroduce;
-  protected
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
-  end;//TnsTextFormHistory
-
-// start class TnsTextFormHistory
 
 constructor TnsTextFormHistory.Create(const aDataSourceChangedInfo: InsDataSourceChangedInfo);
 //#UC START# *49539A8A0125_49539A5102F1_var*
@@ -328,7 +290,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsTextFormHistory.Make
+
+function TnsTextFormHistory.As_IvcmBase: IvcmBase;
+ {* Метод приведения нашего интерфейса к IvcmBase }
+begin
+ Result := Self;
+end;//TnsTextFormHistory.As_IvcmBase
 
 function TnsTextFormHistory.pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
 //#UC START# *4953909C02C9_49539A5102F1get_var*
@@ -340,6 +308,7 @@ begin
 end;//TnsTextFormHistory.pm_GetFormDataChangedInfo
 
 procedure TnsTextFormHistory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49539A5102F1_var*
 //#UC END# *479731C50290_49539A5102F1_var*
 begin
@@ -349,12 +318,38 @@ begin
 //#UC END# *479731C50290_49539A5102F1_impl*
 end;//TnsTextFormHistory.Cleanup
 
-// Методы преобразования к реализуемым интерфейсам
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 
-function TnsTextFormHistory.As_IvcmBase: IvcmBase;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
+
+function _PrimText_.pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
+//#UC START# *498069760104_495118ED00F6get_var*
+//#UC END# *498069760104_495118ED00F6get_var*
 begin
- Result := Self;
-end;
+//#UC START# *498069760104_495118ED00F6get_impl*
+ if f_FormDataChangedInfo = nil then
+  f_FormDataChangedInfo := TnsDataSourceChangedInfo.Make;
+ Result := f_FormDataChangedInfo;
+//#UC END# *498069760104_495118ED00F6get_impl*
+end;//_PrimText_.pm_GetFormDataChangedInfo
+
+function _PrimText_.pm_GetDocument: IDocument;
+//#UC START# *49513BB1031F_495118ED00F6get_var*
+//#UC END# *49513BB1031F_495118ED00F6get_var*
+begin
+//#UC START# *49513BB1031F_495118ED00F6get_impl*
+ if (ViewArea <> nil) then
+  Result := ViewArea.DocInfo.Doc
+ else
+  Result := nil;
+//#UC END# *49513BB1031F_495118ED00F6get_impl*
+end;//_PrimText_.pm_GetDocument
 
 procedure _PrimText_.RequestCheckFragmentsCount;
 //#UC START# *4A1FEF160285_495118ED00F6_var*
@@ -376,6 +371,7 @@ begin
 end;//_PrimText_.ScrollBarChange
 
 procedure _PrimText_.AddToWorkJournal;
+ {* Сохраняет текущий документ в Журнал Работы }
 //#UC START# *500D5D3C0051_495118ED00F6_var*
 var
  l_ParaID   : Integer;
@@ -394,6 +390,7 @@ begin
 end;//_PrimText_.AddToWorkJournal
 
 function _PrimText_.IsDocumentForSaveInWorkJournal: Boolean;
+ {* Определяет - нужно ли сохранять текущий документ в Журнал Работы }
 //#UC START# *500D61A700B4_495118ED00F6_var*
 //#UC END# *500D61A700B4_495118ED00F6_var*
 begin
@@ -441,30 +438,8 @@ begin
 //#UC END# *54EED7DF0249_495118ED00F6_impl*
 end;//_PrimText_.NeedSaveInWorkJournal
 
-function _PrimText_.pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
-//#UC START# *498069760104_495118ED00F6get_var*
-//#UC END# *498069760104_495118ED00F6get_var*
-begin
-//#UC START# *498069760104_495118ED00F6get_impl*
- if f_FormDataChangedInfo = nil then
-  f_FormDataChangedInfo := TnsDataSourceChangedInfo.Make;
- Result := f_FormDataChangedInfo;
-//#UC END# *498069760104_495118ED00F6get_impl*
-end;//_PrimText_.pm_GetFormDataChangedInfo
-
-function _PrimText_.pm_GetDocument: IDocument;
-//#UC START# *49513BB1031F_495118ED00F6get_var*
-//#UC END# *49513BB1031F_495118ED00F6get_var*
-begin
-//#UC START# *49513BB1031F_495118ED00F6get_impl*
- if (ViewArea <> nil) then
-  Result := ViewArea.DocInfo.Doc
- else
-  Result := nil;
-//#UC END# *49513BB1031F_495118ED00F6get_impl*
-end;//_PrimText_.pm_GetDocument
-
 procedure _PrimText_.File_SaveToFolder_Test(const aParams: IvcmTestParamsPrim);
+ {* Сохранить в папки }
 //#UC START# *49885D540232_495118ED00F6test_var*
 //#UC END# *49885D540232_495118ED00F6test_var*
 begin
@@ -475,6 +450,7 @@ begin
 end;//_PrimText_.File_SaveToFolder_Test
 
 procedure _PrimText_.File_SaveToFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Сохранить в папки }
 //#UC START# *49885D540232_495118ED00F6exec_var*
 //#UC END# *49885D540232_495118ED00F6exec_var*
 begin
@@ -484,6 +460,7 @@ begin
 end;//_PrimText_.File_SaveToFolder_Execute
 
 procedure _PrimText_.File_LoadFromFolder_Test(const aParams: IvcmTestParamsPrim);
+ {* Загрузить из папок }
 //#UC START# *49885D59018D_495118ED00F6test_var*
 //#UC END# *49885D59018D_495118ED00F6test_var*
 begin
@@ -493,6 +470,7 @@ begin
 end;//_PrimText_.File_LoadFromFolder_Test
 
 procedure _PrimText_.File_LoadFromFolder_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Загрузить из папок }
 //#UC START# *49885D59018D_495118ED00F6exec_var*
 //#UC END# *49885D59018D_495118ED00F6exec_var*
 begin
@@ -550,6 +528,7 @@ begin
 end;//_PrimText_.NotifyContainersChanged
 
 procedure _PrimText_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_495118ED00F6_var*
 //#UC END# *479731C50290_495118ED00F6_var*
 begin
@@ -560,9 +539,10 @@ begin
 //#UC END# *479731C50290_495118ED00F6_impl*
 end;//_PrimText_.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _PrimText_.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_495118ED00F6_var*
 //#UC END# *497469C90140_495118ED00F6_var*
 begin
@@ -571,9 +551,9 @@ begin
  RequestCheckFragmentsCount;
 //#UC END# *497469C90140_495118ED00F6_impl*
 end;//_PrimText_.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _PrimText_.CallCloseQuery(aCaller: TCustomForm): Boolean;
 //#UC START# *4980407F0076_495118ED00F6_var*
 //#UC END# *4980407F0076_495118ED00F6_var*
@@ -584,12 +564,13 @@ begin
  AddToWorkJournal;
 //#UC END# *4980407F0076_495118ED00F6_impl*
 end;//_PrimText_.CallCloseQuery
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _PrimText_.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_495118ED00F6_var*
 //#UC END# *49806ED503D5_495118ED00F6_var*
 begin
@@ -611,11 +592,12 @@ begin
  Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_495118ED00F6_impl*
 end;//_PrimText_.DoSaveState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function _PrimText_.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_495118ED00F6_var*
 var
  l_TextFormHistory: InsTextFormHistory;
@@ -641,10 +623,11 @@ begin
  Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_495118ED00F6_impl*
 end;//_PrimText_.DoLoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _PrimText_.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_495118ED00F6_var*
 //#UC END# *4A8E8F2E0195_495118ED00F6_var*
 begin
@@ -657,7 +640,7 @@ begin
  Tl3TabbedContainersDispatcher.Instance.Subscribe(Self);
 //#UC END# *4A8E8F2E0195_495118ED00F6_impl*
 end;//_PrimText_.InitControls
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _PrimText_.DoEditFindContextTest(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C8DCA3402C1_495118ED00F6_var*
@@ -673,17 +656,8 @@ begin
 //#UC END# *4C8DCA3402C1_495118ED00F6_impl*
 end;//_PrimText_.DoEditFindContextTest
 
-procedure _PrimText_.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- FormDataChangedInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//_PrimText_.ClearFields
-
 function _PrimText_.GetDocumentShortName(const aDoc: IDocument;
-  aExportSelection: Boolean): Il3CString;
+ aExportSelection: Boolean): Il3CString;
 //#UC START# *53D8E4B702E4_495118ED00F6_var*
 //#UC END# *53D8E4B702E4_495118ED00F6_var*
 begin
@@ -695,23 +669,34 @@ begin
 //#UC END# *53D8E4B702E4_495118ED00F6_impl*
 end;//_PrimText_.GetDocumentShortName
 
-procedure _PrimText_.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure _PrimText_.ClearFields;
+begin
+ FormDataChangedInfo := nil;
+ inherited;
+end;//_PrimText_.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure _PrimText_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
   BaseSearchSupportQuery := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsBaseDocument;
-  Supports(aDsNew, IucbBaseSearchSupportQuery, BaseSearchSupportQuery);
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsBaseDocument;
+  Supports(aNew, IucbBaseSearchSupportQuery, BaseSearchSupportQuery);
+ end;//aNew = nil
+end;//_PrimText_.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _PrimText_.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -722,8 +707,10 @@ begin
   PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
   PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
  end;//with Entities.Entities
-end;
+end;//_PrimText_.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure _PrimText_.MakeControls;
 begin
  inherited;
@@ -733,8 +720,11 @@ begin
  f_HScroll := TvtScrollBar.Create(Self);
  f_HScroll.Name := 'HScroll';
  f_HScroll.Parent := Self;
-end;
+end;//_PrimText_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf PrimText_imp_impl}
 
 {$EndIf PrimText_imp}
+

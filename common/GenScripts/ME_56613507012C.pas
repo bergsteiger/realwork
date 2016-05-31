@@ -14,8 +14,8 @@ uses
  , l3ProtoObject
  , pgConnection
  , daInterfaces
- , pgParamDecsriptionList
  , daTypes
+ , pgParamDecsriptionList
 ;
 
 type

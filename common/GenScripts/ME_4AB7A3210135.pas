@@ -21,6 +21,9 @@ uses
  , l3Interfaces
  , nsMainMenuNew
  , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If Defined(Nemesis)}
  , nscHideField
  {$IfEnd} // Defined(Nemesis)
@@ -28,9 +31,6 @@ uses
  , nscLister
  {$IfEnd} // Defined(Nemesis)
  , nscSimpleEditor
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -41,10 +41,10 @@ uses
  , nevGUIInterfaces
  , Classes
  , afwInterfaces
- , Windows
  {$If Defined(Nemesis)}
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
+ , Windows
  , Messages
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
@@ -63,13 +63,10 @@ type
   private
    f_qhBaseSearch: TQHRec;
    f_pnlMain: TvtPanel;
-    {* Поле для свойства pnlMain }
    f_hfBaseSearch: TnscHideField;
-    {* Поле для свойства hfBaseSearch }
+    {* История запросов }
    f_lrBaseSearch: TnscLister;
-    {* Поле для свойства lrBaseSearch }
    f_CardTextLabel: TnscSimpleEditor;
-    {* Поле для свойства CardTextLabel }
   private
    function lrBaseSearchGetItemCursor(aSender: TObject;
     aIndex: Integer): TCursor;
@@ -199,10 +196,6 @@ uses
  , nscArrangeGrid
  {$IfEnd} // Defined(Nemesis)
  , l3ListenersManager
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
  {$IfEnd} // NOT Defined(NoVCM)
@@ -210,9 +203,14 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AB7A3210135impl_uses*
+ //#UC END# *4AB7A3210135impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -750,7 +748,8 @@ begin
  begin
   PublishFormEntity(en_Result, nil);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
-  PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, Result_OkExt_GetState);
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, False);
  end;//with Entities.Entities
 end;//TPrimBaseSearchCardForm.InitEntities
 

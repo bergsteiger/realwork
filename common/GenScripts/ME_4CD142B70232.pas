@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки utcmMainLocalConstants }
+ str_utcmMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utcmMainCaption'; rValue : 'Оценка ответа');
+  {* Заголовок пользовательского типа "Оценка ответа" }
  {* Константы для типа формы utcmMain }
  utcmMainName = 'utcmMain';
   {* Строковый идентификатор пользовательского типа "Оценка ответа" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_utcmMainCaption.Init;
+ {* Инициализация str_utcmMainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_utcmMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_utcmMain }

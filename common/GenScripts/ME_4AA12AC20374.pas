@@ -34,8 +34,8 @@ uses
  , afwInterfaces
  , FoldersDomainInterfaces
  , DocumentUnit
- , bsTypesNew
  , l3Interfaces
+ , bsTypesNew
  , AttributesUserTypes_fDocAttribute_UserType
  , BaseDocumentWithAttributesInterfaces
  , l3InternalInterfaces

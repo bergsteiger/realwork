@@ -1,254 +1,211 @@
 unit PrimSelfInfo_Form;
+ {* Регистрационные данные }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimSelfInfo_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimSelfInfo
-//
-// Регистрационные данные
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSelfInfo_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimSelfInfo" MUID: (4B5430390380)
+// Имя типа: "TPrimSelfInfoForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  AdminDomainInterfaces,
-  vtPanel,
-  vtFocusLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx,
-  ElPopBtn,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AdminDomainInterfaces
+ , vtPanel
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , ElPopBtn
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimSelfInfoForm = {form} class(TvcmEntityForm)
+ TPrimSelfInfoForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Регистрационные данные }
- private
- // private fields
-   f_PasswordChanged : Boolean;
-   f_pnMainData : TvtPanel;
-    {* Поле для свойства pnMainData}
-   f_UserNameLabel : TvtLabel;
-    {* Поле для свойства UserNameLabel}
-   f_PasswordLabel : TvtLabel;
-    {* Поле для свойства PasswordLabel}
-   f_LoginLabel : TvtLabel;
-    {* Поле для свойства LoginLabel}
-   f_InfoLabel : TvtLabel;
-    {* Поле для свойства InfoLabel}
-   f_EMailLabel : TvtLabel;
-    {* Поле для свойства EMailLabel}
-   f_ConfirmPasswordLabel : TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel}
-   f_vtAsteriskLabelLogin : TvtLabel;
-    {* Поле для свойства vtAsteriskLabelLogin}
-   f_vtAsteriskLabelFIO : TvtLabel;
-    {* Поле для свойства vtAsteriskLabelFIO}
-   f_edPassword : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword}
-   f_edUserName : TnscEdit;
-    {* Поле для свойства edUserName}
-   f_edLogin : TnscEdit;
-    {* Поле для свойства edLogin}
-   f_edEmail : TnscEdit;
-    {* Поле для свойства edEmail}
-   f_edConfirm : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm}
-   f_BottomPanel : TvtPanel;
-    {* Поле для свойства BottomPanel}
-   f_RegisterButton : TElPopupButton;
-    {* Поле для свойства RegisterButton}
-   f_HelpPanel : TvtPanel;
-    {* Поле для свойства HelpPanel}
-   f_HelpPaintBox : TPaintBox;
-    {* Поле для свойства HelpPaintBox}
-   f_HelpLabel : TvtFocusLabel;
-    {* Поле для свойства HelpLabel}
-   f_Info : InsUserProperty;
-    {* Поле для свойства Info}
- protected
-  procedure MakeControls; override;
- private
- // private methods
-   procedure EdPasswordChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdConfirmChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdUserNameChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+  private
+   f_PasswordChanged: Boolean;
+   f_pnMainData: TvtPanel;
+   f_BottomPanel: TvtPanel;
+   f_Info: InsUserProperty;
+   f_UserNameLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_PasswordLabel: TvtLabel;
+    {* Пароль: }
+   f_LoginLabel: TvtLabel;
+    {* Регистрационное имя: }
+   f_InfoLabel: TvtLabel;
+    {* * - поля, обязательные для заполнения }
+   f_EMailLabel: TvtLabel;
+    {* Электронная почта: }
+   f_ConfirmPasswordLabel: TvtLabel;
+    {* Подтверждение пароля: }
+   f_vtAsteriskLabelLogin: TvtLabel;
+    {* * }
+   f_vtAsteriskLabelFIO: TvtLabel;
+    {* * }
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_edUserName: TnscEdit;
+   f_edLogin: TnscEdit;
+   f_edEmail: TnscEdit;
+   f_edConfirm: TnscComboBoxWithPwdChar;
+   f_RegisterButton: TElPopupButton;
+    {* Сохранить }
+   f_HelpPanel: TvtPanel;
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
+  private
+   procedure edPasswordChange(Sender: TObject);
+   procedure edConfirmChange(Sender: TObject);
+   procedure edUserNameChange(Sender: TObject);
    procedure RegisterButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure HelpLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure HelpPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure CheckFields;
-     {* Сигнатура метода CheckFields }
    procedure InitUserFields;
-     {* Сигнатура метода InitUserFields }
    procedure Save;
-     {* Сигнатура метода Save }
    procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
- public
- // public properties
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property pnMainData: TvtPanel
-     read f_pnMainData;
-   property UserNameLabel: TvtLabel
-     read f_UserNameLabel;
-     {* ФИО пользователя: }
-   property PasswordLabel: TvtLabel
-     read f_PasswordLabel;
-     {* Пароль: }
-   property LoginLabel: TvtLabel
-     read f_LoginLabel;
-     {* Регистрационное имя: }
-   property InfoLabel: TvtLabel
-     read f_InfoLabel;
-     {* * - поля, обязательные для заполнения }
-   property EMailLabel: TvtLabel
-     read f_EMailLabel;
-     {* Электронная почта: }
-   property ConfirmPasswordLabel: TvtLabel
-     read f_ConfirmPasswordLabel;
-     {* Подтверждение пароля: }
-   property vtAsteriskLabelLogin: TvtLabel
-     read f_vtAsteriskLabelLogin;
-     {* * }
-   property vtAsteriskLabelFIO: TvtLabel
-     read f_vtAsteriskLabelFIO;
-     {* * }
-   property edPassword: TnscComboBoxWithPwdChar
-     read f_edPassword;
-   property edUserName: TnscEdit
-     read f_edUserName;
-   property edLogin: TnscEdit
-     read f_edLogin;
-   property edEmail: TnscEdit
-     read f_edEmail;
-   property edConfirm: TnscComboBoxWithPwdChar
-     read f_edConfirm;
+    read f_pnMainData;
    property BottomPanel: TvtPanel
-     read f_BottomPanel;
-   property RegisterButton: TElPopupButton
-     read f_RegisterButton;
-     {* Сохранить }
-   property HelpPanel: TvtPanel
-     read f_HelpPanel;
-   property HelpPaintBox: TPaintBox
-     read f_HelpPaintBox;
-   property HelpLabel: TvtFocusLabel
-     read f_HelpLabel;
-     {* Помощь }
+    read f_BottomPanel;
    property Info: InsUserProperty
-     read f_Info;
+    read f_Info;
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+    {* ФИО пользователя: }
+   property PasswordLabel: TvtLabel
+    read f_PasswordLabel;
+    {* Пароль: }
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
+    {* Регистрационное имя: }
+   property InfoLabel: TvtLabel
+    read f_InfoLabel;
+    {* * - поля, обязательные для заполнения }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+    {* Электронная почта: }
+   property ConfirmPasswordLabel: TvtLabel
+    read f_ConfirmPasswordLabel;
+    {* Подтверждение пароля: }
+   property vtAsteriskLabelLogin: TvtLabel
+    read f_vtAsteriskLabelLogin;
+    {* * }
+   property vtAsteriskLabelFIO: TvtLabel
+    read f_vtAsteriskLabelFIO;
+    {* * }
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property edUserName: TnscEdit
+    read f_edUserName;
+   property edLogin: TnscEdit
+    read f_edLogin;
+   property edEmail: TnscEdit
+    read f_edEmail;
+   property edConfirm: TnscComboBoxWithPwdChar
+    read f_edConfirm;
+   property RegisterButton: TElPopupButton
+    read f_RegisterButton;
+    {* Сохранить }
+   property HelpPanel: TvtPanel
+    read f_HelpPanel;
+   property HelpPaintBox: TPaintBox
+    read f_HelpPaintBox;
+   property HelpLabel: TvtFocusLabel
+    read f_HelpLabel;
+    {* Помощь }
  end;//TPrimSelfInfoForm
-
- TvcmEntityFormRef = TPrimSelfInfoForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsUserProperty,
-  DataAdapter,
-  SecurityUnit
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  SearchRes,
-  nsConst,
-  nsVerifyValue,
-  l3Base,
-  l3String,
-  nsTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  l3Chars,
-  Windows,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , nsUserProperty
+ , DataAdapter
+ , SecurityUnit
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , SearchRes
+ , nsConst
+ , nsVerifyValue
+ , l3Base
+ , l3String
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Chars
+ , Windows
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4B5430390380impl_uses*
+ , Classes
+ //#UC END# *4B5430390380impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки SelfInfo Hints }
+ str_PrimSelfInfo_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
+  {* 'Введите пароль для авторизации в системе' }
+ str_PrimSelfInfo_edUserNameHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edUserNameHint'; rValue : 'Введите свои имя, фамилию и отчество');
+  {* 'Введите свои имя, фамилию и отчество' }
+ str_PrimSelfInfo_edLoginHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edLoginHint'; rValue : 'Введите имя для работы в системе ГАРАНТ');
+  {* 'Введите имя для работы в системе ГАРАНТ' }
+ str_PrimSelfInfo_edEmailHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
+  {* 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
+ str_PrimSelfInfo_edConfirmHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edConfirmHint'; rValue : 'Подтвердите пароль, введенный в предыдущей строке');
+  {* 'Подтвердите пароль, введенный в предыдущей строке' }
 
-var
-   { Локализуемые строки SelfInfo Hints }
-  str_PrimSelfInfo_edPasswordHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
-   { 'Введите пароль для авторизации в системе' }
-  str_PrimSelfInfo_edUserNameHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edUserNameHint'; rValue : 'Введите свои имя, фамилию и отчество');
-   { 'Введите свои имя, фамилию и отчество' }
-  str_PrimSelfInfo_edLoginHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edLoginHint'; rValue : 'Введите имя для работы в системе ГАРАНТ');
-   { 'Введите имя для работы в системе ГАРАНТ' }
-  str_PrimSelfInfo_edEmailHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
-   { 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
-  str_PrimSelfInfo_edConfirmHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrimSelfInfo_edConfirmHint'; rValue : 'Подтвердите пароль, введенный в предыдущей строке');
-   { 'Подтвердите пароль, введенный в предыдущей строке' }
-
-// start class TPrimSelfInfoForm
-
-procedure TPrimSelfInfoForm.EdPasswordChange(Sender: TObject);
+procedure TPrimSelfInfoForm.edPasswordChange(Sender: TObject);
 //#UC START# *5261516401F6_4B5430390380_var*
 //#UC END# *5261516401F6_4B5430390380_var*
 begin
@@ -256,25 +213,25 @@ begin
  f_PasswordChanged := True;
  CheckFields;
 //#UC END# *5261516401F6_4B5430390380_impl*
-end;//TPrimSelfInfoForm.EdPasswordChange
+end;//TPrimSelfInfoForm.edPasswordChange
 
-procedure TPrimSelfInfoForm.EdConfirmChange(Sender: TObject);
+procedure TPrimSelfInfoForm.edConfirmChange(Sender: TObject);
 //#UC START# *5261516C030F_4B5430390380_var*
 //#UC END# *5261516C030F_4B5430390380_var*
 begin
 //#UC START# *5261516C030F_4B5430390380_impl*
  CheckFields;
 //#UC END# *5261516C030F_4B5430390380_impl*
-end;//TPrimSelfInfoForm.EdConfirmChange
+end;//TPrimSelfInfoForm.edConfirmChange
 
-procedure TPrimSelfInfoForm.EdUserNameChange(Sender: TObject);
+procedure TPrimSelfInfoForm.edUserNameChange(Sender: TObject);
 //#UC START# *5261517401D4_4B5430390380_var*
 //#UC END# *5261517401D4_4B5430390380_var*
 begin
 //#UC START# *5261517401D4_4B5430390380_impl*
  CheckFields;
 //#UC END# *5261517401D4_4B5430390380_impl*
-end;//TPrimSelfInfoForm.EdUserNameChange
+end;//TPrimSelfInfoForm.edUserNameChange
 
 procedure TPrimSelfInfoForm.RegisterButtonClick(Sender: TObject);
 //#UC START# *5261517B03B9_4B5430390380_var*
@@ -457,6 +414,7 @@ begin
 end;//TPrimSelfInfoForm.CMDialogKey
 
 procedure TPrimSelfInfoForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4B5430390380_var*
 //#UC END# *479731C50290_4B5430390380_var*
 begin
@@ -466,8 +424,8 @@ begin
 //#UC END# *479731C50290_4B5430390380_impl*
 end;//TPrimSelfInfoForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimSelfInfoForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4B5430390380_var*
 var
  l_Profile: IUserProfile;
@@ -673,19 +631,9 @@ begin
    end;
 //#UC END# *4A8E8F2E0195_4B5430390380_impl*
 end;//TPrimSelfInfoForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimSelfInfoForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_Info := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimSelfInfoForm.ClearFields
-
-{$If not defined(NoVCM)}
 procedure TPrimSelfInfoForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4B5430390380_var*
 //#UC END# *529332B40230_4B5430390380_var*
 begin
@@ -700,7 +648,12 @@ begin
  InitUserFields;
 //#UC END# *529332B40230_4B5430390380_impl*
 end;//TPrimSelfInfoForm.SetupFormLayout
-{$IfEnd} //not NoVCM
+
+procedure TPrimSelfInfoForm.ClearFields;
+begin
+ f_Info := nil;
+ inherited;
+end;//TPrimSelfInfoForm.ClearFields
 
 procedure TPrimSelfInfoForm.MakeControls;
 begin
@@ -772,34 +725,24 @@ begin
  f_HelpLabel.Name := 'HelpLabel';
  f_HelpLabel.Parent := HelpPanel;
  f_HelpLabel.Caption := 'Помощь';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimSelfInfoForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PrimSelfInfo_edPasswordHint
  str_PrimSelfInfo_edPasswordHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PrimSelfInfo_edUserNameHint
+ {* Инициализация str_PrimSelfInfo_edPasswordHint }
  str_PrimSelfInfo_edUserNameHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PrimSelfInfo_edLoginHint
+ {* Инициализация str_PrimSelfInfo_edUserNameHint }
  str_PrimSelfInfo_edLoginHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PrimSelfInfo_edEmailHint
+ {* Инициализация str_PrimSelfInfo_edLoginHint }
  str_PrimSelfInfo_edEmailHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_PrimSelfInfo_edConfirmHint
+ {* Инициализация str_PrimSelfInfo_edEmailHint }
  str_PrimSelfInfo_edConfirmHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimSelfInfo
+ {* Инициализация str_PrimSelfInfo_edConfirmHint }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSelfInfoForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimSelfInfo }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

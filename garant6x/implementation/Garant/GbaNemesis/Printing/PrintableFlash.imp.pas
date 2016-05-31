@@ -1,49 +1,36 @@
 {$IfNDef PrintableFlash_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Printing"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Printing/PrintableFlash.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Aspects::Printing::Printing::Printing::PrintableFlash
-//
-// Печать флеш-схем. {RequestLink:228689255}
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrintableFlash" MUID: (4CDABB1C0025)
+// Имя типа: "_PrintableFlash_"
 
 {$Define PrintableFlash_imp}
+
  _PrintableBitmap_Parent_ = _PrintableFlash_Parent_;
- {$Include ..\Printing\PrintableBitmap.imp.pas}
- _PrintableFlash_ = {abstract form} class(_PrintableBitmap_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
+ _PrintableFlash_ = {abstract} class(_PrintableBitmap_)
   {* Печать флеш-схем. [RequestLink:228689255] }
- private
- // private fields
-   f_Bitmap : Tl3Bitmap;
- protected
- // property methods
+  private
+   f_Bitmap: Tl3Bitmap;
+  protected
    function pm_GetFlashForPrint: TvtShockwaveFlashEx; virtual; abstract;
- protected
- // realized methods
    function pm_GetBitmapForPrint: Graphics_Bitmap; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DPI: Integer; override;
- protected
- // protected properties
+  protected
    property FlashForPrint: TvtShockwaveFlashEx
-     read pm_GetFlashForPrint;
+    read pm_GetFlashForPrint;
  end;//_PrintableFlash_
 
 {$Else PrintableFlash_imp}
 
-{$Include ..\Printing\PrintableBitmap.imp.pas}
+{$IfNDef PrintableFlash_imp_impl}
 
-// start class _PrintableFlash_
+{$Define PrintableFlash_imp_impl}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
 
 function _PrintableFlash_.pm_GetBitmapForPrint: Graphics_Bitmap;
 //#UC START# *4CDACD8302DD_4CDABB1C0025get_var*
@@ -69,6 +56,7 @@ begin
 end;//_PrintableFlash_.pm_GetBitmapForPrint
 
 procedure _PrintableFlash_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4CDABB1C0025_var*
 //#UC END# *479731C50290_4CDABB1C0025_var*
 begin
@@ -87,4 +75,7 @@ begin
 //#UC END# *4CDAE15C035B_4CDABB1C0025_impl*
 end;//_PrintableFlash_.DPI
 
+{$EndIf PrintableFlash_imp_impl}
+
 {$EndIf PrintableFlash_imp}
+

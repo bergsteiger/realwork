@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Document_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -59,6 +62,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C86253E00C5impl_uses*
+ //#UC END# *4C86253E00C5impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -135,7 +140,12 @@ begin
   PublishOp(en_Tree, op_CollapseAll, nil, Tree_CollapseAll_Test, nil);
   PublishOp(en_Tree, op_Wrap, nil, nil, nil);
   PublishOp(en_Edition, op_OpenNewWindow, Edition_OpenNewWindow_Execute, Edition_OpenNewWindow_Test, nil);
+  ShowInContextMenu(en_Edition, op_OpenNewWindow, True);
+  ShowInToolbar(en_Edition, op_OpenNewWindow, False);
+  ContextMenuWeight(en_Edition, op_OpenNewWindow, 20);
   PublishOp(en_Edition, op_OpenNewTab, Edition_OpenNewTab_Execute, Edition_OpenNewTab_Test, nil);
+  ShowInContextMenu(en_Edition, op_OpenNewTab, True);
+  ContextMenuWeight(en_Edition, op_OpenNewTab, 10);
  end;//with Entities.Entities
 end;//TPrimRedactionsOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

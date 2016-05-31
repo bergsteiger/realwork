@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки cutSettingsLocalConstants }
+ str_cutSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutSettingsCaption'; rValue : 'Настройка конфигурации');
+  {* Заголовок пользовательского типа "Настройка конфигурации" }
  {* Константы для типа формы cutSettings }
  cutSettingsName = 'cutSettings';
   {* Строковый идентификатор пользовательского типа "Настройка конфигурации" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_cutSettings.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_cutSettingsCaption.Init;
+ {* Инициализация str_cutSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_cutSettings.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_cutSettings }

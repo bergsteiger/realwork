@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки MyPostingListLocalConstants }
+ str_MyPostingListCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MyPostingListCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
+  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
  {* Константы для типа формы MyPostingList }
  MyPostingListName = 'MyPostingList';
   {* Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_MyPostingList.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_MyPostingListCaption.Init;
+ {* Инициализация str_MyPostingListCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_MyPostingList.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_MyPostingList }

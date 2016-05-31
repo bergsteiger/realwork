@@ -15,8 +15,8 @@ uses
  , htDataProviderFactory
  , pgDataProviderFactory
  , daDataProviderParams
- , ddAppConfig
  , daInterfaces
+ , ddAppConfig
 ;
 
 type

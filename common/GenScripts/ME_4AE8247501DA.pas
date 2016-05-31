@@ -19,11 +19,14 @@ uses
  , Settings_Strange_Controls
  , nscTreeViewWithAdapterDragDrop
  , Messages
+ , eeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , eeInterfaces
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -40,7 +43,6 @@ type
   {* Дерево стилей }
   private
    f_StyleTreeView: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства StyleTreeView }
   private
    function StyleTreeViewGetItemImage(Sender: TObject;
     Index: Integer;
@@ -90,7 +92,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , evStyleInterface
  , eeNode
  , l3Nodes
@@ -112,27 +113,21 @@ uses
  , StyleTableRes
  , l3TreeInterfaces
  , evdTextStyle_Const
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorNavigator_utStyleEditorNavigator_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AE8247501DAimpl_uses*
+ , eeTreeViewExport
+ , eeTreeView
+ , l3ControlsTypes
+ //#UC END# *4AE8247501DAimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utStyleEditorNavigatorLocalConstants }
- str_utStyleEditorNavigatorCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorCaption'; rValue : 'Дерево стилей');
-  {* Заголовок пользовательского типа "Дерево стилей" }
- str_utStyleEditorNavigatorSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorNavigatorSettingsCaption'; rValue : 'Дерево стилей');
-  {* Заголовок пользовательского типа "Дерево стилей" для настройки панелей инструментов }
-
 function TPrimStyleEditorNavigatorForm.StyleTreeViewGetItemImage(Sender: TObject;
  Index: Integer;
  var aImages: TCustomImageList): Integer;
@@ -460,7 +455,7 @@ begin
  with AddUsertype(utStyleEditorNavigatorName,
   str_utStyleEditorNavigatorCaption,
   str_utStyleEditorNavigatorSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -476,10 +471,6 @@ begin
 end;//TPrimStyleEditorNavigatorForm.MakeControls
 
 initialization
- str_utStyleEditorNavigatorCaption.Init;
- {* Инициализация str_utStyleEditorNavigatorCaption }
- str_utStyleEditorNavigatorSettingsCaption.Init;
- {* Инициализация str_utStyleEditorNavigatorSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorNavigatorForm);
  {* Регистрация PrimStyleEditorNavigator }

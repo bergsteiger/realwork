@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftAnnotationSynchroViewLocalConstants }
+ str_dftAnnotationSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAnnotationSynchroViewCaption'; rValue : 'Аннотация (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Аннотация (синхронный просмотр)" }
+ str_dftAnnotationSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAnnotationSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Дополнительная информация');
+  {* Заголовок пользовательского типа "Аннотация (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dftAnnotationSynchroView }
  dftAnnotationSynchroViewName = 'dftAnnotationSynchroView';
   {* Строковый идентификатор пользовательского типа "Аннотация (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftAnnotationSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftAnnotationSynchroViewCaption.Init;
+ {* Инициализация str_dftAnnotationSynchroViewCaption }
+ str_dftAnnotationSynchroViewSettingsCaption.Init;
+ {* Инициализация str_dftAnnotationSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAnnotationSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftAnnotationSynchroView }

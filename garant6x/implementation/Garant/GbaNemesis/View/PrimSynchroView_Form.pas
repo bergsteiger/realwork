@@ -1,154 +1,112 @@
 unit PrimSynchroView_Form;
+ {* Синхронный просмотр }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimSynchroView_Form.pas"
-// Начат: 23.01.2009 18:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Работа с документом и списком документов::Document::View::SynchroView::PrimSynchroView
-//
-// Синхронный просмотр
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroView_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimSynchroView" MUID: (4979E75C00C7)
+// Имя типа: "TPrimSynchroViewForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  vtPanel,
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  nsLogEvent,
-  WorkWithListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  SynchroViewUserTypes_svSynchroView_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  nsTypes,
-  vcmControllers {a},
-  vcmContainerForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Base_Operations_Strange_Controls
+ , WorkWithListInterfaces
+ , vtPanel
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _PageControlNotification_Parent_ = TvcmContainerForm;
- {$Include ..\View\PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _SynchroViewUserTypes_Parent_ = _PageControlNotification_;
- {$Include ..\View\SynchroViewUserTypes.imp.pas}
- TPrimSynchroViewForm = {form} class(_SynchroViewUserTypes_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas}
+ TPrimSynchroViewForm = class(_SynchroViewUserTypes_)
   {* Синхронный просмотр }
- private
- // private fields
-   f_DocView : TvtPanel;
-    {* Поле для свойства DocView}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   f_DocView: TvtPanel;
+  protected
+   ViewArea: IdsSynchroView;
+   sdsList: IsdsList;
+  protected
    procedure DoTabActivate; override;
-     {* Реакция на переключение вкладки }
+    {* Реакция на переключение вкладки }
+   procedure SvSynchroViewQueryClose(aSender: TObject); override;
+    {* Обработчик события svSynchroView.OnQueryClose }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure SynchroView_BecomeActive_Execute(aFormType: TnsShowSynchroForm);
    procedure SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
-   procedure SvSynchroViewQueryClose(aSender: TObject); override;
-     {* Обработчик события svSynchroView.OnQueryClose }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   ViewArea : IdsSynchroView;
-   sdsList : IsdsList;
- public
- // public properties
+  public
    property DocView: TvtPanel
-     read f_DocView;
+    read f_DocView;
  end;//TPrimSynchroViewForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  F1Like_InternalOperations_Controls
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  nsManagers
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID,
-  l3Base {a},
-  vcmBase {a},
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsLogEvent
+ , DynamicDocListUnit
+ , F1Like_InternalOperations_Controls
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+ , SynchroViewUserTypes_svSynchroView_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ //#UC START# *4979E75C00C7impl_uses*
+ //#UC END# *4979E75C00C7impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include ..\View\PageControlNotification.imp.pas}
-
-{$Include ..\View\SynchroViewUserTypes.imp.pas}
-
+{$If NOT Defined(NoVCM)}
 type
-  TnsSynchroviewActivateEvent = {final} class(TnsLogEvent)
+ TnsSynchroviewActivateEvent = {final} class(TnsLogEvent)
   public
-  // public methods
    class procedure Log(const aList: IDynList);
-  end;//TnsSynchroviewActivateEvent
-
-// start class TnsSynchroviewActivateEvent
+ end;//TnsSynchroviewActivateEvent
 
 class procedure TnsSynchroviewActivateEvent.Log(const aList: IDynList);
 //#UC START# *4B150F39031A_4B150F140142_var*
@@ -163,7 +121,12 @@ begin
 //#UC END# *4B150F39031A_4B150F140142_impl*
 end;//TnsSynchroviewActivateEvent.Log
 
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas}
+
 procedure TPrimSynchroViewForm.DoTabActivate;
+ {* Реакция на переключение вкладки }
 //#UC START# *497F16AC015A_4979E75C00C7_var*
 //#UC END# *497F16AC015A_4979E75C00C7_var*
 begin
@@ -196,10 +159,11 @@ end;//TPrimSynchroViewForm.SynchroView_BecomeActive_Execute
 procedure TPrimSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISynchroView_BecomeActive_Params) do
-  SynchroView_BecomeActive_Execute(FormType);
-end;
+  Self.SynchroView_BecomeActive_Execute(FormType);
+end;//TPrimSynchroViewForm.SynchroView_BecomeActive
 
 procedure TPrimSynchroViewForm.SvSynchroViewQueryClose(aSender: TObject);
+ {* Обработчик события svSynchroView.OnQueryClose }
 //#UC START# *F5C4A5904D01_4979E75C00C7_var*
 //#UC END# *F5C4A5904D01_4979E75C00C7_var*
 begin
@@ -208,8 +172,8 @@ begin
 //#UC END# *F5C4A5904D01_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.SvSynchroViewQueryClose
 
-{$If not defined(NoVCM)}
 procedure TPrimSynchroViewForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4979E75C00C7_var*
 //#UC END# *4A8E8F2E0195_4979E75C00C7_var*
 begin
@@ -221,25 +185,26 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4979E75C00C7_impl*
 end;//TPrimSynchroViewForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimSynchroViewForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimSynchroViewForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
   sdsList := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  ViewArea := aDsNew As IdsSynchroView;
-  aDsNew.CastUCC(IsdsList, sdsList);
- end;//aDsNew = nil
-end;
+  ViewArea := aNew As IdsSynchroView;
+  aNew.CastUCC(IsdsList, sdsList);
+ end;//aNew = nil
+end;//TPrimSynchroViewForm.SignalDataSourceChanged
 
 procedure TPrimSynchroViewForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -247,7 +212,7 @@ begin
   PublishFormEntity(en_SynchroView, nil);
   PublishOpWithResult(en_SynchroView, op_BecomeActive, SynchroView_BecomeActive, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimSynchroViewForm.InitEntities
 
 procedure TPrimSynchroViewForm.MakeControls;
 begin
@@ -255,21 +220,18 @@ begin
  f_DocView := TvtPanel.Create(Self);
  f_DocView.Name := 'DocView';
  f_DocView.Parent := Self;
- with DefineZone(vcm_ztChild, f_DocView) do
+ with DefineZone(vcm_ztChild, DocView) do
  begin
   FormStyle.Toolbars.Top.MergeWithContainer := vcm_bTrue;
- end;//with DefineZone(vcm_ztChild, f_DocView)
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ end;//with DefineZone(vcm_ztChild
+end;//TPrimSynchroViewForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\View\SynchroViewUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimSynchroView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimSynchroViewForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimSynchroView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

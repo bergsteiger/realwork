@@ -22,10 +22,10 @@ uses
  , DocumentAndListInterfaces
  , l3Interfaces
  , l3IID
+ , SimpleListInterfaces
  , DynamicDocListUnit
  , DocumentInterfaces
  , DynamicTreeUnit
- , SimpleListInterfaces
  , WorkWithDocumentInterfaces
  , DocInfoInterfaces
  , ExternalObjectUnit
@@ -261,6 +261,7 @@ uses
  , BaloonWarningUserTypes_remListModified_UserType
  , UnderControlInterfaces
  , nsListWarningGenerator
+ , WarningUserTypes_Warning_UserType
 ;
 
 type _Instance_R_ = TsdsList;

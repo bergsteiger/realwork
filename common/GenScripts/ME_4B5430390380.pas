@@ -44,45 +44,35 @@ type
   private
    f_PasswordChanged: Boolean;
    f_pnMainData: TvtPanel;
-    {* Поле для свойства pnMainData }
-   f_UserNameLabel: TvtLabel;
-    {* Поле для свойства UserNameLabel }
-   f_PasswordLabel: TvtLabel;
-    {* Поле для свойства PasswordLabel }
-   f_LoginLabel: TvtLabel;
-    {* Поле для свойства LoginLabel }
-   f_InfoLabel: TvtLabel;
-    {* Поле для свойства InfoLabel }
-   f_EMailLabel: TvtLabel;
-    {* Поле для свойства EMailLabel }
-   f_ConfirmPasswordLabel: TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel }
-   f_vtAsteriskLabelLogin: TvtLabel;
-    {* Поле для свойства vtAsteriskLabelLogin }
-   f_vtAsteriskLabelFIO: TvtLabel;
-    {* Поле для свойства vtAsteriskLabelFIO }
-   f_edPassword: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword }
-   f_edUserName: TnscEdit;
-    {* Поле для свойства edUserName }
-   f_edLogin: TnscEdit;
-    {* Поле для свойства edLogin }
-   f_edEmail: TnscEdit;
-    {* Поле для свойства edEmail }
-   f_edConfirm: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm }
    f_BottomPanel: TvtPanel;
-    {* Поле для свойства BottomPanel }
-   f_RegisterButton: TElPopupButton;
-    {* Поле для свойства RegisterButton }
-   f_HelpPanel: TvtPanel;
-    {* Поле для свойства HelpPanel }
-   f_HelpPaintBox: TPaintBox;
-    {* Поле для свойства HelpPaintBox }
-   f_HelpLabel: TvtFocusLabel;
-    {* Поле для свойства HelpLabel }
    f_Info: InsUserProperty;
-    {* Поле для свойства Info }
+   f_UserNameLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_PasswordLabel: TvtLabel;
+    {* Пароль: }
+   f_LoginLabel: TvtLabel;
+    {* Регистрационное имя: }
+   f_InfoLabel: TvtLabel;
+    {* * - поля, обязательные для заполнения }
+   f_EMailLabel: TvtLabel;
+    {* Электронная почта: }
+   f_ConfirmPasswordLabel: TvtLabel;
+    {* Подтверждение пароля: }
+   f_vtAsteriskLabelLogin: TvtLabel;
+    {* * }
+   f_vtAsteriskLabelFIO: TvtLabel;
+    {* * }
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_edUserName: TnscEdit;
+   f_edLogin: TnscEdit;
+   f_edEmail: TnscEdit;
+   f_edConfirm: TnscComboBoxWithPwdChar;
+   f_RegisterButton: TElPopupButton;
+    {* Сохранить }
+   f_HelpPanel: TvtPanel;
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
   private
    procedure edPasswordChange(Sender: TObject);
    procedure edConfirmChange(Sender: TObject);
@@ -101,11 +91,11 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -187,7 +177,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Chars
  , Windows
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -197,6 +186,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4B5430390380impl_uses*
+ , Classes
+ //#UC END# *4B5430390380impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -640,12 +632,6 @@ begin
 //#UC END# *4A8E8F2E0195_4B5430390380_impl*
 end;//TPrimSelfInfoForm.InitControls
 
-procedure TPrimSelfInfoForm.ClearFields;
-begin
- f_Info := nil;
- inherited;
-end;//TPrimSelfInfoForm.ClearFields
-
 procedure TPrimSelfInfoForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4B5430390380_var*
@@ -662,6 +648,12 @@ begin
  InitUserFields;
 //#UC END# *529332B40230_4B5430390380_impl*
 end;//TPrimSelfInfoForm.SetupFormLayout
+
+procedure TPrimSelfInfoForm.ClearFields;
+begin
+ f_Info := nil;
+ inherited;
+end;//TPrimSelfInfoForm.ClearFields
 
 procedure TPrimSelfInfoForm.MakeControls;
 begin

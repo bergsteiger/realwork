@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_CustomizeToolsLocalConstants }
+ str_ut_CustomizeToolsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeToolsCaption'; rValue : 'CustomizeTools');
+  {* Заголовок пользовательского типа "CustomizeTools" }
  {* Константы для типа формы ut_CustomizeTools }
  ut_CustomizeToolsName = 'ut_CustomizeTools';
   {* Строковый идентификатор пользовательского типа "CustomizeTools" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_CustomizeToolsCaption.Init;
+ {* Инициализация str_ut_CustomizeToolsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_CustomizeTools.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_CustomizeTools }

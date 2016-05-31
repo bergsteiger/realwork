@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки fDocAttributeLocalConstants }
+ str_fDocAttributeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fDocAttributeCaption'; rValue : 'Информация о документе');
+  {* Заголовок пользовательского типа "Информация о документе" }
  {* Константы для типа формы fDocAttribute }
  fDocAttributeName = 'fDocAttribute';
   {* Строковый идентификатор пользовательского типа "Информация о документе" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_fDocAttribute.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_fDocAttributeCaption.Init;
+ {* Инициализация str_fDocAttributeCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_fDocAttribute.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_fDocAttribute }

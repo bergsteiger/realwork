@@ -24,10 +24,10 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
- , vcmControllers
+ , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -75,7 +75,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IdsCreateFilter); reintroduce;
+   class function Make(const aData: IdsCreateFilter): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
@@ -102,7 +102,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -110,27 +109,21 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimCreateFilter_cfCreate_UserType
  , PrimCreateFilter_cfRename_UserType
+ , SysUtils
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CB6D95D003Aimpl_uses*
+ //#UC END# *4CB6D95D003Aimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки cfCreateLocalConstants }
- str_cfCreateCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfCreateCaption'; rValue : 'Создать фильтр');
-  {* Заголовок пользовательского типа "Создать фильтр" }
- {* Локализуемые строки cfRenameLocalConstants }
- str_cfRenameCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfRenameCaption'; rValue : 'Переименовать фильтр');
-  {* Заголовок пользовательского типа "Переименовать фильтр" }
-
-class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter);
+class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter): IvcmEntityForm;
 var
  l_Inst : TPrimCreateFilterForm;
 begin
@@ -225,6 +218,14 @@ procedure TPrimCreateFilterForm.SignalDataSourceChanged(const anOld: IvcmFormDat
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsCreateFilter, ViewArea);
+ end;//aNew = nil
 end;//TPrimCreateFilterForm.SignalDataSourceChanged
 
 procedure TPrimCreateFilterForm.InitEntities;
@@ -235,9 +236,16 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, False);
  end;//with Entities.Entities
 end;//TPrimCreateFilterForm.InitEntities
 
@@ -247,7 +255,7 @@ begin
  with AddUsertype(cfCreateName,
   str_cfCreateCaption,
   str_cfCreateCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -260,7 +268,7 @@ begin
  with AddUsertype(cfRenameName,
   str_cfRenameCaption,
   str_cfRenameCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -280,10 +288,6 @@ begin
 end;//TPrimCreateFilterForm.MakeControls
 
 initialization
- str_cfCreateCaption.Init;
- {* Инициализация str_cfCreateCaption }
- str_cfRenameCaption.Init;
- {* Инициализация str_cfRenameCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimCreateFilterForm);
  {* Регистрация PrimCreateFilter }

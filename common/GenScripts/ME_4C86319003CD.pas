@@ -18,6 +18,9 @@ uses
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -40,12 +43,17 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C86319003CDimpl_uses*
+ //#UC END# *4C86319003CDimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -58,7 +66,13 @@ begin
  begin
   PublishFormEntity(en_Edit, nil);
   PublishOp(en_Edit, op_Cut, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Cut, True);
+  ShowInToolbar(en_Edit, op_Cut, False);
   PublishOp(en_Edit, op_Paste, nil, nil, nil);
+  ShowInContextMenu(en_Edit, op_Paste, True);
+  ShowInToolbar(en_Edit, op_Paste, False);
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
  end;//with Entities.Entities
 end;//TPrimPictureInfoOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

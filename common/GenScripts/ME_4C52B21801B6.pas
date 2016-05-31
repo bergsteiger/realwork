@@ -19,6 +19,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Search_Strange_Controls
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -67,6 +70,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C52B21801B6impl_uses*
+ //#UC END# *4C52B21801B6impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -156,12 +161,15 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
+  ToolbarAtBottom(en_Result);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
+  ShowInToolbar(en_Result, op_Restore, True);
   PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
-  PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, Result_Cancel_GetState);
+  ShowInToolbar(en_Result, op_SaveAsDefault, True);
  end;//with Entities.Entities
 end;//TPrimStyleEditorContainerOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

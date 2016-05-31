@@ -1,84 +1,74 @@
 unit PrimWorkJournalOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkJournal/Forms/PrimWorkJournalOptions_Form.pas"
-// Начат: 27.10.2010 12:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::WorkJournal::View::WorkJournal::PrimWorkJournalOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournalOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimWorkJournalOptions" MUID: (4CC7E19400DE)
+// Имя типа: "TPrimWorkJournalOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimWorkJournal_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimWorkJournal_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimWorkJournalOptionsForm = {form} class(TPrimWorkJournalForm)
- protected
-  procedure InitEntities; override;
+ TPrimWorkJournalOptionsForm = class(TPrimWorkJournalForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimWorkJournalOptionsForm
-
- TvcmEntityFormRef = TPrimWorkJournalOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CC7E19400DEimpl_uses*
+ //#UC END# *4CC7E19400DEimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimWorkJournalOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimWorkJournalOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  
-  ShowInContextMenu(en_SavedQuery, op_OpenQuery, true);
-  ShowInToolbar(en_SavedQuery, op_OpenQuery, false);
-  
-  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, true);
-  ShowInToolbar(en_SavedQuery, op_ExecuteQuery, false);
+  ShowInContextMenu(en_SavedQuery, op_OpenQuery, True);
+  ShowInToolbar(en_SavedQuery, op_OpenQuery, False);
+  ShowInContextMenu(en_SavedQuery, op_ExecuteQuery, True);
+  ShowInToolbar(en_SavedQuery, op_ExecuteQuery, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimWorkJournalOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimWorkJournalOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimWorkJournalOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimWorkJournalOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

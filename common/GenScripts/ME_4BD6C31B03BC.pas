@@ -15,9 +15,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarningLocalConstants }
+ str_WarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarningCaption'; rValue : 'Предупреждение');
+  {* Заголовок пользовательского типа "Предупреждение" }
+ str_WarningSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarningSettingsCaption'; rValue : 'Документ: Предупреждение');
+  {* Заголовок пользовательского типа "Предупреждение" для настройки панелей инструментов }
  {* Константы для типа формы Warning }
  WarningName = 'Warning';
   {* Строковый идентификатор пользовательского типа "Предупреждение" }
@@ -58,6 +64,10 @@ end;//Tkw_FormUserType_Warning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarningCaption.Init;
+ {* Инициализация str_WarningCaption }
+ str_WarningSettingsCaption.Init;
+ {* Инициализация str_WarningSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_Warning.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_Warning }

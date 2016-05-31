@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftSimilarDocumentsSynchroViewLocalConstants }
+ str_lftSimilarDocumentsSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsSynchroViewCaption'; rValue : 'Синхронный просмотр (похожие документы)');
+  {* Заголовок пользовательского типа "Синхронный просмотр (похожие документы)" }
+ str_lftSimilarDocumentsSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftSimilarDocumentsSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Похожие документы');
+  {* Заголовок пользовательского типа "Синхронный просмотр (похожие документы)" для настройки панелей инструментов }
  {* Константы для типа формы lftSimilarDocumentsSynchroView }
  lftSimilarDocumentsSynchroViewName = 'lftSimilarDocumentsSynchroView';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр (похожие документы)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftSimilarDocumentsSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftSimilarDocumentsSynchroViewCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsSynchroViewCaption }
+ str_lftSimilarDocumentsSynchroViewSettingsCaption.Init;
+ {* Инициализация str_lftSimilarDocumentsSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftSimilarDocumentsSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftSimilarDocumentsSynchroView }

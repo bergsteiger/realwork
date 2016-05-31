@@ -1,98 +1,82 @@
 unit PrimStyleEditorContainerOptions_Form;
+ {* Редактор стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorContainerOptions_Form.pas"
-// Начат: 30.07.2010 15:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorContainerOptions
-//
-// Редактор стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainerOptions_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimStyleEditorContainerOptions" MUID: (4C52B21801B6)
+// Имя типа: "TPrimStyleEditorContainerOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  PrimStyleEditorContainer_Form,
-  Search_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimStyleEditorContainer_Form
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimStyleEditorContainerOptionsForm = {form} class(TPrimStyleEditorContainerForm)
+ TPrimStyleEditorContainerOptionsForm = class(TPrimStyleEditorContainerForm)
   {* Редактор стилей }
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure Result_Restore_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_Restore_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Result_SaveAsDefault_Test(const aParams: IvcmTestParamsPrim);
    procedure Result_SaveAsDefault_Execute(const aParams: IvcmExecuteParamsPrim);
  end;//TPrimStyleEditorContainerOptionsForm
-
- TvcmContainerFormRef = TPrimStyleEditorContainerOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Settings_Strange_Controls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Settings_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C52B21801B6impl_uses*
+ //#UC END# *4C52B21801B6impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimStyleEditorContainerOptionsForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorContainerOptionsForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4C52B21801B6exec_var*
 //#UC END# *4A8AD46D0226_4C52B21801B6exec_var*
 begin
@@ -100,10 +84,11 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4A8AD46D0226_4C52B21801B6exec_impl*
 end;//TPrimStyleEditorContainerOptionsForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorContainerOptionsForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C52B21801B6test_var*
 //#UC END# *4A97EBE702F8_4C52B21801B6test_var*
 begin
@@ -111,10 +96,11 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := f_SettingsInfo.Modified;
 //#UC END# *4A97EBE702F8_4C52B21801B6test_impl*
 end;//TPrimStyleEditorContainerOptionsForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorContainerOptionsForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4C52B21801B6exec_var*
 //#UC END# *4A97EBE702F8_4C52B21801B6exec_var*
 begin
@@ -123,7 +109,7 @@ begin
  ModalResult := mrOk;
 //#UC END# *4A97EBE702F8_4C52B21801B6exec_impl*
 end;//TPrimStyleEditorContainerOptionsForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TPrimStyleEditorContainerOptionsForm.Result_Restore_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C52B34E0125_4C52B21801B6test_var*
@@ -166,36 +152,33 @@ begin
 //#UC END# *4C52B36B01B3_4C52B21801B6exec_impl*
 end;//TPrimStyleEditorContainerOptionsForm.Result_SaveAsDefault_Execute
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimStyleEditorContainerOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Restore, Result_Restore_Execute, Result_Restore_Test, nil);
-  ShowInToolbar(en_Result, op_Restore, true);
+  ShowInToolbar(en_Result, op_Restore, True);
   PublishOp(en_Result, op_SaveAsDefault, Result_SaveAsDefault_Execute, Result_SaveAsDefault_Test, nil);
-  ShowInToolbar(en_Result, op_SaveAsDefault, true);
+  ShowInToolbar(en_Result, op_SaveAsDefault, True);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimStyleEditorContainerOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStyleEditorContainerOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorContainerOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStyleEditorContainerOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

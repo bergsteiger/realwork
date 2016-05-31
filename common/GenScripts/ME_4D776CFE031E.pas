@@ -10,7 +10,7 @@
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _AttributesUserTypes_ = {abstract} class(_AttributesUserTypes_Parent_)
   protected
-   procedure fDocAttributeQueryClose(aSender: TObject); virtual; abstract;
+   procedure FDocAttributeQueryClose(aSender: TObject); virtual; abstract;
     {* Обработчик события fDocAttribute.OnQueryClose }
    {$If NOT Defined(NoVCM)}
    procedure MakeControls; override;
@@ -29,14 +29,6 @@ _AttributesUserTypes_ = _AttributesUserTypes_Parent_;
 {$Define AttributesUserTypes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-const
- {* Локализуемые строки fDocAttributeLocalConstants }
- str_fDocAttributeCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fDocAttributeCaption'; rValue : 'Информация о документе');
-  {* Заголовок пользовательского типа "Информация о документе" }
- {* Локализуемые строки fAttributeSynchroViewLocalConstants }
- str_fAttributeSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fAttributeSynchroViewCaption'; rValue : 'Информация о документе (синхронный просмотр)');
-  {* Заголовок пользовательского типа "Информация о документе (синхронный просмотр)" }
-
 {$If NOT Defined(NoVCM)}
 procedure _AttributesUserTypes_.MakeControls;
 begin
@@ -50,7 +42,7 @@ begin
   '',
   nil,
   nil,
-  fDocAttributeQueryClose,
+  FDocAttributeQueryClose,
   vcm_ccNone) do
  begin
  end;//with AddUsertype(fDocAttributeName
@@ -70,14 +62,7 @@ begin
 end;//_AttributesUserTypes_.MakeControls
 {$IfEnd} // NOT Defined(NoVCM)
 
-{$Else AttributesUserTypes_imp_impl}
-
- str_fDocAttributeCaption.Init;
- {* Инициализация str_fDocAttributeCaption }
- str_fAttributeSynchroViewCaption.Init;
- {* Инициализация str_fAttributeSynchroViewCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
-
 {$EndIf AttributesUserTypes_imp_impl}
 
 {$EndIf AttributesUserTypes_imp}

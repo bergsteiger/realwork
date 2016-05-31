@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftDrugSynchroViewLocalConstants }
+ str_dftDrugSynchroViewCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDrugSynchroViewCaption'; rValue : 'Описание препарата (синхронный просмотр)');
+  {* Заголовок пользовательского типа "Описание препарата (синхронный просмотр)" }
+ str_dftDrugSynchroViewSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftDrugSynchroViewSettingsCaption'; rValue : 'Синхронный просмотр: Описание препарата');
+  {* Заголовок пользовательского типа "Описание препарата (синхронный просмотр)" для настройки панелей инструментов }
  {* Константы для типа формы dftDrugSynchroView }
  dftDrugSynchroViewName = 'dftDrugSynchroView';
   {* Строковый идентификатор пользовательского типа "Описание препарата (синхронный просмотр)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftDrugSynchroViewCaption.Init;
+ {* Инициализация str_dftDrugSynchroViewCaption }
+ str_dftDrugSynchroViewSettingsCaption.Init;
+ {* Инициализация str_dftDrugSynchroViewSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftDrugSynchroView.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftDrugSynchroView }

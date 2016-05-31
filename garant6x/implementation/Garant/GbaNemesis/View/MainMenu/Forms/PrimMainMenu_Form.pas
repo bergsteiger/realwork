@@ -1,240 +1,176 @@
 unit PrimMainMenu_Form;
+ {* Основное меню }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/MainMenu/Forms/PrimMainMenu_Form.pas"
-// Начат: 29.12.2008 17:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::MainMenu::PrimMainMenu
-//
-// Основное меню
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimMainMenu" MUID: (4958DD7002B6)
+// Имя типа: "TPrimMainMenuForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  ,
-  MainMenuDomainInterfaces,
-  l3ProtoObject,
-  vtPanel,
-  nsMainMenuNew
-  {$If defined(Nemesis)}
-  ,
-  nscInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  PrimWorkJournalInterfaces,
-  afwInterfaces,
-  bsInterfaces,
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimWorkJournalInterfaces
+ {$If Defined(Nemesis)}
+ , nscInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , nsMainMenuNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ , Messages
+ , MainMenuDomainInterfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwInterfaces
+ , bsInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _evStyleTableListener_Parent_ = TvcmContainerForm;
  {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  _nsUserSettingsListener_Parent_ = _evStyleTableListener_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
- TPrimMainMenuForm = {abstract form} class(_nsUserSettingsListener_, InsWorkJournalListener)
+ TPrimMainMenuForm = {abstract} class(_nsUserSettingsListener_, InsWorkJournalListener)
   {* Основное меню }
- private
- // private fields
-   f_LastOpenDocsManager : TnsLastOpenDocsManager;
-   f_TabTable : InscTabTable;
-   f_ArrangeCount : Integer;
-   f_pnlMain : TvtPanel;
-    {* Поле для свойства pnlMain}
-   f_hfLastOpenDocs : TnscHideField;
-    {* Поле для свойства hfLastOpenDocs}
-   f_tvLastOpenDocs : TnscTreeViewHotTruck;
-    {* Поле для свойства tvLastOpenDocs}
-   f_Grid : InscArrangeGrid;
-    {* Поле для свойства Grid}
-   f_TreeStyle : TnsTreeStyleManager;
-    {* Поле для свойства TreeStyle}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_LastOpenDocsManager: TnsLastOpenDocsManager;
+   f_TabTable: InscTabTable;
+   f_ArrangeCount: Integer;
+   f_pnlMain: TvtPanel;
+   f_Grid: InscArrangeGrid;
+   f_TreeStyle: TnsTreeStyleManager;
+   f_hfLastOpenDocs: TnscHideField;
+    {* Последние открытые документы }
+   f_tvLastOpenDocs: TnscTreeViewHotTruck;
+  private
    procedure GridSizeChanged(aSender: TObject);
-     {* изменился размер таблицы, возможно нужно будет изменить размер скроллеров }
+    {* изменился размер таблицы, возможно нужно будет изменить размер скроллеров }
    procedure InitKeyboardNavigation;
    procedure ActionElement(Sender: TObject;
-     Index: Integer);
-   procedure PnlMainResize(aSender: TObject);
+    Index: Integer);
    procedure WMMouseWheel(var Message: TWMMouseWheel); message WM_MOUSEWHEEL;
- protected
- // property methods
+  protected
    function pm_GetTreeStyle: TnsTreeStyleManager;
    function pm_GetContainerForBaseSearch: IvcmContainer; virtual;
- protected
- // realized methods
-   {$If not defined(DesignTimeLibrary)}
-   procedure DoStyleTableChanged; override;
-   {$IfEnd} //not DesignTimeLibrary
-   procedure JournalShrinked;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function SaveOwnFormState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
    procedure ArrangeGrid;
-     {* установить размеры таблицы }
+    {* установить размеры таблицы }
    procedure RecalcGrid;
    procedure BuildGrid;
+   procedure pnlMainResize(aSender: TObject); virtual;
    function DoBuildGrid: InscArrangeGrid; virtual; abstract;
    procedure DoInitKeyboardNavigation(const aTable: InscTabTable); virtual;
    procedure LoadLastOpenDocs; virtual;
    procedure DoActionElement(const aNode: InsMainMenuNode); virtual;
    procedure LoadTrees; virtual;
    function NewSchool: Boolean; virtual;
-     {* Определяет, что основное меню вида 2009 - [$164601183] }
+    {* Определяет, что основное меню вида 2009 - [$164601183] }
    procedure DoRecalcGrid(const aGrid: InscArrangeGrid); virtual;
- private
- // private properties
+   {$If NOT Defined(DesignTimeLibrary)}
+   procedure DoStyleTableChanged; override;
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure JournalShrinked;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function SaveOwnFormState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property Grid: InscArrangeGrid
-     read f_Grid;
- protected
- // protected properties
+    read f_Grid;
+  protected
    property TreeStyle: TnsTreeStyleManager
-     read pm_GetTreeStyle;
+    read pm_GetTreeStyle;
    property ContainerForBaseSearch: IvcmContainer
-     read pm_GetContainerForBaseSearch;
- public
- // public properties
+    read pm_GetContainerForBaseSearch;
+  public
    property pnlMain: TvtPanel
-     read f_pnlMain;
+    read f_pnlMain;
    property hfLastOpenDocs: TnscHideField
-     read f_hfLastOpenDocs;
-     {* Последние открытые документы }
+    read f_hfLastOpenDocs;
+    {* Последние открытые документы }
    property tvLastOpenDocs: TnscTreeViewHotTruck
-     read f_tvLastOpenDocs;
+    read f_tvLastOpenDocs;
  end;//TPrimMainMenuForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  nscArrangeGrid
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTabTable
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeView
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsOpenUtils,
-  nsConst
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsQueryInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  afwFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3ProtoObject
+ , SysUtils
+ , nsConst
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsQueryInterfaces
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , afwFacade
+ {$If Defined(Nemesis)}
+ , nscArrangeGrid
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTabTable
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsOpenUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4958DD7002B6impl_uses*
+ //#UC END# *4958DD7002B6impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
-
+{$If NOT Defined(NoVCM)}
 type
-  TPrimMainMenuState = class(Tl3ProtoObject {$If not defined(NoVCM)}, IvcmBase{$IfEnd} //not NoVCM
-  )
+ TPrimMainMenuState = class(Tl3ProtoObject, IvcmBase)
   public
-  // public methods
    class function Make: IvcmBase; reintroduce;
-  end;//TPrimMainMenuState
-
-// start class TPrimMainMenuState
+ end;//TPrimMainMenuState
 
 class function TPrimMainMenuState.Make: IvcmBase;
 var
@@ -246,60 +182,45 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TPrimMainMenuState.Make
 
-procedure TPrimMainMenuForm.GridSizeChanged(aSender: TObject);
-//#UC START# *4AC9B71F032F_4958DD7002B6_var*
-//#UC END# *4AC9B71F032F_4958DD7002B6_var*
-begin
-//#UC START# *4AC9B71F032F_4958DD7002B6_impl*
- ArrangeGrid;
-//#UC END# *4AC9B71F032F_4958DD7002B6_impl*
-end;//TPrimMainMenuForm.GridSizeChanged
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
-procedure TPrimMainMenuForm.InitKeyboardNavigation;
-//#UC START# *4AC9CB6100E4_4958DD7002B6_var*
-//#UC END# *4AC9CB6100E4_4958DD7002B6_var*
-begin
-//#UC START# *4AC9CB6100E4_4958DD7002B6_impl*
- f_TabTable := TnscTabTable.Make;
- DoInitKeyboardNavigation(f_TabTable);
-//#UC END# *4AC9CB6100E4_4958DD7002B6_impl*
-end;//TPrimMainMenuForm.InitKeyboardNavigation
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
-procedure TPrimMainMenuForm.ActionElement(Sender: TObject;
-  Index: Integer);
-//#UC START# *4AC9E13902F9_4958DD7002B6_var*
-//#UC END# *4AC9E13902F9_4958DD7002B6_var*
+function TPrimMainMenuForm.pm_GetTreeStyle: TnsTreeStyleManager;
+//#UC START# *4AC9C93202F7_4958DD7002B6get_var*
 var
- l_Node : Il3SimpleNode;
- l_MenuNode : InsMainMenuNode;
+ l_Index: Integer;
+//#UC END# *4AC9C93202F7_4958DD7002B6get_var*
 begin
-//#UC START# *4AC9E13902F9_4958DD7002B6_impl*
- l_Node := TnscTreeView(Sender).GetNode(Index);
- if Supports(l_Node, InsMainMenuNode, l_MenuNode) then
-  try
-   DoActionElement(l_MenuNode);
-  finally
-   l_Node := nil;
-  end//try..finally
- else
-  nsOpenNavigatorItem(l_Node, NativeMainForm);
-//#UC END# *4AC9E13902F9_4958DD7002B6_impl*
-end;//TPrimMainMenuForm.ActionElement
+//#UC START# *4AC9C93202F7_4958DD7002B6get_impl*
+ if (f_TreeStyle = nil) then
+ begin
+  f_TreeStyle := TnsTreeStyleManager.Create(c_MainMenuColor, Self.NewSchool);
+  for l_Index := 0 to Pred(ComponentCount) do
+   if (Components[l_Index] <> tvLastOpenDocs) and
+     (Components[l_Index] is TnscTreeView) then
+   begin
+    f_TreeStyle.Init(TnscTreeView(Components[l_Index]));
+    TnscTreeView(Components[l_Index]).OnActionElement := ActionElement;
+   end;//Components[l_Index] <> tvLastOpenDocs
+ end;//f_TreeStyle = nil
+ Result := f_TreeStyle;
+//#UC END# *4AC9C93202F7_4958DD7002B6get_impl*
+end;//TPrimMainMenuForm.pm_GetTreeStyle
 
-procedure TPrimMainMenuForm.PnlMainResize(aSender: TObject);
-//#UC START# *4ACC82D6017B_4958DD7002B6_var*
-//#UC END# *4ACC82D6017B_4958DD7002B6_var*
+function TPrimMainMenuForm.pm_GetContainerForBaseSearch: IvcmContainer;
+//#UC START# *4ACA197F0147_4958DD7002B6get_var*
+//#UC END# *4ACA197F0147_4958DD7002B6get_var*
 begin
-//#UC START# *4ACC82D6017B_4958DD7002B6_impl*
- if (f_Grid <> nil) then
-  //if not Dispatcher.FormDispatcher.Locked then
-   ArrangeGrid;
-//#UC END# *4ACC82D6017B_4958DD7002B6_impl*
-end;//TPrimMainMenuForm.PnlMainResize
+//#UC START# *4ACA197F0147_4958DD7002B6get_impl*
+ Result := nil;
+//#UC END# *4ACA197F0147_4958DD7002B6get_impl*
+end;//TPrimMainMenuForm.pm_GetContainerForBaseSearch
 
 procedure TPrimMainMenuForm.ArrangeGrid;
+ {* установить размеры таблицы }
 //#UC START# *4AC9B1BB022A_4958DD7002B6_var*
 //#UC END# *4AC9B1BB022A_4958DD7002B6_var*
 begin
@@ -345,36 +266,56 @@ begin
 //#UC END# *4AC9B6A80163_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.BuildGrid
 
-function TPrimMainMenuForm.pm_GetTreeStyle: TnsTreeStyleManager;
-//#UC START# *4AC9C93202F7_4958DD7002B6get_var*
-var
- l_Index: Integer;
-//#UC END# *4AC9C93202F7_4958DD7002B6get_var*
+procedure TPrimMainMenuForm.GridSizeChanged(aSender: TObject);
+ {* изменился размер таблицы, возможно нужно будет изменить размер скроллеров }
+//#UC START# *4AC9B71F032F_4958DD7002B6_var*
+//#UC END# *4AC9B71F032F_4958DD7002B6_var*
 begin
-//#UC START# *4AC9C93202F7_4958DD7002B6get_impl*
- if (f_TreeStyle = nil) then
- begin
-  f_TreeStyle := TnsTreeStyleManager.Create(c_MainMenuColor, Self.NewSchool);
-  for l_Index := 0 to Pred(ComponentCount) do
-   if (Components[l_Index] <> tvLastOpenDocs) and
-     (Components[l_Index] is TnscTreeView) then
-   begin
-    f_TreeStyle.Init(TnscTreeView(Components[l_Index]));
-    TnscTreeView(Components[l_Index]).OnActionElement := ActionElement;
-   end;//Components[l_Index] <> tvLastOpenDocs
- end;//f_TreeStyle = nil
- Result := f_TreeStyle;
-//#UC END# *4AC9C93202F7_4958DD7002B6get_impl*
-end;//TPrimMainMenuForm.pm_GetTreeStyle
+//#UC START# *4AC9B71F032F_4958DD7002B6_impl*
+ ArrangeGrid;
+//#UC END# *4AC9B71F032F_4958DD7002B6_impl*
+end;//TPrimMainMenuForm.GridSizeChanged
 
-function TPrimMainMenuForm.pm_GetContainerForBaseSearch: IvcmContainer;
-//#UC START# *4ACA197F0147_4958DD7002B6get_var*
-//#UC END# *4ACA197F0147_4958DD7002B6get_var*
+procedure TPrimMainMenuForm.InitKeyboardNavigation;
+//#UC START# *4AC9CB6100E4_4958DD7002B6_var*
+//#UC END# *4AC9CB6100E4_4958DD7002B6_var*
 begin
-//#UC START# *4ACA197F0147_4958DD7002B6get_impl*
- Result := nil;
-//#UC END# *4ACA197F0147_4958DD7002B6get_impl*
-end;//TPrimMainMenuForm.pm_GetContainerForBaseSearch
+//#UC START# *4AC9CB6100E4_4958DD7002B6_impl*
+ f_TabTable := TnscTabTable.Make;
+ DoInitKeyboardNavigation(f_TabTable);
+//#UC END# *4AC9CB6100E4_4958DD7002B6_impl*
+end;//TPrimMainMenuForm.InitKeyboardNavigation
+
+procedure TPrimMainMenuForm.ActionElement(Sender: TObject;
+ Index: Integer);
+var l_Node: Il3SimpleNode;
+var l_MenuNode: InsMainMenuNode;
+//#UC START# *4AC9E13902F9_4958DD7002B6_var*
+//#UC END# *4AC9E13902F9_4958DD7002B6_var*
+begin
+//#UC START# *4AC9E13902F9_4958DD7002B6_impl*
+ l_Node := TnscTreeView(Sender).GetNode(Index);
+ if Supports(l_Node, InsMainMenuNode, l_MenuNode) then
+  try
+   DoActionElement(l_MenuNode);
+  finally
+   l_Node := nil;
+  end//try..finally
+ else
+  nsOpenNavigatorItem(l_Node, NativeMainForm);
+//#UC END# *4AC9E13902F9_4958DD7002B6_impl*
+end;//TPrimMainMenuForm.ActionElement
+
+procedure TPrimMainMenuForm.pnlMainResize(aSender: TObject);
+//#UC START# *4ACC82D6017B_4958DD7002B6_var*
+//#UC END# *4ACC82D6017B_4958DD7002B6_var*
+begin
+//#UC START# *4ACC82D6017B_4958DD7002B6_impl*
+ if (f_Grid <> nil) then
+  //if not Dispatcher.FormDispatcher.Locked then
+   ArrangeGrid;
+//#UC END# *4ACC82D6017B_4958DD7002B6_impl*
+end;//TPrimMainMenuForm.pnlMainResize
 
 procedure TPrimMainMenuForm.WMMouseWheel(var Message: TWMMouseWheel);
 //#UC START# *4AC9A3AD01DE_4958DD7002B6_var*
@@ -437,6 +378,7 @@ begin
 end;//TPrimMainMenuForm.LoadTrees
 
 function TPrimMainMenuForm.NewSchool: Boolean;
+ {* Определяет, что основное меню вида 2009 - [$164601183] }
 //#UC START# *4ACB2F98002B_4958DD7002B6_var*
 //#UC END# *4ACB2F98002B_4958DD7002B6_var*
 begin
@@ -454,7 +396,7 @@ begin
 //#UC END# *4AD3468102DB_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoRecalcGrid
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 procedure TPrimMainMenuForm.DoStyleTableChanged;
 //#UC START# *4A485B710126_4958DD7002B6_var*
 //#UC END# *4A485B710126_4958DD7002B6_var*
@@ -463,7 +405,7 @@ begin
  RecalcGrid;
 //#UC END# *4A485B710126_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoStyleTableChanged
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TPrimMainMenuForm.JournalShrinked;
 //#UC START# *4A83AA610299_4958DD7002B6_var*
@@ -484,6 +426,7 @@ begin
 end;//TPrimMainMenuForm.JournalShrinked
 
 procedure TPrimMainMenuForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4958DD7002B6_var*
 //#UC END# *479731C50290_4958DD7002B6_var*
 begin
@@ -508,8 +451,8 @@ begin
 //#UC END# *47EA4E9002C6_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimMainMenuForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4958DD7002B6_var*
 //#UC END# *49803F5503AA_4958DD7002B6_var*
 begin
@@ -521,11 +464,10 @@ begin
  InitKeyboardNavigation;
 //#UC END# *49803F5503AA_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimMainMenuForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4958DD7002B6_var*
 //#UC END# *49807428008C_4958DD7002B6_var*
 begin
@@ -535,10 +477,9 @@ begin
   LoadLastOpenDocs;
 //#UC END# *49807428008C_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimMainMenuForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4958DD7002B6_var*
 //#UC END# *4A8E8F2E0195_4958DD7002B6_var*
 begin
@@ -552,12 +493,10 @@ begin
                                                         Self.NewSchool);
 //#UC END# *4A8E8F2E0195_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimMainMenuForm.SaveOwnFormState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *4B4F49900003_4958DD7002B6_var*
 //#UC END# *4B4F49900003_4958DD7002B6_var*
 begin
@@ -572,14 +511,10 @@ begin
   Result := inherited SaveOwnFormState(theState, aStateType, aForClone);
 //#UC END# *4B4F49900003_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.SaveOwnFormState
-{$IfEnd} //not NoVCM
 
 procedure TPrimMainMenuForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Grid := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimMainMenuForm.ClearFields
 
@@ -596,14 +531,14 @@ begin
  f_tvLastOpenDocs := TnscTreeViewHotTruck.Create(Self);
  f_tvLastOpenDocs.Name := 'tvLastOpenDocs';
  f_tvLastOpenDocs.Parent := hfLastOpenDocs;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimMainMenuForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimMainMenu
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimMainMenuForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimMainMenu }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

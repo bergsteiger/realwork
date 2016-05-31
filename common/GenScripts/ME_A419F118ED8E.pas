@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_TextLoadLocalConstants }
+ str_ut_TextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TextLoadCaption'; rValue : 'Форма для загрузки документа');
+  {* Заголовок пользовательского типа "Форма для загрузки документа" }
  {* Константы для типа формы ut_TextLoad }
  ut_TextLoadName = 'ut_TextLoad';
   {* Строковый идентификатор пользовательского типа "Форма для загрузки документа" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_TextLoadCaption.Init;
+ {* Инициализация str_ut_TextLoadCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_TextLoad.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_TextLoad }

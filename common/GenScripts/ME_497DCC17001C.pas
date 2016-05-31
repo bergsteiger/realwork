@@ -18,15 +18,15 @@ uses
  , Filters_Strange_Controls
  , SimpleListInterfaces
  , nscTreeViewWithAdapterDragDrop
+ , vtOutliner
+ , l3Tree_TLB
+ , eeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , eeInterfaces
  , l3Interfaces
  , l3TreeInterfaces
  , ActiveX
- , vtOutliner
- , l3Tree_TLB
  , FiltersUnit
  , nsTypes
  {$If NOT Defined(NoVCM)}
@@ -38,7 +38,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
  , l3ProtoObject
  , nsIFilterFromQueryList
  {$If NOT Defined(NoVCM)}
@@ -83,7 +82,6 @@ type
    f_LockSelectionChangedEvent: Boolean;
    f_FiltersLoaded: Boolean;
    f_FiltersList: TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства FiltersList }
   protected
    Filters: IdsFilters;
     {* Фильтры }
@@ -192,6 +190,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , SearchUnit
  , BaseTreeSupportUnit
  , FoldersDomainInterfaces
@@ -213,19 +212,21 @@ uses
  , DocumentAndListInterfaces
  , nsFiltersTree
  , nsTreeUtils
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , InsFilterNodeWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , FiltersProcessingWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
+ , FiltersUserTypes_utFilters_UserType
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497DCC17001Cimpl_uses*
+ //#UC END# *497DCC17001Cimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -943,6 +944,14 @@ procedure TPrimFiltersForm.SignalDataSourceChanged(const anOld: IvcmFormDataSour
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  Filters := nil;
+ end//aNew = nil
+ else
+ begin
+  Supports(aNew, IdsFilters, Filters);
+ end;//aNew = nil
 end;//TPrimFiltersForm.SignalDataSourceChanged
 
 procedure TPrimFiltersForm.InitEntities;
@@ -963,6 +972,8 @@ begin
   PublishOpWithResult(en_Filters, op_DeselectAll, Filters_DeselectAll, nil, nil);
   PublishOp(en_Filter, op_Activate, Filter_Activate_Execute, Filter_Activate_Test, Filter_Activate_GetState);
   PublishOp(en_Filter, op_CreateFilter, Filter_CreateFilter_Execute, nil, nil);
+  ShowInContextMenu(en_Filter, op_CreateFilter, True);
+  ShowInToolbar(en_Filter, op_CreateFilter, False);
  end;//with Entities.Entities
 end;//TPrimFiltersForm.InitEntities
 

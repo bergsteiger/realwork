@@ -14,6 +14,9 @@ uses
  l3IntfUses
  , PrimDocumentWithFlash_Form
  {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
@@ -34,12 +37,16 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , Base_Operations_Strange_Controls
+ , Common_Strange_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87849303A6impl_uses*
+ //#UC END# *4C87849303A6impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -48,6 +55,39 @@ procedure TPrimDocumentWithFlashOptionsForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, False);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, False);
+  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddBookmark, False);
+  ShowInToolbar(en_Document, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentList, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_Document, op_GetRespondentList, False);
+  ShowInToolbar(en_Document, op_GetRespondentList, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddToControl, False);
+  ShowInToolbar(en_Document, op_AddToControl, True);
+  ShowInContextMenu(en_Document, op_UserCR1, False);
+  ShowInToolbar(en_Document, op_UserCR1, True);
+  ShowInContextMenu(en_Document, op_UserCR2, False);
+  ShowInToolbar(en_Document, op_UserCR2, True);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
+ end;//with Entities.Entities
 end;//TPrimDocumentWithFlashOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

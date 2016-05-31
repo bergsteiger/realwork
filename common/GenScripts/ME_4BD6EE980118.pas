@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dwftMainLocalConstants }
+ str_dwftMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dwftMainCaption'; rValue : 'Схема');
+  {* Заголовок пользовательского типа "Схема" }
  {* Константы для типа формы dwftMain }
  dwftMainName = 'dwftMain';
   {* Строковый идентификатор пользовательского типа "Схема" }
@@ -58,6 +62,8 @@ end;//Tkw_FormUserType_dwftMain.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dwftMainCaption.Init;
+ {* Инициализация str_dwftMainCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dwftMain.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dwftMain }

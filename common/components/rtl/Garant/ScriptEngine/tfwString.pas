@@ -13,8 +13,8 @@ interface
 uses
  l3IntfUses
  , tfwRegisterableWord
- , tfwScriptingInterfaces
  , TypInfo
+ , tfwScriptingInterfaces
 ;
 
 type

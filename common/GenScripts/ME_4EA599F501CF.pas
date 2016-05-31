@@ -13,7 +13,9 @@ interface
 uses
  l3IntfUses
  , PrimWarningOptions_Form
- , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -45,20 +47,33 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineOn_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_WarnTimeMachineException_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
+ , BaloonWarningUserTypes_remUnreadConsultations_UserType
+ , BaloonWarningUserTypes_remOnlineDead_UserType
+ , BaloonWarningUserTypes_TrialModeWarning_UserType
+ , BaloonWarningUserTypes_OldBaseWarning_UserType
+ , BaloonWarningUserTypes_ControlledChangingWarning_UserType
+ , Document_Strange_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4EA599F501CFimpl_uses*
+ //#UC END# *4EA599F501CFimpl_uses*
 ;
-
-type
- // IncludePrint
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas}
 
@@ -79,6 +94,62 @@ procedure TPrimWarningBaloonOptionsForm.InitEntities;
              Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
+ with Entities.Entities do
+ begin
+  ShowInContextMenu(en_Warning, op_TimeMachineOffAndReset, False);
+  ShowInToolbar(en_Warning, op_TimeMachineOffAndReset, False);
+ end;//with Entities.Entities
+ AddUserTypeExclude(WarnJurorName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnJurorName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnJurorName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnPreActiveName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnPreActiveName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnPreActiveName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnIsAbolishedName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnIsAbolishedName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnIsAbolishedName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnOnControlName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnOnControlName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnOnControlName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnInactualDocumentName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnInactualDocumentName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnInactualDocumentName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnTimeMachineOnName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnTimeMachineOnName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnTimeMachineOnName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnRedactionName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnRedactionName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnRedactionName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnTimeMachineWarningName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnTimeMachineWarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnTimeMachineWarningName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(WarnTimeMachineExceptionName, en_File, op_Print, False);
+ AddUserTypeExclude(WarnTimeMachineExceptionName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(WarnTimeMachineExceptionName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(remListModifiedName, en_File, op_Print, False);
+ AddUserTypeExclude(remListModifiedName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(remListModifiedName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(remListFilteredName, en_File, op_Print, False);
+ AddUserTypeExclude(remListFilteredName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(remListFilteredName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(remTimeMachineWarningName, en_File, op_Print, False);
+ AddUserTypeExclude(remTimeMachineWarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(remTimeMachineWarningName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(remUnreadConsultationsName, en_File, op_Print, False);
+ AddUserTypeExclude(remUnreadConsultationsName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(remUnreadConsultationsName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(remOnlineDeadName, en_File, op_Print, False);
+ AddUserTypeExclude(remOnlineDeadName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(remOnlineDeadName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(TrialModeWarningName, en_File, op_Print, False);
+ AddUserTypeExclude(TrialModeWarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(TrialModeWarningName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(OldBaseWarningName, en_File, op_Print, False);
+ AddUserTypeExclude(OldBaseWarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(OldBaseWarningName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(ControlledChangingWarningName, en_File, op_Print, False);
+ AddUserTypeExclude(ControlledChangingWarningName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(ControlledChangingWarningName, en_File, op_PrintPreview, False);
 end;//TPrimWarningBaloonOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)
 

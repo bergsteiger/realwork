@@ -50,13 +50,10 @@ type
   {* Форма для работы с текстом документа }
   private
    f_SubPanel: TeeSubPanel;
-    {* Поле для свойства SubPanel }
    f_HScroll: TvtScrollBar;
-    {* Поле для свойства HScroll }
    f_FormDataChangedInfo: InsDataSourceChangedInfo;
-    {* Поле для свойства FormDataChangedInfo }
   protected
-   : IdsBaseDocument;
+   ViewArea: IdsBaseDocument;
     {* Базовый документ }
    BaseSearchSupportQuery: IucbBaseSearchSupportQuery;
   private
@@ -102,9 +99,9 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure DoEditFindContextTest(const aParams: IvcmTestParamsPrim); override;
-   procedure ClearFields; override;
    function GetDocumentShortName(const aDoc: IDocument;
     aExportSelection: Boolean): Il3CString; override;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -659,12 +656,6 @@ begin
 //#UC END# *4C8DCA3402C1_495118ED00F6_impl*
 end;//_PrimText_.DoEditFindContextTest
 
-procedure _PrimText_.ClearFields;
-begin
- FormDataChangedInfo := nil;
- inherited;
-end;//_PrimText_.ClearFields
-
 function _PrimText_.GetDocumentShortName(const aDoc: IDocument;
  aExportSelection: Boolean): Il3CString;
 //#UC START# *53D8E4B702E4_495118ED00F6_var*
@@ -678,11 +669,27 @@ begin
 //#UC END# *53D8E4B702E4_495118ED00F6_impl*
 end;//_PrimText_.GetDocumentShortName
 
+procedure _PrimText_.ClearFields;
+begin
+ FormDataChangedInfo := nil;
+ inherited;
+end;//_PrimText_.ClearFields
+
 {$If NOT Defined(NoVCM)}
 procedure _PrimText_.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);
 begin
  inherited;
+ if (aNew = nil) then
+ begin
+  ViewArea := nil;
+  BaseSearchSupportQuery := nil;
+ end//aNew = nil
+ else
+ begin
+  ViewArea := aNew As IdsBaseDocument;
+  Supports(aNew, IucbBaseSearchSupportQuery, BaseSearchSupportQuery);
+ end;//aNew = nil
 end;//_PrimText_.SignalDataSourceChanged
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -695,6 +702,8 @@ begin
  with Entities.Entities do
  begin
   PublishFormEntity(en_File, nil);
+  PublishFormEntity(en_SubPanelSettings, nil);
+  MakeEntitySupportedByControl(en_SubPanelSettings, SubPanel);
   PublishOp(en_File, op_SaveToFolder, File_SaveToFolder_Execute, File_SaveToFolder_Test, nil);
   PublishOp(en_File, op_LoadFromFolder, File_LoadFromFolder_Execute, File_LoadFromFolder_Test, nil);
  end;//with Entities.Entities

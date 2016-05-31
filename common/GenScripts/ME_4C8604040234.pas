@@ -20,6 +20,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , bsTypes
  , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -69,15 +72,17 @@ uses
  l3ImplUses
  , afwFacade
  , Base_Operations_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C8604040234impl_uses*
+ //#UC END# *4C8604040234impl_uses*
 ;
 
 procedure TPrimSynchroViewOptionsForm.MakeUserCRListCaption(const aParams: IvcmTestParamsPrim;
@@ -302,12 +307,26 @@ begin
  begin
   PublishFormEntity(en_SynchroView, nil);
   PublishOp(en_SynchroView, op_ShowText, SynchroView_ShowText_Execute, SynchroView_ShowText_Test, nil, true);
+  ShowInContextMenu(en_SynchroView, op_ShowText, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowText, True, true);
   PublishOp(en_SynchroView, op_Annotation, SynchroView_Annotation_Execute, SynchroView_Annotation_Test, nil);
+  ShowInContextMenu(en_SynchroView, op_Annotation, True);
+  ShowInToolbar(en_SynchroView, op_Annotation, True);
   PublishOp(en_SynchroView, op_ShowAttributes, SynchroView_ShowAttributes_Execute, SynchroView_ShowAttributes_Test, nil, true);
+  ShowInContextMenu(en_SynchroView, op_ShowAttributes, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowAttributes, True, true);
   PublishOp(en_SynchroView, op_ShowRelated, SynchroView_ShowRelated_Execute, SynchroView_ShowRelated_Test, nil, true);
+  ShowInContextMenu(en_SynchroView, op_ShowRelated, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowRelated, True, true);
   PublishOp(en_SynchroView, op_ShowUserCRList1, SynchroView_ShowUserCRList1_Execute, SynchroView_ShowUserCRList1_Test, nil, true);
+  ShowInContextMenu(en_SynchroView, op_ShowUserCRList1, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowUserCRList1, True, true);
   PublishOp(en_SynchroView, op_ShowUserCRList2, SynchroView_ShowUserCRList2_Execute, SynchroView_ShowUserCRList2_Test, nil, true);
+  ShowInContextMenu(en_SynchroView, op_ShowUserCRList2, True, true);
+  ShowInToolbar(en_SynchroView, op_ShowUserCRList2, True, true);
   PublishOp(en_SynchroView, op_SimilarDocuments, SynchroView_SimilarDocuments_Execute, SynchroView_SimilarDocuments_Test, nil);
+  ShowInContextMenu(en_SynchroView, op_SimilarDocuments, True);
+  ShowInToolbar(en_SynchroView, op_SimilarDocuments, True);
  end;//with Entities.Entities
 end;//TPrimSynchroViewOptionsForm.InitEntities
 {$IfEnd} // NOT Defined(NoVCM)

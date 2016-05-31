@@ -21,6 +21,9 @@ uses
  , vtProportionalPanel
  , vtPanel
  , vtSizeablePanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -71,7 +74,7 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsStyleTableSettingsInfo); reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm; reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
   public
@@ -93,32 +96,24 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , DataAdapter
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , afwFacade
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorContainer_utStyleEditorContainer_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC6402401E4impl_uses*
+ //#UC END# *4AC6402401E4impl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки utStyleEditorContainerLocalConstants }
- str_utStyleEditorContainerCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorContainerCaption'; rValue : 'Редактор стилей');
-  {* Заголовок пользовательского типа "Редактор стилей" }
-
-class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo);
+class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm;
 var
  l_Inst : TPrimStyleEditorContainerForm;
 begin
@@ -294,7 +289,7 @@ begin
  with AddUsertype(utStyleEditorContainerName,
   str_utStyleEditorContainerCaption,
   str_utStyleEditorContainerCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -313,26 +308,24 @@ begin
  f_ParentZone := TvtSizeablePanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := MainZone;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
  end;//with DefineZone(vcm_ztParent
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := MainZone;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
  end;//with DefineZone(vcm_ztChild
  f_NavigatorZone := TvtSizeablePanel.Create(Self);
  f_NavigatorZone.Name := 'NavigatorZone';
  f_NavigatorZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ with DefineZone(vcm_ztNavigator, NavigatorZone) do
  begin
  end;//with DefineZone(vcm_ztNavigator
 end;//TPrimStyleEditorContainerForm.MakeControls
 
 initialization
- str_utStyleEditorContainerCaption.Init;
- {* Инициализация str_utStyleEditorContainerCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorContainerForm);
  {* Регистрация PrimStyleEditorContainer }

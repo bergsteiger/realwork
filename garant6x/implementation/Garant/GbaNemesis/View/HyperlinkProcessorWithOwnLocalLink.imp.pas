@@ -1,54 +1,44 @@
 {$IfNDef HyperlinkProcessorWithOwnLocalLink_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/HyperlinkProcessorWithOwnLocalLink.imp.pas"
-// Начат: 18.08.2009 19:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Base Operations::View::Navigation::HyperlinkProcessorWithOwnLocalLink
-//
-// Обработчик ссылок с собственной обработкой локальных ссылок (сейчас пустой)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "HyperlinkProcessorWithOwnLocalLink" MUID: (4A8AC2DB0210)
+// Имя типа: "_HyperlinkProcessorWithOwnLocalLink_"
 
 {$Define HyperlinkProcessorWithOwnLocalLink_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _HyperlinkProcessor_Parent_ = _HyperlinkProcessorWithOwnLocalLink_Parent_;
- {$Include ..\View\HyperlinkProcessor.imp.pas}
- _HyperlinkProcessorWithOwnLocalLink_ = {abstract form} class(_HyperlinkProcessor_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
+ _HyperlinkProcessorWithOwnLocalLink_ = {abstract} class(_HyperlinkProcessor_)
   {* Обработчик ссылок с собственной обработкой локальных ссылок (сейчас пустой) }
- protected
- // realized methods
+  protected
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
-     {* Обработчик внешней операции }
+    {* Обработчик внешней операции }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
     aBehaviour: TbsProcessHyperLinkBehaviour); override;
-     {* Открывает локальную ссылку на другую редакцию }
+    {* Открывает локальную ссылку на другую редакцию }
  end;//_HyperlinkProcessorWithOwnLocalLink_
-{$Else}
 
- _HyperlinkProcessor_Parent_ = _HyperlinkProcessorWithOwnLocalLink_Parent_;
- {$Include ..\View\HyperlinkProcessor.imp.pas}
- _HyperlinkProcessorWithOwnLocalLink_ = _HyperlinkProcessor_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_HyperlinkProcessor_Parent_ = _HyperlinkProcessorWithOwnLocalLink_Parent_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
+_HyperlinkProcessorWithOwnLocalLink_ = _HyperlinkProcessor_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else HyperlinkProcessorWithOwnLocalLink_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef HyperlinkProcessorWithOwnLocalLink_imp_impl}
 
+{$Define HyperlinkProcessorWithOwnLocalLink_imp_impl}
 
-{$Include ..\View\HyperlinkProcessor.imp.pas}
-
-// start class _HyperlinkProcessorWithOwnLocalLink_
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
 
 function _HyperlinkProcessorWithOwnLocalLink_.DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean;
+ {* Обработчик внешней операции }
 //#UC START# *4A815E860391_4A8AC2DB0210_var*
 //#UC END# *4A815E860391_4A8AC2DB0210_var*
 begin
@@ -58,8 +48,9 @@ begin
 end;//_HyperlinkProcessorWithOwnLocalLink_.DoProcessExternalOperation
 
 procedure _HyperlinkProcessorWithOwnLocalLink_.OpenRedactionLocalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
+ {* Открывает локальную ссылку на другую редакцию }
 //#UC START# *4A81650B014A_4A8AC2DB0210_var*
 var
  l_Container: IvcmContainer;
@@ -70,7 +61,9 @@ begin
  TdmStdRes.OpenDocument(MakeLinkDocInfo(aDocument, dptSub, aSub), l_Container);
 //#UC END# *4A81650B014A_4A8AC2DB0210_impl*
 end;//_HyperlinkProcessorWithOwnLocalLink_.OpenRedactionLocalLink
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$EndIf HyperlinkProcessorWithOwnLocalLink_imp_impl}
 
 {$EndIf HyperlinkProcessorWithOwnLocalLink_imp}
+

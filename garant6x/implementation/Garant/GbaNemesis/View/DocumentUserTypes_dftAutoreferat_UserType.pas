@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftAutoreferatLocalConstants }
+ str_dftAutoreferatCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAutoreferatCaption'; rValue : 'ПРАЙМ. Моя новостная лента');
+  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" }
+ str_dftAutoreferatSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftAutoreferatSettingsCaption'; rValue : 'Документ: ПРАЙМ. Моя новостная лента');
+  {* Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента" для настройки панелей инструментов }
  {* Константы для типа формы dftAutoreferat }
  dftAutoreferatName = 'dftAutoreferat';
   {* Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftAutoreferat.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftAutoreferatCaption.Init;
+ {* Инициализация str_dftAutoreferatCaption }
+ str_dftAutoreferatSettingsCaption.Init;
+ {* Инициализация str_dftAutoreferatSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftAutoreferat.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftAutoreferat }

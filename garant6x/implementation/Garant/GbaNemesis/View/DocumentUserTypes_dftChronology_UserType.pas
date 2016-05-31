@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftChronologyLocalConstants }
+ str_dftChronologyCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftChronologyCaption'; rValue : 'Хронология судебного дела');
+  {* Заголовок пользовательского типа "Хронология судебного дела" }
+ str_dftChronologySettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftChronologySettingsCaption'; rValue : 'Документ: Хронология судебного дела');
+  {* Заголовок пользовательского типа "Хронология судебного дела" для настройки панелей инструментов }
  {* Константы для типа формы dftChronology }
  dftChronologyName = 'dftChronology';
   {* Строковый идентификатор пользовательского типа "Хронология судебного дела" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftChronology.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftChronologyCaption.Init;
+ {* Инициализация str_dftChronologyCaption }
+ str_dftChronologySettingsCaption.Init;
+ {* Инициализация str_dftChronologySettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftChronology.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftChronology }

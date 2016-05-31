@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_elCustomEditLocalConstants }
+ str_ut_elCustomEditCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_elCustomEditCaption'; rValue : 'Форма для тестирования TelCustomEdit');
+  {* Заголовок пользовательского типа "Форма для тестирования TelCustomEdit" }
  {* Константы для типа формы ut_elCustomEdit }
  ut_elCustomEditName = 'ut_elCustomEdit';
   {* Строковый идентификатор пользовательского типа "Форма для тестирования TelCustomEdit" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_elCustomEditCaption.Init;
+ {* Инициализация str_ut_elCustomEditCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_elCustomEdit.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_elCustomEdit }

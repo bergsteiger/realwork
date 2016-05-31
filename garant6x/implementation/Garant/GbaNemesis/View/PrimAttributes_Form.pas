@@ -1,149 +1,106 @@
 unit PrimAttributes_Form;
+ {* Атрибуты документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimAttributes_Form.pas"
-// Начат: 23.01.2009 18:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::Attributes::PrimAttributes
-//
-// Атрибуты документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimAttributes_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimAttributes" MUID: (4979DA14019A)
+// Имя типа: "TPrimAttributesForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nsLogEvent
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Tree_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nscTreeViewWithAdapterDragDrop,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmControllers {a}
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  AttributesUserTypes_fDocAttribute_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  AttributesUserTypes_fAttributeSynchroView_UserType,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , nscTreeViewWithAdapterDragDrop
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _BaseDocumentForDocumentModule_Parent_ = TvcmEntityForm;
- {$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _PageControlNotification_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include ..\View\PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _AttributesUserTypes_Parent_ = _PageControlNotification_;
- {$Include ..\View\AttributesUserTypes.imp.pas}
- TPrimAttributesForm = {form} class(_AttributesUserTypes_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas}
+ TPrimAttributesForm = class(_AttributesUserTypes_)
   {* Атрибуты документа }
- private
- // private fields
-   f_tvAttributes : TnscTreeViewWithAdapterDragDrop;
-    {* Поле для свойства tvAttributes}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+  private
+   f_tvAttributes: TnscTreeViewWithAdapterDragDrop;
+  protected
+   CoDS: IdsAttributes;
+  protected
    procedure FDocAttributeQueryClose(aSender: TObject); override;
-     {* Обработчик события fDocAttribute.OnQueryClose }
+    {* Обработчик события fDocAttribute.OnQueryClose }
    procedure DoTabActivate; override;
-     {* Реакция на переключение вкладки }
- protected
- // protected fields
-   CoDS : IdsAttributes;
- public
- // public properties
+    {* Реакция на переключение вкладки }
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property tvAttributes: TnscTreeViewWithAdapterDragDrop
-     read f_tvAttributes;
+    read f_tvAttributes;
  end;//TPrimAttributesForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  LoggingUnit,
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  nsSingleAttributeData,
-  F1Like_InternalOperations_Controls,
-  Common_Strange_Controls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a},
-  nsManagers
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TPrimAttributesForm;
-
-{$Include ..\View\BaseDocumentForDocumentModule.imp.pas}
-
-{$Include ..\View\PageControlNotification.imp.pas}
-
-{$Include ..\View\AttributesUserTypes.imp.pas}
+ l3ImplUses
+ , nsLogEvent
+ , DocumentUnit
+ , nsSingleAttributeData
+ , F1Like_InternalOperations_Controls
+ , Common_Strange_Controls
+ , SysUtils
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+ , AttributesUserTypes_fDocAttribute_UserType
+ , AttributesUserTypes_fAttributeSynchroView_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4979DA14019Aimpl_uses*
+ //#UC END# *4979DA14019Aimpl_uses*
+;
 
 type
-  TnsViewDocumentAttributesEvent = {final} class(TnsLogEvent)
+ TnsViewDocumentAttributesEvent = {final} class(TnsLogEvent)
   public
-  // public methods
    class procedure Log(const aDoc: IDocument);
-  end;//TnsViewDocumentAttributesEvent
-
-// start class TnsViewDocumentAttributesEvent
+ end;//TnsViewDocumentAttributesEvent
 
 class procedure TnsViewDocumentAttributesEvent.Log(const aDoc: IDocument);
 //#UC START# *4B150D310061_4B150CFE01CB_var*
@@ -158,7 +115,16 @@ begin
 //#UC END# *4B150D310061_4B150CFE01CB_impl*
 end;//TnsViewDocumentAttributesEvent.Log
 
+type _Instance_R_ = TPrimAttributesForm;
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas}
+
 procedure TPrimAttributesForm.FDocAttributeQueryClose(aSender: TObject);
+ {* Обработчик события fDocAttribute.OnQueryClose }
 //#UC START# *37BE60CD03ED_4979DA14019A_var*
 //#UC END# *37BE60CD03ED_4979DA14019A_var*
 begin
@@ -171,6 +137,7 @@ begin
 end;//TPrimAttributesForm.FDocAttributeQueryClose
 
 procedure TPrimAttributesForm.DoTabActivate;
+ {* Реакция на переключение вкладки }
 //#UC START# *497F16AC015A_4979DA14019A_var*
 //#UC END# *497F16AC015A_4979DA14019A_var*
 begin
@@ -180,49 +147,46 @@ begin
 //#UC END# *497F16AC015A_4979DA14019A_impl*
 end;//TPrimAttributesForm.DoTabActivate
 
-procedure TPrimAttributesForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+{$If NOT Defined(NoVCM)}
+procedure TPrimAttributesForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   CoDS := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsAttributes, CoDS);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsAttributes, CoDS);
+ end;//aNew = nil
+end;//TPrimAttributesForm.SignalDataSourceChanged
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
- with Entities.Entities do
- begin
-  PublishFormEntity(en_Edit, nil);
-  MakeEntitySupportedByControl(en_Edit, tvAttributes);
-  PublishFormEntity(en_Tree, nil);
-  MakeEntitySupportedByControl(en_Tree, tvAttributes);
- end;//with Entities.Entities
-end;
+end;//TPrimAttributesForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimAttributesForm.MakeControls;
 begin
  inherited;
  f_tvAttributes := TnscTreeViewWithAdapterDragDrop.Create(Self);
  f_tvAttributes.Name := 'tvAttributes';
  f_tvAttributes.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimAttributesForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\View\AttributesUserTypes.imp.pas}
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimAttributes
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAttributesForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimAttributes }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

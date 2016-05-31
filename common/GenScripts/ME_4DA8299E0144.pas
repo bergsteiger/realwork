@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки WarnTimeMachineOnLocalConstants }
+ str_WarnTimeMachineOnCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'WarnTimeMachineOnCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы WarnTimeMachineOn }
  WarnTimeMachineOnName = 'WarnTimeMachineOn';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_WarnTimeMachineOnCaption.Init;
+ {* Инициализация str_WarnTimeMachineOnCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_WarnTimeMachineOn.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_WarnTimeMachineOn }

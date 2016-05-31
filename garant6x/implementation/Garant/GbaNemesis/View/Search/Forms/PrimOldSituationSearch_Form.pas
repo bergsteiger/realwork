@@ -1,131 +1,112 @@
 unit PrimOldSituationSearch_Form;
+ {* Поиск по ситуации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimOldSituationSearch_Form.pas"
-// Начат: 28.10.2009 20:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Основные прецеденты::Search::View::Search::PrimOldSituationSearch
-//
-// Поиск по ситуации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimOldSituationSearch_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimOldSituationSearch" MUID: (4AE8831A02A5)
+// Имя типа: "TPrimOldSituationSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SearchUnit,
-  nsQueryInterfaces,
-  Messages,
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Text_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  SearchLite_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimOldSituationSearch_cutOldKeyWord_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  Controls {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Text_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , nsQueryInterfaces
+ , vtPanel
+ , SearchUnit
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , vtProportionalPanel
+ , vtSizeablePanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { OldSituationSearch_Form msg }
  CM_AFTER_INIT = WM_USER + 201;
 
 type
- TPrimOldSituationSearchForm = {abstract form} class(TvcmContainerForm)
+ TPrimOldSituationSearchForm = {abstract} class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Поиск по ситуации }
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_ContextFilter : TnscContextFilter;
-    {* Поле для свойства ContextFilter}
-   f_InnerBackgroundPanel : TvtProportionalPanel;
-    {* Поле для свойства InnerBackgroundPanel}
-   f_BotomPanel : TvtSizeablePanel;
-    {* Поле для свойства BotomPanel}
-   f_ParentZone : TvtPanel;
-    {* Поле для свойства ParentZone}
-   f_ZoneContainer : TvtProportionalPanel;
-    {* Поле для свойства ZoneContainer}
-   f_ChildZone : TvtPanel;
-    {* Поле для свойства ChildZone}
-   f_MainZone : TvtSizeablePanel;
-    {* Поле для свойства MainZone}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_ContextFilter: TnscContextFilter;
+   f_InnerBackgroundPanel: TvtProportionalPanel;
+   f_BotomPanel: TvtSizeablePanel;
+   f_ParentZone: TvtPanel;
+   f_ZoneContainer: TvtProportionalPanel;
+   f_ChildZone: TvtPanel;
+   f_MainZone: TvtSizeablePanel;
+  protected
+   f_FormState: InsQueryFormState;
+  private
    procedure ContextFilterChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ContextFilterWrongContext(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure AfterInit(var Message: TMessage); message CM_AFTER_INIT;
- protected
- // realized methods
+  protected
+   function FillQuery: IQuery;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure FormInsertedIntoContainer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
    procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
-   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
    procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
    procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
@@ -136,123 +117,58 @@ type
    procedure ContextParams_ContextChanged(const aParams: IvcmExecuteParams);
    procedure SearchParameters_ClearQuery_Execute;
    procedure SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure FormInsertedIntoContainer; override;
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_FormState : InsQueryFormState;
- protected
- // protected methods
-   function FillQuery: IQuery;
- public
- // public properties
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property ContextFilter: TnscContextFilter
-     read f_ContextFilter;
+    read f_ContextFilter;
    property InnerBackgroundPanel: TvtProportionalPanel
-     read f_InnerBackgroundPanel;
+    read f_InnerBackgroundPanel;
    property BotomPanel: TvtSizeablePanel
-     read f_BotomPanel;
+    read f_BotomPanel;
    property ParentZone: TvtPanel
-     read f_ParentZone;
+    read f_ParentZone;
    property ZoneContainer: TvtProportionalPanel
-     read f_ZoneContainer;
+    read f_ZoneContainer;
    property ChildZone: TvtPanel
-     read f_ChildZone;
+    read f_ChildZone;
    property MainZone: TvtSizeablePanel
-     read f_MainZone;
+    read f_MainZone;
  end;//TPrimOldSituationSearchForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  DataAdapter,
-  nsQuery,
-  l3InterfacesMisc,
-  nsQueryUtils,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , DataAdapter
+ , nsQuery
+ , l3InterfacesMisc
+ , nsQueryUtils
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimOldSituationSearch_cutOldKeyWord_UserType
+ //#UC START# *4AE8831A02A5impl_uses*
+ , vcmEntityForm
+ , l3Base
+ //#UC END# *4AE8831A02A5impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки cutOldKeyWordLocalConstants }
-  str_cutOldKeyWordCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordCaption'; rValue : 'Поиск по ситуации');
-   { Заголовок пользовательского типа "Поиск по ситуации" }
-  str_cutOldKeyWordSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cutOldKeyWordSettingsCaption'; rValue : 'Поиск: По ситуации (Преемственный)');
-   { Заголовок пользовательского типа "Поиск по ситуации" для настройки панелей инструментов }
-
-// start class TPrimOldSituationSearchForm
-
-procedure TPrimOldSituationSearchForm.ContextFilterChange(Sender: TObject);
-//#UC START# *5245624602AE_4AE8831A02A5_var*
-//#UC END# *5245624602AE_4AE8831A02A5_var*
-begin
-//#UC START# *5245624602AE_4AE8831A02A5_impl*
- Op_Context_SetContext.Call(Aggregate, ContextFilter.MakeState);
-//#UC END# *5245624602AE_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.ContextFilterChange
-
-procedure TPrimOldSituationSearchForm.ContextFilterWrongContext(Sender: TObject);
-//#UC START# *524562520333_4AE8831A02A5_var*
-//#UC END# *524562520333_4AE8831A02A5_var*
-begin
-//#UC START# *524562520333_4AE8831A02A5_impl*
- nsBeepWrongContext;
-//#UC END# *524562520333_4AE8831A02A5_impl*
-end;//TPrimOldSituationSearchForm.ContextFilterWrongContext
-
+{$If NOT Defined(NoVCM)}
 function TPrimOldSituationSearchForm.FillQuery: IQuery;
 //#UC START# *52442A050274_4AE8831A02A5_var*
 //#UC END# *52442A050274_4AE8831A02A5_var*
@@ -271,6 +187,24 @@ begin
   Op_AttributeTree_SaveToQuery.Call(Aggregate, Result);
 //#UC END# *52442A050274_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.FillQuery
+
+procedure TPrimOldSituationSearchForm.ContextFilterChange(Sender: TObject);
+//#UC START# *5245624602AE_4AE8831A02A5_var*
+//#UC END# *5245624602AE_4AE8831A02A5_var*
+begin
+//#UC START# *5245624602AE_4AE8831A02A5_impl*
+ Op_Context_SetContext.Call(Aggregate, ContextFilter.MakeState);
+//#UC END# *5245624602AE_4AE8831A02A5_impl*
+end;//TPrimOldSituationSearchForm.ContextFilterChange
+
+procedure TPrimOldSituationSearchForm.ContextFilterWrongContext(Sender: TObject);
+//#UC START# *524562520333_4AE8831A02A5_var*
+//#UC END# *524562520333_4AE8831A02A5_var*
+begin
+//#UC START# *524562520333_4AE8831A02A5_impl*
+ nsBeepWrongContext;
+//#UC END# *524562520333_4AE8831A02A5_impl*
+end;//TPrimOldSituationSearchForm.ContextFilterWrongContext
 
 procedure TPrimOldSituationSearchForm.AfterInit(var Message: TMessage);
 //#UC START# *524565FD004E_4AE8831A02A5_var*
@@ -303,10 +237,10 @@ end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty_Execute
 procedure TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
-  ResultValue := SearchParameters_IsQueryEmpty_Execute;
-end;
+  ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty
 
-function TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+function TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
 //#UC START# *4AE884E803AA_4AE8831A02A5exec_var*
 //#UC END# *4AE884E803AA_4AE8831A02A5exec_var*
 begin
@@ -325,8 +259,8 @@ end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute
 procedure TPrimOldSituationSearchForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_GetQuery_Params) do
-  ResultValue := SearchParameters_GetQuery_Execute(IgnoreError);
-end;
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery
 
 function TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute: Boolean;
 //#UC START# *4AE8A577027D_4AE8831A02A5exec_var*
@@ -340,8 +274,8 @@ end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute
 procedure TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
-  ResultValue := SearchParameters_IsQuerySaved_Execute;
-end;
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved
 
 procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
 //#UC START# *4AEF213001F0_4AE8831A02A5exec_var*
@@ -364,11 +298,11 @@ end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute
 procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As ISearchParameters_SetQuery_Params) do
-  SearchParameters_SetQuery_Execute(Query);
-end;
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery
 
 procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute(const aContextState: InscContextFilterState;
-  const aContextTarget: Il3ContextFilterTarget);
+ const aContextTarget: Il3ContextFilterTarget);
 //#UC START# *4AF4008101F4_4AE8831A02A5exec_var*
 //#UC END# *4AF4008101F4_4AE8831A02A5exec_var*
 begin
@@ -382,8 +316,8 @@ end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute
 procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IContextParams_ContextChanged_Params) do
-  ContextParams_ContextChanged_Execute(ContextState, ContextTarget);
-end;
+  Self.ContextParams_ContextChanged_Execute(ContextState, ContextTarget);
+end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged
 
 procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery_Execute;
 //#UC START# *4AF92B09017F_4AE8831A02A5exec_var*
@@ -398,10 +332,11 @@ end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery_Execute
 
 procedure TPrimOldSituationSearchForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
- SearchParameters_ClearQuery_Execute;
-end;
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimOldSituationSearchForm.SearchParameters_ClearQuery
 
 procedure TPrimOldSituationSearchForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AE8831A02A5_var*
 //#UC END# *479731C50290_4AE8831A02A5_var*
 begin
@@ -429,10 +364,10 @@ begin
 //#UC END# *47A042E100E2_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.InitFields
 
-{$If not defined(NoVCM)}
 function TPrimOldSituationSearchForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_4AE8831A02A5_var*
 //#UC END# *49806ED503D5_4AE8831A02A5_var*
 begin
@@ -441,11 +376,10 @@ begin
   theState := f_FormState as IvcmBase;
 //#UC END# *49806ED503D5_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.DoSaveState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimOldSituationSearchForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4AE8831A02A5_var*
 //#UC END# *49807428008C_4AE8831A02A5_var*
 begin
@@ -455,10 +389,9 @@ begin
    Assert(False);
 //#UC END# *49807428008C_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimOldSituationSearchForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AE8831A02A5_var*
 //#UC END# *4A8E8F2E0195_4AE8831A02A5_var*
 begin
@@ -518,9 +451,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimOldSituationSearchForm.FormInsertedIntoContainer;
 //#UC START# *4F7C65380244_4AE8831A02A5_var*
 //#UC END# *4F7C65380244_4AE8831A02A5_var*
@@ -530,18 +461,16 @@ begin
  PostMessage(Handle, CM_AFTER_INIT, 0, 0);
 //#UC END# *4F7C65380244_4AE8831A02A5_impl*
 end;//TPrimOldSituationSearchForm.FormInsertedIntoContainer
-{$IfEnd} //not NoVCM
 
 procedure TPrimOldSituationSearchForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FormState := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimOldSituationSearchForm.ClearFields
 
 procedure TPrimOldSituationSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -556,7 +485,7 @@ begin
   PublishOpWithResult(en_ContextParams, op_ContextChanged, ContextParams_ContextChanged, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_ClearQuery, SearchParameters_ClearQuery, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimOldSituationSearchForm.InitEntities
 
 procedure TPrimOldSituationSearchForm.MakeControls;
 begin
@@ -564,7 +493,7 @@ begin
  with AddUsertype(cutOldKeyWordName,
   str_cutOldKeyWordCaption,
   str_cutOldKeyWordSettingsCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -589,41 +518,33 @@ begin
  f_ParentZone := TvtPanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := BotomPanel;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
   FormStyle.Toolbars.Bottom.MergeWithContainer := vcm_bTrue;
- end;//with DefineZone(vcm_ztParent, f_ParentZone)
+ end;//with DefineZone(vcm_ztParent
  f_ZoneContainer := TvtProportionalPanel.Create(Self);
  f_ZoneContainer.Name := 'ZoneContainer';
  f_ZoneContainer.Parent := InnerBackgroundPanel;
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := ZoneContainer;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
- end;//with DefineZone(vcm_ztChild, f_ChildZone)
+ end;//with DefineZone(vcm_ztChild
  f_MainZone := TvtSizeablePanel.Create(Self);
  f_MainZone.Name := 'MainZone';
  f_MainZone.Parent := ZoneContainer;
- with DefineZone(vcm_ztMain, f_MainZone) do
+ with DefineZone(vcm_ztMain, MainZone) do
  begin
- end;//with DefineZone(vcm_ztMain, f_MainZone)
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ end;//with DefineZone(vcm_ztMain
+end;//TPrimOldSituationSearchForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cutOldKeyWordCaption
- str_cutOldKeyWordCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cutOldKeyWordSettingsCaption
- str_cutOldKeyWordSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimOldSituationSearch
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimOldSituationSearchForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimOldSituationSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

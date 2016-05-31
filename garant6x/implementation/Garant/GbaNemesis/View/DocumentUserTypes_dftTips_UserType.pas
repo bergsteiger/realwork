@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки dftTipsLocalConstants }
+ str_dftTipsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftTipsCaption'; rValue : 'Совет дня');
+  {* Заголовок пользовательского типа "Совет дня" }
+ str_dftTipsSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'dftTipsSettingsCaption'; rValue : 'Совет дня: Текст совета');
+  {* Заголовок пользовательского типа "Совет дня" для настройки панелей инструментов }
  {* Константы для типа формы dftTips }
  dftTipsName = 'dftTips';
   {* Строковый идентификатор пользовательского типа "Совет дня" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_dftTips.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_dftTipsCaption.Init;
+ {* Инициализация str_dftTipsCaption }
+ str_dftTipsSettingsCaption.Init;
+ {* Инициализация str_dftTipsSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_dftTips.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_dftTips }

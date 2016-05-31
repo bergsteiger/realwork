@@ -15,9 +15,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки OldBaseWarningLocalConstants }
+ str_OldBaseWarningCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'OldBaseWarningCaption'; rValue : '');
+  {* Заголовок пользовательского типа "" }
  {* Константы для типа формы OldBaseWarning }
  OldBaseWarningName = 'OldBaseWarning';
   {* Строковый идентификатор пользовательского типа "" }
@@ -57,6 +61,8 @@ end;//Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_OldBaseWarningCaption.Init;
+ {* Инициализация str_OldBaseWarningCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_OldBaseWarning.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_OldBaseWarning }

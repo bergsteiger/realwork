@@ -13,9 +13,13 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки ut_QFLikeTextLoadLocalConstants }
+ str_ut_QFLikeTextLoadCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_QFLikeTextLoadCaption'; rValue : 'Форма для работы с КЗ');
+  {* Заголовок пользовательского типа "Форма для работы с КЗ" }
  {* Константы для типа формы ut_QFLikeTextLoad }
  ut_QFLikeTextLoadName = 'ut_QFLikeTextLoad';
   {* Строковый идентификатор пользовательского типа "Форма для работы с КЗ" }
@@ -56,6 +60,8 @@ end;//Tkw_FormUserType_ut_QFLikeTextLoad.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_ut_QFLikeTextLoadCaption.Init;
+ {* Инициализация str_ut_QFLikeTextLoadCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_ut_QFLikeTextLoad.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_ut_QFLikeTextLoad }

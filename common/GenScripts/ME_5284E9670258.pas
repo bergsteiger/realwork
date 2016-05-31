@@ -14,8 +14,8 @@ uses
  l3IntfUses
  , tfwWordWorker
  , kwCompiledWordWorker
- , tfwScriptingInterfaces
  , kwCompiledWordPrim
+ , tfwScriptingInterfaces
 ;
 
 type

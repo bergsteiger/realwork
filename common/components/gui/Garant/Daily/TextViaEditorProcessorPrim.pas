@@ -109,6 +109,10 @@ uses
  , evCustomEditorWindow
  , Messages
  , TestFrameWork
+ , TextLoad_ut_TextLoad_UserType
+ , F1LikeTextLoad_ut_F1LikeTextLoad_UserType
+ , QFLikeTextLoad_ut_QFLikeTextLoad_UserType
+ , F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType
 ;
 
 {$If NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}

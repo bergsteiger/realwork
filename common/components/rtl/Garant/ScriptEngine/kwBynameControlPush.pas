@@ -13,10 +13,10 @@ interface
 uses
  l3IntfUses
  , kwControlWord
+ , TypInfo
  , Controls
  , tfwScriptingInterfaces
  , Classes
- , TypInfo
 ;
 
 type

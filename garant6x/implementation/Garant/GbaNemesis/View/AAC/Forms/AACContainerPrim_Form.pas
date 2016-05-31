@@ -1,175 +1,126 @@
 unit AACContainerPrim_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/AAC/Forms/AACContainerPrim_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Пользовательские сервисы::AAC::View::AAC::AACContainerPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "AACContainerPrim" MUID: (4FF2E935019A)
+// Имя типа: "TAACContainerPrimForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  evCustomEditorWindow
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  AACContainerPrim_AACContainer_UserType,
-  Base_Operations_AAC_Controls,
-  vtScrollBar,
-  AACContainerPrim_AACContentsContainer_UserType,
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmContainerForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , Base_Operations_AAC_Controls
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtProportionalPanel
+ , vtScrollBar
+ , vtPanel
+ , vtSizeablePanel
+ , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TAACContainerPrimForm = {form} class(TvcmContainerForm)
- private
- // private fields
-   f_TabCaption : IvcmCString;
-   f_pnBack : TvtProportionalPanel;
-    {* Поле для свойства pnBack}
-   f_pnRightEx : TvtPanel;
-    {* Поле для свойства pnRightEx}
-   f_pnRightForScroll : TvtPanel;
-    {* Поле для свойства pnRightForScroll}
-   f_pnRight : TvtPanel;
-    {* Поле для свойства pnRight}
-   f_pnlRightTop : TvtPanel;
-    {* Поле для свойства pnlRightTop}
-   f_scrRight : TvtScrollBar;
-    {* Поле для свойства scrRight}
-   f_pnLeftEx : TvtSizeablePanel;
-    {* Поле для свойства pnLeftEx}
-   f_pnLeftForScroll : TvtPanel;
-    {* Поле для свойства pnLeftForScroll}
-   f_pnlLeftTop : TvtPanel;
-    {* Поле для свойства pnlLeftTop}
-   f_pnLeft : TvtPanel;
-    {* Поле для свойства pnLeft}
-   f_scrLeft : TvtScrollBar;
-    {* Поле для свойства scrLeft}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
+ TAACContainerPrimForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_TabCaption: IvcmCString;
+   f_pnBack: TvtProportionalPanel;
+   f_pnRightEx: TvtPanel;
+   f_pnRightForScroll: TvtPanel;
+   f_pnRight: TvtPanel;
+   f_pnlRightTop: TvtPanel;
+   f_scrRight: TvtScrollBar;
+   f_pnLeftEx: TvtSizeablePanel;
+   f_pnLeftForScroll: TvtPanel;
+   f_pnlLeftTop: TvtPanel;
+   f_pnLeft: TvtPanel;
+   f_scrLeft: TvtScrollBar;
+  protected
+   function DoGetVScrollBar(aLeft: Boolean): TvtScrollBar; virtual;
+   procedure DoSetJumpTo(aJumpTo: TevJumpToEvent); virtual;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetTabCaption: IvcmCString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SetTabCaption(const aTabCaption: IvcmCString); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    function AACTextContainer_GetVScrollBar_Execute(aLeft: Boolean): TvtScrollBar;
    procedure AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParams);
    procedure AACTextContainer_SetJumpTo_Execute(aJumpTo: TevJumpToEvent);
    procedure AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure SetTabCaption(const aTabCaption: IvcmCString); override;
-    {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function DoGetVScrollBar(aLeft: Boolean): TvtScrollBar; virtual;
-   procedure DoSetJumpTo(aJumpTo: TevJumpToEvent); virtual;
- public
- // public properties
+  public
    property pnBack: TvtProportionalPanel
-     read f_pnBack;
+    read f_pnBack;
    property pnRightEx: TvtPanel
-     read f_pnRightEx;
+    read f_pnRightEx;
    property pnRightForScroll: TvtPanel
-     read f_pnRightForScroll;
+    read f_pnRightForScroll;
    property pnRight: TvtPanel
-     read f_pnRight;
+    read f_pnRight;
    property pnlRightTop: TvtPanel
-     read f_pnlRightTop;
+    read f_pnlRightTop;
    property scrRight: TvtScrollBar
-     read f_scrRight;
+    read f_scrRight;
    property pnLeftEx: TvtSizeablePanel
-     read f_pnLeftEx;
+    read f_pnLeftEx;
    property pnLeftForScroll: TvtPanel
-     read f_pnLeftForScroll;
+    read f_pnLeftForScroll;
    property pnlLeftTop: TvtPanel
-     read f_pnlLeftTop;
+    read f_pnlLeftTop;
    property pnLeft: TvtPanel
-     read f_pnLeft;
+    read f_pnLeft;
    property scrLeft: TvtScrollBar
-     read f_scrLeft;
+    read f_scrLeft;
  end;//TAACContainerPrimForm
-
- TvcmContainerFormRef = TAACContainerPrimForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsConst
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , AACContainerPrim_AACContainer_UserType
+ , AACContainerPrim_AACContentsContainer_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4FF2E935019Aimpl_uses*
+ //#UC END# *4FF2E935019Aimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки AACContainerLocalConstants }
-  str_AACContainerCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContainerCaption'; rValue : '');
-   { Заголовок пользовательского типа "" }
-
-var
-   { Локализуемые строки AACContentsContainerLocalConstants }
-  str_AACContentsContainerCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'AACContentsContainerCaption'; rValue : '');
-   { Заголовок пользовательского типа "" }
-
-// start class TAACContainerPrimForm
-
+{$If NOT Defined(NoVCM)}
 function TAACContainerPrimForm.DoGetVScrollBar(aLeft: Boolean): TvtScrollBar;
 //#UC START# *503CE2E2021B_4FF2E935019A_var*
 //#UC END# *503CE2E2021B_4FF2E935019A_var*
@@ -202,8 +153,8 @@ end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar_Execute
 procedure TAACContainerPrimForm.AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAACTextContainer_GetVScrollBar_Params) do
-  ResultValue := AACTextContainer_GetVScrollBar_Execute(Left);
-end;
+  ResultValue := Self.AACTextContainer_GetVScrollBar_Execute(Left);
+end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar
 
 procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute(aJumpTo: TevJumpToEvent);
 //#UC START# *5006ED2300F9_4FF2E935019Aexec_var*
@@ -217,11 +168,11 @@ end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute
 procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParams);
 begin
  with (aParams.Data As IAACTextContainer_SetJumpTo_Params) do
-  AACTextContainer_SetJumpTo_Execute(JumpTo);
-end;
+  Self.AACTextContainer_SetJumpTo_Execute(JumpTo);
+end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo
 
-{$If not defined(NoVCM)}
 procedure TAACContainerPrimForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4FF2E935019A_var*
 //#UC END# *4A8E8F2E0195_4FF2E935019A_var*
 begin
@@ -294,9 +245,7 @@ begin
  inherited;
 //#UC END# *4A8E8F2E0195_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TAACContainerPrimForm.DoGetTabCaption: IvcmCString;
 //#UC START# *53F1C6EF02C9_4FF2E935019A_var*
 //#UC END# *53F1C6EF02C9_4FF2E935019A_var*
@@ -305,9 +254,7 @@ begin
  Result := f_TabCaption;
 //#UC END# *53F1C6EF02C9_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.DoGetTabCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TAACContainerPrimForm.SetTabCaption(const aTabCaption: IvcmCString);
 //#UC START# *542A6DA20026_4FF2E935019A_var*
 var
@@ -321,9 +268,10 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=565492823
 //#UC END# *542A6DA20026_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.SetTabCaption
-{$IfEnd} //not NoVCM
 
 procedure TAACContainerPrimForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -332,7 +280,7 @@ begin
   PublishOpWithResult(en_AACTextContainer, op_GetVScrollBar, AACTextContainer_GetVScrollBar, nil, nil);
   PublishOpWithResult(en_AACTextContainer, op_SetJumpTo, AACTextContainer_SetJumpTo, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TAACContainerPrimForm.InitEntities
 
 procedure TAACContainerPrimForm.MakeControls;
 begin
@@ -340,7 +288,7 @@ begin
  with AddUsertype(AACContainerName,
   str_AACContainerCaption,
   str_AACContainerCaption,
-  true,
+  True,
   21,
   -1,
   '',
@@ -350,6 +298,19 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(AACContainerName
+ with AddUsertype(AACContentsContainerName,
+  str_AACContentsContainerCaption,
+  str_AACContentsContainerCaption,
+  True,
+  21,
+  -1,
+  '',
+  nil,
+  nil,
+  nil,
+  vcm_ccNone) do
+ begin
+ end;//with AddUsertype(AACContentsContainerName
  f_pnBack := TvtProportionalPanel.Create(Self);
  f_pnBack.Name := 'pnBack';
  f_pnBack.Parent := Self;
@@ -362,9 +323,9 @@ begin
  f_pnRight := TvtPanel.Create(Self);
  f_pnRight.Name := 'pnRight';
  f_pnRight.Parent := pnRightForScroll;
- with DefineZone(vcm_ztMain, f_pnRight) do
+ with DefineZone(vcm_ztMain, pnRight) do
  begin
- end;//with DefineZone(vcm_ztMain, f_pnRight)
+ end;//with DefineZone(vcm_ztMain
  f_pnlRightTop := TvtPanel.Create(Self);
  f_pnlRightTop.Name := 'pnlRightTop';
  f_pnlRightTop.Parent := pnRightForScroll;
@@ -383,41 +344,20 @@ begin
  f_pnLeft := TvtPanel.Create(Self);
  f_pnLeft.Name := 'pnLeft';
  f_pnLeft.Parent := pnLeftForScroll;
- with DefineZone(vcm_ztChild, f_pnLeft) do
+ with DefineZone(vcm_ztChild, pnLeft) do
  begin
- end;//with DefineZone(vcm_ztChild, f_pnLeft)
+ end;//with DefineZone(vcm_ztChild
  f_scrLeft := TvtScrollBar.Create(Self);
  f_scrLeft.Name := 'scrLeft';
  f_scrLeft.Parent := pnLeftEx;
- with AddUsertype(AACContentsContainerName,
-  str_AACContentsContainerCaption,
-  str_AACContentsContainerCaption,
-  true,
-  21,
-  -1,
-  '',
-  nil,
-  nil,
-  nil,
-  vcm_ccNone) do
- begin
- end;//with AddUsertype(AACContentsContainerName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TAACContainerPrimForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_AACContainerCaption
- str_AACContainerCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_AACContentsContainerCaption
- str_AACContentsContainerCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация AACContainerPrim
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAACContainerPrimForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация AACContainerPrim }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

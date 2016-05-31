@@ -16,9 +16,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки lftDrugInternationalNameSynonymsSynchroFormLocalConstants }
+ str_lftDrugInternationalNameSynonymsSynchroFormCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftDrugInternationalNameSynonymsSynchroFormCaption'; rValue : 'Синхронный просмотр (синонимы по международному названию)');
+  {* Заголовок пользовательского типа "Синхронный просмотр (синонимы по международному названию)" }
+ str_lftDrugInternationalNameSynonymsSynchroFormSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'lftDrugInternationalNameSynonymsSynchroFormSettingsCaption'; rValue : 'Синхронный просмотр: Синонимы по международному названию');
+  {* Заголовок пользовательского типа "Синхронный просмотр (синонимы по международному названию)" для настройки панелей инструментов }
  {* Константы для типа формы lftDrugInternationalNameSynonymsSynchroForm }
  lftDrugInternationalNameSynonymsSynchroFormName = 'lftDrugInternationalNameSynonymsSynchroForm';
   {* Строковый идентификатор пользовательского типа "Синхронный просмотр (синонимы по международному названию)" }
@@ -59,6 +65,10 @@ end;//Tkw_FormUserType_lftDrugInternationalNameSynonymsSynchroForm.GetWordNameFo
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization
+ str_lftDrugInternationalNameSynonymsSynchroFormCaption.Init;
+ {* Инициализация str_lftDrugInternationalNameSynonymsSynchroFormCaption }
+ str_lftDrugInternationalNameSynonymsSynchroFormSettingsCaption.Init;
+ {* Инициализация str_lftDrugInternationalNameSynonymsSynchroFormSettingsCaption }
 {$If NOT Defined(NoScripts)}
  Tkw_FormUserType_lftDrugInternationalNameSynonymsSynchroForm.RegisterInEngine;
  {* Регистрация Tkw_FormUserType_lftDrugInternationalNameSynonymsSynchroForm }

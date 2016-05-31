@@ -1,55 +1,40 @@
 {$IfNDef DictionContainerUserTypes_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DictionContainerUserTypes.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Встроенные продукты::DictionLike::View::DictionLikeForms::DictionContainerUserTypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "DictionContainerUserTypes" MUID: (4F5DB67E02FA)
+// Имя типа: "_DictionContainerUserTypes_"
 
 {$Define DictionContainerUserTypes_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- _DictionContainerUserTypes_ = {abstract form} class(_DictionContainerUserTypes_Parent_)
- protected
-  procedure MakeControls; override;
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ _DictionContainerUserTypes_ = {abstract} class(_DictionContainerUserTypes_Parent_)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_DictionContainerUserTypes_
-{$Else}
 
- _DictionContainerUserTypes_ = _DictionContainerUserTypes_Parent_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+_DictionContainerUserTypes_ = _DictionContainerUserTypes_Parent_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else DictionContainerUserTypes_imp}
 
 {$IfNDef DictionContainerUserTypes_imp_impl}
+
 {$Define DictionContainerUserTypes_imp_impl}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки slqtDictionLocalConstants }
-  str_slqtDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtDictionCaption'; rValue : 'Толковый словарь');
-   { Заголовок пользовательского типа "Толковый словарь" }
-
-var
-   { Локализуемые строки slqtMedicDictionLocalConstants }
-  str_slqtMedicDictionCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'slqtMedicDictionCaption'; rValue : 'Словарь медицинских терминов');
-   { Заголовок пользовательского типа "Словарь медицинских терминов" }
-
-// start class _DictionContainerUserTypes_
-
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
 procedure _DictionContainerUserTypes_.MakeControls;
 begin
  inherited;
  with AddUsertype(slqtDictionName,
   str_slqtDictionCaption,
   str_slqtDictionCaption,
-  true,
+  True,
   60,
   -1,
   '',
@@ -62,7 +47,7 @@ begin
  with AddUsertype(slqtMedicDictionName,
   str_slqtMedicDictionCaption,
   str_slqtMedicDictionCaption,
-  true,
+  True,
   182,
   -1,
   '',
@@ -72,17 +57,11 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(slqtMedicDictionName
-end;
+end;//_DictionContainerUserTypes_.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else  DictionContainerUserTypes_imp_impl}
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_slqtDictionCaption
- str_slqtDictionCaption.Init;
-// Инициализация str_slqtMedicDictionCaption
- str_slqtMedicDictionCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf DictionContainerUserTypes_imp_impl}
+
 {$EndIf DictionContainerUserTypes_imp}
+

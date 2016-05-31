@@ -14,9 +14,9 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
+ , elCustomEdit
  , vcmInterfaces
  , vcmEntities
- , elCustomEdit
 ;
 
 const
@@ -51,11 +51,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -64,11 +62,6 @@ uses
  , elCustomEditKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
-
-const
- {* Локализуемые строки ut_elCustomEditLocalConstants }
- str_ut_elCustomEditCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_elCustomEditCaption'; rValue : 'Форма для тестирования TelCustomEdit');
-  {* Заголовок пользовательского типа "Форма для тестирования TelCustomEdit" }
 
 {$R *.DFM}
 
@@ -106,8 +99,6 @@ begin
 end;//TelCustomEditForm.MakeControls
 
 initialization
- str_ut_elCustomEditCaption.Init;
- {* Инициализация str_ut_elCustomEditCaption }
  fm_elCustomEditForm.SetFactory(TelCustomEditForm.Make);
  {* Регистрация фабрики формы elCustomEdit }
 {$If NOT Defined(NoScripts)}

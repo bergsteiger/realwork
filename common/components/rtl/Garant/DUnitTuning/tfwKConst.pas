@@ -14,24 +14,28 @@ uses
  l3IntfUses
 ;
 
-const
 {$If Defined(Archi)}
+const
  KUser = 'architester';
  KUserPassword = '6v2K3024';
 {$IfEnd} // Defined(Archi)
 {$If Defined(Nemesis) AND Defined(InsiderTest)}
+const
  KUser = 'f1tester';
  KUserPassword = 'f1_tester_user';
 {$IfEnd} // Defined(Nemesis) AND Defined(InsiderTest)
 {$If NOT Defined(Nemesis) AND NOT Defined(Archi) AND NOT Defined(EverestLite)}
+const
  KUser = '';
  KUserPassword = '';
 {$IfEnd} // NOT Defined(Nemesis) AND NOT Defined(Archi) AND NOT Defined(EverestLite)
 {$If Defined(Nemesis) AND NOT Defined(InsiderTest)}
+const
  KUser = 'shdtester';
  KUserPassword = 'shdtester';
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(InsiderTest)
 {$If Defined(EverestLite)}
+const
  KUser = 'architester';
  KUserPassword = '6v2K3024';
 {$IfEnd} // Defined(EverestLite)

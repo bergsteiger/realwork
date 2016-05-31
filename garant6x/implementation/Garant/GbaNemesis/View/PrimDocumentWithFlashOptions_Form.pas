@@ -1,124 +1,101 @@
 unit PrimDocumentWithFlashOptions_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimDocumentWithFlashOptions_Form.pas"
-// Начат: 08.09.2010 16:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::DocumentWithFlash::PrimDocumentWithFlashOptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlashOptions_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDocumentWithFlashOptions" MUID: (4C87849303A6)
+// Имя типа: "TPrimDocumentWithFlashOptionsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  PrimDocumentWithFlash_Form,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , PrimDocumentWithFlash_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimDocumentWithFlashOptionsForm = {form} class(TPrimDocumentWithFlashForm)
- protected
-  procedure InitEntities; override;
+ TPrimDocumentWithFlashOptionsForm = class(TPrimDocumentWithFlashForm)
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimDocumentWithFlashOptionsForm
-
- TvcmEntityFormRef = TPrimDocumentWithFlashOptionsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  Base_Operations_Strange_Controls,
-  Base_Operations_Editions_Controls,
-  Common_Strange_Controls
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Base_Operations_Strange_Controls
+ , Common_Strange_Controls
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4C87849303A6impl_uses*
+ //#UC END# *4C87849303A6impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimDocumentWithFlashOptionsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimDocumentWithFlashOptionsForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
-  
-  ShowInContextMenu(en_Document, op_NextDocumentInList, false);
-  ShowInToolbar(en_Document, op_NextDocumentInList, false);
-  
-  ShowInContextMenu(en_Document, op_ReturnToList, false);
-  ShowInToolbar(en_Document, op_ReturnToList, false);
-  
-  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, false);
-  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_AddBookmark, false);
-  ShowInToolbar(en_Document, op_AddBookmark, false);
-  
-  ShowInContextMenu(en_Document, op_GetCorrespondentList, false);
-  ShowInToolbar(en_Document, op_GetCorrespondentList, false);
-  
-  ShowInContextMenu(en_Document, op_GetRespondentList, false);
-  ShowInToolbar(en_Document, op_GetRespondentList, false);
-  
-  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, false);
-  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, false);
-  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, false);
-  ShowInToolbar(en_Document, op_GetAttributesFrmAct, true);
-  
-  ShowInContextMenu(en_Document, op_AddToControl, false);
-  ShowInToolbar(en_Document, op_AddToControl, true);
-  
-  ShowInContextMenu(en_Document, op_UserCR1, false);
-  ShowInToolbar(en_Document, op_UserCR1, true);
-  
-  ShowInContextMenu(en_Document, op_UserCR2, false);
-  ShowInToolbar(en_Document, op_UserCR2, true);
-  
-  ShowInContextMenu(en_Document, op_PrevDocumentInList, false);
-  ShowInToolbar(en_Document, op_PrevDocumentInList, false);
-  
-  ShowInContextMenu(en_Document, op_DocumentIsUseful, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseful, false);
-  
-  ShowInContextMenu(en_Document, op_DocumentIsUseless, false);
-  ShowInToolbar(en_Document, op_DocumentIsUseless, false);
+  ShowInContextMenu(en_Document, op_NextDocumentInList, False);
+  ShowInToolbar(en_Document, op_NextDocumentInList, False);
+  ShowInContextMenu(en_Document, op_ReturnToList, False);
+  ShowInToolbar(en_Document, op_ReturnToList, False);
+  ShowInContextMenu(en_Document, op_GetRelatedDocFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRelatedDocFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddBookmark, False);
+  ShowInToolbar(en_Document, op_AddBookmark, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentList, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentList, False);
+  ShowInContextMenu(en_Document, op_GetRespondentList, False);
+  ShowInToolbar(en_Document, op_GetRespondentList, False);
+  ShowInContextMenu(en_Document, op_GetCorrespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetCorrespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetRespondentListExFrmAct, False);
+  ShowInToolbar(en_Document, op_GetRespondentListExFrmAct, True);
+  ShowInContextMenu(en_Document, op_GetAttributesFrmAct, False);
+  ShowInToolbar(en_Document, op_GetAttributesFrmAct, True);
+  ShowInContextMenu(en_Document, op_AddToControl, False);
+  ShowInToolbar(en_Document, op_AddToControl, True);
+  ShowInContextMenu(en_Document, op_UserCR1, False);
+  ShowInToolbar(en_Document, op_UserCR1, True);
+  ShowInContextMenu(en_Document, op_UserCR2, False);
+  ShowInToolbar(en_Document, op_UserCR2, True);
+  ShowInContextMenu(en_Document, op_PrevDocumentInList, False);
+  ShowInToolbar(en_Document, op_PrevDocumentInList, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseful, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseful, False);
+  ShowInContextMenu(en_Document, op_DocumentIsUseless, False);
+  ShowInToolbar(en_Document, op_DocumentIsUseless, False);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDocumentWithFlashOptionsForm.InitEntities
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDocumentWithFlashOptions
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDocumentWithFlashOptionsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDocumentWithFlashOptions }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

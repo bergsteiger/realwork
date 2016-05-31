@@ -114,15 +114,10 @@ type
   private
    f_InitViewer: Boolean;
    f_ieIO: TImageEnIO;
-    {* Поле для свойства ieIO }
    f_ieViewer: TImageEnView;
-    {* Поле для свойства ieViewer }
    f_ieProc: TImageEnProc;
-    {* Поле для свойства ieProc }
    f_Scale: Integer;
-    {* Поле для свойства Scale }
    f_SaveDialog: TnsSaveDialog;
-    {* Поле для свойства SaveDialog }
   protected
    f_Info: InsLinkedObjectDescription;
    f_ValueMap: InsSpecialStringValueMap;
@@ -158,10 +153,10 @@ type
    {$If NOT Defined(NoVCM)}
    procedure FormInsertedIntoContainer; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
    function DoGetTabImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
@@ -197,7 +192,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , l3Stream
  , Classes
  , l3String
@@ -228,27 +222,21 @@ uses
  , giflzw
  {$IfEnd} // NOT Defined(NoImageEn)
  , nsTabbedInterfaceTypes
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimPicture_pfImage_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAFCFB0014Bimpl_uses*
+ //#UC END# *4AAFCFB0014Bimpl_uses*
 ;
 
 {$If NOT Defined(NoVCM)}
-const
- {* Локализуемые строки pfImageLocalConstants }
- str_pfImageCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageCaption'; rValue : 'Просмотр графического объекта');
-  {* Заголовок пользовательского типа "Просмотр графического объекта" }
- str_pfImageSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pfImageSettingsCaption'; rValue : 'Документ: Просмотр графического объекта');
-  {* Заголовок пользовательского типа "Просмотр графического объекта" для настройки панелей инструментов }
-
 constructor TPictureFormState.Create(const aCaption: Il3CString;
  aBitmap: TDelphiBitmap;
  aScale: Integer;
@@ -659,12 +647,6 @@ begin
 //#UC END# *4F7C65380244_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.FormInsertedIntoContainer
 
-procedure TPrimPictureForm.ClearFields;
-begin
- f_ValueMap := nil;
- inherited;
-end;//TPrimPictureForm.ClearFields
-
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 function TPrimPictureForm.DoGetTabImageIndex: Integer;
 //#UC START# *543E3AA801D0_4AAFCFB0014B_var*
@@ -675,6 +657,12 @@ begin
 //#UC END# *543E3AA801D0_4AAFCFB0014B_impl*
 end;//TPrimPictureForm.DoGetTabImageIndex
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
+procedure TPrimPictureForm.ClearFields;
+begin
+ f_ValueMap := nil;
+ inherited;
+end;//TPrimPictureForm.ClearFields
 
 procedure TPrimPictureForm.InitEntities;
  {* инициализирует сущности не из dfm.
@@ -694,7 +682,7 @@ begin
  with AddUsertype(pfImageName,
   str_pfImageCaption,
   str_pfImageSettingsCaption,
-  False,
+  True,
   -1,
   -1,
   '',
@@ -718,10 +706,6 @@ initialization
  DefGIF_LZWDECOMPFUNC:= GIFLZWDecompress;
  DefGIF_LZWCOMPFUNC:= GIFLZWCompress;
 //#UC END# *52496599037C*
- str_pfImageCaption.Init;
- {* Инициализация str_pfImageCaption }
- str_pfImageSettingsCaption.Init;
- {* Инициализация str_pfImageSettingsCaption }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPictureForm);
  {* Регистрация PrimPicture }
