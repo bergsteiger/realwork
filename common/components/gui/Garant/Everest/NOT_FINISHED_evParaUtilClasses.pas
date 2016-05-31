@@ -15,8 +15,8 @@ uses
  , evEditorInterfaces
  , nevTools
  , evdTypes
- , nevBase
  , k2Interfaces
+ , nevBase
 ;
 
 type

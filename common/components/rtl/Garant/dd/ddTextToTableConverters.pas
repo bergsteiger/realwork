@@ -18,9 +18,9 @@ uses
  , ddDocument
  , ddRowList
  , ddTableRow
- , ddVirtualTable
  , evdTypes
  , ddTableCell
+ , ddVirtualTable
  , l3Parser
 ;
 

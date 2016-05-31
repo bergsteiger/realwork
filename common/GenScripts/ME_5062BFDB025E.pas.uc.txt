@@ -27,10 +27,7 @@
   Area.rCanvas.FillEmptyRect(l3Rect(aRect.Left, l_Top, l_Right, l_Bottom));
  end //if Result then
  else
-  begin
-   DoFillEmptyRect(aRect);
-   Result := f_DontFill;
-  end;
+  DoFillEmptyRect(aRect);
 //#UC END# *5062C0F603BF_5062BFDB025E_impl*
 //#UC START# *5062C0F603BF_5062BFDB025E_var*
 var
@@ -67,8 +64,6 @@ var
  l_Y: Integer;
 //#UC END# *5062C38800CA_5062BFDB025E_var*
 //#UC START# *51FF64D702CE_5062BFDB025E_impl*
- if f_DontFill and aTop then
-  f_DontFill := False;
  with Area.rCanvas do
  begin
   PushWO;
@@ -104,15 +99,7 @@ var
        else
         l_Height := FormatInfo.DecorHeight(aDecorType);
        if l_HeaderOwnSpace then
-       begin
-        if Area.rCanvas.Printing then
-         if ClipRect.Bottom < (aSpace + l_Height) then
-         begin
-          f_DontFill := True;
-          Exit;
-         end; // if ClipRect.Bottom < (aSpace + l_Height) then
-        l_H := aSpace - l_Height;
-       end // if l_HeaderOwnSpace then
+        l_H := aSpace - l_Height
        else
        begin
         MoveWindowOrg(DP2LP(PointY(1)));

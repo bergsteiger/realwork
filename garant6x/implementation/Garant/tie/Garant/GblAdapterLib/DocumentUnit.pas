@@ -548,10 +548,10 @@ type
   procedure GetSameDocuments(out out_list: ICatalogBase); stdcall;
    {* ѕолучить список похожих документов }
   procedure GetServerDoc; stdcall;
-  class function Make(const document): BadFactoryType; overload; stdcall;
+  class function Make(const document); overload; stdcall;
   class function Make(const pid;
    is_edition: Boolean;
-   name: PAnsiChar): BadFactoryType; overload; stdcall;
+   name: PAnsiChar); overload; stdcall;
   function IsMorphoSearchSupported: ByteBool; stdcall;
    {* индексирован ли документ дл€ морфопоиска }
   function GetLinkInfo(doc_id: Cardinal;
@@ -782,7 +782,7 @@ K555095873 }
   ['{51778307-FE15-45BF-9A86-62A66BF81725}']
   function GetObject: IUnknown; stdcall;
   function GetObjectType: TLinkedObjectType; stdcall;
-  class function Make(const server_link): BadFactoryType; stdcall;
+  class function Make(const server_link); stdcall;
  end;//IObjectFromLink
 
 const

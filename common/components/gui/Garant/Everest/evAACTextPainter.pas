@@ -14,8 +14,8 @@ uses
  l3IntfUses
  , evTextParaPainter
  , l3Variant
- , l3Units
  , nevBase
+ , l3Units
 ;
 
 type

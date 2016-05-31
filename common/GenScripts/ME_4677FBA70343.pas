@@ -25,8 +25,6 @@ const
   {* изменение текущего состо€ни€ индикатора. }
  piEnd = 2;
   {* конец прогресса индикатора. }
-
-const
  {*  одировки символов. }
  CS_Ansi = Windows.ANSI_CHARSET;
  CS_OEM = Windows.OEM_CHARSET;
@@ -324,6 +322,10 @@ type
   procedure PutData(const aString: AnsiString); overload;
   procedure PutData(const aString: Il3CString); overload;
   procedure PutData(const aString: Tl3WString); overload;
+  procedure PutSimpleField(const aName: AnsiString;
+   const aAttributes: AnsiString;
+   const aData: AnsiString);
+   {* ”тилитный метод. ќткрывает тег с атрибутами, записывает внутрь данные и закрывает тег. }
   procedure OpenLevel(const aString: AnsiString); overload;
    {* открывает новый тег. }
   procedure OpenLevel(const aString: AnsiString;

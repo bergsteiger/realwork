@@ -199,7 +199,6 @@ uses
  , l3Units
  , Graphics
  , Windows
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

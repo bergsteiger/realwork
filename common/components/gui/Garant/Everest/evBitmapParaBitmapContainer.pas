@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , l3IEBitmapContainer
  , k2Base
- , k2BaseStruct
  , l3Variant
+ , k2BaseStruct
  , k2TagList
  , k2Prim
  , l3IID

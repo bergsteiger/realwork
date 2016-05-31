@@ -22,8 +22,6 @@ const
  k2_tkObject = k2Interfaces.k2_tkObject;
  k2_tkTransparent = k2Interfaces.k2_tkTransparent;
  k2_tkStream = k2Interfaces.k2_tkStream;
-
-const
  {* Алиасы для значений l3Variant.Tk2VarKind }
  k2_vkInteger = l3Variant.k2_vkInteger;
  k2_vkString = l3Variant.k2_vkString;

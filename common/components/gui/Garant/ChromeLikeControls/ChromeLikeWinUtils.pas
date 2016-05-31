@@ -9,10 +9,10 @@ interface
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3IntfUses
+ , ChromeLikeTypes
  , Windows
  , Types
  , Graphics
- , ChromeLikeTypes
 ;
 
 procedure UpdateWindowFrame(aHWnd: HWND);

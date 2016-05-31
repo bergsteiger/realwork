@@ -13,8 +13,8 @@ uses
  , nevControl
  , Classes
  , evDef
- , Messages
  , nevTools
+ , Messages
  , l3Core
  {$If NOT Defined(NoVCL)}
  , Controls

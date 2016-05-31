@@ -14,10 +14,10 @@ uses
  l3IntfUses
  , nevTools
  , l3Interfaces
+ , nevBase
  , evInternalInterfaces
  , l3Variant
  , evdInterfaces
- , nevBase
  , l3IID
  , k2Base
  , evTypes

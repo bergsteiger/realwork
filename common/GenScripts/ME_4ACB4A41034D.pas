@@ -16,15 +16,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , vtInterfaces
  , vtPngImgListUtils
+ , l3Core
  {$If NOT Defined(NoImageEn)}
  , hyieutils
  {$IfEnd} // NOT Defined(NoImageEn)
  , l3InternalInterfaces
  , l3PrinterInterfaces
- , l3Core
+ , Types
  , Graphics
  , Classes
- , Types
 ;
 
 type

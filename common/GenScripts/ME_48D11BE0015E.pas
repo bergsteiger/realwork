@@ -53,7 +53,6 @@ uses
  , l3String
  , afwFacade
  , afwInterfaces
- , l3MessageID
 ;
 
 const

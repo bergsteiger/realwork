@@ -18,6 +18,9 @@ uses
 ;
 
 const
+ {* Локализуемые строки PrintAndExportFontSizeName }
+ str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
+  {* Использовать для экспорта и печати следующий размер шрифта }
  pi_evStyles_PrintAndExportFontSize = 'Стили/Использовать для экспорта и печати следующий размер шрифта';
   {* Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта" }
  dv_evStyles_PrintAndExportFontSize = 0;
@@ -37,9 +40,6 @@ const
   {* 14 }
  str_PrintAndExportFontSize_pef16: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef16'; rValue : '16');
   {* 16 }
- {* Локализуемые строки PrintAndExportFontSizeName }
- str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
-  {* Использовать для экспорта и печати следующий размер шрифта }
 
 type
  PrintAndExportFontSizeEnum = (
@@ -222,6 +222,8 @@ begin
 end;//TPrintAndExportFontSizeValuesMapImpl.Exists
 
 initialization
+ str_PrintAndExportFontSize.Init;
+ {* Инициализация str_PrintAndExportFontSize }
  str_PrintAndExportFontSize_pef8.Init;
  {* Инициализация str_PrintAndExportFontSize_pef8 }
  str_PrintAndExportFontSize_pef9.Init;
@@ -236,7 +238,5 @@ initialization
  {* Инициализация str_PrintAndExportFontSize_pef14 }
  str_PrintAndExportFontSize_pef16.Init;
  {* Инициализация str_PrintAndExportFontSize_pef16 }
- str_PrintAndExportFontSize.Init;
- {* Инициализация str_PrintAndExportFontSize }
 
 end.

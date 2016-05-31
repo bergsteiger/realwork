@@ -33,7 +33,6 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3MessageID
 ;
 
 initialization

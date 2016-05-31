@@ -271,7 +271,7 @@ type
   {* информация, связанная с карточкой запроса }
   ['{F9D884BA-B356-4A7C-8997-D3E74A8FB8F1}']
   function GetEvdCard: IStream; stdcall; { can raise CanNotFindData }
-  class function Create: BadFactoryType; stdcall;
+  class function Create; stdcall;
   function GetExistAttrs: IAttributeList; stdcall;
    {* получить список существующих атрибутов для КЗ }
   property EvdCard: IStream

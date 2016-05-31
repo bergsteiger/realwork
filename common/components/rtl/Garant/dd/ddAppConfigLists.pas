@@ -16,10 +16,10 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ddAppConfigDataAdapters
  , ddAppConfigConst
- , Classes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
  , ddConfigStorages
  , ddAppConfigUtils
 ;

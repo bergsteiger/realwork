@@ -16,10 +16,10 @@ uses
  , l3MetafileHeader
  , l3Filer
  , ddParagraphProperty
+ , ddDocumentAtom
  , ddCustomDestination
  , k2Interfaces
  , ddTypes
- , ddDocumentAtom
  , l3ProtoObject
 ;
 

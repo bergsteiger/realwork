@@ -12,9 +12,9 @@ interface
 uses
  l3IntfUses
  , l3Tree_TLB
+ , l3TreeInterfaces
  , l3Variant
  , evInternalInterfaces
- , l3TreeInterfaces
 ;
 
 type

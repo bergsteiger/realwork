@@ -14,11 +14,11 @@ uses
  , l3SimpleObject
  , k2Interfaces
  , k2InterfaceCache
+ , k2ToolPrim
  , l3Variant
  , l3Interfaces
  , l3Types
  , l3IID
- , k2ToolPrim
 ;
 
 type

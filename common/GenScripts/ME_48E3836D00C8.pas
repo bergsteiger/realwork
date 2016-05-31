@@ -39,8 +39,6 @@ const
  ed_rtHasMergedCell = evEditorInterfacesTypes.ed_rtHasMergedCell;
  ed_rtSimpleEmptyCells = evEditorInterfacesTypes.ed_rtSimpleEmptyCells;
  ed_rtChessTableRow = evEditorInterfacesTypes.ed_rtChessTableRow;
-
-const
  {* Алиасы для значений evEditorInterfacesTypes.TedCellType }
  ed_ctNone = evEditorInterfacesTypes.ed_ctNone;
  ed_ctInteger = evEditorInterfacesTypes.ed_ctInteger;
@@ -53,8 +51,6 @@ const
  ed_ctNeedMakeContinue = evEditorInterfacesTypes.ed_ctNeedMakeContinue;
  ed_ctSmallText = evEditorInterfacesTypes.ed_ctSmallText;
  ed_ctEmptyAndNotFramed = evEditorInterfacesTypes.ed_ctEmptyAndNotFramed;
-
-const
  edNoneFrame = [];
  edSingleCell = [ed_rtPsevdoSingleCells, ed_rtSingleCell];
  edAllowCellInHeadRow = [ed_rtHasMergedCell, ed_rtSimpleCells, ed_rtSimpleWithoutEmpty];

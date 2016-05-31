@@ -16,8 +16,8 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Classes
- , Messages
  , l3Interfaces
+ , Messages
 ;
 
 type

@@ -43,7 +43,6 @@ uses
  , nevBase
  , Graphics
  , l3String
- , l3MessageID
 ;
 
 const

@@ -1095,7 +1095,6 @@ uses
  , vcmEntityForm
  , vcmUtils
  , l3PopupControlService
- , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1113,6 +1112,24 @@ type
  );//TnpDoActionWithFormControl
 
 const
+ {* Локализуемые строки Button Hints }
+ str_cAutoHideOffHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cAutoHideOffHint'; rValue : 'Зафиксировать панель навигации');
+  {* 'Зафиксировать панель навигации' }
+ str_cAutoHideOnHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cAutoHideOnHint'; rValue : 'Сворачивать панель навигации');
+  {* 'Сворачивать панель навигации' }
+ str_cMinimizedOnHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cMinimizedOnHint'; rValue : 'Свернуть');
+  {* 'Свернуть' }
+ str_cMinimizedOffHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cMinimizedOffHint'; rValue : 'Развернуть');
+  {* 'Развернуть' }
+ str_cCloseHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cCloseHint'; rValue : 'Прикрепить навигатор');
+  {* 'Прикрепить навигатор' }
+ {* Локализуемые строки Error messages }
+ str_cemIndexOutOfPageCount: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemIndexOutOfPageCount'; rValue : 'Индекс %d выходит за пределы количества компонентов навигатора');
+  {* 'Индекс %d выходит за пределы количества компонентов навигатора' }
+ str_cemNavigatorAlreadyExists: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemNavigatorAlreadyExists'; rValue : 'Добавляемый в список навигатор уже существует в списке родителя');
+  {* 'Добавляемый в список навигатор уже существует в списке родителя' }
+ str_cemDeleteNavigatorNotExists: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemDeleteNavigatorNotExists'; rValue : 'Удаляемый навигатор в списке родителя отсутствует');
+  {* 'Удаляемый навигатор в списке родителя отсутствует' }
  cspSize = 7;
   {* ширина сплиттера }
  cspButtonSize = 100;
@@ -1150,24 +1167,6 @@ const
  cFloatMinimized = $0001;
   {* флаги определяющие состояние плавающего окна. Когда vcm форма стыкуется к плавающему навигатору, то у нее читается флаг состояния. Он используется для  установки навигатора в то состояние, в котором он находился когда в нём была форма.
 минимизирован }
- {* Локализуемые строки Button Hints }
- str_cAutoHideOffHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cAutoHideOffHint'; rValue : 'Зафиксировать панель навигации');
-  {* 'Зафиксировать панель навигации' }
- str_cAutoHideOnHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cAutoHideOnHint'; rValue : 'Сворачивать панель навигации');
-  {* 'Сворачивать панель навигации' }
- str_cMinimizedOnHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cMinimizedOnHint'; rValue : 'Свернуть');
-  {* 'Свернуть' }
- str_cMinimizedOffHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cMinimizedOffHint'; rValue : 'Развернуть');
-  {* 'Развернуть' }
- str_cCloseHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cCloseHint'; rValue : 'Прикрепить навигатор');
-  {* 'Прикрепить навигатор' }
- {* Локализуемые строки Error messages }
- str_cemIndexOutOfPageCount: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemIndexOutOfPageCount'; rValue : 'Индекс %d выходит за пределы количества компонентов навигатора');
-  {* 'Индекс %d выходит за пределы количества компонентов навигатора' }
- str_cemNavigatorAlreadyExists: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemNavigatorAlreadyExists'; rValue : 'Добавляемый в список навигатор уже существует в списке родителя');
-  {* 'Добавляемый в список навигатор уже существует в списке родителя' }
- str_cemDeleteNavigatorNotExists: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cemDeleteNavigatorNotExists'; rValue : 'Удаляемый навигатор в списке родителя отсутствует');
-  {* 'Удаляемый навигатор в списке родителя отсутствует' }
 
 function TnpCustomPanel.Get_ControlIsPanel: Boolean;
 //#UC START# *476A5BBD03D9_52B9922001E1get_var*

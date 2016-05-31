@@ -23,8 +23,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , Messages
  , Windows
+ , Messages
  , ElUxTheme
  //#UC START# *482C80EA0131intf_uses*
  //#UC END# *482C80EA0131intf_uses*

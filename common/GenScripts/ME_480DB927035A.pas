@@ -16,11 +16,11 @@ uses
  , evFontInterface
  , l3Variant
  , Classes
+ , k2Dictionary
+ , l3Tree_TLB
  , k2Base
  , evdStyles
- , k2Dictionary
  , l3Types
- , l3Tree_TLB
  , nevBase
  , k2Tags
  //#UC START# *480DB927035Aintf_uses*

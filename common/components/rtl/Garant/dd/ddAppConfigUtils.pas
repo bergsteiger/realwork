@@ -10,8 +10,8 @@ interface
 
 uses
  l3IntfUses
- , ddAppConfigTypes
  , ddConfigStorages
+ , ddAppConfigTypes
  , l3ProtoObject
 ;
 

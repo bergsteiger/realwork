@@ -22,10 +22,10 @@ uses
  , vcmBaseOperationState
  , vcmAction
  {$If NOT Defined(NoVCL)}
- , ActnList
+ , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCL)}
- , Forms
+ , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
  {$If Defined(XE)}
  , Actions

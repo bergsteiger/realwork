@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , Classes
  , l3Memory
- , k2Base
  , l3Variant
+ , k2Base
  , l3Interfaces
  , k2BaseStruct
  , k2TagList

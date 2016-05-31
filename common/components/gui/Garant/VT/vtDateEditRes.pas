@@ -10,18 +10,12 @@ interface
 
 uses
  l3IntfUses
- , Graphics
  , l3StringIDEx
+ , Graphics
  , l3Date
 ;
 
 const
- sBtnGlyphs: array [0 .. 3] of PAnsiChar = (
- 'VTPREV2'
- , 'VTPREV1'
- , 'VTNEXT1'
- , 'VTNEXT2'
- );
  {* Локализуемые строки TvtDateEditHints }
  str_vtStrPrevYear: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtStrPrevYear'; rValue : 'Предыдущий год');
   {* 'Предыдущий год' }
@@ -82,6 +76,12 @@ const
   {* 'Пт' }
  str_vtSaturday: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtSaturday'; rValue : 'Сб');
   {* 'Сб' }
+ sBtnGlyphs: array [0 .. 3] of PAnsiChar = (
+ 'VTPREV2'
+ , 'VTPREV1'
+ , 'VTNEXT1'
+ , 'VTNEXT2'
+ );
 
 type
  TvtBeforeCorrectDate = procedure(const aDate: AnsiString) of object;
@@ -99,7 +99,6 @@ implementation
 
 uses
  l3ImplUses
- , l3MessageID
  , Windows
 ;
 

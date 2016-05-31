@@ -11,10 +11,10 @@ interface
 uses
  l3IntfUses
  , ddAppConfigTypes
- , Classes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
  , ddAppConfigConst
  , ddConfigStorages
  {$If NOT Defined(NoVCL)}

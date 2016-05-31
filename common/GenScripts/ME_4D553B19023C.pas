@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , evSearch
  , l3Variant
- , evTypes
  , nevTools
+ , evTypes
  , nevBase
 ;
 

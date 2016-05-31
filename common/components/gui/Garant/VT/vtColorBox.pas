@@ -13,9 +13,9 @@ uses
  , vtComboTree
  , Graphics
  , l3Interfaces
+ , l3VCLStrings
  , Classes
  , ctTypes
- , l3VCLStrings
  , l3InternalInterfaces
  , nevTools
  //#UC START# *5270BBC702C7intf_uses*

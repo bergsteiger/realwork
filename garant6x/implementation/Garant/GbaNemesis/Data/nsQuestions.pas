@@ -10,12 +10,48 @@ interface
 
 uses
  l3IntfUses
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
 ;
 
 const
  {* Локализуемые строки Asks }
+ str_DocumentEMailSelection_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_CheckCaption'; rValue : 'Всегда пересылать выделенный фрагмент');
+  {* 'Всегда пересылать выделенный фрагмент' }
+ str_DocumentEMailSelection_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_SettingsCaption'; rValue : 'Пересылка по EMail');
+  {* 'Пересылка по EMail' }
+ str_DocumentEMailSelection_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_LongHint'; rValue : 'Подтверждение при пересылке выделенного фрагмента');
+  {* 'Подтверждение при пересылке выделенного фрагмента' }
+ str_ListEMailSelection_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_CheckCaption'; rValue : 'Всегда пересылать выделенные элементы ');
+  {* 'Всегда пересылать выделенные элементы ' }
+ str_ListEMailSelection_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_SettingsCaption'; rValue : 'Пересылка по EMail');
+  {* 'Пересылка по EMail' }
+ str_ListEMailSelection_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_LongHint'; rValue : 'Подтверждение при пересылке выделенных элементов');
+  {* 'Подтверждение при пересылке выделенных элементов' }
+ str_ListPrintSelectedConfirmation_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_CheckCaption'; rValue : 'Всегда печатать выделенные элементы');
+  {* 'Всегда печатать выделенные элементы' }
+ str_ListPrintSelectedConfirmation_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_SettingsCaption'; rValue : 'Печать');
+  {* 'Печать' }
+ str_ListPrintSelectedConfirmation_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_LongHint'; rValue : 'Подтверждение при печати выделенных элементов');
+  {* 'Подтверждение при печати выделенных элементов' }
+ str_PrintSelectedConfirmation_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_CheckCaption'; rValue : 'Всегда печатать выделенный фрагмент');
+  {* 'Всегда печатать выделенный фрагмент' }
+ str_PrintSelectedConfirmation_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_SettingsCaption'; rValue : 'Печать');
+  {* 'Печать' }
+ str_PrintSelectedConfirmation_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_LongHint'; rValue : 'Подтверждение при печати выделенного фрагмента');
+  {* 'Подтверждение при печати выделенного фрагмента' }
+ str_ExportSelectionToWord_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_CheckCaption'; rValue : 'Всегда экспортировать выделенный фрагмент');
+  {* 'Всегда экспортировать выделенный фрагмент' }
+ str_ExportSelectionToWord_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_SettingsCaption'; rValue : 'Экспорт в MS-Word');
+  {* 'Экспорт в MS-Word' }
+ str_ExportSelectionToWord_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_LongHint'; rValue : 'Подтверждение при открытии в MS-Word выделенного фрагмента');
+  {* 'Подтверждение при открытии в MS-Word выделенного фрагмента' }
+ str_ListExportSelectionToWord_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_CheckCaption'; rValue : 'Всегда экспортировать выделенные элементы');
+  {* 'Всегда экспортировать выделенные элементы' }
+ str_ListExportSelectionToWord_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_SettingsCaption'; rValue : 'Экспорт в MS-Word');
+  {* 'Экспорт в MS-Word' }
+ str_ListExportSelectionToWord_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_LongHint'; rValue : 'Подтверждение при открытии в MS-Word выделенных элементов');
+  {* 'Подтверждение при открытии в MS-Word выделенных элементов' }
  str_DocumentEMailSelection: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection'; rValue : 'Переслать по E-mail:');
   {* 'Переслать по E-mail:' }
  str_ListEMailSelection: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection'; rValue : 'Пересылка по EMail');
@@ -32,24 +68,6 @@ const
   {* 'Информация по данному запросу отсутствует в установленном у Вас комплекте.' }
  str_ConsultDocumentsNotFoundNoSpec: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ConsultDocumentsNotFoundNoSpec'; rValue : 'Информация по данному запросу отсутствует в установленном у Вас комплекте.');
   {* 'Информация по данному запросу отсутствует в установленном у Вас комплекте.' }
- str_DocumentEMailSelection_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_CheckCaption'; rValue : 'Всегда пересылать выделенный фрагмент');
- str_DocumentEMailSelection_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_SettingsCaption'; rValue : 'Пересылка по EMail');
- str_DocumentEMailSelection_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'DocumentEMailSelection_LongHint'; rValue : 'Подтверждение при пересылке выделенного фрагмента');
- str_ListEMailSelection_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_CheckCaption'; rValue : 'Всегда пересылать выделенные элементы ');
- str_ListEMailSelection_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_SettingsCaption'; rValue : 'Пересылка по EMail');
- str_ListEMailSelection_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListEMailSelection_LongHint'; rValue : 'Подтверждение при пересылке выделенных элементов');
- str_ListPrintSelectedConfirmation_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_CheckCaption'; rValue : 'Всегда печатать выделенные элементы');
- str_ListPrintSelectedConfirmation_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_SettingsCaption'; rValue : 'Печать');
- str_ListPrintSelectedConfirmation_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListPrintSelectedConfirmation_LongHint'; rValue : 'Подтверждение при печати выделенных элементов');
- str_PrintSelectedConfirmation_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_CheckCaption'; rValue : 'Всегда печатать выделенный фрагмент');
- str_PrintSelectedConfirmation_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_SettingsCaption'; rValue : 'Печать');
- str_PrintSelectedConfirmation_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintSelectedConfirmation_LongHint'; rValue : 'Подтверждение при печати выделенного фрагмента');
- str_ExportSelectionToWord_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_CheckCaption'; rValue : 'Всегда экспортировать выделенный фрагмент');
- str_ExportSelectionToWord_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_SettingsCaption'; rValue : 'Экспорт в MS-Word');
- str_ExportSelectionToWord_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ExportSelectionToWord_LongHint'; rValue : 'Подтверждение при открытии в MS-Word выделенного фрагмента');
- str_ListExportSelectionToWord_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_CheckCaption'; rValue : 'Всегда экспортировать выделенные элементы');
- str_ListExportSelectionToWord_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_SettingsCaption'; rValue : 'Экспорт в MS-Word');
- str_ListExportSelectionToWord_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ListExportSelectionToWord_LongHint'; rValue : 'Подтверждение при открытии в MS-Word выделенных элементов');
 
 implementation
 
@@ -101,36 +119,42 @@ const
   {* 'Вернуться в карточку и изменить условия запроса' }
 
 initialization
- str_DocumentEMailSelection_Choice_Selection.Init;
- {* Инициализация str_DocumentEMailSelection_Choice_Selection }
- str_DocumentEMailSelection_Choice_WholeDocument.Init;
- {* Инициализация str_DocumentEMailSelection_Choice_WholeDocument }
- str_ListEMailSelection_Choice_Selected.Init;
- {* Инициализация str_ListEMailSelection_Choice_Selected }
- str_ListEMailSelection_Choice_WholeList.Init;
- {* Инициализация str_ListEMailSelection_Choice_WholeList }
- str_ListPrintSelectedConfirmation_Choice_Selected.Init;
- {* Инициализация str_ListPrintSelectedConfirmation_Choice_Selected }
- str_ListPrintSelectedConfirmation_Choice_WholeList.Init;
- {* Инициализация str_ListPrintSelectedConfirmation_Choice_WholeList }
- str_PrintSelectedConfirmation_Choice_Selected.Init;
- {* Инициализация str_PrintSelectedConfirmation_Choice_Selected }
- str_PrintSelectedConfirmation_Choice_WholeDocument.Init;
- {* Инициализация str_PrintSelectedConfirmation_Choice_WholeDocument }
- str_ExportSelectionToWord_Choice_Selected.Init;
- {* Инициализация str_ExportSelectionToWord_Choice_Selected }
- str_ExportSelectionToWord_Choice_WholeDocument.Init;
- {* Инициализация str_ExportSelectionToWord_Choice_WholeDocument }
- str_ListExportSelectionToWord_Choice_Selected.Init;
- {* Инициализация str_ListExportSelectionToWord_Choice_Selected }
- str_ListExportSelectionToWord_Choice_WholeList.Init;
- {* Инициализация str_ListExportSelectionToWord_Choice_WholeList }
- str_ConsultDocumentsNotFound_Choice_Spec.Init;
- {* Инициализация str_ConsultDocumentsNotFound_Choice_Spec }
- str_ConsultDocumentsNotFound_Choice_Back.Init;
- {* Инициализация str_ConsultDocumentsNotFound_Choice_Back }
- str_ConsultDocumentsNotFoundNoSpec_Choice_Back.Init;
- {* Инициализация str_ConsultDocumentsNotFoundNoSpec_Choice_Back }
+ str_DocumentEMailSelection_CheckCaption.Init;
+ {* Инициализация str_DocumentEMailSelection_CheckCaption }
+ str_DocumentEMailSelection_SettingsCaption.Init;
+ {* Инициализация str_DocumentEMailSelection_SettingsCaption }
+ str_DocumentEMailSelection_LongHint.Init;
+ {* Инициализация str_DocumentEMailSelection_LongHint }
+ str_ListEMailSelection_CheckCaption.Init;
+ {* Инициализация str_ListEMailSelection_CheckCaption }
+ str_ListEMailSelection_SettingsCaption.Init;
+ {* Инициализация str_ListEMailSelection_SettingsCaption }
+ str_ListEMailSelection_LongHint.Init;
+ {* Инициализация str_ListEMailSelection_LongHint }
+ str_ListPrintSelectedConfirmation_CheckCaption.Init;
+ {* Инициализация str_ListPrintSelectedConfirmation_CheckCaption }
+ str_ListPrintSelectedConfirmation_SettingsCaption.Init;
+ {* Инициализация str_ListPrintSelectedConfirmation_SettingsCaption }
+ str_ListPrintSelectedConfirmation_LongHint.Init;
+ {* Инициализация str_ListPrintSelectedConfirmation_LongHint }
+ str_PrintSelectedConfirmation_CheckCaption.Init;
+ {* Инициализация str_PrintSelectedConfirmation_CheckCaption }
+ str_PrintSelectedConfirmation_SettingsCaption.Init;
+ {* Инициализация str_PrintSelectedConfirmation_SettingsCaption }
+ str_PrintSelectedConfirmation_LongHint.Init;
+ {* Инициализация str_PrintSelectedConfirmation_LongHint }
+ str_ExportSelectionToWord_CheckCaption.Init;
+ {* Инициализация str_ExportSelectionToWord_CheckCaption }
+ str_ExportSelectionToWord_SettingsCaption.Init;
+ {* Инициализация str_ExportSelectionToWord_SettingsCaption }
+ str_ExportSelectionToWord_LongHint.Init;
+ {* Инициализация str_ExportSelectionToWord_LongHint }
+ str_ListExportSelectionToWord_CheckCaption.Init;
+ {* Инициализация str_ListExportSelectionToWord_CheckCaption }
+ str_ListExportSelectionToWord_SettingsCaption.Init;
+ {* Инициализация str_ListExportSelectionToWord_SettingsCaption }
+ str_ListExportSelectionToWord_LongHint.Init;
+ {* Инициализация str_ListExportSelectionToWord_LongHint }
  str_DocumentEMailSelection.Init;
  str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_Selection);
  str_DocumentEMailSelection.AddChoice(str_DocumentEMailSelection_Choice_WholeDocument);
@@ -201,41 +225,35 @@ initialization
  str_ConsultDocumentsNotFoundNoSpec.AddChoice(str_ConsultDocumentsNotFoundNoSpec_Choice_Back);
  str_ConsultDocumentsNotFoundNoSpec.SetDlgType(mtWarning);
  {* Инициализация str_ConsultDocumentsNotFoundNoSpec }
- str_DocumentEMailSelection_CheckCaption.Init;
- {* Инициализация str_DocumentEMailSelection_CheckCaption }
- str_DocumentEMailSelection_SettingsCaption.Init;
- {* Инициализация str_DocumentEMailSelection_SettingsCaption }
- str_DocumentEMailSelection_LongHint.Init;
- {* Инициализация str_DocumentEMailSelection_LongHint }
- str_ListEMailSelection_CheckCaption.Init;
- {* Инициализация str_ListEMailSelection_CheckCaption }
- str_ListEMailSelection_SettingsCaption.Init;
- {* Инициализация str_ListEMailSelection_SettingsCaption }
- str_ListEMailSelection_LongHint.Init;
- {* Инициализация str_ListEMailSelection_LongHint }
- str_ListPrintSelectedConfirmation_CheckCaption.Init;
- {* Инициализация str_ListPrintSelectedConfirmation_CheckCaption }
- str_ListPrintSelectedConfirmation_SettingsCaption.Init;
- {* Инициализация str_ListPrintSelectedConfirmation_SettingsCaption }
- str_ListPrintSelectedConfirmation_LongHint.Init;
- {* Инициализация str_ListPrintSelectedConfirmation_LongHint }
- str_PrintSelectedConfirmation_CheckCaption.Init;
- {* Инициализация str_PrintSelectedConfirmation_CheckCaption }
- str_PrintSelectedConfirmation_SettingsCaption.Init;
- {* Инициализация str_PrintSelectedConfirmation_SettingsCaption }
- str_PrintSelectedConfirmation_LongHint.Init;
- {* Инициализация str_PrintSelectedConfirmation_LongHint }
- str_ExportSelectionToWord_CheckCaption.Init;
- {* Инициализация str_ExportSelectionToWord_CheckCaption }
- str_ExportSelectionToWord_SettingsCaption.Init;
- {* Инициализация str_ExportSelectionToWord_SettingsCaption }
- str_ExportSelectionToWord_LongHint.Init;
- {* Инициализация str_ExportSelectionToWord_LongHint }
- str_ListExportSelectionToWord_CheckCaption.Init;
- {* Инициализация str_ListExportSelectionToWord_CheckCaption }
- str_ListExportSelectionToWord_SettingsCaption.Init;
- {* Инициализация str_ListExportSelectionToWord_SettingsCaption }
- str_ListExportSelectionToWord_LongHint.Init;
- {* Инициализация str_ListExportSelectionToWord_LongHint }
+ str_DocumentEMailSelection_Choice_Selection.Init;
+ {* Инициализация str_DocumentEMailSelection_Choice_Selection }
+ str_DocumentEMailSelection_Choice_WholeDocument.Init;
+ {* Инициализация str_DocumentEMailSelection_Choice_WholeDocument }
+ str_ListEMailSelection_Choice_Selected.Init;
+ {* Инициализация str_ListEMailSelection_Choice_Selected }
+ str_ListEMailSelection_Choice_WholeList.Init;
+ {* Инициализация str_ListEMailSelection_Choice_WholeList }
+ str_ListPrintSelectedConfirmation_Choice_Selected.Init;
+ {* Инициализация str_ListPrintSelectedConfirmation_Choice_Selected }
+ str_ListPrintSelectedConfirmation_Choice_WholeList.Init;
+ {* Инициализация str_ListPrintSelectedConfirmation_Choice_WholeList }
+ str_PrintSelectedConfirmation_Choice_Selected.Init;
+ {* Инициализация str_PrintSelectedConfirmation_Choice_Selected }
+ str_PrintSelectedConfirmation_Choice_WholeDocument.Init;
+ {* Инициализация str_PrintSelectedConfirmation_Choice_WholeDocument }
+ str_ExportSelectionToWord_Choice_Selected.Init;
+ {* Инициализация str_ExportSelectionToWord_Choice_Selected }
+ str_ExportSelectionToWord_Choice_WholeDocument.Init;
+ {* Инициализация str_ExportSelectionToWord_Choice_WholeDocument }
+ str_ListExportSelectionToWord_Choice_Selected.Init;
+ {* Инициализация str_ListExportSelectionToWord_Choice_Selected }
+ str_ListExportSelectionToWord_Choice_WholeList.Init;
+ {* Инициализация str_ListExportSelectionToWord_Choice_WholeList }
+ str_ConsultDocumentsNotFound_Choice_Spec.Init;
+ {* Инициализация str_ConsultDocumentsNotFound_Choice_Spec }
+ str_ConsultDocumentsNotFound_Choice_Back.Init;
+ {* Инициализация str_ConsultDocumentsNotFound_Choice_Back }
+ str_ConsultDocumentsNotFoundNoSpec_Choice_Back.Init;
+ {* Инициализация str_ConsultDocumentsNotFoundNoSpec_Choice_Back }
 
 end.

@@ -12,9 +12,9 @@ uses
  l3IntfUses
  , l3SimpleObject
  , l3Base
- , l3RegEx
  , ddHTMLTags
  , l3Types
+ , l3RegEx
  , l3ProtoDataContainer
  , l3Memory
  , l3Interfaces

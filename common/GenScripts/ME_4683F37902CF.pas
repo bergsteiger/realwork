@@ -46,8 +46,6 @@ const
  vcm_ztSimpleFloat = vcmBaseTypes.vcm_ztSimpleFloat;
  vcm_ztMainObjectForm = vcmBaseTypes.vcm_ztMainObjectForm;
  vcm_ztForFocus = vcmBaseTypes.vcm_ztForFocus;
-
-const
  {* »дентификаторы контролов. }
  vcm_cidEmpty = TvcmControlID(0);
   {* ѕустой идентификтор управл€ющего объекта. }

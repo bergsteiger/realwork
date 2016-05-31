@@ -16,6 +16,11 @@ uses
 ;
 
 const
+ {* Локализуемые строки Local }
+ str_vcmSeparator: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmSeparator'; rValue : '- Разделитель -');
+  {* '- Разделитель -' }
+ str_vcmAskResoreToolbar: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmAskResoreToolbar'; rValue : 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?');
+  {* 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?' }
  {* Локализуемые строки ToolbarPos }
  str_vcmetbpTop: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmetbpTop'; rValue : 'Верхняя');
   {* 'Верхняя' }
@@ -32,11 +37,6 @@ const
  , @str_vcmetbpLeft
  , @str_vcmetbpRight
  );
- {* Локализуемые строки Local }
- str_vcmSeparator: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmSeparator'; rValue : '- Разделитель -');
-  {* '- Разделитель -' }
- str_vcmAskResoreToolbar: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmAskResoreToolbar'; rValue : 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?');
-  {* 'Вы действительно хотите восстановить позиции и набор операций всех панелей инструментов системы по умолчанию?' }
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
@@ -48,6 +48,10 @@ uses
 ;
 
 initialization
+ str_vcmSeparator.Init;
+ {* Инициализация str_vcmSeparator }
+ str_vcmAskResoreToolbar.Init;
+ {* Инициализация str_vcmAskResoreToolbar }
  str_vcmetbpTop.Init;
  {* Инициализация str_vcmetbpTop }
  str_vcmetbpBottom.Init;
@@ -56,10 +60,6 @@ initialization
  {* Инициализация str_vcmetbpLeft }
  str_vcmetbpRight.Init;
  {* Инициализация str_vcmetbpRight }
- str_vcmSeparator.Init;
- {* Инициализация str_vcmSeparator }
- str_vcmAskResoreToolbar.Init;
- {* Инициализация str_vcmAskResoreToolbar }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

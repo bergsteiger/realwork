@@ -72,7 +72,6 @@ implementation
 uses
  l3ImplUses
  , l3StringIDEx
- , l3MessageID
  {$If Defined(k2ForEditor)}
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)

@@ -16,9 +16,9 @@ uses
  , nevGUIInterfaces
  , nevTools
  , evQueryCardInt
+ , l3Units
  , l3Variant
  , afwInterfaces
- , l3Units
 ;
 
 type

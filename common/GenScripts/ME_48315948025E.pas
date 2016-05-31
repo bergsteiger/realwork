@@ -16,11 +16,11 @@ uses
  , ctTypes
  , l3TreeInterfaces
  , l3VCLStrings
+ , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
- , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

@@ -12,11 +12,11 @@ interface
 uses
  l3IntfUses
  , Classes
+ , vcmExternalInterfaces
+ , vcmBaseOperationState
  , vcmMainForm
  , vcmFormSetFactory
  , vcmModule
- , vcmExternalInterfaces
- , vcmBaseOperationState
  , l3StringIDEx
 ;
 

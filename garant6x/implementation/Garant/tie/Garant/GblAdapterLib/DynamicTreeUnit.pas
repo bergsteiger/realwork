@@ -393,9 +393,9 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
   function IsRelevanceSearchSupported: ByteBool; stdcall;
   procedure ExpandAll(expand: Boolean); stdcall;
    {* устанавливает и снимает флаг раскрытия всех нод в дереве }
-  class function Make: BadFactoryType; overload; stdcall; { can raise CanNotFindData }
+  class function Make; overload; stdcall; { can raise CanNotFindData }
   class function Make(var owner_tree: IFakeFacetForFactory;
-   const snode): BadFactoryType; overload; stdcall;
+   const snode); overload; stdcall;
   function IterateAllNodes(with_flag: TFlagMask): INodeIterator; stdcall;
   procedure SetAllFlagExceptFirstChildrenOfRootChildren(flag: TFlagMask;
    value: Boolean); stdcall;

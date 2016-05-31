@@ -35,8 +35,6 @@ const
  {* Алиасы для значений vtHideFieldTypes.ThfOption }
  hfoCanHide = vtHideFieldTypes.hfoCanHide;
  hfoHyperlink = vtHideFieldTypes.hfoHyperlink;
-
-const
  c_hfTopImageIndent = 5;
   {* отступ иконки сверху по умолчанию }
  c_hfWidth = 150;

@@ -78,6 +78,7 @@ const
  {$IfEnd} // NOT Defined(Nemesis)
  str_nevtfRtf: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nevtfRtf'; rValue : 'RTF');
   {* 'RTF' }
+const
  {* Локализуемые строки TnevPrintMessages }
  str_nevpmTimeLeft: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nevpmTimeLeft'; rValue : ', %d секунд осталось');
   {* ', %d секунд осталось' }
@@ -183,7 +184,6 @@ implementation
 
 uses
  l3ImplUses
- , l3MessageID
 ;
 
 initialization

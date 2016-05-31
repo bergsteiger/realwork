@@ -24,18 +24,18 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Bitmap
+ , vcmInterfaces
  , Messages
  , Graphics
  , l3TabbedContainersDispatcher
  , Types
- , vcmInterfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , ChromeLikeInterfaces
  , Classes
  , ChromeLikeTabSetControlPrim
  , ChromeLikeTabSetControl
- , ChromeLikeInterfaces
 ;
 
 type

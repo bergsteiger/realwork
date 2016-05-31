@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , evEditorInterfaces
  , l3Variant
- , nevBase
  , k2Interfaces
+ , nevBase
  , nevTools
 ;
 {$IfEnd} // NOT Defined(NoScripts)

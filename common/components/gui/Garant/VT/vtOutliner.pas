@@ -20,12 +20,12 @@ uses
  , l3LongintList
  , vtTreeSource
  , Classes
+ , Types
+ , l3Base
  , Messages
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , Types
- , l3Base
  , l3InternalInterfaces
  , l3Units
  //#UC START# *515DA5860015intf_uses*

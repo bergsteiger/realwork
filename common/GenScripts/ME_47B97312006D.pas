@@ -18,12 +18,12 @@ uses
  , vcmFormSetFormsCollection
  , vcmFormSetFormItemList
  , vcmFormSetFormsCollectionItem
- , vcmFormSetFormsCollectionItemPrim
  , vcmFormSetFormsCollectionItemModelPart
- , vcmUserControls
- , vcmBaseTypes
  , vcmFormSet
  , vcmExternalInterfaces
+ , vcmFormSetFormsCollectionItemPrim
+ , vcmUserControls
+ , vcmBaseTypes
 ;
 
 type

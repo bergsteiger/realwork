@@ -13,8 +13,8 @@ uses
  , k2AtomicTag
  , k2Base
  , k2BaseStruct
- , l3Variant
  , k2TagList
+ , l3Variant
  , k2Prim
  , l3IID
  , k2BaseTypes

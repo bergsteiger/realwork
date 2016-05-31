@@ -11,9 +11,9 @@ interface
 
 uses
  l3IntfUses
+ , nevTools
  , evEditorInterfaces
  , l3Interfaces
- , nevTools
 ;
 
 {$If NOT Defined(Nemesis)}

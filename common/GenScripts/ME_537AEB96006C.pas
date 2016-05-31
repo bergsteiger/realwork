@@ -30,11 +30,11 @@ uses
  , Types
  , ChromeLikeInterfaces
  , vcmTabbedContainerFormDispatcherUtils
+ , vcmExternalInterfaces
  , l3TabbedContainersDispatcher
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , vcmExternalInterfaces
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

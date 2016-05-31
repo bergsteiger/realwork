@@ -10,12 +10,14 @@ interface
 
 uses
  l3IntfUses
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
 ;
 
 const
  {* Локализуемые строки Questions }
+ str_ChangedDocumentOnControl_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangedDocumentOnControl_SettingsCaption'; rValue : 'Действие при выборе измененного документа на контроле');
+  {* 'Действие при выборе измененного документа на контроле' }
  str_ChangedDocumentOnControl: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ChangedDocumentOnControl'; rValue : 'В документ на контроле внесены изменения. Выберите действие:');
   {* 'В документ на контроле внесены изменения. Выберите действие:' }
  str_SearchUnresolvedContext: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'SearchUnresolvedContext'; rValue : 'В запросе есть слова, поиск по которым может не дать корректного результата: {color:Red}{italic:true}%s{italic}{color}.');
@@ -28,7 +30,6 @@ const
   {* 'Поиск в базовом (сокращенном) списке не дал результатов по заданному Вами запросу. Выберите варианты для продолжения работы:' }
  str_AutologinDuplicate: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'AutologinDuplicate'; rValue : 'Пользователь с таким именем уже существует. Сделайте выбор:');
   {* 'Пользователь с таким именем уже существует. Сделайте выбор:' }
- str_ChangedDocumentOnControl_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangedDocumentOnControl_SettingsCaption'; rValue : 'Действие при выборе измененного документа на контроле');
 
 implementation
 
@@ -72,30 +73,8 @@ const
   {* 'войти в систему с указанными регистрационными данными, использовав введенное имя пользователя' }
 
 initialization
- str_ChangedDocumentOnControl_Choice_Open.Init;
- {* Инициализация str_ChangedDocumentOnControl_Choice_Open }
- str_ChangedDocumentOnControl_Choice_Compare.Init;
- {* Инициализация str_ChangedDocumentOnControl_Choice_Compare }
- str_SearchUnresolvedContext_Choice_Back.Init;
- {* Инициализация str_SearchUnresolvedContext_Choice_Back }
- str_SearchUnresolvedContext_Choice_Continue.Init;
- {* Инициализация str_SearchUnresolvedContext_Choice_Continue }
- str_DropListToList_Choice_Append.Init;
- {* Инициализация str_DropListToList_Choice_Append }
- str_DropListToList_Choice_Copy.Init;
- {* Инициализация str_DropListToList_Choice_Copy }
- str_mtNotGarantDomain_Choice_Open.Init;
- {* Инициализация str_mtNotGarantDomain_Choice_Open }
- str_mtNotGarantDomain_Choice_Stay.Init;
- {* Инициализация str_mtNotGarantDomain_Choice_Stay }
- str_EmptySearchResultInBaseList_Choice_Expand.Init;
- {* Инициализация str_EmptySearchResultInBaseList_Choice_Expand }
- str_EmptySearchResultInBaseList_Choice_AllBase.Init;
- {* Инициализация str_EmptySearchResultInBaseList_Choice_AllBase }
- str_AutologinDuplicate_Choice_Back.Init;
- {* Инициализация str_AutologinDuplicate_Choice_Back }
- str_AutologinDuplicate_Choice_Login.Init;
- {* Инициализация str_AutologinDuplicate_Choice_Login }
+ str_ChangedDocumentOnControl_SettingsCaption.Init;
+ {* Инициализация str_ChangedDocumentOnControl_SettingsCaption }
  str_ChangedDocumentOnControl.Init;
  str_ChangedDocumentOnControl.AddChoice(str_ChangedDocumentOnControl_Choice_Open);
  str_ChangedDocumentOnControl.AddChoice(str_ChangedDocumentOnControl_Choice_Compare);
@@ -127,7 +106,29 @@ initialization
  str_AutologinDuplicate.AddChoice(str_AutologinDuplicate_Choice_Login);
  str_AutologinDuplicate.SetDlgType(mtWarning);
  {* Инициализация str_AutologinDuplicate }
- str_ChangedDocumentOnControl_SettingsCaption.Init;
- {* Инициализация str_ChangedDocumentOnControl_SettingsCaption }
+ str_ChangedDocumentOnControl_Choice_Open.Init;
+ {* Инициализация str_ChangedDocumentOnControl_Choice_Open }
+ str_ChangedDocumentOnControl_Choice_Compare.Init;
+ {* Инициализация str_ChangedDocumentOnControl_Choice_Compare }
+ str_SearchUnresolvedContext_Choice_Back.Init;
+ {* Инициализация str_SearchUnresolvedContext_Choice_Back }
+ str_SearchUnresolvedContext_Choice_Continue.Init;
+ {* Инициализация str_SearchUnresolvedContext_Choice_Continue }
+ str_DropListToList_Choice_Append.Init;
+ {* Инициализация str_DropListToList_Choice_Append }
+ str_DropListToList_Choice_Copy.Init;
+ {* Инициализация str_DropListToList_Choice_Copy }
+ str_mtNotGarantDomain_Choice_Open.Init;
+ {* Инициализация str_mtNotGarantDomain_Choice_Open }
+ str_mtNotGarantDomain_Choice_Stay.Init;
+ {* Инициализация str_mtNotGarantDomain_Choice_Stay }
+ str_EmptySearchResultInBaseList_Choice_Expand.Init;
+ {* Инициализация str_EmptySearchResultInBaseList_Choice_Expand }
+ str_EmptySearchResultInBaseList_Choice_AllBase.Init;
+ {* Инициализация str_EmptySearchResultInBaseList_Choice_AllBase }
+ str_AutologinDuplicate_Choice_Back.Init;
+ {* Инициализация str_AutologinDuplicate_Choice_Back }
+ str_AutologinDuplicate_Choice_Login.Init;
+ {* Инициализация str_AutologinDuplicate_Choice_Login }
 
 end.

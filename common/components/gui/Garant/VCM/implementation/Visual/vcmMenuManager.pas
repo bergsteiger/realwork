@@ -46,6 +46,7 @@ uses
  , IafwMenuUnlockedPostBuildPtrList
  , vcmEntityForm
  , vcmMenuManagerTypes
+ , vcmToolbar
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -55,7 +56,6 @@ uses
  {$If NOT Defined(NoTB97)}
  , TB97Tlbr
  {$IfEnd} // NOT Defined(NoTB97)
- , vcmToolbar
  {$If NOT Defined(NoTB97)}
  , TB97
  {$IfEnd} // NOT Defined(NoTB97)
@@ -87,14 +87,10 @@ const
  vcm_moEntitiesInTopMainMenu = vcmMenuManagerTypes.vcm_moEntitiesInTopMainMenu;
  vcm_moEntitiesInChildMenu = vcmMenuManagerTypes.vcm_moEntitiesInChildMenu;
  vcm_moEntitesInContextMenu = vcmMenuManagerTypes.vcm_moEntitesInContextMenu;
-
-const
  {* Алиасы для значений vcmMenuManagerTypes.TvcmToolbarOption }
  vcm_toModulesInMainToolbar = vcmMenuManagerTypes.vcm_toModulesInMainToolbar;
  vcm_toEntitiesInMainToolbar = vcmMenuManagerTypes.vcm_toEntitiesInMainToolbar;
  vcm_toEntitiesInChildToolbar = vcmMenuManagerTypes.vcm_toEntitiesInChildToolbar;
-
-const
  vcm_DefaultMenuOptions = [vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu];
  vcm_DefaultToolbarOptions = [vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar];
  CM_TBMOUSEQUERY = tb97vt.CM_TBMOUSEQUERY;

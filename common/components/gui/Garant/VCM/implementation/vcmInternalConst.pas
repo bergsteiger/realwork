@@ -22,7 +22,6 @@ const
  {* Идентификаторы форм }
  fm_Any: TvcmFormID = (rName : ''; rID : 0);
 
-const
  vcmToolbarOpTypes = [vcm_otButton, vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup, vcm_otTextButton, vcm_otCheck, vcm_otRadio, vcm_otEdit, vcm_otTyper, vcm_otCombo, vcm_otEditCombo, vcm_otDate];
  vcm_AllOperationOptions = [Low(TvcmOperationOption) .. High(TvcmOperationOption)];
  vcm_ComboOperations = [vcm_otButtonCombo, vcm_otMenuButtonCombo, vcm_otButtonPopup];

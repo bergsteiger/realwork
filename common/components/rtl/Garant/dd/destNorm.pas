@@ -20,17 +20,17 @@ uses
  , ddTextParagraph
  , ddDocumentAtomList
  , ddTable
+ , ddRTFProperties
+ , Graphics
  , ddCellProperty
  , ddCharacterProperty
  , ddRTFState
  , ddParagraphProperty
- , ddRTFProperties
- , Graphics
  , ddPicture
  , l3Interfaces
+ , rtfListTable
  , ddCustomRTFReader
  , k2Interfaces
- , rtfListTable
 ;
 
 type

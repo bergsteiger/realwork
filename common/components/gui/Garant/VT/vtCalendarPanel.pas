@@ -14,8 +14,8 @@ uses
  , l3Date
  , Graphics
  , Classes
- , Messages
  , Types
+ , Messages
  , l3InternalInterfaces
  //#UC START# *5562DB5D0259intf_uses*
  //#UC END# *5562DB5D0259intf_uses*

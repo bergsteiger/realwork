@@ -15,8 +15,8 @@ uses
  , rtfListTable
  , Graphics
  , ddRTFProperties
- , ddDocumentAtom
  , RTFtypes
+ , ddDocumentAtom
  , ddPicture
 ;
 

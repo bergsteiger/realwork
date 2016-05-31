@@ -16,10 +16,10 @@ uses
  , afwInterfaces
  , vcmToolbarsInterfaces
  , vcmFormDispatcherInterfaces
- , vcmInterfaces
- , vcmExternalInterfaces
- , l3Interfaces
  , vcmUserTypesCollectionItem
+ , vcmExternalInterfaces
+ , vcmInterfaces
+ , l3Interfaces
  , vcmBaseTypes
  , vcmUserControls
  , l3Core

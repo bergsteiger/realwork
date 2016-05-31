@@ -14,8 +14,8 @@ uses
  , vcmBaseCollection
  , vcmExternalInterfaces
  , vcmBaseEntitiesCollectionItem
- , vcmBase
  , vcmBaseOperationsCollectionItem
+ , vcmBase
  , vcmEntitiesDefList
  , Classes
  , vcmBaseCollectionItem

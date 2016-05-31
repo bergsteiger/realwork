@@ -81,7 +81,6 @@ const
  DefTopIndex = 0;
  DefTabStop = True;
  DefUseTabStops = False;
-
 const
  MaxTabStops = 128;
  msg_vtUpdateScroll = WM_User + 2;

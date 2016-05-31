@@ -13,19 +13,19 @@ uses
  l3IntfUses
  , vcmChromeLikeTabbedContainerFormPrim
  , FormFrameDecorator
- , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
  , l3TabbedContainersDispatcher
  , ChromeLikeTabSetControl
  , Types
+ , ChromeLikeInterfaces
  , ChromeLikeTabSetControlPrim
  , Graphics
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , ChromeLikeInterfaces
  , Classes
  , Windows
 ;

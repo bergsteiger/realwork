@@ -11,9 +11,9 @@ interface
 uses
  l3IntfUses
  , nevFormatInfo
+ , evResultFontInterfaces
  , nevTools
  , nevBase
- , evResultFontInterfaces
 ;
 
 type

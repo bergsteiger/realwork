@@ -12,8 +12,8 @@ interface
 uses
  l3IntfUses
  , evParaCollapser
- , nevTools
  , nevDecorActiveHyperlink
+ , nevTools
 ;
 
 type

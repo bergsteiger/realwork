@@ -14,9 +14,9 @@ uses
  , ddRowList
  , ddTableRow
  , ddTextParagraph
+ , ddTableCell
  , ddCellProperty
  , ddTypes
- , ddTableCell
  , l3Base
  , ddRowProperty
  , ddParagraphProperty

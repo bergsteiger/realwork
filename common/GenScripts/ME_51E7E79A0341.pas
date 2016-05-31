@@ -39,10 +39,6 @@ const
   {* 'Отмена' }
 
 initialization
- str_TooManyWindowsOpened_Choice_First.Init;
- {* Инициализация str_TooManyWindowsOpened_Choice_First }
- str_TooManyWindowsOpened_Choice_Second.Init;
- {* Инициализация str_TooManyWindowsOpened_Choice_Second }
  str_TooManyWindowsOpened.Init;
  str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_First);
  str_TooManyWindowsOpened.AddChoice(str_TooManyWindowsOpened_Choice_Second);
@@ -50,6 +46,10 @@ initialization
  str_TooManyWindowsOpened.AddDefaultChoice(str_TooManyWindowsOpened_Choice_First);
  str_TooManyWindowsOpened.SetDlgType(mtConfirmation);
  {* Инициализация str_TooManyWindowsOpened }
+ str_TooManyWindowsOpened_Choice_First.Init;
+ {* Инициализация str_TooManyWindowsOpened_Choice_First }
+ str_TooManyWindowsOpened_Choice_Second.Init;
+ {* Инициализация str_TooManyWindowsOpened_Choice_Second }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

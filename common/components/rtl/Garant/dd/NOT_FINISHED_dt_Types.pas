@@ -23,8 +23,6 @@ const
  outRTF = evdDTTypes.outRTF;
  outHTML = evdDTTypes.outHTML;
  outXML = evdDTTypes.outXML;
-
-const
  {* Алиасы для значений evdDTTypes.TepDivideBy }
  divNone = evdDTTypes.divNone;
  divTopic = evdDTTypes.divTopic;

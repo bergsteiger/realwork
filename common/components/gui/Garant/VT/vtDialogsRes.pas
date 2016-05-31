@@ -29,6 +29,7 @@ const
   {* 'Confirm' }
 {$IfEnd} // NOT Defined(Nemesis)
 {$If Defined(Nemesis)}
+const
  {* Локализуемые строки MsgDlgNemesis }
  str_vtMsgDlgWarning: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgWarning'; rValue : 'Предупреждение');
   {* 'Предупреждение' }
@@ -39,6 +40,7 @@ const
  str_vtMsgDlgConfirm: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgConfirm'; rValue : 'Подтверждение');
   {* 'Подтверждение' }
 {$IfEnd} // Defined(Nemesis)
+const
  {* Локализуемые строки Custom }
  str_vtMsgDlgCustom: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtMsgDlgCustom'; rValue : '');
   {* '' }
@@ -70,44 +72,27 @@ implementation
 
 uses
  l3ImplUses
- , l3MessageID
 ;
 
 initialization
  str_vtDefaultOpenDlgFilter.Init;
  {* Инициализация str_vtDefaultOpenDlgFilter }
-{$If NOT Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
  {* Инициализация str_vtMsgDlgWarning }
-{$IfEnd} // NOT Defined(Nemesis)
-{$If NOT Defined(Nemesis)}
  str_vtMsgDlgError.Init;
  {* Инициализация str_vtMsgDlgError }
-{$IfEnd} // NOT Defined(Nemesis)
-{$If NOT Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
  {* Инициализация str_vtMsgDlgInformation }
-{$IfEnd} // NOT Defined(Nemesis)
-{$If NOT Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
  {* Инициализация str_vtMsgDlgConfirm }
-{$IfEnd} // NOT Defined(Nemesis)
-{$If Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
  {* Инициализация str_vtMsgDlgWarning }
-{$IfEnd} // Defined(Nemesis)
-{$If Defined(Nemesis)}
  str_vtMsgDlgError.Init;
  {* Инициализация str_vtMsgDlgError }
-{$IfEnd} // Defined(Nemesis)
-{$If Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
  {* Инициализация str_vtMsgDlgInformation }
-{$IfEnd} // Defined(Nemesis)
-{$If Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
  {* Инициализация str_vtMsgDlgConfirm }
-{$IfEnd} // Defined(Nemesis)
  str_vtMsgDlgCustom.Init;
  {* Инициализация str_vtMsgDlgCustom }
  str_vtMsgDlgYes.Init;

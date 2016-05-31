@@ -11,13 +11,13 @@ interface
 {$If Defined(k2ForEditor)}
 uses
  l3IntfUses
- , nevTools
- , l3Base
- , nevBase
- , evdTypes
- , l3Variant
  , l3Types
  , k2InterfacesEx
+ , nevBase
+ , nevTools
+ , l3Base
+ , evdTypes
+ , l3Variant
  , l3InternalInterfaces
  , l3LineArray
 ;

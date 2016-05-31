@@ -14,8 +14,8 @@ uses
  , l3ProtoObject
  , afwInterfaces
  , evStandardStylesList
- , l3Variant
  , evResultFontInterfaces
+ , l3Variant
  , evdStyles
  , evStandardStylesListPrim
 ;

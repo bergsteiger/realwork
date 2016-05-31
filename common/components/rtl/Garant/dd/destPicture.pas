@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , destNorm
  , ddPicture
- , RTFtypes
  , l3Base
+ , RTFtypes
  , l3Filer
  , l3Parser
  , ddCustomRTFReader

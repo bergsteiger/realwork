@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , k2TagTool
  , l3Interfaces
- , l3Variant
  , l3Core
+ , l3Variant
 ;
 
 type

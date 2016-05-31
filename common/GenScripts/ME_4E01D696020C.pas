@@ -11,16 +11,16 @@ interface
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ , l3Interfaces
+ , l3MessageID
  , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
- , l3MessageID
  , Pl3StringIDExList
  , evCustomEditorWindow
  , vcmGUI
  , vcmMessagesCollectionItem
- , l3Interfaces
  , SysUtils
  , l3ProtoObject
  {$If NOT Defined(NoVCL)}

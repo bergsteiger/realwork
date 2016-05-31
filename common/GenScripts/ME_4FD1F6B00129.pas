@@ -11,13 +11,13 @@ interface
 uses
  l3IntfUses
  , l3ObjectList
+ , vtInterfaces
  {$If NOT Defined(NoImageEn)}
  , hyieutils
  {$IfEnd} // NOT Defined(NoImageEn)
  , Graphics
  , Windows
  , l3Types
- , vtInterfaces
  , l3ProcedureList
  , l3ProtoObject
 ;

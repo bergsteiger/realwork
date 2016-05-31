@@ -11,12 +11,12 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
  l3IntfUses
+ , Types
  , l3MessageID
  , Classes
  , Windows
  , Pl3StringIDExList
  , evCustomEditorWindow
- , Types
  , l3PrinterInterfaces
  , vcmMessageFormPrim
  {$If NOT Defined(NoVCL)}

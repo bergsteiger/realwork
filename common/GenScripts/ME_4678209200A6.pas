@@ -40,8 +40,6 @@ const
  otNone = evdTypes.ev_msNone;
  otUpper = evdTypes.ev_msHead;
  otLower = evdTypes.ev_msContinue;
-
-const
  {* Относительные уровни параграфов. }
  nev_plThis = TnevParaLevel(0);
  nev_plNearest = TnevParaLevel(1);

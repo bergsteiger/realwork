@@ -33,21 +33,21 @@ uses
  , ToolsAPI
  {$IfEnd} // NOT Defined(XE)
  , vcmMenuItemClickListenerList
- , vcmUserControls
- , vcmEntityForm
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
  , vcmRepEntitiesCollectionItem
+ , vcmEntityForm
  , vcmBaseCollectionItem
+ , vcmUserControls
  {$If NOT Defined(NoVCL)}
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
  , afwInterfaces
  , vcmMenuManagerTypes
  , vcmMenus
- , Classes
  , vcmBaseCollection
+ , Classes
  , Types
  , l3ProtoObject
  {$If NOT Defined(NoVCL)}

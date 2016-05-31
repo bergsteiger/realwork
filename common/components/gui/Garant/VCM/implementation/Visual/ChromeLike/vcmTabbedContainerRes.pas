@@ -11,14 +11,12 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3IntfUses
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
 ;
 
 const
  {* Локализуемые строки vcmTabbedContainerConsts }
- str_TooManyTabsOpened: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'TooManyTabsOpened'; rValue : 'Открыто максимальное количество вкладок, закройте ненужные или продолжайте работать в текущей вкладке.');
-  {* 'Открыто максимальное количество вкладок, закройте ненужные или продолжайте работать в текущей вкладке.' }
  str_pui_MainWindowTabs: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pui_MainWindowTabs'; rValue : 'Вкладки Основного окна');
   {* 'Вкладки Основного окна' }
  str_pi_UseTabs: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_UseTabs'; rValue : 'Использовать вкладки');
@@ -33,6 +31,8 @@ const
   {* 'В новой вкладке' }
  str_pi_InNewWindow: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_InNewWindow'; rValue : 'В новом окне');
   {* 'В новом окне' }
+ str_TooManyTabsOpened: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'TooManyTabsOpened'; rValue : 'Открыто максимальное количество вкладок, закройте ненужные или продолжайте работать в текущей вкладке.');
+  {* 'Открыто максимальное количество вкладок, закройте ненужные или продолжайте работать в текущей вкладке.' }
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
@@ -51,13 +51,6 @@ const
   {* 'Продолжить работу в текущей вкладке' }
 
 initialization
- str_TooManyTabsOpened_Choice_First.Init;
- {* Инициализация str_TooManyTabsOpened_Choice_First }
- str_TooManyTabsOpened.Init;
- str_TooManyTabsOpened.AddChoice(str_TooManyTabsOpened_Choice_First);
- str_TooManyTabsOpened.AddDefaultChoice(str_TooManyTabsOpened_Choice_First);
- str_TooManyTabsOpened.SetDlgType(mtConfirmation);
- {* Инициализация str_TooManyTabsOpened }
  str_pui_MainWindowTabs.Init;
  {* Инициализация str_pui_MainWindowTabs }
  str_pi_UseTabs.Init;
@@ -72,6 +65,13 @@ initialization
  {* Инициализация str_pi_InNewTab }
  str_pi_InNewWindow.Init;
  {* Инициализация str_pi_InNewWindow }
+ str_TooManyTabsOpened.Init;
+ str_TooManyTabsOpened.AddChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.AddDefaultChoice(str_TooManyTabsOpened_Choice_First);
+ str_TooManyTabsOpened.SetDlgType(mtConfirmation);
+ {* Инициализация str_TooManyTabsOpened }
+ str_TooManyTabsOpened_Choice_First.Init;
+ {* Инициализация str_TooManyTabsOpened_Choice_First }
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

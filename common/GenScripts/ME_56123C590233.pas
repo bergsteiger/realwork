@@ -13,8 +13,8 @@ interface
 uses
  l3IntfUses
  , evTableImplementation
- , nevBase
  , nevTools
+ , nevBase
 ;
 
 type

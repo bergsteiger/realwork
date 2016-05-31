@@ -44,7 +44,6 @@ uses
  , evSectionPara
  , l3Defaults
  , l3Variant
- , l3MessageID
 ;
 
 const

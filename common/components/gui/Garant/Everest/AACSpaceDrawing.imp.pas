@@ -13,6 +13,7 @@
   private
    f_TopSpace: Integer;
    f_NeedCalcSpace: Boolean;
+   f_DontFill: Boolean;
   private
    procedure DoFillEmptyRect(const aRect: Tl3Rect);
   protected

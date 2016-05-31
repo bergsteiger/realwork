@@ -18,8 +18,8 @@ uses
  , l3Variant
  , nevBase
  , evdTypes
- , l3Interfaces
  , evEditorInterfacesTypes
+ , l3Interfaces
 ;
 
 type

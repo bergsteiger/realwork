@@ -16,8 +16,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , Messages
  , ChromeLikeTabSetTypes
+ , Messages
  , Windows
  , Types
  , Graphics

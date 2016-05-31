@@ -13,10 +13,10 @@ uses
  l3IntfUses
  , ddDocumentAtom
  , ddDocumentAtomList
+ , ddTextParagraph
  , ddRTFState
  , destNorm
  , ddPicture
- , ddTextParagraph
  , ddCustomDestination
  , k2Interfaces
  , ddTypes

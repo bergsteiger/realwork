@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , l3_String
- , k2Base
  , l3Variant
+ , k2Base
  , k2BaseStruct
  , k2TagList
  , k2Prim

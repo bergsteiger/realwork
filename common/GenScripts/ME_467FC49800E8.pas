@@ -13,8 +13,8 @@ uses
  l3IntfUses
  , k2NonAtomicTag
  , l3BitArr
- , k2Base
  , l3Variant
+ , k2Base
  , k2BaseStruct
  , k2TagList
  , k2Prim
