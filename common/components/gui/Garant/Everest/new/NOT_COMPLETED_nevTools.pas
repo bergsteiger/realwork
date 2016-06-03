@@ -1159,8 +1159,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//ActiveElementHolder
  *)
 
- InevView = interface;
-
  InevK235870994Hacker = interface(InevBase)
   {* [RequestLink:235870994] }
   ['{BAF87764-C80A-41F4-A137-9368A5322EE0}']
