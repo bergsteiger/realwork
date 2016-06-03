@@ -91,9 +91,6 @@ type
    {* раздел бизнес-справки }
   function GetChangesInLegislationSection: IMainMenuSection; stdcall;
    {* раздел изменения в  законодательстве }
-  procedure Customize; stdcall;
-   {* настройка основного меню в зависимости от дополнительных параметров
- желательно сделать сразу после логина и до загрузки кеша настроек }
  end;//IMainMenu
 
 implementation

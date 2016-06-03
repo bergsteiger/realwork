@@ -110,6 +110,9 @@ type
 
  TPriority = ;
 
+ TStageType = (
+ );//TStageType
+
 implementation
 
 uses

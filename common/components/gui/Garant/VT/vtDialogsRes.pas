@@ -77,22 +77,38 @@ uses
 initialization
  str_vtDefaultOpenDlgFilter.Init;
  {* Инициализация str_vtDefaultOpenDlgFilter }
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
  {* Инициализация str_vtMsgDlgWarning }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgError.Init;
  {* Инициализация str_vtMsgDlgError }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
  {* Инициализация str_vtMsgDlgInformation }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
  {* Инициализация str_vtMsgDlgConfirm }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgWarning.Init;
  {* Инициализация str_vtMsgDlgWarning }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgError.Init;
  {* Инициализация str_vtMsgDlgError }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgInformation.Init;
  {* Инициализация str_vtMsgDlgInformation }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_vtMsgDlgConfirm.Init;
  {* Инициализация str_vtMsgDlgConfirm }
+{$IfEnd} // Defined(Nemesis)
  str_vtMsgDlgCustom.Init;
  {* Инициализация str_vtMsgDlgCustom }
  str_vtMsgDlgYes.Init;
