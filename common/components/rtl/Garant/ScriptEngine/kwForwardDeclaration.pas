@@ -39,6 +39,7 @@ type
    function WordName: Il3CString; override;
    function MakeRefForCompile(const aCtx: TtfwContext;
     aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
+   function GetRefForCompare: TtfwWord; override;
   public
    property RealWord: TtfwWord
     read f_RealWord
@@ -198,6 +199,15 @@ begin
  Result := TkwForwardDeclarationHolder.Create(Self);
 //#UC END# *55CB5B8C004E_4F4BB70D0144_impl*
 end;//TkwForwardDeclaration.MakeRefForCompile
+
+function TkwForwardDeclaration.GetRefForCompare: TtfwWord;
+//#UC START# *57500A22001C_4F4BB70D0144_var*
+//#UC END# *57500A22001C_4F4BB70D0144_var*
+begin
+//#UC START# *57500A22001C_4F4BB70D0144_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57500A22001C_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.GetRefForCompare
 
 initialization
  TkwForwardDeclaration.RegisterClass;

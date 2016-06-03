@@ -27,6 +27,7 @@ type
    constructor Create(aHolded: TtfwWord); reintroduce;
    function GetRef(const aCtx: TtfwContext): TtfwWord; override;
    function WordName: Il3CString; override;
+   function GetRefForCompare: TtfwWord; override;
   public
    property Holded: TtfwWord
     read f_Holded;
@@ -93,6 +94,15 @@ begin
   Result := f_Holded.WordName;
 //#UC END# *55AFD7DA0258_4F4BC6DB02F4_impl*
 end;//TkwForwardDeclarationHolder.WordName
+
+function TkwForwardDeclarationHolder.GetRefForCompare: TtfwWord;
+//#UC START# *57500A22001C_4F4BC6DB02F4_var*
+//#UC END# *57500A22001C_4F4BC6DB02F4_var*
+begin
+//#UC START# *57500A22001C_4F4BC6DB02F4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57500A22001C_4F4BC6DB02F4_impl*
+end;//TkwForwardDeclarationHolder.GetRefForCompare
 
 initialization
  TkwForwardDeclarationHolder.RegisterClass;

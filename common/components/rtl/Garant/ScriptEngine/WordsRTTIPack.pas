@@ -408,6 +408,21 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopWordBox
 
+ TkwPopWordGetRefForCompare = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Word:GetRefForCompare }
+  private
+   function GetRefForCompare(const aCtx: TtfwContext;
+    aWord: TtfwWord): TtfwWord;
+    {* Реализация слова скрипта pop:Word:GetRefForCompare }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopWordGetRefForCompare
+
  TkwPopWordDirectives = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Word:Directives }
   private
@@ -1777,6 +1792,52 @@ begin
  aCtx.rEngine.PushIntf(Box(aCtx, l_aWord), TypeInfo(ItfwWordBox));
 end;//TkwPopWordBox.DoDoIt
 
+function TkwPopWordGetRefForCompare.GetRefForCompare(const aCtx: TtfwContext;
+ aWord: TtfwWord): TtfwWord;
+ {* Реализация слова скрипта pop:Word:GetRefForCompare }
+//#UC START# *57500AC802FC_57500AC802FC_4DAEED140007_Word_var*
+//#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_var*
+begin
+//#UC START# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
+end;//TkwPopWordGetRefForCompare.GetRefForCompare
+
+class function TkwPopWordGetRefForCompare.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Word:GetRefForCompare';
+end;//TkwPopWordGetRefForCompare.GetWordNameForRegister
+
+function TkwPopWordGetRefForCompare.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwWord);
+end;//TkwPopWordGetRefForCompare.GetResultTypeInfo
+
+function TkwPopWordGetRefForCompare.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwPopWordGetRefForCompare.GetAllParamsCount
+
+function TkwPopWordGetRefForCompare.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+end;//TkwPopWordGetRefForCompare.ParamsTypes
+
+procedure TkwPopWordGetRefForCompare.DoDoIt(const aCtx: TtfwContext);
+var l_aWord: TtfwWord;
+begin
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetRefForCompare(aCtx, l_aWord));
+end;//TkwPopWordGetRefForCompare.DoDoIt
+
 function TkwPopWordDirectives.Directives(const aCtx: TtfwContext;
  aWord: TtfwWord): Il3CString;
  {* Реализация слова скрипта pop:Word:Directives }
@@ -2189,6 +2250,8 @@ initialization
  {* Регистрация pop_Word_SetKey }
  TkwPopWordBox.RegisterInEngine;
  {* Регистрация pop_Word_Box }
+ TkwPopWordGetRefForCompare.RegisterInEngine;
+ {* Регистрация pop_Word_GetRefForCompare }
  TkwPopWordDirectives.RegisterInEngine;
  {* Регистрация pop_Word_Directives }
  TkwPopWordEndBracket.RegisterInEngine;

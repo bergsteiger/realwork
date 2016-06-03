@@ -510,6 +510,7 @@ type
    function ParamsInfos: TtfwWordInfoArray; virtual;
    function IsGlobalVar: Boolean; virtual;
    procedure SetParent(aParent: TtfwWord); virtual;
+   function GetRefForCompare: TtfwWord; virtual;
    procedure AddCodePart(aWord: TtfwWord;
     const aCtx: TtfwContext;
     aSNI: TtfwSuppressNextImmediate);
@@ -2225,6 +2226,15 @@ begin
  // - ничего не делаем
 //#UC END# *5673E71002C8_4DAEED140007_impl*
 end;//TtfwWord.SetParent
+
+function TtfwWord.GetRefForCompare: TtfwWord;
+//#UC START# *57500A22001C_4DAEED140007_var*
+//#UC END# *57500A22001C_4DAEED140007_var*
+begin
+//#UC START# *57500A22001C_4DAEED140007_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57500A22001C_4DAEED140007_impl*
+end;//TtfwWord.GetRefForCompare
 
 procedure TtfwWord.AddCodePart(aWord: TtfwWord;
  const aCtx: TtfwContext;
