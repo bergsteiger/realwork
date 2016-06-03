@@ -16,6 +16,9 @@ type
  TCfgList = class
  end;//TCfgList
 
+ Tl3IniFile = class(TCfgList)
+ end;//Tl3IniFile
+
 implementation
 
 uses

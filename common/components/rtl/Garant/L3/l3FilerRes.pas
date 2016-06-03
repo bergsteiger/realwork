@@ -37,13 +37,21 @@ uses
 ;
 
 initialization
+{$If NOT Defined(Nemesis)}
  str_l3mmFileOp.Init;
  {* Инициализация str_l3mmFileOp }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If NOT Defined(Nemesis)}
  str_l3mmFileOpFmt.Init;
  {* Инициализация str_l3mmFileOpFmt }
+{$IfEnd} // NOT Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_l3mmFileOp.Init;
  {* Инициализация str_l3mmFileOp }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  str_l3mmFileOpFmt.Init;
  {* Инициализация str_l3mmFileOpFmt }
+{$IfEnd} // Defined(Nemesis)
 
 end.

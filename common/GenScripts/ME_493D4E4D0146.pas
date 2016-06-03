@@ -35,10 +35,10 @@ type
    function pm_GetKindOfList: TbsUserCRList;
    procedure Assign(const aValue: IbsUserCRListInfo);
     {* скопировать данные }
-   procedure pm_SetwListType(aValue: TlstCRType);
-   procedure pm_SetwKindOfList(aValue: TbsUserCRList);
-   procedure pm_SetwNode(const aValue: IbsFrozenNode);
-   procedure pm_SetwHas(aValue: Boolean);
+   procedure pm_SetWListType(aValue: TlstCRType);
+   procedure pm_SetWKindOfList(aValue: TbsUserCRList);
+   procedure pm_SetWNode(const aValue: IbsFrozenNode);
+   procedure pm_SetWHas(aValue: Boolean);
    procedure ClearFields; override;
   public
    class function Make: IbsUserCRListInfoModify; reintroduce;
@@ -144,41 +144,41 @@ begin
 //#UC END# *4B17E77A0383_493D4E4D0146_impl*
 end;//TbsUserCRListInfo.Assign
 
-procedure TbsUserCRListInfo.pm_SetwListType(aValue: TlstCRType);
+procedure TbsUserCRListInfo.pm_SetWListType(aValue: TlstCRType);
 //#UC START# *4B17EFED0394_493D4E4D0146set_var*
 //#UC END# *4B17EFED0394_493D4E4D0146set_var*
 begin
 //#UC START# *4B17EFED0394_493D4E4D0146set_impl*
  f_ListType := aValue;
 //#UC END# *4B17EFED0394_493D4E4D0146set_impl*
-end;//TbsUserCRListInfo.pm_SetwListType
+end;//TbsUserCRListInfo.pm_SetWListType
 
-procedure TbsUserCRListInfo.pm_SetwKindOfList(aValue: TbsUserCRList);
+procedure TbsUserCRListInfo.pm_SetWKindOfList(aValue: TbsUserCRList);
 //#UC START# *4B17F0040151_493D4E4D0146set_var*
 //#UC END# *4B17F0040151_493D4E4D0146set_var*
 begin
 //#UC START# *4B17F0040151_493D4E4D0146set_impl*
  f_KindOfList := aValue;
 //#UC END# *4B17F0040151_493D4E4D0146set_impl*
-end;//TbsUserCRListInfo.pm_SetwKindOfList
+end;//TbsUserCRListInfo.pm_SetWKindOfList
 
-procedure TbsUserCRListInfo.pm_SetwNode(const aValue: IbsFrozenNode);
+procedure TbsUserCRListInfo.pm_SetWNode(const aValue: IbsFrozenNode);
 //#UC START# *4B17F0150365_493D4E4D0146set_var*
 //#UC END# *4B17F0150365_493D4E4D0146set_var*
 begin
 //#UC START# *4B17F0150365_493D4E4D0146set_impl*
  f_Node := aValue;
 //#UC END# *4B17F0150365_493D4E4D0146set_impl*
-end;//TbsUserCRListInfo.pm_SetwNode
+end;//TbsUserCRListInfo.pm_SetWNode
 
-procedure TbsUserCRListInfo.pm_SetwHas(aValue: Boolean);
+procedure TbsUserCRListInfo.pm_SetWHas(aValue: Boolean);
 //#UC START# *4B17F03C0327_493D4E4D0146set_var*
 //#UC END# *4B17F03C0327_493D4E4D0146set_var*
 begin
 //#UC START# *4B17F03C0327_493D4E4D0146set_impl*
  f_Has := aValue;
 //#UC END# *4B17F03C0327_493D4E4D0146set_impl*
-end;//TbsUserCRListInfo.pm_SetwHas
+end;//TbsUserCRListInfo.pm_SetWHas
 
 procedure TbsUserCRListInfo.ClearFields;
 begin

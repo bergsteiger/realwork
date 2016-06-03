@@ -54,7 +54,7 @@ type
    procedure OpenDrugInternationalNameSynonims;
     {* Открыть список синонимов по международному названию. }
    function BaseDocumentClass: IdsBaseDocument; override;
-   function pm_GetdsContents: IdsBaseContents;
+   function pm_GetDsContents: IdsBaseContents;
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
@@ -143,14 +143,14 @@ begin
 //#UC END# *4925B1EC0100_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.BaseDocumentClass
 
-function TsdsDrugDocument.pm_GetdsContents: IdsBaseContents;
+function TsdsDrugDocument.pm_GetDsContents: IdsBaseContents;
 //#UC START# *500CEEBD01CB_47F4A2F801D8get_var*
 //#UC END# *500CEEBD01CB_47F4A2F801D8get_var*
 begin
 //#UC START# *500CEEBD01CB_47F4A2F801D8get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEEBD01CB_47F4A2F801D8get_impl*
-end;//TsdsDrugDocument.pm_GetdsContents
+end;//TsdsDrugDocument.pm_GetDsContents
 
 procedure TsdsDrugDocument.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_47F4A2F801D8_var*

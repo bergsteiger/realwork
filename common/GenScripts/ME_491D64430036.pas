@@ -33,7 +33,7 @@
     {* открыть список похожих документов }
    function GetSubPosition(aSubID: Integer): IevdHyperlinkInfo;
    function pm_GetHasSimilarDocuments: Boolean;
-   function Get_dsContents: IdsBaseContents;
+   function Get_DsContents: IdsBaseContents;
    procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
    {$If NOT Defined(NoVCM)}
    function GetIsSame(const aValue: _FormDataSourceType_): Boolean; override;
@@ -153,7 +153,7 @@ begin
 //#UC END# *4953D3B20211_491D64430036_impl*
 end;//_dsDocument_.OpenContents
 
-function _dsDocument_.Get_dsContents: IdsBaseContents;
+function _dsDocument_.Get_DsContents: IdsBaseContents;
 //#UC START# *4E7B663D00A9_491D64430036get_var*
 //#UC END# *4E7B663D00A9_491D64430036get_var*
 begin
@@ -163,7 +163,7 @@ begin
  else
   Result := ucc_DocumentWithContents.dsContents;
 //#UC END# *4E7B663D00A9_491D64430036get_impl*
-end;//_dsDocument_.Get_dsContents
+end;//_dsDocument_.Get_DsContents
 
 procedure _dsDocument_.OpenSimilarDocumentsToFragment(aBlockId: Integer);
 //#UC START# *5594F4830261_491D64430036_var*

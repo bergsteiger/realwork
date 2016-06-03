@@ -19,7 +19,7 @@
    f_DocInfo: IdeDocInfo;
     {* DocInfo }
   protected
-   function pm_GetdsDocumentRef: IvcmFormDataSourceRef;
+   function pm_GetDsDocumentRef: IvcmFormDataSourceRef;
    function pm_GetHasDocument: Tl3Bool;
    procedure pm_SetHasDocument(aValue: Tl3Bool);
    function pm_GetDocInfo: IdeDocInfo;
@@ -47,14 +47,14 @@ _dBaseDocument_ = _vcmData_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
 
-function _dBaseDocument_.pm_GetdsDocumentRef: IvcmFormDataSourceRef;
+function _dBaseDocument_.pm_GetDsDocumentRef: IvcmFormDataSourceRef;
 //#UC START# *2C233EE5B42C_47EB3E2202E6get_var*
 //#UC END# *2C233EE5B42C_47EB3E2202E6get_var*
 begin
 //#UC START# *2C233EE5B42C_47EB3E2202E6get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *2C233EE5B42C_47EB3E2202E6get_impl*
-end;//_dBaseDocument_.pm_GetdsDocumentRef
+end;//_dBaseDocument_.pm_GetDsDocumentRef
 
 function _dBaseDocument_.pm_GetHasDocument: Tl3Bool;
 //#UC START# *77EA326510B8_47EB3E2202E6get_var*
@@ -119,7 +119,7 @@ end;//_dBaseDocument_.AssignData
 procedure _dBaseDocument_.ClearFields;
 begin
  f_dsDocumentRef := nil;
- DocInfo := nil;
+ f_DocInfo := nil;
  inherited;
 end;//_dBaseDocument_.ClearFields
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

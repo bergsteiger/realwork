@@ -37,7 +37,7 @@
     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
            новой сборки вернуться как результат для вызова операции модуля }
    function pm_GetDocInfo: IdeDocInfo;
-   function pm_GetdsDocument: IdsBaseDocument;
+   function pm_GetDsDocument: IdsBaseDocument;
    function pm_GetHasDocument: Boolean;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
@@ -176,14 +176,14 @@ begin
 //#UC END# *4DF9D63B0360_47EA106D035Eget_impl*
 end;//_sdsBaseDocument_.pm_GetDocInfo
 
-function _sdsBaseDocument_.pm_GetdsDocument: IdsBaseDocument;
+function _sdsBaseDocument_.pm_GetDsDocument: IdsBaseDocument;
 //#UC START# *50002EC80001_47EA106D035Eget_var*
 //#UC END# *50002EC80001_47EA106D035Eget_var*
 begin
 //#UC START# *50002EC80001_47EA106D035Eget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *50002EC80001_47EA106D035Eget_impl*
-end;//_sdsBaseDocument_.pm_GetdsDocument
+end;//_sdsBaseDocument_.pm_GetDsDocument
 
 function _sdsBaseDocument_.pm_GetHasDocument: Boolean;
 //#UC START# *5111C2BAF24F_47EA106D035Eget_var*

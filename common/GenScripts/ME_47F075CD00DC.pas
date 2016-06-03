@@ -17,7 +17,7 @@
    function NeedMakeDsDrugInternationalNameSynonims: Boolean; virtual;
     {* - нужно ли создавать БОФ синонимов по международному названию. }
    function pm_GetHasDrugInternationalNameSynonims: Boolean;
-   function pm_GetdsDrugInternationalNameSynonims: IdsDrugList;
+   function pm_GetDsDrugInternationalNameSynonims: IdsDrugList;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -89,14 +89,14 @@ begin
 //#UC END# *0D45C46989F3_47F075CD00DCget_impl*
 end;//_sdsBaseDrugDocument_.pm_GetHasDrugInternationalNameSynonims
 
-function _sdsBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonims: IdsDrugList;
+function _sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonims: IdsDrugList;
 //#UC START# *500D3CBB01DF_47F075CD00DCget_var*
 //#UC END# *500D3CBB01DF_47F075CD00DCget_var*
 begin
 //#UC START# *500D3CBB01DF_47F075CD00DCget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3CBB01DF_47F075CD00DCget_impl*
-end;//_sdsBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonims
+end;//_sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonims
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsBaseDrugDocument_.DataExchange;

@@ -25,7 +25,7 @@ type
    f_List_SynchroView_Form: TList_SynchroView_Areas;
     {* Форма синхронного просмотра }
   protected
-   function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
+   function pm_GetListSynchroViewForm: TList_SynchroView_Areas;
    procedure AssignClonned(aClone: TdeDocumentList); override;
   public
    constructor Create(const aList: IDynList;
@@ -102,14 +102,14 @@ begin
  end;//try..finally
 end;//TdeListSet.Make
 
-function TdeListSet.pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
+function TdeListSet.pm_GetListSynchroViewForm: TList_SynchroView_Areas;
 //#UC START# *715D27A37B98_4926AE3900B9get_var*
 //#UC END# *715D27A37B98_4926AE3900B9get_var*
 begin
 //#UC START# *715D27A37B98_4926AE3900B9get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *715D27A37B98_4926AE3900B9get_impl*
-end;//TdeListSet.pm_GetList_SynchroView_Form
+end;//TdeListSet.pm_GetListSynchroViewForm
 
 procedure TdeListSet.AssignClonned(aClone: TdeDocumentList);
 //#UC START# *4B1F7AE80158_4926AE3900B9_var*

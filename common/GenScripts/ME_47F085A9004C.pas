@@ -20,7 +20,7 @@
    procedure DoResetBooleans; virtual;
    procedure ResetBooleans;
     {* очистить логические поля }
-   function pm_GetdsAttributesRef: IvcmFormDataSourceRef;
+   function pm_GetDsAttributesRef: IvcmFormDataSourceRef;
    function pm_GetHasAttributes: Tl3Bool;
    procedure pm_SetHasAttributes(aValue: Tl3Bool);
    {$If NOT Defined(NoVCM)}
@@ -63,14 +63,14 @@ begin
 //#UC END# *4939245D0171_47F085A9004C_impl*
 end;//_dBaseDocumentWithAttributes_.ResetBooleans
 
-function _dBaseDocumentWithAttributes_.pm_GetdsAttributesRef: IvcmFormDataSourceRef;
+function _dBaseDocumentWithAttributes_.pm_GetDsAttributesRef: IvcmFormDataSourceRef;
 //#UC START# *958F281A6FD6_47F085A9004Cget_var*
 //#UC END# *958F281A6FD6_47F085A9004Cget_var*
 begin
 //#UC START# *958F281A6FD6_47F085A9004Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *958F281A6FD6_47F085A9004Cget_impl*
-end;//_dBaseDocumentWithAttributes_.pm_GetdsAttributesRef
+end;//_dBaseDocumentWithAttributes_.pm_GetDsAttributesRef
 
 function _dBaseDocumentWithAttributes_.pm_GetHasAttributes: Tl3Bool;
 //#UC START# *E1561B99CC62_47F085A9004Cget_var*

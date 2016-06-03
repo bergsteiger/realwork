@@ -20,7 +20,7 @@
     {* Реализация HasAttributes }
    procedure OpenAttributes;
     {* атрибуты }
-   function pm_GetdsAttributes: IdsAttributes;
+   function pm_GetDsAttributes: IdsAttributes;
    function pm_GetHasAttributes: Boolean;
    procedure ClearAllDS; override;
    {$If NOT Defined(NoVCM)}
@@ -95,14 +95,14 @@ begin
 //#UC END# *492598700162_47F0849400D0_impl*
 end;//_sdsBaseDocumentWithAttributes_.OpenAttributes
 
-function _sdsBaseDocumentWithAttributes_.pm_GetdsAttributes: IdsAttributes;
+function _sdsBaseDocumentWithAttributes_.pm_GetDsAttributes: IdsAttributes;
 //#UC START# *5009A78501A6_47F0849400D0get_var*
 //#UC END# *5009A78501A6_47F0849400D0get_var*
 begin
 //#UC START# *5009A78501A6_47F0849400D0get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A78501A6_47F0849400D0get_impl*
-end;//_sdsBaseDocumentWithAttributes_.pm_GetdsAttributes
+end;//_sdsBaseDocumentWithAttributes_.pm_GetDsAttributes
 
 function _sdsBaseDocumentWithAttributes_.pm_GetHasAttributes: Boolean;
 //#UC START# *6DBD21E52E04_47F0849400D0get_var*

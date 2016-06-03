@@ -38,6 +38,7 @@ function nsIsObtainRequisitesForMobileAccessURL(const anURL: WideString): Boolea
 function nsIsMunicipalDecisionsArchiveURL(const anURL: WideString): Boolean;
 function nsNeedOpenLinkInInternalBrowser(const anURL: WideString): Boolean;
 function nsIsMailtoURL(const anURL: WideString): Boolean;
+function nsIsFileFromMobileGarant(const anURL: WideString): Boolean;
 {$IfEnd} // Defined(Nemesis)
 
 implementation
@@ -321,6 +322,27 @@ begin
  Result := l3CheckStrByPattern(cMailToMask, l3PCharLen(anURL));
 //#UC END# *56F37FFB010E_49EEF16603C9_impl*
 end;//nsIsMailtoURL
+
+function nsIsFileFromMobileGarant(const anURL: WideString): Boolean;
+//#UC START# *574C00B1021A_49EEF16603C9_var*
+const
+ cMask: String = 'https?\:\/\/(www.garant.ru)\/files\/?.*/*.%s$';
+ cExtArray: array[0..2] of String = ('pdf', 'epub', 'fb2');
+var
+ l_Index: Integer;
+//#UC END# *574C00B1021A_49EEF16603C9_var*
+begin
+//#UC START# *574C00B1021A_49EEF16603C9_impl*
+ Result := False;
+ for l_Index := Low(cExtArray) to High(cExtArray) do
+ begin
+  Result := l3CheckStrByPattern(Format(cMask, [cExtArray[l_Index]]),
+   l3PCharLen(anURL));
+  if Result then
+   Exit;
+ end;
+//#UC END# *574C00B1021A_49EEF16603C9_impl*
+end;//nsIsFileFromMobileGarant
 {$IfEnd} // Defined(Nemesis)
 
 end.

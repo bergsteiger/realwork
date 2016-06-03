@@ -84,18 +84,18 @@
    function pm_GetIsUnderControl: Boolean;
    function pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
    function pm_GetFlashData: IExternalObject;
-   function pm_GetdsRelatedDoc: IdsDocument;
-   function pm_GetdsRespondents: IdsDocumentList;
-   function pm_GetdsCorrespondents: IdsDocumentList;
-   function pm_GetdsUserCR1: IdsDocumentList;
-   function pm_GetdsUserCR2: IdsDocumentList;
-   function pm_GetdsDocumentWithFlash: IdsDocumentWithFlash;
-   function pm_GetdsAnnotation: IdsDocument;
-   function pm_GetdsTranslation: IdsDocument;
-   function pm_GetdsSimilarDocuments: IdsDocumentList;
-   function pm_GetdsChronology: IdsDocument;
+   function pm_GetDsRelatedDoc: IdsDocument;
+   function pm_GetDsRespondents: IdsDocumentList;
+   function pm_GetDsCorrespondents: IdsDocumentList;
+   function pm_GetDsUserCR1: IdsDocumentList;
+   function pm_GetDsUserCR2: IdsDocumentList;
+   function pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
+   function pm_GetDsAnnotation: IdsDocument;
+   function pm_GetDsTranslation: IdsDocument;
+   function pm_GetDsSimilarDocuments: IdsDocumentList;
+   function pm_GetDsChronology: IdsDocument;
    function HasSimilarToFragment(anId: Integer): Boolean;
-   function pm_GetdsSimilarDocumentsToFragment: IdsDocumentList;
+   function pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
    function pm_GetHasChronology: Boolean;
    function pm_GetHasAnnotation: Boolean;
    function pm_GetHasCorrespondents: Boolean;
@@ -692,16 +692,16 @@ begin
 //#UC END# *4939534D01FB_493D2F7B031Dget_impl*
 end;//_sdsDocInfo_.pm_GetFlashData
 
-function _sdsDocInfo_.pm_GetdsRelatedDoc: IdsDocument;
+function _sdsDocInfo_.pm_GetDsRelatedDoc: IdsDocument;
 //#UC START# *5009A673037A_493D2F7B031Dget_var*
 //#UC END# *5009A673037A_493D2F7B031Dget_var*
 begin
 //#UC START# *5009A673037A_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A673037A_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsRelatedDoc
+end;//_sdsDocInfo_.pm_GetDsRelatedDoc
 
-function _sdsDocInfo_.pm_GetdsRespondents: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsRespondents: IdsDocumentList;
 //#UC START# *5009A699023D_493D2F7B031Dget_var*
 
  function CheckList: Boolean;
@@ -719,9 +719,9 @@ begin
 //#UC START# *5009A699023D_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A699023D_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsRespondents
+end;//_sdsDocInfo_.pm_GetDsRespondents
 
-function _sdsDocInfo_.pm_GetdsCorrespondents: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsCorrespondents: IdsDocumentList;
 //#UC START# *5009A6BE01DD_493D2F7B031Dget_var*
 
  function CheckList: Boolean;
@@ -739,70 +739,70 @@ begin
 //#UC START# *5009A6BE01DD_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A6BE01DD_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsCorrespondents
+end;//_sdsDocInfo_.pm_GetDsCorrespondents
 
-function _sdsDocInfo_.pm_GetdsUserCR1: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsUserCR1: IdsDocumentList;
 //#UC START# *5009A6EF0016_493D2F7B031Dget_var*
 //#UC END# *5009A6EF0016_493D2F7B031Dget_var*
 begin
 //#UC START# *5009A6EF0016_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A6EF0016_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsUserCR1
+end;//_sdsDocInfo_.pm_GetDsUserCR1
 
-function _sdsDocInfo_.pm_GetdsUserCR2: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsUserCR2: IdsDocumentList;
 //#UC START# *5009A72B01A5_493D2F7B031Dget_var*
 //#UC END# *5009A72B01A5_493D2F7B031Dget_var*
 begin
 //#UC START# *5009A72B01A5_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009A72B01A5_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsUserCR2
+end;//_sdsDocInfo_.pm_GetDsUserCR2
 
-function _sdsDocInfo_.pm_GetdsDocumentWithFlash: IdsDocumentWithFlash;
+function _sdsDocInfo_.pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
 //#UC START# *5009ADAC0080_493D2F7B031Dget_var*
 //#UC END# *5009ADAC0080_493D2F7B031Dget_var*
 begin
 //#UC START# *5009ADAC0080_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5009ADAC0080_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsDocumentWithFlash
+end;//_sdsDocInfo_.pm_GetDsDocumentWithFlash
 
-function _sdsDocInfo_.pm_GetdsAnnotation: IdsDocument;
+function _sdsDocInfo_.pm_GetDsAnnotation: IdsDocument;
 //#UC START# *500CEDF00141_493D2F7B031Dget_var*
 //#UC END# *500CEDF00141_493D2F7B031Dget_var*
 begin
 //#UC START# *500CEDF00141_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEDF00141_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsAnnotation
+end;//_sdsDocInfo_.pm_GetDsAnnotation
 
-function _sdsDocInfo_.pm_GetdsTranslation: IdsDocument;
+function _sdsDocInfo_.pm_GetDsTranslation: IdsDocument;
 //#UC START# *500CEE0F0071_493D2F7B031Dget_var*
 //#UC END# *500CEE0F0071_493D2F7B031Dget_var*
 begin
 //#UC START# *500CEE0F0071_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEE0F0071_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsTranslation
+end;//_sdsDocInfo_.pm_GetDsTranslation
 
-function _sdsDocInfo_.pm_GetdsSimilarDocuments: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsSimilarDocuments: IdsDocumentList;
 //#UC START# *500CEE5200DF_493D2F7B031Dget_var*
 //#UC END# *500CEE5200DF_493D2F7B031Dget_var*
 begin
 //#UC START# *500CEE5200DF_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEE5200DF_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsSimilarDocuments
+end;//_sdsDocInfo_.pm_GetDsSimilarDocuments
 
-function _sdsDocInfo_.pm_GetdsChronology: IdsDocument;
+function _sdsDocInfo_.pm_GetDsChronology: IdsDocument;
 //#UC START# *53BFD3A70050_493D2F7B031Dget_var*
 //#UC END# *53BFD3A70050_493D2F7B031Dget_var*
 begin
 //#UC START# *53BFD3A70050_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *53BFD3A70050_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsChronology
+end;//_sdsDocInfo_.pm_GetDsChronology
 
 function _sdsDocInfo_.HasSimilarToFragment(anId: Integer): Boolean;
 //#UC START# *558928CF0335_493D2F7B031D_var*
@@ -820,14 +820,14 @@ begin
 //#UC END# *558928CF0335_493D2F7B031D_impl*
 end;//_sdsDocInfo_.HasSimilarToFragment
 
-function _sdsDocInfo_.pm_GetdsSimilarDocumentsToFragment: IdsDocumentList;
+function _sdsDocInfo_.pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
 //#UC START# *5594F2C102D7_493D2F7B031Dget_var*
 //#UC END# *5594F2C102D7_493D2F7B031Dget_var*
 begin
 //#UC START# *5594F2C102D7_493D2F7B031Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5594F2C102D7_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetdsSimilarDocumentsToFragment
+end;//_sdsDocInfo_.pm_GetDsSimilarDocumentsToFragment
 
 function _sdsDocInfo_.pm_GetHasChronology: Boolean;
 //#UC START# *5BAF4D39E661_493D2F7B031Dget_var*

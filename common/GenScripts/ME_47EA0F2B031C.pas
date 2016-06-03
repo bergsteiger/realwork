@@ -80,12 +80,12 @@ type
    procedure ReleaseNodeForPositioning;
     {* - освободить узел для позиционирования. }
    function BaseDocumentClass: IdsBaseDocument; override;
-   function Get_dsListPrim: IdsList;
-   function pm_GetdsBaloonWarning: IdsWarning;
-   function pm_GetdsDrugList: IdsDrugList;
-   function pm_GetdsSynchroView: IdsDrugListSynchroView;
-   function pm_GetdsFilters: IdsFilters;
-   function pm_GetdsListInfo: IdsListInfo;
+   function Get_DsListPrim: IdsList;
+   function pm_GetDsBaloonWarning: IdsWarning;
+   function pm_GetDsDrugList: IdsDrugList;
+   function pm_GetDsSynchroView: IdsDrugListSynchroView;
+   function pm_GetDsFilters: IdsFilters;
+   function pm_GetDsListInfo: IdsListInfo;
    function pm_GetShortListName: Il3CString;
    function pm_GetListName: Il3CString;
    procedure OpenDocument;
@@ -294,59 +294,59 @@ begin
 //#UC END# *4925B1EC0100_47EA0F2B031C_impl*
 end;//TsdsDrugList.BaseDocumentClass
 
-function TsdsDrugList.Get_dsListPrim: IdsList;
+function TsdsDrugList.Get_DsListPrim: IdsList;
 //#UC START# *49AE664F006B_47EA0F2B031Cget_var*
 //#UC END# *49AE664F006B_47EA0F2B031Cget_var*
 begin
 //#UC START# *49AE664F006B_47EA0F2B031Cget_impl*
  Result := pm_GetDsDrugList;
 //#UC END# *49AE664F006B_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.Get_dsListPrim
+end;//TsdsDrugList.Get_DsListPrim
 
-function TsdsDrugList.pm_GetdsBaloonWarning: IdsWarning;
+function TsdsDrugList.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DC185B80232_47EA0F2B031Cget_var*
 //#UC END# *4DC185B80232_47EA0F2B031Cget_var*
 begin
 //#UC START# *4DC185B80232_47EA0F2B031Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DC185B80232_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.pm_GetdsBaloonWarning
+end;//TsdsDrugList.pm_GetDsBaloonWarning
 
-function TsdsDrugList.pm_GetdsDrugList: IdsDrugList;
+function TsdsDrugList.pm_GetDsDrugList: IdsDrugList;
 //#UC START# *500D3D75005B_47EA0F2B031Cget_var*
 //#UC END# *500D3D75005B_47EA0F2B031Cget_var*
 begin
 //#UC START# *500D3D75005B_47EA0F2B031Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3D75005B_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.pm_GetdsDrugList
+end;//TsdsDrugList.pm_GetDsDrugList
 
-function TsdsDrugList.pm_GetdsSynchroView: IdsDrugListSynchroView;
+function TsdsDrugList.pm_GetDsSynchroView: IdsDrugListSynchroView;
 //#UC START# *500D3E3500FF_47EA0F2B031Cget_var*
 //#UC END# *500D3E3500FF_47EA0F2B031Cget_var*
 begin
 //#UC START# *500D3E3500FF_47EA0F2B031Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3E3500FF_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.pm_GetdsSynchroView
+end;//TsdsDrugList.pm_GetDsSynchroView
 
-function TsdsDrugList.pm_GetdsFilters: IdsFilters;
+function TsdsDrugList.pm_GetDsFilters: IdsFilters;
 //#UC START# *500D3E780156_47EA0F2B031Cget_var*
 //#UC END# *500D3E780156_47EA0F2B031Cget_var*
 begin
 //#UC START# *500D3E780156_47EA0F2B031Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3E780156_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.pm_GetdsFilters
+end;//TsdsDrugList.pm_GetDsFilters
 
-function TsdsDrugList.pm_GetdsListInfo: IdsListInfo;
+function TsdsDrugList.pm_GetDsListInfo: IdsListInfo;
 //#UC START# *500D3EB1023F_47EA0F2B031Cget_var*
 //#UC END# *500D3EB1023F_47EA0F2B031Cget_var*
 begin
 //#UC START# *500D3EB1023F_47EA0F2B031Cget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3EB1023F_47EA0F2B031Cget_impl*
-end;//TsdsDrugList.pm_GetdsListInfo
+end;//TsdsDrugList.pm_GetDsListInfo
 
 function TsdsDrugList.pm_GetShortListName: Il3CString;
 //#UC START# *501806DE0323_47EA0F2B031Cget_var*

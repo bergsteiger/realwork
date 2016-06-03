@@ -60,18 +60,18 @@ type
    f_dsUserCR1Ref: IvcmFormDataSourceRef;
     {* Ссылка на "БОФ пользовательский СКР1" }
   protected
-   function pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
+   function pm_GetDsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
    function pm_GetIsUnderControl: Tl3Bool;
    procedure pm_SetIsUnderControl(aValue: Tl3Bool);
-   function pm_GetdsAnnotationRef: IvcmFormDataSourceRef;
+   function pm_GetDsAnnotationRef: IvcmFormDataSourceRef;
    function pm_GetFlashData: IExternalObject;
    procedure pm_SetFlashData(const aValue: IExternalObject);
-   function pm_GetdsCorrespondentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsCorrespondentsRef: IvcmFormDataSourceRef;
    function pm_GetHasTranslation: Tl3Bool;
    procedure pm_SetHasTranslation(aValue: Tl3Bool);
    function pm_GetHasSimilarDocuments: Tl3Bool;
    procedure pm_SetHasSimilarDocuments(aValue: Tl3Bool);
-   function pm_GetdsRelatedDocRef: IvcmFormDataSourceRef;
+   function pm_GetDsRelatedDocRef: IvcmFormDataSourceRef;
    function pm_GetCorrType: IbsFrozenNode;
    procedure pm_SetCorrType(const aValue: IbsFrozenNode);
    function pm_GetCorrList: IDynList;
@@ -81,7 +81,7 @@ type
    function pm_GetRespList: IDynList;
    procedure pm_SetRespList(const aValue: IDynList);
    function pm_GetUserCRListInfo(aValue: TnsUserCRListId): IbsUserCRListInfoModify;
-   function pm_GetdsUserCR2Ref: IvcmFormDataSourceRef;
+   function pm_GetDsUserCR2Ref: IvcmFormDataSourceRef;
    function pm_GetHasAnnotation: Tl3Bool;
    procedure pm_SetHasAnnotation(aValue: Tl3Bool);
    function pm_GetHasChronology: Tl3Bool;
@@ -90,14 +90,14 @@ type
    procedure pm_SetHasCorrespondents(aValue: Tl3Bool);
    function pm_GetHasRelatedDoc: Tl3Bool;
    procedure pm_SetHasRelatedDoc(aValue: Tl3Bool);
-   function pm_GetdsRespondentsRef: IvcmFormDataSourceRef;
-   function pm_GetdsChronologyRef: IvcmFormDataSourceRef;
-   function pm_GetdsDocumentWithFlashRef: IvcmFormDataSourceRef;
+   function pm_GetDsRespondentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsChronologyRef: IvcmFormDataSourceRef;
+   function pm_GetDsDocumentWithFlashRef: IvcmFormDataSourceRef;
    function pm_GetHasRespondents: Tl3Bool;
    procedure pm_SetHasRespondents(aValue: Tl3Bool);
-   function pm_GetdsTranslationRef: IvcmFormDataSourceRef;
-   function pm_GetdsSimilarDocumentsRef: IvcmFormDataSourceRef;
-   function pm_GetdsUserCR1Ref: IvcmFormDataSourceRef;
+   function pm_GetDsTranslationRef: IvcmFormDataSourceRef;
+   function pm_GetDsSimilarDocumentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsUserCR1Ref: IvcmFormDataSourceRef;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
@@ -126,14 +126,14 @@ _dDocInfo_ = _dBaseDocumentWithAttributes_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
-function _dDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
 //#UC START# *04CD377DE4D3_493D4E010178get_var*
 //#UC END# *04CD377DE4D3_493D4E010178get_var*
 begin
 //#UC START# *04CD377DE4D3_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *04CD377DE4D3_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef
+end;//_dDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef
 
 function _dDocInfo_.pm_GetIsUnderControl: Tl3Bool;
 //#UC START# *09E3D10967EC_493D4E010178get_var*
@@ -153,14 +153,14 @@ begin
 //#UC END# *09E3D10967EC_493D4E010178set_impl*
 end;//_dDocInfo_.pm_SetIsUnderControl
 
-function _dDocInfo_.pm_GetdsAnnotationRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsAnnotationRef: IvcmFormDataSourceRef;
 //#UC START# *0FDAEE3892EB_493D4E010178get_var*
 //#UC END# *0FDAEE3892EB_493D4E010178get_var*
 begin
 //#UC START# *0FDAEE3892EB_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *0FDAEE3892EB_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsAnnotationRef
+end;//_dDocInfo_.pm_GetDsAnnotationRef
 
 function _dDocInfo_.pm_GetFlashData: IExternalObject;
 //#UC START# *3561F2BAF64C_493D4E010178get_var*
@@ -180,14 +180,14 @@ begin
 //#UC END# *3561F2BAF64C_493D4E010178set_impl*
 end;//_dDocInfo_.pm_SetFlashData
 
-function _dDocInfo_.pm_GetdsCorrespondentsRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsCorrespondentsRef: IvcmFormDataSourceRef;
 //#UC START# *37162BB4A02F_493D4E010178get_var*
 //#UC END# *37162BB4A02F_493D4E010178get_var*
 begin
 //#UC START# *37162BB4A02F_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *37162BB4A02F_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsCorrespondentsRef
+end;//_dDocInfo_.pm_GetDsCorrespondentsRef
 
 function _dDocInfo_.pm_GetHasTranslation: Tl3Bool;
 //#UC START# *386DA8B0B24E_493D4E010178get_var*
@@ -225,14 +225,14 @@ begin
 //#UC END# *38A4EB8BFEB0_493D4E010178set_impl*
 end;//_dDocInfo_.pm_SetHasSimilarDocuments
 
-function _dDocInfo_.pm_GetdsRelatedDocRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsRelatedDocRef: IvcmFormDataSourceRef;
 //#UC START# *3CBE4373050B_493D4E010178get_var*
 //#UC END# *3CBE4373050B_493D4E010178get_var*
 begin
 //#UC START# *3CBE4373050B_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *3CBE4373050B_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsRelatedDocRef
+end;//_dDocInfo_.pm_GetDsRelatedDocRef
 
 function _dDocInfo_.pm_GetCorrType: IbsFrozenNode;
 //#UC START# *4952847900AB_493D4E010178get_var*
@@ -317,14 +317,14 @@ begin
 //#UC END# *495285A503C4_493D4E010178get_impl*
 end;//_dDocInfo_.pm_GetUserCRListInfo
 
-function _dDocInfo_.pm_GetdsUserCR2Ref: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsUserCR2Ref: IvcmFormDataSourceRef;
 //#UC START# *4F5735E5EA84_493D4E010178get_var*
 //#UC END# *4F5735E5EA84_493D4E010178get_var*
 begin
 //#UC START# *4F5735E5EA84_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4F5735E5EA84_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsUserCR2Ref
+end;//_dDocInfo_.pm_GetDsUserCR2Ref
 
 function _dDocInfo_.pm_GetHasAnnotation: Tl3Bool;
 //#UC START# *5BA1E1B8EF77_493D4E010178get_var*
@@ -398,32 +398,32 @@ begin
 //#UC END# *888536F26197_493D4E010178set_impl*
 end;//_dDocInfo_.pm_SetHasRelatedDoc
 
-function _dDocInfo_.pm_GetdsRespondentsRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsRespondentsRef: IvcmFormDataSourceRef;
 //#UC START# *8DD9C2AE3DFA_493D4E010178get_var*
 //#UC END# *8DD9C2AE3DFA_493D4E010178get_var*
 begin
 //#UC START# *8DD9C2AE3DFA_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *8DD9C2AE3DFA_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsRespondentsRef
+end;//_dDocInfo_.pm_GetDsRespondentsRef
 
-function _dDocInfo_.pm_GetdsChronologyRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsChronologyRef: IvcmFormDataSourceRef;
 //#UC START# *B2A2CF0FB989_493D4E010178get_var*
 //#UC END# *B2A2CF0FB989_493D4E010178get_var*
 begin
 //#UC START# *B2A2CF0FB989_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *B2A2CF0FB989_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsChronologyRef
+end;//_dDocInfo_.pm_GetDsChronologyRef
 
-function _dDocInfo_.pm_GetdsDocumentWithFlashRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsDocumentWithFlashRef: IvcmFormDataSourceRef;
 //#UC START# *CB72B7119954_493D4E010178get_var*
 //#UC END# *CB72B7119954_493D4E010178get_var*
 begin
 //#UC START# *CB72B7119954_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *CB72B7119954_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsDocumentWithFlashRef
+end;//_dDocInfo_.pm_GetDsDocumentWithFlashRef
 
 function _dDocInfo_.pm_GetHasRespondents: Tl3Bool;
 //#UC START# *D9A0B62E9A86_493D4E010178get_var*
@@ -443,32 +443,32 @@ begin
 //#UC END# *D9A0B62E9A86_493D4E010178set_impl*
 end;//_dDocInfo_.pm_SetHasRespondents
 
-function _dDocInfo_.pm_GetdsTranslationRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsTranslationRef: IvcmFormDataSourceRef;
 //#UC START# *ECA6B53155C1_493D4E010178get_var*
 //#UC END# *ECA6B53155C1_493D4E010178get_var*
 begin
 //#UC START# *ECA6B53155C1_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *ECA6B53155C1_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsTranslationRef
+end;//_dDocInfo_.pm_GetDsTranslationRef
 
-function _dDocInfo_.pm_GetdsSimilarDocumentsRef: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsSimilarDocumentsRef: IvcmFormDataSourceRef;
 //#UC START# *ECDDF80BA223_493D4E010178get_var*
 //#UC END# *ECDDF80BA223_493D4E010178get_var*
 begin
 //#UC START# *ECDDF80BA223_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *ECDDF80BA223_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsSimilarDocumentsRef
+end;//_dDocInfo_.pm_GetDsSimilarDocumentsRef
 
-function _dDocInfo_.pm_GetdsUserCR1Ref: IvcmFormDataSourceRef;
+function _dDocInfo_.pm_GetDsUserCR1Ref: IvcmFormDataSourceRef;
 //#UC START# *F86E7A026616_493D4E010178get_var*
 //#UC END# *F86E7A026616_493D4E010178get_var*
 begin
 //#UC START# *F86E7A026616_493D4E010178get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *F86E7A026616_493D4E010178get_impl*
-end;//_dDocInfo_.pm_GetdsUserCR1Ref
+end;//_dDocInfo_.pm_GetDsUserCR1Ref
 
 procedure _dDocInfo_.Cleanup;
  {* Функция очистки полей объекта. }
@@ -569,7 +569,7 @@ begin
  f_RespType := nil;
  f_dsSimilarDocumentsToFragmentRef := nil;
  f_dsAnnotationRef := nil;
- FlashData := nil;
+ f_FlashData := nil;
  f_dsCorrespondentsRef := nil;
  f_dsRelatedDocRef := nil;
  f_dsUserCR2Ref := nil;
