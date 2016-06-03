@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_Design_AttrValues;
+unit Design_AttrValues;
  {* Локализуемые значения атрибутов значений тегов таблицы тегов Design }
 
-// Модуль: "w:\common\components\gui\Garant\Everest\NOT_COMPLETED_Design_AttrValues.pas"
+// Модуль: "w:\common\components\gui\Garant\Everest\Design_AttrValues.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "Design_AttrValues" MUID: (3DBAA1891003)
 
@@ -38,17 +38,29 @@ uses
 ;
 
 initialization
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenu_Font_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenu_Font_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenu_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenu_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenuConstPath_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenuConstPath_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenuChangePath_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenuChangePath_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenuHeader_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenuHeader_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
+{$If Defined(DesignTimeLibrary)}
  str_TextStyle_MainMenuInteractiveHeader_Name_Value.Init;
  {* Инициализация str_TextStyle_MainMenuInteractiveHeader_Name_Value }
+{$IfEnd} // Defined(DesignTimeLibrary)
 
 end.
