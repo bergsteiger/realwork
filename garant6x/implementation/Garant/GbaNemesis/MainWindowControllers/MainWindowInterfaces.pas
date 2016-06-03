@@ -1,45 +1,49 @@
 unit MainWindowInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MainWindowControllers"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/MainWindowControllers/MainWindowInterfaces.pas"
-// Начат: 03.05.2011 18:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ControllerInterfaces::Category>> F1 Core::Common::MainWindowControllers::MainWindowInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas"
+// Стереотип: "ControllerInterfaces"
+// Элемент модели: "MainWindowInterfaces" MUID: (4DC00FC302B7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  BaseSearchInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , BaseSearchInterfaces
+ , nsTypes
+ , nevBase
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- IsdsMainWindow = interface(IvcmUseCaseController{, InsWarningGenerator})
+ IsdsMainWindow = interface(IvcmUseCaseController)
   {* Основное окно }
-   ['{4BABE209-5CE4-4408-B307-6EF460A071E8}']
-   function pm_GetDsBaloonWarning: IdsWarning;
-   property dsBaloonWarning: IdsWarning
-     read pm_GetDsBaloonWarning;
-  // Методы преобразования к реализуемым интерфейсам
-   function As_InsWarningGenerator: InsWarningGenerator;
+  ['{4BABE209-5CE4-4408-B307-6EF460A071E8}']
+  function pm_GetDsBaloonWarning: IdsWarning;
+  function As_InsWarningGenerator: InsWarningGenerator;
+   {* Метод приведения нашего интерфейса к InsWarningGenerator }
+  property dsBaloonWarning: IdsWarning
+   read pm_GetDsBaloonWarning;
  end;//IsdsMainWindow
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

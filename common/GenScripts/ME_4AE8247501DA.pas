@@ -357,7 +357,7 @@ end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree_Execute
 procedure TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree(const aParams: IvcmExecuteParams);
  {* ReloadStylesTree }
 begin
- with (aParams.Data As IStyleEditor_ReloadStylesTree_Params) do
+ with IStyleEditor_ReloadStylesTree_Params(aParams.Data) do
   Self.StyleEditor_ReloadStylesTree_Execute(StyleName);
 end;//TPrimStyleEditorNavigatorForm.StyleEditor_ReloadStylesTree
 

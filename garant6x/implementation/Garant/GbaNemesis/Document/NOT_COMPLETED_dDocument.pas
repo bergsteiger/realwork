@@ -58,7 +58,7 @@ type
    f_dsEditionsRef: IvcmFormDataSourceRef;
     {* Ссылка на "БОФ редакции документа" }
   protected
-   function pm_GetdsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
+   function pm_GetDsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
    function pm_GetIncomingLinksToPartFilter: INodeBase;
    procedure pm_SetIncomingLinksToPartFilter(const aValue: INodeBase);
    function pm_GetIncomingLinksToPartList: IDynList;
@@ -75,10 +75,10 @@ type
    procedure Set_OutgoingLinksFromPartPosList(const aValue: IPositionList);
    function pm_GetSimilarDocumentsBlockId: Integer;
    procedure pm_SetSimilarDocumentsBlockId(aValue: Integer);
-   function pm_GetdsContentsRef: IvcmFormDataSourceRef;
-   function pm_GetdsWarningRef: IvcmFormDataSourceRef;
-   function pm_GetdsIncomingLinksToPartRef: IvcmFormDataSourceRef;
-   function pm_GetdsEditionsRef: IvcmFormDataSourceRef;
+   function pm_GetDsContentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsWarningRef: IvcmFormDataSourceRef;
+   function pm_GetDsIncomingLinksToPartRef: IvcmFormDataSourceRef;
+   function pm_GetDsEditionsRef: IvcmFormDataSourceRef;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
@@ -119,14 +119,14 @@ begin
  end;//try..finally
 end;//TdDocument.Make
 
-function TdDocument.pm_GetdsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
+function TdDocument.pm_GetDsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
 //#UC START# *096DC9331DA4_493E5E7202F1get_var*
 //#UC END# *096DC9331DA4_493E5E7202F1get_var*
 begin
 //#UC START# *096DC9331DA4_493E5E7202F1get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *096DC9331DA4_493E5E7202F1get_impl*
-end;//TdDocument.pm_GetdsOutgoingLinksFromPartRef
+end;//TdDocument.pm_GetDsOutgoingLinksFromPartRef
 
 function TdDocument.pm_GetIncomingLinksToPartFilter: INodeBase;
 //#UC START# *49528B5D0055_493E5E7202F1get_var*
@@ -272,41 +272,41 @@ begin
 //#UC END# *558C0B2401CD_493E5E7202F1set_impl*
 end;//TdDocument.pm_SetSimilarDocumentsBlockId
 
-function TdDocument.pm_GetdsContentsRef: IvcmFormDataSourceRef;
+function TdDocument.pm_GetDsContentsRef: IvcmFormDataSourceRef;
 //#UC START# *601FB8266F77_493E5E7202F1get_var*
 //#UC END# *601FB8266F77_493E5E7202F1get_var*
 begin
 //#UC START# *601FB8266F77_493E5E7202F1get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *601FB8266F77_493E5E7202F1get_impl*
-end;//TdDocument.pm_GetdsContentsRef
+end;//TdDocument.pm_GetDsContentsRef
 
-function TdDocument.pm_GetdsWarningRef: IvcmFormDataSourceRef;
+function TdDocument.pm_GetDsWarningRef: IvcmFormDataSourceRef;
 //#UC START# *6A651B183845_493E5E7202F1get_var*
 //#UC END# *6A651B183845_493E5E7202F1get_var*
 begin
 //#UC START# *6A651B183845_493E5E7202F1get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *6A651B183845_493E5E7202F1get_impl*
-end;//TdDocument.pm_GetdsWarningRef
+end;//TdDocument.pm_GetDsWarningRef
 
-function TdDocument.pm_GetdsIncomingLinksToPartRef: IvcmFormDataSourceRef;
+function TdDocument.pm_GetDsIncomingLinksToPartRef: IvcmFormDataSourceRef;
 //#UC START# *71283A603DA8_493E5E7202F1get_var*
 //#UC END# *71283A603DA8_493E5E7202F1get_var*
 begin
 //#UC START# *71283A603DA8_493E5E7202F1get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *71283A603DA8_493E5E7202F1get_impl*
-end;//TdDocument.pm_GetdsIncomingLinksToPartRef
+end;//TdDocument.pm_GetDsIncomingLinksToPartRef
 
-function TdDocument.pm_GetdsEditionsRef: IvcmFormDataSourceRef;
+function TdDocument.pm_GetDsEditionsRef: IvcmFormDataSourceRef;
 //#UC START# *B0980FCD8307_493E5E7202F1get_var*
 //#UC END# *B0980FCD8307_493E5E7202F1get_var*
 begin
 //#UC START# *B0980FCD8307_493E5E7202F1get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *B0980FCD8307_493E5E7202F1get_impl*
-end;//TdDocument.pm_GetdsEditionsRef
+end;//TdDocument.pm_GetDsEditionsRef
 
 procedure TdDocument.Cleanup;
  {* Функция очистки полей объекта. }

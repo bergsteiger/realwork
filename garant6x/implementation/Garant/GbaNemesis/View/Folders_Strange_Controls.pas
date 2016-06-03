@@ -1,833 +1,627 @@
 unit Folders_Strange_Controls;
+ {* Странное }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Folders_Strange_Controls.pas"
-// Начат: 27.08.2009 19:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Основные прецеденты::Folders::View::Strange
-//
-// Странное
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders_Strange_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4A96A8C10357)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  BaseTypesUnit,
-  BaseTreeSupportUnit,
-  FoldersUnit,
-  FiltersUnit,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  eeInterfaces,
-  FoldersDomainInterfaces,
-  l3CProtoObject
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  nsTypes,
-  vcmExternalInterfaces {a}
-  ;
-
-(* AdditionInfo = operations
-   ['{33646698-40ED-4932-9144-05B751479227}']
-   query Close(aModalResult: Integer = mrCancel);
- end;//AdditionInfo*)
-
-(* FolderElement = operations
-  {* Элемент папок }
-   ['{E6A52074-1016-4183-BE84-1976DA408F0A}']
-   query InternalEditByFoldersNode(const aNode: IFoldersNode;
-    aInternalCall: Boolean = true);
-     {* Редактирование элемента }
-   query InternalDelete(const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult;
-     {* Удаляет элемент папок }
-   query InternalEdit(const aNode: IeeNode;
-    aInternalCall: Boolean = true);
-   query DisableFilter;
- end;//FolderElement*)
-
-(* FolderElement = operations
-   ['{976C0721-9399-4038-AC6B-F36DCC84159F}']
-   query SetState(aInfoType: TFoldersInfoType);
- end;//FolderElement*)
-
-(* AdditionInfo = operations(AdditionInfo)
-   ['{98A59B19-4E4F-4E87-BA17-F940D02D3030}']
-   query Show;
-   query Hide;
-   query SetCaption(const aCaption: Il3CString);
- end;//AdditionInfo*)
-
-(* FolderElement = operations(FolderElement)
-  {* Элемент папок }
-   ['{F0B67A82-6858-4EE6-B12A-77BE2102352A}']
-   query GetState: TFoldersInfoType;
-     {* Возвращает статус элемента }
-   query SetLoadInfo(const aForm: IvcmEntityForm;
-    const aFolderFilterInfo: InsFolderFilterInfo;
-    const aCaption: Il3CString;
-    const aData: IUnknown;
-    anOp: TListLogicOperation);
-     {* Устанавливает параметры элемента }
-   query SetContent(const aNode: IeeNode;
-    aIsNewFolder: Boolean = false);
-     {* SetContent }
-   query SetSaveInfo(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    anElementType: TFoldersElementType;
-    const anEntity: IEntityBase;
-    aSaveAs: Boolean);
-   query ResetModificationOnDelete(const aNode: IeeNode);
-   query SetFocus;
-   query Redraw;
-   query DisableSecurityPage;
- end;//FolderElement*)
-
-(* SavedQuery = operations
-   ['{94F4B677-F984-44B4-A4E9-9C7C50E99877}']
-   query SetFilterState(const aNode: INode);
- end;//SavedQuery*)
-
-(* Folders = operations
-   ['{B17931EF-CC49-4AB7-9C6B-F43F5D7095C3}']
-   query SetCurrent(const aNode: IeeNode);
-   query FiltrateByFilterInfo(const anInfo: InsFolderFilterInfo);
-   query TryOpenConsultationAnswer;
-   query OpenMyConsultations;
-   query SetInfoContent;
- end;//Folders*)
-
-(* UsersRights = operations
-   ['{A133E415-7934-4456-88CB-8D64C14E0F59}']
-   query UpdateRights(const aNode: IeeNode);
-   query FolderShareChanged;
- end;//UsersRights*)
-
-(* Result = operations
-   ['{5F6854EB-01E4-4E58-8BAF-258D69196EA1}']
-   query ExternalOk;
- end;//Result*)
-
-(* Folders = operations
-   ['{AEB25031-C5BD-4B9A-9D40-A1AF1298F239}']
-   operation Filtrate;
- end;//Folders*)
-
-(* Folder = operations
-   ['{4A19002A-2D90-496B-AC12-3A94B7AEC05D}']
-   operation New;
-   operation AddToControl;
-   operation DelFromControl;
-   operation SetShare;
-   operation ExportToXML;
-   operation ImportFromXML;
- end;//Folder*)
-
-(* FolderElement = operations
-   ['{07EF4405-D497-441D-96EF-9F8345558F92}']
-   operation Edit;
-   operation EditExt;
-   operation Open;
-   operation OpenNewWindow;
-   operation ControlStatus;
-   operation ExportForIntegration;
- end;//FolderElement*)
-
-(* SavedQuery = operations
-   ['{71CDF6D4-A9C0-443F-B635-EFA5E28CF131}']
-   operation CreateFilter;
-     {* Создать фильтр... }
- end;//SavedQuery*)
-
-(* Consultation = operations
-   ['{92BD79F1-1ACC-48AE-B6B4-1D42FB914F07}']
-   operation Open;
-   operation GiveMark;
-   operation ShowConsultationInfo;
-   operation ImportConsultation;
- end;//Consultation*)
+ l3IntfUses
+ , BaseTypesUnit
+ , BaseTreeSupportUnit
+ , FoldersUnit
+ , FiltersUnit
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeInterfaces
+ , FoldersDomainInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- IAdditionInfo_Close_Params = interface(IUnknown)
+ IAdditionInfo_Close_Params = interface
   {* Параметры для операции AdditionInfo.Close }
-   ['{9226E430-0264-43B5-AC2A-67B7CB33BA48}']
-   function Get_ModalResult: Integer;
-   property ModalResult: Integer
-     read Get_ModalResult;
-     {* undefined }
+  function Get_ModalResult: Integer;
+  property ModalResult: Integer
+   read Get_ModalResult;
  end;//IAdditionInfo_Close_Params
 
- Op_AdditionInfo_Close = class
+ Op_AdditionInfo_Close = {final} class
   {* Класс для вызова операции AdditionInfo.Close }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aModalResult: Integer = mrCancel): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Close у сущности }
+    aModalResult: Integer = Controls.mrCancel): Boolean; overload;
+    {* Вызов операции AdditionInfo.Close у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aModalResult: Integer = mrCancel): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Close у агрегации }
+    aModalResult: Integer = Controls.mrCancel): Boolean; overload;
+    {* Вызов операции AdditionInfo.Close у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aModalResult: Integer = mrCancel): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Close у формы }
+    aModalResult: Integer = Controls.mrCancel): Boolean; overload;
+    {* Вызов операции AdditionInfo.Close у формы }
    class function Call(const aTarget: IvcmContainer;
-    aModalResult: Integer = mrCancel): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Close у контейнера }
+    aModalResult: Integer = Controls.mrCancel): Boolean; overload;
+    {* Вызов операции AdditionInfo.Close у контейнера }
  end;//Op_AdditionInfo_Close
 
- IFolderElement_InternalEditByFoldersNode_Params = interface(IUnknown)
+ IFolderElement_InternalEditByFoldersNode_Params = interface
   {* Параметры для операции FolderElement.InternalEditByFoldersNode }
-   ['{6144FDBB-9D7F-4688-931E-DF84D15322F0}']
-   function Get_Node: IFoldersNode;
-   function Get_InternalCall: Boolean;
-   property Node: IFoldersNode
-     read Get_Node;
-     {* undefined }
-   property InternalCall: Boolean
-     read Get_InternalCall;
-     {* undefined }
+  function Get_Node: IFoldersNode;
+  function Get_InternalCall: Boolean;
+  property Node: IFoldersNode
+   read Get_Node;
+  property InternalCall: Boolean
+   read Get_InternalCall;
  end;//IFolderElement_InternalEditByFoldersNode_Params
 
- Op_FolderElement_InternalEditByFoldersNode = class
+ Op_FolderElement_InternalEditByFoldersNode = {final} class
   {* Класс для вызова операции FolderElement.InternalEditByFoldersNode }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aNode: IFoldersNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEditByFoldersNode у сущности }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEditByFoldersNode у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aNode: IFoldersNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEditByFoldersNode у агрегации }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEditByFoldersNode у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aNode: IFoldersNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEditByFoldersNode у формы }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEditByFoldersNode у формы }
    class function Call(const aTarget: IvcmContainer;
     const aNode: IFoldersNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEditByFoldersNode у контейнера }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEditByFoldersNode у контейнера }
  end;//Op_FolderElement_InternalEditByFoldersNode
 
- IFolderElement_InternalDelete_Params = interface(IUnknown)
+ IFolderElement_InternalDelete_Params = interface
   {* Параметры для операции FolderElement.InternalDelete }
-   ['{3C0D7134-4902-43E6-8106-B763BD833E87}']
-   function Get_Node: IFoldersNode;
-   function Get_Ask: Boolean;
-   function Get_ResultValue: TnsDeleteResult;
-   procedure Set_ResultValue(aValue: TnsDeleteResult);
-   property Node: IFoldersNode
-     read Get_Node;
-     {* undefined }
-   property Ask: Boolean
-     read Get_Ask;
-     {* undefined }
-   property ResultValue: TnsDeleteResult
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_Node: IFoldersNode;
+  function Get_Ask: Boolean;
+  function Get_ResultValue: TnsDeleteResult;
+  procedure Set_ResultValue(aValue: TnsDeleteResult);
+  property Node: IFoldersNode
+   read Get_Node;
+  property Ask: Boolean
+   read Get_Ask;
+  property ResultValue: TnsDeleteResult
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IFolderElement_InternalDelete_Params
 
- Op_FolderElement_InternalDelete = class
+ Op_FolderElement_InternalDelete = {final} class
   {* Класс для вызова операции FolderElement.InternalDelete }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult; overload; 
-     {* Вызов операции FolderElement.InternalDelete у сущности }
+    aAsk: Boolean = True): TnsDeleteResult; overload;
+    {* Вызов операции FolderElement.InternalDelete у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult; overload; 
-     {* Вызов операции FolderElement.InternalDelete у агрегации }
+    aAsk: Boolean = True): TnsDeleteResult; overload;
+    {* Вызов операции FolderElement.InternalDelete у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult; overload; 
-     {* Вызов операции FolderElement.InternalDelete у формы }
+    aAsk: Boolean = True): TnsDeleteResult; overload;
+    {* Вызов операции FolderElement.InternalDelete у формы }
    class function Call(const aTarget: IvcmContainer;
     const aNode: IFoldersNode;
-    aAsk: Boolean = true): TnsDeleteResult; overload; 
-     {* Вызов операции FolderElement.InternalDelete у контейнера }
+    aAsk: Boolean = True): TnsDeleteResult; overload;
+    {* Вызов операции FolderElement.InternalDelete у контейнера }
  end;//Op_FolderElement_InternalDelete
 
- IFolderElement_InternalEdit_Params = interface(IUnknown)
+ IFolderElement_InternalEdit_Params = interface
   {* Параметры для операции FolderElement.InternalEdit }
-   ['{72692263-6D12-46A0-8B9A-84724B440086}']
-   function Get_Node: IeeNode;
-   function Get_InternalCall: Boolean;
-   property Node: IeeNode
-     read Get_Node;
-     {* undefined }
-   property InternalCall: Boolean
-     read Get_InternalCall;
-     {* undefined }
+  function Get_Node: IeeNode;
+  function Get_InternalCall: Boolean;
+  property Node: IeeNode
+   read Get_Node;
+  property InternalCall: Boolean
+   read Get_InternalCall;
  end;//IFolderElement_InternalEdit_Params
 
- Op_FolderElement_InternalEdit = class
+ Op_FolderElement_InternalEdit = {final} class
   {* Класс для вызова операции FolderElement.InternalEdit }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aNode: IeeNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEdit у сущности }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEdit у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aNode: IeeNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEdit у агрегации }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEdit у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aNode: IeeNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEdit у формы }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEdit у формы }
    class function Call(const aTarget: IvcmContainer;
     const aNode: IeeNode;
-    aInternalCall: Boolean = true): Boolean; overload; 
-     {* Вызов операции FolderElement.InternalEdit у контейнера }
+    aInternalCall: Boolean = True): Boolean; overload;
+    {* Вызов операции FolderElement.InternalEdit у контейнера }
  end;//Op_FolderElement_InternalEdit
 
- Op_FolderElement_DisableFilter = class
+ Op_FolderElement_DisableFilter = {final} class
   {* Класс для вызова операции FolderElement.DisableFilter }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableFilter у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableFilter у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableFilter у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableFilter у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции FolderElement.DisableFilter у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции FolderElement.DisableFilter у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции FolderElement.DisableFilter у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции FolderElement.DisableFilter у контейнера }
  end;//Op_FolderElement_DisableFilter
 
- IFolderElement_SetState_Params = interface(IUnknown)
+ IFolderElement_SetState_Params = interface
   {* Параметры для операции FolderElement.SetState }
-   ['{BB99FD2E-C261-4D39-A1F6-2CBEC10A14EF}']
-   function Get_InfoType: TFoldersInfoType;
-   property InfoType: TFoldersInfoType
-     read Get_InfoType;
-     {* undefined }
+  function Get_InfoType: TFoldersInfoType;
+  property InfoType: TFoldersInfoType
+   read Get_InfoType;
  end;//IFolderElement_SetState_Params
 
- Op_FolderElement_SetState = class
+ Op_FolderElement_SetState = {final} class
   {* Класс для вызова операции FolderElement.SetState }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aInfoType: TFoldersInfoType): Boolean; overload; 
-     {* Вызов операции FolderElement.SetState у сущности }
+    aInfoType: TFoldersInfoType): Boolean; overload;
+    {* Вызов операции FolderElement.SetState у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aInfoType: TFoldersInfoType): Boolean; overload; 
-     {* Вызов операции FolderElement.SetState у агрегации }
+    aInfoType: TFoldersInfoType): Boolean; overload;
+    {* Вызов операции FolderElement.SetState у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aInfoType: TFoldersInfoType): Boolean; overload; 
-     {* Вызов операции FolderElement.SetState у формы }
+    aInfoType: TFoldersInfoType): Boolean; overload;
+    {* Вызов операции FolderElement.SetState у формы }
    class function Call(const aTarget: IvcmContainer;
-    aInfoType: TFoldersInfoType): Boolean; overload; 
-     {* Вызов операции FolderElement.SetState у контейнера }
+    aInfoType: TFoldersInfoType): Boolean; overload;
+    {* Вызов операции FolderElement.SetState у контейнера }
  end;//Op_FolderElement_SetState
 
- Op_AdditionInfo_Show = class
+ Op_AdditionInfo_Show = {final} class
   {* Класс для вызова операции AdditionInfo.Show }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Show у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Show у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Show у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Show у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции AdditionInfo.Show у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции AdditionInfo.Show у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции AdditionInfo.Show у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции AdditionInfo.Show у контейнера }
  end;//Op_AdditionInfo_Show
 
- Op_AdditionInfo_Hide = class
+ Op_AdditionInfo_Hide = {final} class
   {* Класс для вызова операции AdditionInfo.Hide }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Hide у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Hide у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Hide у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции AdditionInfo.Hide у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции AdditionInfo.Hide у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции AdditionInfo.Hide у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции AdditionInfo.Hide у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции AdditionInfo.Hide у контейнера }
  end;//Op_AdditionInfo_Hide
 
- IAdditionInfo_SetCaption_Params = interface(IUnknown)
+ IAdditionInfo_SetCaption_Params = interface
   {* Параметры для операции AdditionInfo.SetCaption }
-   ['{562262E6-D6D7-4895-A2E5-200EC677B72B}']
-   function Get_Caption: Il3CString;
-   property Caption: Il3CString
-     read Get_Caption;
-     {* undefined }
+  function Get_Caption: Il3CString;
+  property Caption: Il3CString
+   read Get_Caption;
  end;//IAdditionInfo_SetCaption_Params
 
- Op_AdditionInfo_SetCaption = class
+ Op_AdditionInfo_SetCaption = {final} class
   {* Класс для вызова операции AdditionInfo.SetCaption }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aCaption: Il3CString): Boolean; overload; 
-     {* Вызов операции AdditionInfo.SetCaption у сущности }
+    const aCaption: Il3CString): Boolean; overload;
+    {* Вызов операции AdditionInfo.SetCaption у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aCaption: Il3CString): Boolean; overload; 
-     {* Вызов операции AdditionInfo.SetCaption у агрегации }
+    const aCaption: Il3CString): Boolean; overload;
+    {* Вызов операции AdditionInfo.SetCaption у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aCaption: Il3CString): Boolean; overload; 
-     {* Вызов операции AdditionInfo.SetCaption у формы }
+    const aCaption: Il3CString): Boolean; overload;
+    {* Вызов операции AdditionInfo.SetCaption у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aCaption: Il3CString): Boolean; overload; 
-     {* Вызов операции AdditionInfo.SetCaption у контейнера }
+    const aCaption: Il3CString): Boolean; overload;
+    {* Вызов операции AdditionInfo.SetCaption у контейнера }
  end;//Op_AdditionInfo_SetCaption
 
- IFolderElement_GetState_Params = interface(IUnknown)
+ IFolderElement_GetState_Params = interface
   {* Параметры для операции FolderElement.GetState }
-   ['{5B0752CC-2818-4C0A-9474-FD2BEF3C8BCC}']
-   function Get_ResultValue: TFoldersInfoType;
-   procedure Set_ResultValue(aValue: TFoldersInfoType);
-   property ResultValue: TFoldersInfoType
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: TFoldersInfoType;
+  procedure Set_ResultValue(aValue: TFoldersInfoType);
+  property ResultValue: TFoldersInfoType
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IFolderElement_GetState_Params
 
- Op_FolderElement_GetState = class
+ Op_FolderElement_GetState = {final} class
   {* Класс для вызова операции FolderElement.GetState }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): TFoldersInfoType; overload; 
-     {* Вызов операции FolderElement.GetState у сущности }
-   class function Call(const aTarget: IvcmAggregate): TFoldersInfoType; overload; 
-     {* Вызов операции FolderElement.GetState у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): TFoldersInfoType; overload; 
-     {* Вызов операции FolderElement.GetState у формы }
-   class function Call(const aTarget: IvcmContainer): TFoldersInfoType; overload; 
-     {* Вызов операции FolderElement.GetState у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): TFoldersInfoType; overload;
+    {* Вызов операции FolderElement.GetState у сущности }
+   class function Call(const aTarget: IvcmAggregate): TFoldersInfoType; overload;
+    {* Вызов операции FolderElement.GetState у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): TFoldersInfoType; overload;
+    {* Вызов операции FolderElement.GetState у формы }
+   class function Call(const aTarget: IvcmContainer): TFoldersInfoType; overload;
+    {* Вызов операции FolderElement.GetState у контейнера }
  end;//Op_FolderElement_GetState
 
- IFolderElement_SetLoadInfo_Params = interface(IUnknown)
+ IFolderElement_SetLoadInfo_Params = interface
   {* Параметры для операции FolderElement.SetLoadInfo }
-   ['{4EB5D256-A884-4CB6-AF26-748E60362EA7}']
-   function Get_Form: IvcmEntityForm;
-   function Get_FolderFilterInfo: InsFolderFilterInfo;
-   function Get_Caption: Il3CString;
-   function Get_Data: IUnknown;
-   function Get_NOp: TListLogicOperation;
-   property Form: IvcmEntityForm
-     read Get_Form;
-     {* undefined }
-   property FolderFilterInfo: InsFolderFilterInfo
-     read Get_FolderFilterInfo;
-     {* undefined }
-   property Caption: Il3CString
-     read Get_Caption;
-     {* undefined }
-   property Data: IUnknown
-     read Get_Data;
-     {* undefined }
-   property nOp: TListLogicOperation
-     read Get_NOp;
-     {* undefined }
+  function Get_Form: IvcmEntityForm;
+  function Get_FolderFilterInfo: InsFolderFilterInfo;
+  function Get_Caption: Il3CString;
+  function Get_Data: IUnknown;
+  function Get_nOp: TListLogicOperation;
+  property Form: IvcmEntityForm
+   read Get_Form;
+  property FolderFilterInfo: InsFolderFilterInfo
+   read Get_FolderFilterInfo;
+  property Caption: Il3CString
+   read Get_Caption;
+  property Data: IUnknown
+   read Get_Data;
+  property nOp: TListLogicOperation
+   read Get_nOp;
  end;//IFolderElement_SetLoadInfo_Params
 
- Op_FolderElement_SetLoadInfo = class
+ Op_FolderElement_SetLoadInfo = {final} class
   {* Класс для вызова операции FolderElement.SetLoadInfo }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
     const aCaption: Il3CString;
     const aData: IUnknown;
-    anOp: TListLogicOperation): Boolean; overload; 
-     {* Вызов операции FolderElement.SetLoadInfo у сущности }
+    anOp: TListLogicOperation): Boolean; overload;
+    {* Вызов операции FolderElement.SetLoadInfo у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
     const aCaption: Il3CString;
     const aData: IUnknown;
-    anOp: TListLogicOperation): Boolean; overload; 
-     {* Вызов операции FolderElement.SetLoadInfo у агрегации }
+    anOp: TListLogicOperation): Boolean; overload;
+    {* Вызов операции FolderElement.SetLoadInfo у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
     const aCaption: Il3CString;
     const aData: IUnknown;
-    anOp: TListLogicOperation): Boolean; overload; 
-     {* Вызов операции FolderElement.SetLoadInfo у формы }
+    anOp: TListLogicOperation): Boolean; overload;
+    {* Вызов операции FolderElement.SetLoadInfo у формы }
    class function Call(const aTarget: IvcmContainer;
     const aForm: IvcmEntityForm;
     const aFolderFilterInfo: InsFolderFilterInfo;
     const aCaption: Il3CString;
     const aData: IUnknown;
-    anOp: TListLogicOperation): Boolean; overload; 
-     {* Вызов операции FolderElement.SetLoadInfo у контейнера }
+    anOp: TListLogicOperation): Boolean; overload;
+    {* Вызов операции FolderElement.SetLoadInfo у контейнера }
  end;//Op_FolderElement_SetLoadInfo
 
- IFolderElement_SetContent_Params = interface(IUnknown)
+ IFolderElement_SetContent_Params = interface
   {* Параметры для операции FolderElement.SetContent }
-   ['{576C40FA-14A7-4273-8161-EC48C48D019C}']
-   function Get_Node: IeeNode;
-   function Get_IsNewFolder: Boolean;
-   property Node: IeeNode
-     read Get_Node;
-     {* undefined }
-   property IsNewFolder: Boolean
-     read Get_IsNewFolder;
-     {* undefined }
+  function Get_Node: IeeNode;
+  function Get_IsNewFolder: Boolean;
+  property Node: IeeNode
+   read Get_Node;
+  property IsNewFolder: Boolean
+   read Get_IsNewFolder;
  end;//IFolderElement_SetContent_Params
 
- Op_FolderElement_SetContent = class
+ Op_FolderElement_SetContent = {final} class
   {* Класс для вызова операции FolderElement.SetContent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aNode: IeeNode;
-    aIsNewFolder: Boolean = false): Boolean; overload; 
-     {* Вызов операции FolderElement.SetContent у сущности }
+    aIsNewFolder: Boolean = False): Boolean; overload;
+    {* Вызов операции FolderElement.SetContent у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aNode: IeeNode;
-    aIsNewFolder: Boolean = false): Boolean; overload; 
-     {* Вызов операции FolderElement.SetContent у агрегации }
+    aIsNewFolder: Boolean = False): Boolean; overload;
+    {* Вызов операции FolderElement.SetContent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aNode: IeeNode;
-    aIsNewFolder: Boolean = false): Boolean; overload; 
-     {* Вызов операции FolderElement.SetContent у формы }
+    aIsNewFolder: Boolean = False): Boolean; overload;
+    {* Вызов операции FolderElement.SetContent у формы }
    class function Call(const aTarget: IvcmContainer;
     const aNode: IeeNode;
-    aIsNewFolder: Boolean = false): Boolean; overload; 
-     {* Вызов операции FolderElement.SetContent у контейнера }
+    aIsNewFolder: Boolean = False): Boolean; overload;
+    {* Вызов операции FolderElement.SetContent у контейнера }
  end;//Op_FolderElement_SetContent
 
- IFolderElement_SetSaveInfo_Params = interface(IUnknown)
+ IFolderElement_SetSaveInfo_Params = interface
   {* Параметры для операции FolderElement.SetSaveInfo }
-   ['{68083266-8E03-47D6-BA1C-588398BD2B3E}']
-   function Get_Form: IvcmEntityForm;
-   function Get_FilterInfo: InsFolderFilterInfo;
-   function Get_NElementType: TFoldersElementType;
-   function Get_NEntity: IEntityBase;
-   function Get_SaveAs: Boolean;
-   property Form: IvcmEntityForm
-     read Get_Form;
-     {* undefined }
-   property FilterInfo: InsFolderFilterInfo
-     read Get_FilterInfo;
-     {* undefined }
-   property nElementType: TFoldersElementType
-     read Get_NElementType;
-     {* undefined }
-   property nEntity: IEntityBase
-     read Get_NEntity;
-     {* undefined }
-   property SaveAs: Boolean
-     read Get_SaveAs;
-     {* undefined }
+  function Get_Form: IvcmEntityForm;
+  function Get_FilterInfo: InsFolderFilterInfo;
+  function Get_nElementType: TFoldersElementType;
+  function Get_nEntity: IEntityBase;
+  function Get_SaveAs: Boolean;
+  property Form: IvcmEntityForm
+   read Get_Form;
+  property FilterInfo: InsFolderFilterInfo
+   read Get_FilterInfo;
+  property nElementType: TFoldersElementType
+   read Get_nElementType;
+  property nEntity: IEntityBase
+   read Get_nEntity;
+  property SaveAs: Boolean
+   read Get_SaveAs;
  end;//IFolderElement_SetSaveInfo_Params
 
- Op_FolderElement_SetSaveInfo = class
+ Op_FolderElement_SetSaveInfo = {final} class
   {* Класс для вызова операции FolderElement.SetSaveInfo }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
     const anEntity: IEntityBase;
-    aSaveAs: Boolean): Boolean; overload; 
-     {* Вызов операции FolderElement.SetSaveInfo у сущности }
+    aSaveAs: Boolean): Boolean; overload;
+    {* Вызов операции FolderElement.SetSaveInfo у сущности }
    class function Call(const aTarget: IvcmAggregate;
     const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
     const anEntity: IEntityBase;
-    aSaveAs: Boolean): Boolean; overload; 
-     {* Вызов операции FolderElement.SetSaveInfo у агрегации }
+    aSaveAs: Boolean): Boolean; overload;
+    {* Вызов операции FolderElement.SetSaveInfo у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
     const anEntity: IEntityBase;
-    aSaveAs: Boolean): Boolean; overload; 
-     {* Вызов операции FolderElement.SetSaveInfo у формы }
+    aSaveAs: Boolean): Boolean; overload;
+    {* Вызов операции FolderElement.SetSaveInfo у формы }
    class function Call(const aTarget: IvcmContainer;
     const aForm: IvcmEntityForm;
     const aFilterInfo: InsFolderFilterInfo;
     anElementType: TFoldersElementType;
     const anEntity: IEntityBase;
-    aSaveAs: Boolean): Boolean; overload; 
-     {* Вызов операции FolderElement.SetSaveInfo у контейнера }
+    aSaveAs: Boolean): Boolean; overload;
+    {* Вызов операции FolderElement.SetSaveInfo у контейнера }
  end;//Op_FolderElement_SetSaveInfo
 
- IFolderElement_ResetModificationOnDelete_Params = interface(IUnknown)
+ IFolderElement_ResetModificationOnDelete_Params = interface
   {* Параметры для операции FolderElement.ResetModificationOnDelete }
-   ['{4BEF66FF-5C40-49B8-A1CE-7DF6D72FDF30}']
-   function Get_Node: IeeNode;
-   property Node: IeeNode
-     read Get_Node;
-     {* undefined }
+  function Get_Node: IeeNode;
+  property Node: IeeNode
+   read Get_Node;
  end;//IFolderElement_ResetModificationOnDelete_Params
 
- Op_FolderElement_ResetModificationOnDelete = class
+ Op_FolderElement_ResetModificationOnDelete = {final} class
   {* Класс для вызова операции FolderElement.ResetModificationOnDelete }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции FolderElement.ResetModificationOnDelete у сущности }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции FolderElement.ResetModificationOnDelete у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции FolderElement.ResetModificationOnDelete у агрегации }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции FolderElement.ResetModificationOnDelete у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции FolderElement.ResetModificationOnDelete у формы }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции FolderElement.ResetModificationOnDelete у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции FolderElement.ResetModificationOnDelete у контейнера }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции FolderElement.ResetModificationOnDelete у контейнера }
  end;//Op_FolderElement_ResetModificationOnDelete
 
- Op_FolderElement_SetFocus = class
+ Op_FolderElement_SetFocus = {final} class
   {* Класс для вызова операции FolderElement.SetFocus }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции FolderElement.SetFocus у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции FolderElement.SetFocus у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции FolderElement.SetFocus у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции FolderElement.SetFocus у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции FolderElement.SetFocus у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции FolderElement.SetFocus у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции FolderElement.SetFocus у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции FolderElement.SetFocus у контейнера }
  end;//Op_FolderElement_SetFocus
 
- Op_FolderElement_Redraw = class
+ Op_FolderElement_Redraw = {final} class
   {* Класс для вызова операции FolderElement.Redraw }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции FolderElement.Redraw у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции FolderElement.Redraw у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции FolderElement.Redraw у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции FolderElement.Redraw у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции FolderElement.Redraw у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции FolderElement.Redraw у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции FolderElement.Redraw у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции FolderElement.Redraw у контейнера }
  end;//Op_FolderElement_Redraw
 
- Op_FolderElement_DisableSecurityPage = class
+ Op_FolderElement_DisableSecurityPage = {final} class
   {* Класс для вызова операции FolderElement.DisableSecurityPage }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableSecurityPage у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableSecurityPage у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableSecurityPage у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции FolderElement.DisableSecurityPage у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции FolderElement.DisableSecurityPage у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции FolderElement.DisableSecurityPage у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции FolderElement.DisableSecurityPage у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции FolderElement.DisableSecurityPage у контейнера }
  end;//Op_FolderElement_DisableSecurityPage
 
- ISavedQuery_SetFilterState_Params = interface(IUnknown)
+ ISavedQuery_SetFilterState_Params = interface
   {* Параметры для операции SavedQuery.SetFilterState }
-   ['{91AE5E97-316A-4517-9270-5309FEC7089B}']
-   function Get_Node: INode;
-   property Node: INode
-     read Get_Node;
-     {* undefined }
+  function Get_Node: INode;
+  property Node: INode
+   read Get_Node;
  end;//ISavedQuery_SetFilterState_Params
 
- Op_SavedQuery_SetFilterState = class
+ Op_SavedQuery_SetFilterState = {final} class
   {* Класс для вызова операции SavedQuery.SetFilterState }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNode: INode): Boolean; overload; 
-     {* Вызов операции SavedQuery.SetFilterState у сущности }
+    const aNode: INode): Boolean; overload;
+    {* Вызов операции SavedQuery.SetFilterState у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNode: INode): Boolean; overload; 
-     {* Вызов операции SavedQuery.SetFilterState у агрегации }
+    const aNode: INode): Boolean; overload;
+    {* Вызов операции SavedQuery.SetFilterState у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNode: INode): Boolean; overload; 
-     {* Вызов операции SavedQuery.SetFilterState у формы }
+    const aNode: INode): Boolean; overload;
+    {* Вызов операции SavedQuery.SetFilterState у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNode: INode): Boolean; overload; 
-     {* Вызов операции SavedQuery.SetFilterState у контейнера }
+    const aNode: INode): Boolean; overload;
+    {* Вызов операции SavedQuery.SetFilterState у контейнера }
  end;//Op_SavedQuery_SetFilterState
 
- IFolders_SetCurrent_Params = interface(IUnknown)
+ IFolders_SetCurrent_Params = interface
   {* Параметры для операции Folders.SetCurrent }
-   ['{578A7FA9-B757-4092-9FCF-34375B8C8127}']
-   function Get_Node: IeeNode;
-   property Node: IeeNode
-     read Get_Node;
-     {* undefined }
+  function Get_Node: IeeNode;
+  property Node: IeeNode
+   read Get_Node;
  end;//IFolders_SetCurrent_Params
 
- Op_Folders_SetCurrent = class
+ Op_Folders_SetCurrent = {final} class
   {* Класс для вызова операции Folders.SetCurrent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции Folders.SetCurrent у сущности }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции Folders.SetCurrent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции Folders.SetCurrent у агрегации }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции Folders.SetCurrent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции Folders.SetCurrent у формы }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции Folders.SetCurrent у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции Folders.SetCurrent у контейнера }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции Folders.SetCurrent у контейнера }
  end;//Op_Folders_SetCurrent
 
- IFolders_FiltrateByFilterInfo_Params = interface(IUnknown)
+ IFolders_FiltrateByFilterInfo_Params = interface
   {* Параметры для операции Folders.FiltrateByFilterInfo }
-   ['{32257A40-C1F2-41EA-B97F-6A410F4AD198}']
-   function Get_NInfo: InsFolderFilterInfo;
-   property nInfo: InsFolderFilterInfo
-     read Get_NInfo;
-     {* undefined }
+  function Get_nInfo: InsFolderFilterInfo;
+  property nInfo: InsFolderFilterInfo
+   read Get_nInfo;
  end;//IFolders_FiltrateByFilterInfo_Params
 
- Op_Folders_FiltrateByFilterInfo = class
+ Op_Folders_FiltrateByFilterInfo = {final} class
   {* Класс для вызова операции Folders.FiltrateByFilterInfo }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const anInfo: InsFolderFilterInfo): Boolean; overload; 
-     {* Вызов операции Folders.FiltrateByFilterInfo у сущности }
+    const anInfo: InsFolderFilterInfo): Boolean; overload;
+    {* Вызов операции Folders.FiltrateByFilterInfo у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const anInfo: InsFolderFilterInfo): Boolean; overload; 
-     {* Вызов операции Folders.FiltrateByFilterInfo у агрегации }
+    const anInfo: InsFolderFilterInfo): Boolean; overload;
+    {* Вызов операции Folders.FiltrateByFilterInfo у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const anInfo: InsFolderFilterInfo): Boolean; overload; 
-     {* Вызов операции Folders.FiltrateByFilterInfo у формы }
+    const anInfo: InsFolderFilterInfo): Boolean; overload;
+    {* Вызов операции Folders.FiltrateByFilterInfo у формы }
    class function Call(const aTarget: IvcmContainer;
-    const anInfo: InsFolderFilterInfo): Boolean; overload; 
-     {* Вызов операции Folders.FiltrateByFilterInfo у контейнера }
+    const anInfo: InsFolderFilterInfo): Boolean; overload;
+    {* Вызов операции Folders.FiltrateByFilterInfo у контейнера }
  end;//Op_Folders_FiltrateByFilterInfo
 
- Op_Folders_TryOpenConsultationAnswer = class
+ Op_Folders_TryOpenConsultationAnswer = {final} class
   {* Класс для вызова операции Folders.TryOpenConsultationAnswer }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Folders.TryOpenConsultationAnswer у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Folders.TryOpenConsultationAnswer у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Folders.TryOpenConsultationAnswer у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Folders.TryOpenConsultationAnswer у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Folders.TryOpenConsultationAnswer у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Folders.TryOpenConsultationAnswer у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Folders.TryOpenConsultationAnswer у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Folders.TryOpenConsultationAnswer у контейнера }
  end;//Op_Folders_TryOpenConsultationAnswer
 
- Op_Folders_OpenMyConsultations = class
+ Op_Folders_OpenMyConsultations = {final} class
   {* Класс для вызова операции Folders.OpenMyConsultations }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Folders.OpenMyConsultations у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Folders.OpenMyConsultations у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Folders.OpenMyConsultations у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Folders.OpenMyConsultations у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Folders.OpenMyConsultations у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Folders.OpenMyConsultations у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Folders.OpenMyConsultations у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Folders.OpenMyConsultations у контейнера }
  end;//Op_Folders_OpenMyConsultations
 
- Op_Folders_SetInfoContent = class
+ Op_Folders_SetInfoContent = {final} class
   {* Класс для вызова операции Folders.SetInfoContent }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Folders.SetInfoContent у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Folders.SetInfoContent у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Folders.SetInfoContent у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Folders.SetInfoContent у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Folders.SetInfoContent у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Folders.SetInfoContent у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Folders.SetInfoContent у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Folders.SetInfoContent у контейнера }
  end;//Op_Folders_SetInfoContent
 
- IUsersRights_UpdateRights_Params = interface(IUnknown)
+ IUsersRights_UpdateRights_Params = interface
   {* Параметры для операции UsersRights.UpdateRights }
-   ['{6B09258D-5632-4473-B4F3-2953E11E33F8}']
-   function Get_Node: IeeNode;
-   property Node: IeeNode
-     read Get_Node;
-     {* undefined }
+  function Get_Node: IeeNode;
+  property Node: IeeNode
+   read Get_Node;
  end;//IUsersRights_UpdateRights_Params
 
- Op_UsersRights_UpdateRights = class
+ Op_UsersRights_UpdateRights = {final} class
   {* Класс для вызова операции UsersRights.UpdateRights }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции UsersRights.UpdateRights у сущности }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции UsersRights.UpdateRights у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции UsersRights.UpdateRights у агрегации }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции UsersRights.UpdateRights у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции UsersRights.UpdateRights у формы }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции UsersRights.UpdateRights у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNode: IeeNode): Boolean; overload; 
-     {* Вызов операции UsersRights.UpdateRights у контейнера }
+    const aNode: IeeNode): Boolean; overload;
+    {* Вызов операции UsersRights.UpdateRights у контейнера }
  end;//Op_UsersRights_UpdateRights
 
- Op_UsersRights_FolderShareChanged = class
+ Op_UsersRights_FolderShareChanged = {final} class
   {* Класс для вызова операции UsersRights.FolderShareChanged }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции UsersRights.FolderShareChanged у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции UsersRights.FolderShareChanged у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции UsersRights.FolderShareChanged у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции UsersRights.FolderShareChanged у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции UsersRights.FolderShareChanged у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции UsersRights.FolderShareChanged у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции UsersRights.FolderShareChanged у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции UsersRights.FolderShareChanged у контейнера }
  end;//Op_UsersRights_FolderShareChanged
 
- Op_Result_ExternalOk = class
+ Op_Result_ExternalOk = {final} class
   {* Класс для вызова операции Result.ExternalOk }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Result.ExternalOk у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Result.ExternalOk у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Result.ExternalOk у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Result.ExternalOk у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Result.ExternalOk у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Result.ExternalOk у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Result.ExternalOk у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Result.ExternalOk у контейнера }
  end;//Op_Result_ExternalOk
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_AdditionInfo = 'AdditionInfo';
  en_capAdditionInfo = '';
@@ -931,44 +725,259 @@ const
  op_capShowConsultationInfo = '';
  op_ImportConsultation = 'ImportConsultation';
  op_capImportConsultation = '';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TAdditionInfo_Close_Params = class(Tl3CProtoObject, IAdditionInfo_Close_Params)
+ TAdditionInfo_Close_Params = {final} class(Tl3CProtoObject, IAdditionInfo_Close_Params)
   {* Реализация IAdditionInfo_Close_Params }
- private
- // private fields
-   f_ModalResult : Integer;
- protected
- // realized methods
+  private
+   f_ModalResult: Integer;
+  protected
    function Get_ModalResult: Integer;
- public
- // public methods
-   constructor Create(aModalResult: Integer); reintroduce;
-     {* Конструктор TAdditionInfo_Close_Params }
-   class function Make(aModalResult: Integer): IAdditionInfo_Close_Params; reintroduce;
-     {* Фабрика TAdditionInfo_Close_Params }
+  public
+   constructor Create(aModalResult: Integer = Controls.mrCancel); reintroduce;
+   class function Make(aModalResult: Integer = Controls.mrCancel): IAdditionInfo_Close_Params; reintroduce;
  end;//TAdditionInfo_Close_Params
 
-// start class TAdditionInfo_Close_Params
+ TFolderElement_InternalEditByFoldersNode_Params = {final} class(Tl3CProtoObject, IFolderElement_InternalEditByFoldersNode_Params)
+  {* Реализация IFolderElement_InternalEditByFoldersNode_Params }
+  private
+   f_Node: IFoldersNode;
+   f_InternalCall: Boolean;
+  protected
+   function Get_Node: IFoldersNode;
+   function Get_InternalCall: Boolean;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IFoldersNode;
+    aInternalCall: Boolean = True); reintroduce;
+   class function Make(const aNode: IFoldersNode;
+    aInternalCall: Boolean = True): IFolderElement_InternalEditByFoldersNode_Params; reintroduce;
+ end;//TFolderElement_InternalEditByFoldersNode_Params
 
-constructor TAdditionInfo_Close_Params.Create(aModalResult: Integer);
- {-}
+ TFolderElement_InternalDelete_Params = {final} class(Tl3CProtoObject, IFolderElement_InternalDelete_Params)
+  {* Реализация IFolderElement_InternalDelete_Params }
+  private
+   f_Node: IFoldersNode;
+   f_Ask: Boolean;
+   f_ResultValue: TnsDeleteResult;
+  protected
+   function Get_Node: IFoldersNode;
+   function Get_Ask: Boolean;
+   function Get_ResultValue: TnsDeleteResult;
+   procedure Set_ResultValue(aValue: TnsDeleteResult);
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IFoldersNode;
+    aAsk: Boolean = True); reintroduce;
+   class function Make(const aNode: IFoldersNode;
+    aAsk: Boolean = True): IFolderElement_InternalDelete_Params; reintroduce;
+ end;//TFolderElement_InternalDelete_Params
+
+ TFolderElement_InternalEdit_Params = {final} class(Tl3CProtoObject, IFolderElement_InternalEdit_Params)
+  {* Реализация IFolderElement_InternalEdit_Params }
+  private
+   f_Node: IeeNode;
+   f_InternalCall: Boolean;
+  protected
+   function Get_Node: IeeNode;
+   function Get_InternalCall: Boolean;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IeeNode;
+    aInternalCall: Boolean = True); reintroduce;
+   class function Make(const aNode: IeeNode;
+    aInternalCall: Boolean = True): IFolderElement_InternalEdit_Params; reintroduce;
+ end;//TFolderElement_InternalEdit_Params
+
+ TFolderElement_SetState_Params = {final} class(Tl3CProtoObject, IFolderElement_SetState_Params)
+  {* Реализация IFolderElement_SetState_Params }
+  private
+   f_InfoType: TFoldersInfoType;
+  protected
+   function Get_InfoType: TFoldersInfoType;
+  public
+   constructor Create(aInfoType: TFoldersInfoType); reintroduce;
+   class function Make(aInfoType: TFoldersInfoType): IFolderElement_SetState_Params; reintroduce;
+ end;//TFolderElement_SetState_Params
+
+ TAdditionInfo_SetCaption_Params = {final} class(Tl3CProtoObject, IAdditionInfo_SetCaption_Params)
+  {* Реализация IAdditionInfo_SetCaption_Params }
+  private
+   f_Caption: Il3CString;
+  protected
+   function Get_Caption: Il3CString;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aCaption: Il3CString); reintroduce;
+   class function Make(const aCaption: Il3CString): IAdditionInfo_SetCaption_Params; reintroduce;
+ end;//TAdditionInfo_SetCaption_Params
+
+ TFolderElement_GetState_Params = {final} class(Tl3CProtoObject, IFolderElement_GetState_Params)
+  {* Реализация IFolderElement_GetState_Params }
+  private
+   f_ResultValue: TFoldersInfoType;
+  protected
+   function Get_ResultValue: TFoldersInfoType;
+   procedure Set_ResultValue(aValue: TFoldersInfoType);
+  public
+   class function Make: IFolderElement_GetState_Params; reintroduce;
+ end;//TFolderElement_GetState_Params
+
+ TFolderElement_SetLoadInfo_Params = {final} class(Tl3CProtoObject, IFolderElement_SetLoadInfo_Params)
+  {* Реализация IFolderElement_SetLoadInfo_Params }
+  private
+   f_Form: IvcmEntityForm;
+   f_FolderFilterInfo: InsFolderFilterInfo;
+   f_Caption: Il3CString;
+   f_Data: IUnknown;
+   f_nOp: TListLogicOperation;
+  protected
+   function Get_Form: IvcmEntityForm;
+   function Get_FolderFilterInfo: InsFolderFilterInfo;
+   function Get_Caption: Il3CString;
+   function Get_Data: IUnknown;
+   function Get_nOp: TListLogicOperation;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aForm: IvcmEntityForm;
+    const aFolderFilterInfo: InsFolderFilterInfo;
+    const aCaption: Il3CString;
+    const aData: IUnknown;
+    anOp: TListLogicOperation); reintroduce;
+   class function Make(const aForm: IvcmEntityForm;
+    const aFolderFilterInfo: InsFolderFilterInfo;
+    const aCaption: Il3CString;
+    const aData: IUnknown;
+    anOp: TListLogicOperation): IFolderElement_SetLoadInfo_Params; reintroduce;
+ end;//TFolderElement_SetLoadInfo_Params
+
+ TFolderElement_SetContent_Params = {final} class(Tl3CProtoObject, IFolderElement_SetContent_Params)
+  {* Реализация IFolderElement_SetContent_Params }
+  private
+   f_Node: IeeNode;
+   f_IsNewFolder: Boolean;
+  protected
+   function Get_Node: IeeNode;
+   function Get_IsNewFolder: Boolean;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IeeNode;
+    aIsNewFolder: Boolean = False); reintroduce;
+   class function Make(const aNode: IeeNode;
+    aIsNewFolder: Boolean = False): IFolderElement_SetContent_Params; reintroduce;
+ end;//TFolderElement_SetContent_Params
+
+ TFolderElement_SetSaveInfo_Params = {final} class(Tl3CProtoObject, IFolderElement_SetSaveInfo_Params)
+  {* Реализация IFolderElement_SetSaveInfo_Params }
+  private
+   f_Form: IvcmEntityForm;
+   f_FilterInfo: InsFolderFilterInfo;
+   f_nElementType: TFoldersElementType;
+   f_nEntity: IEntityBase;
+   f_SaveAs: Boolean;
+  protected
+   function Get_Form: IvcmEntityForm;
+   function Get_FilterInfo: InsFolderFilterInfo;
+   function Get_nElementType: TFoldersElementType;
+   function Get_nEntity: IEntityBase;
+   function Get_SaveAs: Boolean;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aForm: IvcmEntityForm;
+    const aFilterInfo: InsFolderFilterInfo;
+    anElementType: TFoldersElementType;
+    const anEntity: IEntityBase;
+    aSaveAs: Boolean); reintroduce;
+   class function Make(const aForm: IvcmEntityForm;
+    const aFilterInfo: InsFolderFilterInfo;
+    anElementType: TFoldersElementType;
+    const anEntity: IEntityBase;
+    aSaveAs: Boolean): IFolderElement_SetSaveInfo_Params; reintroduce;
+ end;//TFolderElement_SetSaveInfo_Params
+
+ TFolderElement_ResetModificationOnDelete_Params = {final} class(Tl3CProtoObject, IFolderElement_ResetModificationOnDelete_Params)
+  {* Реализация IFolderElement_ResetModificationOnDelete_Params }
+  private
+   f_Node: IeeNode;
+  protected
+   function Get_Node: IeeNode;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IeeNode); reintroduce;
+   class function Make(const aNode: IeeNode): IFolderElement_ResetModificationOnDelete_Params; reintroduce;
+ end;//TFolderElement_ResetModificationOnDelete_Params
+
+ TSavedQuery_SetFilterState_Params = {final} class(Tl3CProtoObject, ISavedQuery_SetFilterState_Params)
+  {* Реализация ISavedQuery_SetFilterState_Params }
+  private
+   f_Node: INode;
+  protected
+   function Get_Node: INode;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: INode); reintroduce;
+   class function Make(const aNode: INode): ISavedQuery_SetFilterState_Params; reintroduce;
+ end;//TSavedQuery_SetFilterState_Params
+
+ TFolders_SetCurrent_Params = {final} class(Tl3CProtoObject, IFolders_SetCurrent_Params)
+  {* Реализация IFolders_SetCurrent_Params }
+  private
+   f_Node: IeeNode;
+  protected
+   function Get_Node: IeeNode;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IeeNode); reintroduce;
+   class function Make(const aNode: IeeNode): IFolders_SetCurrent_Params; reintroduce;
+ end;//TFolders_SetCurrent_Params
+
+ TFolders_FiltrateByFilterInfo_Params = {final} class(Tl3CProtoObject, IFolders_FiltrateByFilterInfo_Params)
+  {* Реализация IFolders_FiltrateByFilterInfo_Params }
+  private
+   f_nInfo: InsFolderFilterInfo;
+  protected
+   function Get_nInfo: InsFolderFilterInfo;
+   procedure ClearFields; override;
+  public
+   constructor Create(const anInfo: InsFolderFilterInfo); reintroduce;
+   class function Make(const anInfo: InsFolderFilterInfo): IFolders_FiltrateByFilterInfo_Params; reintroduce;
+ end;//TFolders_FiltrateByFilterInfo_Params
+
+ TUsersRights_UpdateRights_Params = {final} class(Tl3CProtoObject, IUsersRights_UpdateRights_Params)
+  {* Реализация IUsersRights_UpdateRights_Params }
+  private
+   f_Node: IeeNode;
+  protected
+   function Get_Node: IeeNode;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNode: IeeNode); reintroduce;
+   class function Make(const aNode: IeeNode): IUsersRights_UpdateRights_Params; reintroduce;
+ end;//TUsersRights_UpdateRights_Params
+
+constructor TAdditionInfo_Close_Params.Create(aModalResult: Integer = Controls.mrCancel);
 begin
  inherited Create;
  f_ModalResult := aModalResult;
 end;//TAdditionInfo_Close_Params.Create
 
-class function TAdditionInfo_Close_Params.Make(aModalResult: Integer): IAdditionInfo_Close_Params;
+class function TAdditionInfo_Close_Params.Make(aModalResult: Integer = Controls.mrCancel): IAdditionInfo_Close_Params;
 var
  l_Inst : TAdditionInfo_Close_Params;
 begin
@@ -978,17 +987,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TAdditionInfo_Close_Params.Make
 
 function TAdditionInfo_Close_Params.Get_ModalResult: Integer;
- {-}
 begin
  Result := f_ModalResult;
 end;//TAdditionInfo_Close_Params.Get_ModalResult
-// start class Op_AdditionInfo_Close
 
 class function Op_AdditionInfo_Close.Call(const aTarget: IvcmEntity;
-  aModalResult: Integer = mrCancel): Boolean;
+ aModalResult: Integer = Controls.mrCancel): Boolean;
+ {* Вызов операции AdditionInfo.Close у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1008,7 +1016,8 @@ begin
 end;//Op_AdditionInfo_Close.Call
 
 class function Op_AdditionInfo_Close.Call(const aTarget: IvcmAggregate;
-  aModalResult: Integer = mrCancel): Boolean;
+ aModalResult: Integer = Controls.mrCancel): Boolean;
+ {* Вызов операции AdditionInfo.Close у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1028,8 +1037,8 @@ begin
 end;//Op_AdditionInfo_Close.Call
 
 class function Op_AdditionInfo_Close.Call(const aTarget: IvcmEntityForm;
-  aModalResult: Integer = mrCancel): Boolean;
- {-}
+ aModalResult: Integer = Controls.mrCancel): Boolean;
+ {* Вызов операции AdditionInfo.Close у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1037,44 +1046,16 @@ begin
 end;//Op_AdditionInfo_Close.Call
 
 class function Op_AdditionInfo_Close.Call(const aTarget: IvcmContainer;
-  aModalResult: Integer = mrCancel): Boolean;
- {-}
+ aModalResult: Integer = Controls.mrCancel): Boolean;
+ {* Вызов операции AdditionInfo.Close у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aModalResult);
 end;//Op_AdditionInfo_Close.Call
 
-type
- TFolderElement_InternalEditByFoldersNode_Params = class(Tl3CProtoObject, IFolderElement_InternalEditByFoldersNode_Params)
-  {* Реализация IFolderElement_InternalEditByFoldersNode_Params }
- private
- // private fields
-   f_Node : IFoldersNode;
-   f_InternalCall : Boolean;
- protected
- // realized methods
-   function Get_InternalCall: Boolean;
-   function Get_Node: IFoldersNode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IFoldersNode;
-    aInternalCall: Boolean); reintroduce;
-     {* Конструктор TFolderElement_InternalEditByFoldersNode_Params }
-   class function Make(const aNode: IFoldersNode;
-    aInternalCall: Boolean): IFolderElement_InternalEditByFoldersNode_Params; reintroduce;
-     {* Фабрика TFolderElement_InternalEditByFoldersNode_Params }
- end;//TFolderElement_InternalEditByFoldersNode_Params
-
-// start class TFolderElement_InternalEditByFoldersNode_Params
-
 constructor TFolderElement_InternalEditByFoldersNode_Params.Create(const aNode: IFoldersNode;
-  aInternalCall: Boolean);
- {-}
+ aInternalCall: Boolean = True);
 begin
  inherited Create;
  f_Node := aNode;
@@ -1082,7 +1063,7 @@ begin
 end;//TFolderElement_InternalEditByFoldersNode_Params.Create
 
 class function TFolderElement_InternalEditByFoldersNode_Params.Make(const aNode: IFoldersNode;
-  aInternalCall: Boolean): IFolderElement_InternalEditByFoldersNode_Params;
+ aInternalCall: Boolean = True): IFolderElement_InternalEditByFoldersNode_Params;
 var
  l_Inst : TFolderElement_InternalEditByFoldersNode_Params;
 begin
@@ -1092,40 +1073,35 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TFolderElement_InternalEditByFoldersNode_Params.Get_InternalCall: Boolean;
- {-}
-begin
- Result := f_InternalCall;
-end;//TFolderElement_InternalEditByFoldersNode_Params.Get_InternalCall
+end;//TFolderElement_InternalEditByFoldersNode_Params.Make
 
 function TFolderElement_InternalEditByFoldersNode_Params.Get_Node: IFoldersNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolderElement_InternalEditByFoldersNode_Params.Get_Node
 
-procedure TFolderElement_InternalEditByFoldersNode_Params.ClearFields;
- {-}
+function TFolderElement_InternalEditByFoldersNode_Params.Get_InternalCall: Boolean;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_InternalCall;
+end;//TFolderElement_InternalEditByFoldersNode_Params.Get_InternalCall
+
+procedure TFolderElement_InternalEditByFoldersNode_Params.ClearFields;
+begin
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_InternalEditByFoldersNode_Params.ClearFields
-// start class Op_FolderElement_InternalEditByFoldersNode
 
 class function Op_FolderElement_InternalEditByFoldersNode.Call(const aTarget: IvcmEntity;
-  const aNode: IFoldersNode;
-  aInternalCall: Boolean = true): Boolean;
+ const aNode: IFoldersNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEditByFoldersNode у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode,aInternalCall));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode, aInternalCall));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEditByFoldersNode, l_Params);
   with l_Params do
   begin
@@ -1138,15 +1114,16 @@ begin
 end;//Op_FolderElement_InternalEditByFoldersNode.Call
 
 class function Op_FolderElement_InternalEditByFoldersNode.Call(const aTarget: IvcmAggregate;
-  const aNode: IFoldersNode;
-  aInternalCall: Boolean = true): Boolean;
+ const aNode: IFoldersNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEditByFoldersNode у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode,aInternalCall));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEditByFoldersNode_Params.Make(aNode, aInternalCall));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEditByFoldersNode, l_Params);
   with l_Params do
   begin
@@ -1159,9 +1136,9 @@ begin
 end;//Op_FolderElement_InternalEditByFoldersNode.Call
 
 class function Op_FolderElement_InternalEditByFoldersNode.Call(const aTarget: IvcmEntityForm;
-  const aNode: IFoldersNode;
-  aInternalCall: Boolean = true): Boolean;
- {-}
+ const aNode: IFoldersNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEditByFoldersNode у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1169,48 +1146,17 @@ begin
 end;//Op_FolderElement_InternalEditByFoldersNode.Call
 
 class function Op_FolderElement_InternalEditByFoldersNode.Call(const aTarget: IvcmContainer;
-  const aNode: IFoldersNode;
-  aInternalCall: Boolean = true): Boolean;
- {-}
+ const aNode: IFoldersNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEditByFoldersNode у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode, aInternalCall);
 end;//Op_FolderElement_InternalEditByFoldersNode.Call
 
-type
- TFolderElement_InternalDelete_Params = class(Tl3CProtoObject, IFolderElement_InternalDelete_Params)
-  {* Реализация IFolderElement_InternalDelete_Params }
- private
- // private fields
-   f_Node : IFoldersNode;
-   f_Ask : Boolean;
-   f_ResultValue : TnsDeleteResult;
- protected
- // realized methods
-   function Get_Ask: Boolean;
-   function Get_Node: IFoldersNode;
-   function Get_ResultValue: TnsDeleteResult;
-   procedure Set_ResultValue(aValue: TnsDeleteResult);
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IFoldersNode;
-    aAsk: Boolean); reintroduce;
-     {* Конструктор TFolderElement_InternalDelete_Params }
-   class function Make(const aNode: IFoldersNode;
-    aAsk: Boolean): IFolderElement_InternalDelete_Params; reintroduce;
-     {* Фабрика TFolderElement_InternalDelete_Params }
- end;//TFolderElement_InternalDelete_Params
-
-// start class TFolderElement_InternalDelete_Params
-
 constructor TFolderElement_InternalDelete_Params.Create(const aNode: IFoldersNode;
-  aAsk: Boolean);
- {-}
+ aAsk: Boolean = True);
 begin
  inherited Create;
  f_Node := aNode;
@@ -1218,7 +1164,7 @@ begin
 end;//TFolderElement_InternalDelete_Params.Create
 
 class function TFolderElement_InternalDelete_Params.Make(const aNode: IFoldersNode;
-  aAsk: Boolean): IFolderElement_InternalDelete_Params;
+ aAsk: Boolean = True): IFolderElement_InternalDelete_Params;
 var
  l_Inst : TFolderElement_InternalDelete_Params;
 begin
@@ -1228,52 +1174,45 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TFolderElement_InternalDelete_Params.Get_Ask: Boolean;
- {-}
-begin
- Result := f_Ask;
-end;//TFolderElement_InternalDelete_Params.Get_Ask
+end;//TFolderElement_InternalDelete_Params.Make
 
 function TFolderElement_InternalDelete_Params.Get_Node: IFoldersNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolderElement_InternalDelete_Params.Get_Node
 
+function TFolderElement_InternalDelete_Params.Get_Ask: Boolean;
+begin
+ Result := f_Ask;
+end;//TFolderElement_InternalDelete_Params.Get_Ask
+
 function TFolderElement_InternalDelete_Params.Get_ResultValue: TnsDeleteResult;
- {-}
 begin
  Result := f_ResultValue;
 end;//TFolderElement_InternalDelete_Params.Get_ResultValue
 
 procedure TFolderElement_InternalDelete_Params.Set_ResultValue(aValue: TnsDeleteResult);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TFolderElement_InternalDelete_Params.Set_ResultValue
 
 procedure TFolderElement_InternalDelete_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_InternalDelete_Params.ClearFields
-// start class Op_FolderElement_InternalDelete
 
 class function Op_FolderElement_InternalDelete.Call(const aTarget: IvcmEntity;
-  const aNode: IFoldersNode;
-  aAsk: Boolean = true): TnsDeleteResult;
+ const aNode: IFoldersNode;
+ aAsk: Boolean = True): TnsDeleteResult;
+ {* Вызов операции FolderElement.InternalDelete у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode,aAsk));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode, aAsk));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalDelete, l_Params);
   with l_Params do
   begin
@@ -1286,15 +1225,16 @@ begin
 end;//Op_FolderElement_InternalDelete.Call
 
 class function Op_FolderElement_InternalDelete.Call(const aTarget: IvcmAggregate;
-  const aNode: IFoldersNode;
-  aAsk: Boolean = true): TnsDeleteResult;
+ const aNode: IFoldersNode;
+ aAsk: Boolean = True): TnsDeleteResult;
+ {* Вызов операции FolderElement.InternalDelete у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode,aAsk));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalDelete_Params.Make(aNode, aAsk));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalDelete, l_Params);
   with l_Params do
   begin
@@ -1307,9 +1247,9 @@ begin
 end;//Op_FolderElement_InternalDelete.Call
 
 class function Op_FolderElement_InternalDelete.Call(const aTarget: IvcmEntityForm;
-  const aNode: IFoldersNode;
-  aAsk: Boolean = true): TnsDeleteResult;
- {-}
+ const aNode: IFoldersNode;
+ aAsk: Boolean = True): TnsDeleteResult;
+ {* Вызов операции FolderElement.InternalDelete у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1317,45 +1257,17 @@ begin
 end;//Op_FolderElement_InternalDelete.Call
 
 class function Op_FolderElement_InternalDelete.Call(const aTarget: IvcmContainer;
-  const aNode: IFoldersNode;
-  aAsk: Boolean = true): TnsDeleteResult;
- {-}
+ const aNode: IFoldersNode;
+ aAsk: Boolean = True): TnsDeleteResult;
+ {* Вызов операции FolderElement.InternalDelete у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode, aAsk);
 end;//Op_FolderElement_InternalDelete.Call
 
-type
- TFolderElement_InternalEdit_Params = class(Tl3CProtoObject, IFolderElement_InternalEdit_Params)
-  {* Реализация IFolderElement_InternalEdit_Params }
- private
- // private fields
-   f_Node : IeeNode;
-   f_InternalCall : Boolean;
- protected
- // realized methods
-   function Get_InternalCall: Boolean;
-   function Get_Node: IeeNode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IeeNode;
-    aInternalCall: Boolean); reintroduce;
-     {* Конструктор TFolderElement_InternalEdit_Params }
-   class function Make(const aNode: IeeNode;
-    aInternalCall: Boolean): IFolderElement_InternalEdit_Params; reintroduce;
-     {* Фабрика TFolderElement_InternalEdit_Params }
- end;//TFolderElement_InternalEdit_Params
-
-// start class TFolderElement_InternalEdit_Params
-
 constructor TFolderElement_InternalEdit_Params.Create(const aNode: IeeNode;
-  aInternalCall: Boolean);
- {-}
+ aInternalCall: Boolean = True);
 begin
  inherited Create;
  f_Node := aNode;
@@ -1363,7 +1275,7 @@ begin
 end;//TFolderElement_InternalEdit_Params.Create
 
 class function TFolderElement_InternalEdit_Params.Make(const aNode: IeeNode;
-  aInternalCall: Boolean): IFolderElement_InternalEdit_Params;
+ aInternalCall: Boolean = True): IFolderElement_InternalEdit_Params;
 var
  l_Inst : TFolderElement_InternalEdit_Params;
 begin
@@ -1373,40 +1285,35 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TFolderElement_InternalEdit_Params.Get_InternalCall: Boolean;
- {-}
-begin
- Result := f_InternalCall;
-end;//TFolderElement_InternalEdit_Params.Get_InternalCall
+end;//TFolderElement_InternalEdit_Params.Make
 
 function TFolderElement_InternalEdit_Params.Get_Node: IeeNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolderElement_InternalEdit_Params.Get_Node
 
-procedure TFolderElement_InternalEdit_Params.ClearFields;
- {-}
+function TFolderElement_InternalEdit_Params.Get_InternalCall: Boolean;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_InternalCall;
+end;//TFolderElement_InternalEdit_Params.Get_InternalCall
+
+procedure TFolderElement_InternalEdit_Params.ClearFields;
+begin
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_InternalEdit_Params.ClearFields
-// start class Op_FolderElement_InternalEdit
 
 class function Op_FolderElement_InternalEdit.Call(const aTarget: IvcmEntity;
-  const aNode: IeeNode;
-  aInternalCall: Boolean = true): Boolean;
+ const aNode: IeeNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEdit у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode,aInternalCall));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode, aInternalCall));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEdit, l_Params);
   with l_Params do
   begin
@@ -1419,15 +1326,16 @@ begin
 end;//Op_FolderElement_InternalEdit.Call
 
 class function Op_FolderElement_InternalEdit.Call(const aTarget: IvcmAggregate;
-  const aNode: IeeNode;
-  aInternalCall: Boolean = true): Boolean;
+ const aNode: IeeNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEdit у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode,aInternalCall));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_InternalEdit_Params.Make(aNode, aInternalCall));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_InternalEdit, l_Params);
   with l_Params do
   begin
@@ -1440,9 +1348,9 @@ begin
 end;//Op_FolderElement_InternalEdit.Call
 
 class function Op_FolderElement_InternalEdit.Call(const aTarget: IvcmEntityForm;
-  const aNode: IeeNode;
-  aInternalCall: Boolean = true): Boolean;
- {-}
+ const aNode: IeeNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEdit у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1450,17 +1358,17 @@ begin
 end;//Op_FolderElement_InternalEdit.Call
 
 class function Op_FolderElement_InternalEdit.Call(const aTarget: IvcmContainer;
-  const aNode: IeeNode;
-  aInternalCall: Boolean = true): Boolean;
- {-}
+ const aNode: IeeNode;
+ aInternalCall: Boolean = True): Boolean;
+ {* Вызов операции FolderElement.InternalEdit у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode, aInternalCall);
 end;//Op_FolderElement_InternalEdit.Call
-// start class Op_FolderElement_DisableFilter
 
 class function Op_FolderElement_DisableFilter.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции FolderElement.DisableFilter у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1480,6 +1388,7 @@ begin
 end;//Op_FolderElement_DisableFilter.Call
 
 class function Op_FolderElement_DisableFilter.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции FolderElement.DisableFilter у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1499,7 +1408,7 @@ begin
 end;//Op_FolderElement_DisableFilter.Call
 
 class function Op_FolderElement_DisableFilter.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции FolderElement.DisableFilter у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1507,34 +1416,14 @@ begin
 end;//Op_FolderElement_DisableFilter.Call
 
 class function Op_FolderElement_DisableFilter.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции FolderElement.DisableFilter у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_FolderElement_DisableFilter.Call
 
-type
- TFolderElement_SetState_Params = class(Tl3CProtoObject, IFolderElement_SetState_Params)
-  {* Реализация IFolderElement_SetState_Params }
- private
- // private fields
-   f_InfoType : TFoldersInfoType;
- protected
- // realized methods
-   function Get_InfoType: TFoldersInfoType;
- public
- // public methods
-   constructor Create(aInfoType: TFoldersInfoType); reintroduce;
-     {* Конструктор TFolderElement_SetState_Params }
-   class function Make(aInfoType: TFoldersInfoType): IFolderElement_SetState_Params; reintroduce;
-     {* Фабрика TFolderElement_SetState_Params }
- end;//TFolderElement_SetState_Params
-
-// start class TFolderElement_SetState_Params
-
 constructor TFolderElement_SetState_Params.Create(aInfoType: TFoldersInfoType);
- {-}
 begin
  inherited Create;
  f_InfoType := aInfoType;
@@ -1550,17 +1439,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolderElement_SetState_Params.Make
 
 function TFolderElement_SetState_Params.Get_InfoType: TFoldersInfoType;
- {-}
 begin
  Result := f_InfoType;
 end;//TFolderElement_SetState_Params.Get_InfoType
-// start class Op_FolderElement_SetState
 
 class function Op_FolderElement_SetState.Call(const aTarget: IvcmEntity;
-  aInfoType: TFoldersInfoType): Boolean;
+ aInfoType: TFoldersInfoType): Boolean;
+ {* Вызов операции FolderElement.SetState у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1580,7 +1468,8 @@ begin
 end;//Op_FolderElement_SetState.Call
 
 class function Op_FolderElement_SetState.Call(const aTarget: IvcmAggregate;
-  aInfoType: TFoldersInfoType): Boolean;
+ aInfoType: TFoldersInfoType): Boolean;
+ {* Вызов операции FolderElement.SetState у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1600,8 +1489,8 @@ begin
 end;//Op_FolderElement_SetState.Call
 
 class function Op_FolderElement_SetState.Call(const aTarget: IvcmEntityForm;
-  aInfoType: TFoldersInfoType): Boolean;
- {-}
+ aInfoType: TFoldersInfoType): Boolean;
+ {* Вызов операции FolderElement.SetState у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1609,16 +1498,16 @@ begin
 end;//Op_FolderElement_SetState.Call
 
 class function Op_FolderElement_SetState.Call(const aTarget: IvcmContainer;
-  aInfoType: TFoldersInfoType): Boolean;
- {-}
+ aInfoType: TFoldersInfoType): Boolean;
+ {* Вызов операции FolderElement.SetState у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aInfoType);
 end;//Op_FolderElement_SetState.Call
-// start class Op_AdditionInfo_Show
 
 class function Op_AdditionInfo_Show.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции AdditionInfo.Show у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1638,6 +1527,7 @@ begin
 end;//Op_AdditionInfo_Show.Call
 
 class function Op_AdditionInfo_Show.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции AdditionInfo.Show у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1657,7 +1547,7 @@ begin
 end;//Op_AdditionInfo_Show.Call
 
 class function Op_AdditionInfo_Show.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции AdditionInfo.Show у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1665,15 +1555,15 @@ begin
 end;//Op_AdditionInfo_Show.Call
 
 class function Op_AdditionInfo_Show.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции AdditionInfo.Show у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_AdditionInfo_Show.Call
-// start class Op_AdditionInfo_Hide
 
 class function Op_AdditionInfo_Hide.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции AdditionInfo.Hide у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1693,6 +1583,7 @@ begin
 end;//Op_AdditionInfo_Hide.Call
 
 class function Op_AdditionInfo_Hide.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции AdditionInfo.Hide у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1712,7 +1603,7 @@ begin
 end;//Op_AdditionInfo_Hide.Call
 
 class function Op_AdditionInfo_Hide.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции AdditionInfo.Hide у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1720,38 +1611,14 @@ begin
 end;//Op_AdditionInfo_Hide.Call
 
 class function Op_AdditionInfo_Hide.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции AdditionInfo.Hide у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_AdditionInfo_Hide.Call
 
-type
- TAdditionInfo_SetCaption_Params = class(Tl3CProtoObject, IAdditionInfo_SetCaption_Params)
-  {* Реализация IAdditionInfo_SetCaption_Params }
- private
- // private fields
-   f_Caption : Il3CString;
- protected
- // realized methods
-   function Get_Caption: Il3CString;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aCaption: Il3CString); reintroduce;
-     {* Конструктор TAdditionInfo_SetCaption_Params }
-   class function Make(const aCaption: Il3CString): IAdditionInfo_SetCaption_Params; reintroduce;
-     {* Фабрика TAdditionInfo_SetCaption_Params }
- end;//TAdditionInfo_SetCaption_Params
-
-// start class TAdditionInfo_SetCaption_Params
-
 constructor TAdditionInfo_SetCaption_Params.Create(const aCaption: Il3CString);
- {-}
 begin
  inherited Create;
  f_Caption := aCaption;
@@ -1767,26 +1634,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TAdditionInfo_SetCaption_Params.Make
 
 function TAdditionInfo_SetCaption_Params.Get_Caption: Il3CString;
- {-}
 begin
  Result := f_Caption;
 end;//TAdditionInfo_SetCaption_Params.Get_Caption
 
 procedure TAdditionInfo_SetCaption_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Caption := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TAdditionInfo_SetCaption_Params.ClearFields
-// start class Op_AdditionInfo_SetCaption
 
 class function Op_AdditionInfo_SetCaption.Call(const aTarget: IvcmEntity;
-  const aCaption: Il3CString): Boolean;
+ const aCaption: Il3CString): Boolean;
+ {* Вызов операции AdditionInfo.SetCaption у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1806,7 +1669,8 @@ begin
 end;//Op_AdditionInfo_SetCaption.Call
 
 class function Op_AdditionInfo_SetCaption.Call(const aTarget: IvcmAggregate;
-  const aCaption: Il3CString): Boolean;
+ const aCaption: Il3CString): Boolean;
+ {* Вызов операции AdditionInfo.SetCaption у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1826,8 +1690,8 @@ begin
 end;//Op_AdditionInfo_SetCaption.Call
 
 class function Op_AdditionInfo_SetCaption.Call(const aTarget: IvcmEntityForm;
-  const aCaption: Il3CString): Boolean;
- {-}
+ const aCaption: Il3CString): Boolean;
+ {* Вызов операции AdditionInfo.SetCaption у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1835,39 +1699,13 @@ begin
 end;//Op_AdditionInfo_SetCaption.Call
 
 class function Op_AdditionInfo_SetCaption.Call(const aTarget: IvcmContainer;
-  const aCaption: Il3CString): Boolean;
- {-}
+ const aCaption: Il3CString): Boolean;
+ {* Вызов операции AdditionInfo.SetCaption у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aCaption);
 end;//Op_AdditionInfo_SetCaption.Call
-
-type
- TFolderElement_GetState_Params = class(Tl3CProtoObject, IFolderElement_GetState_Params)
-  {* Реализация IFolderElement_GetState_Params }
- private
- // private fields
-   f_ResultValue : TFoldersInfoType;
- protected
- // realized methods
-   function Get_ResultValue: TFoldersInfoType;
-   procedure Set_ResultValue(aValue: TFoldersInfoType);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TFolderElement_GetState_Params }
-   class function Make: IFolderElement_GetState_Params; reintroduce;
-     {* Фабрика TFolderElement_GetState_Params }
- end;//TFolderElement_GetState_Params
-
-// start class TFolderElement_GetState_Params
-
-constructor TFolderElement_GetState_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TFolderElement_GetState_Params.Create
 
 class function TFolderElement_GetState_Params.Make: IFolderElement_GetState_Params;
 var
@@ -1879,22 +1717,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolderElement_GetState_Params.Make
 
 function TFolderElement_GetState_Params.Get_ResultValue: TFoldersInfoType;
- {-}
 begin
  Result := f_ResultValue;
 end;//TFolderElement_GetState_Params.Get_ResultValue
 
 procedure TFolderElement_GetState_Params.Set_ResultValue(aValue: TFoldersInfoType);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TFolderElement_GetState_Params.Set_ResultValue
-// start class Op_FolderElement_GetState
 
 class function Op_FolderElement_GetState.Call(const aTarget: IvcmEntity): TFoldersInfoType;
+ {* Вызов операции FolderElement.GetState у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1914,6 +1750,7 @@ begin
 end;//Op_FolderElement_GetState.Call
 
 class function Op_FolderElement_GetState.Call(const aTarget: IvcmAggregate): TFoldersInfoType;
+ {* Вызов операции FolderElement.GetState у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1933,7 +1770,7 @@ begin
 end;//Op_FolderElement_GetState.Call
 
 class function Op_FolderElement_GetState.Call(const aTarget: IvcmEntityForm): TFoldersInfoType;
- {-}
+ {* Вызов операции FolderElement.GetState у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1941,58 +1778,18 @@ begin
 end;//Op_FolderElement_GetState.Call
 
 class function Op_FolderElement_GetState.Call(const aTarget: IvcmContainer): TFoldersInfoType;
- {-}
+ {* Вызов операции FolderElement.GetState у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_FolderElement_GetState.Call
 
-type
- TFolderElement_SetLoadInfo_Params = class(Tl3CProtoObject, IFolderElement_SetLoadInfo_Params)
-  {* Реализация IFolderElement_SetLoadInfo_Params }
- private
- // private fields
-   f_Form : IvcmEntityForm;
-   f_FolderFilterInfo : InsFolderFilterInfo;
-   f_Caption : Il3CString;
-   f_Data : IUnknown;
-   f_nOp : TListLogicOperation;
- protected
- // realized methods
-   function Get_Data: IUnknown;
-   function Get_NOp: TListLogicOperation;
-   function Get_Form: IvcmEntityForm;
-   function Get_Caption: Il3CString;
-   function Get_FolderFilterInfo: InsFolderFilterInfo;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aForm: IvcmEntityForm;
-    const aFolderFilterInfo: InsFolderFilterInfo;
-    const aCaption: Il3CString;
-    const aData: IUnknown;
-    anOp: TListLogicOperation); reintroduce;
-     {* Конструктор TFolderElement_SetLoadInfo_Params }
-   class function Make(const aForm: IvcmEntityForm;
-    const aFolderFilterInfo: InsFolderFilterInfo;
-    const aCaption: Il3CString;
-    const aData: IUnknown;
-    anOp: TListLogicOperation): IFolderElement_SetLoadInfo_Params; reintroduce;
-     {* Фабрика TFolderElement_SetLoadInfo_Params }
- end;//TFolderElement_SetLoadInfo_Params
-
-// start class TFolderElement_SetLoadInfo_Params
-
 constructor TFolderElement_SetLoadInfo_Params.Create(const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation);
- {-}
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation);
 begin
  inherited Create;
  f_Form := aForm;
@@ -2003,10 +1800,10 @@ begin
 end;//TFolderElement_SetLoadInfo_Params.Create
 
 class function TFolderElement_SetLoadInfo_Params.Make(const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation): IFolderElement_SetLoadInfo_Params;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation): IFolderElement_SetLoadInfo_Params;
 var
  l_Inst : TFolderElement_SetLoadInfo_Params;
 begin
@@ -2016,70 +1813,56 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TFolderElement_SetLoadInfo_Params.Get_Data: IUnknown;
- {-}
-begin
- Result := f_Data;
-end;//TFolderElement_SetLoadInfo_Params.Get_Data
-
-function TFolderElement_SetLoadInfo_Params.Get_NOp: TListLogicOperation;
- {-}
-begin
- Result := f_nOp;
-end;//TFolderElement_SetLoadInfo_Params.Get_NOp
+end;//TFolderElement_SetLoadInfo_Params.Make
 
 function TFolderElement_SetLoadInfo_Params.Get_Form: IvcmEntityForm;
- {-}
 begin
  Result := f_Form;
 end;//TFolderElement_SetLoadInfo_Params.Get_Form
 
-function TFolderElement_SetLoadInfo_Params.Get_Caption: Il3CString;
- {-}
-begin
- Result := f_Caption;
-end;//TFolderElement_SetLoadInfo_Params.Get_Caption
-
 function TFolderElement_SetLoadInfo_Params.Get_FolderFilterInfo: InsFolderFilterInfo;
- {-}
 begin
  Result := f_FolderFilterInfo;
 end;//TFolderElement_SetLoadInfo_Params.Get_FolderFilterInfo
 
-procedure TFolderElement_SetLoadInfo_Params.ClearFields;
- {-}
+function TFolderElement_SetLoadInfo_Params.Get_Caption: Il3CString;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_Caption;
+end;//TFolderElement_SetLoadInfo_Params.Get_Caption
+
+function TFolderElement_SetLoadInfo_Params.Get_Data: IUnknown;
+begin
+ Result := f_Data;
+end;//TFolderElement_SetLoadInfo_Params.Get_Data
+
+function TFolderElement_SetLoadInfo_Params.Get_nOp: TListLogicOperation;
+begin
+ Result := f_nOp;
+end;//TFolderElement_SetLoadInfo_Params.Get_nOp
+
+procedure TFolderElement_SetLoadInfo_Params.ClearFields;
+begin
  f_Form := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FolderFilterInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Caption := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Data := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_SetLoadInfo_Params.ClearFields
-// start class Op_FolderElement_SetLoadInfo
 
 class function Op_FolderElement_SetLoadInfo.Call(const aTarget: IvcmEntity;
-  const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation): Boolean;
+ const aForm: IvcmEntityForm;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation): Boolean;
+ {* Вызов операции FolderElement.SetLoadInfo у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm,aFolderFilterInfo,aCaption,aData,anOp));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm, aFolderFilterInfo, aCaption, aData, anOp));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetLoadInfo, l_Params);
   with l_Params do
   begin
@@ -2092,18 +1875,19 @@ begin
 end;//Op_FolderElement_SetLoadInfo.Call
 
 class function Op_FolderElement_SetLoadInfo.Call(const aTarget: IvcmAggregate;
-  const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation): Boolean;
+ const aForm: IvcmEntityForm;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation): Boolean;
+ {* Вызов операции FolderElement.SetLoadInfo у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm,aFolderFilterInfo,aCaption,aData,anOp));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetLoadInfo_Params.Make(aForm, aFolderFilterInfo, aCaption, aData, anOp));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetLoadInfo, l_Params);
   with l_Params do
   begin
@@ -2116,12 +1900,12 @@ begin
 end;//Op_FolderElement_SetLoadInfo.Call
 
 class function Op_FolderElement_SetLoadInfo.Call(const aTarget: IvcmEntityForm;
-  const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation): Boolean;
- {-}
+ const aForm: IvcmEntityForm;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation): Boolean;
+ {* Вызов операции FolderElement.SetLoadInfo у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2129,48 +1913,20 @@ begin
 end;//Op_FolderElement_SetLoadInfo.Call
 
 class function Op_FolderElement_SetLoadInfo.Call(const aTarget: IvcmContainer;
-  const aForm: IvcmEntityForm;
-  const aFolderFilterInfo: InsFolderFilterInfo;
-  const aCaption: Il3CString;
-  const aData: IUnknown;
-  anOp: TListLogicOperation): Boolean;
- {-}
+ const aForm: IvcmEntityForm;
+ const aFolderFilterInfo: InsFolderFilterInfo;
+ const aCaption: Il3CString;
+ const aData: IUnknown;
+ anOp: TListLogicOperation): Boolean;
+ {* Вызов операции FolderElement.SetLoadInfo у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aForm, aFolderFilterInfo, aCaption, aData, anOp);
 end;//Op_FolderElement_SetLoadInfo.Call
 
-type
- TFolderElement_SetContent_Params = class(Tl3CProtoObject, IFolderElement_SetContent_Params)
-  {* Реализация IFolderElement_SetContent_Params }
- private
- // private fields
-   f_Node : IeeNode;
-   f_IsNewFolder : Boolean;
- protected
- // realized methods
-   function Get_Node: IeeNode;
-   function Get_IsNewFolder: Boolean;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IeeNode;
-    aIsNewFolder: Boolean); reintroduce;
-     {* Конструктор TFolderElement_SetContent_Params }
-   class function Make(const aNode: IeeNode;
-    aIsNewFolder: Boolean): IFolderElement_SetContent_Params; reintroduce;
-     {* Фабрика TFolderElement_SetContent_Params }
- end;//TFolderElement_SetContent_Params
-
-// start class TFolderElement_SetContent_Params
-
 constructor TFolderElement_SetContent_Params.Create(const aNode: IeeNode;
-  aIsNewFolder: Boolean);
- {-}
+ aIsNewFolder: Boolean = False);
 begin
  inherited Create;
  f_Node := aNode;
@@ -2178,7 +1934,7 @@ begin
 end;//TFolderElement_SetContent_Params.Create
 
 class function TFolderElement_SetContent_Params.Make(const aNode: IeeNode;
-  aIsNewFolder: Boolean): IFolderElement_SetContent_Params;
+ aIsNewFolder: Boolean = False): IFolderElement_SetContent_Params;
 var
  l_Inst : TFolderElement_SetContent_Params;
 begin
@@ -2188,40 +1944,35 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolderElement_SetContent_Params.Make
 
 function TFolderElement_SetContent_Params.Get_Node: IeeNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolderElement_SetContent_Params.Get_Node
 
 function TFolderElement_SetContent_Params.Get_IsNewFolder: Boolean;
- {-}
 begin
  Result := f_IsNewFolder;
 end;//TFolderElement_SetContent_Params.Get_IsNewFolder
 
 procedure TFolderElement_SetContent_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_SetContent_Params.ClearFields
-// start class Op_FolderElement_SetContent
 
 class function Op_FolderElement_SetContent.Call(const aTarget: IvcmEntity;
-  const aNode: IeeNode;
-  aIsNewFolder: Boolean = false): Boolean;
+ const aNode: IeeNode;
+ aIsNewFolder: Boolean = False): Boolean;
+ {* Вызов операции FolderElement.SetContent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode,aIsNewFolder));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode, aIsNewFolder));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetContent, l_Params);
   with l_Params do
   begin
@@ -2234,15 +1985,16 @@ begin
 end;//Op_FolderElement_SetContent.Call
 
 class function Op_FolderElement_SetContent.Call(const aTarget: IvcmAggregate;
-  const aNode: IeeNode;
-  aIsNewFolder: Boolean = false): Boolean;
+ const aNode: IeeNode;
+ aIsNewFolder: Boolean = False): Boolean;
+ {* Вызов операции FolderElement.SetContent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode,aIsNewFolder));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetContent_Params.Make(aNode, aIsNewFolder));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetContent, l_Params);
   with l_Params do
   begin
@@ -2255,9 +2007,9 @@ begin
 end;//Op_FolderElement_SetContent.Call
 
 class function Op_FolderElement_SetContent.Call(const aTarget: IvcmEntityForm;
-  const aNode: IeeNode;
-  aIsNewFolder: Boolean = false): Boolean;
- {-}
+ const aNode: IeeNode;
+ aIsNewFolder: Boolean = False): Boolean;
+ {* Вызов операции FolderElement.SetContent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2265,60 +2017,20 @@ begin
 end;//Op_FolderElement_SetContent.Call
 
 class function Op_FolderElement_SetContent.Call(const aTarget: IvcmContainer;
-  const aNode: IeeNode;
-  aIsNewFolder: Boolean = false): Boolean;
- {-}
+ const aNode: IeeNode;
+ aIsNewFolder: Boolean = False): Boolean;
+ {* Вызов операции FolderElement.SetContent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode, aIsNewFolder);
 end;//Op_FolderElement_SetContent.Call
 
-type
- TFolderElement_SetSaveInfo_Params = class(Tl3CProtoObject, IFolderElement_SetSaveInfo_Params)
-  {* Реализация IFolderElement_SetSaveInfo_Params }
- private
- // private fields
-   f_Form : IvcmEntityForm;
-   f_FilterInfo : InsFolderFilterInfo;
-   f_nElementType : TFoldersElementType;
-   f_nEntity : IEntityBase;
-   f_SaveAs : Boolean;
- protected
- // realized methods
-   function Get_SaveAs: Boolean;
-   function Get_NEntity: IEntityBase;
-   function Get_NElementType: TFoldersElementType;
-   function Get_FilterInfo: InsFolderFilterInfo;
-   function Get_Form: IvcmEntityForm;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    anElementType: TFoldersElementType;
-    const anEntity: IEntityBase;
-    aSaveAs: Boolean); reintroduce;
-     {* Конструктор TFolderElement_SetSaveInfo_Params }
-   class function Make(const aForm: IvcmEntityForm;
-    const aFilterInfo: InsFolderFilterInfo;
-    anElementType: TFoldersElementType;
-    const anEntity: IEntityBase;
-    aSaveAs: Boolean): IFolderElement_SetSaveInfo_Params; reintroduce;
-     {* Фабрика TFolderElement_SetSaveInfo_Params }
- end;//TFolderElement_SetSaveInfo_Params
-
-// start class TFolderElement_SetSaveInfo_Params
-
 constructor TFolderElement_SetSaveInfo_Params.Create(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean);
- {-}
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean);
 begin
  inherited Create;
  f_Form := aForm;
@@ -2329,10 +2041,10 @@ begin
 end;//TFolderElement_SetSaveInfo_Params.Create
 
 class function TFolderElement_SetSaveInfo_Params.Make(const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): IFolderElement_SetSaveInfo_Params;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): IFolderElement_SetSaveInfo_Params;
 var
  l_Inst : TFolderElement_SetSaveInfo_Params;
 begin
@@ -2342,67 +2054,55 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TFolderElement_SetSaveInfo_Params.Get_SaveAs: Boolean;
- {-}
-begin
- Result := f_SaveAs;
-end;//TFolderElement_SetSaveInfo_Params.Get_SaveAs
-
-function TFolderElement_SetSaveInfo_Params.Get_NEntity: IEntityBase;
- {-}
-begin
- Result := f_nEntity;
-end;//TFolderElement_SetSaveInfo_Params.Get_NEntity
-
-function TFolderElement_SetSaveInfo_Params.Get_NElementType: TFoldersElementType;
- {-}
-begin
- Result := f_nElementType;
-end;//TFolderElement_SetSaveInfo_Params.Get_NElementType
-
-function TFolderElement_SetSaveInfo_Params.Get_FilterInfo: InsFolderFilterInfo;
- {-}
-begin
- Result := f_FilterInfo;
-end;//TFolderElement_SetSaveInfo_Params.Get_FilterInfo
+end;//TFolderElement_SetSaveInfo_Params.Make
 
 function TFolderElement_SetSaveInfo_Params.Get_Form: IvcmEntityForm;
- {-}
 begin
  Result := f_Form;
 end;//TFolderElement_SetSaveInfo_Params.Get_Form
 
-procedure TFolderElement_SetSaveInfo_Params.ClearFields;
- {-}
+function TFolderElement_SetSaveInfo_Params.Get_FilterInfo: InsFolderFilterInfo;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_FilterInfo;
+end;//TFolderElement_SetSaveInfo_Params.Get_FilterInfo
+
+function TFolderElement_SetSaveInfo_Params.Get_nElementType: TFoldersElementType;
+begin
+ Result := f_nElementType;
+end;//TFolderElement_SetSaveInfo_Params.Get_nElementType
+
+function TFolderElement_SetSaveInfo_Params.Get_nEntity: IEntityBase;
+begin
+ Result := f_nEntity;
+end;//TFolderElement_SetSaveInfo_Params.Get_nEntity
+
+function TFolderElement_SetSaveInfo_Params.Get_SaveAs: Boolean;
+begin
+ Result := f_SaveAs;
+end;//TFolderElement_SetSaveInfo_Params.Get_SaveAs
+
+procedure TFolderElement_SetSaveInfo_Params.ClearFields;
+begin
  f_Form := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_FilterInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_nEntity := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_SetSaveInfo_Params.ClearFields
-// start class Op_FolderElement_SetSaveInfo
 
 class function Op_FolderElement_SetSaveInfo.Call(const aTarget: IvcmEntity;
-  const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): Boolean;
+ const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): Boolean;
+ {* Вызов операции FolderElement.SetSaveInfo у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm,aFilterInfo,anElementType,anEntity,aSaveAs));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm, aFilterInfo, anElementType, anEntity, aSaveAs));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetSaveInfo, l_Params);
   with l_Params do
   begin
@@ -2415,18 +2115,19 @@ begin
 end;//Op_FolderElement_SetSaveInfo.Call
 
 class function Op_FolderElement_SetSaveInfo.Call(const aTarget: IvcmAggregate;
-  const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): Boolean;
+ const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): Boolean;
+ {* Вызов операции FolderElement.SetSaveInfo у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm,aFilterInfo,anElementType,anEntity,aSaveAs));
+  l_Params := TvcmExecuteParams.MakeForInternal(TFolderElement_SetSaveInfo_Params.Make(aForm, aFilterInfo, anElementType, anEntity, aSaveAs));
   aTarget.Operation(TdmStdRes.opcode_FolderElement_SetSaveInfo, l_Params);
   with l_Params do
   begin
@@ -2439,12 +2140,12 @@ begin
 end;//Op_FolderElement_SetSaveInfo.Call
 
 class function Op_FolderElement_SetSaveInfo.Call(const aTarget: IvcmEntityForm;
-  const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): Boolean;
- {-}
+ const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): Boolean;
+ {* Вызов операции FolderElement.SetSaveInfo у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2452,43 +2153,19 @@ begin
 end;//Op_FolderElement_SetSaveInfo.Call
 
 class function Op_FolderElement_SetSaveInfo.Call(const aTarget: IvcmContainer;
-  const aForm: IvcmEntityForm;
-  const aFilterInfo: InsFolderFilterInfo;
-  anElementType: TFoldersElementType;
-  const anEntity: IEntityBase;
-  aSaveAs: Boolean): Boolean;
- {-}
+ const aForm: IvcmEntityForm;
+ const aFilterInfo: InsFolderFilterInfo;
+ anElementType: TFoldersElementType;
+ const anEntity: IEntityBase;
+ aSaveAs: Boolean): Boolean;
+ {* Вызов операции FolderElement.SetSaveInfo у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aForm, aFilterInfo, anElementType, anEntity, aSaveAs);
 end;//Op_FolderElement_SetSaveInfo.Call
 
-type
- TFolderElement_ResetModificationOnDelete_Params = class(Tl3CProtoObject, IFolderElement_ResetModificationOnDelete_Params)
-  {* Реализация IFolderElement_ResetModificationOnDelete_Params }
- private
- // private fields
-   f_Node : IeeNode;
- protected
- // realized methods
-   function Get_Node: IeeNode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IeeNode); reintroduce;
-     {* Конструктор TFolderElement_ResetModificationOnDelete_Params }
-   class function Make(const aNode: IeeNode): IFolderElement_ResetModificationOnDelete_Params; reintroduce;
-     {* Фабрика TFolderElement_ResetModificationOnDelete_Params }
- end;//TFolderElement_ResetModificationOnDelete_Params
-
-// start class TFolderElement_ResetModificationOnDelete_Params
-
 constructor TFolderElement_ResetModificationOnDelete_Params.Create(const aNode: IeeNode);
- {-}
 begin
  inherited Create;
  f_Node := aNode;
@@ -2504,26 +2181,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolderElement_ResetModificationOnDelete_Params.Make
 
 function TFolderElement_ResetModificationOnDelete_Params.Get_Node: IeeNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolderElement_ResetModificationOnDelete_Params.Get_Node
 
 procedure TFolderElement_ResetModificationOnDelete_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolderElement_ResetModificationOnDelete_Params.ClearFields
-// start class Op_FolderElement_ResetModificationOnDelete
 
 class function Op_FolderElement_ResetModificationOnDelete.Call(const aTarget: IvcmEntity;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции FolderElement.ResetModificationOnDelete у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2543,7 +2216,8 @@ begin
 end;//Op_FolderElement_ResetModificationOnDelete.Call
 
 class function Op_FolderElement_ResetModificationOnDelete.Call(const aTarget: IvcmAggregate;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции FolderElement.ResetModificationOnDelete у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2563,8 +2237,8 @@ begin
 end;//Op_FolderElement_ResetModificationOnDelete.Call
 
 class function Op_FolderElement_ResetModificationOnDelete.Call(const aTarget: IvcmEntityForm;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции FolderElement.ResetModificationOnDelete у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2572,16 +2246,16 @@ begin
 end;//Op_FolderElement_ResetModificationOnDelete.Call
 
 class function Op_FolderElement_ResetModificationOnDelete.Call(const aTarget: IvcmContainer;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции FolderElement.ResetModificationOnDelete у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode);
 end;//Op_FolderElement_ResetModificationOnDelete.Call
-// start class Op_FolderElement_SetFocus
 
 class function Op_FolderElement_SetFocus.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции FolderElement.SetFocus у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2601,6 +2275,7 @@ begin
 end;//Op_FolderElement_SetFocus.Call
 
 class function Op_FolderElement_SetFocus.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции FolderElement.SetFocus у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2620,7 +2295,7 @@ begin
 end;//Op_FolderElement_SetFocus.Call
 
 class function Op_FolderElement_SetFocus.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции FolderElement.SetFocus у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2628,15 +2303,15 @@ begin
 end;//Op_FolderElement_SetFocus.Call
 
 class function Op_FolderElement_SetFocus.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции FolderElement.SetFocus у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_FolderElement_SetFocus.Call
-// start class Op_FolderElement_Redraw
 
 class function Op_FolderElement_Redraw.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции FolderElement.Redraw у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2656,6 +2331,7 @@ begin
 end;//Op_FolderElement_Redraw.Call
 
 class function Op_FolderElement_Redraw.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции FolderElement.Redraw у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2675,7 +2351,7 @@ begin
 end;//Op_FolderElement_Redraw.Call
 
 class function Op_FolderElement_Redraw.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции FolderElement.Redraw у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2683,15 +2359,15 @@ begin
 end;//Op_FolderElement_Redraw.Call
 
 class function Op_FolderElement_Redraw.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции FolderElement.Redraw у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_FolderElement_Redraw.Call
-// start class Op_FolderElement_DisableSecurityPage
 
 class function Op_FolderElement_DisableSecurityPage.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции FolderElement.DisableSecurityPage у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2711,6 +2387,7 @@ begin
 end;//Op_FolderElement_DisableSecurityPage.Call
 
 class function Op_FolderElement_DisableSecurityPage.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции FolderElement.DisableSecurityPage у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2730,7 +2407,7 @@ begin
 end;//Op_FolderElement_DisableSecurityPage.Call
 
 class function Op_FolderElement_DisableSecurityPage.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции FolderElement.DisableSecurityPage у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2738,38 +2415,14 @@ begin
 end;//Op_FolderElement_DisableSecurityPage.Call
 
 class function Op_FolderElement_DisableSecurityPage.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции FolderElement.DisableSecurityPage у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_FolderElement_DisableSecurityPage.Call
 
-type
- TSavedQuery_SetFilterState_Params = class(Tl3CProtoObject, ISavedQuery_SetFilterState_Params)
-  {* Реализация ISavedQuery_SetFilterState_Params }
- private
- // private fields
-   f_Node : INode;
- protected
- // realized methods
-   function Get_Node: INode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: INode); reintroduce;
-     {* Конструктор TSavedQuery_SetFilterState_Params }
-   class function Make(const aNode: INode): ISavedQuery_SetFilterState_Params; reintroduce;
-     {* Фабрика TSavedQuery_SetFilterState_Params }
- end;//TSavedQuery_SetFilterState_Params
-
-// start class TSavedQuery_SetFilterState_Params
-
 constructor TSavedQuery_SetFilterState_Params.Create(const aNode: INode);
- {-}
 begin
  inherited Create;
  f_Node := aNode;
@@ -2785,26 +2438,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TSavedQuery_SetFilterState_Params.Make
 
 function TSavedQuery_SetFilterState_Params.Get_Node: INode;
- {-}
 begin
  Result := f_Node;
 end;//TSavedQuery_SetFilterState_Params.Get_Node
 
 procedure TSavedQuery_SetFilterState_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TSavedQuery_SetFilterState_Params.ClearFields
-// start class Op_SavedQuery_SetFilterState
 
 class function Op_SavedQuery_SetFilterState.Call(const aTarget: IvcmEntity;
-  const aNode: INode): Boolean;
+ const aNode: INode): Boolean;
+ {* Вызов операции SavedQuery.SetFilterState у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2824,7 +2473,8 @@ begin
 end;//Op_SavedQuery_SetFilterState.Call
 
 class function Op_SavedQuery_SetFilterState.Call(const aTarget: IvcmAggregate;
-  const aNode: INode): Boolean;
+ const aNode: INode): Boolean;
+ {* Вызов операции SavedQuery.SetFilterState у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2844,8 +2494,8 @@ begin
 end;//Op_SavedQuery_SetFilterState.Call
 
 class function Op_SavedQuery_SetFilterState.Call(const aTarget: IvcmEntityForm;
-  const aNode: INode): Boolean;
- {-}
+ const aNode: INode): Boolean;
+ {* Вызов операции SavedQuery.SetFilterState у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2853,39 +2503,15 @@ begin
 end;//Op_SavedQuery_SetFilterState.Call
 
 class function Op_SavedQuery_SetFilterState.Call(const aTarget: IvcmContainer;
-  const aNode: INode): Boolean;
- {-}
+ const aNode: INode): Boolean;
+ {* Вызов операции SavedQuery.SetFilterState у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode);
 end;//Op_SavedQuery_SetFilterState.Call
 
-type
- TFolders_SetCurrent_Params = class(Tl3CProtoObject, IFolders_SetCurrent_Params)
-  {* Реализация IFolders_SetCurrent_Params }
- private
- // private fields
-   f_Node : IeeNode;
- protected
- // realized methods
-   function Get_Node: IeeNode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IeeNode); reintroduce;
-     {* Конструктор TFolders_SetCurrent_Params }
-   class function Make(const aNode: IeeNode): IFolders_SetCurrent_Params; reintroduce;
-     {* Фабрика TFolders_SetCurrent_Params }
- end;//TFolders_SetCurrent_Params
-
-// start class TFolders_SetCurrent_Params
-
 constructor TFolders_SetCurrent_Params.Create(const aNode: IeeNode);
- {-}
 begin
  inherited Create;
  f_Node := aNode;
@@ -2901,26 +2527,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolders_SetCurrent_Params.Make
 
 function TFolders_SetCurrent_Params.Get_Node: IeeNode;
- {-}
 begin
  Result := f_Node;
 end;//TFolders_SetCurrent_Params.Get_Node
 
 procedure TFolders_SetCurrent_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolders_SetCurrent_Params.ClearFields
-// start class Op_Folders_SetCurrent
 
 class function Op_Folders_SetCurrent.Call(const aTarget: IvcmEntity;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции Folders.SetCurrent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2940,7 +2562,8 @@ begin
 end;//Op_Folders_SetCurrent.Call
 
 class function Op_Folders_SetCurrent.Call(const aTarget: IvcmAggregate;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции Folders.SetCurrent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2960,8 +2583,8 @@ begin
 end;//Op_Folders_SetCurrent.Call
 
 class function Op_Folders_SetCurrent.Call(const aTarget: IvcmEntityForm;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции Folders.SetCurrent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2969,39 +2592,15 @@ begin
 end;//Op_Folders_SetCurrent.Call
 
 class function Op_Folders_SetCurrent.Call(const aTarget: IvcmContainer;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции Folders.SetCurrent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode);
 end;//Op_Folders_SetCurrent.Call
 
-type
- TFolders_FiltrateByFilterInfo_Params = class(Tl3CProtoObject, IFolders_FiltrateByFilterInfo_Params)
-  {* Реализация IFolders_FiltrateByFilterInfo_Params }
- private
- // private fields
-   f_nInfo : InsFolderFilterInfo;
- protected
- // realized methods
-   function Get_NInfo: InsFolderFilterInfo;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const anInfo: InsFolderFilterInfo); reintroduce;
-     {* Конструктор TFolders_FiltrateByFilterInfo_Params }
-   class function Make(const anInfo: InsFolderFilterInfo): IFolders_FiltrateByFilterInfo_Params; reintroduce;
-     {* Фабрика TFolders_FiltrateByFilterInfo_Params }
- end;//TFolders_FiltrateByFilterInfo_Params
-
-// start class TFolders_FiltrateByFilterInfo_Params
-
 constructor TFolders_FiltrateByFilterInfo_Params.Create(const anInfo: InsFolderFilterInfo);
- {-}
 begin
  inherited Create;
  f_nInfo := anInfo;
@@ -3017,26 +2616,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TFolders_FiltrateByFilterInfo_Params.Make
 
-function TFolders_FiltrateByFilterInfo_Params.Get_NInfo: InsFolderFilterInfo;
- {-}
+function TFolders_FiltrateByFilterInfo_Params.Get_nInfo: InsFolderFilterInfo;
 begin
  Result := f_nInfo;
-end;//TFolders_FiltrateByFilterInfo_Params.Get_NInfo
+end;//TFolders_FiltrateByFilterInfo_Params.Get_nInfo
 
 procedure TFolders_FiltrateByFilterInfo_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_nInfo := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TFolders_FiltrateByFilterInfo_Params.ClearFields
-// start class Op_Folders_FiltrateByFilterInfo
 
 class function Op_Folders_FiltrateByFilterInfo.Call(const aTarget: IvcmEntity;
-  const anInfo: InsFolderFilterInfo): Boolean;
+ const anInfo: InsFolderFilterInfo): Boolean;
+ {* Вызов операции Folders.FiltrateByFilterInfo у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3056,7 +2651,8 @@ begin
 end;//Op_Folders_FiltrateByFilterInfo.Call
 
 class function Op_Folders_FiltrateByFilterInfo.Call(const aTarget: IvcmAggregate;
-  const anInfo: InsFolderFilterInfo): Boolean;
+ const anInfo: InsFolderFilterInfo): Boolean;
+ {* Вызов операции Folders.FiltrateByFilterInfo у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3076,8 +2672,8 @@ begin
 end;//Op_Folders_FiltrateByFilterInfo.Call
 
 class function Op_Folders_FiltrateByFilterInfo.Call(const aTarget: IvcmEntityForm;
-  const anInfo: InsFolderFilterInfo): Boolean;
- {-}
+ const anInfo: InsFolderFilterInfo): Boolean;
+ {* Вызов операции Folders.FiltrateByFilterInfo у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3085,16 +2681,16 @@ begin
 end;//Op_Folders_FiltrateByFilterInfo.Call
 
 class function Op_Folders_FiltrateByFilterInfo.Call(const aTarget: IvcmContainer;
-  const anInfo: InsFolderFilterInfo): Boolean;
- {-}
+ const anInfo: InsFolderFilterInfo): Boolean;
+ {* Вызов операции Folders.FiltrateByFilterInfo у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, anInfo);
 end;//Op_Folders_FiltrateByFilterInfo.Call
-// start class Op_Folders_TryOpenConsultationAnswer
 
 class function Op_Folders_TryOpenConsultationAnswer.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Folders.TryOpenConsultationAnswer у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3114,6 +2710,7 @@ begin
 end;//Op_Folders_TryOpenConsultationAnswer.Call
 
 class function Op_Folders_TryOpenConsultationAnswer.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Folders.TryOpenConsultationAnswer у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3133,7 +2730,7 @@ begin
 end;//Op_Folders_TryOpenConsultationAnswer.Call
 
 class function Op_Folders_TryOpenConsultationAnswer.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Folders.TryOpenConsultationAnswer у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3141,15 +2738,15 @@ begin
 end;//Op_Folders_TryOpenConsultationAnswer.Call
 
 class function Op_Folders_TryOpenConsultationAnswer.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Folders.TryOpenConsultationAnswer у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Folders_TryOpenConsultationAnswer.Call
-// start class Op_Folders_OpenMyConsultations
 
 class function Op_Folders_OpenMyConsultations.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Folders.OpenMyConsultations у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3169,6 +2766,7 @@ begin
 end;//Op_Folders_OpenMyConsultations.Call
 
 class function Op_Folders_OpenMyConsultations.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Folders.OpenMyConsultations у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3188,7 +2786,7 @@ begin
 end;//Op_Folders_OpenMyConsultations.Call
 
 class function Op_Folders_OpenMyConsultations.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Folders.OpenMyConsultations у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3196,15 +2794,15 @@ begin
 end;//Op_Folders_OpenMyConsultations.Call
 
 class function Op_Folders_OpenMyConsultations.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Folders.OpenMyConsultations у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Folders_OpenMyConsultations.Call
-// start class Op_Folders_SetInfoContent
 
 class function Op_Folders_SetInfoContent.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Folders.SetInfoContent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3224,6 +2822,7 @@ begin
 end;//Op_Folders_SetInfoContent.Call
 
 class function Op_Folders_SetInfoContent.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Folders.SetInfoContent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3243,7 +2842,7 @@ begin
 end;//Op_Folders_SetInfoContent.Call
 
 class function Op_Folders_SetInfoContent.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Folders.SetInfoContent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3251,38 +2850,14 @@ begin
 end;//Op_Folders_SetInfoContent.Call
 
 class function Op_Folders_SetInfoContent.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Folders.SetInfoContent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Folders_SetInfoContent.Call
 
-type
- TUsersRights_UpdateRights_Params = class(Tl3CProtoObject, IUsersRights_UpdateRights_Params)
-  {* Реализация IUsersRights_UpdateRights_Params }
- private
- // private fields
-   f_Node : IeeNode;
- protected
- // realized methods
-   function Get_Node: IeeNode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNode: IeeNode); reintroduce;
-     {* Конструктор TUsersRights_UpdateRights_Params }
-   class function Make(const aNode: IeeNode): IUsersRights_UpdateRights_Params; reintroduce;
-     {* Фабрика TUsersRights_UpdateRights_Params }
- end;//TUsersRights_UpdateRights_Params
-
-// start class TUsersRights_UpdateRights_Params
-
 constructor TUsersRights_UpdateRights_Params.Create(const aNode: IeeNode);
- {-}
 begin
  inherited Create;
  f_Node := aNode;
@@ -3298,26 +2873,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TUsersRights_UpdateRights_Params.Make
 
 function TUsersRights_UpdateRights_Params.Get_Node: IeeNode;
- {-}
 begin
  Result := f_Node;
 end;//TUsersRights_UpdateRights_Params.Get_Node
 
 procedure TUsersRights_UpdateRights_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TUsersRights_UpdateRights_Params.ClearFields
-// start class Op_UsersRights_UpdateRights
 
 class function Op_UsersRights_UpdateRights.Call(const aTarget: IvcmEntity;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции UsersRights.UpdateRights у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3337,7 +2908,8 @@ begin
 end;//Op_UsersRights_UpdateRights.Call
 
 class function Op_UsersRights_UpdateRights.Call(const aTarget: IvcmAggregate;
-  const aNode: IeeNode): Boolean;
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции UsersRights.UpdateRights у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3357,8 +2929,8 @@ begin
 end;//Op_UsersRights_UpdateRights.Call
 
 class function Op_UsersRights_UpdateRights.Call(const aTarget: IvcmEntityForm;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции UsersRights.UpdateRights у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3366,16 +2938,16 @@ begin
 end;//Op_UsersRights_UpdateRights.Call
 
 class function Op_UsersRights_UpdateRights.Call(const aTarget: IvcmContainer;
-  const aNode: IeeNode): Boolean;
- {-}
+ const aNode: IeeNode): Boolean;
+ {* Вызов операции UsersRights.UpdateRights у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode);
 end;//Op_UsersRights_UpdateRights.Call
-// start class Op_UsersRights_FolderShareChanged
 
 class function Op_UsersRights_FolderShareChanged.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции UsersRights.FolderShareChanged у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3395,6 +2967,7 @@ begin
 end;//Op_UsersRights_FolderShareChanged.Call
 
 class function Op_UsersRights_FolderShareChanged.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции UsersRights.FolderShareChanged у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3414,7 +2987,7 @@ begin
 end;//Op_UsersRights_FolderShareChanged.Call
 
 class function Op_UsersRights_FolderShareChanged.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции UsersRights.FolderShareChanged у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3422,15 +2995,15 @@ begin
 end;//Op_UsersRights_FolderShareChanged.Call
 
 class function Op_UsersRights_FolderShareChanged.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции UsersRights.FolderShareChanged у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_UsersRights_FolderShareChanged.Call
-// start class Op_Result_ExternalOk
 
 class function Op_Result_ExternalOk.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Result.ExternalOk у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3450,6 +3023,7 @@ begin
 end;//Op_Result_ExternalOk.Call
 
 class function Op_Result_ExternalOk.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Result.ExternalOk у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -3469,7 +3043,7 @@ begin
 end;//Op_Result_ExternalOk.Call
 
 class function Op_Result_ExternalOk.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Result.ExternalOk у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -3477,13 +3051,12 @@ begin
 end;//Op_Result_ExternalOk.Call
 
 class function Op_Result_ExternalOk.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Result.ExternalOk у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Result_ExternalOk.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

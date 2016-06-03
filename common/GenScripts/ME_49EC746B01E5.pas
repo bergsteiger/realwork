@@ -1003,7 +1003,7 @@ end;//TPrimInternetAgentForm.Scalable_ChangeScale_Execute
 procedure TPrimInternetAgentForm.Scalable_ChangeScale(const aParams: IvcmExecuteParams);
  {* Изменить масштаб }
 begin
- with (aParams.Data As IScalable_ChangeScale_Params) do
+ with IScalable_ChangeScale_Params(aParams.Data) do
   ResultValue := Self.Scalable_ChangeScale_Execute(Inc);
 end;//TPrimInternetAgentForm.Scalable_ChangeScale
 
@@ -1041,7 +1041,7 @@ end;//TPrimInternetAgentForm.Scalable_CanChangeScale_Execute
 procedure TPrimInternetAgentForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
  {* Масштабирование запрещено }
 begin
- with (aParams.Data As IScalable_CanChangeScale_Params) do
+ with IScalable_CanChangeScale_Params(aParams.Data) do
   ResultValue := Self.Scalable_CanChangeScale_Execute(nInc);
 end;//TPrimInternetAgentForm.Scalable_CanChangeScale
 

@@ -23,13 +23,13 @@ uses
  , Base_Operations_Chat_Controls
  , ChatTypes
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
  , eeTreeView
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -80,11 +80,8 @@ type
   {* Совещание онлайн }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ContextFilter: TnscContextFilter;
-    {* Поле для свойства ContextFilter }
    f_trContactList: TeeTreeView;
-    {* Поле для свойства trContactList }
   protected
    f_NeedFillFilterList: Boolean;
    f_CurrentFlagFilter: TContactListFilterTypes;
@@ -136,7 +133,10 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild: IvcmEntityForm; reintroduce;
+   class function MakeSingleChild(const aCont: IvcmContainer;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -203,16 +203,18 @@ uses
  , l3MessageID
  , l3String
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
- , OfficeLike_Usual_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AC4EF5600B4impl_uses*
+ , l3ControlsTypes
  //#UC END# *4AC4EF5600B4impl_uses*
 ;
 
@@ -267,20 +269,32 @@ end;//TContactListFormState.Get_CurrentFlagFilter
 class procedure ContactTypeMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
 //#UC START# *641F3EC9C833_8EEA1E00C0C3_var*
+var
+ l_Index: TContactListFilterTypes;
 //#UC END# *641F3EC9C833_8EEA1E00C0C3_var*
 begin
 //#UC START# *641F3EC9C833_8EEA1E00C0C3_impl*
- !!! Needs to be implemented !!!
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(ContactTypeMap[l_Index].AsCStr);
 //#UC END# *641F3EC9C833_8EEA1E00C0C3_impl*
 end;//ContactTypeMapHelper.FillStrings
 
 class function ContactTypeMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): TContactListFilterTypes;
  {* Преобразование строкового значения к порядковому }
 //#UC START# *8E02C0CC146E_8EEA1E00C0C3_var*
+var
+ l_Index: TContactListFilterTypes;
 //#UC END# *8E02C0CC146E_8EEA1E00C0C3_var*
 begin
 //#UC START# *8E02C0CC146E_8EEA1E00C0C3_impl*
- !!! Needs to be implemented !!!
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, ContactTypeMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "ContactTypeMap"', [l3Str(aDisplayName)]);
 //#UC END# *8E02C0CC146E_8EEA1E00C0C3_impl*
 end;//ContactTypeMapHelper.DisplayNameToValue
 
@@ -421,16 +435,12 @@ begin
 //#UC END# *5199DC98012F_4AC4EF5600B4_impl*
 end;//TPrimContactListForm.trContactListFooterClick
 
-class function TPrimContactListForm.MakeSingleChild: IvcmEntityForm;
-var
- l_Inst : TPrimContactListForm;
+class function TPrimContactListForm.MakeSingleChild(const aCont: IvcmContainer;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ Result := inherited MakeSingleChild(aCont, vcmMakeParams, aZoneType, aUserType, nil, aDataSource);
 end;//TPrimContactListForm.MakeSingleChild
 
 procedure TPrimContactListForm.NotifyContactListChanged;
@@ -873,12 +883,12 @@ begin
 end;//TPrimContactListForm.MakeControls
 
 initialization
+ str_SelectUser.Init;
+ {* Инициализация str_SelectUser }
  str_culfAllUsers.Init;
  {* Инициализация str_culfAllUsers }
  str_culfActiveUsers.Init;
  {* Инициализация str_culfActiveUsers }
- str_SelectUser.Init;
- {* Инициализация str_SelectUser }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimContactListForm);
  {* Регистрация PrimContactList }

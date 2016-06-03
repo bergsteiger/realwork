@@ -13,6 +13,22 @@ uses
  l3IntfUses
  , vcmExternalInterfaces
 ;
+
+const
+ en_Common = 'Common';
+ en_capCommon = '';
+ op_OpenNewWindowByUser = 'OpenNewWindowByUser';
+ op_capOpenNewWindowByUser = '';
+ op_GetWindowList = 'GetWindowList';
+ op_capGetWindowList = '';
+ op_CascadeWindows = 'CascadeWindows';
+ op_capCascadeWindows = '';
+ op_TileWindowsHorizontal = 'TileWindowsHorizontal';
+ op_capTileWindowsHorizontal = '';
+ op_TileWindowsVertical = 'TileWindowsVertical';
+ op_capTileWindowsVertical = '';
+ op_CloseAllWindows = 'CloseAllWindows';
+ op_capCloseAllWindows = '';
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

@@ -58,8 +58,8 @@ type
 'aControl' форма::TreeAttributeSelect TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TreeAttributeSelect_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -73,8 +73,8 @@ type
 'aControl' форма::SelectedAttributes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SelectedAttributes_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -88,45 +88,45 @@ type
 'aControl' форма::AttributeSelect TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AttributeSelect_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TreeAttributeSelect';
-end;//Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister
-
 function Tkw_Form_TreeAttributeSelect_ID.GetString: AnsiString;
 begin
  Result := 'efTreeAttributeSelect';
 end;//Tkw_Form_TreeAttributeSelect_ID.GetString
+
+class function Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::TreeAttributeSelect';
+end;//Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SelectedAttributes';
-end;//Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister
-
 function Tkw_Form_SelectedAttributes_ID.GetString: AnsiString;
 begin
  Result := 'enSelectedAttributes';
 end;//Tkw_Form_SelectedAttributes_ID.GetString
+
+class function Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::SelectedAttributes';
+end;//Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_AttributeSelect_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AttributeSelect';
-end;//Tkw_Form_AttributeSelect_ID.GetWordNameForRegister
-
 function Tkw_Form_AttributeSelect_ID.GetString: AnsiString;
 begin
  Result := 'cfAttributeSelect';
 end;//Tkw_Form_AttributeSelect_ID.GetString
+
+class function Tkw_Form_AttributeSelect_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::AttributeSelect';
+end;//Tkw_Form_AttributeSelect_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

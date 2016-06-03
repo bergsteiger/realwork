@@ -6,7 +6,7 @@
 //#UC START# *479731C50290_554C7FE80228_var*
 //#UC END# *479731C50290_554C7FE80228_var*
 //#UC START# *5549C65D038D_554C7FE80228_impl*
- Result := ThtTabledQuery.Make(Self, f_DataConverter, f_Helper, aFromClause);
+ Result := ThtTabledQuery.Make(f_DataConverter, f_Helper, aTable, anAlias);
 //#UC END# *5549C65D038D_554C7FE80228_impl*
 //#UC START# *5549C65D038D_554C7FE80228_var*
 //#UC END# *5549C65D038D_554C7FE80228_var*
@@ -63,7 +63,8 @@
 //#UC START# *574BF2B20123_554C7FE80228_var*
 //#UC END# *574BF2B20123_554C7FE80228_var*
 //#UC START# *574C32760314_554C7FE80228_impl*
- Result := ThtFromTable.Make(Self, aTable, anAlias);
+ Assert(anAlias <> '');
+ Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_554C7FE80228_impl*
 //#UC START# *574C32760314_554C7FE80228_var*
 //#UC END# *574C32760314_554C7FE80228_var*

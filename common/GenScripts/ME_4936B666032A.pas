@@ -25,10 +25,10 @@
     {* Создаёт область оглавления }
    function Get_CurrentNode: INodeBase;
    procedure Set_CurrentNode(const aValue: INodeBase);
-   function Get_deCommonDiction: IdeCommonDiction;
-   function pm_GetdsSaveLoad: IdsSaveLoad;
-   function pm_GetdsChild: IdsChild;
-   function pm_GetdsContents: IdsCommonDiction;
+   function Get_DeCommonDiction: IdeCommonDiction;
+   function pm_GetDsSaveLoad: IdsSaveLoad;
+   function pm_GetDsChild: IdsChild;
+   function pm_GetDsContents: IdsCommonDiction;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -100,41 +100,41 @@ begin
 //#UC END# *4B0EB10C02A3_4936B666032Aset_impl*
 end;//_sdsCommonDiction_.Set_CurrentNode
 
-function _sdsCommonDiction_.Get_deCommonDiction: IdeCommonDiction;
+function _sdsCommonDiction_.Get_DeCommonDiction: IdeCommonDiction;
 //#UC START# *4B0EB7B10270_4936B666032Aget_var*
 //#UC END# *4B0EB7B10270_4936B666032Aget_var*
 begin
 //#UC START# *4B0EB7B10270_4936B666032Aget_impl*
  Supports(SetData.DocInfo, IdeCommonDiction, Result);
 //#UC END# *4B0EB7B10270_4936B666032Aget_impl*
-end;//_sdsCommonDiction_.Get_deCommonDiction
+end;//_sdsCommonDiction_.Get_DeCommonDiction
 
-function _sdsCommonDiction_.pm_GetdsSaveLoad: IdsSaveLoad;
+function _sdsCommonDiction_.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *4D78AFC702D5_4936B666032Aget_var*
 //#UC END# *4D78AFC702D5_4936B666032Aget_var*
 begin
 //#UC START# *4D78AFC702D5_4936B666032Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D78AFC702D5_4936B666032Aget_impl*
-end;//_sdsCommonDiction_.pm_GetdsSaveLoad
+end;//_sdsCommonDiction_.pm_GetDsSaveLoad
 
-function _sdsCommonDiction_.pm_GetdsChild: IdsChild;
+function _sdsCommonDiction_.pm_GetDsChild: IdsChild;
 //#UC START# *4D7A7A9D016D_4936B666032Aget_var*
 //#UC END# *4D7A7A9D016D_4936B666032Aget_var*
 begin
 //#UC START# *4D7A7A9D016D_4936B666032Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D7A7A9D016D_4936B666032Aget_impl*
-end;//_sdsCommonDiction_.pm_GetdsChild
+end;//_sdsCommonDiction_.pm_GetDsChild
 
-function _sdsCommonDiction_.pm_GetdsContents: IdsCommonDiction;
+function _sdsCommonDiction_.pm_GetDsContents: IdsCommonDiction;
 //#UC START# *500D34960277_4936B666032Aget_var*
 //#UC END# *500D34960277_4936B666032Aget_var*
 begin
 //#UC START# *500D34960277_4936B666032Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D34960277_4936B666032Aget_impl*
-end;//_sdsCommonDiction_.pm_GetdsContents
+end;//_sdsCommonDiction_.pm_GetDsContents
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsCommonDiction_.DataExchange;

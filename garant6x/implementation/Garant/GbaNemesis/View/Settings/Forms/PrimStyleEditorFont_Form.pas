@@ -1,493 +1,429 @@
 unit PrimStyleEditorFont_Form;
+ {* Параметры шрифта }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorFont_Form.pas"
-// Начат: 02.10.2009 22:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorFont
-//
-// Параметры шрифта
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorFont_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimStyleEditorFont" MUID: (4AC642480314)
+// Имя типа: "TPrimStyleEditorFontForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  evStyleInterface
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  ConfigInterfaces,
-  vtComboBoxQS,
-  Settings_Strange_Controls,
-  vtLabel,
-  l3StringIDEx,
-  l3MessageID,
-  vtCheckBox,
-  ElPopBtn,
-  vtColorBox,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Settings_Strange_Controls
+ , ConfigInterfaces
+ , evStyleInterface
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ElPopBtn
+ , vtCheckBox
+ , vtComboBoxQS
+ , vtColorBox
+ , l3Interfaces
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { FontInheritance }
  fiSpecialParentTransparent = 0;
-  { Специальное значение в UI попадать не должно... }
+  {* Специальное значение в UI попадать не должно... }
  fiOwn = 1;
-  { "С"обственный шрифт }
+  {* "С"обственный шрифт }
  fiParent = 2;
-  { Унаследованный от "Р"одителя шрифт }
+  {* Унаследованный от "Р"одителя шрифт }
  fiTransparent = 3;
-  { "П"розрачный шрифт }
+  {* "П"розрачный шрифт }
 
 type
  TseIntegerComboValueType = (
-   icvFontSize
- , icvFirstIndent
- , icvLeftIndent
- , icvRightIndent
- , icvSpaceAfter
- , icvSpaceBefore
+  icvFontSize
+  , icvFirstIndent
+  , icvLeftIndent
+  , icvRightIndent
+  , icvSpaceAfter
+  , icvSpaceBefore
  );//TseIntegerComboValueType
 
- TFontInheritance = fiSpecialParentTransparent..fiTransparent;
+ TFontInheritance = fiSpecialParentTransparent .. fiTransparent;
 
  TseComboValues = array [TseIntegerComboValueType] of AnsiString;
 
- TPrimStyleEditorFontForm = {form} class(TvcmEntityForm)
+ TPrimStyleEditorFontForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Параметры шрифта }
- private
- // private fields
-   f_UpdateLockCount : Integer;
-   f_FontScrollBox : TScrollBox;
-    {* Поле для свойства FontScrollBox}
-   f_FontUnderlineLabel : TvtLabel;
-    {* Поле для свойства FontUnderlineLabel}
-   f_FontStrikeoutLabel : TvtLabel;
-    {* Поле для свойства FontStrikeoutLabel}
-   f_FontSizeLabel : TvtLabel;
-    {* Поле для свойства FontSizeLabel}
-   f_FontNameLabel : TvtLabel;
-    {* Поле для свойства FontNameLabel}
-   f_FontItalicLabel : TvtLabel;
-    {* Поле для свойства FontItalicLabel}
-   f_FontForeColorLabel : TvtLabel;
-    {* Поле для свойства FontForeColorLabel}
-   f_FontBoldLabel : TvtLabel;
-    {* Поле для свойства FontBoldLabel}
-   f_FontBackColorLabel : TvtLabel;
-    {* Поле для свойства FontBackColorLabel}
-   f_FontScalableLabel : TvtLabel;
-    {* Поле для свойства FontScalableLabel}
-   f_FontScalableBevel : TBevel;
-    {* Поле для свойства FontScalableBevel}
-   f_FontStrikeoutInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontStrikeoutInheritanceButton}
-   f_FontSizeInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontSizeInheritanceButton}
-   f_FontNameInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontNameInheritanceButton}
-   f_FontItalicInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontItalicInheritanceButton}
-   f_FontForeColorInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontForeColorInheritanceButton}
-   f_FontBoldInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontBoldInheritanceButton}
-   f_FontBackColorInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontBackColorInheritanceButton}
-   f_FontUnderlineInheritanceButton : TElPopupButton;
-    {* Поле для свойства FontUnderlineInheritanceButton}
-   f_FontUnderlineCheckBox : TvtCheckBox;
-    {* Поле для свойства FontUnderlineCheckBox}
-   f_FontStrikeoutCheckBox : TvtCheckBox;
-    {* Поле для свойства FontStrikeoutCheckBox}
-   f_FontSizeComboBox : TvtComboBoxQS;
-    {* Поле для свойства FontSizeComboBox}
-   f_FontNameComboBox : TvtComboBoxQS;
-    {* Поле для свойства FontNameComboBox}
-   f_FontItalicCheckBox : TvtCheckBox;
-    {* Поле для свойства FontItalicCheckBox}
-   f_FontForeColorBox : TvtColorBox;
-    {* Поле для свойства FontForeColorBox}
-   f_FontBoldCheckBox : TvtCheckBox;
-    {* Поле для свойства FontBoldCheckBox}
-   f_FontBackColorBox : TvtColorBox;
-    {* Поле для свойства FontBackColorBox}
-   f_FontScalableCheckBox : TvtCheckBox;
-    {* Поле для свойства FontScalableCheckBox}
-   f_LeftIndentLabel : TvtLabel;
-    {* Поле для свойства LeftIndentLabel}
-   f_LeftIndentComboBox : TvtComboBoxQS;
-    {* Поле для свойства LeftIndentComboBox}
-   f_RightIndentLabel : TvtLabel;
-    {* Поле для свойства RightIndentLabel}
-   f_RightIndentComboBox : TvtComboBoxQS;
-    {* Поле для свойства RightIndentComboBox}
-   f_FirstIndentLabel : TvtLabel;
-    {* Поле для свойства FirstIndentLabel}
-   f_FirstIndentComboBox : TvtComboBoxQS;
-    {* Поле для свойства FirstIndentComboBox}
-   f_SpaceBeforeLabel : TvtLabel;
-    {* Поле для свойства SpaceBeforeLabel}
-   f_SpaceBeforeComboBox : TvtComboBoxQS;
-    {* Поле для свойства SpaceBeforeComboBox}
-   f_SpaceAfterLabel : TvtLabel;
-    {* Поле для свойства SpaceAfterLabel}
-   f_SpaceAfterComboBox : TvtComboBoxQS;
-    {* Поле для свойства SpaceAfterComboBox}
-   f_LeftIndentInheritanceButton : TElPopupButton;
-    {* Поле для свойства LeftIndentInheritanceButton}
-   f_RightIndentInheritanceButton : TElPopupButton;
-    {* Поле для свойства RightIndentInheritanceButton}
-   f_FirstIndentInheritanceButton : TElPopupButton;
-    {* Поле для свойства FirstIndentInheritanceButton}
-   f_SpaceBeforeInheritanceButton : TElPopupButton;
-    {* Поле для свойства SpaceBeforeInheritanceButton}
-   f_SpaceAfterInheritanceButton : TElPopupButton;
-    {* Поле для свойства SpaceAfterInheritanceButton}
-   f_StyleCaptionLabel : TvtLabel;
-    {* Поле для свойства StyleCaptionLabel}
-   f_StyleCaptionComboBox : TvtComboBoxQS;
-    {* Поле для свойства StyleCaptionComboBox}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_UpdateLockCount: Integer;
+   f_FontScrollBox: TScrollBox;
+   f_FontUnderlineLabel: TvtLabel;
+    {* Подчеркнутый }
+   f_FontStrikeoutLabel: TvtLabel;
+    {* Перечеркнутый }
+   f_FontSizeLabel: TvtLabel;
+    {* Размер }
+   f_FontNameLabel: TvtLabel;
+    {* Название }
+   f_FontItalicLabel: TvtLabel;
+    {* Наклонный }
+   f_FontForeColorLabel: TvtLabel;
+    {* Цвет }
+   f_FontBoldLabel: TvtLabel;
+    {* Жирный }
+   f_FontBackColorLabel: TvtLabel;
+    {* Фон }
+   f_FontScalableLabel: TvtLabel;
+    {* Масштабируемый }
+   f_FontScalableBevel: TBevel;
+   f_FontStrikeoutInheritanceButton: TElPopupButton;
+   f_FontSizeInheritanceButton: TElPopupButton;
+   f_FontNameInheritanceButton: TElPopupButton;
+   f_FontItalicInheritanceButton: TElPopupButton;
+   f_FontForeColorInheritanceButton: TElPopupButton;
+   f_FontBoldInheritanceButton: TElPopupButton;
+   f_FontBackColorInheritanceButton: TElPopupButton;
+   f_FontUnderlineInheritanceButton: TElPopupButton;
+   f_FontUnderlineCheckBox: TvtCheckBox;
+   f_FontStrikeoutCheckBox: TvtCheckBox;
+   f_FontSizeComboBox: TvtComboBoxQS;
+   f_FontNameComboBox: TvtComboBoxQS;
+   f_FontItalicCheckBox: TvtCheckBox;
+   f_FontForeColorBox: TvtColorBox;
+   f_FontBoldCheckBox: TvtCheckBox;
+   f_FontBackColorBox: TvtColorBox;
+   f_FontScalableCheckBox: TvtCheckBox;
+   f_LeftIndentLabel: TvtLabel;
+    {* Отступ слева }
+   f_LeftIndentComboBox: TvtComboBoxQS;
+   f_RightIndentLabel: TvtLabel;
+    {* Отступ справа }
+   f_RightIndentComboBox: TvtComboBoxQS;
+   f_FirstIndentLabel: TvtLabel;
+    {* Красная строка }
+   f_FirstIndentComboBox: TvtComboBoxQS;
+   f_SpaceBeforeLabel: TvtLabel;
+    {* Отступ до текста }
+   f_SpaceBeforeComboBox: TvtComboBoxQS;
+   f_SpaceAfterLabel: TvtLabel;
+    {* Отступ после текста }
+   f_SpaceAfterComboBox: TvtComboBoxQS;
+   f_LeftIndentInheritanceButton: TElPopupButton;
+   f_RightIndentInheritanceButton: TElPopupButton;
+   f_FirstIndentInheritanceButton: TElPopupButton;
+   f_SpaceBeforeInheritanceButton: TElPopupButton;
+   f_SpaceAfterInheritanceButton: TElPopupButton;
+   f_StyleCaptionLabel: TvtLabel;
+    {* Заголовок стиля }
+   f_StyleCaptionComboBox: TvtComboBoxQS;
+  protected
+   f_SettingsInfo: InsStyleTableSettingsInfo;
+   f_StyleInterface: TevStyleInterface;
+   f_LastKnownGoodComboBoxText: TseComboValues;
+  private
    procedure SendToAggregateReloadStylesTreeNotify(const aStyleName: Il3CString);
    procedure SendToAggregateReloadStyleTableNotify(aModified: Boolean = True);
    procedure DisableUpdate;
-     {* Сигнатура метода DisableUpdate }
    procedure EnableUpdate;
-     {* Сигнатура метода EnableUpdate }
    procedure LoadCurrentStateFromStyleInterface(aStyleID: Integer);
    function IsUpdateEnabled: Boolean;
    procedure UpdateControlsFromStyleInterface(aChangeEnabled: Boolean;
-     aEnabled: Boolean = True);
+    aEnabled: Boolean = True);
    procedure ReloadFontNameList;
-     {* Сигнатура метода ReloadFontNameList }
    procedure ReloadFontSizeList(const aFontName: AnsiString);
    procedure SetCurrentComboBoxItemByString(aComboBox: TvtComboBoxQS;
-     const aString: AnsiString);
+    const aString: AnsiString);
    procedure SynchronizeFontNameComboBoxByFontName(const aFontName: AnsiString);
    function GetInheritanceFromFontByTagIndex(aTagIndex: Integer;
-     aFromFont: Boolean;
-     aParentTransparent: Boolean = False): TFontInheritance;
-   procedure ModifyControlsJoinWithInheritanceButton(aSender: TObject); overload; 
+    aFromFont: Boolean;
+    aParentTransparent: Boolean = False): TFontInheritance;
+   procedure ModifyControlsJoinWithInheritanceButton(aSender: TObject); overload;
    procedure ModifyControlsJoinWithInheritanceButton(aSender: TObject;
-     aEnabled: Boolean); overload; 
+    aEnabled: Boolean); overload;
    procedure UpdateFontInheritanceState(aInheritance: TFontInheritance;
-     aTagIndex: Integer;
-     aFont: Boolean);
+    aTagIndex: Integer;
+    aFont: Boolean);
    function GetNextInheritance(aInheritance: TFontInheritance;
-     aTransparentAvailable: Boolean = True): TFontInheritance;
+    aTransparentAvailable: Boolean = True): TFontInheritance;
    class function IsTransparentFont(aInheritance: TFontInheritance): Boolean;
    procedure FontBackColorBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontBackColorInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontBoldCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontBoldInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontForeColorBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontForeColorInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontItalicCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontItalicInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontNameComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontNameInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontScalableCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontSizeComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontSizeInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontStrikeoutCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontStrikeoutInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontUnderlineCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FontUnderlineInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure LeftIndentInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure RightIndentInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FirstIndentInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SpaceBeforeInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SpaceAfterInheritanceButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure LeftIndentComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure RightIndentComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure FirstIndentComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SpaceBeforeComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SpaceAfterComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure SynchronizeIntegerComboBoxByText(anIndex: TseIntegerComboValueType;
-     const aValue: AnsiString);
+    const aValue: AnsiString);
    procedure CheckComboBoxValue(aValueType: TseIntegerComboValueType);
    procedure SpacingComboExit(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure StyleCaptionComboBoxChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   class function Make(const aData: InsStyleTableSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
    procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
    procedure StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SetNewContent_Execute(aStyleID: Integer);
    procedure StyleEditor_SetNewContent(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
    constructor Create(AOwner: TComponent); override;
- protected
- // protected fields
-   f_SettingsInfo : InsStyleTableSettingsInfo;
-   f_StyleInterface : TevStyleInterface;
-   f_LastKnownGoodComboBoxText : TseComboValues;
- public
- // public methods
-   class function Make(const aData: InsStyleTableSettingsInfo;
-     const aParams : IvcmMakeParams = nil;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0;
-     aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+  public
    property FontScrollBox: TScrollBox
-     read f_FontScrollBox;
+    read f_FontScrollBox;
    property FontUnderlineLabel: TvtLabel
-     read f_FontUnderlineLabel;
-     {* Подчеркнутый }
+    read f_FontUnderlineLabel;
+    {* Подчеркнутый }
    property FontStrikeoutLabel: TvtLabel
-     read f_FontStrikeoutLabel;
-     {* Перечеркнутый }
+    read f_FontStrikeoutLabel;
+    {* Перечеркнутый }
    property FontSizeLabel: TvtLabel
-     read f_FontSizeLabel;
-     {* Размер }
+    read f_FontSizeLabel;
+    {* Размер }
    property FontNameLabel: TvtLabel
-     read f_FontNameLabel;
-     {* Название }
+    read f_FontNameLabel;
+    {* Название }
    property FontItalicLabel: TvtLabel
-     read f_FontItalicLabel;
-     {* Наклонный }
+    read f_FontItalicLabel;
+    {* Наклонный }
    property FontForeColorLabel: TvtLabel
-     read f_FontForeColorLabel;
-     {* Цвет }
+    read f_FontForeColorLabel;
+    {* Цвет }
    property FontBoldLabel: TvtLabel
-     read f_FontBoldLabel;
-     {* Жирный }
+    read f_FontBoldLabel;
+    {* Жирный }
    property FontBackColorLabel: TvtLabel
-     read f_FontBackColorLabel;
-     {* Фон }
+    read f_FontBackColorLabel;
+    {* Фон }
    property FontScalableLabel: TvtLabel
-     read f_FontScalableLabel;
-     {* Масштабируемый }
+    read f_FontScalableLabel;
+    {* Масштабируемый }
    property FontScalableBevel: TBevel
-     read f_FontScalableBevel;
+    read f_FontScalableBevel;
    property FontStrikeoutInheritanceButton: TElPopupButton
-     read f_FontStrikeoutInheritanceButton;
+    read f_FontStrikeoutInheritanceButton;
    property FontSizeInheritanceButton: TElPopupButton
-     read f_FontSizeInheritanceButton;
+    read f_FontSizeInheritanceButton;
    property FontNameInheritanceButton: TElPopupButton
-     read f_FontNameInheritanceButton;
+    read f_FontNameInheritanceButton;
    property FontItalicInheritanceButton: TElPopupButton
-     read f_FontItalicInheritanceButton;
+    read f_FontItalicInheritanceButton;
    property FontForeColorInheritanceButton: TElPopupButton
-     read f_FontForeColorInheritanceButton;
+    read f_FontForeColorInheritanceButton;
    property FontBoldInheritanceButton: TElPopupButton
-     read f_FontBoldInheritanceButton;
+    read f_FontBoldInheritanceButton;
    property FontBackColorInheritanceButton: TElPopupButton
-     read f_FontBackColorInheritanceButton;
+    read f_FontBackColorInheritanceButton;
    property FontUnderlineInheritanceButton: TElPopupButton
-     read f_FontUnderlineInheritanceButton;
+    read f_FontUnderlineInheritanceButton;
    property FontUnderlineCheckBox: TvtCheckBox
-     read f_FontUnderlineCheckBox;
+    read f_FontUnderlineCheckBox;
    property FontStrikeoutCheckBox: TvtCheckBox
-     read f_FontStrikeoutCheckBox;
+    read f_FontStrikeoutCheckBox;
    property FontSizeComboBox: TvtComboBoxQS
-     read f_FontSizeComboBox;
+    read f_FontSizeComboBox;
    property FontNameComboBox: TvtComboBoxQS
-     read f_FontNameComboBox;
+    read f_FontNameComboBox;
    property FontItalicCheckBox: TvtCheckBox
-     read f_FontItalicCheckBox;
+    read f_FontItalicCheckBox;
    property FontForeColorBox: TvtColorBox
-     read f_FontForeColorBox;
+    read f_FontForeColorBox;
    property FontBoldCheckBox: TvtCheckBox
-     read f_FontBoldCheckBox;
+    read f_FontBoldCheckBox;
    property FontBackColorBox: TvtColorBox
-     read f_FontBackColorBox;
+    read f_FontBackColorBox;
    property FontScalableCheckBox: TvtCheckBox
-     read f_FontScalableCheckBox;
+    read f_FontScalableCheckBox;
    property LeftIndentLabel: TvtLabel
-     read f_LeftIndentLabel;
-     {* Отступ слева }
+    read f_LeftIndentLabel;
+    {* Отступ слева }
    property LeftIndentComboBox: TvtComboBoxQS
-     read f_LeftIndentComboBox;
+    read f_LeftIndentComboBox;
    property RightIndentLabel: TvtLabel
-     read f_RightIndentLabel;
-     {* Отступ справа }
+    read f_RightIndentLabel;
+    {* Отступ справа }
    property RightIndentComboBox: TvtComboBoxQS
-     read f_RightIndentComboBox;
+    read f_RightIndentComboBox;
    property FirstIndentLabel: TvtLabel
-     read f_FirstIndentLabel;
-     {* Красная строка }
+    read f_FirstIndentLabel;
+    {* Красная строка }
    property FirstIndentComboBox: TvtComboBoxQS
-     read f_FirstIndentComboBox;
+    read f_FirstIndentComboBox;
    property SpaceBeforeLabel: TvtLabel
-     read f_SpaceBeforeLabel;
-     {* Отступ до текста }
+    read f_SpaceBeforeLabel;
+    {* Отступ до текста }
    property SpaceBeforeComboBox: TvtComboBoxQS
-     read f_SpaceBeforeComboBox;
+    read f_SpaceBeforeComboBox;
    property SpaceAfterLabel: TvtLabel
-     read f_SpaceAfterLabel;
-     {* Отступ после текста }
+    read f_SpaceAfterLabel;
+    {* Отступ после текста }
    property SpaceAfterComboBox: TvtComboBoxQS
-     read f_SpaceAfterComboBox;
+    read f_SpaceAfterComboBox;
    property LeftIndentInheritanceButton: TElPopupButton
-     read f_LeftIndentInheritanceButton;
+    read f_LeftIndentInheritanceButton;
    property RightIndentInheritanceButton: TElPopupButton
-     read f_RightIndentInheritanceButton;
+    read f_RightIndentInheritanceButton;
    property FirstIndentInheritanceButton: TElPopupButton
-     read f_FirstIndentInheritanceButton;
+    read f_FirstIndentInheritanceButton;
    property SpaceBeforeInheritanceButton: TElPopupButton
-     read f_SpaceBeforeInheritanceButton;
+    read f_SpaceBeforeInheritanceButton;
    property SpaceAfterInheritanceButton: TElPopupButton
-     read f_SpaceAfterInheritanceButton;
+    read f_SpaceAfterInheritanceButton;
    property StyleCaptionLabel: TvtLabel
-     read f_StyleCaptionLabel;
-     {* Заголовок стиля }
+    read f_StyleCaptionLabel;
+    {* Заголовок стиля }
    property StyleCaptionComboBox: TvtComboBoxQS
-     read f_StyleCaptionComboBox;
+    read f_StyleCaptionComboBox;
  end;//TPrimStyleEditorFontForm
-
- TvcmEntityFormRef = TPrimStyleEditorFontForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsTypes,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(DesignTimeLibrary)}
-  ,
-  evStyleTableSpy
-  {$IfEnd} //not DesignTimeLibrary
-  ,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  k2Tags,
-  vtCtrls,
-  evdStyles,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  ctTypes,
-  afwFacade,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  l3ScreenIC,
-  l3Units,
-  l3Interlocked
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
+ , nsTypes
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , k2Tags
+ , vtCtrls
+ , evdStyles
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ctTypes
+ , afwFacade
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ScreenIC
+ , l3Units
+ , l3Interlocked
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC642480314impl_uses*
+ //#UC END# *4AC642480314impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки  }
+ str_InheritanceButtonHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonHint'; rValue : 'Тип наследования (Собственное, Родительское, Прозрачное)');
+  {* 'Тип наследования (Собственное, Родительское, Прозрачное)' }
+ str_InheritanceButtonNoTransparentHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonNoTransparentHint'; rValue : 'Тип наследования (Собственное, Родительское)');
+  {* 'Тип наследования (Собственное, Родительское)' }
+ str_ValueIsGreaterThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsGreaterThan'; rValue : 'Значение не может быть больше чем %d');
+  {* 'Значение не может быть больше чем %d' }
+ str_ValueIsLessThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsLessThan'; rValue : 'Значение не может быть меньше чем %d');
+  {* 'Значение не может быть меньше чем %d' }
+
+class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimStyleEditorFontForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AE06B9B01B9_4AC642480314_impl*
+   f_SettingsInfo := aData;
+  //#UC END# *4AE06B9B01B9_4AC642480314_impl*
+  end;//with aForm
+ end;
 
 var
-   { Локализуемые строки  }
-  str_ValueIsGreaterThan : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsGreaterThan'; rValue : 'Значение не может быть больше чем %d');
-   { 'Значение не может быть больше чем %d' }
-  str_ValueIsLessThan : Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsLessThan'; rValue : 'Значение не может быть меньше чем %d');
-   { 'Значение не может быть меньше чем %d' }
-  str_InheritanceButtonHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonHint'; rValue : 'Тип наследования (Собственное, Родительское, Прозрачное)');
-   { 'Тип наследования (Собственное, Родительское, Прозрачное)' }
-  str_InheritanceButtonNoTransparentHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonNoTransparentHint'; rValue : 'Тип наследования (Собственное, Родительское)');
-   { 'Тип наследования (Собственное, Родительское)' }
-
-// start class TPrimStyleEditorFontForm
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
+begin
+ l_AC := l3LocalStub(@AfterCreate);
+ try
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
+ finally
+  l3FreeLocalStub(l_ACHack);
+ end;//try..finally
+end;//TPrimStyleEditorFontForm.Make
 
 procedure TPrimStyleEditorFontForm.SendToAggregateReloadStylesTreeNotify(const aStyleName: Il3CString);
 //#UC START# *52709A7B00B1_4AC642480314_var*
@@ -563,7 +499,7 @@ begin
 end;//TPrimStyleEditorFontForm.IsUpdateEnabled
 
 procedure TPrimStyleEditorFontForm.UpdateControlsFromStyleInterface(aChangeEnabled: Boolean;
-  aEnabled: Boolean = True);
+ aEnabled: Boolean = True);
 //#UC START# *52709F5D014F_4AC642480314_var*
 
 const            
@@ -719,7 +655,7 @@ begin
 end;//TPrimStyleEditorFontForm.ReloadFontSizeList
 
 procedure TPrimStyleEditorFontForm.SetCurrentComboBoxItemByString(aComboBox: TvtComboBoxQS;
-  const aString: AnsiString);
+ const aString: AnsiString);
 //#UC START# *5270A2B700C8_4AC642480314_var*
 //#UC END# *5270A2B700C8_4AC642480314_var*
 begin
@@ -751,8 +687,8 @@ begin
 end;//TPrimStyleEditorFontForm.SynchronizeFontNameComboBoxByFontName
 
 function TPrimStyleEditorFontForm.GetInheritanceFromFontByTagIndex(aTagIndex: Integer;
-  aFromFont: Boolean;
-  aParentTransparent: Boolean = False): TFontInheritance;
+ aFromFont: Boolean;
+ aParentTransparent: Boolean = False): TFontInheritance;
 //#UC START# *5270A3500235_4AC642480314_var*
  function CheckParentTransparent(const aStyleInterface: TevStyleInterface; const aTagIndex: Integer): Boolean;
  begin
@@ -812,7 +748,7 @@ begin
 end;//TPrimStyleEditorFontForm.ModifyControlsJoinWithInheritanceButton
 
 procedure TPrimStyleEditorFontForm.ModifyControlsJoinWithInheritanceButton(aSender: TObject;
-  aEnabled: Boolean);
+ aEnabled: Boolean);
 //#UC START# *5270A3C90385_4AC642480314_var*
  procedure ModifyComboBoxStatus(aTagIndex: Integer; const aComboBox: TvtComboBoxQS; aEnabled: Boolean; aFromFont: Boolean);
  begin
@@ -906,8 +842,8 @@ begin
 end;//TPrimStyleEditorFontForm.ModifyControlsJoinWithInheritanceButton
 
 procedure TPrimStyleEditorFontForm.UpdateFontInheritanceState(aInheritance: TFontInheritance;
-  aTagIndex: Integer;
-  aFont: Boolean);
+ aTagIndex: Integer;
+ aFont: Boolean);
 //#UC START# *52709F0702E9_4AC642480314_var*
 //#UC END# *52709F0702E9_4AC642480314_var*
 begin
@@ -931,7 +867,7 @@ begin
 end;//TPrimStyleEditorFontForm.UpdateFontInheritanceState
 
 function TPrimStyleEditorFontForm.GetNextInheritance(aInheritance: TFontInheritance;
-  aTransparentAvailable: Boolean = True): TFontInheritance;
+ aTransparentAvailable: Boolean = True): TFontInheritance;
 //#UC START# *5270A33102D8_4AC642480314_var*
 //#UC END# *5270A33102D8_4AC642480314_var*
 begin
@@ -1496,7 +1432,7 @@ begin
 end;//TPrimStyleEditorFontForm.SpaceAfterComboBoxChange
 
 procedure TPrimStyleEditorFontForm.SynchronizeIntegerComboBoxByText(anIndex: TseIntegerComboValueType;
-  const aValue: AnsiString);
+ const aValue: AnsiString);
 //#UC START# *5270A30903D4_4AC642480314_var*
 const
  c_Tag: array[TseIntegerComboValueType] of Integer = (k2_tiSize, k2_tiFirstIndent, k2_tiLeftIndent,
@@ -1628,34 +1564,6 @@ begin
 //#UC END# *531868C7033D_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.StyleCaptionComboBoxChange
 
-class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
-
- procedure AfterCreate(aForm : TPrimStyleEditorFontForm);
- begin
-  with aForm do
-  begin
-//#UC START# *4AE06B9B01B9_4AC642480314_impl*
-   f_SettingsInfo := aData;
-//#UC END# *4AE06B9B01B9_4AC642480314_impl*
-  end;//with aForm
- end;
-
-var
- l_AC : TvcmInitProc;
- l_ACHack : Pointer absolute l_AC;
-begin
- l_AC := l3LocalStub(@AfterCreate);
- try
-  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
- finally
-  l3FreeLocalStub(l_ACHack);
- end;//try..finally
-end;
-
 procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
 //#UC START# *4AE8696C001B_4AC642480314exec_var*
 //#UC END# *4AE8696C001B_4AC642480314exec_var*
@@ -1675,9 +1583,9 @@ end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_RestoreStyleTable_Params) do
-  StyleEditor_RestoreStyleTable_Execute(RestoreDefault);
-end;
+ with IStyleEditor_RestoreStyleTable_Params(aParams.Data) do
+  Self.StyleEditor_RestoreStyleTable_Execute(RestoreDefault);
+end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
 //#UC START# *4AE869C10245_4AC642480314exec_var*
@@ -1690,9 +1598,9 @@ end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_SaveStyleTable_Params) do
-  StyleEditor_SaveStyleTable_Execute(SaveAsDefault);
-end;
+ with IStyleEditor_SaveStyleTable_Params(aParams.Data) do
+  Self.StyleEditor_SaveStyleTable_Execute(SaveAsDefault);
+end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute(aStyleID: Integer);
 //#UC START# *4AEAE333001D_4AC642480314exec_var*
@@ -1705,11 +1613,12 @@ end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_SetNewContent_Params) do
-  StyleEditor_SetNewContent_Execute(StyleID);
-end;
+ with IStyleEditor_SetNewContent_Params(aParams.Data) do
+  Self.StyleEditor_SetNewContent_Execute(StyleID);
+end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent
 
 procedure TPrimStyleEditorFontForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC642480314_var*
 //#UC END# *479731C50290_4AC642480314_var*
 begin
@@ -1751,8 +1660,8 @@ begin
 //#UC END# *47D1602000C6_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.Create
 
-{$If not defined(NoVCM)}
 procedure TPrimStyleEditorFontForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC642480314_var*
  procedure lp_SetDoubleBuffered(AControls: array of TWinControl; aValue: Boolean);
  var
@@ -2349,9 +2258,16 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC642480314_impl*
 end;//TPrimStyleEditorFontForm.InitControls
-{$IfEnd} //not NoVCM
+
+procedure TPrimStyleEditorFontForm.ClearFields;
+begin
+ Finalize(f_LastKnownGoodComboBoxText);
+ inherited;
+end;//TPrimStyleEditorFontForm.ClearFields
 
 procedure TPrimStyleEditorFontForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -2361,7 +2277,7 @@ begin
   PublishOpWithResult(en_StyleEditor, op_SaveStyleTable, StyleEditor_SaveStyleTable, nil, nil);
   PublishOpWithResult(en_StyleEditor, op_SetNewContent, StyleEditor_SetNewContent, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimStyleEditorFontForm.InitEntities
 
 procedure TPrimStyleEditorFontForm.MakeControls;
 begin
@@ -2516,32 +2432,24 @@ begin
  f_StyleCaptionComboBox := TvtComboBoxQS.Create(Self);
  f_StyleCaptionComboBox.Name := 'StyleCaptionComboBox';
  f_StyleCaptionComboBox.Parent := FontScrollBox;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimStyleEditorFontForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ValueIsGreaterThan
+ str_InheritanceButtonHint.Init;
+ {* Инициализация str_InheritanceButtonHint }
+ str_InheritanceButtonNoTransparentHint.Init;
+ {* Инициализация str_InheritanceButtonNoTransparentHint }
  str_ValueIsGreaterThan.Init;
  str_ValueIsGreaterThan.SetDlgType(mtWarning);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_ValueIsLessThan
+ {* Инициализация str_ValueIsGreaterThan }
  str_ValueIsLessThan.Init;
  str_ValueIsLessThan.SetDlgType(mtWarning);
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_InheritanceButtonHint
- str_InheritanceButtonHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_InheritanceButtonNoTransparentHint
- str_InheritanceButtonNoTransparentHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStyleEditorFont
+ {* Инициализация str_ValueIsLessThan }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorFontForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStyleEditorFont }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

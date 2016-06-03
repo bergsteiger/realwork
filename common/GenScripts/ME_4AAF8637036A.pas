@@ -37,9 +37,7 @@ type
   {* Настройка страницы }
   private
    f_PreviewGroupBox: TvtGroupBox;
-    {* Поле для свойства PreviewGroupBox }
    f_SettingsPageControl: TnscPageControl;
-    {* Поле для свойства SettingsPageControl }
   protected
    f_CurrentColontitul: Integer;
    f_PageSetup: InsPageSettingsInfo;
@@ -56,7 +54,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsPageSettingsInfo): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsPageSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
   public
    property PreviewGroupBox: TvtGroupBox
     read pm_GetPreviewGroupBox;
@@ -71,6 +73,10 @@ implementation
 uses
  l3ImplUses
  , nsPageSetup
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -97,15 +103,43 @@ begin
  Result := f_SettingsPageControl;
 end;//TPrimPageSetupForm.pm_GetSettingsPageControl
 
-class function TPrimPageSetupForm.Make(const aData: InsPageSettingsInfo): IvcmEntityForm;
+class function TPrimPageSetupForm.Make(const aData: InsPageSettingsInfo;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimPageSetupForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC607B7039E_4AAF8637036A_impl*
+   f_CurrentColontitul := -1;
+   // получим редактируемую конфигурацию
+   if (aData <> nil) then
+    f_PageSetup := aData
+   else
+    f_PageSetup := TnsPageSetup.Make;
+   // активная конфигурация не может отсутствовать
+   Assert(Assigned(f_PageSetup));
+   f_DisableControls := False;
+   ReadPageFormats;
+   PreviewGroupBox.Parent := SettingsPageControl.ActivePage;
+   SetColontitulComboBoxItemIndex(0);
+   ToGUIMargins;
+  //#UC END# *4AC607B7039E_4AAF8637036A_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimPageSetupForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimPageSetupForm.Make
 

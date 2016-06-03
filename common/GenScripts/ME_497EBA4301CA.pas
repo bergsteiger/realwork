@@ -27,13 +27,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , nevBase
- , l3Variant
- , afwNavigation
  , SearchUnit
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , nevBase
+ , l3Variant
+ , afwNavigation
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -59,11 +59,10 @@ type
    f_Update: Boolean;
    f_QueryCard: IevQueryCard;
    f_Editor: TevQueryCardEditor;
-    {* Поле для свойства Editor }
    f_TextSource: TevTextSource;
-    {* Поле для свойства TextSource }
    f_CanWriteMgrSettings: Boolean;
-    {* Поле для свойства CanWriteMgrSettings }
+    {* Можно ли писать состояние карточки в настройки
+http://mdp.garant.ru/pages/viewpage.action?pageId=349114873&focusedCommentId=349116523#comment-349116523 }
   protected
    dsQuery: IdsQuery;
     {* Запрос }
@@ -127,13 +126,13 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure CleanDependencies; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    procedure DoBeforeHistoryNavigate; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
     const aNew: IvcmFormDataSource); override;
@@ -147,7 +146,12 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(aIsFilter: Boolean): IvcmEntityForm; reintroduce;
+   class function MakeSingleChild(aIsFilter: Boolean;
+    const aCont: IvcmContainer;
+    const anAgg: IvcmAggregate;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
     {* Печать... }
@@ -256,9 +260,6 @@ uses
  , nsQueryUtils
  , ContextHistoryInterfaces
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
  , PrimQueryCardWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , ActiveX
@@ -286,6 +287,10 @@ uses
  , evSearch
  , IOUnit
  , l3String
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimQueryCard_utqcPostingOrder_UserType
  , SysUtils
  {$If NOT Defined(NoVCM)}
@@ -417,15 +422,32 @@ begin
 //#UC END# *4C2E19C50385_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.MakePreview
 
-class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean): IvcmEntityForm;
+class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean;
+ const aCont: IvcmContainer;
+ const anAgg: IvcmAggregate;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimQueryCardForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4CC015B701A1_497EBA4301CA_impl*
+   f_IsFilter := aIsFilter;
+  //#UC END# *4CC015B701A1_497EBA4301CA_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimQueryCardForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aIsFilter);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited MakeSingleChild(aCont, vcmSetAggregate(anAgg, vcmMakeParams), aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimQueryCardForm.MakeSingleChild
 
@@ -1022,7 +1044,7 @@ end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
+ with ISearchParameters_IsQueryEmpty_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
 end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty
 
@@ -1062,7 +1084,7 @@ end;//TPrimQueryCardForm.SearchParameters_GetQuery_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_GetQuery_Params) do
+ with ISearchParameters_GetQuery_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
 end;//TPrimQueryCardForm.SearchParameters_GetQuery
 
@@ -1080,7 +1102,7 @@ end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+ with ISearchParameters_IsQuerySaved_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
 end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved
 
@@ -1114,7 +1136,7 @@ end;//TPrimQueryCardForm.SearchParameters_SetQuery_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_SetQuery_Params) do
+ with ISearchParameters_SetQuery_Params(aParams.Data) do
   Self.SearchParameters_SetQuery_Execute(Query);
 end;//TPrimQueryCardForm.SearchParameters_SetQuery
 
@@ -1519,12 +1541,6 @@ begin
 //#UC END# *4A8E8F2E0195_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.InitControls
 
-procedure TPrimQueryCardForm.ClearFields;
-begin
- f_MgrSearch := nil;
- inherited;
-end;//TPrimQueryCardForm.ClearFields
-
 procedure TPrimQueryCardForm.CleanDependencies;
 //#UC START# *52544597027B_497EBA4301CA_var*
 //#UC END# *52544597027B_497EBA4301CA_var*
@@ -1550,6 +1566,12 @@ begin
  inherited;
 //#UC END# *562E15F20132_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoBeforeHistoryNavigate
+
+procedure TPrimQueryCardForm.ClearFields;
+begin
+ f_MgrSearch := nil;
+ inherited;
+end;//TPrimQueryCardForm.ClearFields
 
 procedure TPrimQueryCardForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
  const aNew: IvcmFormDataSource);

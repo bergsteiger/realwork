@@ -1,103 +1,92 @@
 unit PrimPrintDialog_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimPrintDialog_Form.pas"
-// Начат: 15.09.2009 16:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimPrintDialog
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPrintDialog_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimPrintDialog" MUID: (4AAF8E8701C9)
+// Имя типа: "TPrimPrintDialogForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  Search_Strange_Controls,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Search_Strange_Controls
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
- TPrimPrintDialogForm = {form} class(TvcmEntityForm)
- protected
-  procedure InitEntities; override;
- protected
- // realized methods
-   procedure PrintParams_UpdatePrinter_Execute;
-   procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_Preview : IafwDocumentPreview;
- protected
- // protected methods
+ TPrimPrintDialogForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   f_Preview: IafwDocumentPreview;
+  protected
    procedure UpdateState; virtual; abstract;
    function UpdatePrintersList: Boolean; virtual; abstract;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aData: IafwDocumentPreview;
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   procedure PrintParams_UpdatePrinter_Execute;
+   procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
  end;//TPrimPrintDialogForm
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAF8E8701C9impl_uses*
+ //#UC END# *4AAF8E8701C9impl_uses*
+;
 
-{$If not defined(Admin)}
-
-// start class TPrimPrintDialogForm
-
+{$If NOT Defined(NoVCM)}
 class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimPrintDialogForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC6228E018B_4AAF8E8701C9_impl*
+  //#UC START# *4AC6228E018B_4AAF8E8701C9_impl*
    f_Preview := aData;
    UpdateState;
-//#UC END# *4AC6228E018B_4AAF8E8701C9_impl*
+  //#UC END# *4AC6228E018B_4AAF8E8701C9_impl*
   end;//with aForm
  end;
 
@@ -111,7 +100,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimPrintDialogForm.Make
 
 procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter_Execute;
 //#UC START# *4AF82660008B_4AAF8E8701C9exec_var*
@@ -124,10 +113,11 @@ end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter_Execute
 
 procedure TPrimPrintDialogForm.PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
 begin
- PrintParams_UpdatePrinter_Execute;
-end;
+ Self.PrintParams_UpdatePrinter_Execute;
+end;//TPrimPrintDialogForm.PrintParams_UpdatePrinter
 
 procedure TPrimPrintDialogForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AAF8E8701C9_var*
 //#UC END# *479731C50290_4AAF8E8701C9_var*
 begin
@@ -138,6 +128,8 @@ begin
 end;//TPrimPrintDialogForm.Cleanup
 
 procedure TPrimPrintDialogForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -145,14 +137,14 @@ begin
   PublishFormEntity(en_PrintParams, nil);
   PublishOpWithResult(en_PrintParams, op_UpdatePrinter, PrintParams_UpdatePrinter, nil, nil);
  end;//with Entities.Entities
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimPrintDialogForm.InitEntities
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimPrintDialog
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimPrintDialogForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimPrintDialog }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

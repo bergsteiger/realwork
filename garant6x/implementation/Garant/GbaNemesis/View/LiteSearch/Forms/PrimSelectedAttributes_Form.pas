@@ -426,7 +426,7 @@ end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot_Execute
 
 procedure TPrimSelectedAttributesForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetRoot_Params) do
+ with IAttributeTree_SetRoot_Params(aParams.Data) do
   Self.AttributeTree_SetRoot_Execute(Tag);
 end;//TPrimSelectedAttributesForm.AttributeTree_SetRoot
 
@@ -476,7 +476,7 @@ end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues_Execute
 
 procedure TPrimSelectedAttributesForm.SelectedList_RefreshValues(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISelectedList_RefreshValues_Params) do
+ with ISelectedList_RefreshValues_Params(aParams.Data) do
   Self.SelectedList_RefreshValues_Execute(Data);
 end;//TPrimSelectedAttributesForm.SelectedList_RefreshValues
 

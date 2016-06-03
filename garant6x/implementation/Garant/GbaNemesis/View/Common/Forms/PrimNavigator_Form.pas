@@ -270,7 +270,7 @@ end;//TPrimNavigatorForm.Navigator_SetCurrent_Execute
 
 procedure TPrimNavigatorForm.Navigator_SetCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As INavigator_SetCurrent_Params) do
+ with INavigator_SetCurrent_Params(aParams.Data) do
   Self.Navigator_SetCurrent_Execute(Node);
 end;//TPrimNavigatorForm.Navigator_SetCurrent
 

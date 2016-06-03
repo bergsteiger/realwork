@@ -54,21 +54,21 @@ type
    f_dsSynchroViewRef: IvcmFormDataSourceRef;
     {* Ссылка на "БОС синхронного просмотра" }
   protected
-   function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
-   function pm_GetdsListInfoRef: IvcmFormDataSourceRef;
+   function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
+   function pm_GetDsListInfoRef: IvcmFormDataSourceRef;
    function pm_GetList: IDynList;
    procedure pm_SetList(const aValue: IDynList);
    function pm_GetUseDataProducer: Boolean;
    procedure pm_SetUseDataProducer(aValue: Boolean);
    function pm_GetDisableAutoOpenAnnotation: Boolean;
    procedure pm_SetDisableAutoOpenAnnotation(aValue: Boolean);
-   function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
-   procedure pm_SetList_SynchroView_Form(aValue: TList_SynchroView_Areas);
+   function pm_GetListSynchroViewForm: TList_SynchroView_Areas;
+   procedure pm_SetListSynchroViewForm(aValue: TList_SynchroView_Areas);
    function pm_GetNodeForPositioning: Il3SimpleNode;
    procedure pm_SetNodeForPositioning(const aValue: Il3SimpleNode);
-   function pm_GetdsListRef: IvcmFormDataSourceRef;
-   function pm_GetDefault_List_SynchroView_Form: TList_SynchroView_Areas;
-   function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+   function pm_GetDsListRef: IvcmFormDataSourceRef;
+   function pm_GetDefaultListSynchroViewForm: TList_SynchroView_Areas;
+   function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -111,23 +111,23 @@ begin
  end;//try..finally
 end;//TdList.Make
 
-function TdList.pm_GetdsFiltersRef: IvcmFormDataSourceRef;
+function TdList.pm_GetDsFiltersRef: IvcmFormDataSourceRef;
 //#UC START# *3BB05EEE7B14_493E7BCC01DFget_var*
 //#UC END# *3BB05EEE7B14_493E7BCC01DFget_var*
 begin
 //#UC START# *3BB05EEE7B14_493E7BCC01DFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *3BB05EEE7B14_493E7BCC01DFget_impl*
-end;//TdList.pm_GetdsFiltersRef
+end;//TdList.pm_GetDsFiltersRef
 
-function TdList.pm_GetdsListInfoRef: IvcmFormDataSourceRef;
+function TdList.pm_GetDsListInfoRef: IvcmFormDataSourceRef;
 //#UC START# *47EBA76A13BA_493E7BCC01DFget_var*
 //#UC END# *47EBA76A13BA_493E7BCC01DFget_var*
 begin
 //#UC START# *47EBA76A13BA_493E7BCC01DFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47EBA76A13BA_493E7BCC01DFget_impl*
-end;//TdList.pm_GetdsListInfoRef
+end;//TdList.pm_GetDsListInfoRef
 
 function TdList.pm_GetList: IDynList;
 //#UC START# *4952880D0314_493E7BCC01DFget_var*
@@ -183,23 +183,23 @@ begin
 //#UC END# *52FC7A000124_493E7BCC01DFset_impl*
 end;//TdList.pm_SetDisableAutoOpenAnnotation
 
-function TdList.pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
+function TdList.pm_GetListSynchroViewForm: TList_SynchroView_Areas;
 //#UC START# *65ED98924AAC_493E7BCC01DFget_var*
 //#UC END# *65ED98924AAC_493E7BCC01DFget_var*
 begin
 //#UC START# *65ED98924AAC_493E7BCC01DFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *65ED98924AAC_493E7BCC01DFget_impl*
-end;//TdList.pm_GetList_SynchroView_Form
+end;//TdList.pm_GetListSynchroViewForm
 
-procedure TdList.pm_SetList_SynchroView_Form(aValue: TList_SynchroView_Areas);
+procedure TdList.pm_SetListSynchroViewForm(aValue: TList_SynchroView_Areas);
 //#UC START# *65ED98924AAC_493E7BCC01DFset_var*
 //#UC END# *65ED98924AAC_493E7BCC01DFset_var*
 begin
 //#UC START# *65ED98924AAC_493E7BCC01DFset_impl*
  !!! Needs to be implemented !!!
 //#UC END# *65ED98924AAC_493E7BCC01DFset_impl*
-end;//TdList.pm_SetList_SynchroView_Form
+end;//TdList.pm_SetListSynchroViewForm
 
 function TdList.pm_GetNodeForPositioning: Il3SimpleNode;
 //#UC START# *6F3C9A2D31F6_493E7BCC01DFget_var*
@@ -219,16 +219,16 @@ begin
 //#UC END# *6F3C9A2D31F6_493E7BCC01DFset_impl*
 end;//TdList.pm_SetNodeForPositioning
 
-function TdList.pm_GetdsListRef: IvcmFormDataSourceRef;
+function TdList.pm_GetDsListRef: IvcmFormDataSourceRef;
 //#UC START# *922B5C5C2DAF_493E7BCC01DFget_var*
 //#UC END# *922B5C5C2DAF_493E7BCC01DFget_var*
 begin
 //#UC START# *922B5C5C2DAF_493E7BCC01DFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *922B5C5C2DAF_493E7BCC01DFget_impl*
-end;//TdList.pm_GetdsListRef
+end;//TdList.pm_GetDsListRef
 
-function TdList.pm_GetDefault_List_SynchroView_Form: TList_SynchroView_Areas;
+function TdList.pm_GetDefaultListSynchroViewForm: TList_SynchroView_Areas;
 //#UC START# *B7BD6799893F_493E7BCC01DFget_var*
 //#UC END# *B7BD6799893F_493E7BCC01DFget_var*
 begin
@@ -243,16 +243,16 @@ begin
   end;//case afw.Settings.LoadInteger(
  Result := f_Default_List_SynchroView_Form;
 //#UC END# *B7BD6799893F_493E7BCC01DFget_impl*
-end;//TdList.pm_GetDefault_List_SynchroView_Form
+end;//TdList.pm_GetDefaultListSynchroViewForm
 
-function TdList.pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+function TdList.pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
 //#UC START# *DADD420A546C_493E7BCC01DFget_var*
 //#UC END# *DADD420A546C_493E7BCC01DFget_var*
 begin
 //#UC START# *DADD420A546C_493E7BCC01DFget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *DADD420A546C_493E7BCC01DFget_impl*
-end;//TdList.pm_GetdsSynchroViewRef
+end;//TdList.pm_GetDsSynchroViewRef
 
 procedure TdList.Cleanup;
  {* Функция очистки полей объекта. }
@@ -286,7 +286,7 @@ begin
  f_List := nil;
  f_dsFiltersRef := nil;
  f_dsListInfoRef := nil;
- NodeForPositioning := nil;
+ f_NodeForPositioning := nil;
  f_dsListRef := nil;
  f_dsSynchroViewRef := nil;
  inherited;

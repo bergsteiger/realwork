@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_TreeInterfaces;
+unit TreeInterfaces;
  {* Интерфейсы для работы с деревьями }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\NOT_COMPLETED_TreeInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "TreeInterfaces" MUID: (491DD2830110)
 

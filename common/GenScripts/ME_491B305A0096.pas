@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_DocumentAndListInterfaces;
+unit DocumentAndListInterfaces;
  {* Интерфейсы бизнес слоя для работы с документом и списком документов }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\Common\NOT_COMPLETED_DocumentAndListInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\Common\DocumentAndListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "DocumentAndListInterfaces" MUID: (491B305A0096)
 
@@ -610,12 +610,12 @@ type
 
  IucbDocumentWithContents = interface
   ['{11497B7B-E215-409B-AD0A-889B60BF9AB1}']
-  function Get_dsContents: IdsBaseContents;
+  function Get_DsContents: IdsBaseContents;
   procedure OpenContents(const aTree: IdeSimpleTree;
    anForceOpen: TnsContentsOpenMode;
    const aContainerOfDocument: InevDocumentContainer);
   property dsContents: IdsBaseContents
-   read Get_dsContents;
+   read Get_DsContents;
  end;//IucbDocumentWithContents
 
  IbsChangeRedactionWorker = interface
@@ -684,32 +684,32 @@ type
  IbsUserCRListInfoModify = interface(IbsUserCRListInfo)
   {* Информация о пользовательских СКР с возможностью изменения }
   ['{07BCD9BD-1DF2-4D65-8ECB-D9F4B576740B}']
-  procedure pm_SetwListType(aValue: TlstCRType);
-  procedure pm_SetwKindOfList(aValue: TbsUserCRList);
-  procedure pm_SetwNode(const aValue: IbsFrozenNode);
-  procedure pm_SetwHas(aValue: Boolean);
+  procedure pm_SetWListType(aValue: TlstCRType);
+  procedure pm_SetWKindOfList(aValue: TbsUserCRList);
+  procedure pm_SetWNode(const aValue: IbsFrozenNode);
+  procedure pm_SetWHas(aValue: Boolean);
   procedure Assign(const aValue: IbsUserCRListInfo);
    {* скопировать данные }
   property wListType: TlstCRType
-   write pm_SetwListType;
+   write pm_SetWListType;
   property wKindOfList: TbsUserCRList
-   write pm_SetwKindOfList;
+   write pm_SetWKindOfList;
   property wNode: IbsFrozenNode
-   write pm_SetwNode;
+   write pm_SetWNode;
   property wHas: Boolean
-   write pm_SetwHas;
+   write pm_SetWHas;
  end;//IbsUserCRListInfoModify
 
  IdBaseDocument = interface(IvcmData)
   {* Данные сборки документа. }
   ['{C9D189DB-86F6-437C-B191-F332CAA1899F}']
-  function pm_GetdsDocumentRef: IvcmFormDataSourceRef;
+  function pm_GetDsDocumentRef: IvcmFormDataSourceRef;
   function pm_GetHasDocument: Tl3Bool;
   procedure pm_SetHasDocument(aValue: Tl3Bool);
   function pm_GetDocInfo: IdeDocInfo;
   procedure pm_SetDocInfo(const aValue: IdeDocInfo);
   property dsDocumentRef: IvcmFormDataSourceRef
-   read pm_GetdsDocumentRef;
+   read pm_GetDsDocumentRef;
    {* Ссылка на "Собственно документ" }
   property HasDocument: Tl3Bool
    read pm_GetHasDocument
@@ -744,8 +744,9 @@ type
  IsdsBaseDocument = interface(IvcmUseCaseController)
   {* БОС, базовый для прецедентов с документом }
   ['{E7C1773D-11B5-4510-B3B3-50F1B2266ABA}']
-  function pm_GetdsDocument: IdsBaseDocument;
+  function pm_GetDsDocument: IdsBaseDocument;
   function pm_GetHasDocument: Boolean;
+  function pm_GetDsDocumentRef: IvcmViewAreaControllerRef;
   function pm_GetDocInfo: IdeDocInfo;
   function ChangeDocument(const aDoc: IdeDocInfo): Boolean;
    {* изменился документ }
@@ -754,11 +755,14 @@ type
   function As_IsdsPrimDocument: IsdsPrimDocument;
    {* Метод приведения нашего интерфейса к IsdsPrimDocument }
   property dsDocument: IdsBaseDocument
-   read pm_GetdsDocument;
+   read pm_GetDsDocument;
    {* Собственно документ }
   property HasDocument: Boolean
    read pm_GetHasDocument;
    {* Определяет что есть данные для "Собственно документ" }
+  property dsDocumentRef: IvcmViewAreaControllerRef
+   read pm_GetDsDocumentRef;
+   {* Ссылка на "Собственно документ" }
   property DocInfo: IdeDocInfo
    read pm_GetDocInfo;
  end;//IsdsBaseDocument

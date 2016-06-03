@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_DictionInterfacesPrim;
+unit DictionInterfacesPrim;
  {* Базовые интерфейсы для работы с Толковым словарём }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\NOT_COMPLETED_DictionInterfacesPrim.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\DictionInterfacesPrim.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "DictionInterfacesPrim" MUID: (4AC238AF03B8)
 

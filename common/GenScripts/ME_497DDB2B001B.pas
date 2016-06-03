@@ -2644,7 +2644,7 @@ end;//TPrimListForm.Loadable_Load_Execute
 procedure TPrimListForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {*  оллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TPrimListForm.Loadable_Load
 
@@ -2907,7 +2907,7 @@ end;//TPrimListForm.Filterable_Add_Execute
 
 procedure TPrimListForm.Filterable_Add(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Add_Params) do
+ with IFilterable_Add_Params(aParams.Data) do
   ResultValue := Self.Filterable_Add_Execute(Filter);
 end;//TPrimListForm.Filterable_Add
 
@@ -2922,7 +2922,7 @@ end;//TPrimListForm.Filterable_Delete_Execute
 
 procedure TPrimListForm.Filterable_Delete(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Delete_Params) do
+ with IFilterable_Delete_Params(aParams.Data) do
   ResultValue := Self.Filterable_Delete_Execute(Filter);
 end;//TPrimListForm.Filterable_Delete
 
@@ -2943,7 +2943,7 @@ end;//TPrimListForm.List_GetDeList_Execute
 
 procedure TPrimListForm.List_GetDeList(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IList_GetDeList_Params) do
+ with IList_GetDeList_Params(aParams.Data) do
   ResultValue := Self.List_GetDeList_Execute;
 end;//TPrimListForm.List_GetDeList
 
@@ -2988,7 +2988,7 @@ end;//TPrimListForm.Filterable_Refresh_Execute
 
 procedure TPrimListForm.Filterable_Refresh(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Refresh_Params) do
+ with IFilterable_Refresh_Params(aParams.Data) do
   ResultValue := Self.Filterable_Refresh_Execute;
 end;//TPrimListForm.Filterable_Refresh
 
@@ -3742,7 +3742,7 @@ end;//TPrimListForm.Filterable_GetListType_Execute
 
 procedure TPrimListForm.Filterable_GetListType(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_GetListType_Params) do
+ with IFilterable_GetListType_Params(aParams.Data) do
   ResultValue := Self.Filterable_GetListType_Execute;
 end;//TPrimListForm.Filterable_GetListType
 
@@ -3757,7 +3757,7 @@ end;//TPrimListForm.List_GetDsList_Execute
 
 procedure TPrimListForm.List_GetDsList(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IList_GetDsList_Params) do
+ with IList_GetDsList_Params(aParams.Data) do
   ResultValue := Self.List_GetDsList_Execute;
 end;//TPrimListForm.List_GetDsList
 

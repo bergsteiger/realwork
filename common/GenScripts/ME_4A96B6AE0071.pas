@@ -213,7 +213,7 @@ end;//TPrimFoldersForm.FoldersControl_EditElement_Execute
 procedure TPrimFoldersForm.FoldersControl_EditElement(const aParams: IvcmExecuteParams);
  {* Начать редактирование элемента }
 begin
- with (aParams.Data As IFoldersControl_EditElement_Params) do
+ with IFoldersControl_EditElement_Params(aParams.Data) do
   Self.FoldersControl_EditElement_Execute(Node);
 end;//TPrimFoldersForm.FoldersControl_EditElement
 
@@ -230,7 +230,7 @@ end;//TPrimFoldersForm.FoldersControl_DeleteElement_Execute
 procedure TPrimFoldersForm.FoldersControl_DeleteElement(const aParams: IvcmExecuteParams);
  {* Удалить элемент }
 begin
- with (aParams.Data As IFoldersControl_DeleteElement_Params) do
+ with IFoldersControl_DeleteElement_Params(aParams.Data) do
   ResultValue := Self.FoldersControl_DeleteElement_Execute(Node);
 end;//TPrimFoldersForm.FoldersControl_DeleteElement
 
@@ -376,7 +376,7 @@ end;//TPrimFoldersForm.AdditionInfo_SetCaption_Execute
 
 procedure TPrimFoldersForm.AdditionInfo_SetCaption(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAdditionInfo_SetCaption_Params) do
+ with IAdditionInfo_SetCaption_Params(aParams.Data) do
   Self.AdditionInfo_SetCaption_Execute(Caption);
 end;//TPrimFoldersForm.AdditionInfo_SetCaption
 
@@ -408,7 +408,7 @@ end;//TPrimFoldersForm.AdditionInfo_Close_Execute
 
 procedure TPrimFoldersForm.AdditionInfo_Close(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAdditionInfo_Close_Params) do
+ with IAdditionInfo_Close_Params(aParams.Data) do
   Self.AdditionInfo_Close_Execute(ModalResult);
 end;//TPrimFoldersForm.AdditionInfo_Close
 

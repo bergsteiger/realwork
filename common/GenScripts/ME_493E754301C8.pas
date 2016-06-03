@@ -13,17 +13,17 @@ interface
 uses
  l3IntfUses
  , WorkWithDocumentInterfaces
+ , DocumentAndListInterfaces
+ , bsTypesNew
  , DocumentInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , bsTypesNew
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , DynamicTreeUnit
  , bsTypes
- , DocumentAndListInterfaces
  , nsTypes
  , DocumentUnit
  , nevBase

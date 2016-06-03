@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_MedicInterfaces;
+unit MedicInterfaces;
  {* Интерфейсы Инфарма }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\NOT_COMPLETED_MedicInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\MedicInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "MedicInterfaces" MUID: (491D7C9603B2)
 
@@ -101,14 +101,18 @@ type
  IsdsBaseDrugDocument = interface(IsdsBaseDocumentWithAttributes)
   {* Базовый интерфейс для списка документов и описания препарата. }
   ['{90664228-FAFF-44F1-A2FC-350217546D6E}']
-  function pm_GetdsDrugInternationalNameSynonims: IdsDrugList;
+  function pm_GetDsDrugInternationalNameSynonims: IdsDrugList;
   function pm_GetHasDrugInternationalNameSynonims: Boolean;
+  function pm_GetDsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
   property dsDrugInternationalNameSynonims: IdsDrugList
-   read pm_GetdsDrugInternationalNameSynonims;
+   read pm_GetDsDrugInternationalNameSynonims;
    {* Бизнес объект "Синонимы по международному названию" }
   property HasDrugInternationalNameSynonims: Boolean
    read pm_GetHasDrugInternationalNameSynonims;
    {* Определяет что есть данные для "Бизнес объект "Синонимы по международному названию"" }
+  property dsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef
+   read pm_GetDsDrugInternationalNameSynonimsRef;
+   {* Ссылка на "Бизнес объект "Синонимы по международному названию"" }
  end;//IsdsBaseDrugDocument
 
  IdsDrugListSynchroView = interface(IdsSimpleListSynchroView)
@@ -128,11 +132,15 @@ type
  IsdsMedicFirmDocumentPrim = interface(IsdsBaseDocumentWithAttributes)
   {* описание фирмы-производителя }
   ['{7A977021-25D3-46BD-81C9-5B9B5423441C}']
-  function pm_GetdsDrugList: IdsDrugList;
+  function pm_GetDsDrugList: IdsDrugList;
+  function pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
   procedure OpenDrugList;
   property dsDrugList: IdsDrugList
-   read pm_GetdsDrugList;
+   read pm_GetDsDrugList;
    {* список производимых препаратов }
+  property dsDrugListRef: IvcmViewAreaControllerRef
+   read pm_GetDsDrugListRef;
+   {* Ссылка на "список производимых препаратов" }
  end;//IsdsMedicFirmDocumentPrim
 
  IdsMedicFirmListSynchroView = interface(IdsSimpleListSynchroView)
@@ -160,11 +168,11 @@ type
  IdBaseDrugDocument = interface(IdBaseDocumentWithAttributes)
   {* Данные сборки описания препарата }
   ['{FFFCC861-301D-4047-9292-5446D66B80EA}']
-  function pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
+  function pm_GetDsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
   function pm_GetHasDrugInternationalNameSynonims: Tl3Bool;
   procedure pm_SetHasDrugInternationalNameSynonims(aValue: Tl3Bool);
   property dsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef
-   read pm_GetdsDrugInternationalNameSynonimsRef;
+   read pm_GetDsDrugInternationalNameSynonimsRef;
    {* Ссылка на "Бизнес объект "Синонимы по международному названию"" }
   property HasDrugInternationalNameSynonims: Tl3Bool
    read pm_GetHasDrugInternationalNameSynonims
@@ -176,12 +184,12 @@ type
   ['{2F82042B-37B4-4C38-A7FD-339389DACAE2}']
   function pm_GetContentsTree: IdeSimpleTree;
   procedure pm_SetContentsTree(const aValue: IdeSimpleTree);
-  function pm_GetdsContentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsContentsRef: IvcmFormDataSourceRef;
   property ContentsTree: IdeSimpleTree
    read pm_GetContentsTree
    write pm_SetContentsTree;
   property dsContentsRef: IvcmFormDataSourceRef
-   read pm_GetdsContentsRef;
+   read pm_GetDsContentsRef;
    {* Ссылка на "Оглавление" }
  end;//IdDrugDocument
 
@@ -200,9 +208,9 @@ type
  IdMedicFirmDocument = interface(IdBaseDocumentWithAttributes)
   {* Данные описания фирмы-производителя }
   ['{2658E4F6-DC6A-4EAC-A340-04141AC9B7F3}']
-  function pm_GetdsDrugListRef: IvcmFormDataSourceRef;
+  function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
   property dsDrugListRef: IvcmFormDataSourceRef
-   read pm_GetdsDrugListRef;
+   read pm_GetDsDrugListRef;
    {* Ссылка на "список производимых препаратов" }
  end;//IdMedicFirmDocument
 
@@ -220,11 +228,13 @@ type
 
  IsdsMedicFirmList = interface(IsdsMedicFirmDocumentPrim)
   ['{D8FA6A6A-BDAF-491E-8DD7-FF58BB0A7834}']
-  function pm_GetdsFirmList: IdsMedicFirmList;
-  function pm_GetdsSynchroView: IdsMedicFirmListSynchroView;
+  function pm_GetDsFirmList: IdsMedicFirmList;
+  function pm_GetDsSynchroView: IdsMedicFirmListSynchroView;
   function pm_GetIsDocumentActive: Boolean;
   function pm_GetIsAttributesActive: Boolean;
   function pm_GetIsDrugListActive: Boolean;
+  function pm_GetDsFirmListRef: IvcmViewAreaControllerRef;
+  function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
   procedure OpenDocument;
    {* Открывает ViewArea "Собственно документ" }
   procedure OpenAttributes;
@@ -232,9 +242,9 @@ type
   procedure OpenDrugList;
    {* Открывает ViewArea "список производимых препаратов" }
   property dsFirmList: IdsMedicFirmList
-   read pm_GetdsFirmList;
+   read pm_GetDsFirmList;
   property dsSynchroView: IdsMedicFirmListSynchroView
-   read pm_GetdsSynchroView;
+   read pm_GetDsSynchroView;
   property IsDocumentActive: Boolean
    read pm_GetIsDocumentActive;
    {* Определяет что открыта ViewArea "Собственно документ" }
@@ -244,19 +254,29 @@ type
   property IsDrugListActive: Boolean
    read pm_GetIsDrugListActive;
    {* Определяет что открыта ViewArea "список производимых препаратов" }
+  property dsFirmListRef: IvcmViewAreaControllerRef
+   read pm_GetDsFirmListRef;
+   {* Ссылка на "" }
+  property dsSynchroViewRef: IvcmViewAreaControllerRef
+   read pm_GetDsSynchroViewRef;
+   {* Ссылка на "" }
  end;//IsdsMedicFirmList
 
  IsdsDrugList = interface(IsdsBaseDrugDocument)
   {* Список лекарственных препаратов. }
   ['{74CACD27-B8F6-4D4D-A683-F7E57D9A3AB0}']
-  function pm_GetdsBaloonWarning: IdsWarning;
-  function pm_GetdsDrugList: IdsDrugList;
-  function pm_GetdsSynchroView: IdsDrugListSynchroView;
-  function pm_GetdsFilters: IdsFilters;
-  function pm_GetdsListInfo: IdsListInfo;
+  function pm_GetDsBaloonWarning: IdsWarning;
+  function pm_GetDsDrugList: IdsDrugList;
+  function pm_GetDsSynchroView: IdsDrugListSynchroView;
+  function pm_GetDsFilters: IdsFilters;
+  function pm_GetDsListInfo: IdsListInfo;
   function pm_GetIsDocumentActive: Boolean;
   function pm_GetIsAttributesActive: Boolean;
   function pm_GetIsDrugInternationalNameSynonimsActive: Boolean;
+  function pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
+  function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+  function pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
+  function pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
   procedure UpdateListInfo;
    {* - обновить информацию о списке. }
   procedure OpenDocument;
@@ -276,18 +296,18 @@ type
   function As_IsdsListNameHolder: IsdsListNameHolder;
    {* Метод приведения нашего интерфейса к IsdsListNameHolder }
   property dsBaloonWarning: IdsWarning
-   read pm_GetdsBaloonWarning;
+   read pm_GetDsBaloonWarning;
   property dsDrugList: IdsDrugList
-   read pm_GetdsDrugList;
+   read pm_GetDsDrugList;
    {* Бизнес объект "Список лекарственных препаратов" }
   property dsSynchroView: IdsDrugListSynchroView
-   read pm_GetdsSynchroView;
+   read pm_GetDsSynchroView;
    {* Бизнес объект "Синхронный просмотра" }
   property dsFilters: IdsFilters
-   read pm_GetdsFilters;
+   read pm_GetDsFilters;
    {* Бизнес объект "Фильтры" }
   property dsListInfo: IdsListInfo
-   read pm_GetdsListInfo;
+   read pm_GetDsListInfo;
    {* справка к списку }
   property IsDocumentActive: Boolean
    read pm_GetIsDocumentActive;
@@ -298,6 +318,18 @@ type
   property IsDrugInternationalNameSynonimsActive: Boolean
    read pm_GetIsDrugInternationalNameSynonimsActive;
    {* Определяет что открыта ViewArea "Бизнес объект "Синонимы по международному названию"" }
+  property dsDrugListRef: IvcmViewAreaControllerRef
+   read pm_GetDsDrugListRef;
+   {* Ссылка на "Бизнес объект "Список лекарственных препаратов"" }
+  property dsSynchroViewRef: IvcmViewAreaControllerRef
+   read pm_GetDsSynchroViewRef;
+   {* Ссылка на "Бизнес объект "Синхронный просмотра"" }
+  property dsFiltersRef: IvcmViewAreaControllerRef
+   read pm_GetDsFiltersRef;
+   {* Ссылка на "Бизнес объект "Фильтры"" }
+  property dsListInfoRef: IvcmViewAreaControllerRef
+   read pm_GetDsListInfoRef;
+   {* Ссылка на "справка к списку" }
  end;//IsdsDrugList
 
  IsdsMedicFirmDocument = interface(IsdsMedicFirmDocumentPrim)
@@ -328,19 +360,19 @@ type
  IdMedicFirmList = interface(IdMedicFirmDocument)
   {* Данные списка фирм-производителей }
   ['{E631BB7C-DF43-45ED-9C6A-912E8B2D0DA5}']
-  function pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
-  procedure pm_SetMedicFirmList_SynchroView_Form(aValue: TMedicFirmList_SynchroView_Areas);
-  function pm_GetdsFirmListRef: IvcmFormDataSourceRef;
-  function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+  function pm_GetMedicFirmListSynchroViewForm: TMedicFirmList_SynchroView_Areas;
+  procedure pm_SetMedicFirmListSynchroViewForm(aValue: TMedicFirmList_SynchroView_Areas);
+  function pm_GetDsFirmListRef: IvcmFormDataSourceRef;
+  function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
   property MedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas
-   read pm_GetMedicFirmList_SynchroView_Form
-   write pm_SetMedicFirmList_SynchroView_Form;
+   read pm_GetMedicFirmListSynchroViewForm
+   write pm_SetMedicFirmListSynchroViewForm;
    {* Форма синхронного просмотра }
   property dsFirmListRef: IvcmFormDataSourceRef
-   read pm_GetdsFirmListRef;
+   read pm_GetDsFirmListRef;
    {* Ссылка на "dsFirmList" }
   property dsSynchroViewRef: IvcmFormDataSourceRef
-   read pm_GetdsSynchroViewRef;
+   read pm_GetDsSynchroViewRef;
    {* Ссылка на "dsSynchroView" }
  end;//IdMedicFirmList
 
@@ -351,12 +383,12 @@ type
   procedure pm_SetList(const aValue: IDynList);
   function pm_GetNodeForPositioning: Il3SimpleNode;
   procedure pm_SetNodeForPositioning(const aValue: Il3SimpleNode);
-  function pm_GetDrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
-  procedure pm_SetDrugList_SynchroView_Form(aValue: TDrugList_SynchroView_Areas);
-  function pm_GetdsDrugListRef: IvcmFormDataSourceRef;
-  function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
-  function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
-  function pm_GetdsListInfoRef: IvcmFormDataSourceRef;
+  function pm_GetDrugListSynchroViewForm: TDrugList_SynchroView_Areas;
+  procedure pm_SetDrugListSynchroViewForm(aValue: TDrugList_SynchroView_Areas);
+  function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
+  function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
+  function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
+  function pm_GetDsListInfoRef: IvcmFormDataSourceRef;
   property List: IDynList
    read pm_GetList
    write pm_SetList;
@@ -366,20 +398,20 @@ type
    write pm_SetNodeForPositioning;
    {* - узел для позиционирования в списке. }
   property DrugList_SynchroView_Form: TDrugList_SynchroView_Areas
-   read pm_GetDrugList_SynchroView_Form
-   write pm_SetDrugList_SynchroView_Form;
+   read pm_GetDrugListSynchroViewForm
+   write pm_SetDrugListSynchroViewForm;
    {* Форма синхронного просмотра }
   property dsDrugListRef: IvcmFormDataSourceRef
-   read pm_GetdsDrugListRef;
+   read pm_GetDsDrugListRef;
    {* Ссылка на "Бизнес объект "Список лекарственных препаратов"" }
   property dsSynchroViewRef: IvcmFormDataSourceRef
-   read pm_GetdsSynchroViewRef;
+   read pm_GetDsSynchroViewRef;
    {* Ссылка на "Бизнес объект "Синхронный просмотра"" }
   property dsFiltersRef: IvcmFormDataSourceRef
-   read pm_GetdsFiltersRef;
+   read pm_GetDsFiltersRef;
    {* Ссылка на "Бизнес объект "Фильтры"" }
   property dsListInfoRef: IvcmFormDataSourceRef
-   read pm_GetdsListInfoRef;
+   read pm_GetDsListInfoRef;
    {* Ссылка на "справка к списку" }
  end;//IdDrugList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

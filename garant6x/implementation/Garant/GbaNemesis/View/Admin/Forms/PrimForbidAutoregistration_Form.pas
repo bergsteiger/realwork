@@ -1,159 +1,136 @@
 unit PrimForbidAutoregistration_Form;
+ {* Используется при запрете авторегистрации }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin/Forms/PrimForbidAutoregistration_Form.pas"
-// Начат: 27.01.2009 12:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Администратор::Admin::View::Admin::PrimForbidAutoregistration
-//
-// Используется при запрете авторегистрации
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimForbidAutoregistration_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimForbidAutoregistration" MUID: (497ED39B034F)
+// Имя типа: "TPrimForbidAutoregistrationForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes,
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , AdminInterfaces
+ , vtLabel
+ , vtGroupBox
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
- TPrimForbidAutoregistrationForm = {form} class(TvcmEntityForm)
+ TPrimForbidAutoregistrationForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Используется при запрете авторегистрации }
- private
- // private fields
-   f_lblReference : TvtLabel;
-    {* Поле для свойства lblReference}
-   f_gbInfo : TvtGroupBox;
-    {* Поле для свойства gbInfo}
-   f_lblPhone : TvtLabel;
-    {* Поле для свойства lblPhone}
-   f_lblEmail : TvtLabel;
-    {* Поле для свойства lblEmail}
-   f_lblHint : TvtLabel;
-    {* Поле для свойства lblHint}
-   f_cbPhone : TnscEdit;
-    {* Поле для свойства cbPhone}
-   f_cbEmail : TnscEdit;
-    {* Поле для свойства cbEmail}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure MakeControls; override;
- private
- // private methods
-   procedure CbEmailChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+  private
+   f_lblReference: TvtLabel;
+    {* Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ. }
+   f_gbInfo: TvtGroupBox;
+    {* Администратор системы }
+   f_lblPhone: TvtLabel;
+    {* Телефон }
+   f_lblEmail: TvtLabel;
+    {* E-mail }
+   f_lblHint: TvtLabel;
+    {* (Заполнение одного из полей обязательно) }
+   f_cbPhone: TnscEdit;
+   f_cbEmail: TnscEdit;
+  protected
+   dsForbidAutoregistration: IdsForbidAutoregistration;
+  private
+   procedure cbEmailChange(Sender: TObject);
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsForbidAutoregistration : IdsForbidAutoregistration;
- public
- // public methods
-   class function Make(
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   class function Make(const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+  public
    property lblReference: TvtLabel
-     read f_lblReference;
-     {* Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ. }
+    read f_lblReference;
+    {* Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ. }
    property gbInfo: TvtGroupBox
-     read f_gbInfo;
-     {* Администратор системы }
+    read f_gbInfo;
+    {* Администратор системы }
    property lblPhone: TvtLabel
-     read f_lblPhone;
-     {* Телефон }
+    read f_lblPhone;
+    {* Телефон }
    property lblEmail: TvtLabel
-     read f_lblEmail;
-     {* E-mail }
+    read f_lblEmail;
+    {* E-mail }
    property lblHint: TvtLabel
-     read f_lblHint;
-     {* (Заполнение одного из полей обязательно) }
+    read f_lblHint;
+    {* (Заполнение одного из полей обязательно) }
    property cbPhone: TnscEdit
-     read f_cbPhone;
+    read f_cbPhone;
    property cbEmail: TnscEdit
-     read f_cbEmail;
+    read f_cbEmail;
  end;//TPrimForbidAutoregistrationForm
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Graphics,
-  nsVerifyValue
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  SysUtils {a},
-  StdRes {a},
-  l3Base {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , Graphics
+ , nsVerifyValue
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497ED39B034Fimpl_uses*
+ //#UC END# *497ED39B034Fimpl_uses*
+;
 
-{$If defined(Admin)}
-
-// start class TPrimForbidAutoregistrationForm
-
-procedure TPrimForbidAutoregistrationForm.CbEmailChange(Sender: TObject);
+{$If NOT Defined(NoVCM)}
+procedure TPrimForbidAutoregistrationForm.cbEmailChange(Sender: TObject);
 //#UC START# *51C3165101B7_497ED39B034F_var*
 const
  c_FontColor: array [Boolean] of TColor = (clRed, clWindowText);
@@ -162,20 +139,19 @@ begin
 //#UC START# *51C3165101B7_497ED39B034F_impl*
  cbEmail.Font.Color := c_FontColor[nsEmailVerify.Verify(cbEmail.Text)];
 //#UC END# *51C3165101B7_497ED39B034F_impl*
-end;//TPrimForbidAutoregistrationForm.CbEmailChange
+end;//TPrimForbidAutoregistrationForm.cbEmailChange
 
-class function TPrimForbidAutoregistrationForm.Make(
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+class function TPrimForbidAutoregistrationForm.Make(const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 begin
  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource);
-end;
+end;//TPrimForbidAutoregistrationForm.Make
 
-{$If not defined(NoVCM)}
 procedure TPrimForbidAutoregistrationForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497ED39B034F_var*
 //#UC END# *497469C90140_497ED39B034F_var*
 begin
@@ -187,10 +163,9 @@ begin
  end; 
 //#UC END# *497469C90140_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimForbidAutoregistrationForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497ED39B034F_var*
 //#UC END# *4A8E8F2E0195_497ED39B034F_var*
 begin
@@ -260,21 +235,20 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimForbidAutoregistrationForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimForbidAutoregistrationForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsForbidAutoregistration := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsForbidAutoregistration, dsForbidAutoregistration);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsForbidAutoregistration, dsForbidAutoregistration);
+ end;//aNew = nil
+end;//TPrimForbidAutoregistrationForm.SignalDataSourceChanged
 
 procedure TPrimForbidAutoregistrationForm.MakeControls;
 begin
@@ -305,14 +279,14 @@ begin
  f_cbEmail := TnscEdit.Create(Self);
  f_cbEmail.Name := 'cbEmail';
  f_cbEmail.Parent := gbInfo;
-end;
-
-{$IfEnd} //Admin
+end;//TPrimForbidAutoregistrationForm.MakeControls
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimForbidAutoregistration
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimForbidAutoregistrationForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimForbidAutoregistration }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // Defined(Admin)
 end.

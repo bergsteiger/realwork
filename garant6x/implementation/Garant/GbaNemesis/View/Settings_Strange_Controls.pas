@@ -1,199 +1,135 @@
 unit Settings_Strange_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings_Strange_Controls.pas"
-// Начат: 28.10.2009 14:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Основные прецеденты::Settings::View::Strange
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings_Strange_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4AE824CB035A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  l3CProtoObject
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* StyleEditor = operations
-  {* StyleEditor$ReloadStylesTree }
-   ['{263F2F5D-16CF-4370-B090-852B8EC2A769}']
-   query ReloadStylesTree(const aStyleName: Il3CString);
-     {* ReloadStylesTree }
- end;//StyleEditor*)
-
-(* StyleEditor = operations
-   ['{FC0C9D99-D9B6-41F0-BBB8-411CEEE1F980}']
-   query RestoreStyleTable(aRestoreDefault: Boolean);
-   query SaveStyleTable(aSaveAsDefault: Boolean);
-   query SetNewContent(aStyleID: Integer);
- end;//StyleEditor*)
-
-(* StyleEditor = operations
-   ['{E91573CE-43BB-42B9-8F61-2BE63B4240F1}']
-   query ReloadStyleTable;
- end;//StyleEditor*)
-
-(* Result = operations
-   ['{A8587FF6-9974-462A-9540-F1D9433A4659}']
-   operation RestoreConf;
-   operation SaveAsDefaultConf;
-   operation RestoreAllSettings;
- end;//Result*)
-
-(* PopupMenu = operations
-   ['{AC6B52EC-71CE-4D83-8A71-82C015C165D4}']
-   operation DoActive;
-   operation Modify;
-   operation CopyConfig;
-   query ConfInfo;
-   query RestoreAllSettings;
-   operation RestoreConf;
-   operation SaveAsDefaultConf;
- end;//PopupMenu*)
+ l3IntfUses
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- IStyleEditor_ReloadStylesTree_Params = interface(IUnknown)
+ IStyleEditor_ReloadStylesTree_Params = interface
   {* Параметры для операции StyleEditor.ReloadStylesTree }
-   ['{44E58188-3AF4-4C21-83BC-CD468E83F8D6}']
-   function Get_StyleName: Il3CString;
-   property StyleName: Il3CString
-     read Get_StyleName;
-     {* undefined }
+  function Get_StyleName: Il3CString;
+  property StyleName: Il3CString
+   read Get_StyleName;
  end;//IStyleEditor_ReloadStylesTree_Params
 
- Op_StyleEditor_ReloadStylesTree = class
+ Op_StyleEditor_ReloadStylesTree = {final} class
   {* Класс для вызова операции StyleEditor.ReloadStylesTree }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aStyleName: Il3CString): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStylesTree у сущности }
+    const aStyleName: Il3CString): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStylesTree у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aStyleName: Il3CString): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStylesTree у агрегации }
+    const aStyleName: Il3CString): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStylesTree у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aStyleName: Il3CString): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStylesTree у формы }
+    const aStyleName: Il3CString): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStylesTree у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aStyleName: Il3CString): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStylesTree у контейнера }
+    const aStyleName: Il3CString): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStylesTree у контейнера }
  end;//Op_StyleEditor_ReloadStylesTree
 
- IStyleEditor_RestoreStyleTable_Params = interface(IUnknown)
+ IStyleEditor_RestoreStyleTable_Params = interface
   {* Параметры для операции StyleEditor.RestoreStyleTable }
-   ['{325BF732-0BD7-4E61-BEC5-48A77132247C}']
-   function Get_RestoreDefault: Boolean;
-   property RestoreDefault: Boolean
-     read Get_RestoreDefault;
-     {* undefined }
+  function Get_RestoreDefault: Boolean;
+  property RestoreDefault: Boolean
+   read Get_RestoreDefault;
  end;//IStyleEditor_RestoreStyleTable_Params
 
- Op_StyleEditor_RestoreStyleTable = class
+ Op_StyleEditor_RestoreStyleTable = {final} class
   {* Класс для вызова операции StyleEditor.RestoreStyleTable }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aRestoreDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.RestoreStyleTable у сущности }
+    aRestoreDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.RestoreStyleTable у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aRestoreDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.RestoreStyleTable у агрегации }
+    aRestoreDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.RestoreStyleTable у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aRestoreDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.RestoreStyleTable у формы }
+    aRestoreDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.RestoreStyleTable у формы }
    class function Call(const aTarget: IvcmContainer;
-    aRestoreDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.RestoreStyleTable у контейнера }
+    aRestoreDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.RestoreStyleTable у контейнера }
  end;//Op_StyleEditor_RestoreStyleTable
 
- IStyleEditor_SaveStyleTable_Params = interface(IUnknown)
+ IStyleEditor_SaveStyleTable_Params = interface
   {* Параметры для операции StyleEditor.SaveStyleTable }
-   ['{71D351FB-D271-45F9-A89E-75908DCA75A2}']
-   function Get_SaveAsDefault: Boolean;
-   property SaveAsDefault: Boolean
-     read Get_SaveAsDefault;
-     {* undefined }
+  function Get_SaveAsDefault: Boolean;
+  property SaveAsDefault: Boolean
+   read Get_SaveAsDefault;
  end;//IStyleEditor_SaveStyleTable_Params
 
- Op_StyleEditor_SaveStyleTable = class
+ Op_StyleEditor_SaveStyleTable = {final} class
   {* Класс для вызова операции StyleEditor.SaveStyleTable }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aSaveAsDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.SaveStyleTable у сущности }
+    aSaveAsDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.SaveStyleTable у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aSaveAsDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.SaveStyleTable у агрегации }
+    aSaveAsDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.SaveStyleTable у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aSaveAsDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.SaveStyleTable у формы }
+    aSaveAsDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.SaveStyleTable у формы }
    class function Call(const aTarget: IvcmContainer;
-    aSaveAsDefault: Boolean): Boolean; overload; 
-     {* Вызов операции StyleEditor.SaveStyleTable у контейнера }
+    aSaveAsDefault: Boolean): Boolean; overload;
+    {* Вызов операции StyleEditor.SaveStyleTable у контейнера }
  end;//Op_StyleEditor_SaveStyleTable
 
- IStyleEditor_SetNewContent_Params = interface(IUnknown)
+ IStyleEditor_SetNewContent_Params = interface
   {* Параметры для операции StyleEditor.SetNewContent }
-   ['{23154956-86C0-45EA-A8AE-5A3CDA3D0F9A}']
-   function Get_StyleID: Integer;
-   property StyleID: Integer
-     read Get_StyleID;
-     {* undefined }
+  function Get_StyleID: Integer;
+  property StyleID: Integer
+   read Get_StyleID;
  end;//IStyleEditor_SetNewContent_Params
 
- Op_StyleEditor_SetNewContent = class
+ Op_StyleEditor_SetNewContent = {final} class
   {* Класс для вызова операции StyleEditor.SetNewContent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aStyleID: Integer): Boolean; overload; 
-     {* Вызов операции StyleEditor.SetNewContent у сущности }
+    aStyleID: Integer): Boolean; overload;
+    {* Вызов операции StyleEditor.SetNewContent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aStyleID: Integer): Boolean; overload; 
-     {* Вызов операции StyleEditor.SetNewContent у агрегации }
+    aStyleID: Integer): Boolean; overload;
+    {* Вызов операции StyleEditor.SetNewContent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aStyleID: Integer): Boolean; overload; 
-     {* Вызов операции StyleEditor.SetNewContent у формы }
+    aStyleID: Integer): Boolean; overload;
+    {* Вызов операции StyleEditor.SetNewContent у формы }
    class function Call(const aTarget: IvcmContainer;
-    aStyleID: Integer): Boolean; overload; 
-     {* Вызов операции StyleEditor.SetNewContent у контейнера }
+    aStyleID: Integer): Boolean; overload;
+    {* Вызов операции StyleEditor.SetNewContent у контейнера }
  end;//Op_StyleEditor_SetNewContent
 
- Op_StyleEditor_ReloadStyleTable = class
+ Op_StyleEditor_ReloadStyleTable = {final} class
   {* Класс для вызова операции StyleEditor.ReloadStyleTable }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStyleTable у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStyleTable у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStyleTable у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции StyleEditor.ReloadStyleTable у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStyleTable у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStyleTable у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStyleTable у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции StyleEditor.ReloadStyleTable у контейнера }
  end;//Op_StyleEditor_ReloadStyleTable
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_StyleEditor = 'StyleEditor';
  en_capStyleEditor = 'StyleEditor$ReloadStylesTree';
@@ -225,42 +161,70 @@ const
  op_capCopyConfig = '';
  op_ConfInfo = 'ConfInfo';
  op_capConfInfo = '';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TStyleEditor_ReloadStylesTree_Params = class(Tl3CProtoObject, IStyleEditor_ReloadStylesTree_Params)
+ TStyleEditor_ReloadStylesTree_Params = {final} class(Tl3CProtoObject, IStyleEditor_ReloadStylesTree_Params)
   {* Реализация IStyleEditor_ReloadStylesTree_Params }
- private
- // private fields
-   f_StyleName : Il3CString;
- protected
- // realized methods
+  private
+   f_StyleName: Il3CString;
+  protected
    function Get_StyleName: Il3CString;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aStyleName: Il3CString); reintroduce;
-     {* Конструктор TStyleEditor_ReloadStylesTree_Params }
    class function Make(const aStyleName: Il3CString): IStyleEditor_ReloadStylesTree_Params; reintroduce;
-     {* Фабрика TStyleEditor_ReloadStylesTree_Params }
  end;//TStyleEditor_ReloadStylesTree_Params
 
-// start class TStyleEditor_ReloadStylesTree_Params
+ TStyleEditor_RestoreStyleTable_Params = {final} class(Tl3CProtoObject, IStyleEditor_RestoreStyleTable_Params)
+  {* Реализация IStyleEditor_RestoreStyleTable_Params }
+  private
+   f_RestoreDefault: Boolean;
+  protected
+   function Get_RestoreDefault: Boolean;
+  public
+   constructor Create(aRestoreDefault: Boolean); reintroduce;
+   class function Make(aRestoreDefault: Boolean): IStyleEditor_RestoreStyleTable_Params; reintroduce;
+ end;//TStyleEditor_RestoreStyleTable_Params
+
+ TStyleEditor_SaveStyleTable_Params = {final} class(Tl3CProtoObject, IStyleEditor_SaveStyleTable_Params)
+  {* Реализация IStyleEditor_SaveStyleTable_Params }
+  private
+   f_SaveAsDefault: Boolean;
+  protected
+   function Get_SaveAsDefault: Boolean;
+  public
+   constructor Create(aSaveAsDefault: Boolean); reintroduce;
+   class function Make(aSaveAsDefault: Boolean): IStyleEditor_SaveStyleTable_Params; reintroduce;
+ end;//TStyleEditor_SaveStyleTable_Params
+
+ TStyleEditor_SetNewContent_Params = {final} class(Tl3CProtoObject, IStyleEditor_SetNewContent_Params)
+  {* Реализация IStyleEditor_SetNewContent_Params }
+  private
+   f_StyleID: Integer;
+  protected
+   function Get_StyleID: Integer;
+  public
+   constructor Create(aStyleID: Integer); reintroduce;
+   class function Make(aStyleID: Integer): IStyleEditor_SetNewContent_Params; reintroduce;
+ end;//TStyleEditor_SetNewContent_Params
 
 constructor TStyleEditor_ReloadStylesTree_Params.Create(const aStyleName: Il3CString);
- {-}
 begin
  inherited Create;
  f_StyleName := aStyleName;
@@ -276,26 +240,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TStyleEditor_ReloadStylesTree_Params.Make
 
 function TStyleEditor_ReloadStylesTree_Params.Get_StyleName: Il3CString;
- {-}
 begin
  Result := f_StyleName;
 end;//TStyleEditor_ReloadStylesTree_Params.Get_StyleName
 
 procedure TStyleEditor_ReloadStylesTree_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_StyleName := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TStyleEditor_ReloadStylesTree_Params.ClearFields
-// start class Op_StyleEditor_ReloadStylesTree
 
 class function Op_StyleEditor_ReloadStylesTree.Call(const aTarget: IvcmEntity;
-  const aStyleName: Il3CString): Boolean;
+ const aStyleName: Il3CString): Boolean;
+ {* Вызов операции StyleEditor.ReloadStylesTree у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -315,7 +275,8 @@ begin
 end;//Op_StyleEditor_ReloadStylesTree.Call
 
 class function Op_StyleEditor_ReloadStylesTree.Call(const aTarget: IvcmAggregate;
-  const aStyleName: Il3CString): Boolean;
+ const aStyleName: Il3CString): Boolean;
+ {* Вызов операции StyleEditor.ReloadStylesTree у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -335,8 +296,8 @@ begin
 end;//Op_StyleEditor_ReloadStylesTree.Call
 
 class function Op_StyleEditor_ReloadStylesTree.Call(const aTarget: IvcmEntityForm;
-  const aStyleName: Il3CString): Boolean;
- {-}
+ const aStyleName: Il3CString): Boolean;
+ {* Вызов операции StyleEditor.ReloadStylesTree у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -344,35 +305,15 @@ begin
 end;//Op_StyleEditor_ReloadStylesTree.Call
 
 class function Op_StyleEditor_ReloadStylesTree.Call(const aTarget: IvcmContainer;
-  const aStyleName: Il3CString): Boolean;
- {-}
+ const aStyleName: Il3CString): Boolean;
+ {* Вызов операции StyleEditor.ReloadStylesTree у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aStyleName);
 end;//Op_StyleEditor_ReloadStylesTree.Call
 
-type
- TStyleEditor_RestoreStyleTable_Params = class(Tl3CProtoObject, IStyleEditor_RestoreStyleTable_Params)
-  {* Реализация IStyleEditor_RestoreStyleTable_Params }
- private
- // private fields
-   f_RestoreDefault : Boolean;
- protected
- // realized methods
-   function Get_RestoreDefault: Boolean;
- public
- // public methods
-   constructor Create(aRestoreDefault: Boolean); reintroduce;
-     {* Конструктор TStyleEditor_RestoreStyleTable_Params }
-   class function Make(aRestoreDefault: Boolean): IStyleEditor_RestoreStyleTable_Params; reintroduce;
-     {* Фабрика TStyleEditor_RestoreStyleTable_Params }
- end;//TStyleEditor_RestoreStyleTable_Params
-
-// start class TStyleEditor_RestoreStyleTable_Params
-
 constructor TStyleEditor_RestoreStyleTable_Params.Create(aRestoreDefault: Boolean);
- {-}
 begin
  inherited Create;
  f_RestoreDefault := aRestoreDefault;
@@ -388,17 +329,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TStyleEditor_RestoreStyleTable_Params.Make
 
 function TStyleEditor_RestoreStyleTable_Params.Get_RestoreDefault: Boolean;
- {-}
 begin
  Result := f_RestoreDefault;
 end;//TStyleEditor_RestoreStyleTable_Params.Get_RestoreDefault
-// start class Op_StyleEditor_RestoreStyleTable
 
 class function Op_StyleEditor_RestoreStyleTable.Call(const aTarget: IvcmEntity;
-  aRestoreDefault: Boolean): Boolean;
+ aRestoreDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.RestoreStyleTable у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -418,7 +358,8 @@ begin
 end;//Op_StyleEditor_RestoreStyleTable.Call
 
 class function Op_StyleEditor_RestoreStyleTable.Call(const aTarget: IvcmAggregate;
-  aRestoreDefault: Boolean): Boolean;
+ aRestoreDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.RestoreStyleTable у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -438,8 +379,8 @@ begin
 end;//Op_StyleEditor_RestoreStyleTable.Call
 
 class function Op_StyleEditor_RestoreStyleTable.Call(const aTarget: IvcmEntityForm;
-  aRestoreDefault: Boolean): Boolean;
- {-}
+ aRestoreDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.RestoreStyleTable у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -447,35 +388,15 @@ begin
 end;//Op_StyleEditor_RestoreStyleTable.Call
 
 class function Op_StyleEditor_RestoreStyleTable.Call(const aTarget: IvcmContainer;
-  aRestoreDefault: Boolean): Boolean;
- {-}
+ aRestoreDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.RestoreStyleTable у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aRestoreDefault);
 end;//Op_StyleEditor_RestoreStyleTable.Call
 
-type
- TStyleEditor_SaveStyleTable_Params = class(Tl3CProtoObject, IStyleEditor_SaveStyleTable_Params)
-  {* Реализация IStyleEditor_SaveStyleTable_Params }
- private
- // private fields
-   f_SaveAsDefault : Boolean;
- protected
- // realized methods
-   function Get_SaveAsDefault: Boolean;
- public
- // public methods
-   constructor Create(aSaveAsDefault: Boolean); reintroduce;
-     {* Конструктор TStyleEditor_SaveStyleTable_Params }
-   class function Make(aSaveAsDefault: Boolean): IStyleEditor_SaveStyleTable_Params; reintroduce;
-     {* Фабрика TStyleEditor_SaveStyleTable_Params }
- end;//TStyleEditor_SaveStyleTable_Params
-
-// start class TStyleEditor_SaveStyleTable_Params
-
 constructor TStyleEditor_SaveStyleTable_Params.Create(aSaveAsDefault: Boolean);
- {-}
 begin
  inherited Create;
  f_SaveAsDefault := aSaveAsDefault;
@@ -491,17 +412,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TStyleEditor_SaveStyleTable_Params.Make
 
 function TStyleEditor_SaveStyleTable_Params.Get_SaveAsDefault: Boolean;
- {-}
 begin
  Result := f_SaveAsDefault;
 end;//TStyleEditor_SaveStyleTable_Params.Get_SaveAsDefault
-// start class Op_StyleEditor_SaveStyleTable
 
 class function Op_StyleEditor_SaveStyleTable.Call(const aTarget: IvcmEntity;
-  aSaveAsDefault: Boolean): Boolean;
+ aSaveAsDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.SaveStyleTable у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -521,7 +441,8 @@ begin
 end;//Op_StyleEditor_SaveStyleTable.Call
 
 class function Op_StyleEditor_SaveStyleTable.Call(const aTarget: IvcmAggregate;
-  aSaveAsDefault: Boolean): Boolean;
+ aSaveAsDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.SaveStyleTable у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -541,8 +462,8 @@ begin
 end;//Op_StyleEditor_SaveStyleTable.Call
 
 class function Op_StyleEditor_SaveStyleTable.Call(const aTarget: IvcmEntityForm;
-  aSaveAsDefault: Boolean): Boolean;
- {-}
+ aSaveAsDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.SaveStyleTable у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -550,35 +471,15 @@ begin
 end;//Op_StyleEditor_SaveStyleTable.Call
 
 class function Op_StyleEditor_SaveStyleTable.Call(const aTarget: IvcmContainer;
-  aSaveAsDefault: Boolean): Boolean;
- {-}
+ aSaveAsDefault: Boolean): Boolean;
+ {* Вызов операции StyleEditor.SaveStyleTable у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aSaveAsDefault);
 end;//Op_StyleEditor_SaveStyleTable.Call
 
-type
- TStyleEditor_SetNewContent_Params = class(Tl3CProtoObject, IStyleEditor_SetNewContent_Params)
-  {* Реализация IStyleEditor_SetNewContent_Params }
- private
- // private fields
-   f_StyleID : Integer;
- protected
- // realized methods
-   function Get_StyleID: Integer;
- public
- // public methods
-   constructor Create(aStyleID: Integer); reintroduce;
-     {* Конструктор TStyleEditor_SetNewContent_Params }
-   class function Make(aStyleID: Integer): IStyleEditor_SetNewContent_Params; reintroduce;
-     {* Фабрика TStyleEditor_SetNewContent_Params }
- end;//TStyleEditor_SetNewContent_Params
-
-// start class TStyleEditor_SetNewContent_Params
-
 constructor TStyleEditor_SetNewContent_Params.Create(aStyleID: Integer);
- {-}
 begin
  inherited Create;
  f_StyleID := aStyleID;
@@ -594,17 +495,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TStyleEditor_SetNewContent_Params.Make
 
 function TStyleEditor_SetNewContent_Params.Get_StyleID: Integer;
- {-}
 begin
  Result := f_StyleID;
 end;//TStyleEditor_SetNewContent_Params.Get_StyleID
-// start class Op_StyleEditor_SetNewContent
 
 class function Op_StyleEditor_SetNewContent.Call(const aTarget: IvcmEntity;
-  aStyleID: Integer): Boolean;
+ aStyleID: Integer): Boolean;
+ {* Вызов операции StyleEditor.SetNewContent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -624,7 +524,8 @@ begin
 end;//Op_StyleEditor_SetNewContent.Call
 
 class function Op_StyleEditor_SetNewContent.Call(const aTarget: IvcmAggregate;
-  aStyleID: Integer): Boolean;
+ aStyleID: Integer): Boolean;
+ {* Вызов операции StyleEditor.SetNewContent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -644,8 +545,8 @@ begin
 end;//Op_StyleEditor_SetNewContent.Call
 
 class function Op_StyleEditor_SetNewContent.Call(const aTarget: IvcmEntityForm;
-  aStyleID: Integer): Boolean;
- {-}
+ aStyleID: Integer): Boolean;
+ {* Вызов операции StyleEditor.SetNewContent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -653,16 +554,16 @@ begin
 end;//Op_StyleEditor_SetNewContent.Call
 
 class function Op_StyleEditor_SetNewContent.Call(const aTarget: IvcmContainer;
-  aStyleID: Integer): Boolean;
- {-}
+ aStyleID: Integer): Boolean;
+ {* Вызов операции StyleEditor.SetNewContent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aStyleID);
 end;//Op_StyleEditor_SetNewContent.Call
-// start class Op_StyleEditor_ReloadStyleTable
 
 class function Op_StyleEditor_ReloadStyleTable.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции StyleEditor.ReloadStyleTable у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -682,6 +583,7 @@ begin
 end;//Op_StyleEditor_ReloadStyleTable.Call
 
 class function Op_StyleEditor_ReloadStyleTable.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции StyleEditor.ReloadStyleTable у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -701,7 +603,7 @@ begin
 end;//Op_StyleEditor_ReloadStyleTable.Call
 
 class function Op_StyleEditor_ReloadStyleTable.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции StyleEditor.ReloadStyleTable у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -709,13 +611,12 @@ begin
 end;//Op_StyleEditor_ReloadStyleTable.Call
 
 class function Op_StyleEditor_ReloadStyleTable.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции StyleEditor.ReloadStyleTable у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_StyleEditor_ReloadStyleTable.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

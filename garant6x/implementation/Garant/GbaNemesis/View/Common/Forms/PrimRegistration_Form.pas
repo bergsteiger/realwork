@@ -1,154 +1,109 @@
 unit PrimRegistration_Form;
+ {* Регистрация }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimRegistration_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimRegistration
-//
-// Регистрация
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimRegistration_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimRegistration" MUID: (525AE04E0326)
+// Имя типа: "TPrimRegistrationForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
-  vtFocusLabel,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx,
-  vtCheckBox,
-  ElPopBtn,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
+ , vtGroupBox
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ElPopBtn
+ , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsRegisterAction = function (aSender: TCustomForm): TModalResult of object;
+ TnsRegisterAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimRegistrationForm = {form} class(TvcmEntityForm)
+ TPrimRegistrationForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Регистрация }
- private
- // private fields
-   f_pnMainData : TvtPanel;
-    {* Поле для свойства pnMainData}
-   f_UserNameLabel : TvtLabel;
-    {* Поле для свойства UserNameLabel}
-   f_PasswordLabel : TvtLabel;
-    {* Поле для свойства PasswordLabel}
-   f_LoginLabel : TvtLabel;
-    {* Поле для свойства LoginLabel}
-   f_InfoLabel : TvtLabel;
-    {* Поле для свойства InfoLabel}
-   f_EMailLabel : TvtLabel;
-    {* Поле для свойства EMailLabel}
-   f_ConfirmPasswordLabel : TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel}
-   f_vtAsteriskLabelLogin : TvtLabel;
-    {* Поле для свойства vtAsteriskLabelLogin}
-   f_vtAsteriskLabelFIO : TvtLabel;
-    {* Поле для свойства vtAsteriskLabelFIO}
-   f_edPassword : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword}
-   f_edUserName : TnscEdit;
-    {* Поле для свойства edUserName}
-   f_edLogin : TnscEdit;
-    {* Поле для свойства edLogin}
-   f_edEmail : TnscEdit;
-    {* Поле для свойства edEmail}
-   f_edConfirm : TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm}
-   f_cbAutoLogin : TvtCheckBox;
-    {* Поле для свойства cbAutoLogin}
-   f_NewUserGroupBox : TvtGroupBox;
-    {* Поле для свойства NewUserGroupBox}
-   f_NewUserLabel : TvtLabel;
-    {* Поле для свойства NewUserLabel}
-   f_NewUserPaintBox : TPaintBox;
-    {* Поле для свойства NewUserPaintBox}
-   f_BottomPanel : TvtPanel;
-    {* Поле для свойства BottomPanel}
-   f_RegisterButton : TElPopupButton;
-    {* Поле для свойства RegisterButton}
-   f_HelpPanel : TvtPanel;
-    {* Поле для свойства HelpPanel}
-   f_HelpPaintBox : TPaintBox;
-    {* Поле для свойства HelpPaintBox}
-   f_HelpLabel : TvtFocusLabel;
-    {* Поле для свойства HelpLabel}
-   f_CanRelogin : Boolean;
-    {* Поле для свойства CanRelogin}
-   f_RegisterAction : TnsRegisterAction;
-    {* Поле для свойства RegisterAction}
- protected
-  procedure MakeControls; override;
- private
- // private methods
-   procedure EdPasswordChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdUserNameChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdLoginChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure EdConfirmChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+  private
+   f_pnMainData: TvtPanel;
+   f_BottomPanel: TvtPanel;
+   f_CanRelogin: Boolean;
+   f_RegisterAction: TnsRegisterAction;
+   f_UserNameLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_PasswordLabel: TvtLabel;
+    {* Новый пароль: }
+   f_LoginLabel: TvtLabel;
+    {* Новое регистрационное имя: }
+   f_InfoLabel: TvtLabel;
+    {* * - поля, обязательные для заполнения }
+   f_EMailLabel: TvtLabel;
+    {* Электронная почта: }
+   f_ConfirmPasswordLabel: TvtLabel;
+    {* Подтверждение пароля: }
+   f_vtAsteriskLabelLogin: TvtLabel;
+    {* * }
+   f_vtAsteriskLabelFIO: TvtLabel;
+    {* * }
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_edUserName: TnscEdit;
+   f_edLogin: TnscEdit;
+   f_edEmail: TnscEdit;
+   f_edConfirm: TnscComboBoxWithPwdChar;
+   f_cbAutoLogin: TvtCheckBox;
+    {* Запомнить пароль }
+   f_NewUserGroupBox: TvtGroupBox;
+    {* Новый пользователь }
+   f_NewUserLabel: TvtLabel;
+    {* Чтобы начать работу с системой ГАРАНТ необходимо зарегистрироваться в системе, создав свою учетную запись. }
+   f_NewUserPaintBox: TPaintBox;
+   f_RegisterButton: TElPopupButton;
+    {* Зарегистрироваться }
+   f_HelpPanel: TvtPanel;
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
+  private
+   procedure edPasswordChange(Sender: TObject);
+   procedure edUserNameChange(Sender: TObject);
+   procedure edLoginChange(Sender: TObject);
+   procedure edConfirmChange(Sender: TObject);
    procedure NewUserPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure RegisterButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure HelpPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure HelpLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure RepositionControls;
-     {* Сигнатура метода RepositionControls }
    procedure Save;
-     {* Сигнатура метода Save }
    procedure CheckForm;
-     {* Сигнатура метода CheckForm }
    procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
- protected
- // property methods
+  protected
    function pm_GetLogin: Il3CString;
    procedure pm_SetLogin(const aValue: Il3CString);
    function pm_GetPassword: Il3CString;
@@ -156,207 +111,263 @@ type
    function pm_GetUserName: Il3CString;
    function pm_GetEMail: Il3CString;
    function pm_GetIsAutoLogin: Boolean;
- protected
- // overridden protected methods
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
-   function IsRealInstance: Boolean; override;
-   {$IfEnd} //not NoVCL
- public
- // public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure IncreaseLogin;
-     {* Сигнатура метода IncreaseLogin }
    class function Make(aIsAutoLogin: Boolean;
     aCanRelogin: Boolean;
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCL)}
+   function IsRealInstance: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property pnMainData: TvtPanel
-     read f_pnMainData;
-   property UserNameLabel: TvtLabel
-     read f_UserNameLabel;
-     {* ФИО пользователя: }
-   property PasswordLabel: TvtLabel
-     read f_PasswordLabel;
-     {* Новый пароль: }
-   property LoginLabel: TvtLabel
-     read f_LoginLabel;
-     {* Новое регистрационное имя: }
-   property InfoLabel: TvtLabel
-     read f_InfoLabel;
-     {* * - поля, обязательные для заполнения }
-   property EMailLabel: TvtLabel
-     read f_EMailLabel;
-     {* Электронная почта: }
-   property ConfirmPasswordLabel: TvtLabel
-     read f_ConfirmPasswordLabel;
-     {* Подтверждение пароля: }
-   property vtAsteriskLabelLogin: TvtLabel
-     read f_vtAsteriskLabelLogin;
-     {* * }
-   property vtAsteriskLabelFIO: TvtLabel
-     read f_vtAsteriskLabelFIO;
-     {* * }
-   property edPassword: TnscComboBoxWithPwdChar
-     read f_edPassword;
-   property edUserName: TnscEdit
-     read f_edUserName;
-   property edLogin: TnscEdit
-     read f_edLogin;
-   property edEmail: TnscEdit
-     read f_edEmail;
-   property edConfirm: TnscComboBoxWithPwdChar
-     read f_edConfirm;
-   property cbAutoLogin: TvtCheckBox
-     read f_cbAutoLogin;
-     {* Запомнить пароль }
-   property NewUserGroupBox: TvtGroupBox
-     read f_NewUserGroupBox;
-     {* Новый пользователь }
-   property NewUserLabel: TvtLabel
-     read f_NewUserLabel;
-     {* Чтобы начать работу с системой ГАРАНТ необходимо зарегистрироваться в системе, создав свою учетную запись. }
-   property NewUserPaintBox: TPaintBox
-     read f_NewUserPaintBox;
+    read f_pnMainData;
    property BottomPanel: TvtPanel
-     read f_BottomPanel;
-   property RegisterButton: TElPopupButton
-     read f_RegisterButton;
-     {* Зарегистрироваться }
-   property HelpPanel: TvtPanel
-     read f_HelpPanel;
-   property HelpPaintBox: TPaintBox
-     read f_HelpPaintBox;
-   property HelpLabel: TvtFocusLabel
-     read f_HelpLabel;
-     {* Помощь }
+    read f_BottomPanel;
    property Login: Il3CString
-     read pm_GetLogin
-     write pm_SetLogin;
+    read pm_GetLogin
+    write pm_SetLogin;
    property Password: Il3CString
-     read pm_GetPassword
-     write pm_SetPassword;
+    read pm_GetPassword
+    write pm_SetPassword;
    property UserName: Il3CString
-     read pm_GetUserName;
+    read pm_GetUserName;
    property EMail: Il3CString
-     read pm_GetEMail;
+    read pm_GetEMail;
    property IsAutoLogin: Boolean
-     read pm_GetIsAutoLogin;
+    read pm_GetIsAutoLogin;
    property CanRelogin: Boolean
-     read f_CanRelogin;
+    read f_CanRelogin;
    property RegisterAction: TnsRegisterAction
-     read f_RegisterAction
-     write f_RegisterAction;
+    read f_RegisterAction
+    write f_RegisterAction;
+   property UserNameLabel: TvtLabel
+    read f_UserNameLabel;
+    {* ФИО пользователя: }
+   property PasswordLabel: TvtLabel
+    read f_PasswordLabel;
+    {* Новый пароль: }
+   property LoginLabel: TvtLabel
+    read f_LoginLabel;
+    {* Новое регистрационное имя: }
+   property InfoLabel: TvtLabel
+    read f_InfoLabel;
+    {* * - поля, обязательные для заполнения }
+   property EMailLabel: TvtLabel
+    read f_EMailLabel;
+    {* Электронная почта: }
+   property ConfirmPasswordLabel: TvtLabel
+    read f_ConfirmPasswordLabel;
+    {* Подтверждение пароля: }
+   property vtAsteriskLabelLogin: TvtLabel
+    read f_vtAsteriskLabelLogin;
+    {* * }
+   property vtAsteriskLabelFIO: TvtLabel
+    read f_vtAsteriskLabelFIO;
+    {* * }
+   property edPassword: TnscComboBoxWithPwdChar
+    read f_edPassword;
+   property edUserName: TnscEdit
+    read f_edUserName;
+   property edLogin: TnscEdit
+    read f_edLogin;
+   property edEmail: TnscEdit
+    read f_edEmail;
+   property edConfirm: TnscComboBoxWithPwdChar
+    read f_edConfirm;
+   property cbAutoLogin: TvtCheckBox
+    read f_cbAutoLogin;
+    {* Запомнить пароль }
+   property NewUserGroupBox: TvtGroupBox
+    read f_NewUserGroupBox;
+    {* Новый пользователь }
+   property NewUserLabel: TvtLabel
+    read f_NewUserLabel;
+    {* Чтобы начать работу с системой ГАРАНТ необходимо зарегистрироваться в системе, создав свою учетную запись. }
+   property NewUserPaintBox: TPaintBox
+    read f_NewUserPaintBox;
+   property RegisterButton: TElPopupButton
+    read f_RegisterButton;
+    {* Зарегистрироваться }
+   property HelpPanel: TvtPanel
+    read f_HelpPanel;
+   property HelpPaintBox: TPaintBox
+    read f_HelpPaintBox;
+   property HelpLabel: TvtFocusLabel
+    read f_HelpLabel;
+    {* Помощь }
  end;//TPrimRegistrationForm
-
- TvcmEntityFormRef = TPrimRegistrationForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  l3String,
-  l3Base,
-  l3MinMax,
-  nsTypes,
-  nsVerifyValue,
-  nsLoginUtils,
-  nsUtils,
-  nsConst,
-  SearchRes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , l3Base
+ , l3MinMax
+ , nsTypes
+ , nsVerifyValue
+ , nsLoginUtils
+ , nsUtils
+ , nsConst
+ , SearchRes
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *525AE04E0326impl_uses*
+ //#UC END# *525AE04E0326impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки Registration Form Controls' Hints }
+ str_edPasswordHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
+  {* 'Введите пароль для авторизации в системе' }
+ str_edUserNameHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edUserNameHint'; rValue : 'Введите свои имя, фамилию и отчество');
+  {* 'Введите свои имя, фамилию и отчество' }
+ str_edLoginHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edLoginHint'; rValue : 'Введите имя для работы в системе ГАРАНТ');
+  {* 'Введите имя для работы в системе ГАРАНТ' }
+ str_edEmailHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
+  {* 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
+ str_edConfirmHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edConfirmHint'; rValue : 'Подтвердите пароль, введенный в предыдущей строке');
+  {* 'Подтвердите пароль, введенный в предыдущей строке' }
+ str_errLoginIsTooLong: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'errLoginIsTooLong'; rValue : 'Регистрационное имя может содержать не более 31 символа!');
+  {* 'Регистрационное имя может содержать не более 31 символа!' }
 
-var
-   { Локализуемые строки Registration Form Controls' Hints }
-  str_edPasswordHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edPasswordHint'; rValue : 'Введите пароль для авторизации в системе');
-   { 'Введите пароль для авторизации в системе' }
-  str_edUserNameHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edUserNameHint'; rValue : 'Введите свои имя, фамилию и отчество');
-   { 'Введите свои имя, фамилию и отчество' }
-  str_edLoginHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edLoginHint'; rValue : 'Введите имя для работы в системе ГАРАНТ');
-   { 'Введите имя для работы в системе ГАРАНТ' }
-  str_edEmailHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edEmailHint'; rValue : 'Электронная почта: адрес, на который будет выслан забытый Вами пароль');
-   { 'Электронная почта: адрес, на который будет выслан забытый Вами пароль' }
-  str_edConfirmHint : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'edConfirmHint'; rValue : 'Подтвердите пароль, введенный в предыдущей строке');
-   { 'Подтвердите пароль, введенный в предыдущей строке' }
-  str_errLoginIsTooLong : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'errLoginIsTooLong'; rValue : 'Регистрационное имя может содержать не более 31 символа!');
-   { 'Регистрационное имя может содержать не более 31 символа!' }
+function TPrimRegistrationForm.pm_GetLogin: Il3CString;
+//#UC START# *525AED3900D1_525AE04E0326get_var*
+//#UC END# *525AED3900D1_525AE04E0326get_var*
+begin
+//#UC START# *525AED3900D1_525AE04E0326get_impl*
+ Result := edLogin.Text;
+//#UC END# *525AED3900D1_525AE04E0326get_impl*
+end;//TPrimRegistrationForm.pm_GetLogin
 
-// start class TPrimRegistrationForm
+procedure TPrimRegistrationForm.pm_SetLogin(const aValue: Il3CString);
+//#UC START# *525AED3900D1_525AE04E0326set_var*
+//#UC END# *525AED3900D1_525AE04E0326set_var*
+begin
+//#UC START# *525AED3900D1_525AE04E0326set_impl*
+ edLogin.Text := aValue;
+ //После присвоения логина нужно проверить валидность чтобы подсветить красным
+ //если превышен размер 
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=284165335
+ CheckForm;
+//#UC END# *525AED3900D1_525AE04E0326set_impl*
+end;//TPrimRegistrationForm.pm_SetLogin
 
-procedure TPrimRegistrationForm.EdPasswordChange(Sender: TObject);
+function TPrimRegistrationForm.pm_GetPassword: Il3CString;
+//#UC START# *525AED530277_525AE04E0326get_var*
+//#UC END# *525AED530277_525AE04E0326get_var*
+begin
+//#UC START# *525AED530277_525AE04E0326get_impl*
+ Result := edPassword.Text;
+//#UC END# *525AED530277_525AE04E0326get_impl*
+end;//TPrimRegistrationForm.pm_GetPassword
+
+procedure TPrimRegistrationForm.pm_SetPassword(const aValue: Il3CString);
+//#UC START# *525AED530277_525AE04E0326set_var*
+//#UC END# *525AED530277_525AE04E0326set_var*
+begin
+//#UC START# *525AED530277_525AE04E0326set_impl*
+ edPassword.Text := aValue;
+ edConfirm.Text := aValue;
+//#UC END# *525AED530277_525AE04E0326set_impl*
+end;//TPrimRegistrationForm.pm_SetPassword
+
+function TPrimRegistrationForm.pm_GetUserName: Il3CString;
+//#UC START# *525AED640191_525AE04E0326get_var*
+//#UC END# *525AED640191_525AE04E0326get_var*
+begin
+//#UC START# *525AED640191_525AE04E0326get_impl*
+ Result := edUserName.Text;
+//#UC END# *525AED640191_525AE04E0326get_impl*
+end;//TPrimRegistrationForm.pm_GetUserName
+
+function TPrimRegistrationForm.pm_GetEMail: Il3CString;
+//#UC START# *525AEDAA0332_525AE04E0326get_var*
+//#UC END# *525AEDAA0332_525AE04E0326get_var*
+begin
+//#UC START# *525AEDAA0332_525AE04E0326get_impl*
+ Result := edEmail.Text;
+//#UC END# *525AEDAA0332_525AE04E0326get_impl*
+end;//TPrimRegistrationForm.pm_GetEMail
+
+function TPrimRegistrationForm.pm_GetIsAutoLogin: Boolean;
+//#UC START# *525AEDBE00D1_525AE04E0326get_var*
+//#UC END# *525AEDBE00D1_525AE04E0326get_var*
+begin
+//#UC START# *525AEDBE00D1_525AE04E0326get_impl*
+ Result := cbAutoLogin.Checked;
+//#UC END# *525AEDBE00D1_525AE04E0326get_impl*
+end;//TPrimRegistrationForm.pm_GetIsAutoLogin
+
+procedure TPrimRegistrationForm.edPasswordChange(Sender: TObject);
 //#UC START# *525AE9C902D1_525AE04E0326_var*
 //#UC END# *525AE9C902D1_525AE04E0326_var*
 begin
 //#UC START# *525AE9C902D1_525AE04E0326_impl*
  CheckForm;
 //#UC END# *525AE9C902D1_525AE04E0326_impl*
-end;//TPrimRegistrationForm.EdPasswordChange
+end;//TPrimRegistrationForm.edPasswordChange
 
-procedure TPrimRegistrationForm.EdUserNameChange(Sender: TObject);
+procedure TPrimRegistrationForm.edUserNameChange(Sender: TObject);
 //#UC START# *525AE9D5033E_525AE04E0326_var*
 //#UC END# *525AE9D5033E_525AE04E0326_var*
 begin
 //#UC START# *525AE9D5033E_525AE04E0326_impl*
  CheckForm;
 //#UC END# *525AE9D5033E_525AE04E0326_impl*
-end;//TPrimRegistrationForm.EdUserNameChange
+end;//TPrimRegistrationForm.edUserNameChange
 
-procedure TPrimRegistrationForm.EdLoginChange(Sender: TObject);
+procedure TPrimRegistrationForm.edLoginChange(Sender: TObject);
 //#UC START# *525AE9F100C2_525AE04E0326_var*
 //#UC END# *525AE9F100C2_525AE04E0326_var*
 begin
 //#UC START# *525AE9F100C2_525AE04E0326_impl*
  CheckForm;
 //#UC END# *525AE9F100C2_525AE04E0326_impl*
-end;//TPrimRegistrationForm.EdLoginChange
+end;//TPrimRegistrationForm.edLoginChange
 
-procedure TPrimRegistrationForm.EdConfirmChange(Sender: TObject);
+procedure TPrimRegistrationForm.edConfirmChange(Sender: TObject);
 //#UC START# *525AE9FB00ED_525AE04E0326_var*
 //#UC END# *525AE9FB00ED_525AE04E0326_var*
 begin
 //#UC START# *525AE9FB00ED_525AE04E0326_impl*
  CheckForm;
 //#UC END# *525AE9FB00ED_525AE04E0326_impl*
-end;//TPrimRegistrationForm.EdConfirmChange
+end;//TPrimRegistrationForm.edConfirmChange
 
 procedure TPrimRegistrationForm.NewUserPaintBoxPaint(Sender: TObject);
 //#UC START# *525AEA140367_525AE04E0326_var*
@@ -395,6 +406,41 @@ begin
  Application.HelpSystem.ShowHelp('ut_RegistrationForm', '');
 //#UC END# *525AEA560331_525AE04E0326_impl*
 end;//TPrimRegistrationForm.HelpLabelClick
+
+procedure TPrimRegistrationForm.IncreaseLogin;
+//#UC START# *525AEF5B01E9_525AE04E0326_var*
+var
+ l_Char   : AnsiChar;
+ l_String : Il3CString;
+ l_Len    : Integer;
+//#UC END# *525AEF5B01E9_525AE04E0326_var*
+begin
+//#UC START# *525AEF5B01E9_525AE04E0326_impl*
+ edLogin.SetFocus;
+ l_String := Login;
+ if l3IsNil(l_String) then
+  exit;
+ l_Len := l3Len(l_String);
+ l_Char := l3Char(l_String, l_Len - 1);
+
+ if (l_Char in ['0'..'8']) then
+ begin
+  l3SetLen(l_String, l_Len - 1);
+  l_Char := Succ(l_Char)
+ end//l_Char in ['0'..'8']
+ else
+ if (l_Char in ['9']) then
+ begin
+  l3SetLen(l_String, l_Len - 1);
+  l_Char := '0';
+ end//l_Char in ['9']
+ else
+  l_Char := '1';
+ l_String := l3Cat(l_String, l_Char);
+
+ Login := l_String;
+//#UC END# *525AEF5B01E9_525AE04E0326_impl*
+end;//TPrimRegistrationForm.IncreaseLogin
 
 procedure TPrimRegistrationForm.RepositionControls;
 //#UC START# *525AEF6D0366_525AE04E0326_var*
@@ -552,109 +598,6 @@ begin
 //#UC END# *525AEF8102B9_525AE04E0326_impl*
 end;//TPrimRegistrationForm.CheckForm
 
-procedure TPrimRegistrationForm.IncreaseLogin;
-//#UC START# *525AEF5B01E9_525AE04E0326_var*
-var
- l_Char   : AnsiChar;
- l_String : Il3CString;
- l_Len    : Integer;
-//#UC END# *525AEF5B01E9_525AE04E0326_var*
-begin
-//#UC START# *525AEF5B01E9_525AE04E0326_impl*
- edLogin.SetFocus;
- l_String := Login;
- if l3IsNil(l_String) then
-  exit;
- l_Len := l3Len(l_String);
- l_Char := l3Char(l_String, l_Len - 1);
-
- if (l_Char in ['0'..'8']) then
- begin
-  l3SetLen(l_String, l_Len - 1);
-  l_Char := Succ(l_Char)
- end//l_Char in ['0'..'8']
- else
- if (l_Char in ['9']) then
- begin
-  l3SetLen(l_String, l_Len - 1);
-  l_Char := '0';
- end//l_Char in ['9']
- else
-  l_Char := '1';
- l_String := l3Cat(l_String, l_Char);
-
- Login := l_String;
-//#UC END# *525AEF5B01E9_525AE04E0326_impl*
-end;//TPrimRegistrationForm.IncreaseLogin
-
-function TPrimRegistrationForm.pm_GetLogin: Il3CString;
-//#UC START# *525AED3900D1_525AE04E0326get_var*
-//#UC END# *525AED3900D1_525AE04E0326get_var*
-begin
-//#UC START# *525AED3900D1_525AE04E0326get_impl*
- Result := edLogin.Text;
-//#UC END# *525AED3900D1_525AE04E0326get_impl*
-end;//TPrimRegistrationForm.pm_GetLogin
-
-procedure TPrimRegistrationForm.pm_SetLogin(const aValue: Il3CString);
-//#UC START# *525AED3900D1_525AE04E0326set_var*
-//#UC END# *525AED3900D1_525AE04E0326set_var*
-begin
-//#UC START# *525AED3900D1_525AE04E0326set_impl*
- edLogin.Text := aValue;
- //После присвоения логина нужно проверить валидность чтобы подсветить красным
- //если превышен размер 
- //http://mdp.garant.ru/pages/viewpage.action?pageId=284165335
- CheckForm;
-//#UC END# *525AED3900D1_525AE04E0326set_impl*
-end;//TPrimRegistrationForm.pm_SetLogin
-
-function TPrimRegistrationForm.pm_GetPassword: Il3CString;
-//#UC START# *525AED530277_525AE04E0326get_var*
-//#UC END# *525AED530277_525AE04E0326get_var*
-begin
-//#UC START# *525AED530277_525AE04E0326get_impl*
- Result := edPassword.Text;
-//#UC END# *525AED530277_525AE04E0326get_impl*
-end;//TPrimRegistrationForm.pm_GetPassword
-
-procedure TPrimRegistrationForm.pm_SetPassword(const aValue: Il3CString);
-//#UC START# *525AED530277_525AE04E0326set_var*
-//#UC END# *525AED530277_525AE04E0326set_var*
-begin
-//#UC START# *525AED530277_525AE04E0326set_impl*
- edPassword.Text := aValue;
- edConfirm.Text := aValue;
-//#UC END# *525AED530277_525AE04E0326set_impl*
-end;//TPrimRegistrationForm.pm_SetPassword
-
-function TPrimRegistrationForm.pm_GetUserName: Il3CString;
-//#UC START# *525AED640191_525AE04E0326get_var*
-//#UC END# *525AED640191_525AE04E0326get_var*
-begin
-//#UC START# *525AED640191_525AE04E0326get_impl*
- Result := edUserName.Text;
-//#UC END# *525AED640191_525AE04E0326get_impl*
-end;//TPrimRegistrationForm.pm_GetUserName
-
-function TPrimRegistrationForm.pm_GetEMail: Il3CString;
-//#UC START# *525AEDAA0332_525AE04E0326get_var*
-//#UC END# *525AEDAA0332_525AE04E0326get_var*
-begin
-//#UC START# *525AEDAA0332_525AE04E0326get_impl*
- Result := edEmail.Text;
-//#UC END# *525AEDAA0332_525AE04E0326get_impl*
-end;//TPrimRegistrationForm.pm_GetEMail
-
-function TPrimRegistrationForm.pm_GetIsAutoLogin: Boolean;
-//#UC START# *525AEDBE00D1_525AE04E0326get_var*
-//#UC END# *525AEDBE00D1_525AE04E0326get_var*
-begin
-//#UC START# *525AEDBE00D1_525AE04E0326get_impl*
- Result := cbAutoLogin.Checked;
-//#UC END# *525AEDBE00D1_525AE04E0326get_impl*
-end;//TPrimRegistrationForm.pm_GetIsAutoLogin
-
 procedure TPrimRegistrationForm.CMDialogKey(var Message: TCMDialogKey);
 //#UC START# *525AF00601EC_525AE04E0326_var*
 //#UC END# *525AF00601EC_525AE04E0326_var*
@@ -671,21 +614,21 @@ begin
 end;//TPrimRegistrationForm.CMDialogKey
 
 class function TPrimRegistrationForm.Make(aIsAutoLogin: Boolean;
-  aCanRelogin: Boolean;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ aCanRelogin: Boolean;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimRegistrationForm);
  begin
   with aForm do
   begin
-//#UC START# *525BCC29025A_525AE04E0326_impl*
+  //#UC START# *525BCC29025A_525AE04E0326_impl*
    cbAutoLogin.Checked := aIsAutoLogin;
    f_CanRelogin := aCanRelogin;
    Position := poScreenCenter;
-//#UC END# *525BCC29025A_525AE04E0326_impl*
+  //#UC END# *525BCC29025A_525AE04E0326_impl*
   end;//with aForm
  end;
 
@@ -699,9 +642,9 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimRegistrationForm.Make
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimRegistrationForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_525AE04E0326_var*
 //#UC END# *48C7925A02E5_525AE04E0326_var*
@@ -715,10 +658,10 @@ begin
  end;
 //#UC END# *48C7925A02E5_525AE04E0326_impl*
 end;//TPrimRegistrationForm.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
 procedure TPrimRegistrationForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_525AE04E0326_var*
 //#UC END# *4A8E8F2E0195_525AE04E0326_var*
 begin
@@ -960,9 +903,8 @@ begin
  RepositionControls;
 //#UC END# *4A8E8F2E0195_525AE04E0326_impl*
 end;//TPrimRegistrationForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TPrimRegistrationForm.IsRealInstance: Boolean;
 //#UC START# *4B0E846D022B_525AE04E0326_var*
 //#UC END# *4B0E846D022B_525AE04E0326_var*
@@ -971,7 +913,7 @@ begin
  Result := True;
 //#UC END# *4B0E846D022B_525AE04E0326_impl*
 end;//TPrimRegistrationForm.IsRealInstance
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimRegistrationForm.MakeControls;
 begin
@@ -1058,38 +1000,26 @@ begin
  f_HelpLabel.Name := 'HelpLabel';
  f_HelpLabel.Parent := HelpPanel;
  f_HelpLabel.Caption := 'Помощь';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimRegistrationForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_edPasswordHint
  str_edPasswordHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_edUserNameHint
+ {* Инициализация str_edPasswordHint }
  str_edUserNameHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_edLoginHint
+ {* Инициализация str_edUserNameHint }
  str_edLoginHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_edEmailHint
+ {* Инициализация str_edLoginHint }
  str_edEmailHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_edConfirmHint
+ {* Инициализация str_edEmailHint }
  str_edConfirmHint.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_errLoginIsTooLong
+ {* Инициализация str_edConfirmHint }
  str_errLoginIsTooLong.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimRegistration
+ {* Инициализация str_errLoginIsTooLong }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRegistrationForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimRegistration }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

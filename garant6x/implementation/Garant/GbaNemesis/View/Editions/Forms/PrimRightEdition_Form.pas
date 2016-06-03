@@ -344,7 +344,7 @@ end;//TPrimRightEditionForm.Document_GetParaForPositionning_Execute
 
 procedure TPrimRightEditionForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+ with IDocument_GetParaForPositionning_Params(aParams.Data) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
 end;//TPrimRightEditionForm.Document_GetParaForPositionning
 
@@ -426,7 +426,7 @@ end;//TPrimRightEditionForm.RightEdition_IsCurrentPara_Execute
 procedure TPrimRightEditionForm.RightEdition_IsCurrentPara(const aParams: IvcmExecuteParams);
  {* явл€етс€ ли параграф текущим }
 begin
- with (aParams.Data As IRightEdition_IsCurrentPara_Params) do
+ with IRightEdition_IsCurrentPara_Params(aParams.Data) do
   ResultValue := Self.RightEdition_IsCurrentPara_Execute(Para);
 end;//TPrimRightEditionForm.RightEdition_IsCurrentPara
 

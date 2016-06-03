@@ -44,7 +44,7 @@ type
    function pm_GetOldBaseWarning: Il3CString; virtual;
    function As_InsWarningGenerator: InsWarningGenerator;
     {* Метод приведения нашего интерфейса к InsWarningGenerator }
-   function pm_GetdsBaloonWarning: IdsWarning;
+   function pm_GetDsBaloonWarning: IdsWarning;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
@@ -208,14 +208,14 @@ begin
 //#UC END# *493E4F7E039B_4DC011350154_impl*
 end;//TsdsMainWindow.Generate
 
-function TsdsMainWindow.pm_GetdsBaloonWarning: IdsWarning;
+function TsdsMainWindow.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DC010300124_4DC011350154get_var*
 //#UC END# *4DC010300124_4DC011350154get_var*
 begin
 //#UC START# *4DC010300124_4DC011350154get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DC010300124_4DC011350154get_impl*
-end;//TsdsMainWindow.pm_GetdsBaloonWarning
+end;//TsdsMainWindow.pm_GetDsBaloonWarning
 
 procedure TsdsMainWindow.ClearAreas;
  {* Очищает ссылки на области ввода }

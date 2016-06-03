@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_AutoreferatInterfaces;
+unit AutoreferatInterfaces;
  {* Интерфейсы для работы с новостной лентой }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\NOT_COMPLETED_AutoreferatInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\AutoreferatInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "AutoreferatInterfaces" MUID: (492F0586030C)
 

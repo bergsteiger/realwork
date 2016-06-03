@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsMainMenuNew;
+unit nsMainMenuNew;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\NOT_COMPLETED_nsMainMenuNew.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\nsMainMenuNew.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "nsMainMenuNew" MUID: (4AC9A3F801F3)
 
@@ -156,6 +156,10 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4AC9A3F801F3impl_uses*
+ , vtOutliner
+ , l3ControlsTypes
+ //#UC END# *4AC9A3F801F3impl_uses*
 ;
 
 type

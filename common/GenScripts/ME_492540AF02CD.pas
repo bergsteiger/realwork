@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_CommonDictionInterfaces;
+unit CommonDictionInterfaces;
  {* Интерфейсы обобщённого словаря }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\NOT_COMPLETED_CommonDictionInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\CommonDictionInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "CommonDictionInterfaces" MUID: (492540AF02CD)
 
@@ -66,12 +66,12 @@ type
   ['{4565D975-8C33-4E37-9E98-2FE4D005DA2F}']
   function pm_GetCurrentNode: INodeBase;
   procedure pm_SetCurrentNode(const aValue: INodeBase);
-  function pm_GetdsContentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsContentsRef: IvcmFormDataSourceRef;
   property CurrentNode: INodeBase
    read pm_GetCurrentNode
    write pm_SetCurrentNode;
   property dsContentsRef: IvcmFormDataSourceRef
-   read pm_GetdsContentsRef;
+   read pm_GetDsContentsRef;
    {* Ссылка на "список толкований" }
  end;//IdCommonDiction
 
@@ -100,24 +100,28 @@ type
  IsdsCommonDiction = interface(IsdsBaseDocumentWithAttributes)
   {* Обобщенный словарь }
   ['{DC1DB35E-8793-4D82-87CE-97A2C50A25CF}']
-  function pm_GetdsSaveLoad: IdsSaveLoad;
-  function pm_GetdsChild: IdsChild;
-  function pm_GetdsContents: IdsCommonDiction;
+  function pm_GetDsSaveLoad: IdsSaveLoad;
+  function pm_GetDsChild: IdsChild;
+  function pm_GetDsContents: IdsCommonDiction;
   function Get_CurrentNode: INodeBase;
   procedure Set_CurrentNode(const aValue: INodeBase);
-  function Get_deCommonDiction: IdeCommonDiction;
+  function Get_DeCommonDiction: IdeCommonDiction;
+  function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
   property dsSaveLoad: IdsSaveLoad
-   read pm_GetdsSaveLoad;
+   read pm_GetDsSaveLoad;
   property dsChild: IdsChild
-   read pm_GetdsChild;
+   read pm_GetDsChild;
   property dsContents: IdsCommonDiction
-   read pm_GetdsContents;
+   read pm_GetDsContents;
    {* список толкований }
   property CurrentNode: INodeBase
    read Get_CurrentNode
    write Set_CurrentNode;
   property deCommonDiction: IdeCommonDiction
-   read Get_deCommonDiction;
+   read Get_DeCommonDiction;
+  property dsContentsRef: IvcmViewAreaControllerRef
+   read pm_GetDsContentsRef;
+   {* Ссылка на "список толкований" }
  end;//IsdsCommonDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

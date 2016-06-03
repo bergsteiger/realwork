@@ -51,7 +51,6 @@ type
    f_Scene: TvgScene;
    f_Background: TvgBackground;
    f_ProgressBar: TProgressBar;
-    {* Поле для свойства ProgressBar }
   protected
    f_Owner: InsProgressIndicator;
    f_Caption: Il3CString;
@@ -80,7 +79,11 @@ type
   public
    class function Make(const aProgress: InsProgressIndicator;
     const aCaption: Il3CString;
-    aMaxCount: Integer): IvcmEntityForm; reintroduce;
+    aMaxCount: Integer;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
   public
    property ProgressBar: TProgressBar
     read pm_GetProgressBar;
@@ -116,7 +119,7 @@ uses
  {$If NOT Defined(NoVGScene)}
  , vtVGSceneRes
  {$IfEnd} // NOT Defined(NoVGScene)
- , l3MessageID
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -158,15 +161,40 @@ end;//TPrimProgressIndicatorForm.VcmEntityFormRefCloseQuery
 
 class function TPrimProgressIndicatorForm.Make(const aProgress: InsProgressIndicator;
  const aCaption: Il3CString;
- aMaxCount: Integer): IvcmEntityForm;
+ aMaxCount: Integer;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimProgressIndicatorForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC6270C00E2_4A93F1980324_impl*
+   f_Owner := aProgress;
+   if (aCaption <> nil) then
+   begin
+    f_Caption := aCaption;
+    CCaption := f_Caption;
+   end//aCaption <> nil
+   else
+    f_Caption := CCaption;
+   ProgressBar.Max := aMaxCount;
+   f_SearchStarted := False;
+  //#UC END# *4AC6270C00E2_4A93F1980324_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimProgressIndicatorForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aProgress, aCaption, aMaxCount);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimProgressIndicatorForm.Make
 

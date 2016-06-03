@@ -158,7 +158,7 @@ end;//TPrimSynchroViewForm.SynchroView_BecomeActive_Execute
 
 procedure TPrimSynchroViewForm.SynchroView_BecomeActive(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISynchroView_BecomeActive_Params) do
+ with ISynchroView_BecomeActive_Params(aParams.Data) do
   Self.SynchroView_BecomeActive_Execute(FormType);
 end;//TPrimSynchroViewForm.SynchroView_BecomeActive
 

@@ -559,11 +559,82 @@ type
    Active: Boolean);
  end;//IdaUserStatusChangedSubscriber
 
+ IdaPriorityCalculator = interface
+  ['{54D81E14-3BE1-4038-A2D1-C9EC1498CDF2}']
+  function Calc(aUserId: TdaUserID;
+   out aImportPriority: TdaPriority;
+   out aExportPriority: TdaPriority): Boolean;
+ end;//IdaPriorityCalculator
+
+ IdaJoin = interface;
+
+ IdaFromClause = interface
+  ['{C7EE2637-8BC9-4AAB-8A68-2B9DFF78F136}']
+  function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
+  function HasTable(const aTable: IdaTableDescription): Boolean;
+  function FindTable(const aTableAlias: AnsiString): IdaFromTable;
+  function Join(const aRight: IdaFromClause;
+   aKind: TdaJoinKind): IdaJoin;
+  function IsRelationsConditionsValid: Boolean;
+  procedure IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
+  procedure IterateRelationConditionsF(anAction: daFromClauseIterator_IterateRelationConditionsF_Action);
+ end;//IdaFromClause
+
+ IdaJoin = interface
+  ['{E341F752-C828-41C0-B469-6B6E310C02D6}']
+  function Get_Left: IdaFromClause;
+  function Get_Right: IdaFromClause;
+  function Get_Kind: TdaJoinKind;
+  function Get_Condition: IdaCondition;
+  function SetCondition(const aCondition: IdaCondition): IdaFromClause;
+  property Left: IdaFromClause
+   read Get_Left;
+  property Right: IdaFromClause
+   read Get_Right;
+  property Kind: TdaJoinKind
+   read Get_Kind;
+  property Condition: IdaCondition
+   read Get_Condition;
+ end;//IdaJoin
+
+ IdaTableQueryFactory = interface
+  ['{158601ED-CBAB-4A68-975A-8A6590602F42}']
+  function Get_DataConverter: IdaDataConverter;
+  function MakeTabledQuery(const aFromClause: IdaFromClause): IdaTabledQuery;
+  function MakeSelectField(const aTableAlias: AnsiString;
+   const aField: IdaFieldDescription;
+   const anAlias: AnsiString = ''): IdaSelectField;
+  function MakeParamsCondition(const aTableAlias: AnsiString;
+   const aField: IdaFieldDescription;
+   anOperation: TdaCompareOperation;
+   const aParamName: AnsiString): IdaCondition;
+  function MakeLogicCondition(const aLeft: IdaCondition;
+   anOperation: TdaLogicOperation;
+   const aRight: IdaCondition): IdaCondition;
+  function MakeSubQueryCondition(const aTableAlias: AnsiString;
+   const aField: IdaFieldDescription;
+   const aQuery: IdaTabledQuery): IdaCondition;
+  function MakeSortField(const aSelectField: IdaSelectField;
+   aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
+  function MakeJoin(const aLeft: IdaFromClause;
+   const aRight: IdaFromClause;
+   aKind: TdaJoinKind): IdaJoin;
+  function MakeJoinCondition(const aLeftTableAlias: AnsiString;
+   const aLeftField: IdaFieldDescription;
+   const aRightTableAlias: AnsiString;
+   const aRightField: IdaFieldDescription): IdaCondition;
+  function MakeSimpleFromClause(const aTable: IdaTableDescription;
+   const anAlias: AnsiString = ''): IdaFromClause;
+  property DataConverter: IdaDataConverter
+   read Get_DataConverter;
+ end;//IdaTableQueryFactory
+
  IdaUserManager = interface
   ['{43BA4AB7-F7E0-4020-AD1B-A6807EBDFCE3}']
   function Get_AllUsers: Tl3StringDataList;
   function Get_AllGroups: Tl3StringDataList;
   function Get_ArchiUsersCount: Integer;
+  function Get_PriorityCalculator: IdaPriorityCalculator;
   function CheckPassword(const aLogin: AnsiString;
    const aPassword: AnsiString;
    RequireAdminRights: Boolean;
@@ -601,53 +672,29 @@ type
    read Get_AllGroups;
   property ArchiUsersCount: Integer
    read Get_ArchiUsersCount;
+  property PriorityCalculator: IdaPriorityCalculator
+   read Get_PriorityCalculator;
  end;//IdaUserManager
 
- IdaFromClause = interface
-  ['{C7EE2637-8BC9-4AAB-8A68-2B9DFF78F136}']
-  function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
-  function HasTable(const aTable: IdaTableDescription): Boolean;
-  function FindTable(const aTableAlias: AnsiString): IdaFromTable;
-  function Join(const aRight: IdaFromClause;
-   aKind: TdaJoinKind): IdaFromClause;
-  function IsRelationsConditionsValid: Boolean;
-  procedure IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
-  procedure IterateRelationConditionsF(anAction: daFromClauseIterator_IterateRelationConditionsF_Action);
- end;//IdaFromClause
+ IdaJoinCondition = interface
+  ['{C0AC23FD-5337-4744-862A-7D327D9E8FD7}']
+  function Get_Left: IdaFieldFromTable;
+  function Get_Right: IdaFieldFromTable;
+  property Left: IdaFieldFromTable
+   read Get_Left;
+  property Right: IdaFieldFromTable
+   read Get_Right;
+ end;//IdaJoinCondition
 
- IdaTableQueryFactory = interface
-  ['{158601ED-CBAB-4A68-975A-8A6590602F42}']
-  function Get_DataConverter: IdaDataConverter;
-  function MakeTabledQuery(const aTable: IdaTableDescription;
-   const anAlias: AnsiString = ''): IdaTabledQuery;
-  function MakeSelectField(const aTableAlias: AnsiString;
-   const aField: IdaFieldDescription;
-   const anAlias: AnsiString = ''): IdaSelectField;
-  function MakeParamsCondition(const aTableAlias: AnsiString;
-   const aField: IdaFieldDescription;
-   anOperation: TdaCompareOperation;
-   const aParamName: AnsiString): IdaCondition;
-  function MakeLogicCondition(const aLeft: IdaCondition;
-   anOperation: TdaLogicOperation;
-   const aRight: IdaCondition): IdaCondition;
-  function MakeSubQueryCondition(const aTableAlias: AnsiString;
-   const aField: IdaFieldDescription;
-   const aQuery: IdaTabledQuery): IdaCondition;
-  function MakeSortField(const aSelectField: IdaSelectField;
-   aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
-  function MakeJoin(const aLeft: IdaFromClause;
-   const aRight: IdaFromClause;
-   aKind: TdaJoinKind): IdaFromClause;
-  function MakeJoinCondition(const aLeftTableAlias: AnsiString;
-   const aLeftField: IdaFieldDescription;
-   const aRightTableAlias: AnsiString;
-   const aRightField: IdaFieldDescription): IdaCondition;
-  function MakeSimpleFromClause(const aTable: IdaTableDescription;
-   const anAlias: AnsiString): IdaFromClause;
-  function MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
-  property DataConverter: IdaDataConverter
-   read Get_DataConverter;
- end;//IdaTableQueryFactory
+ IdaComboAccessFromClauseHelper = interface
+  ['{A068C303-FD1D-40D0-8B0C-1F090322A00F}']
+  function Get_HTClause: IdaFromClause;
+  function Get_PGClause: IdaFromClause;
+  property HTClause: IdaFromClause
+   read Get_HTClause;
+  property PGClause: IdaFromClause
+   read Get_PGClause;
+ end;//IdaComboAccessFromClauseHelper
 
  IdaDataProvider = interface
   ['{CB4A320D-C320-42C5-AD66-8C45A9DD91AC}']
@@ -719,33 +766,6 @@ type
   property TextBase[aFamily: TdaFamilyID]: AnsiString
    read Get_TextBase;
  end;//IdaDataProvider
-
- IdaJoin = interface
-  ['{E341F752-C828-41C0-B469-6B6E310C02D6}']
-  function Get_Left: IdaFromClause;
-  function Get_Right: IdaFromClause;
-  function Get_Kind: TdaJoinKind;
-  function Get_Condition: IdaCondition;
-  function SetCondition(const aCondition: IdaCondition): IdaJoin;
-  property Left: IdaFromClause
-   read Get_Left;
-  property Right: IdaFromClause
-   read Get_Right;
-  property Kind: TdaJoinKind
-   read Get_Kind;
-  property Condition: IdaCondition
-   read Get_Condition;
- end;//IdaJoin
-
- IdaJoinCondition = interface
-  ['{C0AC23FD-5337-4744-862A-7D327D9E8FD7}']
-  function Get_Left: IdaFieldFromTable;
-  function Get_Right: IdaFieldFromTable;
-  property Left: IdaFieldFromTable
-   read Get_Left;
-  property Right: IdaFieldFromTable
-   read Get_Right;
- end;//IdaJoinCondition
 
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: Pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }

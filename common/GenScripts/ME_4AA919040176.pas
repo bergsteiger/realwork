@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_PrimMonitoringsMain_Form;
+unit PrimMonitoringsMain_Form;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NOT_COMPLETED_PrimMonitoringsMain_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimMonitoringsMain_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "PrimMonitoringsMain" MUID: (4AA919040176)
 // Имя типа: "TPrimMonitoringsMainForm"

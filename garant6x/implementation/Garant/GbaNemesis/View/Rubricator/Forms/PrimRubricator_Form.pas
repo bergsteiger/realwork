@@ -609,7 +609,7 @@ end;//TPrimRubricatorForm.Rubricator_SetListRoot_Execute
 
 procedure TPrimRubricatorForm.Rubricator_SetListRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IRubricator_SetListRoot_Params) do
+ with IRubricator_SetListRoot_Params(aParams.Data) do
   Self.Rubricator_SetListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
 end;//TPrimRubricatorForm.Rubricator_SetListRoot
 
@@ -632,7 +632,7 @@ end;//TPrimRubricatorForm.Rubricator_InitListRoot_Execute
 
 procedure TPrimRubricatorForm.Rubricator_InitListRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IRubricator_InitListRoot_Params) do
+ with IRubricator_InitListRoot_Params(aParams.Data) do
   Self.Rubricator_InitListRoot_Execute(Node, RootToKeep, MenuSectionItemToKeep);
 end;//TPrimRubricatorForm.Rubricator_InitListRoot
 
@@ -664,7 +664,7 @@ end;//TPrimRubricatorForm.Rubricator_GetRoot_Execute
 
 procedure TPrimRubricatorForm.Rubricator_GetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IRubricator_GetRoot_Params) do
+ with IRubricator_GetRoot_Params(aParams.Data) do
   ResultValue := Self.Rubricator_GetRoot_Execute;
 end;//TPrimRubricatorForm.Rubricator_GetRoot
 

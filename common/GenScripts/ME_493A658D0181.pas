@@ -43,8 +43,8 @@ type
    function MakeData: _SetDataType_; override;
     {* Данные сборки. }
    {$IfEnd} // NOT Defined(NoVCM)
-   function pm_GetdsFirmList: IdsMedicFirmList;
-   function pm_GetdsSynchroView: IdsMedicFirmListSynchroView;
+   function pm_GetDsFirmList: IdsMedicFirmList;
+   function pm_GetDsSynchroView: IdsMedicFirmListSynchroView;
    procedure OpenAttributes;
     {* Открывает ViewArea "атрибуты документа" }
    function pm_GetIsAttributesActive: Boolean;
@@ -132,23 +132,23 @@ begin
 end;//TsdsMedicFirmList.MakeData
 {$IfEnd} // NOT Defined(NoVCM)
 
-function TsdsMedicFirmList.pm_GetdsFirmList: IdsMedicFirmList;
+function TsdsMedicFirmList.pm_GetDsFirmList: IdsMedicFirmList;
 //#UC START# *500D3DC401D9_493A658D0181get_var*
 //#UC END# *500D3DC401D9_493A658D0181get_var*
 begin
 //#UC START# *500D3DC401D9_493A658D0181get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3DC401D9_493A658D0181get_impl*
-end;//TsdsMedicFirmList.pm_GetdsFirmList
+end;//TsdsMedicFirmList.pm_GetDsFirmList
 
-function TsdsMedicFirmList.pm_GetdsSynchroView: IdsMedicFirmListSynchroView;
+function TsdsMedicFirmList.pm_GetDsSynchroView: IdsMedicFirmListSynchroView;
 //#UC START# *500D3E05033F_493A658D0181get_var*
 //#UC END# *500D3E05033F_493A658D0181get_var*
 begin
 //#UC START# *500D3E05033F_493A658D0181get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3E05033F_493A658D0181get_impl*
-end;//TsdsMedicFirmList.pm_GetdsSynchroView
+end;//TsdsMedicFirmList.pm_GetDsSynchroView
 
 procedure TsdsMedicFirmList.OpenAttributes;
  {* Открывает ViewArea "атрибуты документа" }

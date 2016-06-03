@@ -92,7 +92,7 @@ end;//TPrimFoldersInfoForm.AdditionInfo_Close_Execute
 
 procedure TPrimFoldersInfoForm.AdditionInfo_Close(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAdditionInfo_Close_Params) do
+ with IAdditionInfo_Close_Params(aParams.Data) do
   Self.AdditionInfo_Close_Execute(ModalResult);
 end;//TPrimFoldersInfoForm.AdditionInfo_Close
 
@@ -107,7 +107,7 @@ end;//TPrimFoldersInfoForm.FolderElement_SetState_Execute
 
 procedure TPrimFoldersInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolderElement_SetState_Params) do
+ with IFolderElement_SetState_Params(aParams.Data) do
   Self.FolderElement_SetState_Execute(InfoType);
 end;//TPrimFoldersInfoForm.FolderElement_SetState
 

@@ -22,6 +22,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtLabel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -30,9 +33,6 @@ uses
  , vtCheckBox
  , vtComboBoxQS
  , vtColorBox
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -72,95 +72,65 @@ type
   private
    f_UpdateLockCount: Integer;
    f_FontScrollBox: TScrollBox;
-    {* Поле для свойства FontScrollBox }
    f_FontUnderlineLabel: TvtLabel;
-    {* Поле для свойства FontUnderlineLabel }
+    {* Подчеркнутый }
    f_FontStrikeoutLabel: TvtLabel;
-    {* Поле для свойства FontStrikeoutLabel }
+    {* Перечеркнутый }
    f_FontSizeLabel: TvtLabel;
-    {* Поле для свойства FontSizeLabel }
+    {* Размер }
    f_FontNameLabel: TvtLabel;
-    {* Поле для свойства FontNameLabel }
+    {* Название }
    f_FontItalicLabel: TvtLabel;
-    {* Поле для свойства FontItalicLabel }
+    {* Наклонный }
    f_FontForeColorLabel: TvtLabel;
-    {* Поле для свойства FontForeColorLabel }
+    {* Цвет }
    f_FontBoldLabel: TvtLabel;
-    {* Поле для свойства FontBoldLabel }
+    {* Жирный }
    f_FontBackColorLabel: TvtLabel;
-    {* Поле для свойства FontBackColorLabel }
+    {* Фон }
    f_FontScalableLabel: TvtLabel;
-    {* Поле для свойства FontScalableLabel }
+    {* Масштабируемый }
    f_FontScalableBevel: TBevel;
-    {* Поле для свойства FontScalableBevel }
    f_FontStrikeoutInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontStrikeoutInheritanceButton }
    f_FontSizeInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontSizeInheritanceButton }
    f_FontNameInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontNameInheritanceButton }
    f_FontItalicInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontItalicInheritanceButton }
    f_FontForeColorInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontForeColorInheritanceButton }
    f_FontBoldInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontBoldInheritanceButton }
    f_FontBackColorInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontBackColorInheritanceButton }
    f_FontUnderlineInheritanceButton: TElPopupButton;
-    {* Поле для свойства FontUnderlineInheritanceButton }
    f_FontUnderlineCheckBox: TvtCheckBox;
-    {* Поле для свойства FontUnderlineCheckBox }
    f_FontStrikeoutCheckBox: TvtCheckBox;
-    {* Поле для свойства FontStrikeoutCheckBox }
    f_FontSizeComboBox: TvtComboBoxQS;
-    {* Поле для свойства FontSizeComboBox }
    f_FontNameComboBox: TvtComboBoxQS;
-    {* Поле для свойства FontNameComboBox }
    f_FontItalicCheckBox: TvtCheckBox;
-    {* Поле для свойства FontItalicCheckBox }
    f_FontForeColorBox: TvtColorBox;
-    {* Поле для свойства FontForeColorBox }
    f_FontBoldCheckBox: TvtCheckBox;
-    {* Поле для свойства FontBoldCheckBox }
    f_FontBackColorBox: TvtColorBox;
-    {* Поле для свойства FontBackColorBox }
    f_FontScalableCheckBox: TvtCheckBox;
-    {* Поле для свойства FontScalableCheckBox }
    f_LeftIndentLabel: TvtLabel;
-    {* Поле для свойства LeftIndentLabel }
+    {* Отступ слева }
    f_LeftIndentComboBox: TvtComboBoxQS;
-    {* Поле для свойства LeftIndentComboBox }
    f_RightIndentLabel: TvtLabel;
-    {* Поле для свойства RightIndentLabel }
+    {* Отступ справа }
    f_RightIndentComboBox: TvtComboBoxQS;
-    {* Поле для свойства RightIndentComboBox }
    f_FirstIndentLabel: TvtLabel;
-    {* Поле для свойства FirstIndentLabel }
+    {* Красная строка }
    f_FirstIndentComboBox: TvtComboBoxQS;
-    {* Поле для свойства FirstIndentComboBox }
    f_SpaceBeforeLabel: TvtLabel;
-    {* Поле для свойства SpaceBeforeLabel }
+    {* Отступ до текста }
    f_SpaceBeforeComboBox: TvtComboBoxQS;
-    {* Поле для свойства SpaceBeforeComboBox }
    f_SpaceAfterLabel: TvtLabel;
-    {* Поле для свойства SpaceAfterLabel }
+    {* Отступ после текста }
    f_SpaceAfterComboBox: TvtComboBoxQS;
-    {* Поле для свойства SpaceAfterComboBox }
    f_LeftIndentInheritanceButton: TElPopupButton;
-    {* Поле для свойства LeftIndentInheritanceButton }
    f_RightIndentInheritanceButton: TElPopupButton;
-    {* Поле для свойства RightIndentInheritanceButton }
    f_FirstIndentInheritanceButton: TElPopupButton;
-    {* Поле для свойства FirstIndentInheritanceButton }
    f_SpaceBeforeInheritanceButton: TElPopupButton;
-    {* Поле для свойства SpaceBeforeInheritanceButton }
    f_SpaceAfterInheritanceButton: TElPopupButton;
-    {* Поле для свойства SpaceAfterInheritanceButton }
    f_StyleCaptionLabel: TvtLabel;
-    {* Поле для свойства StyleCaptionLabel }
+    {* Заголовок стиля }
    f_StyleCaptionComboBox: TvtComboBoxQS;
-    {* Поле для свойства StyleCaptionComboBox }
   protected
    f_SettingsInfo: InsStyleTableSettingsInfo;
    f_StyleInterface: TevStyleInterface;
@@ -241,7 +211,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    procedure StyleEditor_RestoreStyleTable_Execute(aRestoreDefault: Boolean);
    procedure StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
    procedure StyleEditor_SaveStyleTable_Execute(aSaveAsDefault: Boolean);
@@ -363,8 +337,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3MessageID
  , l3StringIDEx
+ , l3MessageID
  , nsTypes
  , Graphics
  {$If NOT Defined(NoVCL)}
@@ -397,6 +371,10 @@ uses
  , l3ScreenIC
  , l3Units
  , l3Interlocked
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -410,24 +388,40 @@ uses
 {$If NOT Defined(NoVCM)}
 const
  {* Локализуемые строки  }
- str_ValueIsGreaterThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsGreaterThan'; rValue : 'Значение не может быть больше чем %d');
-  {* 'Значение не может быть больше чем %d' }
- str_ValueIsLessThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsLessThan'; rValue : 'Значение не может быть меньше чем %d');
-  {* 'Значение не может быть меньше чем %d' }
  str_InheritanceButtonHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonHint'; rValue : 'Тип наследования (Собственное, Родительское, Прозрачное)');
   {* 'Тип наследования (Собственное, Родительское, Прозрачное)' }
  str_InheritanceButtonNoTransparentHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'InheritanceButtonNoTransparentHint'; rValue : 'Тип наследования (Собственное, Родительское)');
   {* 'Тип наследования (Собственное, Родительское)' }
+ str_ValueIsGreaterThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsGreaterThan'; rValue : 'Значение не может быть больше чем %d');
+  {* 'Значение не может быть больше чем %d' }
+ str_ValueIsLessThan: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'ValueIsLessThan'; rValue : 'Значение не может быть меньше чем %d');
+  {* 'Значение не может быть меньше чем %d' }
 
-class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm;
+class function TPrimStyleEditorFontForm.Make(const aData: InsStyleTableSettingsInfo;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimStyleEditorFontForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AE06B9B01B9_4AC642480314_impl*
+   f_SettingsInfo := aData;
+  //#UC END# *4AE06B9B01B9_4AC642480314_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimStyleEditorFontForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimStyleEditorFontForm.Make
 
@@ -1589,7 +1583,7 @@ end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_RestoreStyleTable_Params) do
+ with IStyleEditor_RestoreStyleTable_Params(aParams.Data) do
   Self.StyleEditor_RestoreStyleTable_Execute(RestoreDefault);
 end;//TPrimStyleEditorFontForm.StyleEditor_RestoreStyleTable
 
@@ -1604,7 +1598,7 @@ end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_SaveStyleTable_Params) do
+ with IStyleEditor_SaveStyleTable_Params(aParams.Data) do
   Self.StyleEditor_SaveStyleTable_Execute(SaveAsDefault);
 end;//TPrimStyleEditorFontForm.StyleEditor_SaveStyleTable
 
@@ -1619,7 +1613,7 @@ end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent_Execute
 
 procedure TPrimStyleEditorFontForm.StyleEditor_SetNewContent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IStyleEditor_SetNewContent_Params) do
+ with IStyleEditor_SetNewContent_Params(aParams.Data) do
   Self.StyleEditor_SetNewContent_Execute(StyleID);
 end;//TPrimStyleEditorFontForm.StyleEditor_SetNewContent
 
@@ -2441,16 +2435,16 @@ begin
 end;//TPrimStyleEditorFontForm.MakeControls
 
 initialization
+ str_InheritanceButtonHint.Init;
+ {* Инициализация str_InheritanceButtonHint }
+ str_InheritanceButtonNoTransparentHint.Init;
+ {* Инициализация str_InheritanceButtonNoTransparentHint }
  str_ValueIsGreaterThan.Init;
  str_ValueIsGreaterThan.SetDlgType(mtWarning);
  {* Инициализация str_ValueIsGreaterThan }
  str_ValueIsLessThan.Init;
  str_ValueIsLessThan.SetDlgType(mtWarning);
  {* Инициализация str_ValueIsLessThan }
- str_InheritanceButtonHint.Init;
- {* Инициализация str_InheritanceButtonHint }
- str_InheritanceButtonNoTransparentHint.Init;
- {* Инициализация str_InheritanceButtonNoTransparentHint }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorFontForm);
  {* Регистрация PrimStyleEditorFont }

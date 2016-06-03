@@ -16,6 +16,20 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Chat = 'Chat';
+ en_capChat = 'Чат';
+ op_ClearHistory = 'ClearHistory';
+ op_capClearHistory = 'Очистить историю';
+ op_History = 'History';
+ op_capHistory = '';
+ op_UserFilter = 'UserFilter';
+ op_capUserFilter = '';
+ op_OpenChatWindow = 'OpenChatWindow';
+ op_capOpenChatWindow = '';
+ op_Add = 'Add';
+ op_capAdd = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

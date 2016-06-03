@@ -49,21 +49,21 @@ type
 'aControl' форма::PostingsList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PostingsList_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PostingsList';
-end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
-
 function Tkw_Form_PostingsList_ID.GetString: AnsiString;
 begin
  Result := 'enPostingsList';
 end;//Tkw_Form_PostingsList_ID.GetString
+
+class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::PostingsList';
+end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

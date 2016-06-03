@@ -25,7 +25,6 @@ uses
 type
  IRubricator_SetListRoot_Params = interface
   {* Параметры для операции Rubricator.SetListRoot }
-  ['{08AEB6DA-F51C-4D30-871E-FF19E1935A99}']
   function Get_Node: Il3SimpleNode;
   function Get_RootToKeep: INodeBase;
   function Get_MenuSectionItemToKeep: ISectionItem;
@@ -37,7 +36,7 @@ type
    read Get_MenuSectionItemToKeep;
  end;//IRubricator_SetListRoot_Params
 
- Op_Rubricator_SetListRoot = class
+ Op_Rubricator_SetListRoot = {final} class
   {* Класс для вызова операции Rubricator.SetListRoot }
   public
    class function Call(const aTarget: IvcmEntity;
@@ -64,7 +63,6 @@ type
 
  IRubricator_InitListRoot_Params = interface
   {* Параметры для операции Rubricator.InitListRoot }
-  ['{A4493419-E50F-4EFC-9B58-CA180C218275}']
   function Get_Node: Il3SimpleNode;
   function Get_RootToKeep: INodeBase;
   function Get_MenuSectionItemToKeep: ISectionItem;
@@ -76,7 +74,7 @@ type
    read Get_MenuSectionItemToKeep;
  end;//IRubricator_InitListRoot_Params
 
- Op_Rubricator_InitListRoot = class
+ Op_Rubricator_InitListRoot = {final} class
   {* Класс для вызова операции Rubricator.InitListRoot }
   public
    class function Call(const aTarget: IvcmEntity;
@@ -101,7 +99,7 @@ type
     {* Вызов операции Rubricator.InitListRoot у контейнера }
  end;//Op_Rubricator_InitListRoot
 
- Op_Rubricator_Synchronize = class
+ Op_Rubricator_Synchronize = {final} class
   {* Класс для вызова операции Rubricator.Synchronize }
   public
    class function Call(const aTarget: IvcmEntity): Boolean; overload;
@@ -116,7 +114,6 @@ type
 
  IRubricator_GetRoot_Params = interface
   {* Параметры для операции Rubricator.GetRoot }
-  ['{E6D245F3-C0B0-41E0-AAD9-9913FA991580}']
   function Get_ResultValue: Il3SimpleNode;
   procedure Set_ResultValue(const aValue: Il3SimpleNode);
   property ResultValue: Il3SimpleNode
@@ -124,7 +121,7 @@ type
    write Set_ResultValue;
  end;//IRubricator_GetRoot_Params
 
- Op_Rubricator_GetRoot = class
+ Op_Rubricator_GetRoot = {final} class
   {* Класс для вызова операции Rubricator.GetRoot }
   public
    class function Call(const aTarget: IvcmEntity): Il3SimpleNode; overload;
@@ -136,6 +133,18 @@ type
    class function Call(const aTarget: IvcmContainer): Il3SimpleNode; overload;
     {* Вызов операции Rubricator.GetRoot у контейнера }
  end;//Op_Rubricator_GetRoot
+
+const
+ en_Rubricator = 'Rubricator';
+ en_capRubricator = '';
+ op_SetListRoot = 'SetListRoot';
+ op_capSetListRoot = '';
+ op_InitListRoot = 'InitListRoot';
+ op_capInitListRoot = '';
+ op_Synchronize = 'Synchronize';
+ op_capSynchronize = '';
+ op_GetRoot = 'GetRoot';
+ op_capGetRoot = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -144,54 +153,57 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- TRubricator_SetListRoot_Params = class(Tl3CProtoObject, IRubricator_SetListRoot_Params)
+ TRubricator_SetListRoot_Params = {final} class(Tl3CProtoObject, IRubricator_SetListRoot_Params)
   {* Реализация IRubricator_SetListRoot_Params }
   private
    f_Node: Il3SimpleNode;
    f_RootToKeep: INodeBase;
    f_MenuSectionItemToKeep: ISectionItem;
   protected
-   function Get_MenuSectionItemToKeep: ISectionItem;
-   function Get_RootToKeep: INodeBase;
    function Get_Node: Il3SimpleNode;
+   function Get_RootToKeep: INodeBase;
+   function Get_MenuSectionItemToKeep: ISectionItem;
    procedure ClearFields; override;
   public
    constructor Create(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem); reintroduce;
-    {* Конструктор TRubricator_SetListRoot_Params }
    class function Make(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem): IRubricator_SetListRoot_Params; reintroduce;
-    {* Фабрика TRubricator_SetListRoot_Params }
  end;//TRubricator_SetListRoot_Params
 
- TRubricator_InitListRoot_Params = class(Tl3CProtoObject, IRubricator_InitListRoot_Params)
+ TRubricator_InitListRoot_Params = {final} class(Tl3CProtoObject, IRubricator_InitListRoot_Params)
   {* Реализация IRubricator_InitListRoot_Params }
   private
    f_Node: Il3SimpleNode;
    f_RootToKeep: INodeBase;
    f_MenuSectionItemToKeep: ISectionItem;
   protected
+   function Get_Node: Il3SimpleNode;
    function Get_RootToKeep: INodeBase;
    function Get_MenuSectionItemToKeep: ISectionItem;
-   function Get_Node: Il3SimpleNode;
    procedure ClearFields; override;
   public
    constructor Create(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem); reintroduce;
-    {* Конструктор TRubricator_InitListRoot_Params }
    class function Make(const aNode: Il3SimpleNode;
     const aRootToKeep: INodeBase;
     const aMenuSectionItemToKeep: ISectionItem): IRubricator_InitListRoot_Params; reintroduce;
-    {* Фабрика TRubricator_InitListRoot_Params }
  end;//TRubricator_InitListRoot_Params
 
- TRubricator_GetRoot_Params = class(Tl3CProtoObject, IRubricator_GetRoot_Params)
+ TRubricator_GetRoot_Params = {final} class(Tl3CProtoObject, IRubricator_GetRoot_Params)
   {* Реализация IRubricator_GetRoot_Params }
   private
    f_ResultValue: Il3SimpleNode;
@@ -200,28 +212,22 @@ type
    procedure Set_ResultValue(const aValue: Il3SimpleNode);
    procedure ClearFields; override;
   public
-   constructor Create; reintroduce;
-    {* Конструктор TRubricator_GetRoot_Params }
    class function Make: IRubricator_GetRoot_Params; reintroduce;
-    {* Фабрика TRubricator_GetRoot_Params }
  end;//TRubricator_GetRoot_Params
 
 constructor TRubricator_SetListRoot_Params.Create(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem);
- {* Конструктор TRubricator_SetListRoot_Params }
-//#UC START# *FE5ABE7677C2_A7ACC8300BF9_var*
-//#UC END# *FE5ABE7677C2_A7ACC8300BF9_var*
 begin
-//#UC START# *FE5ABE7677C2_A7ACC8300BF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FE5ABE7677C2_A7ACC8300BF9_impl*
+ inherited Create;
+ f_Node := aNode;
+ f_RootToKeep := aRootToKeep;
+ f_MenuSectionItemToKeep := aMenuSectionItemToKeep;
 end;//TRubricator_SetListRoot_Params.Create
 
 class function TRubricator_SetListRoot_Params.Make(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): IRubricator_SetListRoot_Params;
- {* Фабрика TRubricator_SetListRoot_Params }
 var
  l_Inst : TRubricator_SetListRoot_Params;
 begin
@@ -233,32 +239,20 @@ begin
  end;//try..finally
 end;//TRubricator_SetListRoot_Params.Make
 
-function TRubricator_SetListRoot_Params.Get_MenuSectionItemToKeep: ISectionItem;
-//#UC START# *7642365480E3_A7ACC8300BF9get_var*
-//#UC END# *7642365480E3_A7ACC8300BF9get_var*
+function TRubricator_SetListRoot_Params.Get_Node: Il3SimpleNode;
 begin
-//#UC START# *7642365480E3_A7ACC8300BF9get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7642365480E3_A7ACC8300BF9get_impl*
-end;//TRubricator_SetListRoot_Params.Get_MenuSectionItemToKeep
+ Result := f_Node;
+end;//TRubricator_SetListRoot_Params.Get_Node
 
 function TRubricator_SetListRoot_Params.Get_RootToKeep: INodeBase;
-//#UC START# *BDF6495DCDAE_A7ACC8300BF9get_var*
-//#UC END# *BDF6495DCDAE_A7ACC8300BF9get_var*
 begin
-//#UC START# *BDF6495DCDAE_A7ACC8300BF9get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BDF6495DCDAE_A7ACC8300BF9get_impl*
+ Result := f_RootToKeep;
 end;//TRubricator_SetListRoot_Params.Get_RootToKeep
 
-function TRubricator_SetListRoot_Params.Get_Node: Il3SimpleNode;
-//#UC START# *FF658FE3F542_A7ACC8300BF9get_var*
-//#UC END# *FF658FE3F542_A7ACC8300BF9get_var*
+function TRubricator_SetListRoot_Params.Get_MenuSectionItemToKeep: ISectionItem;
 begin
-//#UC START# *FF658FE3F542_A7ACC8300BF9get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FF658FE3F542_A7ACC8300BF9get_impl*
-end;//TRubricator_SetListRoot_Params.Get_Node
+ Result := f_MenuSectionItemToKeep;
+end;//TRubricator_SetListRoot_Params.Get_MenuSectionItemToKeep
 
 procedure TRubricator_SetListRoot_Params.ClearFields;
 begin
@@ -273,12 +267,22 @@ class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmEntity;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.SetListRoot у сущности }
-//#UC START# *48AC881B1007_3266791D2583_var*
-//#UC END# *48AC881B1007_3266791D2583_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *48AC881B1007_3266791D2583_impl*
- !!! Needs to be implemented !!!
-//#UC END# *48AC881B1007_3266791D2583_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_SetListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_SetListRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_SetListRoot.Call
 
 class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmAggregate;
@@ -286,12 +290,22 @@ class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmAggregate;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.SetListRoot у агрегации }
-//#UC START# *78EC48099A57_3266791D2583_var*
-//#UC END# *78EC48099A57_3266791D2583_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *78EC48099A57_3266791D2583_impl*
- !!! Needs to be implemented !!!
-//#UC END# *78EC48099A57_3266791D2583_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_SetListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_SetListRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_SetListRoot.Call
 
 class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmEntityForm;
@@ -299,12 +313,10 @@ class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmEntityForm;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.SetListRoot у формы }
-//#UC START# *C75C9E1570AD_3266791D2583_var*
-//#UC END# *C75C9E1570AD_3266791D2583_var*
 begin
-//#UC START# *C75C9E1570AD_3266791D2583_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C75C9E1570AD_3266791D2583_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity, aNode, aRootToKeep, aMenuSectionItemToKeep);
 end;//Op_Rubricator_SetListRoot.Call
 
 class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmContainer;
@@ -312,30 +324,25 @@ class function Op_Rubricator_SetListRoot.Call(const aTarget: IvcmContainer;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.SetListRoot у контейнера }
-//#UC START# *E192AE0A4E35_3266791D2583_var*
-//#UC END# *E192AE0A4E35_3266791D2583_var*
 begin
-//#UC START# *E192AE0A4E35_3266791D2583_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E192AE0A4E35_3266791D2583_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm, aNode, aRootToKeep, aMenuSectionItemToKeep);
 end;//Op_Rubricator_SetListRoot.Call
 
 constructor TRubricator_InitListRoot_Params.Create(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem);
- {* Конструктор TRubricator_InitListRoot_Params }
-//#UC START# *17E12CFCA1E2_4FD3A4102DB6_var*
-//#UC END# *17E12CFCA1E2_4FD3A4102DB6_var*
 begin
-//#UC START# *17E12CFCA1E2_4FD3A4102DB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *17E12CFCA1E2_4FD3A4102DB6_impl*
+ inherited Create;
+ f_Node := aNode;
+ f_RootToKeep := aRootToKeep;
+ f_MenuSectionItemToKeep := aMenuSectionItemToKeep;
 end;//TRubricator_InitListRoot_Params.Create
 
 class function TRubricator_InitListRoot_Params.Make(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): IRubricator_InitListRoot_Params;
- {* Фабрика TRubricator_InitListRoot_Params }
 var
  l_Inst : TRubricator_InitListRoot_Params;
 begin
@@ -347,32 +354,20 @@ begin
  end;//try..finally
 end;//TRubricator_InitListRoot_Params.Make
 
-function TRubricator_InitListRoot_Params.Get_RootToKeep: INodeBase;
-//#UC START# *27E61DE967EE_4FD3A4102DB6get_var*
-//#UC END# *27E61DE967EE_4FD3A4102DB6get_var*
+function TRubricator_InitListRoot_Params.Get_Node: Il3SimpleNode;
 begin
-//#UC START# *27E61DE967EE_4FD3A4102DB6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *27E61DE967EE_4FD3A4102DB6get_impl*
+ Result := f_Node;
+end;//TRubricator_InitListRoot_Params.Get_Node
+
+function TRubricator_InitListRoot_Params.Get_RootToKeep: INodeBase;
+begin
+ Result := f_RootToKeep;
 end;//TRubricator_InitListRoot_Params.Get_RootToKeep
 
 function TRubricator_InitListRoot_Params.Get_MenuSectionItemToKeep: ISectionItem;
-//#UC START# *7177F3DE7453_4FD3A4102DB6get_var*
-//#UC END# *7177F3DE7453_4FD3A4102DB6get_var*
 begin
-//#UC START# *7177F3DE7453_4FD3A4102DB6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7177F3DE7453_4FD3A4102DB6get_impl*
+ Result := f_MenuSectionItemToKeep;
 end;//TRubricator_InitListRoot_Params.Get_MenuSectionItemToKeep
-
-function TRubricator_InitListRoot_Params.Get_Node: Il3SimpleNode;
-//#UC START# *E86249C3E69F_4FD3A4102DB6get_var*
-//#UC END# *E86249C3E69F_4FD3A4102DB6get_var*
-begin
-//#UC START# *E86249C3E69F_4FD3A4102DB6get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E86249C3E69F_4FD3A4102DB6get_impl*
-end;//TRubricator_InitListRoot_Params.Get_Node
 
 procedure TRubricator_InitListRoot_Params.ClearFields;
 begin
@@ -387,12 +382,22 @@ class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmEntity;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.InitListRoot у сущности }
-//#UC START# *64F3B69EBA84_A043500A3603_var*
-//#UC END# *64F3B69EBA84_A043500A3603_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *64F3B69EBA84_A043500A3603_impl*
- !!! Needs to be implemented !!!
-//#UC END# *64F3B69EBA84_A043500A3603_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_InitListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_InitListRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_InitListRoot.Call
 
 class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmAggregate;
@@ -400,12 +405,22 @@ class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmAggregate;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.InitListRoot у агрегации }
-//#UC START# *47F7738244D5_A043500A3603_var*
-//#UC END# *47F7738244D5_A043500A3603_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *47F7738244D5_A043500A3603_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47F7738244D5_A043500A3603_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_InitListRoot_Params.Make(aNode, aRootToKeep, aMenuSectionItemToKeep));
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_InitListRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_InitListRoot.Call
 
 class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmEntityForm;
@@ -413,12 +428,10 @@ class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmEntityForm;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.InitListRoot у формы }
-//#UC START# *E9BEF4197897_A043500A3603_var*
-//#UC END# *E9BEF4197897_A043500A3603_var*
 begin
-//#UC START# *E9BEF4197897_A043500A3603_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E9BEF4197897_A043500A3603_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity, aNode, aRootToKeep, aMenuSectionItemToKeep);
 end;//Op_Rubricator_InitListRoot.Call
 
 class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmContainer;
@@ -426,66 +439,69 @@ class function Op_Rubricator_InitListRoot.Call(const aTarget: IvcmContainer;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem): Boolean;
  {* Вызов операции Rubricator.InitListRoot у контейнера }
-//#UC START# *2FC19F16AEA1_A043500A3603_var*
-//#UC END# *2FC19F16AEA1_A043500A3603_var*
 begin
-//#UC START# *2FC19F16AEA1_A043500A3603_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2FC19F16AEA1_A043500A3603_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm, aNode, aRootToKeep, aMenuSectionItemToKeep);
 end;//Op_Rubricator_InitListRoot.Call
 
 class function Op_Rubricator_Synchronize.Call(const aTarget: IvcmEntity): Boolean;
  {* Вызов операции Rubricator.Synchronize у сущности }
-//#UC START# *8AE25AEF3C2C_32C843315381_var*
-//#UC END# *8AE25AEF3C2C_32C843315381_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *8AE25AEF3C2C_32C843315381_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8AE25AEF3C2C_32C843315381_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_Synchronize, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_Synchronize.Call
 
 class function Op_Rubricator_Synchronize.Call(const aTarget: IvcmAggregate): Boolean;
  {* Вызов операции Rubricator.Synchronize у агрегации }
-//#UC START# *BB221ADEC67C_32C843315381_var*
-//#UC END# *BB221ADEC67C_32C843315381_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *BB221ADEC67C_32C843315381_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BB221ADEC67C_32C843315381_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_Synchronize, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_Synchronize.Call
 
 class function Op_Rubricator_Synchronize.Call(const aTarget: IvcmEntityForm): Boolean;
  {* Вызов операции Rubricator.Synchronize у формы }
-//#UC START# *7525D8C21A16_32C843315381_var*
-//#UC END# *7525D8C21A16_32C843315381_var*
 begin
-//#UC START# *7525D8C21A16_32C843315381_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7525D8C21A16_32C843315381_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity);
 end;//Op_Rubricator_Synchronize.Call
 
 class function Op_Rubricator_Synchronize.Call(const aTarget: IvcmContainer): Boolean;
  {* Вызов операции Rubricator.Synchronize у контейнера }
-//#UC START# *1A8909936035_32C843315381_var*
-//#UC END# *1A8909936035_32C843315381_var*
 begin
-//#UC START# *1A8909936035_32C843315381_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1A8909936035_32C843315381_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm);
 end;//Op_Rubricator_Synchronize.Call
 
-constructor TRubricator_GetRoot_Params.Create;
- {* Конструктор TRubricator_GetRoot_Params }
-//#UC START# *16908252C187_5F95D6966545_var*
-//#UC END# *16908252C187_5F95D6966545_var*
-begin
-//#UC START# *16908252C187_5F95D6966545_impl*
- !!! Needs to be implemented !!!
-//#UC END# *16908252C187_5F95D6966545_impl*
-end;//TRubricator_GetRoot_Params.Create
-
 class function TRubricator_GetRoot_Params.Make: IRubricator_GetRoot_Params;
- {* Фабрика TRubricator_GetRoot_Params }
 var
  l_Inst : TRubricator_GetRoot_Params;
 begin
@@ -498,21 +514,13 @@ begin
 end;//TRubricator_GetRoot_Params.Make
 
 function TRubricator_GetRoot_Params.Get_ResultValue: Il3SimpleNode;
-//#UC START# *2FC37EEDF50A_5F95D6966545get_var*
-//#UC END# *2FC37EEDF50A_5F95D6966545get_var*
 begin
-//#UC START# *2FC37EEDF50A_5F95D6966545get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2FC37EEDF50A_5F95D6966545get_impl*
+ Result := f_ResultValue;
 end;//TRubricator_GetRoot_Params.Get_ResultValue
 
 procedure TRubricator_GetRoot_Params.Set_ResultValue(const aValue: Il3SimpleNode);
-//#UC START# *2FC37EEDF50A_5F95D6966545set_var*
-//#UC END# *2FC37EEDF50A_5F95D6966545set_var*
 begin
-//#UC START# *2FC37EEDF50A_5F95D6966545set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2FC37EEDF50A_5F95D6966545set_impl*
+ f_ResultValue := aValue;
 end;//TRubricator_GetRoot_Params.Set_ResultValue
 
 procedure TRubricator_GetRoot_Params.ClearFields;
@@ -523,42 +531,58 @@ end;//TRubricator_GetRoot_Params.ClearFields
 
 class function Op_Rubricator_GetRoot.Call(const aTarget: IvcmEntity): Il3SimpleNode;
  {* Вызов операции Rubricator.GetRoot у сущности }
-//#UC START# *563B1DF53759_B82060518628_var*
-//#UC END# *563B1DF53759_B82060518628_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *563B1DF53759_B82060518628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *563B1DF53759_B82060518628_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_GetRoot_Params.Make);
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_GetRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IRubricator_GetRoot_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_GetRoot.Call
 
 class function Op_Rubricator_GetRoot.Call(const aTarget: IvcmAggregate): Il3SimpleNode;
  {* Вызов операции Rubricator.GetRoot у агрегации }
-//#UC START# *867ADDE3C1A9_B82060518628_var*
-//#UC END# *867ADDE3C1A9_B82060518628_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *867ADDE3C1A9_B82060518628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *867ADDE3C1A9_B82060518628_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TRubricator_GetRoot_Params.Make);
+  aTarget.Operation(TdmStdRes.opcode_Rubricator_GetRoot, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IRubricator_GetRoot_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Rubricator_GetRoot.Call
 
 class function Op_Rubricator_GetRoot.Call(const aTarget: IvcmEntityForm): Il3SimpleNode;
  {* Вызов операции Rubricator.GetRoot у формы }
-//#UC START# *40233499B40B_B82060518628_var*
-//#UC END# *40233499B40B_B82060518628_var*
 begin
-//#UC START# *40233499B40B_B82060518628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *40233499B40B_B82060518628_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity);
 end;//Op_Rubricator_GetRoot.Call
 
 class function Op_Rubricator_GetRoot.Call(const aTarget: IvcmContainer): Il3SimpleNode;
  {* Вызов операции Rubricator.GetRoot у контейнера }
-//#UC START# *19FE5D7DF53B_B82060518628_var*
-//#UC END# *19FE5D7DF53B_B82060518628_var*
 begin
-//#UC START# *19FE5D7DF53B_B82060518628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *19FE5D7DF53B_B82060518628_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm);
 end;//Op_Rubricator_GetRoot.Call
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

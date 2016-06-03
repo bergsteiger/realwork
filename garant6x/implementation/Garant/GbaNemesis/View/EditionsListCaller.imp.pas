@@ -62,7 +62,7 @@ end;//_EditionsListCaller_.Redactions_RedactionOnID_Execute
 
 procedure _EditionsListCaller_.Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IRedactions_RedactionOnID_Params) do
+ with IRedactions_RedactionOnID_Params(aParams.Data) do
   Self.Redactions_RedactionOnID_Execute(RedactionID);
 end;//_EditionsListCaller_.Redactions_RedactionOnID
 

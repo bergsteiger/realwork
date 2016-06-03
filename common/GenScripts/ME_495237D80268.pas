@@ -19,6 +19,14 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_File = OfficeLike_Usual_Controls.en_File;
+ en_capFile = OfficeLike_Usual_Controls.en_capFile;
+ op_ToMSWord = 'ToMSWord';
+ op_capToMSWord = 'Экспорт в Word';
+ op_SendMailAsAttachment = 'SendMailAsAttachment';
+ op_capSendMailAsAttachment = 'Послать по e-mail';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

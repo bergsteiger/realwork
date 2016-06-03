@@ -1,235 +1,189 @@
 unit PrimStartupTips_Form;
+ {* Совет дня }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/DayTips/Forms/PrimStartupTips_Form.pas"
-// Начат: 01.10.2009 22:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Интерфейсные элементы::DayTips::View::DayTips::PrimStartupTips
-//
-// Совет дня
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\DayTips\Forms\PrimStartupTips_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimStartupTips" MUID: (4AC4F49F010B)
+// Имя типа: "TPrimStartupTipsForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  DayTipsInterfaces,
-  vtPanel,
-  vtFocusLabel,
-  vtLabel,
-  vtCheckBox,
-  ElPopBtn,
-  Windows,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , DayTipsInterfaces
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtFocusLabel
+ , vtCheckBox
+ , ElPopBtn
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimStartupTipsForm = {form} class(TvcmEntityForm, Il3WndProcListener)
+ TPrimStartupTipsForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Il3WndProcListener)
   {* Совет дня }
- private
- // private fields
-   f_TopPanel : TvtPanel;
-    {* Поле для свойства TopPanel}
-   f_TitlePaintBox : TPaintBox;
-    {* Поле для свойства TitlePaintBox}
-   f_TitleLabel : TvtLabel;
-    {* Поле для свойства TitleLabel}
-   f_BottomPanel : TvtPanel;
-    {* Поле для свойства BottomPanel}
-   f_HintPanel : TvtPanel;
-    {* Поле для свойства HintPanel}
-   f_TipLabel : TvtLabel;
-    {* Поле для свойства TipLabel}
-   f_DetailLabel : TvtFocusLabel;
-    {* Поле для свойства DetailLabel}
-   f_ShowCheckBox : TvtCheckBox;
-    {* Поле для свойства ShowCheckBox}
-   f_wwwPanel : TvtPanel;
-    {* Поле для свойства wwwPanel}
-   f_wwwPaintBox : TPaintBox;
-    {* Поле для свойства wwwPaintBox}
-   f_wwwLabel : TvtFocusLabel;
-    {* Поле для свойства wwwLabel}
-   f_NextButton : TElPopupButton;
-    {* Поле для свойства NextButton}
-   f_PrevButton : TElPopupButton;
-    {* Поле для свойства PrevButton}
-   f_CloseButton : TElPopupButton;
-    {* Поле для свойства CloseButton}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_TopPanel: TvtPanel;
+   f_BottomPanel: TvtPanel;
+   f_TitlePaintBox: TPaintBox;
+   f_TitleLabel: TvtLabel;
+    {* Знаете ли Вы, что... }
+   f_HintPanel: TvtPanel;
+   f_TipLabel: TvtLabel;
+   f_DetailLabel: TvtFocusLabel;
+    {* См. подробнее }
+   f_ShowCheckBox: TvtCheckBox;
+    {* Не показывать совет дня при запуске }
+   f_wwwPanel: TvtPanel;
+   f_wwwPaintBox: TPaintBox;
+   f_wwwLabel: TvtFocusLabel;
+    {* Советы дня в Новостях онлайн }
+   f_NextButton: TElPopupButton;
+    {* Следующий }
+   f_PrevButton: TElPopupButton;
+    {* Предыдущий }
+   f_CloseButton: TElPopupButton;
+    {* Закрыть }
+  protected
+   f_Data: InsStartupTips;
+  private
    procedure UpdateTip;
-     {* Сигнатура метода UpdateTip }
    procedure TitlePaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure WwwPaintBoxPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure wwwPaintBoxPaint(Sender: TObject);
    procedure CloseButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure VcmEntityFormShow(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure WwwLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure vcmEntityFormShow(Sender: TObject);
+   procedure wwwLabelClick(Sender: TObject);
    procedure DetailLabelClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure NextButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure PrevButtonClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    procedure ShowCheckBoxClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
+  protected
    procedure WndProcListenerNotify(Msg: PCWPStruct;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function DoGetNeedSaveToTabHistory: Boolean; override;
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_Data : InsStartupTips;
- public
- // public methods
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeSingleChild(const aData: InsStartupTips;
-    const aCont   : IvcmContainer;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aCont: IvcmContainer;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+  public
    property TopPanel: TvtPanel
-     read f_TopPanel;
-   property TitlePaintBox: TPaintBox
-     read f_TitlePaintBox;
-   property TitleLabel: TvtLabel
-     read f_TitleLabel;
-     {* Знаете ли Вы, что... }
+    read f_TopPanel;
    property BottomPanel: TvtPanel
-     read f_BottomPanel;
+    read f_BottomPanel;
+   property TitlePaintBox: TPaintBox
+    read f_TitlePaintBox;
+   property TitleLabel: TvtLabel
+    read f_TitleLabel;
+    {* Знаете ли Вы, что... }
    property HintPanel: TvtPanel
-     read f_HintPanel;
+    read f_HintPanel;
    property TipLabel: TvtLabel
-     read f_TipLabel;
+    read f_TipLabel;
    property DetailLabel: TvtFocusLabel
-     read f_DetailLabel;
-     {* См. подробнее }
+    read f_DetailLabel;
+    {* См. подробнее }
    property ShowCheckBox: TvtCheckBox
-     read f_ShowCheckBox;
-     {* Не показывать совет дня при запуске }
+    read f_ShowCheckBox;
+    {* Не показывать совет дня при запуске }
    property wwwPanel: TvtPanel
-     read f_wwwPanel;
+    read f_wwwPanel;
    property wwwPaintBox: TPaintBox
-     read f_wwwPaintBox;
+    read f_wwwPaintBox;
    property wwwLabel: TvtFocusLabel
-     read f_wwwLabel;
-     {* Советы дня в Новостях онлайн }
+    read f_wwwLabel;
+    {* Советы дня в Новостях онлайн }
    property NextButton: TElPopupButton
-     read f_NextButton;
-     {* Следующий }
+    read f_NextButton;
+    {* Следующий }
    property PrevButton: TElPopupButton
-     read f_PrevButton;
-     {* Предыдущий }
+    read f_PrevButton;
+    {* Предыдущий }
    property CloseButton: TElPopupButton
-     read f_CloseButton;
-     {* Закрыть }
+    read f_CloseButton;
+    {* Закрыть }
  end;//TPrimStartupTipsForm
-
- TvcmEntityFormRef = TPrimStartupTipsForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsConst
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vtNavigatorUtils
-  {$IfEnd} //not NoVCM
-  ,
-  l3ListenersManager
-  {$If defined(evUseVisibleCursors)}
-  ,
-  evCursorShapeMisc
-  {$IfEnd} //evUseVisibleCursors
-  ,
-  SysUtils,
-  Graphics,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsConst
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vtNavigatorUtils
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ListenersManager
+ {$If Defined(evUseVisibleCursors)}
+ , evCursorShapeMisc
+ {$IfEnd} // Defined(evUseVisibleCursors)
+ , SysUtils
+ , Graphics
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC4F49F010Bimpl_uses*
+ //#UC END# *4AC4F49F010Bimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimStartupTipsForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimStartupTipsForm.UpdateTip;
 //#UC START# *5268E6380393_4AC4F49F010B_var*
 var
@@ -274,7 +228,7 @@ begin
 //#UC END# *5268E6B602FF_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.TitlePaintBoxPaint
 
-procedure TPrimStartupTipsForm.WwwPaintBoxPaint(Sender: TObject);
+procedure TPrimStartupTipsForm.wwwPaintBoxPaint(Sender: TObject);
 //#UC START# *5268E6C000C2_4AC4F49F010B_var*
 //#UC END# *5268E6C000C2_4AC4F49F010B_var*
 begin
@@ -282,7 +236,7 @@ begin
  with Sender as TPaintBox do
   dmStdRes.SmallImageList.Draw(Canvas, width - c_SmallSizeIcon, (Height - c_SmallSizeIcon) div 2, cInternetTips);
 //#UC END# *5268E6C000C2_4AC4F49F010B_impl*
-end;//TPrimStartupTipsForm.WwwPaintBoxPaint
+end;//TPrimStartupTipsForm.wwwPaintBoxPaint
 
 procedure TPrimStartupTipsForm.CloseButtonClick(Sender: TObject);
 //#UC START# *5268E6C90064_4AC4F49F010B_var*
@@ -293,23 +247,23 @@ begin
 //#UC END# *5268E6C90064_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.CloseButtonClick
 
-procedure TPrimStartupTipsForm.VcmEntityFormShow(Sender: TObject);
+procedure TPrimStartupTipsForm.vcmEntityFormShow(Sender: TObject);
 //#UC START# *5268E6D90201_4AC4F49F010B_var*
 //#UC END# *5268E6D90201_4AC4F49F010B_var*
 begin
 //#UC START# *5268E6D90201_4AC4F49F010B_impl*
  PostMessage(Handle, WM_SETFOCUS, 0, 0);
 //#UC END# *5268E6D90201_4AC4F49F010B_impl*
-end;//TPrimStartupTipsForm.VcmEntityFormShow
+end;//TPrimStartupTipsForm.vcmEntityFormShow
 
-procedure TPrimStartupTipsForm.WwwLabelClick(Sender: TObject);
+procedure TPrimStartupTipsForm.wwwLabelClick(Sender: TObject);
 //#UC START# *5268E6E102F5_4AC4F49F010B_var*
 //#UC END# *5268E6E102F5_4AC4F49F010B_var*
 begin
 //#UC START# *5268E6E102F5_4AC4F49F010B_impl*
  f_Data.GotoWeb;
 //#UC END# *5268E6E102F5_4AC4F49F010B_impl*
-end;//TPrimStartupTipsForm.WwwLabelClick
+end;//TPrimStartupTipsForm.wwwLabelClick
 
 procedure TPrimStartupTipsForm.DetailLabelClick(Sender: TObject);
 //#UC START# *5268E6EA00F5_4AC4F49F010B_var*
@@ -351,21 +305,21 @@ begin
 end;//TPrimStartupTipsForm.ShowCheckBoxClick
 
 class function TPrimStartupTipsForm.MakeSingleChild(const aData: InsStartupTips;
-  const aCont   : IvcmContainer;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aCont: IvcmContainer;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimStartupTipsForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC4F567002A_4AC4F49F010B_impl*
+  //#UC START# *4AC4F567002A_4AC4F49F010B_impl*
    f_Data := aData;
    Assert(Assigned(f_Data), 'Invalid params');
    ShowCheckBox.Checked := f_Data.DontShow;
    UpdateTip;
-//#UC END# *4AC4F567002A_4AC4F49F010B_impl*
+  //#UC END# *4AC4F567002A_4AC4F49F010B_impl*
   end;//with aForm
  end;
 
@@ -379,10 +333,10 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimStartupTipsForm.MakeSingleChild
 
 procedure TPrimStartupTipsForm.WndProcListenerNotify(Msg: PCWPStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF3400BB_4AC4F49F010B_var*
 var
  l_IsAct: Boolean;
@@ -462,6 +416,7 @@ begin
 end;//TPrimStartupTipsForm.WndProcListenerNotify
 
 procedure TPrimStartupTipsForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC4F49F010B_var*
 //#UC END# *479731C50290_4AC4F49F010B_var*
 begin
@@ -494,8 +449,8 @@ begin
 //#UC END# *47EA4E9002C6_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimStartupTipsForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4F49F010B_var*
 var
  l_Delta: Integer;
@@ -655,10 +610,9 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimStartupTipsForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AC4F49F010B_var*
 //#UC END# *529332B40230_4AC4F49F010B_var*
 begin
@@ -675,9 +629,7 @@ begin
  UpdateTip;
 //#UC END# *529332B40230_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.SetupFormLayout
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimStartupTipsForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC START# *55B9F0BD0069_4AC4F49F010B_var*
 //#UC END# *55B9F0BD0069_4AC4F49F010B_var*
@@ -686,7 +638,6 @@ begin
  Result := False;
 //#UC END# *55B9F0BD0069_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.DoGetNeedSaveToTabHistory
-{$IfEnd} //not NoVCM
 
 procedure TPrimStartupTipsForm.MakeControls;
 begin
@@ -740,14 +691,14 @@ begin
  f_CloseButton.Name := 'CloseButton';
  f_CloseButton.Parent := BottomPanel;
  f_CloseButton.Caption := 'Закрыть';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimStartupTipsForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStartupTips
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStartupTipsForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStartupTips }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

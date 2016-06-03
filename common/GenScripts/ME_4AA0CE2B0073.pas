@@ -20,10 +20,10 @@ uses
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
- , eeTreeView
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , eeTreeView
  , l3TreeInterfaces
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -41,9 +41,7 @@ type
   {* Анализ списка }
   private
    f_BackgroundPanel: TvtPanel;
-    {* Поле для свойства BackgroundPanel }
    f_ListTree: TeeTreeView;
-    {* Поле для свойства ListTree }
   private
    procedure ListTreeActionElement(Sender: TObject;
     Index: LongInt);
@@ -73,7 +71,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: Il3SimpleTree): IvcmEntityForm; reintroduce;
+   class function Make(const aData: Il3SimpleTree;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -120,6 +122,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -128,6 +134,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4AA0CE2B0073impl_uses*
+ , l3ControlsTypes
  //#UC END# *4AA0CE2B0073impl_uses*
 ;
 
@@ -214,15 +221,31 @@ begin
 //#UC END# *4AA0CE940142_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.TryOpen
 
-class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree): IvcmEntityForm;
+class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimListAnalizerForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4FB28001B_4AA0CE2B0073_impl*
+   ListTree.TreeStruct := aData;
+  //#UC END# *4AC4FB28001B_4AA0CE2B0073_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimListAnalizerForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimListAnalizerForm.Make
 

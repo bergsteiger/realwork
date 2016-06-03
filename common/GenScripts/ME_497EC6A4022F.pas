@@ -224,7 +224,7 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent_Execute
 
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetParent_Params) do
+ with IAttributeTree_SetParent_Params(aParams.Data) do
   Self.AttributeTree_SetParent_Execute(Parent);
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetParent
 
@@ -256,7 +256,7 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot_Execute
 
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_ExtSetRoot_Params) do
+ with IAttributeTree_ExtSetRoot_Params(aParams.Data) do
   Self.AttributeTree_ExtSetRoot_Execute(Root);
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_ExtSetRoot
 
@@ -281,7 +281,7 @@ end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot_Execute
 
 procedure TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetRoot_Params) do
+ with IAttributeTree_SetRoot_Params(aParams.Data) do
   Self.AttributeTree_SetRoot_Execute(Tag);
 end;//TPrimTreeAttributeFirstLevelForm.AttributeTree_SetRoot
 

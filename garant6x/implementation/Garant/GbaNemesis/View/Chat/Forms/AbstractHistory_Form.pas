@@ -1,131 +1,60 @@
 unit AbstractHistory_Form;
+ {* Абстрактное окно истории }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Chat/Forms/AbstractHistory_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Встроенные продукты::Chat::View::Chat::AbstractHistory
-//
-// Абстрактное окно истории
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\AbstractHistory_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "AbstractHistory" MUID: (4A6EA4310035)
+// Имя типа: "TAbstractHistoryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  ChatTypes,
-  ChatInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscChatMemo
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  nevBase,
-  evCustomEditorWindow,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  DocumentUnit,
-  ExternalOperationUnit,
-  afwInterfaces,
-  nevGUIInterfaces,
-  afwNavigation,
-  nevNavigation,
-  NavigationInterfaces,
-  DocumentInterfaces,
-  bsTypesNew,
-  vcmBase {a},
-  vcmContainerForm {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ChatInterfaces
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ChatTypes
+ {$If Defined(Nemesis)}
+ , nscChatMemo
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , DocumentUnit
+ , evCustomEditorWindow
+ , bsTypesNew
+ , NavigationInterfaces
+ , nevNavigation
+ , nevBase
+ , ExternalOperationUnit
+ , DocumentInterfaces
+ , nevGUIInterfaces
+ , afwInterfaces
+ , afwNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _TextWithComments_Parent_ = TvcmContainerForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = _TextWithComments_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
- TAbstractHistoryForm = {form} class(_HyperlinkProcessorWithOwnLocalLink_, IbsAbstractChatWindow)
+ TAbstractHistoryForm = class(_HyperlinkProcessorWithOwnLocalLink_, IbsAbstractChatWindow)
   {* Абстрактное окно истории }
- private
- // private fields
-   f_HistoryEditor : TnscChatMemo;
-    {* Поле для свойства HistoryEditor}
-   f_UserID : TbsUserID;
-    {* Поле для свойства UserID}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
-   function Get_UserID: TbsUserID;
-   procedure ActivateChatWindow;
-   procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = dptSub); override;
-     {* Переход на точку в документе }
-   function HyperlinkDocument: IDocument; override;
-     {* Документ ИЗ которого ведёт ссылка }
-   function pm_GetHyperlinkText: TevCustomEditorWindow; override;
-   function IsFloating: Boolean; override;
-     {* Форма плавающая }
-   function pm_GetTextWithComments: TevCustomEditorWindow; override;
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function DoProcessLocalLink(const aDocument: IDocument;
-    aPointType: TDocumentPositionType;
-    aSub: Cardinal;
-    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
-     {* Обработка локальных ссылок }
-   procedure DoCheckLinkInfo(const aLink: IevHyperlink); override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
-   function SettingsSuffix: AnsiString; override;
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
+  private
+   f_HistoryEditor: TnscChatMemo;
+   f_UserID: TbsUserID;
+  protected
    procedure RegisterInDispatcher; virtual; abstract;
    procedure UnRegisterInDispatcher; virtual; abstract;
    procedure AddToHistory(const aMessage: InsChatMessage);
@@ -133,85 +62,127 @@ type
    procedure InitEditors; virtual;
    function HistoryLimit: Integer; virtual;
    function NeedClose: Boolean; virtual;
- public
- // public methods
+   function Get_UserID: TbsUserID;
+   procedure ActivateChatWindow;
+   procedure GotoPoint(aPointID: Cardinal;
+    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    {* Переход на точку в документе }
+   function HyperlinkDocument: IDocument; override;
+    {* Документ ИЗ которого ведёт ссылка }
+   function pm_GetHyperlinkText: TevCustomEditorWindow; override;
+   function IsFloating: Boolean; override;
+    {* Форма плавающая }
+   function pm_GetTextWithComments: TevCustomEditorWindow; override;
+   procedure OpenRedactionGlobalLink(const aDocument: IDocument;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour); override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function DoProcessLocalLink(const aDocument: IDocument;
+    aPointType: TDocumentPositionType;
+    aSub: Cardinal;
+    aBehaviour: TbsProcessHyperLinkBehaviour): Boolean; override;
+    {* Обработка локальных ссылок }
+   procedure DoCheckLinkInfo(const aLink: IevHyperlink); override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeSingleChild(anUID: TbsUserID;
     const aName: Il3CString;
-    const aCont   : IvcmContainer;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- protected
- // protected properties
+    const aCont: IvcmContainer;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function SettingsSuffix: AnsiString; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property UserID: TbsUserID
-     read f_UserID
-     write f_UserID;
- public
- // public properties
+    read f_UserID
+    write f_UserID;
+  public
    property HistoryEditor: TnscChatMemo
-     read f_HistoryEditor;
+    read f_HistoryEditor;
  end;//TAbstractHistoryForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  evOp,
-  ComObj,
-  l3Types,
-  evTypes,
-  afwFacade
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  evdTypes,
-  nsTypes,
-  deDocInfo
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  nevTools
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  DocumentRes,
-  vtUtils,
-  evdStyles,
-  k2Tags,
-  BitmapPara_Const,
-  nsConst,
-  SysUtils,
-  nsHyperLinkProcessor,
-  nsOpenUtils,
-  nsTabbedContainerUtils
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsHyperlinkProcessorTypes,
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , evOp
+ , ComObj
+ , l3Types
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evdTypes
+ , nsTypes
+ , deDocInfo
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , nevTools
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
+ , nsHyperLinkProcessor
+ , nsOpenUtils
+ , nsConst
+ , nsTabbedContainerUtils
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsHyperlinkProcessorTypes
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4A6EA4310035impl_uses*
+ //#UC END# *4A6EA4310035impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TAbstractHistoryForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
-
-// start class TAbstractHistoryForm
 
 procedure TAbstractHistoryForm.AddToHistory(const aMessage: InsChatMessage);
 //#UC START# *4A6EA62A0096_4A6EA4310035_var*
@@ -265,23 +236,23 @@ begin
 end;//TAbstractHistoryForm.ProcessMessages
 
 class function TAbstractHistoryForm.MakeSingleChild(anUID: TbsUserID;
-  const aName: Il3CString;
-  const aCont   : IvcmContainer;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aName: Il3CString;
+ const aCont: IvcmContainer;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TAbstractHistoryForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC4EFBA012A_4A6EA4310035_impl*
+  //#UC START# *4AC4EFBA012A_4A6EA4310035_impl*
    CCaption := vcmFmt(str_ChatWindowCaption, [aName]);
    UserID := anUID;
    InitEditors;
    RegisterInDispatcher;
    ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, HistoryLimit));
-//#UC END# *4AC4EFBA012A_4A6EA4310035_impl*
+  //#UC END# *4AC4EFBA012A_4A6EA4310035_impl*
   end;//with aForm
  end;
 
@@ -295,7 +266,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TAbstractHistoryForm.MakeSingleChild
 
 procedure TAbstractHistoryForm.InitEditors;
 //#UC START# *4AC5CD4402E7_4A6EA4310035_var*
@@ -345,7 +316,8 @@ begin
 end;//TAbstractHistoryForm.ActivateChatWindow
 
 procedure TAbstractHistoryForm.GotoPoint(aPointID: Cardinal;
-  aPointType: TDocumentPositionType = dptSub);
+ aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EA4310035_var*
 //#UC END# *4A8164E801AE_4A6EA4310035_var*
 begin
@@ -355,6 +327,7 @@ begin
 end;//TAbstractHistoryForm.GotoPoint
 
 function TAbstractHistoryForm.HyperlinkDocument: IDocument;
+ {* Документ ИЗ которого ведёт ссылка }
 //#UC START# *4A8168BB0217_4A6EA4310035_var*
 //#UC END# *4A8168BB0217_4A6EA4310035_var*
 begin
@@ -373,6 +346,7 @@ begin
 end;//TAbstractHistoryForm.pm_GetHyperlinkText
 
 function TAbstractHistoryForm.IsFloating: Boolean;
+ {* Форма плавающая }
 //#UC START# *4A8A9DB0001A_4A6EA4310035_var*
 //#UC END# *4A8A9DB0001A_4A6EA4310035_var*
 begin
@@ -390,8 +364,8 @@ begin
 //#UC END# *4A8AAD450084_4A6EA4310035get_impl*
 end;//TAbstractHistoryForm.pm_GetTextWithComments
 
-{$If not defined(NoVCM)}
 procedure TAbstractHistoryForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4A6EA4310035test_var*
 //#UC END# *4AC5D61E0284_4A6EA4310035test_var*
 begin
@@ -399,10 +373,19 @@ begin
  // - ничего не делаем
 //#UC END# *4AC5D61E0284_4A6EA4310035test_impl*
 end;//TAbstractHistoryForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
+procedure TAbstractHistoryForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_var*
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_var*
+begin
+//#UC START# *4AC5D61E0284_4A6EA4310035exec_impl*
+ SafeClose;
+//#UC END# *4AC5D61E0284_4A6EA4310035exec_impl*
+end;//TAbstractHistoryForm.Result_Cancel_Execute
+
 procedure TAbstractHistoryForm.Result_Cancel_GetState(var State: TvcmOperationStateIndex);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4A6EA4310035getstate_var*
 //#UC END# *4AC5D61E0284_4A6EA4310035getstate_var*
 begin
@@ -411,22 +394,10 @@ begin
   State := st_user_Result_Cancel_Close
 //#UC END# *4AC5D61E0284_4A6EA4310035getstate_impl*
 end;//TAbstractHistoryForm.Result_Cancel_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure TAbstractHistoryForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-//#UC START# *4AC5D61E0284_4A6EA4310035exec_var*
-//#UC END# *4AC5D61E0284_4A6EA4310035exec_var*
-begin
-//#UC START# *4AC5D61E0284_4A6EA4310035exec_impl*
- SafeClose;
-//#UC END# *4AC5D61E0284_4A6EA4310035exec_impl*
-end;//TAbstractHistoryForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
 procedure TAbstractHistoryForm.OpenRedactionGlobalLink(const aDocument: IDocument;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour);
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour);
 //#UC START# *53A303BE03A8_4A6EA4310035_var*
 //#UC END# *53A303BE03A8_4A6EA4310035_var*
 begin
@@ -436,6 +407,7 @@ begin
 end;//TAbstractHistoryForm.OpenRedactionGlobalLink
 
 procedure TAbstractHistoryForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A6EA4310035_var*
 //#UC END# *479731C50290_4A6EA4310035_var*
 begin
@@ -447,9 +419,10 @@ begin
 end;//TAbstractHistoryForm.Cleanup
 
 function TAbstractHistoryForm.DoProcessLocalLink(const aDocument: IDocument;
-  aPointType: TDocumentPositionType;
-  aSub: Cardinal;
-  aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ aPointType: TDocumentPositionType;
+ aSub: Cardinal;
+ aBehaviour: TbsProcessHyperLinkBehaviour): Boolean;
+ {* Обработка локальных ссылок }
 //#UC START# *4A8160720125_4A6EA4310035_var*
 //#UC END# *4A8160720125_4A6EA4310035_var*
 begin
@@ -471,7 +444,6 @@ begin
 //#UC END# *4A8A9E2A004F_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.DoCheckLinkInfo
 
-{$If not defined(NoVCM)}
 function TAbstractHistoryForm.SettingsSuffix: AnsiString;
 //#UC START# *4A8E425D0268_4A6EA4310035_var*
 //#UC END# *4A8E425D0268_4A6EA4310035_var*
@@ -480,10 +452,9 @@ begin
  Result := Format('_%d',[f_UserID]);
 //#UC END# *4A8E425D0268_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.SettingsSuffix
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TAbstractHistoryForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A6EA4310035_var*
 //#UC END# *4A8E8F2E0195_4A6EA4310035_var*
 begin
@@ -496,9 +467,10 @@ begin
  end;//with HistoryEditor
 //#UC END# *4A8E8F2E0195_4A6EA4310035_impl*
 end;//TAbstractHistoryForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TAbstractHistoryForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -506,12 +478,9 @@ begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_Edit, nil);
   MakeEntitySupportedByControl(en_Edit, HistoryEditor);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, Result_Cancel_GetState);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
+end;//TAbstractHistoryForm.InitEntities
 
 procedure TAbstractHistoryForm.MakeControls;
 begin
@@ -519,14 +488,14 @@ begin
  f_HistoryEditor := TnscChatMemo.Create(Self);
  f_HistoryEditor.Name := 'HistoryEditor';
  f_HistoryEditor.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TAbstractHistoryForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация AbstractHistory
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TAbstractHistoryForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация AbstractHistory }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

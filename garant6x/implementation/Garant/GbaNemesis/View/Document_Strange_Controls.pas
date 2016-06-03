@@ -1,773 +1,365 @@
 unit Document_Strange_Controls;
+ {* Странные операции, не подавшиеся пока логическому анализу }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document_Strange_Controls.pas"
-// Начат: 03.02.2009 19:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Работа с документом и списком документов::Document::View::Strange
-//
-// Странные операции, не подавшиеся пока логическому анализу
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document_Strange_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (498874B90391)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  nevBase,
-  l3TreeInterfaces,
-  bsTypes,
-  eeInterfaces,
-  DocumentAndListInterfaces,
-  DocumentDomainInterfaces,
-  Base_Operations_Editions_Controls,
-  BaseSearchInterfaces,
-  l3CProtoObject,
-  F1TagDataProviderInterface
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* Editions = operations
-  {* Редакции }
-   ['{A6F39708-1626-4BB5-81F1-1E0A6833BA8A}']
-   query SetCurrent(const aDocument: IDocument);
-     {* Установить текущую }
- end;//Editions*)
-
-(* System = operations
-   ['{228E4504-56DD-46D0-A0EE-06EDDEFAFAC4}']
-   query TimeMachineStateChange(aStayInCurrentRedaction: Boolean = false);
- end;//System*)
-
-(* Selection = operations
-  {* Выделенные элементы }
-   ['{C93E529A-A41A-4119-AA50-C940BE30C466}']
-   operation InsertHyperlink; has states;
-     {* Поставить ссылку... }
-      ModifyLink = state
-       { Изменить ссылку... }
-      end;//ModifyLink
-   operation FindInDict;
-     {* Найти в Толковом словаре }
- end;//Selection*)
-
-(* Contents = operations({, Работа с оглавлением документа})
-  {* Структура документа }
-   ['{B7472118-E9E6-43B2-80B6-D58C4C8E71B5}']
-   query SetCurrent(aSub: Integer);
-   query MoveCurrent(aSub: Integer;
-    aDown: Boolean);
-   query HasUserComments: Boolean;
-     {* Есть ли в оглавление пользовательские комментарии }
-   query HasBookmarks: Boolean;
-     {* Есть ли в оглавлении закладки }
-   query ToggleContentsVisibility: Boolean;
-     {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
-   query IsContentsVisible: Boolean;
-     {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
- end;//Contents*)
-
-(* Warning = operations
-   ['{CCF7FF92-3276-4E9C-84C2-20DBD788757B}']
-   FormActivate BecomeActive(aSubID: TnsWarningSub);
-   FormActivate SwitchActive(aSubID: TnsWarningSub);
- end;//Warning*)
-
-(* Picture = operations
-  {* Картинка }
-   ['{9D36DCF5-F264-4E46-9F7C-1A3AB083D16B}']
-   query InitNewContent(const aData: InsLinkedObjectData);
- end;//Picture*)
-
-(* DocumentBlock = operations
-  {* Пункт оглавления }
-   ['{B114218A-54E8-4D4B-8DC8-46F60B119911}']
-   operation GetTypedCorrespondentList; has states;
-     {* Ссылки на фрагмент (вид информации) }
-      InText = state
-       { Ссылки на фрагмент: }
-      end;//InText
-   operation PrintPreview;
-   operation Select;
-   operation GetSimilarDocsToBlock;
-   operation GetCorrespondentList;
-   operation GetRespondentList;
-   operation GetTypedCorrespondentList; has states;
-   operation GetTypedRespondentList;
-   operation ToMSWord;
-   operation PrintDialog;
-   operation Copy;
-   operation Print;
- end;//DocumentBlock*)
-
-(* DocumentBlockHeader = operations
-  {* Пункт оглавления - Заголовок документ }
-   ['{7F25AD43-F525-485B-855E-785FD113AC84}']
-   operation UserCR1; has states;
-     {* Пользовательские ссылки на документ (ссылки из документа) 1 }
-      Corr = state
-      end;//Corr
-   operation UserCR2; has states;
-     {* Пользовательские ссылки на документ (ссылки из документа) 2 }
-      Corr = state
-      end;//Corr
-   operation UserCR1; has states;
-   operation UserCR2; has states;
-   operation GetTypedCorrespondentList;
-   operation AddBookmark;
-   operation ToMSWord;
-   operation Print;
-   operation PrintDialog;
- end;//DocumentBlockHeader*)
-
-(* WarnOnControl = operations
-  {* Предупреждение (на контроле) }
-   ['{CBF9A773-A0D9-4E66-8D27-03086A04BBC1}']
-   operation ClearStatusSettings;
-     {* Способ сброса статуса "изменен" }
-   operation ShowChanges;
-     {* Показать изменения }
-   operation ClearStatus;
-     {* Сбросить статус "изменен" }
- end;//WarnOnControl*)
-
-(* TasksPanel = operations
-   ['{5E52AC48-1B2E-49CB-A8D9-D8DDDD7D90C5}']
-   operation TimeMachineOnOff; has states;
-     {* Включить Машину времени с календарной даты\Выключить Машину времени }
-      On = state
-       { Включить Машину времени }
-      end;//On
-      Off = state
-       { Выключить Машину времени }
-      end;//Off
-   operation TimeMachineOnOff; has states;
- end;//TasksPanel*)
-
-(* Document = operations
-   ['{23F8DB14-4258-48DF-9FF2-203F18C706DF}']
-   operation OpenContentsFrmAct; has states;
-     {* Структура документа }
-      Drug = state
-       { Структура препарата }
-      end;//Drug
-   operation OpenContentsFrmAct; has states;
-   operation ShowDocumentPicture;
-   operation DocumentSynchroOpenWindow;
-   operation DocumentSynchroOpenNewWindow;
-   operation DictListOpenFrmAct;
-   operation GotoBookmark;
-   operation LiteratureListForDictionary;
-   operation OpenProducedDrugList;
-   operation OpenSimilarDrugList;
- end;//Document*)
-
-(* ExternalObject = operations
-   ['{700C3A68-66B7-40F3-963F-3EF77064B337}']
-   operation Open;
-   operation Save;
- end;//ExternalObject*)
-
-(* WarnRedaction = operations
-  {* Предупреждение о неактуальной редакции }
-   ['{A85A09ED-8903-46CC-A979-8AA4D7DF0AA9}']
-   operation ShowInfo; has states;
-     {* Показать текст предупреждения }
-      Hide = state
-       { Скрыть текст предупреждения }
-      end;//Hide
-   operation OpenActualRedaction;
- end;//WarnRedaction*)
-
-(* WarnTimeMachine = operations
-  {* Предупреждение для Машины времени }
-   ['{050342A8-34BE-4FE9-A55C-D0A8B72BBFCF}']
-   operation ShowInfo; has states;
-     {* Показать текст предупреждения }
-      Hide = state
-       { Скрыть текст предупреждения }
-      end;//Hide
-   operation TimeMachineOnOffNew; has states;
-     {* Включить/Выключить Машину времени }
-      MachineOn = state
-       { Включить Машину времени }
-      end;//MachineOn
-      MachineOff = state
-       { Выключить Машину времени/Изменить дату }
-      end;//MachineOff
-   operation ShowInfo; has states;
-   operation TimeMachineOnOffNew; has states;
- end;//WarnTimeMachine*)
-
-(* WarnJuror = operations
-  {* Предупреждение (юридическое) }
-   ['{8A3231E2-CF2C-429A-B359-92E439BAEB5E}']
-   operation ShowInfo; has states;
-     {* Показать текст предупреждения }
-      Hide = state
-       { Скрыть текст предупреждения }
-      end;//Hide
-   operation ShowInfo; has states;
- end;//WarnJuror*)
-
-(* BookmarkIcon = operations
-   ['{E8B2D510-80F2-4624-9F50-06806F704FDB}']
-   operation Delete;
-   operation Edit;
- end;//BookmarkIcon*)
-
-(* UserCommentIcon = operations
-   ['{38AF5381-38AB-4BE0-95E5-525102599E7F}']
-   query HideShow; has states;
-     {* Скрыть/Показать }
-      GarantHidden = state
-       { Показать комментарии ГАРАНТа }
-      end;//GarantHidden
-      GarantShown = state
-       { Скрыть комментарии ГАРАНТа }
-      end;//GarantShown
-      UserShown = state
-       { Скрыть мои комментарии }
-      end;//UserShown
-      UserHidden = state
-       { Показать мои комментарии }
-      end;//UserHidden
-      Invisible = state
-      end;//Invisible
-      VersionShown = state
-       { Выключить информацию об изменениях документа }
-      end;//VersionShown
-      VersionHidden = state
-       { Включить информацию об изменениях документа }
-      end;//VersionHidden
-   operation Delete;
-   query HideShow; has states;
- end;//UserCommentIcon*)
-
-(* UserComment = operations
-   ['{7994534C-BC92-4CA4-A4E0-C77195D0FF88}']
-   operation Delete;
- end;//UserComment*)
-
-(* Text = operations
-   ['{A13F3C44-940B-4DCA-9A43-DFF92D3DB3B2}']
-   operation AddUserComment;
-   operation DeleteBookmark;
-   operation EditBookmark;
-   operation AddBookmark;
-   operation OpenNewWindow;
- end;//Text*)
-
-(* Warning = operations
-   ['{352B6AED-1E26-4ACA-8854-EF2856A24AE6}']
-   operation TimeMachineOffAndReset;
-   operation ActualRedaction;
-   operation TimeMachineOff;
- end;//Warning*)
-
-(* Reminder = operations
-   ['{BC8B3991-5087-4957-847F-143FD9708318}']
-   operation RemWarnJuror;
-   operation RemWarnTimeMachineOn;
-   operation RemWarnRedaction;
-   operation RemWarnOnControl;
-   operation RemWarnIsAbolished;
-   operation RemWarnTimeMachineException;
-   operation RemWarnPreActive;
-   operation RemWarnTimeMachineWarning;
-   operation ViewInactualDocument;
- end;//Reminder*)
-
-(* SynchroView = operations
-   ['{D8ACB607-BB2A-4FE0-8B33-C28CCC10B6EF}']
-   operation ShowText;
-   operation Annotation;
-   operation ShowAttributes;
-   operation ShowRelated;
-   operation ShowUserCRList1;
-   operation ShowUserCRList2;
-   operation SimilarDocuments;
- end;//SynchroView*)
-
-(* Edition = operations
-   ['{E42AE9BC-5391-4907-942F-4D52812F16AD}']
-   query OpenNewWindow;
-   query OpenNewTab;
- end;//Edition*)
-
-(* Attribute = operations
-   ['{5D8337D5-03F3-4B8D-987F-383B63FA9296}']
-   operation Copy;
- end;//Attribute*)
-
-(* Picture = operations
-  {* Картинка }
-   ['{CD14874B-2C47-4913-AB6C-16479A056B5B}']
-   operation Resize;
-   operation Enlarge;
-   operation Shrink;
-   operation ActualSize;
-   operation FitInWIndow;
- end;//Picture*)
-
-(* ContentsValidator = operations
-  {* http://mdp.garant.ru/pages/viewpage.action?pageId=259891063 }
-   ['{9D26D75D-BD06-45F1-8524-F6DFD1BAD211}']
-   query IsDocumentAdornmentsChanged(const aNew: InsDocumentAdornments): Boolean;
- end;//ContentsValidator*)
-
-(* DocumentSubPanel = operations
-   ['{49B238E9-0746-4A70-BE5E-5439EAD9EF41}']
-   query UpdateSubPanel;
- end;//DocumentSubPanel*)
-
-(* Editions = operations({, Работа со списком редакций})
-  {* Редакции }
-   ['{C31D32FF-5A65-46FF-B120-A5137D9FE8AA}']
-   operation DoCompareEditions;
-     {* Сравнить редакции }
-   operation BuildChangedFragments;
-     {* Построить обзор изменений }
- end;//Editions*)
-
-(* DocumentBlockBookmarks = operations
-  {* Закладки на пункт оглавления }
-   ['{50BEBB6A-D0B1-437B-9C36-65B24E771603}']
-   operation AddBookmark;
-     {* Установить закладку на фрагмент }
- end;//DocumentBlockBookmarks*)
-
-(* IntranetSourcePoint = operations
-   ['{6C5E377B-7977-4344-B70B-76D8A738CA5F}']
-   query GoToIntranet;
- end;//IntranetSourcePoint*)
-
-(* Picture = operations
-  {* Картинка }
-   ['{FC80F24E-8823-45E6-B775-56CD58D12477}']
-   operation Open;
-     {* Открыть в текущем окне }
-   operation OpenNewWindow;
-     {* Открыть в новом окне }
-   operation OpenNewTab;
-     {* Открыть в новой вкладке }
- end;//Picture*)
-
-(* Document = operations
-  {* Документ }
-   ['{61D6CD4D-213C-4C2C-AE5D-84A2162659CA}']
-   FormActivate ChangesButton;
-     {* Изменения в документе }
- end;//Document*)
-
-(* SubsPanel = operations
-  {* Панель меток }
-   ['{2FFF61ED-5A22-4323-B57C-A3E5B8B03D9D}']
-   operation CopySubNumber;
-     {* Копировать позицию }
- end;//SubsPanel*)
-
-(* BaseSearchPresentationHolder = operations
-   ['{B91322F8-958D-4A93-9E2C-456AA6AB0798}']
-   query GetBaseSearchPresentation: InsBaseSearchPresentation;
- end;//BaseSearchPresentationHolder*)
-
-(* Text = operations
-   ['{8E6C2FF1-E7C5-47CB-9C45-F01F54222A00}']
-   operation SelectWord;
-   operation SelectPara;
- end;//Text*)
+ l3IntfUses
+ , DocumentUnit
+ , nevBase
+ , l3TreeInterfaces
+ , bsTypes
+ , eeInterfaces
+ , DocumentAndListInterfaces
+ , DocumentDomainInterfaces
+ , Base_Operations_Editions_Controls
+ , BaseSearchInterfaces
+ , F1TagDataProviderInterface
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- IEditions_SetCurrent_Params = interface(IUnknown)
+ IEditions_SetCurrent_Params = interface
   {* Параметры для операции Editions.SetCurrent }
-   ['{69481C49-8E84-4A41-BAE4-E419D710DF8C}']
-   function Get_Document: IDocument;
-   property Document: IDocument
-     read Get_Document;
-     {* undefined }
+  function Get_Document: IDocument;
+  property Document: IDocument
+   read Get_Document;
  end;//IEditions_SetCurrent_Params
 
- Op_Editions_SetCurrent = class
+ Op_Editions_SetCurrent = {final} class
   {* Класс для вызова операции Editions.SetCurrent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aDocument: IDocument): Boolean; overload; 
-     {* Вызов операции Editions.SetCurrent у сущности }
+    const aDocument: IDocument): Boolean; overload;
+    {* Вызов операции Editions.SetCurrent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aDocument: IDocument): Boolean; overload; 
-     {* Вызов операции Editions.SetCurrent у агрегации }
+    const aDocument: IDocument): Boolean; overload;
+    {* Вызов операции Editions.SetCurrent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aDocument: IDocument): Boolean; overload; 
-     {* Вызов операции Editions.SetCurrent у формы }
+    const aDocument: IDocument): Boolean; overload;
+    {* Вызов операции Editions.SetCurrent у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aDocument: IDocument): Boolean; overload; 
-     {* Вызов операции Editions.SetCurrent у контейнера }
+    const aDocument: IDocument): Boolean; overload;
+    {* Вызов операции Editions.SetCurrent у контейнера }
  end;//Op_Editions_SetCurrent
 
- ISystem_TimeMachineStateChange_Params = interface(IUnknown)
+ ISystem_TimeMachineStateChange_Params = interface
   {* Параметры для операции System.TimeMachineStateChange }
-   ['{F9F5407A-002A-4696-94D1-DAC349ED07AD}']
-   function Get_StayInCurrentRedaction: Boolean;
-   property StayInCurrentRedaction: Boolean
-     read Get_StayInCurrentRedaction;
-     {* undefined }
+  function Get_StayInCurrentRedaction: Boolean;
+  property StayInCurrentRedaction: Boolean
+   read Get_StayInCurrentRedaction;
  end;//ISystem_TimeMachineStateChange_Params
 
- Op_System_TimeMachineStateChange = class
+ Op_System_TimeMachineStateChange = {final} class
   {* Класс для вызова операции System.TimeMachineStateChange }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aStayInCurrentRedaction: Boolean = false): Boolean; overload; 
-     {* Вызов операции System.TimeMachineStateChange у сущности }
+    aStayInCurrentRedaction: Boolean = False): Boolean; overload;
+    {* Вызов операции System.TimeMachineStateChange у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aStayInCurrentRedaction: Boolean = false): Boolean; overload; 
-     {* Вызов операции System.TimeMachineStateChange у агрегации }
+    aStayInCurrentRedaction: Boolean = False): Boolean; overload;
+    {* Вызов операции System.TimeMachineStateChange у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aStayInCurrentRedaction: Boolean = false): Boolean; overload; 
-     {* Вызов операции System.TimeMachineStateChange у формы }
+    aStayInCurrentRedaction: Boolean = False): Boolean; overload;
+    {* Вызов операции System.TimeMachineStateChange у формы }
    class function Call(const aTarget: IvcmContainer;
-    aStayInCurrentRedaction: Boolean = false): Boolean; overload; 
-     {* Вызов операции System.TimeMachineStateChange у контейнера }
-   class procedure Broadcast(aStayInCurrentRedaction: Boolean = false);
-     {* Вызов операции System.TimeMachineStateChange у всех зарегистрированных сущностей }
+    aStayInCurrentRedaction: Boolean = False): Boolean; overload;
+    {* Вызов операции System.TimeMachineStateChange у контейнера }
+   class procedure Broadcast(aStayInCurrentRedaction: Boolean = False);
+    {* Вызов операции System.TimeMachineStateChange у всех зарегистрированных сущностей }
  end;//Op_System_TimeMachineStateChange
 
- IContents_SetCurrent_Params = interface(IUnknown)
+ IContents_SetCurrent_Params = interface
   {* Параметры для операции Contents.SetCurrent }
-   ['{63B60DA6-E67A-4D05-8194-8CBFBC186C14}']
-   function Get_Sub: Integer;
-   property Sub: Integer
-     read Get_Sub;
-     {* undefined }
+  function Get_Sub: Integer;
+  property Sub: Integer
+   read Get_Sub;
  end;//IContents_SetCurrent_Params
 
- Op_Contents_SetCurrent = class
+ Op_Contents_SetCurrent = {final} class
   {* Класс для вызова операции Contents.SetCurrent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aSub: Integer): Boolean; overload; 
-     {* Вызов операции Contents.SetCurrent у сущности }
+    aSub: Integer): Boolean; overload;
+    {* Вызов операции Contents.SetCurrent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aSub: Integer): Boolean; overload; 
-     {* Вызов операции Contents.SetCurrent у агрегации }
+    aSub: Integer): Boolean; overload;
+    {* Вызов операции Contents.SetCurrent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aSub: Integer): Boolean; overload; 
-     {* Вызов операции Contents.SetCurrent у формы }
+    aSub: Integer): Boolean; overload;
+    {* Вызов операции Contents.SetCurrent у формы }
    class function Call(const aTarget: IvcmContainer;
-    aSub: Integer): Boolean; overload; 
-     {* Вызов операции Contents.SetCurrent у контейнера }
+    aSub: Integer): Boolean; overload;
+    {* Вызов операции Contents.SetCurrent у контейнера }
  end;//Op_Contents_SetCurrent
 
- IContents_MoveCurrent_Params = interface(IUnknown)
+ IContents_MoveCurrent_Params = interface
   {* Параметры для операции Contents.MoveCurrent }
-   ['{4F7D3966-D37A-4F3F-B435-413523D01CD7}']
-   function Get_Sub: Integer;
-   function Get_Down: Boolean;
-   property Sub: Integer
-     read Get_Sub;
-     {* undefined }
-   property Down: Boolean
-     read Get_Down;
-     {* undefined }
+  function Get_Sub: Integer;
+  function Get_Down: Boolean;
+  property Sub: Integer
+   read Get_Sub;
+  property Down: Boolean
+   read Get_Down;
  end;//IContents_MoveCurrent_Params
 
- Op_Contents_MoveCurrent = class
+ Op_Contents_MoveCurrent = {final} class
   {* Класс для вызова операции Contents.MoveCurrent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     aSub: Integer;
-    aDown: Boolean): Boolean; overload; 
-     {* Вызов операции Contents.MoveCurrent у сущности }
+    aDown: Boolean): Boolean; overload;
+    {* Вызов операции Contents.MoveCurrent у сущности }
    class function Call(const aTarget: IvcmAggregate;
     aSub: Integer;
-    aDown: Boolean): Boolean; overload; 
-     {* Вызов операции Contents.MoveCurrent у агрегации }
+    aDown: Boolean): Boolean; overload;
+    {* Вызов операции Contents.MoveCurrent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     aSub: Integer;
-    aDown: Boolean): Boolean; overload; 
-     {* Вызов операции Contents.MoveCurrent у формы }
+    aDown: Boolean): Boolean; overload;
+    {* Вызов операции Contents.MoveCurrent у формы }
    class function Call(const aTarget: IvcmContainer;
     aSub: Integer;
-    aDown: Boolean): Boolean; overload; 
-     {* Вызов операции Contents.MoveCurrent у контейнера }
+    aDown: Boolean): Boolean; overload;
+    {* Вызов операции Contents.MoveCurrent у контейнера }
  end;//Op_Contents_MoveCurrent
 
- IContents_HasUserComments_Params = interface(IUnknown)
+ IContents_HasUserComments_Params = interface
   {* Параметры для операции Contents.HasUserComments }
-   ['{B5B7276E-4C38-489E-B8EA-335CAA4DF145}']
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IContents_HasUserComments_Params
 
- Op_Contents_HasUserComments = class
+ Op_Contents_HasUserComments = {final} class
   {* Класс для вызова операции Contents.HasUserComments }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Contents.HasUserComments у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Contents.HasUserComments у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Contents.HasUserComments у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Contents.HasUserComments у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Contents.HasUserComments у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Contents.HasUserComments у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Contents.HasUserComments у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Contents.HasUserComments у контейнера }
  end;//Op_Contents_HasUserComments
 
- IContents_HasBookmarks_Params = interface(IUnknown)
+ IContents_HasBookmarks_Params = interface
   {* Параметры для операции Contents.HasBookmarks }
-   ['{70D89AEC-9A94-460E-BDA6-0E43352E7897}']
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IContents_HasBookmarks_Params
 
- Op_Contents_HasBookmarks = class
+ Op_Contents_HasBookmarks = {final} class
   {* Класс для вызова операции Contents.HasBookmarks }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Contents.HasBookmarks у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Contents.HasBookmarks у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Contents.HasBookmarks у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Contents.HasBookmarks у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Contents.HasBookmarks у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Contents.HasBookmarks у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Contents.HasBookmarks у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Contents.HasBookmarks у контейнера }
  end;//Op_Contents_HasBookmarks
 
- IContents_ToggleContentsVisibility_Params = interface(IUnknown)
+ IContents_ToggleContentsVisibility_Params = interface
   {* Параметры для операции Contents.ToggleContentsVisibility }
-   ['{8F5D6186-6988-42D3-8F65-708CD881074F}']
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IContents_ToggleContentsVisibility_Params
 
- Op_Contents_ToggleContentsVisibility = class
+ Op_Contents_ToggleContentsVisibility = {final} class
   {* Класс для вызова операции Contents.ToggleContentsVisibility }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Contents.ToggleContentsVisibility у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Contents.ToggleContentsVisibility у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Contents.ToggleContentsVisibility у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Contents.ToggleContentsVisibility у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Contents.ToggleContentsVisibility у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Contents.ToggleContentsVisibility у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Contents.ToggleContentsVisibility у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Contents.ToggleContentsVisibility у контейнера }
  end;//Op_Contents_ToggleContentsVisibility
 
- IContents_IsContentsVisible_Params = interface(IUnknown)
+ IContents_IsContentsVisible_Params = interface
   {* Параметры для операции Contents.IsContentsVisible }
-   ['{E1AC8242-4977-4049-9A09-C907355ED7F6}']
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IContents_IsContentsVisible_Params
 
- Op_Contents_IsContentsVisible = class
+ Op_Contents_IsContentsVisible = {final} class
   {* Класс для вызова операции Contents.IsContentsVisible }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Contents.IsContentsVisible у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Contents.IsContentsVisible у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Contents.IsContentsVisible у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Contents.IsContentsVisible у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Contents.IsContentsVisible у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Contents.IsContentsVisible у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Contents.IsContentsVisible у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Contents.IsContentsVisible у контейнера }
  end;//Op_Contents_IsContentsVisible
 
- IWarning_BecomeActive_Params = interface(IUnknown)
+ IWarning_BecomeActive_Params = interface
   {* Параметры для операции Warning.BecomeActive }
-   ['{8C5435DC-692B-4F21-8EEF-D2D096386C0E}']
-   function Get_SubID: TnsWarningSub;
-   property SubID: TnsWarningSub
-     read Get_SubID;
-     {* undefined }
+  function Get_SubID: TnsWarningSub;
+  property SubID: TnsWarningSub
+   read Get_SubID;
  end;//IWarning_BecomeActive_Params
 
- Op_Warning_BecomeActive = class
+ Op_Warning_BecomeActive = {final} class
   {* Класс для вызова операции Warning.BecomeActive }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.BecomeActive у сущности }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.BecomeActive у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.BecomeActive у агрегации }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.BecomeActive у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.BecomeActive у формы }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.BecomeActive у формы }
    class function Call(const aTarget: IvcmContainer;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.BecomeActive у контейнера }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.BecomeActive у контейнера }
  end;//Op_Warning_BecomeActive
 
- IWarning_SwitchActive_Params = interface(IUnknown)
+ IWarning_SwitchActive_Params = interface
   {* Параметры для операции Warning.SwitchActive }
-   ['{FFE6A34D-8019-458E-A0F2-D2A9FFCE4B84}']
-   function Get_SubID: TnsWarningSub;
-   property SubID: TnsWarningSub
-     read Get_SubID;
-     {* undefined }
+  function Get_SubID: TnsWarningSub;
+  property SubID: TnsWarningSub
+   read Get_SubID;
  end;//IWarning_SwitchActive_Params
 
- Op_Warning_SwitchActive = class
+ Op_Warning_SwitchActive = {final} class
   {* Класс для вызова операции Warning.SwitchActive }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.SwitchActive у сущности }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.SwitchActive у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.SwitchActive у агрегации }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.SwitchActive у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.SwitchActive у формы }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.SwitchActive у формы }
    class function Call(const aTarget: IvcmContainer;
-    aSubID: TnsWarningSub): Boolean; overload; 
-     {* Вызов операции Warning.SwitchActive у контейнера }
+    aSubID: TnsWarningSub): Boolean; overload;
+    {* Вызов операции Warning.SwitchActive у контейнера }
  end;//Op_Warning_SwitchActive
 
- IPicture_InitNewContent_Params = interface(IUnknown)
+ IPicture_InitNewContent_Params = interface
   {* Параметры для операции Picture.InitNewContent }
-   ['{CE6432BB-C0B5-4CF2-9078-68E5B203981A}']
-   function Get_Data: InsLinkedObjectData;
-   property Data: InsLinkedObjectData
-     read Get_Data;
-     {* undefined }
+  function Get_Data: InsLinkedObjectData;
+  property Data: InsLinkedObjectData
+   read Get_Data;
  end;//IPicture_InitNewContent_Params
 
- Op_Picture_InitNewContent = class
+ Op_Picture_InitNewContent = {final} class
   {* Класс для вызова операции Picture.InitNewContent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aData: InsLinkedObjectData): Boolean; overload; 
-     {* Вызов операции Picture.InitNewContent у сущности }
+    const aData: InsLinkedObjectData): Boolean; overload;
+    {* Вызов операции Picture.InitNewContent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aData: InsLinkedObjectData): Boolean; overload; 
-     {* Вызов операции Picture.InitNewContent у агрегации }
+    const aData: InsLinkedObjectData): Boolean; overload;
+    {* Вызов операции Picture.InitNewContent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aData: InsLinkedObjectData): Boolean; overload; 
-     {* Вызов операции Picture.InitNewContent у формы }
+    const aData: InsLinkedObjectData): Boolean; overload;
+    {* Вызов операции Picture.InitNewContent у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aData: InsLinkedObjectData): Boolean; overload; 
-     {* Вызов операции Picture.InitNewContent у контейнера }
+    const aData: InsLinkedObjectData): Boolean; overload;
+    {* Вызов операции Picture.InitNewContent у контейнера }
  end;//Op_Picture_InitNewContent
 
- IContentsValidator_IsDocumentAdornmentsChanged_Params = interface(IUnknown)
+ IContentsValidator_IsDocumentAdornmentsChanged_Params = interface
   {* Параметры для операции ContentsValidator.IsDocumentAdornmentsChanged }
-   ['{17F041E4-CEDF-4EE2-972C-56865AE8181E}']
-   function Get_New: InsDocumentAdornments;
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property New: InsDocumentAdornments
-     read Get_New;
-     {* undefined }
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_New: InsDocumentAdornments;
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property New: InsDocumentAdornments
+   read Get_New;
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IContentsValidator_IsDocumentAdornmentsChanged_Params
 
- Op_ContentsValidator_IsDocumentAdornmentsChanged = class
+ Op_ContentsValidator_IsDocumentAdornmentsChanged = {final} class
   {* Класс для вызова операции ContentsValidator.IsDocumentAdornmentsChanged }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNew: InsDocumentAdornments): Boolean; overload; 
-     {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у сущности }
+    const aNew: InsDocumentAdornments): Boolean; overload;
+    {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNew: InsDocumentAdornments): Boolean; overload; 
-     {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у агрегации }
+    const aNew: InsDocumentAdornments): Boolean; overload;
+    {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNew: InsDocumentAdornments): Boolean; overload; 
-     {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у формы }
+    const aNew: InsDocumentAdornments): Boolean; overload;
+    {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNew: InsDocumentAdornments): Boolean; overload; 
-     {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у контейнера }
+    const aNew: InsDocumentAdornments): Boolean; overload;
+    {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у контейнера }
  end;//Op_ContentsValidator_IsDocumentAdornmentsChanged
 
- Op_DocumentSubPanel_UpdateSubPanel = class
+ Op_DocumentSubPanel_UpdateSubPanel = {final} class
   {* Класс для вызова операции DocumentSubPanel.UpdateSubPanel }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции DocumentSubPanel.UpdateSubPanel у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции DocumentSubPanel.UpdateSubPanel у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции DocumentSubPanel.UpdateSubPanel у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции DocumentSubPanel.UpdateSubPanel у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции DocumentSubPanel.UpdateSubPanel у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции DocumentSubPanel.UpdateSubPanel у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции DocumentSubPanel.UpdateSubPanel у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции DocumentSubPanel.UpdateSubPanel у контейнера }
  end;//Op_DocumentSubPanel_UpdateSubPanel
 
- IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params = interface(IUnknown)
+ IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params = interface
   {* Параметры для операции BaseSearchPresentationHolder.GetBaseSearchPresentation }
-   ['{C3E3A909-AA62-47CC-A4BD-7DBFD9851892}']
-   function Get_ResultValue: InsBaseSearchPresentation;
-   procedure Set_ResultValue(const aValue: InsBaseSearchPresentation);
-   property ResultValue: InsBaseSearchPresentation
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: InsBaseSearchPresentation;
+  procedure Set_ResultValue(const aValue: InsBaseSearchPresentation);
+  property ResultValue: InsBaseSearchPresentation
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params
 
- Op_BaseSearchPresentationHolder_GetBaseSearchPresentation = class
+ Op_BaseSearchPresentationHolder_GetBaseSearchPresentation = {final} class
   {* Класс для вызова операции BaseSearchPresentationHolder.GetBaseSearchPresentation }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): InsBaseSearchPresentation; overload; 
-     {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у сущности }
-   class function Call(const aTarget: IvcmAggregate): InsBaseSearchPresentation; overload; 
-     {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): InsBaseSearchPresentation; overload; 
-     {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у формы }
-   class function Call(const aTarget: IvcmContainer): InsBaseSearchPresentation; overload; 
-     {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): InsBaseSearchPresentation; overload;
+    {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у сущности }
+   class function Call(const aTarget: IvcmAggregate): InsBaseSearchPresentation; overload;
+    {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): InsBaseSearchPresentation; overload;
+    {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у формы }
+   class function Call(const aTarget: IvcmContainer): InsBaseSearchPresentation; overload;
+    {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у контейнера }
  end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_Editions = 'Editions';
  en_capEditions = 'Редакции';
@@ -1000,81 +592,217 @@ const
  op_SelectPara = 'SelectPara';
  op_capSelectPara = '';
 
-// Состояния операций:
-var st_user_Selection_InsertHyperlink_ModifyLink : TvcmOperationStateIndex = (rID : -1);
-  // Выделенные элементы -> Поставить ссылку... <-> Изменить ссылку...
-var st_user_DocumentBlock_GetTypedCorrespondentList_InText : TvcmOperationStateIndex = (rID : -1);
-  // Пункт оглавления -> Ссылки на фрагмент (вид информации) <-> Ссылки на фрагмент:
-var st_user_DocumentBlockHeader_UserCR1_Corr : TvcmOperationStateIndex = (rID : -1);
-  // Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 1 <-> Corr
-var st_user_DocumentBlockHeader_UserCR2_Corr : TvcmOperationStateIndex = (rID : -1);
-  // Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 2 <-> Corr
-var st_user_TasksPanel_TimeMachineOnOff_On : TvcmOperationStateIndex = (rID : -1);
-  // TasksPanel -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Включить Машину времени
-var st_user_TasksPanel_TimeMachineOnOff_Off : TvcmOperationStateIndex = (rID : -1);
-  // TasksPanel -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Выключить Машину времени
-var st_user_Document_OpenContentsFrmAct_Drug : TvcmOperationStateIndex = (rID : -1);
-  // Document -> Структура документа <-> Структура препарата
-var st_user_WarnRedaction_ShowInfo_Hide : TvcmOperationStateIndex = (rID : -1);
-  // Предупреждение о неактуальной редакции -> Показать текст предупреждения <-> Скрыть текст предупреждения
-var st_user_WarnTimeMachine_ShowInfo_Hide : TvcmOperationStateIndex = (rID : -1);
-  // Предупреждение для Машины времени -> Показать текст предупреждения <-> Скрыть текст предупреждения
-var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOn : TvcmOperationStateIndex = (rID : -1);
-  // Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Включить Машину времени
-var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOff : TvcmOperationStateIndex = (rID : -1);
-  // Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Выключить Машину времени/Изменить дату
-var st_user_WarnJuror_ShowInfo_Hide : TvcmOperationStateIndex = (rID : -1);
-  // Предупреждение (юридическое) -> Показать текст предупреждения <-> Скрыть текст предупреждения
-var st_user_UserCommentIcon_HideShow_GarantHidden : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Показать комментарии ГАРАНТа
-var st_user_UserCommentIcon_HideShow_GarantShown : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Скрыть комментарии ГАРАНТа
-var st_user_UserCommentIcon_HideShow_UserShown : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Скрыть мои комментарии
-var st_user_UserCommentIcon_HideShow_UserHidden : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Показать мои комментарии
-var st_user_UserCommentIcon_HideShow_Invisible : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Invisible
-var st_user_UserCommentIcon_HideShow_VersionShown : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Выключить информацию об изменениях документа
-var st_user_UserCommentIcon_HideShow_VersionHidden : TvcmOperationStateIndex = (rID : -1);
-  // UserCommentIcon -> Скрыть/Показать <-> Включить информацию об изменениях документа
-{$IfEnd} //not Admin AND not Monitorings
+var st_user_Selection_InsertHyperlink_ModifyLink: TvcmOperationStateIndex = (rID : -1);
+ {* Выделенные элементы -> Поставить ссылку... <-> Изменить ссылку... }
+var st_user_DocumentBlock_GetTypedCorrespondentList_InText: TvcmOperationStateIndex = (rID : -1);
+ {* Пункт оглавления -> Ссылки на фрагмент (вид информации) <-> Ссылки на фрагмент: }
+var st_user_DocumentBlockHeader_UserCR1_Corr: TvcmOperationStateIndex = (rID : -1);
+ {* Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 1 <->  }
+var st_user_DocumentBlockHeader_UserCR2_Corr: TvcmOperationStateIndex = (rID : -1);
+ {* Пункт оглавления - Заголовок документ -> Пользовательские ссылки на документ (ссылки из документа) 2 <->  }
+var st_user_TasksPanel_TimeMachineOnOff_On: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Включить Машину времени }
+var st_user_TasksPanel_TimeMachineOnOff_Off: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Включить Машину времени с календарной даты\Выключить Машину времени <-> Выключить Машину времени }
+var st_user_Document_OpenContentsFrmAct_Drug: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Структура документа <-> Структура препарата }
+var st_user_WarnRedaction_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
+ {* Предупреждение о неактуальной редакции -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var st_user_WarnTimeMachine_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
+ {* Предупреждение для Машины времени -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOn: TvcmOperationStateIndex = (rID : -1);
+ {* Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Включить Машину времени }
+var st_user_WarnTimeMachine_TimeMachineOnOffNew_MachineOff: TvcmOperationStateIndex = (rID : -1);
+ {* Предупреждение для Машины времени -> Включить/Выключить Машину времени <-> Выключить Машину времени/Изменить дату }
+var st_user_WarnJuror_ShowInfo_Hide: TvcmOperationStateIndex = (rID : -1);
+ {* Предупреждение (юридическое) -> Показать текст предупреждения <-> Скрыть текст предупреждения }
+var st_user_UserCommentIcon_HideShow_GarantHidden: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Показать комментарии ГАРАНТа }
+var st_user_UserCommentIcon_HideShow_GarantShown: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Скрыть комментарии ГАРАНТа }
+var st_user_UserCommentIcon_HideShow_UserShown: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Скрыть мои комментарии }
+var st_user_UserCommentIcon_HideShow_UserHidden: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Показать мои комментарии }
+var st_user_UserCommentIcon_HideShow_Invisible: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <->  }
+var st_user_UserCommentIcon_HideShow_VersionShown: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Выключить информацию об изменениях документа }
+var st_user_UserCommentIcon_HideShow_VersionHidden: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Скрыть/Показать <-> Включить информацию об изменениях документа }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TEditions_SetCurrent_Params = class(Tl3CProtoObject, IEditions_SetCurrent_Params)
+ TEditions_SetCurrent_Params = {final} class(Tl3CProtoObject, IEditions_SetCurrent_Params)
   {* Реализация IEditions_SetCurrent_Params }
- private
- // private fields
-   f_Document : IDocument;
- protected
- // realized methods
+  private
+   f_Document: IDocument;
+  protected
    function Get_Document: IDocument;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aDocument: IDocument); reintroduce;
-     {* Конструктор TEditions_SetCurrent_Params }
    class function Make(const aDocument: IDocument): IEditions_SetCurrent_Params; reintroduce;
-     {* Фабрика TEditions_SetCurrent_Params }
  end;//TEditions_SetCurrent_Params
 
-// start class TEditions_SetCurrent_Params
+ TSystem_TimeMachineStateChange_Params = {final} class(Tl3CProtoObject, ISystem_TimeMachineStateChange_Params)
+  {* Реализация ISystem_TimeMachineStateChange_Params }
+  private
+   f_StayInCurrentRedaction: Boolean;
+  protected
+   function Get_StayInCurrentRedaction: Boolean;
+  public
+   constructor Create(aStayInCurrentRedaction: Boolean = False); reintroduce;
+   class function Make(aStayInCurrentRedaction: Boolean = False): ISystem_TimeMachineStateChange_Params; reintroduce;
+ end;//TSystem_TimeMachineStateChange_Params
+
+ TContents_SetCurrent_Params = {final} class(Tl3CProtoObject, IContents_SetCurrent_Params)
+  {* Реализация IContents_SetCurrent_Params }
+  private
+   f_Sub: Integer;
+  protected
+   function Get_Sub: Integer;
+  public
+   constructor Create(aSub: Integer); reintroduce;
+   class function Make(aSub: Integer): IContents_SetCurrent_Params; reintroduce;
+ end;//TContents_SetCurrent_Params
+
+ TContents_MoveCurrent_Params = {final} class(Tl3CProtoObject, IContents_MoveCurrent_Params)
+  {* Реализация IContents_MoveCurrent_Params }
+  private
+   f_Sub: Integer;
+   f_Down: Boolean;
+  protected
+   function Get_Sub: Integer;
+   function Get_Down: Boolean;
+  public
+   constructor Create(aSub: Integer;
+    aDown: Boolean); reintroduce;
+   class function Make(aSub: Integer;
+    aDown: Boolean): IContents_MoveCurrent_Params; reintroduce;
+ end;//TContents_MoveCurrent_Params
+
+ TContents_HasUserComments_Params = {final} class(Tl3CProtoObject, IContents_HasUserComments_Params)
+  {* Реализация IContents_HasUserComments_Params }
+  private
+   f_ResultValue: Boolean;
+  protected
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+  public
+   class function Make: IContents_HasUserComments_Params; reintroduce;
+ end;//TContents_HasUserComments_Params
+
+ TContents_HasBookmarks_Params = {final} class(Tl3CProtoObject, IContents_HasBookmarks_Params)
+  {* Реализация IContents_HasBookmarks_Params }
+  private
+   f_ResultValue: Boolean;
+  protected
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+  public
+   class function Make: IContents_HasBookmarks_Params; reintroduce;
+ end;//TContents_HasBookmarks_Params
+
+ TContents_ToggleContentsVisibility_Params = {final} class(Tl3CProtoObject, IContents_ToggleContentsVisibility_Params)
+  {* Реализация IContents_ToggleContentsVisibility_Params }
+  private
+   f_ResultValue: Boolean;
+  protected
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+  public
+   class function Make: IContents_ToggleContentsVisibility_Params; reintroduce;
+ end;//TContents_ToggleContentsVisibility_Params
+
+ TContents_IsContentsVisible_Params = {final} class(Tl3CProtoObject, IContents_IsContentsVisible_Params)
+  {* Реализация IContents_IsContentsVisible_Params }
+  private
+   f_ResultValue: Boolean;
+  protected
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+  public
+   class function Make: IContents_IsContentsVisible_Params; reintroduce;
+ end;//TContents_IsContentsVisible_Params
+
+ TWarning_BecomeActive_Params = {final} class(Tl3CProtoObject, IWarning_BecomeActive_Params)
+  {* Реализация IWarning_BecomeActive_Params }
+  private
+   f_SubID: TnsWarningSub;
+  protected
+   function Get_SubID: TnsWarningSub;
+  public
+   constructor Create(aSubID: TnsWarningSub); reintroduce;
+   class function Make(aSubID: TnsWarningSub): IWarning_BecomeActive_Params; reintroduce;
+ end;//TWarning_BecomeActive_Params
+
+ TWarning_SwitchActive_Params = {final} class(Tl3CProtoObject, IWarning_SwitchActive_Params)
+  {* Реализация IWarning_SwitchActive_Params }
+  private
+   f_SubID: TnsWarningSub;
+  protected
+   function Get_SubID: TnsWarningSub;
+  public
+   constructor Create(aSubID: TnsWarningSub); reintroduce;
+   class function Make(aSubID: TnsWarningSub): IWarning_SwitchActive_Params; reintroduce;
+ end;//TWarning_SwitchActive_Params
+
+ TPicture_InitNewContent_Params = {final} class(Tl3CProtoObject, IPicture_InitNewContent_Params)
+  {* Реализация IPicture_InitNewContent_Params }
+  private
+   f_Data: InsLinkedObjectData;
+  protected
+   function Get_Data: InsLinkedObjectData;
+   procedure ClearFields; override;
+  public
+   constructor Create(const aData: InsLinkedObjectData); reintroduce;
+   class function Make(const aData: InsLinkedObjectData): IPicture_InitNewContent_Params; reintroduce;
+ end;//TPicture_InitNewContent_Params
+
+ TContentsValidator_IsDocumentAdornmentsChanged_Params = {final} class(Tl3CProtoObject, IContentsValidator_IsDocumentAdornmentsChanged_Params)
+  {* Реализация IContentsValidator_IsDocumentAdornmentsChanged_Params }
+  private
+   f_New: InsDocumentAdornments;
+   f_ResultValue: Boolean;
+  protected
+   function Get_New: InsDocumentAdornments;
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+   procedure ClearFields; override;
+  public
+   constructor Create(const aNew: InsDocumentAdornments); reintroduce;
+   class function Make(const aNew: InsDocumentAdornments): IContentsValidator_IsDocumentAdornmentsChanged_Params; reintroduce;
+ end;//TContentsValidator_IsDocumentAdornmentsChanged_Params
+
+ TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params = {final} class(Tl3CProtoObject, IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params)
+  {* Реализация IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params }
+  private
+   f_ResultValue: InsBaseSearchPresentation;
+  protected
+   function Get_ResultValue: InsBaseSearchPresentation;
+   procedure Set_ResultValue(const aValue: InsBaseSearchPresentation);
+   procedure ClearFields; override;
+  public
+   class function Make: IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params; reintroduce;
+ end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params
 
 constructor TEditions_SetCurrent_Params.Create(const aDocument: IDocument);
- {-}
 begin
  inherited Create;
  f_Document := aDocument;
@@ -1090,26 +818,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TEditions_SetCurrent_Params.Make
 
 function TEditions_SetCurrent_Params.Get_Document: IDocument;
- {-}
 begin
  Result := f_Document;
 end;//TEditions_SetCurrent_Params.Get_Document
 
 procedure TEditions_SetCurrent_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Document := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TEditions_SetCurrent_Params.ClearFields
-// start class Op_Editions_SetCurrent
 
 class function Op_Editions_SetCurrent.Call(const aTarget: IvcmEntity;
-  const aDocument: IDocument): Boolean;
+ const aDocument: IDocument): Boolean;
+ {* Вызов операции Editions.SetCurrent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1129,7 +853,8 @@ begin
 end;//Op_Editions_SetCurrent.Call
 
 class function Op_Editions_SetCurrent.Call(const aTarget: IvcmAggregate;
-  const aDocument: IDocument): Boolean;
+ const aDocument: IDocument): Boolean;
+ {* Вызов операции Editions.SetCurrent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1149,8 +874,8 @@ begin
 end;//Op_Editions_SetCurrent.Call
 
 class function Op_Editions_SetCurrent.Call(const aTarget: IvcmEntityForm;
-  const aDocument: IDocument): Boolean;
- {-}
+ const aDocument: IDocument): Boolean;
+ {* Вызов операции Editions.SetCurrent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1158,41 +883,21 @@ begin
 end;//Op_Editions_SetCurrent.Call
 
 class function Op_Editions_SetCurrent.Call(const aTarget: IvcmContainer;
-  const aDocument: IDocument): Boolean;
- {-}
+ const aDocument: IDocument): Boolean;
+ {* Вызов операции Editions.SetCurrent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aDocument);
 end;//Op_Editions_SetCurrent.Call
 
-type
- TSystem_TimeMachineStateChange_Params = class(Tl3CProtoObject, ISystem_TimeMachineStateChange_Params)
-  {* Реализация ISystem_TimeMachineStateChange_Params }
- private
- // private fields
-   f_StayInCurrentRedaction : Boolean;
- protected
- // realized methods
-   function Get_StayInCurrentRedaction: Boolean;
- public
- // public methods
-   constructor Create(aStayInCurrentRedaction: Boolean); reintroduce;
-     {* Конструктор TSystem_TimeMachineStateChange_Params }
-   class function Make(aStayInCurrentRedaction: Boolean): ISystem_TimeMachineStateChange_Params; reintroduce;
-     {* Фабрика TSystem_TimeMachineStateChange_Params }
- end;//TSystem_TimeMachineStateChange_Params
-
-// start class TSystem_TimeMachineStateChange_Params
-
-constructor TSystem_TimeMachineStateChange_Params.Create(aStayInCurrentRedaction: Boolean);
- {-}
+constructor TSystem_TimeMachineStateChange_Params.Create(aStayInCurrentRedaction: Boolean = False);
 begin
  inherited Create;
  f_StayInCurrentRedaction := aStayInCurrentRedaction;
 end;//TSystem_TimeMachineStateChange_Params.Create
 
-class function TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction: Boolean): ISystem_TimeMachineStateChange_Params;
+class function TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction: Boolean = False): ISystem_TimeMachineStateChange_Params;
 var
  l_Inst : TSystem_TimeMachineStateChange_Params;
 begin
@@ -1202,17 +907,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TSystem_TimeMachineStateChange_Params.Make
 
 function TSystem_TimeMachineStateChange_Params.Get_StayInCurrentRedaction: Boolean;
- {-}
 begin
  Result := f_StayInCurrentRedaction;
 end;//TSystem_TimeMachineStateChange_Params.Get_StayInCurrentRedaction
-// start class Op_System_TimeMachineStateChange
 
 class function Op_System_TimeMachineStateChange.Call(const aTarget: IvcmEntity;
-  aStayInCurrentRedaction: Boolean = false): Boolean;
+ aStayInCurrentRedaction: Boolean = False): Boolean;
+ {* Вызов операции System.TimeMachineStateChange у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1232,7 +936,8 @@ begin
 end;//Op_System_TimeMachineStateChange.Call
 
 class function Op_System_TimeMachineStateChange.Call(const aTarget: IvcmAggregate;
-  aStayInCurrentRedaction: Boolean = false): Boolean;
+ aStayInCurrentRedaction: Boolean = False): Boolean;
+ {* Вызов операции System.TimeMachineStateChange у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1252,8 +957,8 @@ begin
 end;//Op_System_TimeMachineStateChange.Call
 
 class function Op_System_TimeMachineStateChange.Call(const aTarget: IvcmEntityForm;
-  aStayInCurrentRedaction: Boolean = false): Boolean;
- {-}
+ aStayInCurrentRedaction: Boolean = False): Boolean;
+ {* Вызов операции System.TimeMachineStateChange у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1261,15 +966,16 @@ begin
 end;//Op_System_TimeMachineStateChange.Call
 
 class function Op_System_TimeMachineStateChange.Call(const aTarget: IvcmContainer;
-  aStayInCurrentRedaction: Boolean = false): Boolean;
- {-}
+ aStayInCurrentRedaction: Boolean = False): Boolean;
+ {* Вызов операции System.TimeMachineStateChange у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aStayInCurrentRedaction);
 end;//Op_System_TimeMachineStateChange.Call
 
-class procedure Op_System_TimeMachineStateChange.Broadcast(aStayInCurrentRedaction: Boolean = false);
+class procedure Op_System_TimeMachineStateChange.Broadcast(aStayInCurrentRedaction: Boolean = False);
+ {* Вызов операции System.TimeMachineStateChange у всех зарегистрированных сущностей }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1277,30 +983,10 @@ begin
  begin
   l_Params := TvcmExecuteParams.MakeForInternal(TSystem_TimeMachineStateChange_Params.Make(aStayInCurrentRedaction));
   vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_System_TimeMachineStateChange, l_Params);
- end;//vcmDispatcher <> nil
+ end//vcmDispatcher <> nil
 end;//Op_System_TimeMachineStateChange.Broadcast
 
-type
- TContents_SetCurrent_Params = class(Tl3CProtoObject, IContents_SetCurrent_Params)
-  {* Реализация IContents_SetCurrent_Params }
- private
- // private fields
-   f_Sub : Integer;
- protected
- // realized methods
-   function Get_Sub: Integer;
- public
- // public methods
-   constructor Create(aSub: Integer); reintroduce;
-     {* Конструктор TContents_SetCurrent_Params }
-   class function Make(aSub: Integer): IContents_SetCurrent_Params; reintroduce;
-     {* Фабрика TContents_SetCurrent_Params }
- end;//TContents_SetCurrent_Params
-
-// start class TContents_SetCurrent_Params
-
 constructor TContents_SetCurrent_Params.Create(aSub: Integer);
- {-}
 begin
  inherited Create;
  f_Sub := aSub;
@@ -1316,17 +1002,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_SetCurrent_Params.Make
 
 function TContents_SetCurrent_Params.Get_Sub: Integer;
- {-}
 begin
  Result := f_Sub;
 end;//TContents_SetCurrent_Params.Get_Sub
-// start class Op_Contents_SetCurrent
 
 class function Op_Contents_SetCurrent.Call(const aTarget: IvcmEntity;
-  aSub: Integer): Boolean;
+ aSub: Integer): Boolean;
+ {* Вызов операции Contents.SetCurrent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1346,7 +1031,8 @@ begin
 end;//Op_Contents_SetCurrent.Call
 
 class function Op_Contents_SetCurrent.Call(const aTarget: IvcmAggregate;
-  aSub: Integer): Boolean;
+ aSub: Integer): Boolean;
+ {* Вызов операции Contents.SetCurrent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1366,8 +1052,8 @@ begin
 end;//Op_Contents_SetCurrent.Call
 
 class function Op_Contents_SetCurrent.Call(const aTarget: IvcmEntityForm;
-  aSub: Integer): Boolean;
- {-}
+ aSub: Integer): Boolean;
+ {* Вызов операции Contents.SetCurrent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1375,40 +1061,16 @@ begin
 end;//Op_Contents_SetCurrent.Call
 
 class function Op_Contents_SetCurrent.Call(const aTarget: IvcmContainer;
-  aSub: Integer): Boolean;
- {-}
+ aSub: Integer): Boolean;
+ {* Вызов операции Contents.SetCurrent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aSub);
 end;//Op_Contents_SetCurrent.Call
 
-type
- TContents_MoveCurrent_Params = class(Tl3CProtoObject, IContents_MoveCurrent_Params)
-  {* Реализация IContents_MoveCurrent_Params }
- private
- // private fields
-   f_Sub : Integer;
-   f_Down : Boolean;
- protected
- // realized methods
-   function Get_Down: Boolean;
-   function Get_Sub: Integer;
- public
- // public methods
-   constructor Create(aSub: Integer;
-    aDown: Boolean); reintroduce;
-     {* Конструктор TContents_MoveCurrent_Params }
-   class function Make(aSub: Integer;
-    aDown: Boolean): IContents_MoveCurrent_Params; reintroduce;
-     {* Фабрика TContents_MoveCurrent_Params }
- end;//TContents_MoveCurrent_Params
-
-// start class TContents_MoveCurrent_Params
-
 constructor TContents_MoveCurrent_Params.Create(aSub: Integer;
-  aDown: Boolean);
- {-}
+ aDown: Boolean);
 begin
  inherited Create;
  f_Sub := aSub;
@@ -1416,7 +1078,7 @@ begin
 end;//TContents_MoveCurrent_Params.Create
 
 class function TContents_MoveCurrent_Params.Make(aSub: Integer;
-  aDown: Boolean): IContents_MoveCurrent_Params;
+ aDown: Boolean): IContents_MoveCurrent_Params;
 var
  l_Inst : TContents_MoveCurrent_Params;
 begin
@@ -1426,31 +1088,29 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_MoveCurrent_Params.Make
+
+function TContents_MoveCurrent_Params.Get_Sub: Integer;
+begin
+ Result := f_Sub;
+end;//TContents_MoveCurrent_Params.Get_Sub
 
 function TContents_MoveCurrent_Params.Get_Down: Boolean;
- {-}
 begin
  Result := f_Down;
 end;//TContents_MoveCurrent_Params.Get_Down
 
-function TContents_MoveCurrent_Params.Get_Sub: Integer;
- {-}
-begin
- Result := f_Sub;
-end;//TContents_MoveCurrent_Params.Get_Sub
-// start class Op_Contents_MoveCurrent
-
 class function Op_Contents_MoveCurrent.Call(const aTarget: IvcmEntity;
-  aSub: Integer;
-  aDown: Boolean): Boolean;
+ aSub: Integer;
+ aDown: Boolean): Boolean;
+ {* Вызов операции Contents.MoveCurrent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub,aDown));
+  l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub, aDown));
   aTarget.Operation(TdmStdRes.opcode_Contents_MoveCurrent, l_Params);
   with l_Params do
   begin
@@ -1463,15 +1123,16 @@ begin
 end;//Op_Contents_MoveCurrent.Call
 
 class function Op_Contents_MoveCurrent.Call(const aTarget: IvcmAggregate;
-  aSub: Integer;
-  aDown: Boolean): Boolean;
+ aSub: Integer;
+ aDown: Boolean): Boolean;
+ {* Вызов операции Contents.MoveCurrent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub,aDown));
+  l_Params := TvcmExecuteParams.MakeForInternal(TContents_MoveCurrent_Params.Make(aSub, aDown));
   aTarget.Operation(TdmStdRes.opcode_Contents_MoveCurrent, l_Params);
   with l_Params do
   begin
@@ -1484,9 +1145,9 @@ begin
 end;//Op_Contents_MoveCurrent.Call
 
 class function Op_Contents_MoveCurrent.Call(const aTarget: IvcmEntityForm;
-  aSub: Integer;
-  aDown: Boolean): Boolean;
- {-}
+ aSub: Integer;
+ aDown: Boolean): Boolean;
+ {* Вызов операции Contents.MoveCurrent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1494,40 +1155,14 @@ begin
 end;//Op_Contents_MoveCurrent.Call
 
 class function Op_Contents_MoveCurrent.Call(const aTarget: IvcmContainer;
-  aSub: Integer;
-  aDown: Boolean): Boolean;
- {-}
+ aSub: Integer;
+ aDown: Boolean): Boolean;
+ {* Вызов операции Contents.MoveCurrent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aSub, aDown);
 end;//Op_Contents_MoveCurrent.Call
-
-type
- TContents_HasUserComments_Params = class(Tl3CProtoObject, IContents_HasUserComments_Params)
-  {* Реализация IContents_HasUserComments_Params }
- private
- // private fields
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TContents_HasUserComments_Params }
-   class function Make: IContents_HasUserComments_Params; reintroduce;
-     {* Фабрика TContents_HasUserComments_Params }
- end;//TContents_HasUserComments_Params
-
-// start class TContents_HasUserComments_Params
-
-constructor TContents_HasUserComments_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TContents_HasUserComments_Params.Create
 
 class function TContents_HasUserComments_Params.Make: IContents_HasUserComments_Params;
 var
@@ -1539,22 +1174,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_HasUserComments_Params.Make
 
 function TContents_HasUserComments_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TContents_HasUserComments_Params.Get_ResultValue
 
 procedure TContents_HasUserComments_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TContents_HasUserComments_Params.Set_ResultValue
-// start class Op_Contents_HasUserComments
 
 class function Op_Contents_HasUserComments.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Contents.HasUserComments у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1574,6 +1207,7 @@ begin
 end;//Op_Contents_HasUserComments.Call
 
 class function Op_Contents_HasUserComments.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Contents.HasUserComments у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1593,7 +1227,7 @@ begin
 end;//Op_Contents_HasUserComments.Call
 
 class function Op_Contents_HasUserComments.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Contents.HasUserComments у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1601,38 +1235,12 @@ begin
 end;//Op_Contents_HasUserComments.Call
 
 class function Op_Contents_HasUserComments.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Contents.HasUserComments у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Contents_HasUserComments.Call
-
-type
- TContents_HasBookmarks_Params = class(Tl3CProtoObject, IContents_HasBookmarks_Params)
-  {* Реализация IContents_HasBookmarks_Params }
- private
- // private fields
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TContents_HasBookmarks_Params }
-   class function Make: IContents_HasBookmarks_Params; reintroduce;
-     {* Фабрика TContents_HasBookmarks_Params }
- end;//TContents_HasBookmarks_Params
-
-// start class TContents_HasBookmarks_Params
-
-constructor TContents_HasBookmarks_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TContents_HasBookmarks_Params.Create
 
 class function TContents_HasBookmarks_Params.Make: IContents_HasBookmarks_Params;
 var
@@ -1644,22 +1252,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_HasBookmarks_Params.Make
 
 function TContents_HasBookmarks_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TContents_HasBookmarks_Params.Get_ResultValue
 
 procedure TContents_HasBookmarks_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TContents_HasBookmarks_Params.Set_ResultValue
-// start class Op_Contents_HasBookmarks
 
 class function Op_Contents_HasBookmarks.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Contents.HasBookmarks у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1679,6 +1285,7 @@ begin
 end;//Op_Contents_HasBookmarks.Call
 
 class function Op_Contents_HasBookmarks.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Contents.HasBookmarks у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1698,7 +1305,7 @@ begin
 end;//Op_Contents_HasBookmarks.Call
 
 class function Op_Contents_HasBookmarks.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Contents.HasBookmarks у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1706,38 +1313,12 @@ begin
 end;//Op_Contents_HasBookmarks.Call
 
 class function Op_Contents_HasBookmarks.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Contents.HasBookmarks у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Contents_HasBookmarks.Call
-
-type
- TContents_ToggleContentsVisibility_Params = class(Tl3CProtoObject, IContents_ToggleContentsVisibility_Params)
-  {* Реализация IContents_ToggleContentsVisibility_Params }
- private
- // private fields
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TContents_ToggleContentsVisibility_Params }
-   class function Make: IContents_ToggleContentsVisibility_Params; reintroduce;
-     {* Фабрика TContents_ToggleContentsVisibility_Params }
- end;//TContents_ToggleContentsVisibility_Params
-
-// start class TContents_ToggleContentsVisibility_Params
-
-constructor TContents_ToggleContentsVisibility_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TContents_ToggleContentsVisibility_Params.Create
 
 class function TContents_ToggleContentsVisibility_Params.Make: IContents_ToggleContentsVisibility_Params;
 var
@@ -1749,22 +1330,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_ToggleContentsVisibility_Params.Make
 
 function TContents_ToggleContentsVisibility_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TContents_ToggleContentsVisibility_Params.Get_ResultValue
 
 procedure TContents_ToggleContentsVisibility_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TContents_ToggleContentsVisibility_Params.Set_ResultValue
-// start class Op_Contents_ToggleContentsVisibility
 
 class function Op_Contents_ToggleContentsVisibility.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Contents.ToggleContentsVisibility у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1784,6 +1363,7 @@ begin
 end;//Op_Contents_ToggleContentsVisibility.Call
 
 class function Op_Contents_ToggleContentsVisibility.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Contents.ToggleContentsVisibility у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1803,7 +1383,7 @@ begin
 end;//Op_Contents_ToggleContentsVisibility.Call
 
 class function Op_Contents_ToggleContentsVisibility.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Contents.ToggleContentsVisibility у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1811,38 +1391,12 @@ begin
 end;//Op_Contents_ToggleContentsVisibility.Call
 
 class function Op_Contents_ToggleContentsVisibility.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Contents.ToggleContentsVisibility у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Contents_ToggleContentsVisibility.Call
-
-type
- TContents_IsContentsVisible_Params = class(Tl3CProtoObject, IContents_IsContentsVisible_Params)
-  {* Реализация IContents_IsContentsVisible_Params }
- private
- // private fields
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TContents_IsContentsVisible_Params }
-   class function Make: IContents_IsContentsVisible_Params; reintroduce;
-     {* Фабрика TContents_IsContentsVisible_Params }
- end;//TContents_IsContentsVisible_Params
-
-// start class TContents_IsContentsVisible_Params
-
-constructor TContents_IsContentsVisible_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TContents_IsContentsVisible_Params.Create
 
 class function TContents_IsContentsVisible_Params.Make: IContents_IsContentsVisible_Params;
 var
@@ -1854,22 +1408,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContents_IsContentsVisible_Params.Make
 
 function TContents_IsContentsVisible_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TContents_IsContentsVisible_Params.Get_ResultValue
 
 procedure TContents_IsContentsVisible_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TContents_IsContentsVisible_Params.Set_ResultValue
-// start class Op_Contents_IsContentsVisible
 
 class function Op_Contents_IsContentsVisible.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Contents.IsContentsVisible у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1889,6 +1441,7 @@ begin
 end;//Op_Contents_IsContentsVisible.Call
 
 class function Op_Contents_IsContentsVisible.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Contents.IsContentsVisible у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1908,7 +1461,7 @@ begin
 end;//Op_Contents_IsContentsVisible.Call
 
 class function Op_Contents_IsContentsVisible.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Contents.IsContentsVisible у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1916,34 +1469,14 @@ begin
 end;//Op_Contents_IsContentsVisible.Call
 
 class function Op_Contents_IsContentsVisible.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Contents.IsContentsVisible у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Contents_IsContentsVisible.Call
 
-type
- TWarning_BecomeActive_Params = class(Tl3CProtoObject, IWarning_BecomeActive_Params)
-  {* Реализация IWarning_BecomeActive_Params }
- private
- // private fields
-   f_SubID : TnsWarningSub;
- protected
- // realized methods
-   function Get_SubID: TnsWarningSub;
- public
- // public methods
-   constructor Create(aSubID: TnsWarningSub); reintroduce;
-     {* Конструктор TWarning_BecomeActive_Params }
-   class function Make(aSubID: TnsWarningSub): IWarning_BecomeActive_Params; reintroduce;
-     {* Фабрика TWarning_BecomeActive_Params }
- end;//TWarning_BecomeActive_Params
-
-// start class TWarning_BecomeActive_Params
-
 constructor TWarning_BecomeActive_Params.Create(aSubID: TnsWarningSub);
- {-}
 begin
  inherited Create;
  f_SubID := aSubID;
@@ -1959,17 +1492,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TWarning_BecomeActive_Params.Make
 
 function TWarning_BecomeActive_Params.Get_SubID: TnsWarningSub;
- {-}
 begin
  Result := f_SubID;
 end;//TWarning_BecomeActive_Params.Get_SubID
-// start class Op_Warning_BecomeActive
 
 class function Op_Warning_BecomeActive.Call(const aTarget: IvcmEntity;
-  aSubID: TnsWarningSub): Boolean;
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.BecomeActive у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1989,7 +1521,8 @@ begin
 end;//Op_Warning_BecomeActive.Call
 
 class function Op_Warning_BecomeActive.Call(const aTarget: IvcmAggregate;
-  aSubID: TnsWarningSub): Boolean;
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.BecomeActive у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2009,8 +1542,8 @@ begin
 end;//Op_Warning_BecomeActive.Call
 
 class function Op_Warning_BecomeActive.Call(const aTarget: IvcmEntityForm;
-  aSubID: TnsWarningSub): Boolean;
- {-}
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.BecomeActive у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2018,35 +1551,15 @@ begin
 end;//Op_Warning_BecomeActive.Call
 
 class function Op_Warning_BecomeActive.Call(const aTarget: IvcmContainer;
-  aSubID: TnsWarningSub): Boolean;
- {-}
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.BecomeActive у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aSubID);
 end;//Op_Warning_BecomeActive.Call
 
-type
- TWarning_SwitchActive_Params = class(Tl3CProtoObject, IWarning_SwitchActive_Params)
-  {* Реализация IWarning_SwitchActive_Params }
- private
- // private fields
-   f_SubID : TnsWarningSub;
- protected
- // realized methods
-   function Get_SubID: TnsWarningSub;
- public
- // public methods
-   constructor Create(aSubID: TnsWarningSub); reintroduce;
-     {* Конструктор TWarning_SwitchActive_Params }
-   class function Make(aSubID: TnsWarningSub): IWarning_SwitchActive_Params; reintroduce;
-     {* Фабрика TWarning_SwitchActive_Params }
- end;//TWarning_SwitchActive_Params
-
-// start class TWarning_SwitchActive_Params
-
 constructor TWarning_SwitchActive_Params.Create(aSubID: TnsWarningSub);
- {-}
 begin
  inherited Create;
  f_SubID := aSubID;
@@ -2062,17 +1575,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TWarning_SwitchActive_Params.Make
 
 function TWarning_SwitchActive_Params.Get_SubID: TnsWarningSub;
- {-}
 begin
  Result := f_SubID;
 end;//TWarning_SwitchActive_Params.Get_SubID
-// start class Op_Warning_SwitchActive
 
 class function Op_Warning_SwitchActive.Call(const aTarget: IvcmEntity;
-  aSubID: TnsWarningSub): Boolean;
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.SwitchActive у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2092,7 +1604,8 @@ begin
 end;//Op_Warning_SwitchActive.Call
 
 class function Op_Warning_SwitchActive.Call(const aTarget: IvcmAggregate;
-  aSubID: TnsWarningSub): Boolean;
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.SwitchActive у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2112,8 +1625,8 @@ begin
 end;//Op_Warning_SwitchActive.Call
 
 class function Op_Warning_SwitchActive.Call(const aTarget: IvcmEntityForm;
-  aSubID: TnsWarningSub): Boolean;
- {-}
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.SwitchActive у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2121,39 +1634,15 @@ begin
 end;//Op_Warning_SwitchActive.Call
 
 class function Op_Warning_SwitchActive.Call(const aTarget: IvcmContainer;
-  aSubID: TnsWarningSub): Boolean;
- {-}
+ aSubID: TnsWarningSub): Boolean;
+ {* Вызов операции Warning.SwitchActive у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aSubID);
 end;//Op_Warning_SwitchActive.Call
 
-type
- TPicture_InitNewContent_Params = class(Tl3CProtoObject, IPicture_InitNewContent_Params)
-  {* Реализация IPicture_InitNewContent_Params }
- private
- // private fields
-   f_Data : InsLinkedObjectData;
- protected
- // realized methods
-   function Get_Data: InsLinkedObjectData;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aData: InsLinkedObjectData); reintroduce;
-     {* Конструктор TPicture_InitNewContent_Params }
-   class function Make(const aData: InsLinkedObjectData): IPicture_InitNewContent_Params; reintroduce;
-     {* Фабрика TPicture_InitNewContent_Params }
- end;//TPicture_InitNewContent_Params
-
-// start class TPicture_InitNewContent_Params
-
 constructor TPicture_InitNewContent_Params.Create(const aData: InsLinkedObjectData);
- {-}
 begin
  inherited Create;
  f_Data := aData;
@@ -2169,26 +1658,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TPicture_InitNewContent_Params.Make
 
 function TPicture_InitNewContent_Params.Get_Data: InsLinkedObjectData;
- {-}
 begin
  Result := f_Data;
 end;//TPicture_InitNewContent_Params.Get_Data
 
 procedure TPicture_InitNewContent_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Data := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPicture_InitNewContent_Params.ClearFields
-// start class Op_Picture_InitNewContent
 
 class function Op_Picture_InitNewContent.Call(const aTarget: IvcmEntity;
-  const aData: InsLinkedObjectData): Boolean;
+ const aData: InsLinkedObjectData): Boolean;
+ {* Вызов операции Picture.InitNewContent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2208,7 +1693,8 @@ begin
 end;//Op_Picture_InitNewContent.Call
 
 class function Op_Picture_InitNewContent.Call(const aTarget: IvcmAggregate;
-  const aData: InsLinkedObjectData): Boolean;
+ const aData: InsLinkedObjectData): Boolean;
+ {* Вызов операции Picture.InitNewContent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2228,8 +1714,8 @@ begin
 end;//Op_Picture_InitNewContent.Call
 
 class function Op_Picture_InitNewContent.Call(const aTarget: IvcmEntityForm;
-  const aData: InsLinkedObjectData): Boolean;
- {-}
+ const aData: InsLinkedObjectData): Boolean;
+ {* Вызов операции Picture.InitNewContent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2237,42 +1723,15 @@ begin
 end;//Op_Picture_InitNewContent.Call
 
 class function Op_Picture_InitNewContent.Call(const aTarget: IvcmContainer;
-  const aData: InsLinkedObjectData): Boolean;
- {-}
+ const aData: InsLinkedObjectData): Boolean;
+ {* Вызов операции Picture.InitNewContent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aData);
 end;//Op_Picture_InitNewContent.Call
 
-type
- TContentsValidator_IsDocumentAdornmentsChanged_Params = class(Tl3CProtoObject, IContentsValidator_IsDocumentAdornmentsChanged_Params)
-  {* Реализация IContentsValidator_IsDocumentAdornmentsChanged_Params }
- private
- // private fields
-   f_New : InsDocumentAdornments;
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   function Get_New: InsDocumentAdornments;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(const aNew: InsDocumentAdornments); reintroduce;
-     {* Конструктор TContentsValidator_IsDocumentAdornmentsChanged_Params }
-   class function Make(const aNew: InsDocumentAdornments): IContentsValidator_IsDocumentAdornmentsChanged_Params; reintroduce;
-     {* Фабрика TContentsValidator_IsDocumentAdornmentsChanged_Params }
- end;//TContentsValidator_IsDocumentAdornmentsChanged_Params
-
-// start class TContentsValidator_IsDocumentAdornmentsChanged_Params
-
 constructor TContentsValidator_IsDocumentAdornmentsChanged_Params.Create(const aNew: InsDocumentAdornments);
- {-}
 begin
  inherited Create;
  f_New := aNew;
@@ -2288,38 +1747,32 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.Make
+
+function TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_New: InsDocumentAdornments;
+begin
+ Result := f_New;
+end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_New
 
 function TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_ResultValue
 
 procedure TContentsValidator_IsDocumentAdornmentsChanged_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.Set_ResultValue
 
-function TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_New: InsDocumentAdornments;
- {-}
-begin
- Result := f_New;
-end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.Get_New
-
 procedure TContentsValidator_IsDocumentAdornmentsChanged_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_New := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TContentsValidator_IsDocumentAdornmentsChanged_Params.ClearFields
-// start class Op_ContentsValidator_IsDocumentAdornmentsChanged
 
 class function Op_ContentsValidator_IsDocumentAdornmentsChanged.Call(const aTarget: IvcmEntity;
-  const aNew: InsDocumentAdornments): Boolean;
+ const aNew: InsDocumentAdornments): Boolean;
+ {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2339,7 +1792,8 @@ begin
 end;//Op_ContentsValidator_IsDocumentAdornmentsChanged.Call
 
 class function Op_ContentsValidator_IsDocumentAdornmentsChanged.Call(const aTarget: IvcmAggregate;
-  const aNew: InsDocumentAdornments): Boolean;
+ const aNew: InsDocumentAdornments): Boolean;
+ {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2359,8 +1813,8 @@ begin
 end;//Op_ContentsValidator_IsDocumentAdornmentsChanged.Call
 
 class function Op_ContentsValidator_IsDocumentAdornmentsChanged.Call(const aTarget: IvcmEntityForm;
-  const aNew: InsDocumentAdornments): Boolean;
- {-}
+ const aNew: InsDocumentAdornments): Boolean;
+ {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2368,16 +1822,16 @@ begin
 end;//Op_ContentsValidator_IsDocumentAdornmentsChanged.Call
 
 class function Op_ContentsValidator_IsDocumentAdornmentsChanged.Call(const aTarget: IvcmContainer;
-  const aNew: InsDocumentAdornments): Boolean;
- {-}
+ const aNew: InsDocumentAdornments): Boolean;
+ {* Вызов операции ContentsValidator.IsDocumentAdornmentsChanged у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNew);
 end;//Op_ContentsValidator_IsDocumentAdornmentsChanged.Call
-// start class Op_DocumentSubPanel_UpdateSubPanel
 
 class function Op_DocumentSubPanel_UpdateSubPanel.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции DocumentSubPanel.UpdateSubPanel у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2397,6 +1851,7 @@ begin
 end;//Op_DocumentSubPanel_UpdateSubPanel.Call
 
 class function Op_DocumentSubPanel_UpdateSubPanel.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции DocumentSubPanel.UpdateSubPanel у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2416,7 +1871,7 @@ begin
 end;//Op_DocumentSubPanel_UpdateSubPanel.Call
 
 class function Op_DocumentSubPanel_UpdateSubPanel.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции DocumentSubPanel.UpdateSubPanel у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2424,42 +1879,12 @@ begin
 end;//Op_DocumentSubPanel_UpdateSubPanel.Call
 
 class function Op_DocumentSubPanel_UpdateSubPanel.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции DocumentSubPanel.UpdateSubPanel у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_DocumentSubPanel_UpdateSubPanel.Call
-
-type
- TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params = class(Tl3CProtoObject, IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params)
-  {* Реализация IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params }
- private
- // private fields
-   f_ResultValue : InsBaseSearchPresentation;
- protected
- // realized methods
-   function Get_ResultValue: InsBaseSearchPresentation;
-   procedure Set_ResultValue(const aValue: InsBaseSearchPresentation);
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params }
-   class function Make: IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params; reintroduce;
-     {* Фабрика TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params }
- end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params
-
-// start class TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params
-
-constructor TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Create
 
 class function TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Make: IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params;
 var
@@ -2471,31 +1896,26 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Make
 
 function TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Get_ResultValue: InsBaseSearchPresentation;
- {-}
 begin
  Result := f_ResultValue;
 end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Get_ResultValue
 
 procedure TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Set_ResultValue(const aValue: InsBaseSearchPresentation);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.Set_ResultValue
 
 procedure TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ResultValue := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TBaseSearchPresentationHolder_GetBaseSearchPresentation_Params.ClearFields
-// start class Op_BaseSearchPresentationHolder_GetBaseSearchPresentation
 
 class function Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call(const aTarget: IvcmEntity): InsBaseSearchPresentation;
+ {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2515,6 +1935,7 @@ begin
 end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call
 
 class function Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call(const aTarget: IvcmAggregate): InsBaseSearchPresentation;
+ {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -2534,7 +1955,7 @@ begin
 end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call
 
 class function Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call(const aTarget: IvcmEntityForm): InsBaseSearchPresentation;
- {-}
+ {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -2542,13 +1963,12 @@ begin
 end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call
 
 class function Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call(const aTarget: IvcmContainer): InsBaseSearchPresentation;
- {-}
+ {* Вызов операции BaseSearchPresentationHolder.GetBaseSearchPresentation у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_BaseSearchPresentationHolder_GetBaseSearchPresentation.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -37,11 +37,10 @@ type
  )
   private
    f_Label1: TvtLabel;
-    {* Поле для свойства Label1 }
+    {* Номер документа: }
    f_edNumber: TnscComboBox;
-    {* Поле для свойства edNumber }
    f_cbInternal: TvtCheckBox;
-    {* Поле для свойства cbInternal }
+    {* Внутренний номер в базе }
   protected
    f_Results: InsOpenDocOnNumberData;
   protected
@@ -62,7 +61,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsOpenDocOnNumberData): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsOpenDocOnNumberData;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
   public
    property Label1: TvtLabel
     read f_Label1;
@@ -91,6 +94,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -158,15 +165,47 @@ begin
 //#UC END# *51B9E1A00192_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.LoadHistory
 
-class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData): IvcmEntityForm;
+class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimDocNumberQueryForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *51B9E27000CD_4AC63602020E_impl*
+   if (aData.PosID <> 0) then
+   begin
+    case aData.PosType of
+     dptSub:  edNumber.Text := nsCStr(IntToStr(aData.DocID) + cPosDelimiter + IntToStr(aData.PosID));
+     dptPara: edNumber.Text := nsCStr(IntToStr(aData.DocID) + cPosDelimiter + cParaPrefix + IntToStr(aData.PosID));
+     dptNone,
+     dptMarker,
+     dptBookmark,
+     dptMark,
+     dptDocumentPlace: edNumber.Text := nsCStr(IntToStr(aData.DocID));
+    end;
+   end
+   else
+    edNumber.Text := nsCStr(IntToStr(aData.DocID));
+   cbInternal.Checked := aData.Internal;
+   LoadHistory(aData.History);
+   f_Results := aData;
+  //#UC END# *51B9E27000CD_4AC63602020E_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimDocNumberQueryForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimDocNumberQueryForm.Make
 

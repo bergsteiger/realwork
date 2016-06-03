@@ -846,7 +846,7 @@ end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList_Execute
 procedure TPrimDocumentWithFlashForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
  {*  оллеги, это что? }
 begin
- with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
+ with IDocument_OpenCorrespondentList_Params(aParams.Data) do
   Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
 end;//TPrimDocumentWithFlashForm.Document_OpenCorrespondentList
 
@@ -876,7 +876,7 @@ end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList_Execute
 procedure TPrimDocumentWithFlashForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
  {*  оллеги, это что? }
 begin
- with (aParams.Data As IDocument_OpenRespondentList_Params) do
+ with IDocument_OpenRespondentList_Params(aParams.Data) do
   Self.Document_OpenRespondentList_Execute(Kind, CRType);
 end;//TPrimDocumentWithFlashForm.Document_OpenRespondentList
 
@@ -941,7 +941,7 @@ end;//TPrimDocumentWithFlashForm.Loadable_Load_Execute
 procedure TPrimDocumentWithFlashForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {*  оллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TPrimDocumentWithFlashForm.Loadable_Load
 
@@ -1050,7 +1050,7 @@ end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed_Execute
 procedure TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
  {* Ёто кандидат на перенос в Facet или что-то подобное }
 begin
- with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
+ with IDocument_AttributesCanBeClosed_Params(aParams.Data) do
   ResultValue := Self.Document_AttributesCanBeClosed_Execute;
 end;//TPrimDocumentWithFlashForm.Document_AttributesCanBeClosed
 

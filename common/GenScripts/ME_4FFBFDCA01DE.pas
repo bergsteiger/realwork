@@ -67,8 +67,8 @@ type
 'aControl' форма::AdminForm TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AdminForm_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -82,8 +82,8 @@ type
 'aControl' форма::GroupList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_GroupList_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -97,8 +97,8 @@ type
 'aControl' форма::UserList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserList_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -112,57 +112,57 @@ type
 'aControl' форма::UserProperty TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserProperty_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_AdminForm_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::AdminForm';
-end;//Tkw_Form_AdminForm_ID.GetWordNameForRegister
-
 function Tkw_Form_AdminForm_ID.GetString: AnsiString;
 begin
  Result := 'cfAdminForm';
 end;//Tkw_Form_AdminForm_ID.GetString
+
+class function Tkw_Form_AdminForm_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::AdminForm';
+end;//Tkw_Form_AdminForm_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_GroupList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::GroupList';
-end;//Tkw_Form_GroupList_ID.GetWordNameForRegister
-
 function Tkw_Form_GroupList_ID.GetString: AnsiString;
 begin
  Result := 'efGroupList';
 end;//Tkw_Form_GroupList_ID.GetString
+
+class function Tkw_Form_GroupList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::GroupList';
+end;//Tkw_Form_GroupList_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_UserList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserList';
-end;//Tkw_Form_UserList_ID.GetWordNameForRegister
-
 function Tkw_Form_UserList_ID.GetString: AnsiString;
 begin
  Result := 'efUserList';
 end;//Tkw_Form_UserList_ID.GetString
+
+class function Tkw_Form_UserList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserList';
+end;//Tkw_Form_UserList_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_UserProperty_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserProperty';
-end;//Tkw_Form_UserProperty_ID.GetWordNameForRegister
-
 function Tkw_Form_UserProperty_ID.GetString: AnsiString;
 begin
  Result := 'efUserProperty';
 end;//Tkw_Form_UserProperty_ID.GetString
+
+class function Tkw_Form_UserProperty_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserProperty';
+end;//Tkw_Form_UserProperty_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

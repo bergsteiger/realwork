@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ConsultationDomainInterfaces;
+unit ConsultationDomainInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\NOT_COMPLETED_ConsultationDomainInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationDomainInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "ConsultationDomainInterfaces" MUID: (4ABCF04F00DF)
 
@@ -138,10 +138,10 @@ type
  IsdsConsultation = interface(IvcmUseCaseController)
   {* Бизнес объект прецедента "Консультация" }
   ['{005BCE3D-3D26-4B47-80B4-BB7580EE147F}']
-  function pm_GetdsConsultation: IdsConsultation;
-  function pm_GetdsList: IdsDocumentList;
+  function pm_GetDsConsultation: IdsConsultation;
+  function pm_GetDsList: IdsDocumentList;
   function pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
-  function Get_bsConsultation: IbsConsultation;
+  function Get_BsConsultation: IbsConsultation;
   procedure GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
    {* дать оценку.
            Возможные исключения:
@@ -164,16 +164,16 @@ type
   function As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
    {* Метод приведения нашего интерфейса к IsdsGotoPointDataMaker }
   property dsConsultation: IdsConsultation
-   read pm_GetdsConsultation;
+   read pm_GetDsConsultation;
    {* БО консультация }
   property dsList: IdsDocumentList
-   read pm_GetdsList;
+   read pm_GetDsList;
    {* БО список консультации }
   property DSConsultationMark[aForce: Boolean]: IdsConsultationMark
    read pm_GetDSConsultationMark;
    {* БО оценка консультации }
   property bsConsultation: IbsConsultation
-   read Get_bsConsultation;
+   read Get_BsConsultation;
  end;//IsdsConsultation
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_AdminInterfaces;
+unit AdminInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\NOT_COMPLETED_AdminInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\AdminInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "AdminInterfaces" MUID: (491D961C0122)
 
@@ -337,10 +337,10 @@ type
   function Get_CurrentGroupUID: Integer;
   function pm_GetConsultingPaymentForNewbies: Boolean;
   procedure pm_SetConsultingPaymentForNewbies(aValue: Boolean);
-  function pm_GetdsUserList: IdsUserList;
-  function pm_GetdsAdmin: IdsAdmin;
-  function pm_GetdsUserProperty: IdsUserProperty;
-  function pm_GetdsGroupsList: IdsGroupsList;
+  function pm_GetDsUserList: IdsUserList;
+  function pm_GetDsAdmin: IdsAdmin;
+  function pm_GetDsUserProperty: IdsUserProperty;
+  function pm_GetDsGroupsList: IdsGroupsList;
   procedure ChangeUser(const aProfile: IdeProfile);
   procedure DeleteUser(const aNode: Il3SimpleNode;
    out aFailed: Boolean);
@@ -385,13 +385,13 @@ type
    read pm_GetConsultingPaymentForNewbies
    write pm_SetConsultingPaymentForNewbies;
   property dsUserList: IdsUserList
-   read pm_GetdsUserList;
+   read pm_GetDsUserList;
   property dsAdmin: IdsAdmin
-   read pm_GetdsAdmin;
+   read pm_GetDsAdmin;
   property dsUserProperty: IdsUserProperty
-   read pm_GetdsUserProperty;
+   read pm_GetDsUserProperty;
   property dsGroupsList: IdsGroupsList
-   read pm_GetdsGroupsList;
+   read pm_GetDsGroupsList;
  end;//IsdsAdmin
 {$IfEnd} // Defined(Admin)
 

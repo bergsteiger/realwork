@@ -273,8 +273,8 @@ type
 'aControl' форма::Text TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Text_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -288,8 +288,8 @@ type
 'aControl' форма::UnderControl TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UnderControl_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -303,8 +303,8 @@ type
 'aControl' форма::Folders TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Folders_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -318,8 +318,8 @@ type
 'aControl' форма::Navigator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Navigator_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -333,8 +333,8 @@ type
 'aControl' форма::TasksPanel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TasksPanel_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -348,8 +348,8 @@ type
 'aControl' форма::CompInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CompInfo_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -363,8 +363,8 @@ type
 'aControl' форма::Rubricator TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Rubricator_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -378,8 +378,8 @@ type
 'aControl' форма::Diction TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Diction_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -393,8 +393,8 @@ type
 'aControl' форма::Warning TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Warning_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -408,8 +408,8 @@ type
 'aControl' форма::ListInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ListInfo_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -423,8 +423,8 @@ type
 'aControl' форма::CommonDiction TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_CommonDiction_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -438,8 +438,8 @@ type
 'aControl' форма::MedicMainMenu TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicMainMenu_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -453,8 +453,8 @@ type
 'aControl' форма::MedicFirmList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicFirmList_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -468,8 +468,8 @@ type
 'aControl' форма::List TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_List_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -483,8 +483,8 @@ type
 'aControl' форма::ConfigurationList TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ConfigurationList_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -498,8 +498,8 @@ type
 'aControl' форма::MainMenuNew TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MainMenuNew_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -513,8 +513,8 @@ type
 'aControl' форма::NewBaseSearch TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_NewBaseSearch_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -528,8 +528,8 @@ type
 'aControl' форма::Attributes TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Attributes_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -543,8 +543,8 @@ type
 'aControl' форма::BaseSearchContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_BaseSearchContainer_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -558,8 +558,8 @@ type
 'aControl' форма::DictionContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DictionContainer_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -573,8 +573,8 @@ type
 'aControl' форма::Filters TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Filters_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -588,8 +588,8 @@ type
 'aControl' форма::TreeAttributeFirstLevel TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_TreeAttributeFirstLevel_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -603,8 +603,8 @@ type
 'aControl' форма::WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_WarningBaloon_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -618,8 +618,8 @@ type
 'aControl' форма::NewsLine TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_NewsLine_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -633,8 +633,8 @@ type
 'aControl' форма::Redactions TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Redactions_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -648,8 +648,8 @@ type
 'aControl' форма::SynchroView_WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SynchroView_WarningBaloon_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -663,8 +663,8 @@ type
 'aControl' форма::Translation_WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Translation_WarningBaloon_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -678,8 +678,8 @@ type
 'aControl' форма::UserCR1_WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserCR1_WarningBaloon_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -693,8 +693,8 @@ type
 'aControl' форма::UserCR2_WarningBaloon TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserCR2_WarningBaloon_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -708,8 +708,8 @@ type
 'aControl' форма::Contents TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Contents_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -723,8 +723,8 @@ type
 'aControl' форма::FoldersTree TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FoldersTree_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -738,8 +738,8 @@ type
 'aControl' форма::FoldersElementInfo TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_FoldersElementInfo_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -753,8 +753,8 @@ type
 'aControl' форма::DocumentWithFlash TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_DocumentWithFlash_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -768,8 +768,8 @@ type
 'aControl' форма::ConsultationMark TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ConsultationMark_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -783,8 +783,8 @@ type
 'aControl' форма::MedicListSynchroView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MedicListSynchroView_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -798,8 +798,8 @@ type
 'aControl' форма::SynchroView TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SynchroView_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -813,8 +813,8 @@ type
 'aControl' форма::ListAnalize TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_ListAnalize_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -828,465 +828,465 @@ type
 'aControl' форма::MainMenuWithProfNews TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_MainMenuWithProfNews_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Text_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Text';
-end;//Tkw_Form_Text_ID.GetWordNameForRegister
-
 function Tkw_Form_Text_ID.GetString: AnsiString;
 begin
  Result := 'TextForm';
 end;//Tkw_Form_Text_ID.GetString
+
+class function Tkw_Form_Text_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Text';
+end;//Tkw_Form_Text_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_UnderControl_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UnderControl';
-end;//Tkw_Form_UnderControl_ID.GetWordNameForRegister
-
 function Tkw_Form_UnderControl_ID.GetString: AnsiString;
 begin
  Result := 'enUnderControl';
 end;//Tkw_Form_UnderControl_ID.GetString
+
+class function Tkw_Form_UnderControl_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UnderControl';
+end;//Tkw_Form_UnderControl_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Folders_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Folders';
-end;//Tkw_Form_Folders_ID.GetWordNameForRegister
-
 function Tkw_Form_Folders_ID.GetString: AnsiString;
 begin
  Result := 'cfFolders';
 end;//Tkw_Form_Folders_ID.GetString
+
+class function Tkw_Form_Folders_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Folders';
+end;//Tkw_Form_Folders_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Navigator_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Navigator';
-end;//Tkw_Form_Navigator_ID.GetWordNameForRegister
-
 function Tkw_Form_Navigator_ID.GetString: AnsiString;
 begin
  Result := 'en_Navigator';
 end;//Tkw_Form_Navigator_ID.GetString
+
+class function Tkw_Form_Navigator_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Navigator';
+end;//Tkw_Form_Navigator_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_TasksPanel_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TasksPanel';
-end;//Tkw_Form_TasksPanel_ID.GetWordNameForRegister
-
 function Tkw_Form_TasksPanel_ID.GetString: AnsiString;
 begin
  Result := 'en_TasksPanel';
 end;//Tkw_Form_TasksPanel_ID.GetString
+
+class function Tkw_Form_TasksPanel_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::TasksPanel';
+end;//Tkw_Form_TasksPanel_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_CompInfo_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CompInfo';
-end;//Tkw_Form_CompInfo_ID.GetWordNameForRegister
-
 function Tkw_Form_CompInfo_ID.GetString: AnsiString;
 begin
  Result := 'enCompInfo';
 end;//Tkw_Form_CompInfo_ID.GetString
+
+class function Tkw_Form_CompInfo_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::CompInfo';
+end;//Tkw_Form_CompInfo_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Rubricator_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Rubricator';
-end;//Tkw_Form_Rubricator_ID.GetWordNameForRegister
-
 function Tkw_Form_Rubricator_ID.GetString: AnsiString;
 begin
  Result := 'efRubricator';
 end;//Tkw_Form_Rubricator_ID.GetString
+
+class function Tkw_Form_Rubricator_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Rubricator';
+end;//Tkw_Form_Rubricator_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Diction_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Diction';
-end;//Tkw_Form_Diction_ID.GetWordNameForRegister
-
 function Tkw_Form_Diction_ID.GetString: AnsiString;
 begin
  Result := 'enDiction';
 end;//Tkw_Form_Diction_ID.GetString
+
+class function Tkw_Form_Diction_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Diction';
+end;//Tkw_Form_Diction_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Warning_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Warning';
-end;//Tkw_Form_Warning_ID.GetWordNameForRegister
-
 function Tkw_Form_Warning_ID.GetString: AnsiString;
 begin
  Result := 'WarningForm';
 end;//Tkw_Form_Warning_ID.GetString
+
+class function Tkw_Form_Warning_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Warning';
+end;//Tkw_Form_Warning_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_ListInfo_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ListInfo';
-end;//Tkw_Form_ListInfo_ID.GetWordNameForRegister
-
 function Tkw_Form_ListInfo_ID.GetString: AnsiString;
 begin
  Result := 'efListInfo';
 end;//Tkw_Form_ListInfo_ID.GetString
+
+class function Tkw_Form_ListInfo_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::ListInfo';
+end;//Tkw_Form_ListInfo_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_CommonDiction_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::CommonDiction';
-end;//Tkw_Form_CommonDiction_ID.GetWordNameForRegister
-
 function Tkw_Form_CommonDiction_ID.GetString: AnsiString;
 begin
  Result := 'en_CommonDiction';
 end;//Tkw_Form_CommonDiction_ID.GetString
+
+class function Tkw_Form_CommonDiction_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::CommonDiction';
+end;//Tkw_Form_CommonDiction_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_MedicMainMenu_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicMainMenu';
-end;//Tkw_Form_MedicMainMenu_ID.GetWordNameForRegister
-
 function Tkw_Form_MedicMainMenu_ID.GetString: AnsiString;
 begin
  Result := 'en_MedicMainMenu';
 end;//Tkw_Form_MedicMainMenu_ID.GetString
+
+class function Tkw_Form_MedicMainMenu_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MedicMainMenu';
+end;//Tkw_Form_MedicMainMenu_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_MedicFirmList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicFirmList';
-end;//Tkw_Form_MedicFirmList_ID.GetWordNameForRegister
-
 function Tkw_Form_MedicFirmList_ID.GetString: AnsiString;
 begin
  Result := 'en_MedicFirmList';
 end;//Tkw_Form_MedicFirmList_ID.GetString
+
+class function Tkw_Form_MedicFirmList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MedicFirmList';
+end;//Tkw_Form_MedicFirmList_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_List_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::List';
-end;//Tkw_Form_List_ID.GetWordNameForRegister
-
 function Tkw_Form_List_ID.GetString: AnsiString;
 begin
  Result := 'efList';
 end;//Tkw_Form_List_ID.GetString
+
+class function Tkw_Form_List_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::List';
+end;//Tkw_Form_List_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_ConfigurationList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ConfigurationList';
-end;//Tkw_Form_ConfigurationList_ID.GetWordNameForRegister
-
 function Tkw_Form_ConfigurationList_ID.GetString: AnsiString;
 begin
  Result := 'en_ConfigurationList';
 end;//Tkw_Form_ConfigurationList_ID.GetString
+
+class function Tkw_Form_ConfigurationList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::ConfigurationList';
+end;//Tkw_Form_ConfigurationList_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_MainMenuNew_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MainMenuNew';
-end;//Tkw_Form_MainMenuNew_ID.GetWordNameForRegister
-
 function Tkw_Form_MainMenuNew_ID.GetString: AnsiString;
 begin
  Result := 'en_MainMenuNew';
 end;//Tkw_Form_MainMenuNew_ID.GetString
+
+class function Tkw_Form_MainMenuNew_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MainMenuNew';
+end;//Tkw_Form_MainMenuNew_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_NewBaseSearch_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::NewBaseSearch';
-end;//Tkw_Form_NewBaseSearch_ID.GetWordNameForRegister
-
 function Tkw_Form_NewBaseSearch_ID.GetString: AnsiString;
 begin
  Result := 'NewBaseSearchForm';
 end;//Tkw_Form_NewBaseSearch_ID.GetString
+
+class function Tkw_Form_NewBaseSearch_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::NewBaseSearch';
+end;//Tkw_Form_NewBaseSearch_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Attributes_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Attributes';
-end;//Tkw_Form_Attributes_ID.GetWordNameForRegister
-
 function Tkw_Form_Attributes_ID.GetString: AnsiString;
 begin
  Result := 'AttributesForm';
 end;//Tkw_Form_Attributes_ID.GetString
+
+class function Tkw_Form_Attributes_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Attributes';
+end;//Tkw_Form_Attributes_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_BaseSearchContainer_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::BaseSearchContainer';
-end;//Tkw_Form_BaseSearchContainer_ID.GetWordNameForRegister
-
 function Tkw_Form_BaseSearchContainer_ID.GetString: AnsiString;
 begin
  Result := 'BaseSearchContainerForm';
 end;//Tkw_Form_BaseSearchContainer_ID.GetString
+
+class function Tkw_Form_BaseSearchContainer_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::BaseSearchContainer';
+end;//Tkw_Form_BaseSearchContainer_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_DictionContainer_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DictionContainer';
-end;//Tkw_Form_DictionContainer_ID.GetWordNameForRegister
-
 function Tkw_Form_DictionContainer_ID.GetString: AnsiString;
 begin
  Result := 'DictionContainerForm';
 end;//Tkw_Form_DictionContainer_ID.GetString
+
+class function Tkw_Form_DictionContainer_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::DictionContainer';
+end;//Tkw_Form_DictionContainer_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Filters_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Filters';
-end;//Tkw_Form_Filters_ID.GetWordNameForRegister
-
 function Tkw_Form_Filters_ID.GetString: AnsiString;
 begin
  Result := 'enFilters';
 end;//Tkw_Form_Filters_ID.GetString
+
+class function Tkw_Form_Filters_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Filters';
+end;//Tkw_Form_Filters_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_TreeAttributeFirstLevel_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::TreeAttributeFirstLevel';
-end;//Tkw_Form_TreeAttributeFirstLevel_ID.GetWordNameForRegister
-
 function Tkw_Form_TreeAttributeFirstLevel_ID.GetString: AnsiString;
 begin
  Result := 'efTreeAttributeFirstLevel';
 end;//Tkw_Form_TreeAttributeFirstLevel_ID.GetString
+
+class function Tkw_Form_TreeAttributeFirstLevel_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::TreeAttributeFirstLevel';
+end;//Tkw_Form_TreeAttributeFirstLevel_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::WarningBaloon';
-end;//Tkw_Form_WarningBaloon_ID.GetWordNameForRegister
-
 function Tkw_Form_WarningBaloon_ID.GetString: AnsiString;
 begin
  Result := 'WarningBaloonForm';
 end;//Tkw_Form_WarningBaloon_ID.GetString
+
+class function Tkw_Form_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::WarningBaloon';
+end;//Tkw_Form_WarningBaloon_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_NewsLine_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::NewsLine';
-end;//Tkw_Form_NewsLine_ID.GetWordNameForRegister
-
 function Tkw_Form_NewsLine_ID.GetString: AnsiString;
 begin
  Result := 'enNewsLine';
 end;//Tkw_Form_NewsLine_ID.GetString
+
+class function Tkw_Form_NewsLine_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::NewsLine';
+end;//Tkw_Form_NewsLine_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Redactions_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Redactions';
-end;//Tkw_Form_Redactions_ID.GetWordNameForRegister
-
 function Tkw_Form_Redactions_ID.GetString: AnsiString;
 begin
  Result := 'RedactionsForm';
 end;//Tkw_Form_Redactions_ID.GetString
+
+class function Tkw_Form_Redactions_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Redactions';
+end;//Tkw_Form_Redactions_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_SynchroView_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SynchroView_WarningBaloon';
-end;//Tkw_Form_SynchroView_WarningBaloon_ID.GetWordNameForRegister
-
 function Tkw_Form_SynchroView_WarningBaloon_ID.GetString: AnsiString;
 begin
  Result := 'SynchroView_WarningBaloonForm';
 end;//Tkw_Form_SynchroView_WarningBaloon_ID.GetString
+
+class function Tkw_Form_SynchroView_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::SynchroView_WarningBaloon';
+end;//Tkw_Form_SynchroView_WarningBaloon_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Translation_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Translation_WarningBaloon';
-end;//Tkw_Form_Translation_WarningBaloon_ID.GetWordNameForRegister
-
 function Tkw_Form_Translation_WarningBaloon_ID.GetString: AnsiString;
 begin
  Result := 'Translation_WarningBaloonForm';
 end;//Tkw_Form_Translation_WarningBaloon_ID.GetString
+
+class function Tkw_Form_Translation_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Translation_WarningBaloon';
+end;//Tkw_Form_Translation_WarningBaloon_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_UserCR1_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserCR1_WarningBaloon';
-end;//Tkw_Form_UserCR1_WarningBaloon_ID.GetWordNameForRegister
-
 function Tkw_Form_UserCR1_WarningBaloon_ID.GetString: AnsiString;
 begin
  Result := 'UserCR1_WarningBaloonForm';
 end;//Tkw_Form_UserCR1_WarningBaloon_ID.GetString
+
+class function Tkw_Form_UserCR1_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserCR1_WarningBaloon';
+end;//Tkw_Form_UserCR1_WarningBaloon_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_UserCR2_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::UserCR2_WarningBaloon';
-end;//Tkw_Form_UserCR2_WarningBaloon_ID.GetWordNameForRegister
-
 function Tkw_Form_UserCR2_WarningBaloon_ID.GetString: AnsiString;
 begin
  Result := 'UserCR2_WarningBaloonForm';
 end;//Tkw_Form_UserCR2_WarningBaloon_ID.GetString
+
+class function Tkw_Form_UserCR2_WarningBaloon_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserCR2_WarningBaloon';
+end;//Tkw_Form_UserCR2_WarningBaloon_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Contents_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Contents';
-end;//Tkw_Form_Contents_ID.GetWordNameForRegister
-
 function Tkw_Form_Contents_ID.GetString: AnsiString;
 begin
  Result := 'ContentsForm';
 end;//Tkw_Form_Contents_ID.GetString
+
+class function Tkw_Form_Contents_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Contents';
+end;//Tkw_Form_Contents_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_FoldersTree_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FoldersTree';
-end;//Tkw_Form_FoldersTree_ID.GetWordNameForRegister
-
 function Tkw_Form_FoldersTree_ID.GetString: AnsiString;
 begin
  Result := 'enFoldersTree';
 end;//Tkw_Form_FoldersTree_ID.GetString
+
+class function Tkw_Form_FoldersTree_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::FoldersTree';
+end;//Tkw_Form_FoldersTree_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_FoldersElementInfo_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::FoldersElementInfo';
-end;//Tkw_Form_FoldersElementInfo_ID.GetWordNameForRegister
-
 function Tkw_Form_FoldersElementInfo_ID.GetString: AnsiString;
 begin
  Result := 'enFoldersElementInfo';
 end;//Tkw_Form_FoldersElementInfo_ID.GetString
+
+class function Tkw_Form_FoldersElementInfo_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::FoldersElementInfo';
+end;//Tkw_Form_FoldersElementInfo_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_DocumentWithFlash_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::DocumentWithFlash';
-end;//Tkw_Form_DocumentWithFlash_ID.GetWordNameForRegister
-
 function Tkw_Form_DocumentWithFlash_ID.GetString: AnsiString;
 begin
  Result := 'DocumentWithFlashForm';
 end;//Tkw_Form_DocumentWithFlash_ID.GetString
+
+class function Tkw_Form_DocumentWithFlash_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::DocumentWithFlash';
+end;//Tkw_Form_DocumentWithFlash_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_ConsultationMark_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ConsultationMark';
-end;//Tkw_Form_ConsultationMark_ID.GetWordNameForRegister
-
 function Tkw_Form_ConsultationMark_ID.GetString: AnsiString;
 begin
  Result := 'en_ConsultationMark';
 end;//Tkw_Form_ConsultationMark_ID.GetString
+
+class function Tkw_Form_ConsultationMark_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::ConsultationMark';
+end;//Tkw_Form_ConsultationMark_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_MedicListSynchroView_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MedicListSynchroView';
-end;//Tkw_Form_MedicListSynchroView_ID.GetWordNameForRegister
-
 function Tkw_Form_MedicListSynchroView_ID.GetString: AnsiString;
 begin
  Result := 'en_MedicListSynchroView';
 end;//Tkw_Form_MedicListSynchroView_ID.GetString
+
+class function Tkw_Form_MedicListSynchroView_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MedicListSynchroView';
+end;//Tkw_Form_MedicListSynchroView_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_SynchroView_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SynchroView';
-end;//Tkw_Form_SynchroView_ID.GetWordNameForRegister
-
 function Tkw_Form_SynchroView_ID.GetString: AnsiString;
 begin
  Result := 'fcSynchroView';
 end;//Tkw_Form_SynchroView_ID.GetString
+
+class function Tkw_Form_SynchroView_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::SynchroView';
+end;//Tkw_Form_SynchroView_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_ListAnalize_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::ListAnalize';
-end;//Tkw_Form_ListAnalize_ID.GetWordNameForRegister
-
 function Tkw_Form_ListAnalize_ID.GetString: AnsiString;
 begin
  Result := 'ListAnalizeForm';
 end;//Tkw_Form_ListAnalize_ID.GetString
+
+class function Tkw_Form_ListAnalize_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::ListAnalize';
+end;//Tkw_Form_ListAnalize_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::MainMenuWithProfNews';
-end;//Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister
-
 function Tkw_Form_MainMenuWithProfNews_ID.GetString: AnsiString;
 begin
  Result := 'en_MainMenuWithProfNews';
 end;//Tkw_Form_MainMenuWithProfNews_ID.GetString
+
+class function Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::MainMenuWithProfNews';
+end;//Tkw_Form_MainMenuWithProfNews_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

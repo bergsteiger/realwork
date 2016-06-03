@@ -43,7 +43,11 @@ type
              Нужно для перекрытия потомками при переносе VCM на модель }
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IafwDocumentPreview): IvcmEntityForm; reintroduce;
+   class function Make(const aData: IafwDocumentPreview;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    procedure PrintParams_UpdatePrinter_Execute;
    procedure PrintParams_UpdatePrinter(const aParams: IvcmExecuteParams);
  end;//TPrimPrintDialogForm
@@ -54,6 +58,10 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -65,15 +73,32 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview): IvcmEntityForm;
+class function TPrimPrintDialogForm.Make(const aData: IafwDocumentPreview;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimPrintDialogForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC6228E018B_4AAF8E8701C9_impl*
+   f_Preview := aData;
+   UpdateState;
+  //#UC END# *4AC6228E018B_4AAF8E8701C9_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimPrintDialogForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimPrintDialogForm.Make
 

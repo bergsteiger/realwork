@@ -23,7 +23,6 @@ uses
 type
  ISystem_InitShutdown_Params = interface
   {* Параметры для операции System.InitShutdown }
-  ['{DB584516-0B73-41CF-9721-9C57CAF90FDE}']
   function Get_Shotdown: Boolean;
   function Get_CloseInterval: Integer;
   property Shotdown: Boolean
@@ -32,7 +31,7 @@ type
    read Get_CloseInterval;
  end;//ISystem_InitShutdown_Params
 
- Op_System_InitShutdown = class
+ Op_System_InitShutdown = {final} class
   {* Класс для вызова операции System.InitShutdown }
   public
    class function Call(const aTarget: IvcmEntity;
@@ -53,15 +52,32 @@ type
     {* Вызов операции System.InitShutdown у контейнера }
  end;//Op_System_InitShutdown
 
+const
+ en_System = 'System';
+ en_capSystem = 'Система';
+ op_InitShutdown = 'InitShutdown';
+ op_capInitShutdown = 'Начать процесс завершения работы';
+ en_Help = 'Help';
+ en_capHelp = '';
+ op_HelpTopics = 'HelpTopics';
+ op_capHelpTopics = '';
+
 implementation
 
 uses
  l3ImplUses
  , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- TSystem_InitShutdown_Params = class(Tl3CProtoObject, ISystem_InitShutdown_Params)
+ TSystem_InitShutdown_Params = {final} class(Tl3CProtoObject, ISystem_InitShutdown_Params)
   {* Реализация ISystem_InitShutdown_Params }
   private
    f_Shotdown: Boolean;
@@ -72,26 +88,20 @@ type
   public
    constructor Create(aShotdown: Boolean;
     aCloseInterval: Integer); reintroduce;
-    {* Конструктор TSystem_InitShutdown_Params }
    class function Make(aShotdown: Boolean;
     aCloseInterval: Integer): ISystem_InitShutdown_Params; reintroduce;
-    {* Фабрика TSystem_InitShutdown_Params }
  end;//TSystem_InitShutdown_Params
 
 constructor TSystem_InitShutdown_Params.Create(aShotdown: Boolean;
  aCloseInterval: Integer);
- {* Конструктор TSystem_InitShutdown_Params }
-//#UC START# *280194009EA3_79B2B4B59E9D_var*
-//#UC END# *280194009EA3_79B2B4B59E9D_var*
 begin
-//#UC START# *280194009EA3_79B2B4B59E9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *280194009EA3_79B2B4B59E9D_impl*
+ inherited Create;
+ f_Shotdown := aShotdown;
+ f_CloseInterval := aCloseInterval;
 end;//TSystem_InitShutdown_Params.Create
 
 class function TSystem_InitShutdown_Params.Make(aShotdown: Boolean;
  aCloseInterval: Integer): ISystem_InitShutdown_Params;
- {* Фабрика TSystem_InitShutdown_Params }
 var
  l_Inst : TSystem_InitShutdown_Params;
 begin
@@ -104,69 +114,77 @@ begin
 end;//TSystem_InitShutdown_Params.Make
 
 function TSystem_InitShutdown_Params.Get_Shotdown: Boolean;
-//#UC START# *0ECAF7083D5C_79B2B4B59E9Dget_var*
-//#UC END# *0ECAF7083D5C_79B2B4B59E9Dget_var*
 begin
-//#UC START# *0ECAF7083D5C_79B2B4B59E9Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0ECAF7083D5C_79B2B4B59E9Dget_impl*
+ Result := f_Shotdown;
 end;//TSystem_InitShutdown_Params.Get_Shotdown
 
 function TSystem_InitShutdown_Params.Get_CloseInterval: Integer;
-//#UC START# *B28A9D749C75_79B2B4B59E9Dget_var*
-//#UC END# *B28A9D749C75_79B2B4B59E9Dget_var*
 begin
-//#UC START# *B28A9D749C75_79B2B4B59E9Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B28A9D749C75_79B2B4B59E9Dget_impl*
+ Result := f_CloseInterval;
 end;//TSystem_InitShutdown_Params.Get_CloseInterval
 
 class function Op_System_InitShutdown.Call(const aTarget: IvcmEntity;
  aShotdown: Boolean;
  aCloseInterval: Integer): Boolean;
  {* Вызов операции System.InitShutdown у сущности }
-//#UC START# *4D6B3E09D3E6_F534778BCB43_var*
-//#UC END# *4D6B3E09D3E6_F534778BCB43_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *4D6B3E09D3E6_F534778BCB43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D6B3E09D3E6_F534778BCB43_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TSystem_InitShutdown_Params.Make(aShotdown, aCloseInterval));
+  aTarget.Operation(TdmStdRes.opcode_System_InitShutdown, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_System_InitShutdown.Call
 
 class function Op_System_InitShutdown.Call(const aTarget: IvcmAggregate;
  aShotdown: Boolean;
  aCloseInterval: Integer): Boolean;
  {* Вызов операции System.InitShutdown у агрегации }
-//#UC START# *306EFAED5E37_F534778BCB43_var*
-//#UC END# *306EFAED5E37_F534778BCB43_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *306EFAED5E37_F534778BCB43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *306EFAED5E37_F534778BCB43_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TSystem_InitShutdown_Params.Make(aShotdown, aCloseInterval));
+  aTarget.Operation(TdmStdRes.opcode_System_InitShutdown, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_System_InitShutdown.Call
 
 class function Op_System_InitShutdown.Call(const aTarget: IvcmEntityForm;
  aShotdown: Boolean;
  aCloseInterval: Integer): Boolean;
  {* Вызов операции System.InitShutdown у формы }
-//#UC START# *ED36492DD020_F534778BCB43_var*
-//#UC END# *ED36492DD020_F534778BCB43_var*
 begin
-//#UC START# *ED36492DD020_F534778BCB43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *ED36492DD020_F534778BCB43_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity, aShotdown, aCloseInterval);
 end;//Op_System_InitShutdown.Call
 
 class function Op_System_InitShutdown.Call(const aTarget: IvcmContainer;
  aShotdown: Boolean;
  aCloseInterval: Integer): Boolean;
  {* Вызов операции System.InitShutdown у контейнера }
-//#UC START# *8615FDBCBEF7_F534778BCB43_var*
-//#UC END# *8615FDBCBEF7_F534778BCB43_var*
 begin
-//#UC START# *8615FDBCBEF7_F534778BCB43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8615FDBCBEF7_F534778BCB43_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm, aShotdown, aCloseInterval);
 end;//Op_System_InitShutdown.Call
 
 end.

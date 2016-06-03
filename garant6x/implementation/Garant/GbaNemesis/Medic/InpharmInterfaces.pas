@@ -1,68 +1,70 @@
 unit InpharmInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/InpharmInterfaces.pas"
-// Начат: 29.09.2009 21:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ControllerInterfaces::Category>> F1 Core::Common::Medic::InpharmInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\InpharmInterfaces.pas"
+// Стереотип: "ControllerInterfaces"
+// Элемент модели: "InpharmInterfaces" MUID: (4AC241AC01FC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , nevTools
+ , DocumentInterfaces
+ , bsTypes
+ , afwInterfaces
+ , FoldersDomainInterfaces
+ , DocumentUnit
+ , l3Interfaces
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
  IdsMedicFirmDocument = interface(IdsBaseDocument)
   {* Описание фирмы производителя }
-   ['{85B069FE-7A20-4DBA-A63C-0A961206834D}']
-   procedure OpenDrugList;
-     {* открыть список выпускаемых препаратов }
+  ['{85B069FE-7A20-4DBA-A63C-0A961206834D}']
+  procedure OpenDrugList;
+   {* открыть список выпускаемых препаратов }
  end;//IdsMedicFirmDocument
 
- IdsDrugDocument = interface(IdsBaseDocument{, IucbDocumentWithContents, IucbDocumentFromList})
+ IdsDrugDocument = interface(IdsBaseDocument)
   {* Препарат }
-   ['{FFF0DB41-3AEC-4E8B-A967-D3E173DBFFB9}']
-   procedure OpenDrugInternationalNameSynonims;
-     {* открыть список похожих по международному названию }
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IucbDocumentWithContents: IucbDocumentWithContents;
-   function As_IucbDocumentFromList: IucbDocumentFromList;
+  ['{FFF0DB41-3AEC-4E8B-A967-D3E173DBFFB9}']
+  procedure OpenDrugInternationalNameSynonims;
+   {* открыть список похожих по международному названию }
+  function As_IucbDocumentWithContents: IucbDocumentWithContents;
+   {* Метод приведения нашего интерфейса к IucbDocumentWithContents }
+  function As_IucbDocumentFromList: IucbDocumentFromList;
+   {* Метод приведения нашего интерфейса к IucbDocumentFromList }
  end;//IdsDrugDocument
 
  IdsInpharmMainMenu = interface(IvcmViewAreaController)
-   ['{6F913032-0D3B-4911-99E8-037100A99FD6}']
+  ['{6F913032-0D3B-4911-99E8-037100A99FD6}']
  end;//IdsInpharmMainMenu
 
  IsdsInpharmMainMenu = interface(IvcmUseCaseController)
-   ['{6D692EF2-6DCF-48D0-A215-93EA51A710E7}']
-   function pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
-   property dsInpharmMainMenuData: IdsInpharmMainMenu
-     read pm_GetDsInpharmMainMenuData;
+  ['{6D692EF2-6DCF-48D0-A215-93EA51A710E7}']
+  function pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
+  property dsInpharmMainMenuData: IdsInpharmMainMenu
+   read pm_GetDsInpharmMainMenuData;
  end;//IsdsInpharmMainMenu
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

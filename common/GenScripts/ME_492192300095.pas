@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_FoldersInterfaces;
+unit FoldersInterfaces;
  {* Интерфейсы для работы с папками }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Folders\NOT_COMPLETED_FoldersInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Folders\FoldersInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "FoldersInterfaces" MUID: (492192300095)
 
@@ -106,17 +106,17 @@ type
  IsdsFolders = interface(IvcmUseCaseController)
   {* Прецедент папки }
   ['{DF21D078-F373-4C50-A25C-C43CC69116A5}']
-  function pm_GetdsFolders: IdsFolders;
-  function pm_GetdsFoldersTree: IdsFoldersTree;
-  function pm_GetdsFolderElement: IdsFolderElement;
+  function pm_GetDsFolders: IdsFolders;
+  function pm_GetDsFoldersTree: IdsFoldersTree;
+  function pm_GetDsFolderElement: IdsFolderElement;
   property dsFolders: IdsFolders
-   read pm_GetdsFolders;
+   read pm_GetDsFolders;
    {* бизнес объект папки }
   property dsFoldersTree: IdsFoldersTree
-   read pm_GetdsFoldersTree;
+   read pm_GetDsFoldersTree;
    {* бизнес объект дерево папок }
   property dsFolderElement: IdsFolderElement
-   read pm_GetdsFolderElement;
+   read pm_GetDsFolderElement;
    {* бизнес объект элемент папок }
  end;//IsdsFolders
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

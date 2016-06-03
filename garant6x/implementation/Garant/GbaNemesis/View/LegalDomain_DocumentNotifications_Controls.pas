@@ -1,53 +1,37 @@
 unit LegalDomain_DocumentNotifications_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/LegalDomain_DocumentNotifications_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Базовые определения предметной области::LegalDomain::View::DocumentNotifications
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LegalDomain_DocumentNotifications_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "DocumentNotifications" MUID: (4EAAE5A1005E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* Comment = operations
-   ['{180B0E4C-1DF0-4C40-9979-09CFB52B5C43}']
-   query Changed;
- end;//Comment*)
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- Op_Comment_Changed = class
+ Op_Comment_Changed = {final} class
   {* Класс для вызова операции Comment.Changed }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Comment.Changed у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Comment.Changed у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Comment.Changed у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Comment.Changed у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Comment.Changed у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Comment.Changed у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Comment.Changed у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Comment.Changed у контейнера }
    class procedure Broadcast;
-     {* Вызов операции Comment.Changed у всех зарегистрированных сущностей }
+    {* Вызов операции Comment.Changed у всех зарегистрированных сущностей }
  end;//Op_Comment_Changed
 
 const
@@ -59,14 +43,18 @@ const
 implementation
 
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-
-// start class Op_Comment_Changed
+ l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Comment.Changed у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -86,6 +74,7 @@ begin
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Comment.Changed у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -105,7 +94,7 @@ begin
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Comment.Changed у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -113,7 +102,7 @@ begin
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Comment.Changed у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -121,6 +110,7 @@ begin
 end;//Op_Comment_Changed.Call
 
 class procedure Op_Comment_Changed.Broadcast;
+ {* Вызов операции Comment.Changed у всех зарегистрированных сущностей }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -128,7 +118,7 @@ begin
  begin
   l_Params := vcmParams;
   vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_Comment_Changed, l_Params);
- end;//vcmDispatcher <> nil
+ end//vcmDispatcher <> nil
 end;//Op_Comment_Changed.Broadcast
 
 end.

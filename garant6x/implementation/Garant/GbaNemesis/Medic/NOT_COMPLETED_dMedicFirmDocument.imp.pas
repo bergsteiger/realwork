@@ -14,7 +14,7 @@
    f_dsDrugListRef: IvcmFormDataSourceRef;
     {* —сылка на "список производимых препаратов" }
   protected
-   function pm_GetdsDrugListRef: IvcmFormDataSourceRef;
+   function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
    {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -36,14 +36,14 @@ _dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
-function _dMedicFirmDocument_.pm_GetdsDrugListRef: IvcmFormDataSourceRef;
+function _dMedicFirmDocument_.pm_GetDsDrugListRef: IvcmFormDataSourceRef;
 //#UC START# *9FEBA868EC20_493965B600E9get_var*
 //#UC END# *9FEBA868EC20_493965B600E9get_var*
 begin
 //#UC START# *9FEBA868EC20_493965B600E9get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *9FEBA868EC20_493965B600E9get_impl*
-end;//_dMedicFirmDocument_.pm_GetdsDrugListRef
+end;//_dMedicFirmDocument_.pm_GetDsDrugListRef
 
 {$If NOT Defined(NoVCM)}
 procedure _dMedicFirmDocument_.AssignData(const aData: _IvcmRealData_);

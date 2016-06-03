@@ -31,6 +31,8 @@ type
    f_ArchiUsers: TdaArchiUserList;
    f_UserStatusChangedSubscriberList: TdaUserStatusChangedSubscriberList;
    f_UserLoginQuery: IdaTabledQuery;
+   f_PriorityCalculator: IdaPriorityCalculator;
+   f_AllArchiUsersQuery: IdaTabledQuery;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
@@ -42,6 +44,7 @@ type
    procedure SortUsersInList(aList: Tl3StringDataList);
    function UserNameQuery: IdaTabledQuery;
    function UserLoginQuery: IdaTabledQuery;
+   function AllArchiUsersQuery: IdaTabledQuery;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -75,6 +78,7 @@ type
     var aUserName: AnsiString;
     var aLoginName: AnsiString;
     var aActFlag: Byte);
+   function Get_PriorityCalculator: IdaPriorityCalculator;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -94,6 +98,8 @@ uses
  , daDataProvider
  , daUserManagerUtils
  , l3Base
+ , pgPriorityCalculator
+ , daArchiUser
 ;
 
 constructor TpgUserManager.Create(const aFactory: IdaTableQueryFactory);
@@ -252,6 +258,15 @@ begin
  Result := f_UserLoginQuery;
 //#UC END# *573B0837013B_5629FC88034B_impl*
 end;//TpgUserManager.UserLoginQuery
+
+function TpgUserManager.AllArchiUsersQuery: IdaTabledQuery;
+//#UC START# *57514203013A_5629FC88034B_var*
+//#UC END# *57514203013A_5629FC88034B_var*
+begin
+//#UC START# *57514203013A_5629FC88034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57514203013A_5629FC88034B_impl*
+end;//TpgUserManager.AllArchiUsersQuery
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -633,6 +648,17 @@ begin
 
 //#UC END# *573AEE9902DF_5629FC88034B_impl*
 end;//TpgUserManager.GetUserInfo
+
+function TpgUserManager.Get_PriorityCalculator: IdaPriorityCalculator;
+//#UC START# *575020410175_5629FC88034Bget_var*
+//#UC END# *575020410175_5629FC88034Bget_var*
+begin
+//#UC START# *575020410175_5629FC88034Bget_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := TpgPriorityCalculator.Make;
+ Result := f_PriorityCalculator;
+//#UC END# *575020410175_5629FC88034Bget_impl*
+end;//TpgUserManager.Get_PriorityCalculator
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

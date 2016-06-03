@@ -1,242 +1,216 @@
 unit PrimDefineSearchDate_Form;
+ {* Дата }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimDefineSearchDate_Form.pas"
-// Начат: 02.10.2009 21:03
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Search::View::Search::PrimDefineSearchDate
-//
-// Дата
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimDefineSearchDate_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDefineSearchDate" MUID: (4AC6324502DA)
+// Имя типа: "TPrimDefineSearchDateForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsQueryInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtDblClickDateEdit,
-  vtLabel,
-  vtRadioButton,
-  vcmExternalInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Classes
+ , nsQueryInterfaces
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtLabel
+ , vtDblClickDateEdit
+ , vtRadioButton
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TTypeDate = (
   {* типы дат (точная дата, позже, раньше, диапазон дат) }
-   tdD1EqD2
- , tdD1Only
- , tdD2Only
- , tdD1D2
+  tdD1EqD2
+  , tdD1Only
+  , tdD2Only
+  , tdD1D2
  );//TTypeDate
 
- TPrimDefineSearchDateForm = {form} class(TvcmEntityForm)
+ TPrimDefineSearchDateForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Дата }
- private
- // private fields
-   f_ButtonList : TList;
-   f_DateReq : IqaDateReqDataHolder;
-   f_Panel1 : TvtPanel;
-    {* Поле для свойства Panel1}
-   f_ElLabel1 : TvtLabel;
-    {* Поле для свойства ElLabel1}
-   f_ElLabel2 : TvtLabel;
-    {* Поле для свойства ElLabel2}
-   f_ElLabel3 : TvtLabel;
-    {* Поле для свойства ElLabel3}
-   f_dD1EqD2 : TvtDblClickDateEdit;
-    {* Поле для свойства dD1EqD2}
-   f_rbEq : TvtRadioButton;
-    {* Поле для свойства rbEq}
-   f_rbInt : TvtRadioButton;
-    {* Поле для свойства rbInt}
-   f_rbD2Only : TvtRadioButton;
-    {* Поле для свойства rbD2Only}
-   f_dD1Only : TvtDblClickDateEdit;
-    {* Поле для свойства dD1Only}
-   f_dD2Only : TvtDblClickDateEdit;
-    {* Поле для свойства dD2Only}
-   f_dD1 : TvtDblClickDateEdit;
-    {* Поле для свойства dD1}
-   f_rbD1Only : TvtRadioButton;
-    {* Поле для свойства rbD1Only}
-   f_dD2 : TvtDblClickDateEdit;
-    {* Поле для свойства dD2}
-   f_TypeDate : TTypeDate;
-    {* Поле для свойства TypeDate}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
-   procedure VcmEntityFormKeyDown(Sender: TObject;
-     var Key: Word;
-     Shift: TShiftState);
-   procedure RbEqClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbIntClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbD2OnlyClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure RbD1OnlyClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+  private
+   f_ButtonList: TList;
+   f_DateReq: IqaDateReqDataHolder;
+   f_Panel1: TvtPanel;
+   f_TypeDate: TTypeDate;
+   f_ElLabel1: TvtLabel;
+    {* Выберите тип диапазона: }
+   f_ElLabel2: TvtLabel;
+    {* С }
+   f_ElLabel3: TvtLabel;
+    {* По }
+   f_dD1EqD2: TvtDblClickDateEdit;
+   f_rbEq: TvtRadioButton;
+    {* Точная дата: }
+   f_rbInt: TvtRadioButton;
+    {* Интервал дат: }
+   f_rbD2Only: TvtRadioButton;
+    {* Раньше: }
+   f_dD1Only: TvtDblClickDateEdit;
+   f_dD2Only: TvtDblClickDateEdit;
+   f_dD1: TvtDblClickDateEdit;
+   f_rbD1Only: TvtRadioButton;
+    {* Позже: }
+   f_dD2: TvtDblClickDateEdit;
+  private
+   procedure vcmEntityFormKeyDown(Sender: TObject;
+    var Key: Word;
+    Shift: TShiftState);
+   procedure rbEqClick(Sender: TObject);
+   procedure rbIntClick(Sender: TObject);
+   procedure rbD2OnlyClick(Sender: TObject);
+   procedure rbD1OnlyClick(Sender: TObject);
    procedure ChangeSelection(aControl: TWinControl;
-     aForward: Boolean);
+    aForward: Boolean);
    procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
- protected
- // property methods
+  protected
    procedure pm_SetTypeDate(aValue: TTypeDate); virtual;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
    function Save: Boolean;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    procedure GetDates(const aDateReq: IqaDateReqDataHolder);
    procedure SetDates(const aDateReq: IqaDateReqDataHolder);
    class function Make(const aData: IqaDateReqDataHolder;
-     const aParams : IvcmMakeParams = nil;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0;
-     aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property Panel1: TvtPanel
-     read f_Panel1;
-   property ElLabel1: TvtLabel
-     read f_ElLabel1;
-     {* Выберите тип диапазона: }
-   property ElLabel2: TvtLabel
-     read f_ElLabel2;
-     {* С }
-   property ElLabel3: TvtLabel
-     read f_ElLabel3;
-     {* По }
-   property dD1EqD2: TvtDblClickDateEdit
-     read f_dD1EqD2;
-   property rbEq: TvtRadioButton
-     read f_rbEq;
-     {* Точная дата: }
-   property rbInt: TvtRadioButton
-     read f_rbInt;
-     {* Интервал дат: }
-   property rbD2Only: TvtRadioButton
-     read f_rbD2Only;
-     {* Раньше: }
-   property dD1Only: TvtDblClickDateEdit
-     read f_dD1Only;
-   property dD2Only: TvtDblClickDateEdit
-     read f_dD2Only;
-   property dD1: TvtDblClickDateEdit
-     read f_dD1;
-   property rbD1Only: TvtRadioButton
-     read f_rbD1Only;
-     {* Позже: }
-   property dD2: TvtDblClickDateEdit
-     read f_dD2;
+    read f_Panel1;
    property TypeDate: TTypeDate
-     read f_TypeDate
-     write pm_SetTypeDate;
+    read f_TypeDate
+    write pm_SetTypeDate;
+   property ElLabel1: TvtLabel
+    read f_ElLabel1;
+    {* Выберите тип диапазона: }
+   property ElLabel2: TvtLabel
+    read f_ElLabel2;
+    {* С }
+   property ElLabel3: TvtLabel
+    read f_ElLabel3;
+    {* По }
+   property dD1EqD2: TvtDblClickDateEdit
+    read f_dD1EqD2;
+   property rbEq: TvtRadioButton
+    read f_rbEq;
+    {* Точная дата: }
+   property rbInt: TvtRadioButton
+    read f_rbInt;
+    {* Интервал дат: }
+   property rbD2Only: TvtRadioButton
+    read f_rbD2Only;
+    {* Раньше: }
+   property dD1Only: TvtDblClickDateEdit
+    read f_dD1Only;
+   property dD2Only: TvtDblClickDateEdit
+    read f_dD2Only;
+   property dD1: TvtDblClickDateEdit
+    read f_dD1;
+   property rbD1Only: TvtRadioButton
+    read f_rbD1Only;
+    {* Позже: }
+   property dD2: TvtDblClickDateEdit
+    read f_dD2;
  end;//TPrimDefineSearchDateForm
-
- TvcmEntityFormRef = TPrimDefineSearchDateForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Windows,
-  l3String,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmGUI
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  nsUtils,
-  l3Date
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vtCombo,
-  DefineSearchDateUtils,
-  l3Base
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , Windows
+ , l3String
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmGUI
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsUtils
+ , l3Date
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtCombo
+ , DefineSearchDateUtils
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC6324502DAimpl_uses*
+ //#UC END# *4AC6324502DAimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+procedure TPrimDefineSearchDateForm.pm_SetTypeDate(aValue: TTypeDate);
+//#UC START# *51B5AE3F0318_4AC6324502DAset_var*
+//#UC END# *51B5AE3F0318_4AC6324502DAset_var*
+begin
+//#UC START# *51B5AE3F0318_4AC6324502DAset_impl*
+ f_TypeDate := aValue;
+ dD1EqD2.Enabled := f_TypeDate = tdD1EqD2;
+ dD2Only.Enabled := f_TypeDate = tdD2Only;
+ dD1Only.Enabled := f_TypeDate = tdD1Only;
+ dD1.Enabled := f_TypeDate = tdD1D2;
+ dD2.Enabled := f_TypeDate = tdD1D2;
+//#UC END# *51B5AE3F0318_4AC6324502DAset_impl*
+end;//TPrimDefineSearchDateForm.pm_SetTypeDate
 
-// start class TPrimDefineSearchDateForm
-
-procedure TPrimDefineSearchDateForm.VcmEntityFormKeyDown(Sender: TObject;
-  var Key: Word;
-  Shift: TShiftState);
+procedure TPrimDefineSearchDateForm.vcmEntityFormKeyDown(Sender: TObject;
+ var Key: Word;
+ Shift: TShiftState);
 //#UC START# *51B595AF0368_4AC6324502DA_var*
 //#UC END# *51B595AF0368_4AC6324502DA_var*
 begin
@@ -255,76 +229,43 @@ begin
     end;
   end;
 //#UC END# *51B595AF0368_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.VcmEntityFormKeyDown
+end;//TPrimDefineSearchDateForm.vcmEntityFormKeyDown
 
-procedure TPrimDefineSearchDateForm.RbEqClick(Sender: TObject);
+procedure TPrimDefineSearchDateForm.rbEqClick(Sender: TObject);
 //#UC START# *51B5AD6F03A2_4AC6324502DA_var*
 //#UC END# *51B5AD6F03A2_4AC6324502DA_var*
 begin
 //#UC START# *51B5AD6F03A2_4AC6324502DA_impl*
  pm_SetTypeDate(tdD1EqD2);
 //#UC END# *51B5AD6F03A2_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.RbEqClick
+end;//TPrimDefineSearchDateForm.rbEqClick
 
-procedure TPrimDefineSearchDateForm.RbIntClick(Sender: TObject);
+procedure TPrimDefineSearchDateForm.rbIntClick(Sender: TObject);
 //#UC START# *51B5AD7D003D_4AC6324502DA_var*
 //#UC END# *51B5AD7D003D_4AC6324502DA_var*
 begin
 //#UC START# *51B5AD7D003D_4AC6324502DA_impl*
  pm_SetTypeDate(tdD1D2);
 //#UC END# *51B5AD7D003D_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.RbIntClick
+end;//TPrimDefineSearchDateForm.rbIntClick
 
-procedure TPrimDefineSearchDateForm.RbD2OnlyClick(Sender: TObject);
+procedure TPrimDefineSearchDateForm.rbD2OnlyClick(Sender: TObject);
 //#UC START# *51B5AD8503C7_4AC6324502DA_var*
 //#UC END# *51B5AD8503C7_4AC6324502DA_var*
 begin
 //#UC START# *51B5AD8503C7_4AC6324502DA_impl*
  pm_SetTypeDate(tdD2Only);
 //#UC END# *51B5AD8503C7_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.RbD2OnlyClick
+end;//TPrimDefineSearchDateForm.rbD2OnlyClick
 
-procedure TPrimDefineSearchDateForm.RbD1OnlyClick(Sender: TObject);
+procedure TPrimDefineSearchDateForm.rbD1OnlyClick(Sender: TObject);
 //#UC START# *51B5AD8E0071_4AC6324502DA_var*
 //#UC END# *51B5AD8E0071_4AC6324502DA_var*
 begin
 //#UC START# *51B5AD8E0071_4AC6324502DA_impl*
  pm_SetTypeDate(tdD1Only);
 //#UC END# *51B5AD8E0071_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.RbD1OnlyClick
-
-procedure TPrimDefineSearchDateForm.ChangeSelection(aControl: TWinControl;
-  aForward: Boolean);
-//#UC START# *51B5B5D7014C_4AC6324502DA_var*
-var
- l_Idx: Integer;
- l_ControlIdx: Integer;
-//#UC END# *51B5B5D7014C_4AC6324502DA_var*
-begin
-//#UC START# *51B5B5D7014C_4AC6324502DA_impl*
- l_ControlIdx := -1;
- for l_Idx := 0 to f_ButtonList.Count-1 Do
-  if TWinControl(f_ButtonList[l_Idx]).Tag = aControl.Tag then
-  begin
-   l_ControlIdx := l_Idx;
-   break;
-  end;
- if l_ControlIdx <> -1 then
- begin
-  if aForward then
-   Inc(l_ControlIdx)
-  else
-   Dec(l_ControlIdx);
-  if l_ControlIdx < 0 then
-   l_ControlIdx := f_ButtonList.Count-1;
-  if l_ControlIdx >= f_ButtonList.Count then
-   l_ControlIdx := 0;
- end;
- TWinControl(f_ButtonList[l_ControlIdx]).SetFocus;
- if f_ButtonList.indexof(aControl) = -1 then
-  SelectNext(TWinControl(f_ButtonList[l_ControlIdx]), True, True);
-//#UC END# *51B5B5D7014C_4AC6324502DA_impl*
-end;//TPrimDefineSearchDateForm.ChangeSelection
+end;//TPrimDefineSearchDateForm.rbD1OnlyClick
 
 function TPrimDefineSearchDateForm.Save: Boolean;
 //#UC START# *51B5B4F6018C_4AC6324502DA_var*
@@ -375,6 +316,39 @@ begin
  Result := True;
 //#UC END# *51B5B4F6018C_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.Save
+
+procedure TPrimDefineSearchDateForm.ChangeSelection(aControl: TWinControl;
+ aForward: Boolean);
+//#UC START# *51B5B5D7014C_4AC6324502DA_var*
+var
+ l_Idx: Integer;
+ l_ControlIdx: Integer;
+//#UC END# *51B5B5D7014C_4AC6324502DA_var*
+begin
+//#UC START# *51B5B5D7014C_4AC6324502DA_impl*
+ l_ControlIdx := -1;
+ for l_Idx := 0 to f_ButtonList.Count-1 Do
+  if TWinControl(f_ButtonList[l_Idx]).Tag = aControl.Tag then
+  begin
+   l_ControlIdx := l_Idx;
+   break;
+  end;
+ if l_ControlIdx <> -1 then
+ begin
+  if aForward then
+   Inc(l_ControlIdx)
+  else
+   Dec(l_ControlIdx);
+  if l_ControlIdx < 0 then
+   l_ControlIdx := f_ButtonList.Count-1;
+  if l_ControlIdx >= f_ButtonList.Count then
+   l_ControlIdx := 0;
+ end;
+ TWinControl(f_ButtonList[l_ControlIdx]).SetFocus;
+ if f_ButtonList.indexof(aControl) = -1 then
+  SelectNext(TWinControl(f_ButtonList[l_ControlIdx]), True, True);
+//#UC END# *51B5B5D7014C_4AC6324502DA_impl*
+end;//TPrimDefineSearchDateForm.ChangeSelection
 
 procedure TPrimDefineSearchDateForm.GetDates(const aDateReq: IqaDateReqDataHolder);
 //#UC START# *51B5C31102B7_4AC6324502DA_var*
@@ -466,23 +440,23 @@ begin
 end;//TPrimDefineSearchDateForm.SetDates
 
 class function TPrimDefineSearchDateForm.Make(const aData: IqaDateReqDataHolder;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimDefineSearchDateForm);
  begin
   with aForm do
   begin
-//#UC START# *51B6D069027B_4AC6324502DA_impl*
+  //#UC START# *51B6D069027B_4AC6324502DA_impl*
    f_DateReq := aData;
    Assert(Assigned(f_DateReq));
    SetDates(f_DateReq);
    if not l3IsNil(f_DateReq.ReqCaption) then
     CCaption := f_DateReq.ReqCaption;
    Position := poScreenCenter;
-//#UC END# *51B6D069027B_4AC6324502DA_impl*
+  //#UC END# *51B6D069027B_4AC6324502DA_impl*
   end;//with aForm
  end;
 
@@ -496,21 +470,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
-
-procedure TPrimDefineSearchDateForm.pm_SetTypeDate(aValue: TTypeDate);
-//#UC START# *51B5AE3F0318_4AC6324502DAset_var*
-//#UC END# *51B5AE3F0318_4AC6324502DAset_var*
-begin
-//#UC START# *51B5AE3F0318_4AC6324502DAset_impl*
- f_TypeDate := aValue;
- dD1EqD2.Enabled := f_TypeDate = tdD1EqD2;
- dD2Only.Enabled := f_TypeDate = tdD2Only;
- dD1Only.Enabled := f_TypeDate = tdD1Only;
- dD1.Enabled := f_TypeDate = tdD1D2;
- dD2.Enabled := f_TypeDate = tdD1D2;
-//#UC END# *51B5AE3F0318_4AC6324502DAset_impl*
-end;//TPrimDefineSearchDateForm.pm_SetTypeDate
+end;//TPrimDefineSearchDateForm.Make
 
 procedure TPrimDefineSearchDateForm.CMDialogKey(var Message: TCMDialogKey);
 //#UC START# *51B5B5FB0354_4AC6324502DA_var*
@@ -539,8 +499,8 @@ begin
 //#UC END# *51B5B5FB0354_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.CMDialogKey
 
-{$If not defined(NoVCM)}
 procedure TPrimDefineSearchDateForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4AC6324502DAexec_var*
 //#UC END# *4A8AD46D0226_4AC6324502DAexec_var*
 begin
@@ -548,10 +508,9 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4A8AD46D0226_4AC6324502DAexec_impl*
 end;//TPrimDefineSearchDateForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimDefineSearchDateForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AC6324502DAexec_var*
 //#UC END# *4A97EBE702F8_4AC6324502DAexec_var*
 begin
@@ -561,9 +520,9 @@ begin
   GetDates(f_DateReq);
 //#UC END# *4A97EBE702F8_4AC6324502DAexec_impl*
 end;//TPrimDefineSearchDateForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
 
 procedure TPrimDefineSearchDateForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC6324502DA_var*
 //#UC END# *479731C50290_4AC6324502DA_var*
 begin
@@ -574,8 +533,8 @@ begin
 //#UC END# *479731C50290_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimDefineSearchDateForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC6324502DA_var*
 var
  l_Idx: Integer;
@@ -745,29 +704,24 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimDefineSearchDateForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Cancel, true);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Cancel, True);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Ok, true);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, True);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
-end;
+end;//TPrimDefineSearchDateForm.InitEntities
 
 procedure TPrimDefineSearchDateForm.MakeControls;
 begin
@@ -818,14 +772,14 @@ begin
  f_dD2 := TvtDblClickDateEdit.Create(Self);
  f_dD2.Name := 'dD2';
  f_dD2.Parent := Panel1;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDefineSearchDateForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDefineSearchDate
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDefineSearchDateForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDefineSearchDate }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

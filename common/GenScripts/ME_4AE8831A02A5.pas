@@ -236,7 +236,7 @@ end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty_Execute
 
 procedure TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
+ with ISearchParameters_IsQueryEmpty_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
 end;//TPrimOldSituationSearchForm.SearchParameters_IsQueryEmpty
 
@@ -258,7 +258,7 @@ end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery_Execute
 
 procedure TPrimOldSituationSearchForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_GetQuery_Params) do
+ with ISearchParameters_GetQuery_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
 end;//TPrimOldSituationSearchForm.SearchParameters_GetQuery
 
@@ -273,7 +273,7 @@ end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved_Execute
 
 procedure TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+ with ISearchParameters_IsQuerySaved_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
 end;//TPrimOldSituationSearchForm.SearchParameters_IsQuerySaved
 
@@ -297,7 +297,7 @@ end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery_Execute
 
 procedure TPrimOldSituationSearchForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_SetQuery_Params) do
+ with ISearchParameters_SetQuery_Params(aParams.Data) do
   Self.SearchParameters_SetQuery_Execute(Query);
 end;//TPrimOldSituationSearchForm.SearchParameters_SetQuery
 
@@ -315,7 +315,7 @@ end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged_Execute
 
 procedure TPrimOldSituationSearchForm.ContextParams_ContextChanged(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContextParams_ContextChanged_Params) do
+ with IContextParams_ContextChanged_Params(aParams.Data) do
   Self.ContextParams_ContextChanged_Execute(ContextState, ContextTarget);
 end;//TPrimOldSituationSearchForm.ContextParams_ContextChanged
 

@@ -1,252 +1,169 @@
 unit PrimTurnOnTimeMachine_Form;
+ {* Включить Машину времени }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimTurnOnTimeMachine_Form.pas"
-// Начат: 01.10.2009 22:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::TimeMachine::PrimTurnOnTimeMachine
-//
-// Включить Машину времени
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimTurnOnTimeMachine_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimTurnOnTimeMachine" MUID: (4AC4F8BB0265)
+// Имя типа: "TPrimTurnOnTimeMachineForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  ,
-  PresentationInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vtDblClickDateEdit,
-  vtLabel,
-  vtButton,
-  vtRadioButton,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PresentationInterfaces
+ , vtRadioButton
+ , vtDblClickDateEdit
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtButton
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimTurnOnTimeMachineForm = {form} class(TvcmEntityForm)
+ TPrimTurnOnTimeMachineForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Включить Машину времени }
- private
- // private fields
-   f_rb_totmOnDate : TvtRadioButton;
-    {* Поле для свойства rb_totmOnDate}
-   f_rb_totmOnCurrentRedation : TvtRadioButton;
-    {* Поле для свойства rb_totmOnCurrentRedation}
-   f_deDate : TvtDblClickDateEdit;
-    {* Поле для свойства deDate}
-   f_pbDialogIcon : TPaintBox;
-    {* Поле для свойства pbDialogIcon}
-   f_lblTurnOnTimeMachineInfo : TvtLabel;
-    {* Поле для свойства lblTurnOnTimeMachineInfo}
-   f_btnOk : TvtButton;
-    {* Поле для свойства btnOk}
-   f_btnCancel : TvtButton;
-    {* Поле для свойства btnCancel}
-   f_Controller : InsTurnOnTimeMachine;
-    {* Поле для свойства Controller}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_rb_totmOnDate: TvtRadioButton;
+    {* Включить Машину времени с календарной даты }
+   f_rb_totmOnCurrentRedation: TvtRadioButton;
+    {* Включить Машину времени с начала действия текущей редакции }
+   f_deDate: TvtDblClickDateEdit;
+   f_pbDialogIcon: TPaintBox;
+   f_lblTurnOnTimeMachineInfo: TvtLabel;
+    {* Выберите вариант включения Машины времени: }
+   f_btnOk: TvtButton;
+    {* OK }
+   f_btnCancel: TvtButton;
+    {* Отмена }
+   f_Controller: InsTurnOnTimeMachine;
+  private
    procedure CheckControls;
-     {* Сигнатура метода CheckControls }
-   procedure BtnOkClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure DeDateChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure PbDialogIconPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure SetupFormLayout; override;
-     {* Тут можно настроить внешний вид формы }
-    {$IfEnd} //not NoVCM
- protected
- // protected methods
+   procedure btnOkClick(Sender: TObject);
+   procedure deDateChange(Sender: TObject);
+   procedure pbDialogIconPaint(Sender: TObject);
+  protected
    procedure DoOk;
-     {* Сигнатура метода DoOk }
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SetupFormLayout; override;
+    {* Тут можно настроить внешний вид формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aData: InsTurnOnTimeMachine;
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- private
- // private properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property Controller: InsTurnOnTimeMachine
-     read f_Controller;
- public
- // public properties
+    read f_Controller;
+  public
    property rb_totmOnDate: TvtRadioButton
-     read f_rb_totmOnDate;
-     {* Включить Машину времени с календарной даты }
+    read f_rb_totmOnDate;
+    {* Включить Машину времени с календарной даты }
    property rb_totmOnCurrentRedation: TvtRadioButton
-     read f_rb_totmOnCurrentRedation;
-     {* Включить Машину времени с начала действия текущей редакции }
+    read f_rb_totmOnCurrentRedation;
+    {* Включить Машину времени с начала действия текущей редакции }
    property deDate: TvtDblClickDateEdit
-     read f_deDate;
+    read f_deDate;
    property pbDialogIcon: TPaintBox
-     read f_pbDialogIcon;
+    read f_pbDialogIcon;
    property lblTurnOnTimeMachineInfo: TvtLabel
-     read f_lblTurnOnTimeMachineInfo;
-     {* Выберите вариант включения Машины времени: }
+    read f_lblTurnOnTimeMachineInfo;
+    {* Выберите вариант включения Машины времени: }
    property btnOk: TvtButton
-     read f_btnOk;
-     {* OK }
+    read f_btnOk;
+    {* OK }
    property btnCancel: TvtButton
-     read f_btnCancel;
-     {* Отмена }
+    read f_btnCancel;
+    {* Отмена }
  end;//TPrimTurnOnTimeMachineForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsConst,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics,
-  vtCombo
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConst
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ , vtCombo
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AC4F8BB0265impl_uses*
+ //#UC END# *4AC4F8BB0265impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimTurnOnTimeMachineForm
-
-procedure TPrimTurnOnTimeMachineForm.CheckControls;
-//#UC START# *4AC5E0C000D5_4AC4F8BB0265_var*
-
- procedure lp_DisableOps;
- var
-  l_DisableOps: TnsTurnOnTimeMachineOperations;
- begin
-  l_DisableOps := Controller.DisableOps;
-  rb_totmOnDate.Enabled := not (ns_ontmDateOp in l_DisableOps);
-  deDate.Enabled := not (ns_ontmDateOp in l_DisableOps);
-  rb_totmOnCurrentRedation.Enabled := not (ns_ontmCurrentRedactionOp in l_DisableOps);
- end;
-
-//#UC END# *4AC5E0C000D5_4AC4F8BB0265_var*
-begin
-//#UC START# *4AC5E0C000D5_4AC4F8BB0265_impl*
- Assert(f_Controller <> nil);
- lp_DisableOps;
-//#UC END# *4AC5E0C000D5_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.CheckControls
-
-procedure TPrimTurnOnTimeMachineForm.BtnOkClick(Sender: TObject);
-//#UC START# *527A2289012E_4AC4F8BB0265_var*
-//#UC END# *527A2289012E_4AC4F8BB0265_var*
-begin
-//#UC START# *527A2289012E_4AC4F8BB0265_impl*
- DoOk;
-//#UC END# *527A2289012E_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.BtnOkClick
-
-procedure TPrimTurnOnTimeMachineForm.DeDateChange(Sender: TObject);
-//#UC START# *527A22980348_4AC4F8BB0265_var*
-//#UC END# *527A22980348_4AC4F8BB0265_var*
-begin
-//#UC START# *527A22980348_4AC4F8BB0265_impl*
- rb_totmOnDate.Checked := True;
-//#UC END# *527A22980348_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.DeDateChange
-
-procedure TPrimTurnOnTimeMachineForm.PbDialogIconPaint(Sender: TObject);
-//#UC START# *527A22A30368_4AC4F8BB0265_var*
-//#UC END# *527A22A30368_4AC4F8BB0265_var*
-begin
-//#UC START# *527A22A30368_4AC4F8BB0265_impl*
- with Sender as TPaintBox do
-  dmStdRes.LargeImageList.Draw(Canvas, Width - c_LargeSizeIcon, (Height - c_LargeSizeIcon) div 2, cTimeMachineOn);
-//#UC END# *527A22A30368_4AC4F8BB0265_impl*
-end;//TPrimTurnOnTimeMachineForm.PbDialogIconPaint
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.DoOk;
 //#UC START# *4AC5E0A802CA_4AC4F8BB0265_var*
 //#UC END# *4AC5E0A802CA_4AC4F8BB0265_var*
@@ -280,20 +197,69 @@ begin
 //#UC END# *4AC5E0A802CA_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.DoOk
 
+procedure TPrimTurnOnTimeMachineForm.CheckControls;
+//#UC START# *4AC5E0C000D5_4AC4F8BB0265_var*
+
+ procedure lp_DisableOps;
+ var
+  l_DisableOps: TnsTurnOnTimeMachineOperations;
+ begin
+  l_DisableOps := Controller.DisableOps;
+  rb_totmOnDate.Enabled := not (ns_ontmDateOp in l_DisableOps);
+  deDate.Enabled := not (ns_ontmDateOp in l_DisableOps);
+  rb_totmOnCurrentRedation.Enabled := not (ns_ontmCurrentRedactionOp in l_DisableOps);
+ end;
+
+//#UC END# *4AC5E0C000D5_4AC4F8BB0265_var*
+begin
+//#UC START# *4AC5E0C000D5_4AC4F8BB0265_impl*
+ Assert(f_Controller <> nil);
+ lp_DisableOps;
+//#UC END# *4AC5E0C000D5_4AC4F8BB0265_impl*
+end;//TPrimTurnOnTimeMachineForm.CheckControls
+
+procedure TPrimTurnOnTimeMachineForm.btnOkClick(Sender: TObject);
+//#UC START# *527A2289012E_4AC4F8BB0265_var*
+//#UC END# *527A2289012E_4AC4F8BB0265_var*
+begin
+//#UC START# *527A2289012E_4AC4F8BB0265_impl*
+ DoOk;
+//#UC END# *527A2289012E_4AC4F8BB0265_impl*
+end;//TPrimTurnOnTimeMachineForm.btnOkClick
+
+procedure TPrimTurnOnTimeMachineForm.deDateChange(Sender: TObject);
+//#UC START# *527A22980348_4AC4F8BB0265_var*
+//#UC END# *527A22980348_4AC4F8BB0265_var*
+begin
+//#UC START# *527A22980348_4AC4F8BB0265_impl*
+ rb_totmOnDate.Checked := True;
+//#UC END# *527A22980348_4AC4F8BB0265_impl*
+end;//TPrimTurnOnTimeMachineForm.deDateChange
+
+procedure TPrimTurnOnTimeMachineForm.pbDialogIconPaint(Sender: TObject);
+//#UC START# *527A22A30368_4AC4F8BB0265_var*
+//#UC END# *527A22A30368_4AC4F8BB0265_var*
+begin
+//#UC START# *527A22A30368_4AC4F8BB0265_impl*
+ with Sender as TPaintBox do
+  dmStdRes.LargeImageList.Draw(Canvas, Width - c_LargeSizeIcon, (Height - c_LargeSizeIcon) div 2, cTimeMachineOn);
+//#UC END# *527A22A30368_4AC4F8BB0265_impl*
+end;//TPrimTurnOnTimeMachineForm.pbDialogIconPaint
+
 class function TPrimTurnOnTimeMachineForm.Make(const aData: InsTurnOnTimeMachine;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimTurnOnTimeMachineForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC4F912037B_4AC4F8BB0265_impl*
+  //#UC START# *4AC4F912037B_4AC4F8BB0265_impl*
    f_Controller := aData;
    CheckControls;
-//#UC END# *4AC4F912037B_4AC4F8BB0265_impl*
+  //#UC END# *4AC4F912037B_4AC4F8BB0265_impl*
   end;//with aForm
  end;
 
@@ -307,10 +273,10 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimTurnOnTimeMachineForm.Make
 
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4AC4F8BB0265test_var*
 //#UC END# *4A8AD46D0226_4AC4F8BB0265test_var*
 begin
@@ -318,10 +284,9 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4A8AD46D0226_4AC4F8BB0265test_impl*
 end;//TPrimTurnOnTimeMachineForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4AC4F8BB0265exec_var*
 //#UC END# *4A8AD46D0226_4AC4F8BB0265exec_var*
 begin
@@ -329,10 +294,9 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4A8AD46D0226_4AC4F8BB0265exec_impl*
 end;//TPrimTurnOnTimeMachineForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AC4F8BB0265test_var*
 //#UC END# *4A97EBE702F8_4AC4F8BB0265test_var*
 begin
@@ -340,21 +304,9 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4A97EBE702F8_4AC4F8BB0265test_impl*
 end;//TPrimTurnOnTimeMachineForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimTurnOnTimeMachineForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_var*
-//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_var*
-begin
-//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
- // - ничего не делаем
-//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
-end;//TPrimTurnOnTimeMachineForm.Result_Ok_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AC4F8BB0265exec_var*
 //#UC END# *4A97EBE702F8_4AC4F8BB0265exec_var*
 begin
@@ -362,9 +314,19 @@ begin
  DoOk;
 //#UC END# *4A97EBE702F8_4AC4F8BB0265exec_impl*
 end;//TPrimTurnOnTimeMachineForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+
+procedure TPrimTurnOnTimeMachineForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_var*
+//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4F8BB0265getstate_impl*
+end;//TPrimTurnOnTimeMachineForm.Result_Ok_GetState
 
 procedure TPrimTurnOnTimeMachineForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC4F8BB0265_var*
 //#UC END# *479731C50290_4AC4F8BB0265_var*
 begin
@@ -374,8 +336,8 @@ begin
 //#UC END# *479731C50290_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC4F8BB0265_var*
 //#UC END# *4A8E8F2E0195_4AC4F8BB0265_var*
 begin
@@ -461,19 +423,9 @@ begin
  Self.ClientHeight := btnOk.Top + btnOk.Height + 18;
 //#UC END# *4A8E8F2E0195_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimTurnOnTimeMachineForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_Controller := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimTurnOnTimeMachineForm.ClearFields
-
-{$If not defined(NoVCM)}
 procedure TPrimTurnOnTimeMachineForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AC4F8BB0265_var*
 //#UC END# *529332B40230_4AC4F8BB0265_var*
 begin
@@ -488,24 +440,25 @@ begin
  Position := poScreenCenter;
 //#UC END# *529332B40230_4AC4F8BB0265_impl*
 end;//TPrimTurnOnTimeMachineForm.SetupFormLayout
-{$IfEnd} //not NoVCM
+
+procedure TPrimTurnOnTimeMachineForm.ClearFields;
+begin
+ f_Controller := nil;
+ inherited;
+end;//TPrimTurnOnTimeMachineForm.ClearFields
 
 procedure TPrimTurnOnTimeMachineForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  {$IfEnd} //not NoVCM
-
  end;//with Entities.Entities
-end;
+end;//TPrimTurnOnTimeMachineForm.InitEntities
 
 procedure TPrimTurnOnTimeMachineForm.MakeControls;
 begin
@@ -536,14 +489,14 @@ begin
  f_btnCancel.Name := 'btnCancel';
  f_btnCancel.Parent := Self;
  f_btnCancel.Caption := 'Отмена';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimTurnOnTimeMachineForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimTurnOnTimeMachine
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimTurnOnTimeMachineForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimTurnOnTimeMachine }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

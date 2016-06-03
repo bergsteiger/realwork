@@ -277,7 +277,7 @@ end;//TPrimShutDownForm.System_InitShutdown_Execute
 procedure TPrimShutDownForm.System_InitShutdown(const aParams: IvcmExecuteParams);
  {* Начать процесс завершения работы }
 begin
- with (aParams.Data As ISystem_InitShutdown_Params) do
+ with ISystem_InitShutdown_Params(aParams.Data) do
   Self.System_InitShutdown_Execute(Shotdown, CloseInterval);
 end;//TPrimShutDownForm.System_InitShutdown
 

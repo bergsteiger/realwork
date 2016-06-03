@@ -19,6 +19,9 @@ uses
  , l3Interfaces
  , DayTipsInterfaces
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -26,9 +29,6 @@ uses
  , vtFocusLabel
  , vtCheckBox
  , ElPopBtn
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , Windows
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
@@ -43,33 +43,26 @@ type
   {* Совет дня }
   private
    f_TopPanel: TvtPanel;
-    {* Поле для свойства TopPanel }
-   f_TitlePaintBox: TPaintBox;
-    {* Поле для свойства TitlePaintBox }
-   f_TitleLabel: TvtLabel;
-    {* Поле для свойства TitleLabel }
    f_BottomPanel: TvtPanel;
-    {* Поле для свойства BottomPanel }
+   f_TitlePaintBox: TPaintBox;
+   f_TitleLabel: TvtLabel;
+    {* Знаете ли Вы, что... }
    f_HintPanel: TvtPanel;
-    {* Поле для свойства HintPanel }
    f_TipLabel: TvtLabel;
-    {* Поле для свойства TipLabel }
    f_DetailLabel: TvtFocusLabel;
-    {* Поле для свойства DetailLabel }
+    {* См. подробнее }
    f_ShowCheckBox: TvtCheckBox;
-    {* Поле для свойства ShowCheckBox }
+    {* Не показывать совет дня при запуске }
    f_wwwPanel: TvtPanel;
-    {* Поле для свойства wwwPanel }
    f_wwwPaintBox: TPaintBox;
-    {* Поле для свойства wwwPaintBox }
    f_wwwLabel: TvtFocusLabel;
-    {* Поле для свойства wwwLabel }
+    {* Советы дня в Новостях онлайн }
    f_NextButton: TElPopupButton;
-    {* Поле для свойства NextButton }
+    {* Следующий }
    f_PrevButton: TElPopupButton;
-    {* Поле для свойства PrevButton }
+    {* Предыдущий }
    f_CloseButton: TElPopupButton;
-    {* Поле для свойства CloseButton }
+    {* Закрыть }
   protected
    f_Data: InsStartupTips;
   private
@@ -105,7 +98,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(const aData: InsStartupTips): IvcmEntityForm; reintroduce;
+   class function MakeSingleChild(const aData: InsStartupTips;
+    const aCont: IvcmContainer;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
   public
    property TopPanel: TvtPanel
     read f_TopPanel;
@@ -172,6 +169,10 @@ uses
  , SysUtils
  , Graphics
  , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -303,15 +304,34 @@ begin
 //#UC END# *5268E701030F_4AC4F49F010B_impl*
 end;//TPrimStartupTipsForm.ShowCheckBoxClick
 
-class function TPrimStartupTipsForm.MakeSingleChild(const aData: InsStartupTips): IvcmEntityForm;
+class function TPrimStartupTipsForm.MakeSingleChild(const aData: InsStartupTips;
+ const aCont: IvcmContainer;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimStartupTipsForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4F567002A_4AC4F49F010B_impl*
+   f_Data := aData;
+   Assert(Assigned(f_Data), 'Invalid params');
+   ShowCheckBox.Checked := f_Data.DontShow;
+   UpdateTip;
+  //#UC END# *4AC4F567002A_4AC4F49F010B_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimStartupTipsForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited MakeSingleChild(aCont, vcmMakeParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimStartupTipsForm.MakeSingleChild
 

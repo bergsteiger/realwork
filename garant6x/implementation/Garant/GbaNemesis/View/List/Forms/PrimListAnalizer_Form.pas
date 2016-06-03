@@ -1,187 +1,146 @@
 unit PrimListAnalizer_Form;
+ {* Анализ списка }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/List/Forms/PrimListAnalizer_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::WorkWithList::View::List::PrimListAnalizer
-//
-// Анализ списка
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimListAnalizer" MUID: (4AA0CE2B0073)
+// Имя типа: "TPrimListAnalizerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3TreeInterfaces,
-  l3ControlsTypes,
-  eeTreeView
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx,
-  vtOutlinerWithDragDrop,
-  vtLister
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimListAnalizer_listAnalize_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , eeTreeView
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimListAnalizerForm = {form} class(TvcmEntityForm)
+ TPrimListAnalizerForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Анализ списка }
- private
- // private fields
-   f_BackgroundPanel : TvtPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_ListTree : TeeTreeView;
-    {* Поле для свойства ListTree}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtPanel;
+   f_ListTree: TeeTreeView;
+  private
    procedure ListTreeActionElement(Sender: TObject;
-     Index: LongInt);
+    Index: LongInt);
    procedure ListTreeCanBeginDrag(const aNode: Il3SimpleNode;
-     var aOkEffect: LongInt);
+    var aOkEffect: LongInt);
    function ListTreeGetItemImage(Sender: TObject;
-     Index: Integer;
-     var aImages: TCustomImageList): Integer;
-     {* Event to get Index of Bitmap in ImageIndex. }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
+    Index: Integer;
+    var aImages: TCustomImageList): Integer;
+  protected
    function CanOpen(const aNode: Il3SimpleNode): Boolean;
    function TryOpen(const aNode: Il3SimpleNode): Boolean;
- public
- // public methods
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aData: Il3SimpleTree;
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_GetState(var State: TvcmOperationStateIndex);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property BackgroundPanel: TvtPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property ListTree: TeeTreeView
-     read f_ListTree;
+    read f_ListTree;
  end;//TPrimListAnalizerForm
-
- TvcmEntityFormRef = TPrimListAnalizerForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DynamicDocListUnit,
-  BaseTypesUnit,
-  nsUtils,
-  DynamicTreeUnit,
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  ActiveX,
-  SearchRes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DynamicDocListUnit
+ , BaseTypesUnit
+ , nsUtils
+ , DynamicTreeUnit
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ActiveX
+ , SearchRes
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimListAnalizer_listAnalize_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AA0CE2B0073impl_uses*
+ , l3ControlsTypes
+ //#UC END# *4AA0CE2B0073impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки listAnalizeLocalConstants }
-  str_listAnalizeCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'listAnalizeCaption'; rValue : 'Анализ списка');
-   { Заголовок пользовательского типа "Анализ списка" }
-
-// start class TPrimListAnalizerForm
-
+{$If NOT Defined(NoVCM)}
 procedure TPrimListAnalizerForm.ListTreeActionElement(Sender: TObject;
-  Index: LongInt);
+ Index: LongInt);
 //#UC START# *51C06313011B_4AA0CE2B0073_var*
 //#UC END# *51C06313011B_4AA0CE2B0073_var*
 begin
@@ -192,7 +151,7 @@ begin
 end;//TPrimListAnalizerForm.ListTreeActionElement
 
 procedure TPrimListAnalizerForm.ListTreeCanBeginDrag(const aNode: Il3SimpleNode;
-  var aOkEffect: LongInt);
+ var aOkEffect: LongInt);
 //#UC START# *51C063260008_4AA0CE2B0073_var*
 //#UC END# *51C063260008_4AA0CE2B0073_var*
 begin
@@ -202,8 +161,8 @@ begin
 end;//TPrimListAnalizerForm.ListTreeCanBeginDrag
 
 function TPrimListAnalizerForm.ListTreeGetItemImage(Sender: TObject;
-  Index: Integer;
-  var aImages: TCustomImageList): Integer;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
 //#UC START# *51C0635E00EF_4AA0CE2B0073_var*
 var
  l_l3Node : Il3SimpleNode;
@@ -263,18 +222,18 @@ begin
 end;//TPrimListAnalizerForm.TryOpen
 
 class function TPrimListAnalizerForm.Make(const aData: Il3SimpleTree;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimListAnalizerForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC4FB28001B_4AA0CE2B0073_impl*
+  //#UC START# *4AC4FB28001B_4AA0CE2B0073_impl*
    ListTree.TreeStruct := aData;
-//#UC END# *4AC4FB28001B_4AA0CE2B0073_impl*
+  //#UC END# *4AC4FB28001B_4AA0CE2B0073_impl*
   end;//with aForm
  end;
 
@@ -288,10 +247,10 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimListAnalizerForm.Make
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4AA0CE2B0073test_var*
 //#UC END# *4A8AD46D0226_4AA0CE2B0073test_var*
 begin
@@ -299,10 +258,9 @@ begin
  // Do nothing
 //#UC END# *4A8AD46D0226_4AA0CE2B0073test_impl*
 end;//TPrimListAnalizerForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4A8AD46D0226_4AA0CE2B0073exec_var*
 //#UC END# *4A8AD46D0226_4AA0CE2B0073exec_var*
 begin
@@ -310,10 +268,9 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4A8AD46D0226_4AA0CE2B0073exec_impl*
 end;//TPrimListAnalizerForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AA0CE2B0073test_var*
 //#UC END# *4A97EBE702F8_4AA0CE2B0073test_var*
 begin
@@ -321,21 +278,9 @@ begin
  aParams.Op.Flag[vcm_ofEnabled] := CanOpen(ListTree.GetCurrentNode);
 //#UC END# *4A97EBE702F8_4AA0CE2B0073test_impl*
 end;//TPrimListAnalizerForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
-procedure TPrimListAnalizerForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
-//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_var*
-//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_var*
-begin
-//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
- State := st_user_Result_Ok_Analize;
-//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
-end;//TPrimListAnalizerForm.Result_Ok_GetState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AA0CE2B0073exec_var*
 //#UC END# *4A97EBE702F8_4AA0CE2B0073exec_var*
 begin
@@ -344,7 +289,16 @@ begin
   ModalResult := mrOk;
 //#UC END# *4A97EBE702F8_4AA0CE2B0073exec_impl*
 end;//TPrimListAnalizerForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
+
+procedure TPrimListAnalizerForm.Result_Ok_GetState(var State: TvcmOperationStateIndex);
+ {* OK }
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_var*
+begin
+//#UC START# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+ State := st_user_Result_Ok_Analize;
+//#UC END# *4A97EBE702F8_4AA0CE2B0073getstate_impl*
+end;//TPrimListAnalizerForm.Result_Ok_GetState
 
 procedure TPrimListAnalizerForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4AA0CE2B0073_var*
@@ -356,8 +310,8 @@ begin
 //#UC END# *47EA4E9002C6_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AA0CE2B0073_var*
 //#UC END# *49803F5503AA_4AA0CE2B0073_var*
 begin
@@ -365,10 +319,9 @@ begin
  ListTree.Images := nsSearchRes.SearchItemsImageList;
 //#UC END# *49803F5503AA_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimListAnalizerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AA0CE2B0073_var*
 //#UC END# *4A8E8F2E0195_4AA0CE2B0073_var*
 begin
@@ -399,28 +352,23 @@ begin
  end;        
 //#UC END# *4A8E8F2E0195_4AA0CE2B0073_impl*
 end;//TPrimListAnalizerForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimListAnalizerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, Result_Ok_GetState);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
  end;//with Entities.Entities
-end;
+end;//TPrimListAnalizerForm.InitEntities
 
 procedure TPrimListAnalizerForm.MakeControls;
 begin
@@ -428,7 +376,7 @@ begin
  with AddUsertype(listAnalizeName,
   str_listAnalizeCaption,
   str_listAnalizeCaption,
-  true,
+  True,
   -1,
   0,
   '',
@@ -444,18 +392,14 @@ begin
  f_ListTree := TeeTreeView.Create(Self);
  f_ListTree.Name := 'ListTree';
  f_ListTree.Parent := BackgroundPanel;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimListAnalizerForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_listAnalizeCaption
- str_listAnalizeCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimListAnalizer
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimListAnalizerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimListAnalizer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

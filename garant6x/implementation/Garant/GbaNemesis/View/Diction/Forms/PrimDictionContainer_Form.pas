@@ -153,7 +153,7 @@ end;//TPrimDictionContainerForm.Common_ShowSplitter_Execute
 
 procedure TPrimDictionContainerForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ICommon_ShowSplitter_Params) do
+ with ICommon_ShowSplitter_Params(aParams.Data) do
   Self.Common_ShowSplitter_Execute(Visible);
 end;//TPrimDictionContainerForm.Common_ShowSplitter
 

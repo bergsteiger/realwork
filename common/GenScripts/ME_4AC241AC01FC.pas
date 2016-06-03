@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_InpharmInterfaces;
+unit InpharmInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\NOT_COMPLETED_InpharmInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\InpharmInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "InpharmInterfaces" MUID: (4AC241AC01FC)
 
@@ -53,9 +53,9 @@ type
 
  IsdsInpharmMainMenu = interface(IvcmUseCaseController)
   ['{6D692EF2-6DCF-48D0-A215-93EA51A710E7}']
-  function pm_GetdsInpharmMainMenuData: IdsInpharmMainMenu;
+  function pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
   property dsInpharmMainMenuData: IdsInpharmMainMenu
-   read pm_GetdsInpharmMainMenuData;
+   read pm_GetDsInpharmMainMenuData;
  end;//IsdsInpharmMainMenu
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

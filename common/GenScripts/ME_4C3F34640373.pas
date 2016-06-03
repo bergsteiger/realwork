@@ -15,6 +15,12 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Journal = 'Journal';
+ en_capJournal = '';
+ op_Clear = 'Clear';
+ op_capClear = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

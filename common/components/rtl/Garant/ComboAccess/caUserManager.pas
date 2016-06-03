@@ -22,6 +22,7 @@ type
   private
    f_HTManager: IdaUserManager;
    f_PGManager: IdaUserManager;
+   f_PriorityCalculator: IdaPriorityCalculator;
   private
    function IsUsersEqual(const aLeft: IdaArchiUser;
     const aRight: IdaArchiUser): Boolean;
@@ -58,6 +59,7 @@ type
     var aUserName: AnsiString;
     var aLoginName: AnsiString;
     var aActFlag: Byte);
+   function Get_PriorityCalculator: IdaPriorityCalculator;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -75,6 +77,7 @@ implementation
 uses
  l3ImplUses
  , l3ListUtils
+ , caPriorityCalculator
  , l3Base
 ;
 
@@ -346,6 +349,17 @@ begin
  Assert((aUserName = l_UserName) and (aLoginName = l_LoginName) and (aActFlag = l_ActFlag));
 //#UC END# *573AEE9902DF_56C428E4014A_impl*
 end;//TcaUserManager.GetUserInfo
+
+function TcaUserManager.Get_PriorityCalculator: IdaPriorityCalculator;
+//#UC START# *575020410175_56C428E4014Aget_var*
+//#UC END# *575020410175_56C428E4014Aget_var*
+begin
+//#UC START# *575020410175_56C428E4014Aget_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := TcaPriorityCalculator.Make(f_HTManager.PriorityCalculator, f_PGManager.PriorityCalculator);
+ Result := f_PriorityCalculator;
+//#UC END# *575020410175_56C428E4014Aget_impl*
+end;//TcaUserManager.Get_PriorityCalculator
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

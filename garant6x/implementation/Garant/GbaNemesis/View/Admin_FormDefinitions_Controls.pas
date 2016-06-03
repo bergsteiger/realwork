@@ -1,238 +1,187 @@
 unit Admin_FormDefinitions_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin_FormDefinitions_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Администратор::Admin::View::FormDefinitions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_FormDefinitions_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4FFBFDCA01DE)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwString
-  {$IfEnd} //not NoScripts
-  ,
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { AdminFormIDs }
-  fm_cfAdminForm : TvcmFormDescriptor = (rFormID : (rName : 'cfAdminForm'; rID : 0); rFactory : nil);
-   { Идентификатор формы TcfAdminForm }
+ fm_cfAdminForm: TvcmFormDescriptor = (rFormID : (rName : 'cfAdminForm'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TcfAdminForm }
+ fm_efGroupList: TvcmFormDescriptor = (rFormID : (rName : 'efGroupList'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TefGroupList }
+ fm_efUserList: TvcmFormDescriptor = (rFormID : (rName : 'efUserList'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TefUserList }
+ fm_efUserProperty: TvcmFormDescriptor = (rFormID : (rName : 'efUserProperty'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TefUserProperty }
 
 type
- AdminFormFormDef = interface(IUnknown)
-   ['{7E787B8C-F566-443C-9C95-6711D628B038}']
+ AdminFormFormDef = interface
+  ['{7E787B8C-F566-443C-9C95-6711D628B038}']
  end;//AdminFormFormDef
 
-const
-   { GroupListIDs }
-  fm_efGroupList : TvcmFormDescriptor = (rFormID : (rName : 'efGroupList'; rID : 0); rFactory : nil);
-   { Идентификатор формы TefGroupList }
-
-type
- GroupListFormDef = interface(IUnknown)
-   ['{427E23A9-B9FD-4256-8312-ED9653D862C6}']
+ GroupListFormDef = interface
+  ['{427E23A9-B9FD-4256-8312-ED9653D862C6}']
  end;//GroupListFormDef
 
-const
-   { UserListIDs }
-  fm_efUserList : TvcmFormDescriptor = (rFormID : (rName : 'efUserList'; rID : 0); rFactory : nil);
-   { Идентификатор формы TefUserList }
-
-type
- UserListFormDef = interface(IUnknown)
-   ['{CCC79038-4B92-428C-ADD7-D68C5BCE408C}']
+ UserListFormDef = interface
+  ['{CCC79038-4B92-428C-ADD7-D68C5BCE408C}']
  end;//UserListFormDef
 
-const
-   { UserPropertyIDs }
-  fm_efUserProperty : TvcmFormDescriptor = (rFormID : (rName : 'efUserProperty'; rID : 0); rFactory : nil);
-   { Идентификатор формы TefUserProperty }
-
-type
- UserPropertyFormDef = interface(IUnknown)
-   ['{5FCF4F0A-B828-487D-9E35-8D8643E02C6C}']
+ UserPropertyFormDef = interface
+  ['{5FCF4F0A-B828-487D-9E35-8D8643E02C6C}']
  end;//UserPropertyFormDef
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
-{$If defined(Admin) AND not defined(NoScripts)}
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwString
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
+{$If NOT Defined(NoScripts)}
 type
- Tkw_Form_AdminForm_ID = {final scriptword} class(TtfwString)
+ Tkw_Form_AdminForm_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы AdminForm
 ----
 *Пример использования*:
 [code]
 'aControl' форма::AdminForm TryFocus ASSERT
 [code] }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+  protected
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_AdminForm_ID
-{$IfEnd} //Admin AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_Form_AdminForm_ID
-
-class function Tkw_Form_AdminForm_ID.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'форма::AdminForm';
-end;//Tkw_Form_AdminForm_ID.GetWordNameForRegister
-
-function Tkw_Form_AdminForm_ID.GetString: AnsiString;
- {-}
-begin
- Result := 'cfAdminForm';
-end;//Tkw_Form_AdminForm_ID.GetString
-
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoScripts)}
 type
- Tkw_Form_GroupList_ID = {final scriptword} class(TtfwString)
+ Tkw_Form_GroupList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы GroupList
 ----
 *Пример использования*:
 [code]
 'aControl' форма::GroupList TryFocus ASSERT
 [code] }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+  protected
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_GroupList_ID
-{$IfEnd} //Admin AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_Form_GroupList_ID
-
-class function Tkw_Form_GroupList_ID.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'форма::GroupList';
-end;//Tkw_Form_GroupList_ID.GetWordNameForRegister
-
-function Tkw_Form_GroupList_ID.GetString: AnsiString;
- {-}
-begin
- Result := 'efGroupList';
-end;//Tkw_Form_GroupList_ID.GetString
-
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoScripts)}
 type
- Tkw_Form_UserList_ID = {final scriptword} class(TtfwString)
+ Tkw_Form_UserList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы UserList
 ----
 *Пример использования*:
 [code]
 'aControl' форма::UserList TryFocus ASSERT
 [code] }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+  protected
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserList_ID
-{$IfEnd} //Admin AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_Form_UserList_ID
-
-class function Tkw_Form_UserList_ID.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'форма::UserList';
-end;//Tkw_Form_UserList_ID.GetWordNameForRegister
-
-function Tkw_Form_UserList_ID.GetString: AnsiString;
- {-}
-begin
- Result := 'efUserList';
-end;//Tkw_Form_UserList_ID.GetString
-
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-
+{$If NOT Defined(NoScripts)}
 type
- Tkw_Form_UserProperty_ID = {final scriptword} class(TtfwString)
+ Tkw_Form_UserProperty_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы UserProperty
 ----
 *Пример использования*:
 [code]
 'aControl' форма::UserProperty TryFocus ASSERT
 [code] }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+  protected
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_UserProperty_ID
-{$IfEnd} //Admin AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_Form_UserProperty_ID
-
-class function Tkw_Form_UserProperty_ID.GetWordNameForRegister: AnsiString;
- {-}
+{$If NOT Defined(NoScripts)}
+function Tkw_Form_AdminForm_ID.GetString: AnsiString;
 begin
- Result := 'форма::UserProperty';
-end;//Tkw_Form_UserProperty_ID.GetWordNameForRegister
+ Result := 'cfAdminForm';
+end;//Tkw_Form_AdminForm_ID.GetString
 
+class function Tkw_Form_AdminForm_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::AdminForm';
+end;//Tkw_Form_AdminForm_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+function Tkw_Form_GroupList_ID.GetString: AnsiString;
+begin
+ Result := 'efGroupList';
+end;//Tkw_Form_GroupList_ID.GetString
+
+class function Tkw_Form_GroupList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::GroupList';
+end;//Tkw_Form_GroupList_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+function Tkw_Form_UserList_ID.GetString: AnsiString;
+begin
+ Result := 'efUserList';
+end;//Tkw_Form_UserList_ID.GetString
+
+class function Tkw_Form_UserList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserList';
+end;//Tkw_Form_UserList_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
 function Tkw_Form_UserProperty_ID.GetString: AnsiString;
- {-}
 begin
  Result := 'efUserProperty';
 end;//Tkw_Form_UserProperty_ID.GetString
 
-{$IfEnd} //Admin AND not NoScripts
-{$IfEnd} //Admin
-
+class function Tkw_Form_UserProperty_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::UserProperty';
+end;//Tkw_Form_UserProperty_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_AdminForm_ID
+{$If NOT Defined(NoScripts)}
  Tkw_Form_AdminForm_ID.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_GroupList_ID
+ {* Регистрация Tkw_Form_AdminForm_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  Tkw_Form_GroupList_ID.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_UserList_ID
+ {* Регистрация Tkw_Form_GroupList_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  Tkw_Form_UserList_ID.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_UserProperty_ID
+ {* Регистрация Tkw_Form_UserList_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  Tkw_Form_UserProperty_ID.RegisterInEngine;
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация Tkw_Form_UserProperty_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

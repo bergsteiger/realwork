@@ -1,66 +1,38 @@
 unit Autoreferat_InternalOperations_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Autoreferat_InternalOperations_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Пользовательские сервисы::Autoreferat::View::InternalOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Autoreferat_InternalOperations_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "InternalOperations" MUID: (4A8ECFED02D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* DateInterval = operations
-   ['{C6020F25-AB17-44C2-A7E3-EBE1F314C861}']
-   query OpenInt;
- end;//DateInterval*)
-
-(* NewsThemes = operations
-   ['{5438F88D-7BE5-4D78-A102-A3684DFE8624}']
-   operation SelectCurrent;
- end;//NewsThemes*)
-
-(* DateInterval = operations
-   ['{F179CEDA-0625-4BC2-B492-4810682BD1AF}']
-   operation Open;
- end;//DateInterval*)
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- Op_DateInterval_OpenInt = class
+ Op_DateInterval_OpenInt = {final} class
   {* Класс для вызова операции DateInterval.OpenInt }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции DateInterval.OpenInt у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции DateInterval.OpenInt у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции DateInterval.OpenInt у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции DateInterval.OpenInt у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции DateInterval.OpenInt у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции DateInterval.OpenInt у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции DateInterval.OpenInt у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции DateInterval.OpenInt у контейнера }
  end;//Op_DateInterval_OpenInt
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_DateInterval = 'DateInterval';
  en_capDateInterval = '';
@@ -72,20 +44,24 @@ const
  op_capSelectCurrent = '';
  op_Open = 'Open';
  op_capOpen = '';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-
-// start class Op_DateInterval_OpenInt
+ l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции DateInterval.OpenInt у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -105,6 +81,7 @@ begin
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции DateInterval.OpenInt у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -124,7 +101,7 @@ begin
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции DateInterval.OpenInt у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -132,13 +109,12 @@ begin
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции DateInterval.OpenInt у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_DateInterval_OpenInt.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

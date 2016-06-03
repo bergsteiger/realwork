@@ -31,9 +31,9 @@ type
    function Get_Right: IdaFromClause;
    function Get_Kind: TdaJoinKind;
    function Get_Condition: IdaCondition;
-   function SetCondition(const aCondition: IdaCondition): IdaJoin;
+   function SetCondition(const aCondition: IdaCondition): IdaFromClause;
    function Join(const aRight: IdaFromClause;
-    aKind: TdaJoinKind): IdaFromClause;
+    aKind: TdaJoinKind): IdaJoin;
    function IsRelationsConditionsValid: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -45,7 +45,7 @@ type
    class function Make(const aFactory: IdaTableQueryFactory;
     const aLeft: IdaFromClause;
     const aRight: IdaFromClause;
-    aKind: TdaJoinKind): IdaFromClause; reintroduce;
+    aKind: TdaJoinKind): IdaJoin; reintroduce;
    procedure IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
    procedure IterateRelationConditionsF(anAction: daFromClauseIterator_IterateRelationConditionsF_Action);
  end;//TdaJoin
@@ -77,7 +77,7 @@ end;//TdaJoin.Create
 class function TdaJoin.Make(const aFactory: IdaTableQueryFactory;
  const aLeft: IdaFromClause;
  const aRight: IdaFromClause;
- aKind: TdaJoinKind): IdaFromClause;
+ aKind: TdaJoinKind): IdaJoin;
 var
  l_Inst : TdaJoin;
 begin
@@ -190,7 +190,7 @@ begin
 //#UC END# *5745702503A6_57457765036Fget_impl*
 end;//TdaJoin.Get_Condition
 
-function TdaJoin.SetCondition(const aCondition: IdaCondition): IdaJoin;
+function TdaJoin.SetCondition(const aCondition: IdaCondition): IdaFromClause;
 //#UC START# *574570520193_57457765036F_var*
 //#UC END# *574570520193_57457765036F_var*
 begin
@@ -201,7 +201,7 @@ begin
 end;//TdaJoin.SetCondition
 
 function TdaJoin.Join(const aRight: IdaFromClause;
- aKind: TdaJoinKind): IdaFromClause;
+ aKind: TdaJoinKind): IdaJoin;
 //#UC START# *574570790329_57457765036F_var*
 //#UC END# *574570790329_57457765036F_var*
 begin

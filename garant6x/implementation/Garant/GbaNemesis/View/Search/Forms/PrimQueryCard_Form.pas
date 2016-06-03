@@ -1,162 +1,176 @@
 unit PrimQueryCard_Form;
+ {* Карточка запросов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/Forms/PrimQueryCard_Form.pas"
-// Начат: 27.01.2009 10:40
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::Search$Presentation for F1 and Monitorings::PrimQueryCard
-//
-// Карточка запросов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimQueryCard" MUID: (497EBA4301CA)
+// Имя типа: "TPrimQueryCardForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SearchUnit,
-  nevBase,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nsQueryInterfaces,
-  Classes,
-  evQueryCardInt,
-  evCustomEditorWindow,
-  evCustomTextSource,
-  evTextSource,
-  evQueryCardEditor
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  afwNavigation,
-  QueryCardInterfaces,
-  SearchLite_Strange_Controls,
-  Search_Strange_Controls,
-  nsLogEvent,
-  l3StringIDEx,
-  PrimQueryCard_utqcAttributeSearch_UserType,
-  PrimQueryCard_utqcPostingOrder_UserType,
-  PrimQueryCard_utqcLegislationReview_UserType,
-  PrimQueryCard_utqcSendConsultation_UserType,
-  PrimQueryCard_utqcInpharmSearch_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  l3Variant
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , Search_Strange_Controls
+ , QueryCardInterfaces
+ , nsQueryInterfaces
+ , evQueryCardInt
+ , evQueryCardEditor
+ , evTextSource
+ , afwInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevBase
+ , l3Variant
+ , afwNavigation
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogEvent
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
 type
  TnsSendTestRequestToLegalAdviceEvent = class(TnsLogEvent)
- public
- // public methods
+  public
    class procedure Log;
-     {* Сигнатура метода Log }
  end;//TnsSendTestRequestToLegalAdviceEvent
 
- TPrimQueryCardForm = {form} class(TvcmEntityForm)
+ TPrimQueryCardForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Карточка запросов }
- private
- // private fields
-   f_IsFilter : Boolean;
-   f_Update : Boolean;
-   f_QueryCard : IevQueryCard;
-   f_Editor : TevQueryCardEditor;
-    {* Поле для свойства Editor}
-   f_TextSource : TevTextSource;
-    {* Поле для свойства TextSource}
-   f_CanWriteMgrSettings : Boolean;
-    {* Поле для свойства CanWriteMgrSettings}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_IsFilter: Boolean;
+   f_Update: Boolean;
+   f_QueryCard: IevQueryCard;
+   f_Editor: TevQueryCardEditor;
+   f_TextSource: TevTextSource;
+   f_CanWriteMgrSettings: Boolean;
+    {* Можно ли писать состояние карточки в настройки
+http://mdp.garant.ru/pages/viewpage.action?pageId=349114873&focusedCommentId=349116523#comment-349116523 }
+  protected
+   dsQuery: IdsQuery;
+    {* Запрос }
+   f_MgrSearch: IqaMgrSearch;
+  private
    procedure TextSourceGetControlItemImg(aSender: TObject;
-     const aControl: TnevControlInfo;
-     out theImageInfo: TnevControlImageInfo);
+    const aControl: TnevControlInfo;
+    out theImageInfo: TnevControlImageInfo);
    procedure TextSourceDocumentChanged(aSender: TObject;
-     anOldDocument: Tl3Tag;
-     aNewDocument: Tl3Tag);
+    anOldDocument: Tl3Tag;
+    aNewDocument: Tl3Tag);
    procedure EditorAfterFirstPaint(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
    function EditorJumpTo(Sender: TObject;
-     anEffects: TafwJumpToEffects;
-     const aMoniker: IevMoniker): Boolean;
+    anEffects: TafwJumpToEffects;
+    const aMoniker: IevMoniker): Boolean;
    function IsQueryCardSupportFormSets: Boolean;
-     {* Поддерживает ли форма сборки }
+    {* Поддерживает ли форма сборки }
    function GetQueryType: TlgQueryType;
-     {* В зависимости от UserType возвращаем тип запроса }
+    {* В зависимости от UserType возвращаем тип запроса }
    procedure ReadDocument;
-     {* Сигнатура метода ReadDocument }
    procedure HandleException(anException: EqaException);
    procedure SaveConsultationCreditnails;
-     {* Сигнатура метода SaveConsultationCreditnails }
    procedure LoadConsultationCreditnails;
-     {* Сигнатура метода LoadConsultationCreditnails }
    function CalcUserNameSettings: TafwSettingId;
    function CalcUserPhoneCodeSettings: TafwSettingId;
    function CalcUserPhoneNumberSettings: TafwSettingId;
    function CalcEMailSettings: TafwSettingId;
-   procedure VcmEntityFormSaveState(out theState: IvcmBase;
-     aStateType: TvcmStateType;
-     var Saved: Boolean);
-     {* надо понять, зачем тут нужен Saved, и заменить на DoSaveState. }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+   procedure vcmEntityFormSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    var Saved: Boolean);
+    {* надо понять, зачем тут нужен Saved, и заменить на DoSaveState. }
+  protected
+   function CheckQuery: Boolean;
+    {* Проверяет запрос на корректность и в случае ошибки выводит сообщение }
+   function MakePreview: IafwDocumentPreview;
+   procedure WriteMgrSettings;
+   procedure MakeSearchManager(const aQuery: IQuery);
+   procedure OnDateQuery(const aValue: IqaDateReqDataHolder);
+   procedure OnNeedExecQuery(Sender: TObject);
+   procedure OnModifiedChanged(Sender: TObject);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure FinishDataUpdate; override;
+   procedure SettingsReplaceStart; override;
+   {$If NOT Defined(NoVCM)}
+   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
+    const aNew: IvcmViewAreaController); override;
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure CleanDependencies; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure DoBeforeHistoryNavigate; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   class function MakeSingleChild(aIsFilter: Boolean;
+    const aCont: IvcmContainer;
+    const anAgg: IvcmAggregate;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Печать... }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Печать... }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Предварительный просмотр }
-   {$IfEnd} //not NoVCM
+    {* Предварительный просмотр }
+   {$IfEnd} // NOT Defined(NoVCM)
    function SearchParameters_IsQueryEmpty_Execute: Boolean;
    procedure SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
-   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+   function SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
    procedure SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
    function SearchParameters_IsQuerySaved_Execute: Boolean;
    procedure SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
@@ -178,221 +192,279 @@ type
    procedure CardOperation_CreateAttr_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure CardOperation_OpenTreeSelection_Test(const aParams: IvcmTestParamsPrim);
    procedure CardOperation_OpenTreeSelection_Execute(const aParams: IvcmExecuteParamsPrim);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure FinishDataUpdate; override;
-   procedure SettingsReplaceStart; override;
-   {$If not defined(NoVCM)}
-   procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-    const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   procedure CleanDependencies; override;
-     {* Сигнатура метода CleanDependencies }
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure DoBeforeHistoryNavigate; override;
-     {* Сигнатура метода DoBeforeHistoryNavigate }
-    {$IfEnd} //not NoVCM
- protected
- // protected fields
-   dsQuery : IdsQuery;
-    {* Запрос}
-   f_MgrSearch : IqaMgrSearch;
- protected
- // protected methods
-   function CheckQuery: Boolean;
-     {* Проверяет запрос на корректность и в случае ошибки выводит сообщение }
-   function MakePreview: IafwDocumentPreview;
-   procedure WriteMgrSettings;
-     {* Сигнатура метода WriteMgrSettings }
-   procedure MakeSearchManager(const aQuery: IQuery);
-   procedure OnDateQuery(const aValue: IqaDateReqDataHolder);
-   procedure OnNeedExecQuery(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure OnModifiedChanged(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public methods
-   class function MakeSingleChild(aIsFilter: Boolean;
-     const aCont   : IvcmContainer;
-     const anAgg   : IvcmAggregate;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0;
-     aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+  public
    property Editor: TevQueryCardEditor
-     read f_Editor;
+    read f_Editor;
    property TextSource: TevTextSource
-     read f_TextSource;
+    read f_TextSource;
    property CanWriteMgrSettings: Boolean
-     read f_CanWriteMgrSettings
-     write f_CanWriteMgrSettings;
-     {* Можно ли писать состояние карточки в настройки
+    read f_CanWriteMgrSettings
+    write f_CanWriteMgrSettings;
+    {* Можно ли писать состояние карточки в настройки
 http://mdp.garant.ru/pages/viewpage.action?pageId=349114873&focusedCommentId=349116523#comment-349116523 }
  end;//TPrimQueryCardForm
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  ActiveX,
-  l3Memory,
-  l3Interfaces,
-  DataAdapter,
-  nsDocumentPreview,
-  evEvdDataObject,
-  Printers,
-  nsPostingsTreeSingle,
-  nsHAFPainter,
-  nsFixedHAFMacroReplacer,
-  PrimeUnit
-  {$If defined(Nemesis)}
-  ,
-  eeDocumentContainer
-  {$IfEnd} //Nemesis
-  ,
-  evTypes,
-  ComObj,
-  l3Types,
-  nevTools
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evSearch,
-  IOUnit,
-  l3String,
-  nsLogEventData,
-  nsLogManager,
-  LoggingUnit,
-  LoggingWrapperInterfaces,
-  nsTypes,
-  DynamicTreeUnit
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  evControlParaTools,
-  evdTypes,
-  vtF1InterfaceConst,
-  evControlContainerEX,
-  ControlsBlock_Const,
-  k2Tags,
-  vtUtils,
-  SearchRes,
-  MainMenuNewRes,
-  nsManagers,
-  nevNavigation,
-  ExternalOperationUnit
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  nsConst,
-  ReqRow_Const,
-  nsQuery,
-  ConsultingUnit,
-  f1QueryDocumentContainer
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwFacade,
-  BaseSearchInterfaces,
-  nsContextHistory,
-  k2Base,
-  nsQueryAttribute,
-  nsQueryUtils,
-  ContextHistoryInterfaces,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a},
-  SysUtils {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , PrimQueryCard_utqcSendConsultation_UserType
+ , PrimQueryCard_utqcAttributeSearch_UserType
+ , PrimQueryCard_utqcLegislationReview_UserType
+ , PrimQueryCard_utqcInpharmSearch_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , DynamicTreeUnit
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , evControlParaTools
+ , evdTypes
+ , vtF1InterfaceConst
+ , evControlContainerEX
+ , ControlsBlock_Const
+ , k2Tags
+ , vtUtils
+ , SearchRes
+ , MainMenuNewRes
+ , nsManagers
+ , nevNavigation
+ , ExternalOperationUnit
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsConst
+ , ReqRow_Const
+ , nsQuery
+ , ConsultingUnit
+ , f1QueryDocumentContainer
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwFacade
+ , BaseSearchInterfaces
+ , nsContextHistory
+ , LoggingUnit
+ , k2Base
+ , nsQueryAttribute
+ , nsQueryUtils
+ , ContextHistoryInterfaces
+ {$If NOT Defined(NoScripts)}
+ , PrimQueryCardWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , ActiveX
+ , l3Memory
+ , l3Interfaces
+ , DataAdapter
+ , nsDocumentPreview
+ , evEvdDataObject
+ , Printers
+ , nsPostingsTreeSingle
+ , Classes
+ , nsHAFPainter
+ , nsFixedHAFMacroReplacer
+ , PrimeUnit
+ {$If Defined(Nemesis)}
+ , eeDocumentContainer
+ {$IfEnd} // Defined(Nemesis)
+ , evTypes
+ , ComObj
+ , l3Types
+ , nevTools
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSearch
+ , IOUnit
+ , l3String
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimQueryCard_utqcPostingOrder_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *497EBA4301CAimpl_uses*
+ //#UC END# *497EBA4301CAimpl_uses*
+;
 
-{$If not defined(Admin)}
-
+{$If NOT Defined(NoVCM)}
 const
-   { QueryCard Const }
-  cOldUserTypes = [utqcAttributeSearch, utqcPostingOrder, utqcLegislationReview, utqcInpharmSearch];
+ cOldUserTypes = [utqcAttributeSearch, utqcPostingOrder, utqcLegislationReview, utqcInpharmSearch];
+
+class procedure TnsSendTestRequestToLegalAdviceEvent.Log;
+//#UC START# *5255425502CE_525542460297_var*
+//#UC END# *5255425502CE_525542460297_var*
+begin
+//#UC START# *5255425502CE_525542460297_impl*
+ GetLogger.AddEvent(LE_SEND_TEST_REQUEST_TO_LEGAL_ADVISE, MakeParamsList);
+//#UC END# *5255425502CE_525542460297_impl*
+end;//TnsSendTestRequestToLegalAdviceEvent.Log
+
+function TPrimQueryCardForm.CheckQuery: Boolean;
+ {* Проверяет запрос на корректность и в случае ошибки выводит сообщение }
+//#UC START# *4C2E199E00BE_497EBA4301CA_var*
+//#UC END# *4C2E199E00BE_497EBA4301CA_var*
+begin
+//#UC START# *4C2E199E00BE_497EBA4301CA_impl*
+ if (f_MgrSearch = nil) then
+  Result := False
+ else
+  try
+   f_MgrSearch.Check;
+   Result := True;
+  except
+   on E: EqaException do
+   begin
+    Result := False;
+    with E.ErrorControl do
+    begin
+     with Req.Group do
+      if not Expanded then
+       Expanded := True;
+     Req.SetFocus(E.ErrorControl, True);
+    end;
+    HandleException(E);
+   end;//EqaException
+  end//try..except
+//#UC END# *4C2E199E00BE_497EBA4301CA_impl*
+end;//TPrimQueryCardForm.CheckQuery
+
+function TPrimQueryCardForm.MakePreview: IafwDocumentPreview;
+//#UC START# *4C2E19C50385_497EBA4301CA_var*
 
 var
-   { Локализуемые строки utqcAttributeSearchLocalConstants }
-  str_utqcAttributeSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcAttributeSearchCaption'; rValue : 'Поиск по реквизитам');
-   { Заголовок пользовательского типа "Поиск по реквизитам" }
+ l_PCD  : IPrimeContractData;
+ l_Text : InevObject;
+
+ procedure FillFields;
+
+ var
+  l_Para : InevPara;
+  
+  procedure FillField(const aMask : String; const aValue : IString);
+  const
+   cOpt = [ev_soGlobal, ev_soReplace, ev_soReplaceAll];
+  begin//FillField
+   evReplaceInPara(l_Para,
+                   TevBMTextSearcher.Make(aMask, cOpt),
+                   TevTextReplacer.Make(l3Str(nsCStr(aValue)), cOpt));
+  end;//FillField
+
+ var
+  l_S : IString;
+ begin//FillFields
+  if not l_Text.QT(InevPara, l_Para) then
+   Assert(false);
+  l_PCD.GetArea(l_S);
+  FillField('%AREA%', l_S);
+  l_PCD.GetClientName(l_S);
+  FillField('%USER%', l_S);
+  l_PCD.GetEmail(l_S);
+  FillField('%EMAIL%', l_S);
+  l_PCD.GetInfoKind(l_S);
+  FillField('%INFO_KIND%', l_S);
+  l_PCD.GetOrganisationType(l_S);
+  FillField('%ORGANISATION_TYPE%', l_S);
+  l_PCD.GetProfession(l_S);
+  FillField('%PROFESSION%', l_S);
+  l_PCD.GetTaxes(l_S);
+  FillField('%TAXES%', l_S);
+  l_PCD.GetThemesName(l_S);
+  FillField('%NAME%', l_S);
+ end;//FillFields
 
 var
-   { Локализуемые строки utqcPostingOrderLocalConstants }
-  str_utqcPostingOrderCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcPostingOrderCaption'; rValue : 'Создание индивидуальной ленты');
-   { Заголовок пользовательского типа "Создание индивидуальной ленты" }
+ l_AdStream  : IStream;
+ l_Name      : Il3CString;
+ l_Cont      : TeeDocumentContainer;
+ l_Res       : Int64;
+//#UC END# *4C2E19C50385_497EBA4301CA_var*
+begin
+//#UC START# *4C2E19C50385_497EBA4301CA_impl*
+ try
+  f_MgrSearch.Save;
+ except
+  on E: EqaException do
+  begin
+   HandleException(E);
+   Assert(False, 'Некорректные параметры запроса!');
+  end;//EqaException
+ end;//try..except
+ l_PCD := DefDataAdapter.NativeAdapter.GetContractDataPrimeContractData(f_MgrSearch.Query);
+ l_PCD.GetContractEvdForm(l_AdStream);
+ OleCheck(l_AdStream.Seek(0, STREAM_SEEK_SET, l_Res));
+ l_Cont := TeeDocumentContainer.Create;
+ try
+  InevTagWriter(l_Cont).WriteTag(nil, cf_EverestBin, l_AdStream, nil);
+  l_Name := vcmFmt(str_PrivateNewLinePrintTitle, [f_MgrSearch.GetName4Query]);
+  l_Text := InevObjectHolder(l_Cont).Obj;
+  FillFields;
+  Result := TnsDocumentPreview.Make(
+              l_Text.AsObject,
+              evDefaultPreviewCacheKey,
+              TnsHAFPainter.Make(TnsFixedHAFMacroReplacer.Make(nil, l_Name, l_Name)));
+ finally
+  FreeAndNil(l_Cont);
+ end;//try..finally
+//#UC END# *4C2E19C50385_497EBA4301CA_impl*
+end;//TPrimQueryCardForm.MakePreview
+
+class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean;
+ const aCont: IvcmContainer;
+ const anAgg: IvcmAggregate;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimQueryCardForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4CC015B701A1_497EBA4301CA_impl*
+   f_IsFilter := aIsFilter;
+  //#UC END# *4CC015B701A1_497EBA4301CA_impl*
+  end;//with aForm
+ end;
 
 var
-   { Локализуемые строки utqcLegislationReviewLocalConstants }
-  str_utqcLegislationReviewCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcLegislationReviewCaption'; rValue : 'Обзор изменений законодательства');
-   { Заголовок пользовательского типа "Обзор изменений законодательства" }
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
+begin
+ l_AC := l3LocalStub(@AfterCreate);
+ try
+  Result := inherited MakeSingleChild(aCont, vcmSetAggregate(anAgg, vcmMakeParams), aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
+ finally
+  l3FreeLocalStub(l_ACHack);
+ end;//try..finally
+end;//TPrimQueryCardForm.MakeSingleChild
 
-var
-   { Локализуемые строки utqcSendConsultationLocalConstants }
-  str_utqcSendConsultationCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcSendConsultationCaption'; rValue : 'Правовая поддержка онлайн');
-   { Заголовок пользовательского типа "Правовая поддержка онлайн" }
-
-var
-   { Локализуемые строки utqcInpharmSearchLocalConstants }
-  str_utqcInpharmSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utqcInpharmSearchCaption'; rValue : 'Поиск лекарственных средств');
-   { Заголовок пользовательского типа "Поиск лекарственных средств" }
-
-// start class TPrimQueryCardForm
+procedure TPrimQueryCardForm.WriteMgrSettings;
+//#UC START# *4F69A6310375_497EBA4301CA_var*
+//#UC END# *4F69A6310375_497EBA4301CA_var*
+begin
+//#UC START# *4F69A6310375_497EBA4301CA_impl*
+ if f_CanWriteMgrSettings then
+  if Assigned(f_MgrSearch) then
+   f_MgrSearch.WriteSettings;
+//#UC END# *4F69A6310375_497EBA4301CA_impl*
+end;//TPrimQueryCardForm.WriteMgrSettings
 
 procedure TPrimQueryCardForm.TextSourceGetControlItemImg(aSender: TObject;
-  const aControl: TnevControlInfo;
-  out theImageInfo: TnevControlImageInfo);
+ const aControl: TnevControlInfo;
+ out theImageInfo: TnevControlImageInfo);
 //#UC START# *52543D9F0041_497EBA4301CA_var*
 var
  l_ControlType : TevControlType;
@@ -436,8 +508,8 @@ begin
 end;//TPrimQueryCardForm.TextSourceGetControlItemImg
 
 procedure TPrimQueryCardForm.TextSourceDocumentChanged(aSender: TObject;
-  anOldDocument: Tl3Tag;
-  aNewDocument: Tl3Tag);
+ anOldDocument: Tl3Tag;
+ aNewDocument: Tl3Tag);
 //#UC START# *52543DC1034A_497EBA4301CA_var*
 var
  l_QueryContainer : InevQueryDocumentContainer;
@@ -477,8 +549,8 @@ begin
 end;//TPrimQueryCardForm.EditorAfterFirstPaint
 
 function TPrimQueryCardForm.EditorJumpTo(Sender: TObject;
-  anEffects: TafwJumpToEffects;
-  const aMoniker: IevMoniker): Boolean;
+ anEffects: TafwJumpToEffects;
+ const aMoniker: IevMoniker): Boolean;
 //#UC START# *52543F180277_497EBA4301CA_var*
 var
  l_HyperLink: IevHyperlink;
@@ -596,6 +668,7 @@ begin
 end;//TPrimQueryCardForm.EditorJumpTo
 
 function TPrimQueryCardForm.IsQueryCardSupportFormSets: Boolean;
+ {* Поддерживает ли форма сборки }
 //#UC START# *52543FBB00E1_497EBA4301CA_var*
 //#UC END# *52543FBB00E1_497EBA4301CA_var*
 begin
@@ -605,6 +678,7 @@ begin
 end;//TPrimQueryCardForm.IsQueryCardSupportFormSets
 
 function TPrimQueryCardForm.GetQueryType: TlgQueryType;
+ {* В зависимости от UserType возвращаем тип запроса }
 //#UC START# *5254400500F5_497EBA4301CA_var*
 //#UC END# *5254400500F5_497EBA4301CA_var*
 begin
@@ -781,197 +855,6 @@ begin
 //#UC END# *5254418700A5_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.CalcEMailSettings
 
-procedure TPrimQueryCardForm.VcmEntityFormSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  var Saved: Boolean);
-//#UC START# *52554DFA0270_497EBA4301CA_var*
-var
- l_IHistory : IqaHistory;
- l_THistory : TqaHistory;
-//#UC END# *52554DFA0270_497EBA4301CA_var*
-begin
-//#UC START# *52554DFA0270_497EBA4301CA_impl*
- // Закроем все открытые комбобоксы.
- if (f_MgrSearch.QueryCard <> nil) then
-  (f_MgrSearch.QueryCard As InevControlListener).HideDroppedControl(True);
- if not IsQueryCardSupportFormSets and (aStateType = vcm_stContent) then
- begin
-  { Запишем настройки "Развернутости групп" по умолчанию }
-  Self.WriteMgrSettings;
-  l_THistory := TqaHistory.Create{(Self)};
-  try
-   if Supports(l_THistory, IqaHistory, l_IHistory) then
-    try
-     if f_MgrSearch.Modified then
-      Saved := f_MgrSearch.Save(True)
-     else
-      Saved := True;
-     if Saved then
-     begin
-      l_IHistory.Query := f_MgrSearch.Query;
-      if (f_MgrSearch.QueryCard <> nil) AND
-         (f_MgrSearch.QueryCard.CardType = ev_qtConsultations) then
-       l_IHistory.ConsultationSended := not f_MgrSearch.Modified;
-      theState := l_IHistory as IvcmBase;
-     end;
-    finally
-     l_IHistory := nil;
-    end;
-  finally
-   vcmFree(l_THistory);
-  end;
- end;
-//#UC END# *52554DFA0270_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.VcmEntityFormSaveState
-
-function TPrimQueryCardForm.CheckQuery: Boolean;
-//#UC START# *4C2E199E00BE_497EBA4301CA_var*
-//#UC END# *4C2E199E00BE_497EBA4301CA_var*
-begin
-//#UC START# *4C2E199E00BE_497EBA4301CA_impl*
- if (f_MgrSearch = nil) then
-  Result := False
- else
-  try
-   f_MgrSearch.Check;
-   Result := True;
-  except
-   on E: EqaException do
-   begin
-    Result := False;
-    with E.ErrorControl do
-    begin
-     with Req.Group do
-      if not Expanded then
-       Expanded := True;
-     Req.SetFocus(E.ErrorControl, True);
-    end;
-    HandleException(E);
-   end;//EqaException
-  end//try..except
-//#UC END# *4C2E199E00BE_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.CheckQuery
-
-function TPrimQueryCardForm.MakePreview: IafwDocumentPreview;
-//#UC START# *4C2E19C50385_497EBA4301CA_var*
-
-var
- l_PCD  : IPrimeContractData;
- l_Text : InevObject;
-
- procedure FillFields;
-
- var
-  l_Para : InevPara;
-  
-  procedure FillField(const aMask : String; const aValue : IString);
-  const
-   cOpt = [ev_soGlobal, ev_soReplace, ev_soReplaceAll];
-  begin//FillField
-   evReplaceInPara(l_Para,
-                   TevBMTextSearcher.Make(aMask, cOpt),
-                   TevTextReplacer.Make(l3Str(nsCStr(aValue)), cOpt));
-  end;//FillField
-
- var
-  l_S : IString;
- begin//FillFields
-  if not l_Text.QT(InevPara, l_Para) then
-   Assert(false);
-  l_PCD.GetArea(l_S);
-  FillField('%AREA%', l_S);
-  l_PCD.GetClientName(l_S);
-  FillField('%USER%', l_S);
-  l_PCD.GetEmail(l_S);
-  FillField('%EMAIL%', l_S);
-  l_PCD.GetInfoKind(l_S);
-  FillField('%INFO_KIND%', l_S);
-  l_PCD.GetOrganisationType(l_S);
-  FillField('%ORGANISATION_TYPE%', l_S);
-  l_PCD.GetProfession(l_S);
-  FillField('%PROFESSION%', l_S);
-  l_PCD.GetTaxes(l_S);
-  FillField('%TAXES%', l_S);
-  l_PCD.GetThemesName(l_S);
-  FillField('%NAME%', l_S);
- end;//FillFields
-
-var
- l_AdStream  : IStream;
- l_Name      : Il3CString;
- l_Cont      : TeeDocumentContainer;
- l_Res       : Int64;
-//#UC END# *4C2E19C50385_497EBA4301CA_var*
-begin
-//#UC START# *4C2E19C50385_497EBA4301CA_impl*
- try
-  f_MgrSearch.Save;
- except
-  on E: EqaException do
-  begin
-   HandleException(E);
-   Assert(False, 'Некорректные параметры запроса!');
-  end;//EqaException
- end;//try..except
- l_PCD := DefDataAdapter.NativeAdapter.GetContractDataPrimeContractData(f_MgrSearch.Query);
- l_PCD.GetContractEvdForm(l_AdStream);
- OleCheck(l_AdStream.Seek(0, STREAM_SEEK_SET, l_Res));
- l_Cont := TeeDocumentContainer.Create;
- try
-  InevTagWriter(l_Cont).WriteTag(nil, cf_EverestBin, l_AdStream, nil);
-  l_Name := vcmFmt(str_PrivateNewLinePrintTitle, [f_MgrSearch.GetName4Query]);
-  l_Text := InevObjectHolder(l_Cont).Obj;
-  FillFields;
-  Result := TnsDocumentPreview.Make(
-              l_Text.AsObject,
-              evDefaultPreviewCacheKey,
-              TnsHAFPainter.Make(TnsFixedHAFMacroReplacer.Make(nil, l_Name, l_Name)));
- finally
-  FreeAndNil(l_Cont);
- end;//try..finally
-//#UC END# *4C2E19C50385_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.MakePreview
-
-class function TPrimQueryCardForm.MakeSingleChild(aIsFilter: Boolean;
-  const aCont   : IvcmContainer;
-  const anAgg   : IvcmAggregate;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
-
- procedure AfterCreate(aForm : TPrimQueryCardForm);
- begin
-  with aForm do
-  begin
-//#UC START# *4CC015B701A1_497EBA4301CA_impl*
-   f_IsFilter := aIsFilter;
-//#UC END# *4CC015B701A1_497EBA4301CA_impl*
-  end;//with aForm
- end;
-
-var
- l_AC : TvcmInitProc;
- l_ACHack : Pointer absolute l_AC;
-begin
- l_AC := l3LocalStub(@AfterCreate);
- try
-  Result := inherited MakeSingleChild(aCont, vcmSetAggregate(anAgg, vcmMakeParams), aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
- finally
-  l3FreeLocalStub(l_ACHack);
- end;//try..finally
-end;
-
-procedure TPrimQueryCardForm.WriteMgrSettings;
-//#UC START# *4F69A6310375_497EBA4301CA_var*
-//#UC END# *4F69A6310375_497EBA4301CA_var*
-begin
-//#UC START# *4F69A6310375_497EBA4301CA_impl*
- if f_CanWriteMgrSettings then
-  if Assigned(f_MgrSearch) then
-   f_MgrSearch.WriteSettings;
-//#UC END# *4F69A6310375_497EBA4301CA_impl*
-end;//TPrimQueryCardForm.WriteMgrSettings
-
 procedure TPrimQueryCardForm.MakeSearchManager(const aQuery: IQuery);
 //#UC START# *5254449B030E_497EBA4301CA_var*
 {$If not Defined(Admin) AND not Defined(Monitorings)}
@@ -1036,19 +919,53 @@ begin
   dsQuery.IsQuerySaved := not f_MgrSearch.Modified;
 //#UC END# *525445250272_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.OnModifiedChanged
-// start class TnsSendTestRequestToLegalAdviceEvent
 
-class procedure TnsSendTestRequestToLegalAdviceEvent.Log;
-//#UC START# *5255425502CE_525542460297_var*
-//#UC END# *5255425502CE_525542460297_var*
+procedure TPrimQueryCardForm.vcmEntityFormSaveState(out theState: IvcmBase;
+ aStateType: TvcmStateType;
+ var Saved: Boolean);
+ {* надо понять, зачем тут нужен Saved, и заменить на DoSaveState. }
+//#UC START# *52554DFA0270_497EBA4301CA_var*
+var
+ l_IHistory : IqaHistory;
+ l_THistory : TqaHistory;
+//#UC END# *52554DFA0270_497EBA4301CA_var*
 begin
-//#UC START# *5255425502CE_525542460297_impl*
- GetLogger.AddEvent(LE_SEND_TEST_REQUEST_TO_LEGAL_ADVISE, MakeParamsList);
-//#UC END# *5255425502CE_525542460297_impl*
-end;//TnsSendTestRequestToLegalAdviceEvent.Log
+//#UC START# *52554DFA0270_497EBA4301CA_impl*
+ // Закроем все открытые комбобоксы.
+ if (f_MgrSearch.QueryCard <> nil) then
+  (f_MgrSearch.QueryCard As InevControlListener).HideDroppedControl(True);
+ if not IsQueryCardSupportFormSets and (aStateType = vcm_stContent) then
+ begin
+  { Запишем настройки "Развернутости групп" по умолчанию }
+  Self.WriteMgrSettings;
+  l_THistory := TqaHistory.Create{(Self)};
+  try
+   if Supports(l_THistory, IqaHistory, l_IHistory) then
+    try
+     if f_MgrSearch.Modified then
+      Saved := f_MgrSearch.Save(True)
+     else
+      Saved := True;
+     if Saved then
+     begin
+      l_IHistory.Query := f_MgrSearch.Query;
+      if (f_MgrSearch.QueryCard <> nil) AND
+         (f_MgrSearch.QueryCard.CardType = ev_qtConsultations) then
+       l_IHistory.ConsultationSended := not f_MgrSearch.Modified;
+      theState := l_IHistory as IvcmBase;
+     end;
+    finally
+     l_IHistory := nil;
+    end;
+  finally
+   vcmFree(l_THistory);
+  end;
+ end;
+//#UC END# *52554DFA0270_497EBA4301CA_impl*
+end;//TPrimQueryCardForm.vcmEntityFormSaveState
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintDialog_Test(const aParams: IvcmTestParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_497EBA4301CAtest_var*
 //#UC END# *495220DE0298_497EBA4301CAtest_var*
 begin
@@ -1063,10 +980,9 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220DE0298_497EBA4301CAtest_impl*
 end;//TPrimQueryCardForm.File_PrintDialog_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintDialog_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Печать... }
 //#UC START# *495220DE0298_497EBA4301CAexec_var*
 //#UC END# *495220DE0298_497EBA4301CAexec_var*
 begin
@@ -1078,10 +994,9 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220DE0298_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.File_PrintDialog_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintPreview_Test(const aParams: IvcmTestParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EBA4301CAtest_var*
 //#UC END# *495220F2033A_497EBA4301CAtest_var*
 begin
@@ -1100,10 +1015,9 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220F2033A_497EBA4301CAtest_impl*
 end;//TPrimQueryCardForm.File_PrintPreview_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.File_PrintPreview_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Предварительный просмотр }
 //#UC START# *495220F2033A_497EBA4301CAexec_var*
 //#UC END# *495220F2033A_497EBA4301CAexec_var*
 begin
@@ -1118,7 +1032,6 @@ begin
  {$ENDIF Admin}
 //#UC END# *495220F2033A_497EBA4301CAexec_impl*
 end;//TPrimQueryCardForm.File_PrintPreview_Execute
-{$IfEnd} //not NoVCM
 
 function TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute: Boolean;
 //#UC START# *4AE879D00143_497EBA4301CAexec_var*
@@ -1131,11 +1044,11 @@ end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
-  ResultValue := SearchParameters_IsQueryEmpty_Execute;
-end;
+ with ISearchParameters_IsQueryEmpty_Params(aParams.Data) do
+  ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
+end;//TPrimQueryCardForm.SearchParameters_IsQueryEmpty
 
-function TPrimQueryCardForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = false): TnsQueryInfo;
+function TPrimQueryCardForm.SearchParameters_GetQuery_Execute(aIgnoreError: Boolean = False): TnsQueryInfo;
 //#UC START# *4AE884E803AA_497EBA4301CAexec_var*
 //#UC END# *4AE884E803AA_497EBA4301CAexec_var*
 begin
@@ -1171,9 +1084,9 @@ end;//TPrimQueryCardForm.SearchParameters_GetQuery_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_GetQuery_Params) do
-  ResultValue := SearchParameters_GetQuery_Execute(IgnoreError);
-end;
+ with ISearchParameters_GetQuery_Params(aParams.Data) do
+  ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
+end;//TPrimQueryCardForm.SearchParameters_GetQuery
 
 function TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute: Boolean;
 //#UC START# *4AE8A577027D_497EBA4301CAexec_var*
@@ -1189,9 +1102,9 @@ end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
-  ResultValue := SearchParameters_IsQuerySaved_Execute;
-end;
+ with ISearchParameters_IsQuerySaved_Params(aParams.Data) do
+  ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
+end;//TPrimQueryCardForm.SearchParameters_IsQuerySaved
 
 procedure TPrimQueryCardForm.SearchParameters_SetQuery_Execute(const aQuery: IQuery);
 //#UC START# *4AEF213001F0_497EBA4301CAexec_var*
@@ -1223,9 +1136,9 @@ end;//TPrimQueryCardForm.SearchParameters_SetQuery_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_SetQuery_Params) do
-  SearchParameters_SetQuery_Execute(Query);
-end;
+ with ISearchParameters_SetQuery_Params(aParams.Data) do
+  Self.SearchParameters_SetQuery_Execute(Query);
+end;//TPrimQueryCardForm.SearchParameters_SetQuery
 
 procedure TPrimQueryCardForm.SearchParameters_ClearQuery_Execute;
 //#UC START# *4AF92B09017F_497EBA4301CAexec_var*
@@ -1258,8 +1171,8 @@ end;//TPrimQueryCardForm.SearchParameters_ClearQuery_Execute
 
 procedure TPrimQueryCardForm.SearchParameters_ClearQuery(const aParams: IvcmExecuteParams);
 begin
- SearchParameters_ClearQuery_Execute;
-end;
+ Self.SearchParameters_ClearQuery_Execute;
+end;//TPrimQueryCardForm.SearchParameters_ClearQuery
 
 procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved_Execute;
 //#UC START# *4AF9370C012B_497EBA4301CAexec_var*
@@ -1272,8 +1185,8 @@ end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved_Execute
 
 procedure TPrimQueryCardForm.SearchParameter_QueryNotSaved(const aParams: IvcmExecuteParams);
 begin
- SearchParameter_QueryNotSaved_Execute;
-end;
+ Self.SearchParameter_QueryNotSaved_Execute;
+end;//TPrimQueryCardForm.SearchParameter_QueryNotSaved
 
 procedure TPrimQueryCardForm.SearchParameter_ClearMistakes_Execute;
 //#UC START# *4AF9373C02B6_497EBA4301CAexec_var*
@@ -1286,8 +1199,8 @@ end;//TPrimQueryCardForm.SearchParameter_ClearMistakes_Execute
 
 procedure TPrimQueryCardForm.SearchParameter_ClearMistakes(const aParams: IvcmExecuteParams);
 begin
- SearchParameter_ClearMistakes_Execute;
-end;
+ Self.SearchParameter_ClearMistakes_Execute;
+end;//TPrimQueryCardForm.SearchParameter_ClearMistakes
 
 procedure TPrimQueryCardForm.SearchParameter_QuerySaved_Execute;
 //#UC START# *4AF9393802B0_497EBA4301CAexec_var*
@@ -1302,8 +1215,8 @@ end;//TPrimQueryCardForm.SearchParameter_QuerySaved_Execute
 
 procedure TPrimQueryCardForm.SearchParameter_QuerySaved(const aParams: IvcmExecuteParams);
 begin
- SearchParameter_QuerySaved_Execute;
-end;
+ Self.SearchParameter_QuerySaved_Execute;
+end;//TPrimQueryCardForm.SearchParameter_QuerySaved
 
 procedure TPrimQueryCardForm.CardOperation_ExpandCollapse_Test(const aParams: IvcmTestParamsPrim);
 //#UC START# *4C2E116E0315_497EBA4301CAtest_var*
@@ -1432,6 +1345,7 @@ begin
 end;//TPrimQueryCardForm.CardOperation_OpenTreeSelection_Execute
 
 procedure TPrimQueryCardForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_497EBA4301CA_var*
 //#UC END# *479731C50290_497EBA4301CA_var*
 begin
@@ -1498,9 +1412,9 @@ begin
 //#UC END# *47EA8B8C03CB_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.SettingsReplaceStart
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497EBA4301CA_var*
 //#UC END# *497469C90140_497EBA4301CA_var*
 begin
@@ -1528,10 +1442,9 @@ begin
  end;//dsQuery <> nil
 //#UC END# *497469C90140_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_497EBA4301CA_var*
 //#UC END# *49803F5503AA_497EBA4301CA_var*
 begin
@@ -1551,11 +1464,10 @@ begin
  end;//not IsQueryCardSupportFormSets
 //#UC END# *49803F5503AA_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimQueryCardForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_497EBA4301CA_var*
 var
  l_History : IqaHistory;
@@ -1593,10 +1505,9 @@ begin
    f_MgrSearch.ReadSettings;
 //#UC END# *49807428008C_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_497EBA4301CA_var*
 //#UC END# *4A8E8F2E0195_497EBA4301CA_var*
 begin
@@ -1629,18 +1540,7 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimQueryCardForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin)}
- f_MgrSearch := nil;
- {$IfEnd} //not Admin
- inherited;
-end;//TPrimQueryCardForm.ClearFields
-
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.CleanDependencies;
 //#UC START# *52544597027B_497EBA4301CA_var*
 //#UC END# *52544597027B_497EBA4301CA_var*
@@ -1656,9 +1556,7 @@ begin
  f_QueryCard := nil;
 //#UC END# *52544597027B_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.CleanDependencies
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimQueryCardForm.DoBeforeHistoryNavigate;
 //#UC START# *562E15F20132_497EBA4301CA_var*
 //#UC END# *562E15F20132_497EBA4301CA_var*
@@ -1668,23 +1566,30 @@ begin
  inherited;
 //#UC END# *562E15F20132_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.DoBeforeHistoryNavigate
-{$IfEnd} //not NoVCM
 
-procedure TPrimQueryCardForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimQueryCardForm.ClearFields;
+begin
+ f_MgrSearch := nil;
+ inherited;
+end;//TPrimQueryCardForm.ClearFields
+
+procedure TPrimQueryCardForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   dsQuery := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsQuery, dsQuery);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsQuery, dsQuery);
+ end;//aNew = nil
+end;//TPrimQueryCardForm.SignalDataSourceChanged
 
 procedure TPrimQueryCardForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -1694,14 +1599,8 @@ begin
   PublishFormEntity(en_SearchParameter, nil);
   PublishFormEntity(en_CardOperation, nil);
   MakeEntitySupportedByControl(en_CardOperation, Editor);
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintDialog, File_PrintDialog_Execute, File_PrintDialog_Test, nil);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
   PublishOp(en_File, op_PrintPreview, File_PrintPreview_Execute, File_PrintPreview_Test, nil);
-  {$IfEnd} //not NoVCM
-
   PublishOpWithResult(en_SearchParameters, op_IsQueryEmpty, SearchParameters_IsQueryEmpty, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_GetQuery, SearchParameters_GetQuery, nil, nil);
   PublishOpWithResult(en_SearchParameters, op_IsQuerySaved, SearchParameters_IsQuerySaved, nil, nil);
@@ -1715,46 +1614,27 @@ begin
   PublishOp(en_CardOperation, op_CreateAttr, CardOperation_CreateAttr_Execute, CardOperation_CreateAttr_Test, nil);
   PublishOp(en_CardOperation, op_OpenTreeSelection, CardOperation_OpenTreeSelection_Execute, CardOperation_OpenTreeSelection_Test, nil);
  end;//with Entities.Entities
- AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_ExpandCollapse, false);
- AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_DeleteAll, false);
- AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_CreateAttr, false);
- AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_OpenTreeSelection, false);
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintDialog, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintPreview, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintDialog, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintPreview, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintDialog, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintPreview, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintDialog, false);
- {$IfEnd} //not NoVCM
- {$If not defined(NoVCM)}
- AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintPreview, false);
- {$IfEnd} //not NoVCM
-end;
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_ExpandCollapse, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_DeleteAll, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_CreateAttr, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_CardOperation, op_OpenTreeSelection, False);
+ AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcAttributeSearchName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcLegislationReviewName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcSendConsultationName, en_File, op_PrintPreview, False);
+ AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintDialog, False);
+ AddUserTypeExclude(utqcInpharmSearchName, en_File, op_PrintPreview, False);
+end;//TPrimQueryCardForm.InitEntities
 
 procedure TPrimQueryCardForm.MakeControls;
 begin
  inherited;
- f_Editor := TevQueryCardEditor.Create(Self);
- f_Editor.Name := 'Editor';
- f_Editor.Parent := Self;
  with AddUsertype(utqcAttributeSearchName,
   str_utqcAttributeSearchCaption,
   str_utqcAttributeSearchCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1767,7 +1647,7 @@ begin
  with AddUsertype(utqcPostingOrderName,
   str_utqcPostingOrderCaption,
   str_utqcPostingOrderCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1780,7 +1660,7 @@ begin
  with AddUsertype(utqcLegislationReviewName,
   str_utqcLegislationReviewCaption,
   str_utqcLegislationReviewCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1793,7 +1673,7 @@ begin
  with AddUsertype(utqcSendConsultationName,
   str_utqcSendConsultationCaption,
   str_utqcSendConsultationCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1806,7 +1686,7 @@ begin
  with AddUsertype(utqcInpharmSearchName,
   str_utqcInpharmSearchCaption,
   str_utqcInpharmSearchCaption,
-  false,
+  False,
   -1,
   -1,
   '',
@@ -1816,36 +1696,19 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utqcInpharmSearchName
+ f_Editor := TevQueryCardEditor.Create(Self);
+ f_Editor.Name := 'Editor';
+ f_Editor.Parent := Self;
  f_TextSource := TevTextSource.Create(Self);
  f_TextSource.Name := 'TextSource';
-end;
-
-{$IfEnd} //not Admin
+end;//TPrimQueryCardForm.MakeControls
 
 initialization
-{$If not defined(Admin)}
-// Инициализация str_utqcAttributeSearchCaption
- str_utqcAttributeSearchCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_utqcPostingOrderCaption
- str_utqcPostingOrderCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_utqcLegislationReviewCaption
- str_utqcLegislationReviewCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_utqcSendConsultationCaption
- str_utqcSendConsultationCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin)}
-// Инициализация str_utqcInpharmSearchCaption
- str_utqcInpharmSearchCaption.Init;
-{$IfEnd} //not Admin
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimQueryCard
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimQueryCardForm);
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация PrimQueryCard }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin)
 end.

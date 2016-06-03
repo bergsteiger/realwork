@@ -44,7 +44,6 @@ type
  TPrimPreviewForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   private
    f_PreviewPanel: TnscPreviewPanel;
-    {* Поле для свойства PreviewPanel }
   protected
    f_Preview: IafwDocumentPreview;
   protected
@@ -76,7 +75,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IafwDocumentPreview): IvcmEntityForm; reintroduce;
+   class function Make(const aData: IafwDocumentPreview;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure File_Print_Test(const aParams: IvcmTestParamsPrim);
     {* Печать }
@@ -130,13 +133,16 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmHistoryService
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimPreview_utPrintPreview_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -178,15 +184,32 @@ begin
 //#UC END# *4AC612AF032F_4AAF6F4E010E_impl*
 end;//TPrimPreviewForm.Preview
 
-class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview): IvcmEntityForm;
+class function TPrimPreviewForm.Make(const aData: IafwDocumentPreview;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimPreviewForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC610DF03A7_4AAF6F4E010E_impl*
+   f_Preview := aData;
+   PreviewPanel.Preview := f_Preview;
+  //#UC END# *4AC610DF03A7_4AAF6F4E010E_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimPreviewForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimPreviewForm.Make
 
@@ -291,7 +314,7 @@ end;//TPrimPreviewForm.Scalable_ChangeScale_Execute
 procedure TPrimPreviewForm.Scalable_ChangeScale(const aParams: IvcmExecuteParams);
  {* Изменить масштаб }
 begin
- with (aParams.Data As IScalable_ChangeScale_Params) do
+ with IScalable_ChangeScale_Params(aParams.Data) do
   ResultValue := Self.Scalable_ChangeScale_Execute(Inc);
 end;//TPrimPreviewForm.Scalable_ChangeScale
 
@@ -310,7 +333,7 @@ end;//TPrimPreviewForm.Scalable_CanChangeScale_Execute
 procedure TPrimPreviewForm.Scalable_CanChangeScale(const aParams: IvcmExecuteParams);
  {* Масштабирование запрещено }
 begin
- with (aParams.Data As IScalable_CanChangeScale_Params) do
+ with IScalable_CanChangeScale_Params(aParams.Data) do
   ResultValue := Self.Scalable_CanChangeScale_Execute(nInc);
 end;//TPrimPreviewForm.Scalable_CanChangeScale
 

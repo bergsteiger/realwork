@@ -17,7 +17,7 @@
   protected
    function pm_GetCurrentNode: INodeBase;
    procedure pm_SetCurrentNode(const aValue: INodeBase);
-   function pm_GetdsContentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsContentsRef: IvcmFormDataSourceRef;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
@@ -73,14 +73,14 @@ begin
 //#UC END# *49527BB50018_4936B78E0024set_impl*
 end;//_dCommonDiction_.pm_SetCurrentNode
 
-function _dCommonDiction_.pm_GetdsContentsRef: IvcmFormDataSourceRef;
+function _dCommonDiction_.pm_GetDsContentsRef: IvcmFormDataSourceRef;
 //#UC START# *AB0AA05AFA56_4936B78E0024get_var*
 //#UC END# *AB0AA05AFA56_4936B78E0024get_var*
 begin
 //#UC START# *AB0AA05AFA56_4936B78E0024get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *AB0AA05AFA56_4936B78E0024get_impl*
-end;//_dCommonDiction_.pm_GetdsContentsRef
+end;//_dCommonDiction_.pm_GetDsContentsRef
 
 procedure _dCommonDiction_.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,43 +1,20 @@
 unit OfficeLike_Tree_Controls;
+ {* Представление в виде дерева }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "UserInteraction"
-// Модуль: "w:/common/components/gui/Garant/VCM/UserInteraction/OfficeLike_Tree_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> Shared Delphi Operations::OfficeLike::UserInteraction::Tree
-//
-// Представление в виде дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Tree_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Tree" MUID: (4BDAF7510113)
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ , vcmExternalInterfaces
+;
 
-(* Tree = operations
-  {* Дерево }
-   ['{59FE4F98-5E9A-457A-BEDD-69755A24CCDD}']
-   operation ExpandAll;
-     {* Развернуть все }
-   operation CollapseAll;
-     {* Свернуть все }
-   operation Wrap;
-     {* Перенос по словам }
- end;//Tree*)
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 const
  en_Tree = 'Tree';
  en_capTree = 'Дерево';
@@ -47,8 +24,14 @@ const
  op_capCollapseAll = 'Свернуть все';
  op_Wrap = 'Wrap';
  op_capWrap = 'Перенос по словам';
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

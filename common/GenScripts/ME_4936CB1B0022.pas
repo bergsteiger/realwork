@@ -64,9 +64,9 @@ type
    function MakeDocInfo(const aSource: IdeDocInfo): IdeCommonDiction; override;
    function MakeContents: IdsCommonDiction; override;
     {* Создаёт область оглавления }
-   function pm_GetdsTranslate(aLanguageId: Integer): IdsDictionDocument;
+   function pm_GetDsTranslate(aLanguageId: Integer): IdsDictionDocument;
    function pm_GetContextMap: InsLangToContextMap;
-   function pm_GetdsDiction: IdsDiction;
+   function pm_GetDsDiction: IdsDiction;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
@@ -272,7 +272,7 @@ begin
 //#UC END# *4936BA0D0286_4936CB1B0022_impl*
 end;//TsdsDiction.MakeContents
 
-function TsdsDiction.pm_GetdsTranslate(aLanguageId: Integer): IdsDictionDocument;
+function TsdsDiction.pm_GetDsTranslate(aLanguageId: Integer): IdsDictionDocument;
 //#UC START# *4936C62102DD_4936CB1B0022get_var*
 var
  l_Lang: TbsLanguage;
@@ -295,7 +295,7 @@ begin
   end;//with SetData.refTranslation[aLanguageId] do
  end;//if (l_Lang <> DefDataAdapter.DocDefaultLang)
 //#UC END# *4936C62102DD_4936CB1B0022get_impl*
-end;//TsdsDiction.pm_GetdsTranslate
+end;//TsdsDiction.pm_GetDsTranslate
 
 function TsdsDiction.pm_GetContextMap: InsLangToContextMap;
 //#UC START# *52D3C29C008E_4936CB1B0022get_var*
@@ -311,7 +311,7 @@ begin
 //#UC END# *52D3C29C008E_4936CB1B0022get_impl*
 end;//TsdsDiction.pm_GetContextMap
 
-function TsdsDiction.pm_GetdsDiction: IdsDiction;
+function TsdsDiction.pm_GetDsDiction: IdsDiction;
 //#UC START# *52D8D3B9012D_4936CB1B0022get_var*
 var
  l_ds: IdsDiction;
@@ -326,7 +326,7 @@ begin
   l_ds := nil;
  end;
 //#UC END# *52D8D3B9012D_4936CB1B0022get_impl*
-end;//TsdsDiction.pm_GetdsDiction
+end;//TsdsDiction.pm_GetDsDiction
 
 procedure TsdsDiction.Cleanup;
  {* Функция очистки полей объекта. }

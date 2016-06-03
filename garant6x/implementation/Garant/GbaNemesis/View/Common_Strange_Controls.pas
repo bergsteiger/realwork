@@ -1,321 +1,208 @@
 unit Common_Strange_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common_Strange_Controls.pas"
-// Начат: 02.11.2009 16:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Core::Common::View::Strange
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common_Strange_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4AEEE2A40281)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  l3TreeInterfaces,
-  bsTypes,
-  l3CProtoObject
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* Navigator = operations
-   ['{3AFDC641-744E-44A7-A1D9-D5B7D228BF26}']
-   query SetCurrent(const aNode: Il3SimpleNode);
- end;//Navigator*)
-
-(* Document = operations
-  {* Документ }
-   ['{60DC4335-41A2-4A55-A988-E2C7D3E51AC8}']
-   operation GetAttributesFrmAct; has states;
-     {* Информация о документе }
-      Picture = state
-       { Информация о картинке }
-      end;//Picture
-   operation OpenCorrespondentList(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   operation OpenRespondentList(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode);
-     {* Коллеги, это что? }
-   operation GetAttributesFrmAct;
-     {* Информация о документе }
-   operation GetRelatedDocFrmAct;
-     {* Справка к документу }
-   operation GetCorrespondentList;
-     {* Ссылки на документ }
-   operation GetRespondentList;
-     {* Ссылки из документа }
-   query AttributesCanBeClosed: Boolean;
-     {* Это кандидат на перенос в Facet или что-то подобное }
-   query CommonDocumentOpenNewWindow(aUserType: Integer);
-     {* Что это? }
-   operation GetCorrespondentListExFrmAct;
-     {* Ссылки на документ (вид информации) }
-   operation GetRespondentListExFrmAct;
-     {* Ссылки из документа (вид информации) }
-   query CommonDocumentOpenNewTab(aUserType: Integer);
- end;//Document*)
-
-(* Document = operations
-   ['{72B33973-6922-473A-9B51-C39A56D9F1E4}']
-   operation Open;
-   operation OpenInNewTab;
-   operation OpenNewWindow;
-   operation PrintDialog;
-   operation PrintPreview;
-   operation Save;
-   operation Print;
- end;//Document*)
-
-(* NavigatorElement = operations
-   ['{C0F65908-CE7A-4F63-AAE7-3956008D42E7}']
-   operation Info;
-   operation Execute;
- end;//NavigatorElement*)
-
-(* Fake = operations
-  {* http://mdp.garant.ru/pages/viewpage.action?pageId=236719144 }
-   ['{D9C0A975-8339-4F55-AC58-3E07718997AC}']
-   FormActivate Fake;
- end;//Fake*)
-
-(* Redactions = operations
-   ['{409D1058-3DC4-41A3-AE91-CD61CD05ED59}']
-   operation OpenRedactionListFrmAct; has states;
-     {* Список редакций }
-      ChooseAnotherEditions = state
-       { Выбрать другие редакции }
-      end;//ChooseAnotherEditions
-   query RedactionOnID(aRedactionID: TRedactionID);
-   operation ActualRedaction;
-   operation OpenRedactionListFrmAct; has states;
-     {* Список редакций }
-   operation PrevRedaction;
-   operation NextRedaction;
- end;//Redactions*)
+ l3IntfUses
+ , DocumentUnit
+ , l3TreeInterfaces
+ , bsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- INavigator_SetCurrent_Params = interface(IUnknown)
+ INavigator_SetCurrent_Params = interface
   {* Параметры для операции Navigator.SetCurrent }
-   ['{4F1D0BCC-66F3-41EA-B7A5-C583BD86B54A}']
-   function Get_Node: Il3SimpleNode;
-   property Node: Il3SimpleNode
-     read Get_Node;
-     {* undefined }
+  function Get_Node: Il3SimpleNode;
+  property Node: Il3SimpleNode
+   read Get_Node;
  end;//INavigator_SetCurrent_Params
 
- Op_Navigator_SetCurrent = class
+ Op_Navigator_SetCurrent = {final} class
   {* Класс для вызова операции Navigator.SetCurrent }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aNode: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Navigator.SetCurrent у сущности }
+    const aNode: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Navigator.SetCurrent у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aNode: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Navigator.SetCurrent у агрегации }
+    const aNode: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Navigator.SetCurrent у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aNode: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Navigator.SetCurrent у формы }
+    const aNode: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Navigator.SetCurrent у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aNode: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Navigator.SetCurrent у контейнера }
+    const aNode: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Navigator.SetCurrent у контейнера }
  end;//Op_Navigator_SetCurrent
 
- IDocument_OpenCorrespondentList_Params = interface(IUnknown)
+ IDocument_OpenCorrespondentList_Params = interface
   {* Параметры для операции Document.OpenCorrespondentList }
-   ['{1B2A4163-9A33-4037-87A4-391412220698}']
-   function Get_Kind: TlstCRType;
-   function Get_CRType: Il3SimpleNode;
-   property Kind: TlstCRType
-     read Get_Kind;
-     {* undefined }
-   property CRType: Il3SimpleNode
-     read Get_CRType;
-     {* undefined }
+  function Get_Kind: TlstCRType;
+  function Get_CRType: Il3SimpleNode;
+  property Kind: TlstCRType
+   read Get_Kind;
+  property CRType: Il3SimpleNode
+   read Get_CRType;
  end;//IDocument_OpenCorrespondentList_Params
 
- Op_Document_OpenCorrespondentList = class
+ Op_Document_OpenCorrespondentList = {final} class
   {* Класс для вызова операции Document.OpenCorrespondentList }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenCorrespondentList у сущности }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenCorrespondentList у сущности }
    class function Call(const aTarget: IvcmAggregate;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenCorrespondentList у агрегации }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenCorrespondentList у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenCorrespondentList у формы }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenCorrespondentList у формы }
    class function Call(const aTarget: IvcmContainer;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenCorrespondentList у контейнера }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenCorrespondentList у контейнера }
  end;//Op_Document_OpenCorrespondentList
 
- IDocument_OpenRespondentList_Params = interface(IUnknown)
+ IDocument_OpenRespondentList_Params = interface
   {* Параметры для операции Document.OpenRespondentList }
-   ['{A68D4EA7-1BFF-4C30-921A-66C442F2B7DB}']
-   function Get_Kind: TlstCRType;
-   function Get_CRType: Il3SimpleNode;
-   property Kind: TlstCRType
-     read Get_Kind;
-     {* undefined }
-   property CRType: Il3SimpleNode
-     read Get_CRType;
-     {* undefined }
+  function Get_Kind: TlstCRType;
+  function Get_CRType: Il3SimpleNode;
+  property Kind: TlstCRType
+   read Get_Kind;
+  property CRType: Il3SimpleNode
+   read Get_CRType;
  end;//IDocument_OpenRespondentList_Params
 
- Op_Document_OpenRespondentList = class
+ Op_Document_OpenRespondentList = {final} class
   {* Класс для вызова операции Document.OpenRespondentList }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenRespondentList у сущности }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenRespondentList у сущности }
    class function Call(const aTarget: IvcmAggregate;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenRespondentList у агрегации }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenRespondentList у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenRespondentList у формы }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenRespondentList у формы }
    class function Call(const aTarget: IvcmContainer;
     aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): Boolean; overload; 
-     {* Вызов операции Document.OpenRespondentList у контейнера }
+    const aCRType: Il3SimpleNode): Boolean; overload;
+    {* Вызов операции Document.OpenRespondentList у контейнера }
  end;//Op_Document_OpenRespondentList
 
- IDocument_AttributesCanBeClosed_Params = interface(IUnknown)
+ IDocument_AttributesCanBeClosed_Params = interface
   {* Параметры для операции Document.AttributesCanBeClosed }
-   ['{634A888C-D678-4FC7-9922-86C944C29BD4}']
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IDocument_AttributesCanBeClosed_Params
 
- Op_Document_AttributesCanBeClosed = class
+ Op_Document_AttributesCanBeClosed = {final} class
   {* Класс для вызова операции Document.AttributesCanBeClosed }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Document.AttributesCanBeClosed у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Document.AttributesCanBeClosed у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Document.AttributesCanBeClosed у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Document.AttributesCanBeClosed у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Document.AttributesCanBeClosed у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Document.AttributesCanBeClosed у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Document.AttributesCanBeClosed у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Document.AttributesCanBeClosed у контейнера }
  end;//Op_Document_AttributesCanBeClosed
 
- IDocument_CommonDocumentOpenNewWindow_Params = interface(IUnknown)
+ IDocument_CommonDocumentOpenNewWindow_Params = interface
   {* Параметры для операции Document.CommonDocumentOpenNewWindow }
-   ['{86B3F0E0-FDF1-42F2-B847-94AAD63366A1}']
-   function Get_UserType: Integer;
-   property UserType: Integer
-     read Get_UserType;
-     {* undefined }
+  function Get_UserType: Integer;
+  property UserType: Integer
+   read Get_UserType;
  end;//IDocument_CommonDocumentOpenNewWindow_Params
 
- Op_Document_CommonDocumentOpenNewWindow = class
+ Op_Document_CommonDocumentOpenNewWindow = {final} class
   {* Класс для вызова операции Document.CommonDocumentOpenNewWindow }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewWindow у сущности }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewWindow у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewWindow у агрегации }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewWindow у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewWindow у формы }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewWindow у формы }
    class function Call(const aTarget: IvcmContainer;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewWindow у контейнера }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewWindow у контейнера }
  end;//Op_Document_CommonDocumentOpenNewWindow
 
- IDocument_CommonDocumentOpenNewTab_Params = interface(IUnknown)
+ IDocument_CommonDocumentOpenNewTab_Params = interface
   {* Параметры для операции Document.CommonDocumentOpenNewTab }
-   ['{9F649AA8-4BA6-4303-A57B-679A64120DCF}']
-   function Get_UserType: Integer;
-   property UserType: Integer
-     read Get_UserType;
-     {* undefined }
+  function Get_UserType: Integer;
+  property UserType: Integer
+   read Get_UserType;
  end;//IDocument_CommonDocumentOpenNewTab_Params
 
- Op_Document_CommonDocumentOpenNewTab = class
+ Op_Document_CommonDocumentOpenNewTab = {final} class
   {* Класс для вызова операции Document.CommonDocumentOpenNewTab }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewTab у сущности }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewTab у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewTab у агрегации }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewTab у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewTab у формы }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewTab у формы }
    class function Call(const aTarget: IvcmContainer;
-    aUserType: Integer): Boolean; overload; 
-     {* Вызов операции Document.CommonDocumentOpenNewTab у контейнера }
+    aUserType: Integer): Boolean; overload;
+    {* Вызов операции Document.CommonDocumentOpenNewTab у контейнера }
  end;//Op_Document_CommonDocumentOpenNewTab
 
- IRedactions_RedactionOnID_Params = interface(IUnknown)
+ IRedactions_RedactionOnID_Params = interface
   {* Параметры для операции Redactions.RedactionOnID }
-   ['{92C237BD-F783-4B25-A09E-8B35B9216491}']
-   function Get_RedactionID: TRedactionID;
-   property RedactionID: TRedactionID
-     read Get_RedactionID;
-     {* undefined }
+  function Get_RedactionID: TRedactionID;
+  property RedactionID: TRedactionID
+   read Get_RedactionID;
  end;//IRedactions_RedactionOnID_Params
 
- Op_Redactions_RedactionOnID = class
+ Op_Redactions_RedactionOnID = {final} class
   {* Класс для вызова операции Redactions.RedactionOnID }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aRedactionID: TRedactionID): Boolean; overload; 
-     {* Вызов операции Redactions.RedactionOnID у сущности }
+    aRedactionID: TRedactionID): Boolean; overload;
+    {* Вызов операции Redactions.RedactionOnID у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aRedactionID: TRedactionID): Boolean; overload; 
-     {* Вызов операции Redactions.RedactionOnID у агрегации }
+    aRedactionID: TRedactionID): Boolean; overload;
+    {* Вызов операции Redactions.RedactionOnID у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aRedactionID: TRedactionID): Boolean; overload; 
-     {* Вызов операции Redactions.RedactionOnID у формы }
+    aRedactionID: TRedactionID): Boolean; overload;
+    {* Вызов операции Redactions.RedactionOnID у формы }
    class function Call(const aTarget: IvcmContainer;
-    aRedactionID: TRedactionID): Boolean; overload; 
-     {* Вызов операции Redactions.RedactionOnID у контейнера }
+    aRedactionID: TRedactionID): Boolean; overload;
+    {* Вызов операции Redactions.RedactionOnID у контейнера }
  end;//Op_Redactions_RedactionOnID
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_Navigator = 'Navigator';
  en_capNavigator = '';
@@ -382,47 +269,117 @@ const
  op_NextRedaction = 'NextRedaction';
  op_capNextRedaction = '';
 
-// Состояния операций:
-var st_user_Document_GetAttributesFrmAct_Picture : TvcmOperationStateIndex = (rID : -1);
-  // Документ -> Информация о документе <-> Информация о картинке
-var st_user_Redactions_OpenRedactionListFrmAct_ChooseAnotherEditions : TvcmOperationStateIndex = (rID : -1);
-  // Redactions -> Список редакций <-> Выбрать другие редакции
-{$IfEnd} //not Admin AND not Monitorings
+var st_user_Document_GetAttributesFrmAct_Picture: TvcmOperationStateIndex = (rID : -1);
+ {* Документ -> Информация о документе <-> Информация о картинке }
+var st_user_Redactions_OpenRedactionListFrmAct_ChooseAnotherEditions: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Список редакций <-> Выбрать другие редакции }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TNavigator_SetCurrent_Params = class(Tl3CProtoObject, INavigator_SetCurrent_Params)
+ TNavigator_SetCurrent_Params = {final} class(Tl3CProtoObject, INavigator_SetCurrent_Params)
   {* Реализация INavigator_SetCurrent_Params }
- private
- // private fields
-   f_Node : Il3SimpleNode;
- protected
- // realized methods
+  private
+   f_Node: Il3SimpleNode;
+  protected
    function Get_Node: Il3SimpleNode;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aNode: Il3SimpleNode); reintroduce;
-     {* Конструктор TNavigator_SetCurrent_Params }
    class function Make(const aNode: Il3SimpleNode): INavigator_SetCurrent_Params; reintroduce;
-     {* Фабрика TNavigator_SetCurrent_Params }
  end;//TNavigator_SetCurrent_Params
 
-// start class TNavigator_SetCurrent_Params
+ TDocument_OpenCorrespondentList_Params = {final} class(Tl3CProtoObject, IDocument_OpenCorrespondentList_Params)
+  {* Реализация IDocument_OpenCorrespondentList_Params }
+  private
+   f_Kind: TlstCRType;
+   f_CRType: Il3SimpleNode;
+  protected
+   function Get_Kind: TlstCRType;
+   function Get_CRType: Il3SimpleNode;
+   procedure ClearFields; override;
+  public
+   constructor Create(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode); reintroduce;
+   class function Make(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode): IDocument_OpenCorrespondentList_Params; reintroduce;
+ end;//TDocument_OpenCorrespondentList_Params
+
+ TDocument_OpenRespondentList_Params = {final} class(Tl3CProtoObject, IDocument_OpenRespondentList_Params)
+  {* Реализация IDocument_OpenRespondentList_Params }
+  private
+   f_Kind: TlstCRType;
+   f_CRType: Il3SimpleNode;
+  protected
+   function Get_Kind: TlstCRType;
+   function Get_CRType: Il3SimpleNode;
+   procedure ClearFields; override;
+  public
+   constructor Create(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode); reintroduce;
+   class function Make(aKind: TlstCRType;
+    const aCRType: Il3SimpleNode): IDocument_OpenRespondentList_Params; reintroduce;
+ end;//TDocument_OpenRespondentList_Params
+
+ TDocument_AttributesCanBeClosed_Params = {final} class(Tl3CProtoObject, IDocument_AttributesCanBeClosed_Params)
+  {* Реализация IDocument_AttributesCanBeClosed_Params }
+  private
+   f_ResultValue: Boolean;
+  protected
+   function Get_ResultValue: Boolean;
+   procedure Set_ResultValue(aValue: Boolean);
+  public
+   class function Make: IDocument_AttributesCanBeClosed_Params; reintroduce;
+ end;//TDocument_AttributesCanBeClosed_Params
+
+ TDocument_CommonDocumentOpenNewWindow_Params = {final} class(Tl3CProtoObject, IDocument_CommonDocumentOpenNewWindow_Params)
+  {* Реализация IDocument_CommonDocumentOpenNewWindow_Params }
+  private
+   f_UserType: Integer;
+  protected
+   function Get_UserType: Integer;
+  public
+   constructor Create(aUserType: Integer); reintroduce;
+   class function Make(aUserType: Integer): IDocument_CommonDocumentOpenNewWindow_Params; reintroduce;
+ end;//TDocument_CommonDocumentOpenNewWindow_Params
+
+ TDocument_CommonDocumentOpenNewTab_Params = {final} class(Tl3CProtoObject, IDocument_CommonDocumentOpenNewTab_Params)
+  {* Реализация IDocument_CommonDocumentOpenNewTab_Params }
+  private
+   f_UserType: Integer;
+  protected
+   function Get_UserType: Integer;
+  public
+   constructor Create(aUserType: Integer); reintroduce;
+   class function Make(aUserType: Integer): IDocument_CommonDocumentOpenNewTab_Params; reintroduce;
+ end;//TDocument_CommonDocumentOpenNewTab_Params
+
+ TRedactions_RedactionOnID_Params = {final} class(Tl3CProtoObject, IRedactions_RedactionOnID_Params)
+  {* Реализация IRedactions_RedactionOnID_Params }
+  private
+   f_RedactionID: TRedactionID;
+  protected
+   function Get_RedactionID: TRedactionID;
+  public
+   constructor Create(aRedactionID: TRedactionID); reintroduce;
+   class function Make(aRedactionID: TRedactionID): IRedactions_RedactionOnID_Params; reintroduce;
+ end;//TRedactions_RedactionOnID_Params
 
 constructor TNavigator_SetCurrent_Params.Create(const aNode: Il3SimpleNode);
- {-}
 begin
  inherited Create;
  f_Node := aNode;
@@ -438,26 +395,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TNavigator_SetCurrent_Params.Make
 
 function TNavigator_SetCurrent_Params.Get_Node: Il3SimpleNode;
- {-}
 begin
  Result := f_Node;
 end;//TNavigator_SetCurrent_Params.Get_Node
 
 procedure TNavigator_SetCurrent_Params.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Node := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TNavigator_SetCurrent_Params.ClearFields
-// start class Op_Navigator_SetCurrent
 
 class function Op_Navigator_SetCurrent.Call(const aTarget: IvcmEntity;
-  const aNode: Il3SimpleNode): Boolean;
+ const aNode: Il3SimpleNode): Boolean;
+ {* Вызов операции Navigator.SetCurrent у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -477,7 +430,8 @@ begin
 end;//Op_Navigator_SetCurrent.Call
 
 class function Op_Navigator_SetCurrent.Call(const aTarget: IvcmAggregate;
-  const aNode: Il3SimpleNode): Boolean;
+ const aNode: Il3SimpleNode): Boolean;
+ {* Вызов операции Navigator.SetCurrent у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -497,8 +451,8 @@ begin
 end;//Op_Navigator_SetCurrent.Call
 
 class function Op_Navigator_SetCurrent.Call(const aTarget: IvcmEntityForm;
-  const aNode: Il3SimpleNode): Boolean;
- {-}
+ const aNode: Il3SimpleNode): Boolean;
+ {* Вызов операции Navigator.SetCurrent у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -506,44 +460,16 @@ begin
 end;//Op_Navigator_SetCurrent.Call
 
 class function Op_Navigator_SetCurrent.Call(const aTarget: IvcmContainer;
-  const aNode: Il3SimpleNode): Boolean;
- {-}
+ const aNode: Il3SimpleNode): Boolean;
+ {* Вызов операции Navigator.SetCurrent у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aNode);
 end;//Op_Navigator_SetCurrent.Call
 
-type
- TDocument_OpenCorrespondentList_Params = class(Tl3CProtoObject, IDocument_OpenCorrespondentList_Params)
-  {* Реализация IDocument_OpenCorrespondentList_Params }
- private
- // private fields
-   f_Kind : TlstCRType;
-   f_CRType : Il3SimpleNode;
- protected
- // realized methods
-   function Get_CRType: Il3SimpleNode;
-   function Get_Kind: TlstCRType;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode); reintroduce;
-     {* Конструктор TDocument_OpenCorrespondentList_Params }
-   class function Make(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): IDocument_OpenCorrespondentList_Params; reintroduce;
-     {* Фабрика TDocument_OpenCorrespondentList_Params }
- end;//TDocument_OpenCorrespondentList_Params
-
-// start class TDocument_OpenCorrespondentList_Params
-
 constructor TDocument_OpenCorrespondentList_Params.Create(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
- {-}
+ const aCRType: Il3SimpleNode);
 begin
  inherited Create;
  f_Kind := aKind;
@@ -551,7 +477,7 @@ begin
 end;//TDocument_OpenCorrespondentList_Params.Create
 
 class function TDocument_OpenCorrespondentList_Params.Make(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): IDocument_OpenCorrespondentList_Params;
+ const aCRType: Il3SimpleNode): IDocument_OpenCorrespondentList_Params;
 var
  l_Inst : TDocument_OpenCorrespondentList_Params;
 begin
@@ -561,40 +487,35 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TDocument_OpenCorrespondentList_Params.Get_CRType: Il3SimpleNode;
- {-}
-begin
- Result := f_CRType;
-end;//TDocument_OpenCorrespondentList_Params.Get_CRType
+end;//TDocument_OpenCorrespondentList_Params.Make
 
 function TDocument_OpenCorrespondentList_Params.Get_Kind: TlstCRType;
- {-}
 begin
  Result := f_Kind;
 end;//TDocument_OpenCorrespondentList_Params.Get_Kind
 
-procedure TDocument_OpenCorrespondentList_Params.ClearFields;
- {-}
+function TDocument_OpenCorrespondentList_Params.Get_CRType: Il3SimpleNode;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_CRType;
+end;//TDocument_OpenCorrespondentList_Params.Get_CRType
+
+procedure TDocument_OpenCorrespondentList_Params.ClearFields;
+begin
  f_CRType := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TDocument_OpenCorrespondentList_Params.ClearFields
-// start class Op_Document_OpenCorrespondentList
 
 class function Op_Document_OpenCorrespondentList.Call(const aTarget: IvcmEntity;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenCorrespondentList у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind,aCRType));
+  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind, aCRType));
   aTarget.Operation(TdmStdRes.opcode_Document_OpenCorrespondentList, l_Params);
   with l_Params do
   begin
@@ -607,15 +528,16 @@ begin
 end;//Op_Document_OpenCorrespondentList.Call
 
 class function Op_Document_OpenCorrespondentList.Call(const aTarget: IvcmAggregate;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenCorrespondentList у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind,aCRType));
+  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenCorrespondentList_Params.Make(aKind, aCRType));
   aTarget.Operation(TdmStdRes.opcode_Document_OpenCorrespondentList, l_Params);
   with l_Params do
   begin
@@ -628,9 +550,9 @@ begin
 end;//Op_Document_OpenCorrespondentList.Call
 
 class function Op_Document_OpenCorrespondentList.Call(const aTarget: IvcmEntityForm;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
- {-}
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenCorrespondentList у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -638,45 +560,17 @@ begin
 end;//Op_Document_OpenCorrespondentList.Call
 
 class function Op_Document_OpenCorrespondentList.Call(const aTarget: IvcmContainer;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
- {-}
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenCorrespondentList у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aKind, aCRType);
 end;//Op_Document_OpenCorrespondentList.Call
 
-type
- TDocument_OpenRespondentList_Params = class(Tl3CProtoObject, IDocument_OpenRespondentList_Params)
-  {* Реализация IDocument_OpenRespondentList_Params }
- private
- // private fields
-   f_Kind : TlstCRType;
-   f_CRType : Il3SimpleNode;
- protected
- // realized methods
-   function Get_CRType: Il3SimpleNode;
-   function Get_Kind: TlstCRType;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   constructor Create(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode); reintroduce;
-     {* Конструктор TDocument_OpenRespondentList_Params }
-   class function Make(aKind: TlstCRType;
-    const aCRType: Il3SimpleNode): IDocument_OpenRespondentList_Params; reintroduce;
-     {* Фабрика TDocument_OpenRespondentList_Params }
- end;//TDocument_OpenRespondentList_Params
-
-// start class TDocument_OpenRespondentList_Params
-
 constructor TDocument_OpenRespondentList_Params.Create(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode);
- {-}
+ const aCRType: Il3SimpleNode);
 begin
  inherited Create;
  f_Kind := aKind;
@@ -684,7 +578,7 @@ begin
 end;//TDocument_OpenRespondentList_Params.Create
 
 class function TDocument_OpenRespondentList_Params.Make(aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): IDocument_OpenRespondentList_Params;
+ const aCRType: Il3SimpleNode): IDocument_OpenRespondentList_Params;
 var
  l_Inst : TDocument_OpenRespondentList_Params;
 begin
@@ -694,40 +588,35 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-function TDocument_OpenRespondentList_Params.Get_CRType: Il3SimpleNode;
- {-}
-begin
- Result := f_CRType;
-end;//TDocument_OpenRespondentList_Params.Get_CRType
+end;//TDocument_OpenRespondentList_Params.Make
 
 function TDocument_OpenRespondentList_Params.Get_Kind: TlstCRType;
- {-}
 begin
  Result := f_Kind;
 end;//TDocument_OpenRespondentList_Params.Get_Kind
 
-procedure TDocument_OpenRespondentList_Params.ClearFields;
- {-}
+function TDocument_OpenRespondentList_Params.Get_CRType: Il3SimpleNode;
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
+ Result := f_CRType;
+end;//TDocument_OpenRespondentList_Params.Get_CRType
+
+procedure TDocument_OpenRespondentList_Params.ClearFields;
+begin
  f_CRType := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TDocument_OpenRespondentList_Params.ClearFields
-// start class Op_Document_OpenRespondentList
 
 class function Op_Document_OpenRespondentList.Call(const aTarget: IvcmEntity;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenRespondentList у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind,aCRType));
+  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind, aCRType));
   aTarget.Operation(TdmStdRes.opcode_Document_OpenRespondentList, l_Params);
   with l_Params do
   begin
@@ -740,15 +629,16 @@ begin
 end;//Op_Document_OpenRespondentList.Call
 
 class function Op_Document_OpenRespondentList.Call(const aTarget: IvcmAggregate;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenRespondentList у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
  begin
-  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind,aCRType));
+  l_Params := TvcmExecuteParams.MakeForInternal(TDocument_OpenRespondentList_Params.Make(aKind, aCRType));
   aTarget.Operation(TdmStdRes.opcode_Document_OpenRespondentList, l_Params);
   with l_Params do
   begin
@@ -761,9 +651,9 @@ begin
 end;//Op_Document_OpenRespondentList.Call
 
 class function Op_Document_OpenRespondentList.Call(const aTarget: IvcmEntityForm;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
- {-}
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenRespondentList у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -771,40 +661,14 @@ begin
 end;//Op_Document_OpenRespondentList.Call
 
 class function Op_Document_OpenRespondentList.Call(const aTarget: IvcmContainer;
-  aKind: TlstCRType;
-  const aCRType: Il3SimpleNode): Boolean;
- {-}
+ aKind: TlstCRType;
+ const aCRType: Il3SimpleNode): Boolean;
+ {* Вызов операции Document.OpenRespondentList у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aKind, aCRType);
 end;//Op_Document_OpenRespondentList.Call
-
-type
- TDocument_AttributesCanBeClosed_Params = class(Tl3CProtoObject, IDocument_AttributesCanBeClosed_Params)
-  {* Реализация IDocument_AttributesCanBeClosed_Params }
- private
- // private fields
-   f_ResultValue : Boolean;
- protected
- // realized methods
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
-   constructor Create; reintroduce;
-     {* Конструктор TDocument_AttributesCanBeClosed_Params }
-   class function Make: IDocument_AttributesCanBeClosed_Params; reintroduce;
-     {* Фабрика TDocument_AttributesCanBeClosed_Params }
- end;//TDocument_AttributesCanBeClosed_Params
-
-// start class TDocument_AttributesCanBeClosed_Params
-
-constructor TDocument_AttributesCanBeClosed_Params.Create;
- {-}
-begin
- inherited Create;
-end;//TDocument_AttributesCanBeClosed_Params.Create
 
 class function TDocument_AttributesCanBeClosed_Params.Make: IDocument_AttributesCanBeClosed_Params;
 var
@@ -816,22 +680,20 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TDocument_AttributesCanBeClosed_Params.Make
 
 function TDocument_AttributesCanBeClosed_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TDocument_AttributesCanBeClosed_Params.Get_ResultValue
 
 procedure TDocument_AttributesCanBeClosed_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TDocument_AttributesCanBeClosed_Params.Set_ResultValue
-// start class Op_Document_AttributesCanBeClosed
 
 class function Op_Document_AttributesCanBeClosed.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Document.AttributesCanBeClosed у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -851,6 +713,7 @@ begin
 end;//Op_Document_AttributesCanBeClosed.Call
 
 class function Op_Document_AttributesCanBeClosed.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Document.AttributesCanBeClosed у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -870,7 +733,7 @@ begin
 end;//Op_Document_AttributesCanBeClosed.Call
 
 class function Op_Document_AttributesCanBeClosed.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Document.AttributesCanBeClosed у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -878,34 +741,14 @@ begin
 end;//Op_Document_AttributesCanBeClosed.Call
 
 class function Op_Document_AttributesCanBeClosed.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Document.AttributesCanBeClosed у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Document_AttributesCanBeClosed.Call
 
-type
- TDocument_CommonDocumentOpenNewWindow_Params = class(Tl3CProtoObject, IDocument_CommonDocumentOpenNewWindow_Params)
-  {* Реализация IDocument_CommonDocumentOpenNewWindow_Params }
- private
- // private fields
-   f_UserType : Integer;
- protected
- // realized methods
-   function Get_UserType: Integer;
- public
- // public methods
-   constructor Create(aUserType: Integer); reintroduce;
-     {* Конструктор TDocument_CommonDocumentOpenNewWindow_Params }
-   class function Make(aUserType: Integer): IDocument_CommonDocumentOpenNewWindow_Params; reintroduce;
-     {* Фабрика TDocument_CommonDocumentOpenNewWindow_Params }
- end;//TDocument_CommonDocumentOpenNewWindow_Params
-
-// start class TDocument_CommonDocumentOpenNewWindow_Params
-
 constructor TDocument_CommonDocumentOpenNewWindow_Params.Create(aUserType: Integer);
- {-}
 begin
  inherited Create;
  f_UserType := aUserType;
@@ -921,17 +764,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TDocument_CommonDocumentOpenNewWindow_Params.Make
 
 function TDocument_CommonDocumentOpenNewWindow_Params.Get_UserType: Integer;
- {-}
 begin
  Result := f_UserType;
 end;//TDocument_CommonDocumentOpenNewWindow_Params.Get_UserType
-// start class Op_Document_CommonDocumentOpenNewWindow
 
 class function Op_Document_CommonDocumentOpenNewWindow.Call(const aTarget: IvcmEntity;
-  aUserType: Integer): Boolean;
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewWindow у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -951,7 +793,8 @@ begin
 end;//Op_Document_CommonDocumentOpenNewWindow.Call
 
 class function Op_Document_CommonDocumentOpenNewWindow.Call(const aTarget: IvcmAggregate;
-  aUserType: Integer): Boolean;
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewWindow у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -971,8 +814,8 @@ begin
 end;//Op_Document_CommonDocumentOpenNewWindow.Call
 
 class function Op_Document_CommonDocumentOpenNewWindow.Call(const aTarget: IvcmEntityForm;
-  aUserType: Integer): Boolean;
- {-}
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewWindow у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -980,35 +823,15 @@ begin
 end;//Op_Document_CommonDocumentOpenNewWindow.Call
 
 class function Op_Document_CommonDocumentOpenNewWindow.Call(const aTarget: IvcmContainer;
-  aUserType: Integer): Boolean;
- {-}
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewWindow у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aUserType);
 end;//Op_Document_CommonDocumentOpenNewWindow.Call
 
-type
- TDocument_CommonDocumentOpenNewTab_Params = class(Tl3CProtoObject, IDocument_CommonDocumentOpenNewTab_Params)
-  {* Реализация IDocument_CommonDocumentOpenNewTab_Params }
- private
- // private fields
-   f_UserType : Integer;
- protected
- // realized methods
-   function Get_UserType: Integer;
- public
- // public methods
-   constructor Create(aUserType: Integer); reintroduce;
-     {* Конструктор TDocument_CommonDocumentOpenNewTab_Params }
-   class function Make(aUserType: Integer): IDocument_CommonDocumentOpenNewTab_Params; reintroduce;
-     {* Фабрика TDocument_CommonDocumentOpenNewTab_Params }
- end;//TDocument_CommonDocumentOpenNewTab_Params
-
-// start class TDocument_CommonDocumentOpenNewTab_Params
-
 constructor TDocument_CommonDocumentOpenNewTab_Params.Create(aUserType: Integer);
- {-}
 begin
  inherited Create;
  f_UserType := aUserType;
@@ -1024,17 +847,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TDocument_CommonDocumentOpenNewTab_Params.Make
 
 function TDocument_CommonDocumentOpenNewTab_Params.Get_UserType: Integer;
- {-}
 begin
  Result := f_UserType;
 end;//TDocument_CommonDocumentOpenNewTab_Params.Get_UserType
-// start class Op_Document_CommonDocumentOpenNewTab
 
 class function Op_Document_CommonDocumentOpenNewTab.Call(const aTarget: IvcmEntity;
-  aUserType: Integer): Boolean;
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewTab у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1054,7 +876,8 @@ begin
 end;//Op_Document_CommonDocumentOpenNewTab.Call
 
 class function Op_Document_CommonDocumentOpenNewTab.Call(const aTarget: IvcmAggregate;
-  aUserType: Integer): Boolean;
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewTab у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1074,8 +897,8 @@ begin
 end;//Op_Document_CommonDocumentOpenNewTab.Call
 
 class function Op_Document_CommonDocumentOpenNewTab.Call(const aTarget: IvcmEntityForm;
-  aUserType: Integer): Boolean;
- {-}
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewTab у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1083,35 +906,15 @@ begin
 end;//Op_Document_CommonDocumentOpenNewTab.Call
 
 class function Op_Document_CommonDocumentOpenNewTab.Call(const aTarget: IvcmContainer;
-  aUserType: Integer): Boolean;
- {-}
+ aUserType: Integer): Boolean;
+ {* Вызов операции Document.CommonDocumentOpenNewTab у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aUserType);
 end;//Op_Document_CommonDocumentOpenNewTab.Call
 
-type
- TRedactions_RedactionOnID_Params = class(Tl3CProtoObject, IRedactions_RedactionOnID_Params)
-  {* Реализация IRedactions_RedactionOnID_Params }
- private
- // private fields
-   f_RedactionID : TRedactionID;
- protected
- // realized methods
-   function Get_RedactionID: TRedactionID;
- public
- // public methods
-   constructor Create(aRedactionID: TRedactionID); reintroduce;
-     {* Конструктор TRedactions_RedactionOnID_Params }
-   class function Make(aRedactionID: TRedactionID): IRedactions_RedactionOnID_Params; reintroduce;
-     {* Фабрика TRedactions_RedactionOnID_Params }
- end;//TRedactions_RedactionOnID_Params
-
-// start class TRedactions_RedactionOnID_Params
-
 constructor TRedactions_RedactionOnID_Params.Create(aRedactionID: TRedactionID);
- {-}
 begin
  inherited Create;
  f_RedactionID := aRedactionID;
@@ -1127,17 +930,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TRedactions_RedactionOnID_Params.Make
 
 function TRedactions_RedactionOnID_Params.Get_RedactionID: TRedactionID;
- {-}
 begin
  Result := f_RedactionID;
 end;//TRedactions_RedactionOnID_Params.Get_RedactionID
-// start class Op_Redactions_RedactionOnID
 
 class function Op_Redactions_RedactionOnID.Call(const aTarget: IvcmEntity;
-  aRedactionID: TRedactionID): Boolean;
+ aRedactionID: TRedactionID): Boolean;
+ {* Вызов операции Redactions.RedactionOnID у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1157,7 +959,8 @@ begin
 end;//Op_Redactions_RedactionOnID.Call
 
 class function Op_Redactions_RedactionOnID.Call(const aTarget: IvcmAggregate;
-  aRedactionID: TRedactionID): Boolean;
+ aRedactionID: TRedactionID): Boolean;
+ {* Вызов операции Redactions.RedactionOnID у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -1177,8 +980,8 @@ begin
 end;//Op_Redactions_RedactionOnID.Call
 
 class function Op_Redactions_RedactionOnID.Call(const aTarget: IvcmEntityForm;
-  aRedactionID: TRedactionID): Boolean;
- {-}
+ aRedactionID: TRedactionID): Boolean;
+ {* Вызов операции Redactions.RedactionOnID у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -1186,14 +989,13 @@ begin
 end;//Op_Redactions_RedactionOnID.Call
 
 class function Op_Redactions_RedactionOnID.Call(const aTarget: IvcmContainer;
-  aRedactionID: TRedactionID): Boolean;
- {-}
+ aRedactionID: TRedactionID): Boolean;
+ {* Вызов операции Redactions.RedactionOnID у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aRedactionID);
 end;//Op_Redactions_RedactionOnID.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

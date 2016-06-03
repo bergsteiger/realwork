@@ -40,9 +40,9 @@ type
    f_dsFolderElement: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsFolderElement }
   protected
-   function pm_GetdsFolders: IdsFolders;
-   function pm_GetdsFoldersTree: IdsFoldersTree;
-   function pm_GetdsFolderElement: IdsFolderElement;
+   function pm_GetDsFolders: IdsFolders;
+   function pm_GetDsFoldersTree: IdsFoldersTree;
+   function pm_GetDsFolderElement: IdsFolderElement;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
@@ -71,32 +71,32 @@ type _Instance_R_ = TsdsFolders;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
 
-function TsdsFolders.pm_GetdsFolders: IdsFolders;
+function TsdsFolders.pm_GetDsFolders: IdsFolders;
 //#UC START# *492EAE8B01AC_492EE1A80008get_var*
 //#UC END# *492EAE8B01AC_492EE1A80008get_var*
 begin
 //#UC START# *492EAE8B01AC_492EE1A80008get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EAE8B01AC_492EE1A80008get_impl*
-end;//TsdsFolders.pm_GetdsFolders
+end;//TsdsFolders.pm_GetDsFolders
 
-function TsdsFolders.pm_GetdsFoldersTree: IdsFoldersTree;
+function TsdsFolders.pm_GetDsFoldersTree: IdsFoldersTree;
 //#UC START# *492EB06D013C_492EE1A80008get_var*
 //#UC END# *492EB06D013C_492EE1A80008get_var*
 begin
 //#UC START# *492EB06D013C_492EE1A80008get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EB06D013C_492EE1A80008get_impl*
-end;//TsdsFolders.pm_GetdsFoldersTree
+end;//TsdsFolders.pm_GetDsFoldersTree
 
-function TsdsFolders.pm_GetdsFolderElement: IdsFolderElement;
+function TsdsFolders.pm_GetDsFolderElement: IdsFolderElement;
 //#UC START# *492EB098008A_492EE1A80008get_var*
 //#UC END# *492EB098008A_492EE1A80008get_var*
 begin
 //#UC START# *492EB098008A_492EE1A80008get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EB098008A_492EE1A80008get_impl*
-end;//TsdsFolders.pm_GetdsFolderElement
+end;//TsdsFolders.pm_GetDsFolderElement
 
 procedure TsdsFolders.ClearAreas;
  {* Очищает ссылки на области ввода }

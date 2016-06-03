@@ -45,8 +45,8 @@ type
    function pm_GetrefTranslationList: Tl3InterfaceList;
    function pm_GetLanguages: TbsLanguages;
    procedure pm_SetLanguages(aValue: TbsLanguages);
-   function pm_GetrefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
-   function pm_GetrefTranslationCount: Integer;
+   function pm_GetRefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
+   function pm_GetRefTranslationCount: Integer;
    function pm_GetIsShowLiteratureList: Boolean;
    procedure pm_SetIsShowLiteratureList(aValue: Boolean);
    function pm_GetContextMap: InsLangToContextMap;
@@ -138,23 +138,23 @@ begin
 //#UC END# *49527E380287_4936CCA700F0set_impl*
 end;//TdDiction.pm_SetLanguages
 
-function TdDiction.pm_GetrefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
+function TdDiction.pm_GetRefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
 //#UC START# *49527E60023F_4936CCA700F0get_var*
 //#UC END# *49527E60023F_4936CCA700F0get_var*
 begin
 //#UC START# *49527E60023F_4936CCA700F0get_impl*
  Supports(refTranslationList.Items[aIndex], IvcmFormDataSourceRef, Result);
 //#UC END# *49527E60023F_4936CCA700F0get_impl*
-end;//TdDiction.pm_GetrefTranslation
+end;//TdDiction.pm_GetRefTranslation
 
-function TdDiction.pm_GetrefTranslationCount: Integer;
+function TdDiction.pm_GetRefTranslationCount: Integer;
 //#UC START# *49527E84009B_4936CCA700F0get_var*
 //#UC END# *49527E84009B_4936CCA700F0get_var*
 begin
 //#UC START# *49527E84009B_4936CCA700F0get_impl*
  Result := refTranslationList.Count;
 //#UC END# *49527E84009B_4936CCA700F0get_impl*
-end;//TdDiction.pm_GetrefTranslationCount
+end;//TdDiction.pm_GetRefTranslationCount
 
 function TdDiction.pm_GetIsShowLiteratureList: Boolean;
 //#UC START# *49527E930015_4936CCA700F0get_var*

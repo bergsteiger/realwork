@@ -1,68 +1,40 @@
 unit PostingOrder_Strange_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PostingOrder_Strange_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Common For Shell And Monitoring::PostingOrder::View::Strange
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_Strange_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Strange" MUID: (4C84EDB403D2)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
-
-(* PostingToolBar = operations
-  {* Панель новостей }
-   ['{1C5CA247-E15B-44F0-8FF5-2C7887F5ED15}']
-   operation ptNewTheme;
-   operation ptEditPosting;
-   operation ptDeletePosting;
-   operation SavePostList;
-   operation ExportSelected;
- end;//PostingToolBar*)
-
-(* SearchSupport = operations
-   ['{3901AE6B-FAAB-4959-B7E7-F28A64A3C7CC}']
-   FormActivate ActivatePostingsListForm;
- end;//SearchSupport*)
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- Op_SearchSupport_ActivatePostingsListForm = class
+ Op_SearchSupport_ActivatePostingsListForm = {final} class
   {* Класс для вызова операции SearchSupport.ActivatePostingsListForm }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции SearchSupport.ActivatePostingsListForm у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции SearchSupport.ActivatePostingsListForm у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции SearchSupport.ActivatePostingsListForm у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции SearchSupport.ActivatePostingsListForm у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции SearchSupport.ActivatePostingsListForm у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции SearchSupport.ActivatePostingsListForm у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции SearchSupport.ActivatePostingsListForm у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции SearchSupport.ActivatePostingsListForm у контейнера }
    class procedure Broadcast;
-     {* Вызов операции SearchSupport.ActivatePostingsListForm у всех зарегистрированных сущностей }
+    {* Вызов операции SearchSupport.ActivatePostingsListForm у всех зарегистрированных сущностей }
  end;//Op_SearchSupport_ActivatePostingsListForm
-{$IfEnd} //not Admin
 
-{$If not defined(Admin)}
 const
  en_PostingToolBar = 'PostingToolBar';
  en_capPostingToolBar = 'Панель новостей';
@@ -80,20 +52,24 @@ const
  en_capSearchSupport = '';
  op_ActivatePostingsListForm = 'ActivatePostingsListForm';
  op_capActivatePostingsListForm = '';
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
-
-// start class Op_SearchSupport_ActivatePostingsListForm
+ l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 class function Op_SearchSupport_ActivatePostingsListForm.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции SearchSupport.ActivatePostingsListForm у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -113,6 +89,7 @@ begin
 end;//Op_SearchSupport_ActivatePostingsListForm.Call
 
 class function Op_SearchSupport_ActivatePostingsListForm.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции SearchSupport.ActivatePostingsListForm у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -132,7 +109,7 @@ begin
 end;//Op_SearchSupport_ActivatePostingsListForm.Call
 
 class function Op_SearchSupport_ActivatePostingsListForm.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции SearchSupport.ActivatePostingsListForm у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -140,7 +117,7 @@ begin
 end;//Op_SearchSupport_ActivatePostingsListForm.Call
 
 class function Op_SearchSupport_ActivatePostingsListForm.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции SearchSupport.ActivatePostingsListForm у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -148,6 +125,7 @@ begin
 end;//Op_SearchSupport_ActivatePostingsListForm.Call
 
 class procedure Op_SearchSupport_ActivatePostingsListForm.Broadcast;
+ {* Вызов операции SearchSupport.ActivatePostingsListForm у всех зарегистрированных сущностей }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -155,9 +133,8 @@ begin
  begin
   l_Params := vcmParams;
   vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_SearchSupport_ActivatePostingsListForm, l_Params);
- end;//vcmDispatcher <> nil
+ end//vcmDispatcher <> nil
 end;//Op_SearchSupport_ActivatePostingsListForm.Broadcast
-{$IfEnd} //not Admin
-
+{$IfEnd} // NOT Defined(Admin)
 
 end.

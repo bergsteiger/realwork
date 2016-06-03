@@ -17,6 +17,8 @@
   {* Бизнес объект сборки "Документ" }
   private
    f_LockWarningCount: Integer;
+   f_ChangeWorker: IbsChangeRedactionWorker;
+   f_ChangeRedactionPos: TbsDocPos;
    f_dsBaloonWarning: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsBaloonWarning }
    f_dsTimeMachineWarning: IvcmViewAreaControllerRef;
@@ -74,16 +76,18 @@
    procedure LockWarning;
    procedure UnLockWarning;
    function Get_CanRunBaseSearch: Boolean;
-   function pm_GetdsBaloonWarning: IdsWarning;
-   function pm_GetdsTimeMachineWarning: IdsWarning;
-   function pm_GetdsTranslationWarning: IdsWarning;
-   function pm_GetdsCRBaloonWarning: IdsWarning;
-   function pm_GetdsWarning: IdsWarning;
-   function pm_GetdsIncomingLinksToPart: IdsDocumentList;
-   function pm_GetdsEditions: IdsEditions;
-   function pm_GetdsContents: IdsBaseContents;
-   function pm_GetdsOutgoingLinksFromPart: IdsDocumentList;
+   function pm_GetDsBaloonWarning: IdsWarning;
+   function pm_GetDsTimeMachineWarning: IdsWarning;
+   function pm_GetDsTranslationWarning: IdsWarning;
+   function pm_GetDsCRBaloonWarning: IdsWarning;
+   function pm_GetDsWarning: IdsWarning;
+   function pm_GetDsIncomingLinksToPart: IdsDocumentList;
+   function pm_GetDsEditions: IdsEditions;
+   function pm_GetDsContents: IdsBaseContents;
+   function pm_GetDsOutgoingLinksFromPart: IdsDocumentList;
    procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
@@ -109,6 +113,12 @@
     {* вызывается при изменении типа корреспондентов/респондентов }
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoMakeClone: IvcmFormSetDataSource; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
   public
@@ -710,86 +720,86 @@ begin
 //#UC END# *496F344101D0_493E5C580280get_impl*
 end;//_sdsDocument_.Get_CanRunBaseSearch
 
-function _sdsDocument_.pm_GetdsBaloonWarning: IdsWarning;
+function _sdsDocument_.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DA87F3D006B_493E5C580280get_var*
 //#UC END# *4DA87F3D006B_493E5C580280get_var*
 begin
 //#UC START# *4DA87F3D006B_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DA87F3D006B_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsBaloonWarning
+end;//_sdsDocument_.pm_GetDsBaloonWarning
 
-function _sdsDocument_.pm_GetdsTimeMachineWarning: IdsWarning;
+function _sdsDocument_.pm_GetDsTimeMachineWarning: IdsWarning;
 //#UC START# *4DABF91B0274_493E5C580280get_var*
 //#UC END# *4DABF91B0274_493E5C580280get_var*
 begin
 //#UC START# *4DABF91B0274_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DABF91B0274_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsTimeMachineWarning
+end;//_sdsDocument_.pm_GetDsTimeMachineWarning
 
-function _sdsDocument_.pm_GetdsTranslationWarning: IdsWarning;
+function _sdsDocument_.pm_GetDsTranslationWarning: IdsWarning;
 //#UC START# *4EDCF32E02FF_493E5C580280get_var*
 //#UC END# *4EDCF32E02FF_493E5C580280get_var*
 begin
 //#UC START# *4EDCF32E02FF_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4EDCF32E02FF_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsTranslationWarning
+end;//_sdsDocument_.pm_GetDsTranslationWarning
 
-function _sdsDocument_.pm_GetdsCRBaloonWarning: IdsWarning;
+function _sdsDocument_.pm_GetDsCRBaloonWarning: IdsWarning;
 //#UC START# *4EF486CE0310_493E5C580280get_var*
 //#UC END# *4EF486CE0310_493E5C580280get_var*
 begin
 //#UC START# *4EF486CE0310_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4EF486CE0310_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsCRBaloonWarning
+end;//_sdsDocument_.pm_GetDsCRBaloonWarning
 
-function _sdsDocument_.pm_GetdsWarning: IdsWarning;
+function _sdsDocument_.pm_GetDsWarning: IdsWarning;
 //#UC START# *500CED6C023C_493E5C580280get_var*
 //#UC END# *500CED6C023C_493E5C580280get_var*
 begin
 //#UC START# *500CED6C023C_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CED6C023C_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsWarning
+end;//_sdsDocument_.pm_GetDsWarning
 
-function _sdsDocument_.pm_GetdsIncomingLinksToPart: IdsDocumentList;
+function _sdsDocument_.pm_GetDsIncomingLinksToPart: IdsDocumentList;
 //#UC START# *500CED9B0156_493E5C580280get_var*
 //#UC END# *500CED9B0156_493E5C580280get_var*
 begin
 //#UC START# *500CED9B0156_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CED9B0156_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsIncomingLinksToPart
+end;//_sdsDocument_.pm_GetDsIncomingLinksToPart
 
-function _sdsDocument_.pm_GetdsEditions: IdsEditions;
+function _sdsDocument_.pm_GetDsEditions: IdsEditions;
 //#UC START# *500CEDBC03A5_493E5C580280get_var*
 //#UC END# *500CEDBC03A5_493E5C580280get_var*
 begin
 //#UC START# *500CEDBC03A5_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEDBC03A5_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsEditions
+end;//_sdsDocument_.pm_GetDsEditions
 
-function _sdsDocument_.pm_GetdsContents: IdsBaseContents;
+function _sdsDocument_.pm_GetDsContents: IdsBaseContents;
 //#UC START# *500CEEBD01CB_493E5C580280get_var*
 //#UC END# *500CEEBD01CB_493E5C580280get_var*
 begin
 //#UC START# *500CEEBD01CB_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CEEBD01CB_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsContents
+end;//_sdsDocument_.pm_GetDsContents
 
-function _sdsDocument_.pm_GetdsOutgoingLinksFromPart: IdsDocumentList;
+function _sdsDocument_.pm_GetDsOutgoingLinksFromPart: IdsDocumentList;
 //#UC START# *5236A4FB0320_493E5C580280get_var*
 //#UC END# *5236A4FB0320_493E5C580280get_var*
 begin
 //#UC START# *5236A4FB0320_493E5C580280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5236A4FB0320_493E5C580280get_impl*
-end;//_sdsDocument_.pm_GetdsOutgoingLinksFromPart
+end;//_sdsDocument_.pm_GetDsOutgoingLinksFromPart
 
 procedure _sdsDocument_.OpenSimilarDocumentsToFragment(aBlockId: Integer);
 //#UC START# *559510480014_493E5C580280_var*
@@ -802,6 +812,16 @@ begin
  Refresh;
 //#UC END# *559510480014_493E5C580280_impl*
 end;//_sdsDocument_.OpenSimilarDocumentsToFragment
+
+procedure _sdsDocument_.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_493E5C580280_var*
+//#UC END# *479731C50290_493E5C580280_var*
+begin
+//#UC START# *479731C50290_493E5C580280_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *479731C50290_493E5C580280_impl*
+end;//_sdsDocument_.Cleanup
 
 procedure _sdsDocument_.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_493E5C580280_var*
@@ -1013,6 +1033,28 @@ begin
  end;//try..finally
 //#UC END# *53B3BF9C00EF_493E5C580280_impl*
 end;//_sdsDocument_.DoGetFormSetImageIndex
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function _sdsDocument_.DoMakeClone: IvcmFormSetDataSource;
+//#UC START# *555B0E0B0084_493E5C580280_var*
+//#UC END# *555B0E0B0084_493E5C580280_var*
+begin
+//#UC START# *555B0E0B0084_493E5C580280_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *555B0E0B0084_493E5C580280_impl*
+end;//_sdsDocument_.DoMakeClone
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function _sdsDocument_.GetDataForClone: _InitDataType_;
+//#UC START# *55C1DD070354_493E5C580280_var*
+//#UC END# *55C1DD070354_493E5C580280_var*
+begin
+//#UC START# *55C1DD070354_493E5C580280_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55C1DD070354_493E5C580280_impl*
+end;//_sdsDocument_.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure _sdsDocument_.ClearFields;

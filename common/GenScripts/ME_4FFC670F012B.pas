@@ -61,8 +61,8 @@ type
 'aControl' форма::LeftEdition TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_LeftEdition_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -76,8 +76,8 @@ type
 'aControl' форма::RightEdition TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_RightEdition_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -91,45 +91,45 @@ type
 'aControl' форма::EditionsContainer TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_EditionsContainer_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_LeftEdition_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::LeftEdition';
-end;//Tkw_Form_LeftEdition_ID.GetWordNameForRegister
-
 function Tkw_Form_LeftEdition_ID.GetString: AnsiString;
 begin
  Result := 'LeftEditionForm';
 end;//Tkw_Form_LeftEdition_ID.GetString
+
+class function Tkw_Form_LeftEdition_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::LeftEdition';
+end;//Tkw_Form_LeftEdition_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_RightEdition_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::RightEdition';
-end;//Tkw_Form_RightEdition_ID.GetWordNameForRegister
-
 function Tkw_Form_RightEdition_ID.GetString: AnsiString;
 begin
  Result := 'RightEditionForm';
 end;//Tkw_Form_RightEdition_ID.GetString
+
+class function Tkw_Form_RightEdition_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::RightEdition';
+end;//Tkw_Form_RightEdition_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_EditionsContainer_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::EditionsContainer';
-end;//Tkw_Form_EditionsContainer_ID.GetWordNameForRegister
-
 function Tkw_Form_EditionsContainer_ID.GetString: AnsiString;
 begin
  Result := 'EditionsContainerForm';
 end;//Tkw_Form_EditionsContainer_ID.GetString
+
+class function Tkw_Form_EditionsContainer_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::EditionsContainer';
+end;//Tkw_Form_EditionsContainer_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

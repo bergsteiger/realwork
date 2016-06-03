@@ -1,214 +1,137 @@
 unit PrimStyleEditorContainer_Form;
+ {* Редактор стилей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Settings/Forms/PrimStyleEditorContainer_Form.pas"
-// Начат: 02.10.2009 22:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMContainer::Class>> F1 Основные прецеденты::Settings::View::Settings::PrimStyleEditorContainer
-//
-// Редактор стилей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorContainer_Form.pas"
+// Стереотип: "VCMContainer"
+// Элемент модели: "PrimStyleEditorContainer" MUID: (4AC6402401E4)
+// Имя типа: "TPrimStyleEditorContainerForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmContainerForm
-  {$IfEnd} //not NoVCM
-  ,
-  ConfigInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  Settings_Strange_Controls,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimStyleEditorContainer_utStyleEditorContainer_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Settings_Strange_Controls
+ , ConfigInterfaces
+ , vtProportionalPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ , vtSizeablePanel
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimStyleEditorContainerForm = {form} class(TvcmContainerForm)
+ TPrimStyleEditorContainerForm = class({$If NOT Defined(NoVCM)}
+ TvcmContainerForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Редактор стилей }
- private
- // private fields
-   f_BackgroundPanel : TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel}
-   f_MainZone : TvtPanel;
-    {* Поле для свойства MainZone}
-   f_ParentZone : TvtSizeablePanel;
-    {* Поле для свойства ParentZone}
-   f_ChildZone : TvtPanel;
-    {* Поле для свойства ChildZone}
-   f_NavigatorZone : TvtSizeablePanel;
-    {* Поле для свойства NavigatorZone}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_BackgroundPanel: TvtProportionalPanel;
+   f_MainZone: TvtPanel;
+   f_ParentZone: TvtSizeablePanel;
+   f_ChildZone: TvtPanel;
+   f_NavigatorZone: TvtSizeablePanel;
+  protected
+   f_SettingsInfo: InsStyleTableSettingsInfo;
+  private
    procedure FormResize(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure VcmContainerFormCloseQueryEx(Sender: TObject;
-     var CanClose: Boolean;
-     aCaller: TCustomForm);
- protected
- // realized methods
+   procedure vcmContainerFormCloseQueryEx(Sender: TObject;
+    var CanClose: Boolean;
+    aCaller: TCustomForm);
+  protected
+   procedure DoUpdateCaption;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   class function Make(const aData: InsStyleTableSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_SettingsInfo : InsStyleTableSettingsInfo;
- protected
- // protected methods
-   procedure DoUpdateCaption;
-     {* Сигнатура метода DoUpdateCaption }
- public
- // public methods
-   class function Make(const aData: InsStyleTableSettingsInfo;
-     const aParams : IvcmMakeParams = nil;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0;
-     aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+  public
    property BackgroundPanel: TvtProportionalPanel
-     read f_BackgroundPanel;
+    read f_BackgroundPanel;
    property MainZone: TvtPanel
-     read f_MainZone;
+    read f_MainZone;
    property ParentZone: TvtSizeablePanel
-     read f_ParentZone;
+    read f_ParentZone;
    property ChildZone: TvtPanel
-     read f_ChildZone;
+    read f_ChildZone;
    property NavigatorZone: TvtSizeablePanel
-     read f_NavigatorZone;
+    read f_NavigatorZone;
  end;//TPrimStyleEditorContainerForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapter
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  afwFacade,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , DataAdapter
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimStyleEditorContainer_utStyleEditorContainer_UserType
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC6402401E4impl_uses*
+ //#UC END# *4AC6402401E4impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки utStyleEditorContainerLocalConstants }
-  str_utStyleEditorContainerCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utStyleEditorContainerCaption'; rValue : 'Редактор стилей');
-   { Заголовок пользовательского типа "Редактор стилей" }
-
-// start class TPrimStyleEditorContainerForm
-
-procedure TPrimStyleEditorContainerForm.FormResize(Sender: TObject);
-//#UC START# *526A55940144_4AC6402401E4_var*
-//#UC END# *526A55940144_4AC6402401E4_var*
-begin
-//#UC START# *526A55940144_4AC6402401E4_impl*
- // fix: для нормального поведения при изменении размеров формы, если у нее стоят ограничения.
- if ((f_NavigatorZone.Width + f_MainZone.Width) > ClientWidth) then
-  if ClientWidth > f_MainZone.Width then
-   f_NavigatorZone.Width := ClientWidth - f_MainZone.Width;
-//#UC END# *526A55940144_4AC6402401E4_impl*
-end;//TPrimStyleEditorContainerForm.FormResize
-
-procedure TPrimStyleEditorContainerForm.VcmContainerFormCloseQueryEx(Sender: TObject;
-  var CanClose: Boolean;
-  aCaller: TCustomForm);
-//#UC START# *526A55DF0164_4AC6402401E4_var*
-//#UC END# *526A55DF0164_4AC6402401E4_var*
-begin
-//#UC START# *526A55DF0164_4AC6402401E4_impl*
- if not defDataAdapter.InTerminateProcess then
- begin
-  if (ModalResult = mrCancel) and f_SettingsInfo.Modified then
-   if Ask(qr_StyleTableChanged) then
-    f_SettingsInfo.Load
-   else
-    CanClose := False;
- end;
-//#UC END# *526A55DF0164_4AC6402401E4_impl*
-end;//TPrimStyleEditorContainerForm.VcmContainerFormCloseQueryEx
-
+{$If NOT Defined(NoVCM)}
 class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimStyleEditorContainerForm);
  begin
   with aForm do
   begin
-//#UC START# *4AE06B82037F_4AC6402401E4_impl*
+  //#UC START# *4AE06B82037F_4AC6402401E4_impl*
    f_SettingsInfo := aData;
    if not f_SettingsInfo.IsActive then
     f_SettingsInfo.Load;
    DoUpdateCaption;
-//#UC END# *4AE06B82037F_4AC6402401E4_impl*
+  //#UC END# *4AE06B82037F_4AC6402401E4_impl*
   end;//with aForm
  end;
 
@@ -222,7 +145,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimStyleEditorContainerForm.Make
 
 procedure TPrimStyleEditorContainerForm.DoUpdateCaption;
 //#UC START# *526A556A020C_4AC6402401E4_var*
@@ -248,6 +171,36 @@ begin
 //#UC END# *526A556A020C_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.DoUpdateCaption
 
+procedure TPrimStyleEditorContainerForm.FormResize(Sender: TObject);
+//#UC START# *526A55940144_4AC6402401E4_var*
+//#UC END# *526A55940144_4AC6402401E4_var*
+begin
+//#UC START# *526A55940144_4AC6402401E4_impl*
+ // fix: для нормального поведения при изменении размеров формы, если у нее стоят ограничения.
+ if ((f_NavigatorZone.Width + f_MainZone.Width) > ClientWidth) then
+  if ClientWidth > f_MainZone.Width then
+   f_NavigatorZone.Width := ClientWidth - f_MainZone.Width;
+//#UC END# *526A55940144_4AC6402401E4_impl*
+end;//TPrimStyleEditorContainerForm.FormResize
+
+procedure TPrimStyleEditorContainerForm.vcmContainerFormCloseQueryEx(Sender: TObject;
+ var CanClose: Boolean;
+ aCaller: TCustomForm);
+//#UC START# *526A55DF0164_4AC6402401E4_var*
+//#UC END# *526A55DF0164_4AC6402401E4_var*
+begin
+//#UC START# *526A55DF0164_4AC6402401E4_impl*
+ if not defDataAdapter.InTerminateProcess then
+ begin
+  if (ModalResult = mrCancel) and f_SettingsInfo.Modified then
+   if Ask(qr_StyleTableChanged) then
+    f_SettingsInfo.Load
+   else
+    CanClose := False;
+ end;
+//#UC END# *526A55DF0164_4AC6402401E4_impl*
+end;//TPrimStyleEditorContainerForm.vcmContainerFormCloseQueryEx
+
 procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable_Execute;
 //#UC START# *4AF8660E0079_4AC6402401E4exec_var*
 //#UC END# *4AF8660E0079_4AC6402401E4exec_var*
@@ -259,10 +212,11 @@ end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable_Execute
 
 procedure TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
 begin
- StyleEditor_ReloadStyleTable_Execute;
-end;
+ Self.StyleEditor_ReloadStyleTable_Execute;
+end;//TPrimStyleEditorContainerForm.StyleEditor_ReloadStyleTable
 
 procedure TPrimStyleEditorContainerForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AC6402401E4_var*
 //#UC END# *479731C50290_4AC6402401E4_var*
 begin
@@ -287,8 +241,8 @@ begin
 //#UC END# *47A042E100E2_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitFields
 
-{$If not defined(NoVCM)}
 procedure TPrimStyleEditorContainerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC6402401E4_var*
 //#UC END# *4A8E8F2E0195_4AC6402401E4_var*
 begin
@@ -338,9 +292,10 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC6402401E4_impl*
 end;//TPrimStyleEditorContainerForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimStyleEditorContainerForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
@@ -348,7 +303,7 @@ begin
   PublishFormEntity(en_StyleEditor, nil);
   PublishOpWithResult(en_StyleEditor, op_ReloadStyleTable, StyleEditor_ReloadStyleTable, nil, nil);
  end;//with Entities.Entities
-end;
+end;//TPrimStyleEditorContainerForm.InitEntities
 
 procedure TPrimStyleEditorContainerForm.MakeControls;
 begin
@@ -356,7 +311,7 @@ begin
  with AddUsertype(utStyleEditorContainerName,
   str_utStyleEditorContainerCaption,
   str_utStyleEditorContainerCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -375,33 +330,29 @@ begin
  f_ParentZone := TvtSizeablePanel.Create(Self);
  f_ParentZone.Name := 'ParentZone';
  f_ParentZone.Parent := MainZone;
- with DefineZone(vcm_ztParent, f_ParentZone) do
+ with DefineZone(vcm_ztParent, ParentZone) do
  begin
- end;//with DefineZone(vcm_ztParent, f_ParentZone)
+ end;//with DefineZone(vcm_ztParent
  f_ChildZone := TvtPanel.Create(Self);
  f_ChildZone.Name := 'ChildZone';
  f_ChildZone.Parent := MainZone;
- with DefineZone(vcm_ztChild, f_ChildZone) do
+ with DefineZone(vcm_ztChild, ChildZone) do
  begin
- end;//with DefineZone(vcm_ztChild, f_ChildZone)
+ end;//with DefineZone(vcm_ztChild
  f_NavigatorZone := TvtSizeablePanel.Create(Self);
  f_NavigatorZone.Name := 'NavigatorZone';
  f_NavigatorZone.Parent := BackgroundPanel;
- with DefineZone(vcm_ztNavigator, f_NavigatorZone) do
+ with DefineZone(vcm_ztNavigator, NavigatorZone) do
  begin
- end;//with DefineZone(vcm_ztNavigator, f_NavigatorZone)
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ end;//with DefineZone(vcm_ztNavigator
+end;//TPrimStyleEditorContainerForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utStyleEditorContainerCaption
- str_utStyleEditorContainerCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimStyleEditorContainer
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimStyleEditorContainerForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimStyleEditorContainer }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

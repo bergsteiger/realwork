@@ -375,7 +375,7 @@ end;//TPrimAttributeSelectForm.SearchParameters_GetQuery_Execute
 
 procedure TPrimAttributeSelectForm.SearchParameters_GetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_GetQuery_Params) do
+ with ISearchParameters_GetQuery_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_GetQuery_Execute(IgnoreError);
 end;//TPrimAttributeSelectForm.SearchParameters_GetQuery
 
@@ -396,7 +396,7 @@ end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved_Execute
 
 procedure TPrimAttributeSelectForm.SearchParameters_IsQuerySaved(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQuerySaved_Params) do
+ with ISearchParameters_IsQuerySaved_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQuerySaved_Execute;
 end;//TPrimAttributeSelectForm.SearchParameters_IsQuerySaved
 
@@ -425,7 +425,7 @@ end;//TPrimAttributeSelectForm.SearchParameters_SetQuery_Execute
 
 procedure TPrimAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_SetQuery_Params) do
+ with ISearchParameters_SetQuery_Params(aParams.Data) do
   Self.SearchParameters_SetQuery_Execute(Query);
 end;//TPrimAttributeSelectForm.SearchParameters_SetQuery
 
@@ -444,7 +444,7 @@ end;//TPrimAttributeSelectForm.AttributeTree_SetRoot_Execute
 
 procedure TPrimAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetRoot_Params) do
+ with IAttributeTree_SetRoot_Params(aParams.Data) do
   Self.AttributeTree_SetRoot_Execute(Tag);
 end;//TPrimAttributeSelectForm.AttributeTree_SetRoot
 

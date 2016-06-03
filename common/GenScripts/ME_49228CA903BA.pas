@@ -57,8 +57,8 @@ type
     aPos: Longword): IdeDocInfo;
     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
            новой сборки вернуться как результат для вызова операции модуля }
-   function pm_GetdsConsultation: IdsConsultation;
-   function pm_GetdsList: IdsDocumentList;
+   function pm_GetDsConsultation: IdsConsultation;
+   function pm_GetDsList: IdsDocumentList;
    function pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
    procedure GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
     {* дать оценку.
@@ -79,7 +79,7 @@ type
            дереве, при этом эта же консультация открыта на экране и ее нужно
            перечитать, чтобы ссылка оценить пропала }
    procedure MarkSended;
-   function Get_bsConsultation: IbsConsultation;
+   function Get_BsConsultation: IbsConsultation;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -151,23 +151,23 @@ begin
 //#UC END# *492597A602F6_49228CA903BA_impl*
 end;//TsdsConsultation.MakeGotoPointData
 
-function TsdsConsultation.pm_GetdsConsultation: IdsConsultation;
+function TsdsConsultation.pm_GetDsConsultation: IdsConsultation;
 //#UC START# *492EB71000D6_49228CA903BAget_var*
 //#UC END# *492EB71000D6_49228CA903BAget_var*
 begin
 //#UC START# *492EB71000D6_49228CA903BAget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EB71000D6_49228CA903BAget_impl*
-end;//TsdsConsultation.pm_GetdsConsultation
+end;//TsdsConsultation.pm_GetDsConsultation
 
-function TsdsConsultation.pm_GetdsList: IdsDocumentList;
+function TsdsConsultation.pm_GetDsList: IdsDocumentList;
 //#UC START# *492EB77C0125_49228CA903BAget_var*
 //#UC END# *492EB77C0125_49228CA903BAget_var*
 begin
 //#UC START# *492EB77C0125_49228CA903BAget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EB77C0125_49228CA903BAget_impl*
-end;//TsdsConsultation.pm_GetdsList
+end;//TsdsConsultation.pm_GetDsList
 
 function TsdsConsultation.pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
 //#UC START# *492EB793009E_49228CA903BAget_var*
@@ -292,14 +292,14 @@ begin
 //#UC END# *492EBCE002E0_49228CA903BA_impl*
 end;//TsdsConsultation.MarkSended
 
-function TsdsConsultation.Get_bsConsultation: IbsConsultation;
+function TsdsConsultation.Get_BsConsultation: IbsConsultation;
 //#UC START# *4F4E1E06038E_49228CA903BAget_var*
 //#UC END# *4F4E1E06038E_49228CA903BAget_var*
 begin
 //#UC START# *4F4E1E06038E_49228CA903BAget_impl*
  Result := Self.Consultation;
 //#UC END# *4F4E1E06038E_49228CA903BAget_impl*
-end;//TsdsConsultation.Get_bsConsultation
+end;//TsdsConsultation.Get_BsConsultation
 
 procedure TsdsConsultation.Cleanup;
  {* Функция очистки полей объекта. }

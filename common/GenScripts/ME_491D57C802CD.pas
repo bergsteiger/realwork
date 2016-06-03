@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_DictionInterfaces;
+unit DictionInterfaces;
  {* »нтерфейсы дл€ работы с толковым словарЄм }
 
-// ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\NOT_COMPLETED_DictionInterfaces.pas"
+// ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\DictionInterfaces.pas"
 // —тереотип: "ControllerInterfaces"
 // Ёлемент модели: "DictionInterfaces" MUID: (491D57C802CD)
 
@@ -80,19 +80,19 @@ type
   ['{9BE60C81-85BB-4DBB-AC9A-CA023E09BA3C}']
   function pm_GetLanguages: TbsLanguages;
   procedure pm_SetLanguages(aValue: TbsLanguages);
-  function pm_GetrefTranslationCount: Integer;
+  function pm_GetRefTranslationCount: Integer;
   function pm_GetIsShowLiteratureList: Boolean;
   procedure pm_SetIsShowLiteratureList(aValue: Boolean);
   function pm_GetContextMap: InsLangToContextMap;
   procedure pm_SetContextMap(const aValue: InsLangToContextMap);
   function pm_GetCurrentLanguage: TbsLanguage;
   procedure pm_SetCurrentLanguage(aValue: TbsLanguage);
-  function pm_GetrefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
+  function pm_GetRefTranslation(aIndex: Integer): IvcmFormDataSourceRef;
   property Languages: TbsLanguages
    read pm_GetLanguages
    write pm_SetLanguages;
   property refTranslationCount: Integer
-   read pm_GetrefTranslationCount;
+   read pm_GetRefTranslationCount;
   property IsShowLiteratureList: Boolean
    read pm_GetIsShowLiteratureList
    write pm_SetIsShowLiteratureList;
@@ -103,7 +103,7 @@ type
    read pm_GetCurrentLanguage
    write pm_SetCurrentLanguage;
   property refTranslation[aIndex: Integer]: IvcmFormDataSourceRef
-   read pm_GetrefTranslation;
+   read pm_GetRefTranslation;
  end;//IdDiction
 
  IdeDiction = interface(IdeCommonDiction)
@@ -124,16 +124,16 @@ type
  IsdsDiction = interface(IsdsCommonDiction)
   {* “олковый словарь }
   ['{5F50593A-39D2-4EC7-9410-0A4FEE1DB991}']
-  function pm_GetdsDiction: IdsDiction;
+  function pm_GetDsDiction: IdsDiction;
   function pm_GetTranslationForms: Integer;
   function pm_GetDefaultLanguage: TbsLanguage;
-  function pm_GetdsTranslate(aLanguageId: Integer): IdsDictionDocument;
+  function pm_GetDsTranslate(aLanguageId: Integer): IdsDictionDocument;
   function pm_GetContextMap: InsLangToContextMap;
   procedure OpenLiteratureList;
    {* открыть список литературы дл€ толкового словар€ }
   function IsShowLiteratureList: Boolean;
   property dsDiction: IdsDiction
-   read pm_GetdsDiction;
+   read pm_GetDsDiction;
   property TranslationForms: Integer
    read pm_GetTranslationForms;
    {* количество форм с переводом (по количеству возможных €зыков) }
@@ -141,7 +141,7 @@ type
    read pm_GetDefaultLanguage;
    {* €зык по умолчанию, используетс€ дл€ установки фиктивной закладки толкового словар€ }
   property dsTranslate[aLanguageId: Integer]: IdsDictionDocument
-   read pm_GetdsTranslate;
+   read pm_GetDsTranslate;
    {* получить бизнес объект дл€ указанного €зыка }
   property ContextMap: InsLangToContextMap
    read pm_GetContextMap;

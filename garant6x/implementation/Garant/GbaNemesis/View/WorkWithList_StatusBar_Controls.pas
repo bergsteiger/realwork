@@ -1,38 +1,21 @@
 unit WorkWithList_StatusBar_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkWithList_StatusBar_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Работа с документом и списком документов::WorkWithList::View::StatusBar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_StatusBar_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "StatusBar" MUID: (4B20DE9B0154)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(* Selection = operations
-  {* Выделенные элементы }
-   ['{D97C7564-6DFB-41DE-9383-048382A079B4}']
-   operation Analize;
-     {* Анализ списка... }
-   operation CopyToNewList;
- end;//Selection*)
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_Selection = 'Selection';
  en_capSelection = 'Выделенные элементы';
@@ -40,8 +23,14 @@ const
  op_capAnalize = 'Анализ списка...';
  op_CopyToNewList = 'CopyToNewList';
  op_capCopyToNewList = '';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

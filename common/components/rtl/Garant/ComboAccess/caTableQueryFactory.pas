@@ -24,8 +24,7 @@ type
    f_PGFactory: IdaTableQueryFactory;
    f_DataConverter: IcaDataConverter;
   protected
-   function MakeTabledQuery(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaTabledQuery;
+   function MakeTabledQuery(const aFromClause: IdaFromClause): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
     const aField: IdaFieldDescription;
     const anAlias: AnsiString = ''): IdaSelectField;
@@ -44,14 +43,13 @@ type
     aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    function MakeJoin(const aLeft: IdaFromClause;
     const aRight: IdaFromClause;
-    aKind: TdaJoinKind): IdaFromClause;
+    aKind: TdaJoinKind): IdaJoin;
    function MakeJoinCondition(const aLeftTableAlias: AnsiString;
     const aLeftField: IdaFieldDescription;
     const aRightTableAlias: AnsiString;
     const aRightField: IdaFieldDescription): IdaCondition;
    function MakeSimpleFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString): IdaFromClause;
-   function MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
+    const anAlias: AnsiString = ''): IdaFromClause;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -77,7 +75,7 @@ uses
  , daSubQueryCondition
  , daJoin
  , daJoinCondition
- , daFromTable
+ , caFromClause
 ;
 
 constructor TcaTableQueryFactory.Create(const aDataConverter: IcaDataConverter;
@@ -108,8 +106,7 @@ begin
  end;//try..finally
 end;//TcaTableQueryFactory.Make
 
-function TcaTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaTabledQuery;
+function TcaTableQueryFactory.MakeTabledQuery(const aFromClause: IdaFromClause): IdaTabledQuery;
 //#UC START# *5549C65D038D_56C4594703CF_var*
 //#UC END# *5549C65D038D_56C4594703CF_var*
 begin
@@ -185,7 +182,7 @@ end;//TcaTableQueryFactory.MakeSortField
 
 function TcaTableQueryFactory.MakeJoin(const aLeft: IdaFromClause;
  const aRight: IdaFromClause;
- aKind: TdaJoinKind): IdaFromClause;
+ aKind: TdaJoinKind): IdaJoin;
 //#UC START# *574584D802F6_56C4594703CF_var*
 //#UC END# *574584D802F6_56C4594703CF_var*
 begin
@@ -207,7 +204,7 @@ begin
 end;//TcaTableQueryFactory.MakeJoinCondition
 
 function TcaTableQueryFactory.MakeSimpleFromClause(const aTable: IdaTableDescription;
- const anAlias: AnsiString): IdaFromClause;
+ const anAlias: AnsiString = ''): IdaFromClause;
 //#UC START# *574C32760314_56C4594703CF_var*
 //#UC END# *574C32760314_56C4594703CF_var*
 begin
@@ -216,17 +213,6 @@ begin
  Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_56C4594703CF_impl*
 end;//TcaTableQueryFactory.MakeSimpleFromClause
-
-function TcaTableQueryFactory.MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
-//#UC START# *574C32D802C6_56C4594703CF_var*
-//#UC END# *574C32D802C6_56C4594703CF_var*
-begin
-//#UC START# *574C32D802C6_56C4594703CF_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
-//#UC END# *574C32D802C6_56C4594703CF_impl*
-end;//TcaTableQueryFactory.MakeJoinQuery
 
 procedure TcaTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

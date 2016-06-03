@@ -17,6 +17,8 @@ uses
  , vcmTaskPanelInterfaces
  , vtCtrls
  , vtPanel
+ , vcmInterfaces
+ , l3Tree_TLB
  , vtLabel
  , vtButton
  , vtGroupBox
@@ -29,8 +31,6 @@ uses
  , Buttons
  {$IfEnd} // NOT Defined(NoVCL)
  , eeCheckBox
- , vcmInterfaces
- , l3Tree_TLB
  , l3Interfaces
  , l3TreeInterfaces
  , l3NodesModelPart
@@ -148,7 +148,6 @@ type
  TvcmBaseNode = class(Tl3UsualNode, ItpBaseNode)
   private
    f_State: TtpState;
-    {* Поле для свойства State }
   protected
    procedure DoSave; virtual;
    procedure Remove;
@@ -184,7 +183,6 @@ type
  TvcmCustOpsNode = class(TvcmBaseNode, ItpTasksPanelNode)
   private
    f_Position: Integer;
-    {* Поле для свойства Position }
   private
    procedure DoSetPosition(aValue: Integer); virtual; abstract;
   protected
@@ -200,9 +198,7 @@ type
   {* Группа панели задач }
   private
    f_Group: IvcmCustOpsGroup;
-    {* Поле для свойства Group }
    f_RepGroup: IvcmCustOpsRepGroup;
-    {* Поле для свойства RepGroup }
   private
    procedure LoadOps;
   protected
@@ -214,8 +210,8 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   procedure ClearFields; override;
    procedure DoSave; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aGroup: IvcmCustOpsGroup); reintroduce; overload;
    class function Make(const aGroup: IvcmCustOpsGroup): Il3Node; reintroduce; overload;
@@ -233,13 +229,9 @@ type
  TvcmGroupOperation = class(TvcmCustOpsNode, ItpGroupOperation)
   private
    f_Op: IvcmCustOpsGroupOperation;
-    {* Поле для свойства Op }
    f_RepOp: IvcmCustOpsRepOperation;
-    {* Поле для свойства RepOp }
    f_ForAllUseCases: Boolean;
-    {* Поле для свойства ForAllUseCases }
    f_GroupChanged: Boolean;
-    {* Поле для свойства GroupChanged }
   protected
    function pm_GetGroup: ItpGroup;
    function pm_GetOp: IvcmCustOpsGroupOperation;
@@ -256,8 +248,8 @@ type
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
    procedure DoSave; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aOp: IvcmCustOpsGroupOperation); reintroduce; overload;
    constructor Create(const aRepOp: IvcmCustOpsRepOperation); reintroduce; overload;
@@ -283,7 +275,6 @@ type
  TvcmRepGroupOperationsNode = {final} class(TvcmBaseNode, ItpRepGroupOperationsNode)
   private
    f_Group: IvcmCustOpsRepGroupOperations;
-    {* Поле для свойства Group }
   protected
    function pm_GetGroup: IvcmCustOpsRepGroupOperations;
    procedure Cleanup; override;
@@ -300,7 +291,6 @@ type
  TvcmRepOperationNode = class(TvcmBaseNode, ItpRepOperationNode)
   private
    f_Op: IvcmCustOpsRepOperation;
-    {* Поле для свойства Op }
   protected
    function pm_GetOp: IvcmCustOpsRepOperation;
    procedure Cleanup; override;
@@ -344,15 +334,14 @@ type
  TvcmRepGroupNode = class(TvcmBaseNode, ItpRepGroupNode)
   private
    f_RepGroup: IvcmCustOpsRepGroup;
-    {* Поле для свойства RepGroup }
   protected
    function Get_RepGroup: IvcmCustOpsRepGroup;
    procedure Set_RepGroup(const aValue: IvcmCustOpsRepGroup);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   procedure ClearFields; override;
    procedure DoSave; override;
+   procedure ClearFields; override;
   public
    constructor Create(const aCaption: Tl3PCharLenPrim;
     const aRepGroup: IvcmCustOpsRepGroup = nil); reintroduce;
@@ -368,83 +357,60 @@ type
   {* Редактор панели задач }
   private
    f_spRight: TvtSplitter;
-    {* Поле для свойства spRight }
    f_pnlBottom: TvtPanel;
-    {* Поле для свойства pnlBottom }
-   f_lblConfirmSave: TvtLabel;
-    {* Поле для свойства lblConfirmSave }
-   f_lblAvailableOpsCaption: TvtLabel;
-    {* Поле для свойства lblAvailableOpsCaption }
-   f_btOk: TvtButton;
-    {* Поле для свойства btOk }
-   f_btCancel: TvtButton;
-    {* Поле для свойства btCancel }
-   f_btApply: TvtButton;
-    {* Поле для свойства btApply }
    f_pnlRep: TvtPanel;
-    {* Поле для свойства pnlRep }
-   f_splRep: TvtSplitter;
-    {* Поле для свойства splRep }
-   f_gbAvailableGroups: TvtGroupBox;
-    {* Поле для свойства gbAvailableGroups }
-   f_tvRepGroups: TeeTreeView;
-    {* Поле для свойства tvRepGroups }
-   f_vtPanel1: TvtPanel;
-    {* Поле для свойства vtPanel1 }
-   f_cbGroupName: TvtComboBox;
-    {* Поле для свойства cbGroupName }
-   f_btnAddGroup: TeeButton;
-    {* Поле для свойства btnAddGroup }
-   f_btnChangeGroup: TeeButton;
-    {* Поле для свойства btnChangeGroup }
-   f_btnDeleteGroup: TeeButton;
-    {* Поле для свойства btnDeleteGroup }
-   f_gbAvailableOperations: TvtGroupBox;
-    {* Поле для свойства gbAvailableOperations }
-   f_tvRepOps: TeeTreeView;
-    {* Поле для свойства tvRepOps }
    f_pnlForms: TvtPanel;
-    {* Поле для свойства pnlForms }
-   f_lblForms: TvtLabel;
-    {* Поле для свойства lblForms }
-   f_cbForms: TComboBox;
-    {* Поле для свойства cbForms }
    f_pnlMain: TvtPanel;
-    {* Поле для свойства pnlMain }
-   f_pnlLeft: TvtPanel;
-    {* Поле для свойства pnlLeft }
-   f_btnMoveOpToPanel: TBitBtn;
-    {* Поле для свойства btnMoveOpToPanel }
-   f_btnMoveOpToRep: TBitBtn;
-    {* Поле для свойства btnMoveOpToRep }
-   f_btnMoveGroupToPanel: TBitBtn;
-    {* Поле для свойства btnMoveGroupToPanel }
-   f_btnMoveGroupToRep: TBitBtn;
-    {* Поле для свойства btnMoveGroupToRep }
-   f_pnlTasksPanel: TvtPanel;
-    {* Поле для свойства pnlTasksPanel }
-   f_gbTasksPanel: TvtGroupBox;
-    {* Поле для свойства gbTasksPanel }
-   f_tvTasksPanel: TeeTreeView;
-    {* Поле для свойства tvTasksPanel }
-   f_vtGroupBox3: TvtGroupBox;
-    {* Поле для свойства vtGroupBox3 }
-   f_lblCaption: TvtLabel;
-    {* Поле для свойства lblCaption }
-   f_edChange: TvtComboBox;
-    {* Поле для свойства edChange }
-   f_cbForAllUseCases: TeeCheckBox;
-    {* Поле для свойства cbForAllUseCases }
-   f_btnChangeItem: TeeButton;
-    {* Поле для свойства btnChangeItem }
-   f_pnlOperationPos: TvtPanel;
-    {* Поле для свойства pnlOperationPos }
-   f_UpBitBtn: TBitBtn;
-    {* Поле для свойства UpBitBtn }
-   f_DownBitBtn: TBitBtn;
-    {* Поле для свойства DownBitBtn }
    f_IsChanged: Boolean;
-    {* Поле для свойства IsChanged }
+   f_lblConfirmSave: TvtLabel;
+    {* Объект системы изменен. Применить изменения? }
+   f_lblAvailableOpsCaption: TvtLabel;
+    {* Редактор доступных операций панели инструментов }
+   f_btOk: TvtButton;
+    {* Ок }
+   f_btCancel: TvtButton;
+    {* Отмена }
+   f_btApply: TvtButton;
+    {* Применить }
+   f_splRep: TvtSplitter;
+   f_gbAvailableGroups: TvtGroupBox;
+    {* Доступные группы: }
+   f_tvRepGroups: TeeTreeView;
+   f_vtPanel1: TvtPanel;
+   f_cbGroupName: TvtComboBox;
+   f_btnAddGroup: TeeButton;
+    {* Добавить }
+   f_btnChangeGroup: TeeButton;
+    {* Изменить }
+   f_btnDeleteGroup: TeeButton;
+    {* Удалить }
+   f_gbAvailableOperations: TvtGroupBox;
+    {* Доступные операции: }
+   f_tvRepOps: TeeTreeView;
+   f_lblForms: TvtLabel;
+    {* Выберите форму: }
+   f_cbForms: TComboBox;
+   f_pnlLeft: TvtPanel;
+   f_btnMoveOpToPanel: TBitBtn;
+   f_btnMoveOpToRep: TBitBtn;
+   f_btnMoveGroupToPanel: TBitBtn;
+   f_btnMoveGroupToRep: TBitBtn;
+   f_pnlTasksPanel: TvtPanel;
+   f_gbTasksPanel: TvtGroupBox;
+    {* Текущая панель задач: }
+   f_tvTasksPanel: TeeTreeView;
+   f_vtGroupBox3: TvtGroupBox;
+    {* Текущий элемент: }
+   f_lblCaption: TvtLabel;
+    {* Название: }
+   f_edChange: TvtComboBox;
+   f_cbForAllUseCases: TeeCheckBox;
+    {* Для всех панелей задач }
+   f_btnChangeItem: TeeButton;
+    {* Изменить }
+   f_pnlOperationPos: TvtPanel;
+   f_UpBitBtn: TBitBtn;
+   f_DownBitBtn: TBitBtn;
   private
    procedure tvRepOpsGetItemImage;
    procedure cbGroupNameChange(Sender: TObject);
@@ -496,7 +462,11 @@ type
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    procedure MakeControls; override;
   public
-   class function Make(const aPanel: IvcmCustOps): IvcmEntityForm; reintroduce;
+   class function Make(const aPanel: IvcmCustOps;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
     {* Фабрика }
   private
    property IsChanged: Boolean
@@ -607,6 +577,8 @@ implementation
 uses
  l3ImplUses
  , CustomizeTasksPanelRes
+ , vcmBase
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -909,13 +881,6 @@ begin
 //#UC END# *47A869D10074_539726940063_impl*
 end;//TvcmGroup.DoSetAsPCharLen
 
-procedure TvcmGroup.ClearFields;
-begin
- f_Group := nil;
- f_RepGroup := nil;
- inherited;
-end;//TvcmGroup.ClearFields
-
 procedure TvcmGroup.DoSave;
 //#UC START# *53972500009A_539726940063_var*
 //#UC END# *53972500009A_539726940063_var*
@@ -924,6 +889,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_539726940063_impl*
 end;//TvcmGroup.DoSave
+
+procedure TvcmGroup.ClearFields;
+begin
+ f_Group := nil;
+ f_RepGroup := nil;
+ inherited;
+end;//TvcmGroup.ClearFields
 
 function TvcmGroupOperation.pm_GetGroup: ItpGroup;
 //#UC START# *53972F530397_539729990330get_var*
@@ -1086,13 +1058,6 @@ begin
 //#UC END# *4A60B23E00C3_539729990330_impl*
 end;//TvcmGroupOperation.COMQueryInterface
 
-procedure TvcmGroupOperation.ClearFields;
-begin
- Op := nil;
- RepOp := nil;
- inherited;
-end;//TvcmGroupOperation.ClearFields
-
 procedure TvcmGroupOperation.DoSave;
 //#UC START# *53972500009A_539729990330_var*
 //#UC END# *53972500009A_539729990330_var*
@@ -1101,6 +1066,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_539729990330_impl*
 end;//TvcmGroupOperation.DoSave
+
+procedure TvcmGroupOperation.ClearFields;
+begin
+ Op := nil;
+ RepOp := nil;
+ inherited;
+end;//TvcmGroupOperation.ClearFields
 
 constructor TvcmRepGroupOperationsNode.Create(const aGroup: IvcmCustOpsRepGroupOperations);
 //#UC START# *5397386402F9_539730BD0307_var*
@@ -1319,12 +1291,6 @@ begin
 //#UC END# *47A869D10074_53973B3F02F2_impl*
 end;//TvcmRepGroupNode.DoSetAsPCharLen
 
-procedure TvcmRepGroupNode.ClearFields;
-begin
- RepGroup := nil;
- inherited;
-end;//TvcmRepGroupNode.ClearFields
-
 procedure TvcmRepGroupNode.DoSave;
 //#UC START# *53972500009A_53973B3F02F2_var*
 //#UC END# *53972500009A_53973B3F02F2_var*
@@ -1333,6 +1299,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53972500009A_53973B3F02F2_impl*
 end;//TvcmRepGroupNode.DoSave
+
+procedure TvcmRepGroupNode.ClearFields;
+begin
+ RepGroup := nil;
+ inherited;
+end;//TvcmRepGroupNode.ClearFields
 
 function TPrimCustomizeTasksPanelForm.pm_GetTasksPanel: IvcmCustOps;
 //#UC START# *4C8E4F1702F8_4C8E4D21001Fget_var*
@@ -1361,16 +1333,32 @@ begin
 //#UC END# *5397181C036E_4C8E4D21001Fset_impl*
 end;//TPrimCustomizeTasksPanelForm.pm_SetIsChanged
 
-class function TPrimCustomizeTasksPanelForm.Make(const aPanel: IvcmCustOps): IvcmEntityForm;
+class function TPrimCustomizeTasksPanelForm.Make(const aPanel: IvcmCustOps;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
  {* Фабрика }
+
+ procedure AfterCreate(aForm : TPrimCustomizeTasksPanelForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4C8E51FA022E_4C8E4D21001F_impl*
+   TasksPanel := aPanel;
+  //#UC END# *4C8E51FA022E_4C8E4D21001F_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimCustomizeTasksPanelForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aPanel);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimCustomizeTasksPanelForm.Make
 

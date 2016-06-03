@@ -47,16 +47,16 @@ type
    f_DrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
     {* Форма синхронного просмотра }
   protected
-   function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
-   function pm_GetdsDrugListRef: IvcmFormDataSourceRef;
+   function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
+   function pm_GetDsDrugListRef: IvcmFormDataSourceRef;
    function pm_GetList: IDynList;
    procedure pm_SetList(const aValue: IDynList);
    function pm_GetNodeForPositioning: Il3SimpleNode;
    procedure pm_SetNodeForPositioning(const aValue: Il3SimpleNode);
-   function pm_GetdsListInfoRef: IvcmFormDataSourceRef;
-   function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
-   function pm_GetDrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
-   procedure pm_SetDrugList_SynchroView_Form(aValue: TDrugList_SynchroView_Areas);
+   function pm_GetDsListInfoRef: IvcmFormDataSourceRef;
+   function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
+   function pm_GetDrugListSynchroViewForm: TDrugList_SynchroView_Areas;
+   procedure pm_SetDrugListSynchroViewForm(aValue: TDrugList_SynchroView_Areas);
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
@@ -97,23 +97,23 @@ begin
  end;//try..finally
 end;//TdDrugList.Make
 
-function TdDrugList.pm_GetdsFiltersRef: IvcmFormDataSourceRef;
+function TdDrugList.pm_GetDsFiltersRef: IvcmFormDataSourceRef;
 //#UC START# *0048137F6167_47EB3E410033get_var*
 //#UC END# *0048137F6167_47EB3E410033get_var*
 begin
 //#UC START# *0048137F6167_47EB3E410033get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *0048137F6167_47EB3E410033get_impl*
-end;//TdDrugList.pm_GetdsFiltersRef
+end;//TdDrugList.pm_GetDsFiltersRef
 
-function TdDrugList.pm_GetdsDrugListRef: IvcmFormDataSourceRef;
+function TdDrugList.pm_GetDsDrugListRef: IvcmFormDataSourceRef;
 //#UC START# *38AF3FCA8739_47EB3E410033get_var*
 //#UC END# *38AF3FCA8739_47EB3E410033get_var*
 begin
 //#UC START# *38AF3FCA8739_47EB3E410033get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *38AF3FCA8739_47EB3E410033get_impl*
-end;//TdDrugList.pm_GetdsDrugListRef
+end;//TdDrugList.pm_GetDsDrugListRef
 
 function TdDrugList.pm_GetList: IDynList;
 //#UC START# *47F37CF2000D_47EB3E410033get_var*
@@ -151,41 +151,41 @@ begin
 //#UC END# *47FF3A4C03E7_47EB3E410033set_impl*
 end;//TdDrugList.pm_SetNodeForPositioning
 
-function TdDrugList.pm_GetdsListInfoRef: IvcmFormDataSourceRef;
+function TdDrugList.pm_GetDsListInfoRef: IvcmFormDataSourceRef;
 //#UC START# *6DCE2C2DE35F_47EB3E410033get_var*
 //#UC END# *6DCE2C2DE35F_47EB3E410033get_var*
 begin
 //#UC START# *6DCE2C2DE35F_47EB3E410033get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *6DCE2C2DE35F_47EB3E410033get_impl*
-end;//TdDrugList.pm_GetdsListInfoRef
+end;//TdDrugList.pm_GetDsListInfoRef
 
-function TdDrugList.pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+function TdDrugList.pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
 //#UC START# *8C15EA0B7407_47EB3E410033get_var*
 //#UC END# *8C15EA0B7407_47EB3E410033get_var*
 begin
 //#UC START# *8C15EA0B7407_47EB3E410033get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *8C15EA0B7407_47EB3E410033get_impl*
-end;//TdDrugList.pm_GetdsSynchroViewRef
+end;//TdDrugList.pm_GetDsSynchroViewRef
 
-function TdDrugList.pm_GetDrugList_SynchroView_Form: TDrugList_SynchroView_Areas;
+function TdDrugList.pm_GetDrugListSynchroViewForm: TDrugList_SynchroView_Areas;
 //#UC START# *B53EF7286977_47EB3E410033get_var*
 //#UC END# *B53EF7286977_47EB3E410033get_var*
 begin
 //#UC START# *B53EF7286977_47EB3E410033get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *B53EF7286977_47EB3E410033get_impl*
-end;//TdDrugList.pm_GetDrugList_SynchroView_Form
+end;//TdDrugList.pm_GetDrugListSynchroViewForm
 
-procedure TdDrugList.pm_SetDrugList_SynchroView_Form(aValue: TDrugList_SynchroView_Areas);
+procedure TdDrugList.pm_SetDrugListSynchroViewForm(aValue: TDrugList_SynchroView_Areas);
 //#UC START# *B53EF7286977_47EB3E410033set_var*
 //#UC END# *B53EF7286977_47EB3E410033set_var*
 begin
 //#UC START# *B53EF7286977_47EB3E410033set_impl*
  !!! Needs to be implemented !!!
 //#UC END# *B53EF7286977_47EB3E410033set_impl*
-end;//TdDrugList.pm_SetDrugList_SynchroView_Form
+end;//TdDrugList.pm_SetDrugListSynchroViewForm
 
 procedure TdDrugList.InitFields;
 //#UC START# *47A042E100E2_47EB3E410033_var*

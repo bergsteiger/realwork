@@ -87,10 +87,10 @@ type
     {* Изменить привилегированность для выделенных на дереве пользователей }
    function pm_GetConsultingPaymentForNewbies: Boolean;
    procedure pm_SetConsultingPaymentForNewbies(aValue: Boolean);
-   function pm_GetdsUserList: IdsUserList;
-   function pm_GetdsAdmin: IdsAdmin;
-   function pm_GetdsUserProperty: IdsUserProperty;
-   function pm_GetdsGroupsList: IdsGroupsList;
+   function pm_GetDsUserList: IdsUserList;
+   function pm_GetDsAdmin: IdsAdmin;
+   function pm_GetDsUserProperty: IdsUserProperty;
+   function pm_GetDsGroupsList: IdsGroupsList;
    function ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean; overload;
     {* Изменить доступ для групп }
    procedure DeleteGroup(const aNode: Il3SimpleNode);
@@ -587,41 +587,41 @@ begin
 //#UC END# *4931230801FC_493126130280set_impl*
 end;//TsdsAdmin.pm_SetConsultingPaymentForNewbies
 
-function TsdsAdmin.pm_GetdsUserList: IdsUserList;
+function TsdsAdmin.pm_GetDsUserList: IdsUserList;
 //#UC START# *4933A3DE0399_493126130280get_var*
 //#UC END# *4933A3DE0399_493126130280get_var*
 begin
 //#UC START# *4933A3DE0399_493126130280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4933A3DE0399_493126130280get_impl*
-end;//TsdsAdmin.pm_GetdsUserList
+end;//TsdsAdmin.pm_GetDsUserList
 
-function TsdsAdmin.pm_GetdsAdmin: IdsAdmin;
+function TsdsAdmin.pm_GetDsAdmin: IdsAdmin;
 //#UC START# *4933A42A000B_493126130280get_var*
 //#UC END# *4933A42A000B_493126130280get_var*
 begin
 //#UC START# *4933A42A000B_493126130280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4933A42A000B_493126130280get_impl*
-end;//TsdsAdmin.pm_GetdsAdmin
+end;//TsdsAdmin.pm_GetDsAdmin
 
-function TsdsAdmin.pm_GetdsUserProperty: IdsUserProperty;
+function TsdsAdmin.pm_GetDsUserProperty: IdsUserProperty;
 //#UC START# *4933A4B2026A_493126130280get_var*
 //#UC END# *4933A4B2026A_493126130280get_var*
 begin
 //#UC START# *4933A4B2026A_493126130280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4933A4B2026A_493126130280get_impl*
-end;//TsdsAdmin.pm_GetdsUserProperty
+end;//TsdsAdmin.pm_GetDsUserProperty
 
-function TsdsAdmin.pm_GetdsGroupsList: IdsGroupsList;
+function TsdsAdmin.pm_GetDsGroupsList: IdsGroupsList;
 //#UC START# *49EC52D1019D_493126130280get_var*
 //#UC END# *49EC52D1019D_493126130280get_var*
 begin
 //#UC START# *49EC52D1019D_493126130280get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49EC52D1019D_493126130280get_impl*
-end;//TsdsAdmin.pm_GetdsGroupsList
+end;//TsdsAdmin.pm_GetDsGroupsList
 
 function TsdsAdmin.ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean;
  {* Изменить доступ для групп }

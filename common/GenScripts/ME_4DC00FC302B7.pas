@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_MainWindowInterfaces;
+unit MainWindowInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\NOT_COMPLETED_MainWindowInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "MainWindowInterfaces" MUID: (4DC00FC302B7)
 
@@ -30,11 +30,11 @@ type
  IsdsMainWindow = interface(IvcmUseCaseController)
   {* Основное окно }
   ['{4BABE209-5CE4-4408-B307-6EF460A071E8}']
-  function pm_GetdsBaloonWarning: IdsWarning;
+  function pm_GetDsBaloonWarning: IdsWarning;
   function As_InsWarningGenerator: InsWarningGenerator;
    {* Метод приведения нашего интерфейса к InsWarningGenerator }
   property dsBaloonWarning: IdsWarning
-   read pm_GetdsBaloonWarning;
+   read pm_GetDsBaloonWarning;
  end;//IsdsMainWindow
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

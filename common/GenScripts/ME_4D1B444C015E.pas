@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_WorkWithListInterfaces;
+unit WorkWithListInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\NOT_COMPLETED_WorkWithListInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\WorkWithListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "WorkWithListInterfaces" MUID: (4D1B444C015E)
 
@@ -45,9 +45,9 @@ uses
 type
  IsdsListPrim = interface(IvcmUseCaseController)
   ['{380821C8-D86F-440A-BB30-BF799B79F0D4}']
-  function Get_dsListPrim: IdsList;
+  function Get_DsListPrim: IdsList;
   property dsListPrim: IdsList
-   read Get_dsListPrim;
+   read Get_DsListPrim;
  end;//IsdsListPrim
 
  IucpNodeForPositioningHolder = interface
@@ -167,9 +167,9 @@ type
  IdeDocumentListSet = interface(IdeDocumentList)
   {* Данные для инициализации сборки _TsdsList - список }
   ['{4C8F81E2-2AE2-40CB-A438-9BC463BB53CD}']
-  function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
+  function pm_GetListSynchroViewForm: TList_SynchroView_Areas;
   property List_SynchroView_Form: TList_SynchroView_Areas
-   read pm_GetList_SynchroView_Form;
+   read pm_GetListSynchroViewForm;
    {* Форма синхронного просмотра }
  end;//IdeDocumentListSet
 
@@ -186,13 +186,13 @@ type
  IsdsList = interface(IsdsDocInfo)
   {* Интерфейс сборки "Список" }
   ['{E355CA8F-709D-46F7-AE2D-8C3FD4CB6F08}']
-  function pm_GetdsBaloonWarning: IdsWarning;
-  function pm_GetdsListAnalize: IdsListAnalize;
-  function pm_GetdsTextBaloonWarning: IdsWarning;
-  function pm_GetdsList: IdsDocumentList;
-  function pm_GetdsSynchroView: IdsSynchroView;
-  function pm_GetdsListInfo: IdsListInfo;
-  function pm_GetdsFilters: IdsFilters;
+  function pm_GetDsBaloonWarning: IdsWarning;
+  function pm_GetDsListAnalize: IdsListAnalize;
+  function pm_GetDsTextBaloonWarning: IdsWarning;
+  function pm_GetDsList: IdsDocumentList;
+  function pm_GetDsSynchroView: IdsSynchroView;
+  function pm_GetDsListInfo: IdsListInfo;
+  function pm_GetDsFilters: IdsFilters;
   function pm_GetHasUserCRList1: Boolean;
   function pm_GetHasUserCRList2: Boolean;
   function pm_GetHasDocument: Boolean;
@@ -205,6 +205,10 @@ type
   function pm_GetIsAttributesActive: Boolean;
   function pm_GetIsAnnotationActive: Boolean;
   function pm_GetIsSimilarDocumentsActive: Boolean;
+  function pm_GetDsListRef: IvcmViewAreaControllerRef;
+  function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+  function pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
+  function pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
   procedure UpdateListInfo;
    {* обновляет информацию о списке }
   function MakeFullList(const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
@@ -239,23 +243,23 @@ type
   function As_IsdsListNameHolder: IsdsListNameHolder;
    {* Метод приведения нашего интерфейса к IsdsListNameHolder }
   property dsBaloonWarning: IdsWarning
-   read pm_GetdsBaloonWarning;
+   read pm_GetDsBaloonWarning;
   property dsListAnalize: IdsListAnalize
-   read pm_GetdsListAnalize;
+   read pm_GetDsListAnalize;
    {* [RequestLink:274825697] }
   property dsTextBaloonWarning: IdsWarning
-   read pm_GetdsTextBaloonWarning;
+   read pm_GetDsTextBaloonWarning;
   property dsList: IdsDocumentList
-   read pm_GetdsList;
+   read pm_GetDsList;
    {* БОС формы список }
   property dsSynchroView: IdsSynchroView
-   read pm_GetdsSynchroView;
+   read pm_GetDsSynchroView;
    {* БОС синхронного просмотра }
   property dsListInfo: IdsListInfo
-   read pm_GetdsListInfo;
+   read pm_GetDsListInfo;
    {* БОС справка к списку }
   property dsFilters: IdsFilters
-   read pm_GetdsFilters;
+   read pm_GetDsFilters;
    {* БОС формы фильтры }
   property HasUserCRList1: Boolean
    read pm_GetHasUserCRList1;
@@ -289,6 +293,18 @@ type
   property IsSimilarDocumentsActive: Boolean
    read pm_GetIsSimilarDocumentsActive;
    {* Определяет что открыта ViewArea "БОФ похожие документы" }
+  property dsListRef: IvcmViewAreaControllerRef
+   read pm_GetDsListRef;
+   {* Ссылка на "БОС формы список" }
+  property dsSynchroViewRef: IvcmViewAreaControllerRef
+   read pm_GetDsSynchroViewRef;
+   {* Ссылка на "БОС синхронного просмотра" }
+  property dsListInfoRef: IvcmViewAreaControllerRef
+   read pm_GetDsListInfoRef;
+   {* Ссылка на "БОС справка к списку" }
+  property dsFiltersRef: IvcmViewAreaControllerRef
+   read pm_GetDsFiltersRef;
+   {* Ссылка на "БОС формы фильтры" }
  end;//IsdsList
 
  IdList = interface(IdDocInfo)
@@ -300,13 +316,13 @@ type
   procedure pm_SetUseDataProducer(aValue: Boolean);
   function pm_GetDisableAutoOpenAnnotation: Boolean;
   procedure pm_SetDisableAutoOpenAnnotation(aValue: Boolean);
-  function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
-  procedure pm_SetList_SynchroView_Form(aValue: TList_SynchroView_Areas);
-  function pm_GetDefault_List_SynchroView_Form: TList_SynchroView_Areas;
-  function pm_GetdsListRef: IvcmFormDataSourceRef;
-  function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
-  function pm_GetdsListInfoRef: IvcmFormDataSourceRef;
-  function pm_GetdsFiltersRef: IvcmFormDataSourceRef;
+  function pm_GetListSynchroViewForm: TList_SynchroView_Areas;
+  procedure pm_SetListSynchroViewForm(aValue: TList_SynchroView_Areas);
+  function pm_GetDefaultListSynchroViewForm: TList_SynchroView_Areas;
+  function pm_GetDsListRef: IvcmFormDataSourceRef;
+  function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
+  function pm_GetDsListInfoRef: IvcmFormDataSourceRef;
+  function pm_GetDsFiltersRef: IvcmFormDataSourceRef;
   function pm_GetNodeForPositioning: Il3SimpleNode;
   procedure pm_SetNodeForPositioning(const aValue: Il3SimpleNode);
   property List: IDynList
@@ -319,23 +335,23 @@ type
    read pm_GetDisableAutoOpenAnnotation
    write pm_SetDisableAutoOpenAnnotation;
   property List_SynchroView_Form: TList_SynchroView_Areas
-   read pm_GetList_SynchroView_Form
-   write pm_SetList_SynchroView_Form;
+   read pm_GetListSynchroViewForm
+   write pm_SetListSynchroViewForm;
    {* Форма синхронного просмотра }
   property Default_List_SynchroView_Form: TList_SynchroView_Areas
-   read pm_GetDefault_List_SynchroView_Form;
+   read pm_GetDefaultListSynchroViewForm;
    {* Форма синхронного просмотра по-умолчанию }
   property dsListRef: IvcmFormDataSourceRef
-   read pm_GetdsListRef;
+   read pm_GetDsListRef;
    {* Ссылка на "БОС формы список" }
   property dsSynchroViewRef: IvcmFormDataSourceRef
-   read pm_GetdsSynchroViewRef;
+   read pm_GetDsSynchroViewRef;
    {* Ссылка на "БОС синхронного просмотра" }
   property dsListInfoRef: IvcmFormDataSourceRef
-   read pm_GetdsListInfoRef;
+   read pm_GetDsListInfoRef;
    {* Ссылка на "БОС справка к списку" }
   property dsFiltersRef: IvcmFormDataSourceRef
-   read pm_GetdsFiltersRef;
+   read pm_GetDsFiltersRef;
    {* Ссылка на "БОС формы фильтры" }
   property NodeForPositioning: Il3SimpleNode
    read pm_GetNodeForPositioning

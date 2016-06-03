@@ -61,8 +61,8 @@ type
 'aControl' форма::QueryCard TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_QueryCard_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -76,8 +76,8 @@ type
 'aControl' форма::Preview TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Preview_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -91,45 +91,45 @@ type
 'aControl' форма::SaveLoad TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_SaveLoad_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_QueryCard_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::QueryCard';
-end;//Tkw_Form_QueryCard_ID.GetWordNameForRegister
-
 function Tkw_Form_QueryCard_ID.GetString: AnsiString;
 begin
  Result := 'enQueryCard';
 end;//Tkw_Form_QueryCard_ID.GetString
+
+class function Tkw_Form_QueryCard_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::QueryCard';
+end;//Tkw_Form_QueryCard_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Preview_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Preview';
-end;//Tkw_Form_Preview_ID.GetWordNameForRegister
-
 function Tkw_Form_Preview_ID.GetString: AnsiString;
 begin
  Result := 'efPreviewForm';
 end;//Tkw_Form_Preview_ID.GetString
+
+class function Tkw_Form_Preview_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Preview';
+end;//Tkw_Form_Preview_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_SaveLoad_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::SaveLoad';
-end;//Tkw_Form_SaveLoad_ID.GetWordNameForRegister
-
 function Tkw_Form_SaveLoad_ID.GetString: AnsiString;
 begin
  Result := 'cfSaveLoad';
 end;//Tkw_Form_SaveLoad_ID.GetString
+
+class function Tkw_Form_SaveLoad_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::SaveLoad';
+end;//Tkw_Form_SaveLoad_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

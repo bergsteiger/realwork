@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_UnderControlInterfaces;
+unit UnderControlInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\NOT_COMPLETED_UnderControlInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "UnderControlInterfaces" MUID: (4B9A1E7F0036)
 

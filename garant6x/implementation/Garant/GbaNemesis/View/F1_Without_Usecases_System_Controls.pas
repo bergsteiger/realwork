@@ -1,94 +1,22 @@
 unit F1_Without_Usecases_System_Controls;
+ {* "Системные" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/F1_Without_Usecases_System_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Оболочка Без Прецедентов::F1 Without Usecases::View::System
-//
-// "Системные"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_System_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "System" MUID: (4A8E792A0108)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(* System = operations
-  {* Система }
-   ['{B114DA5E-F2EC-40C9-A291-9C4CAAA27C3A}']
-   operation CantReceiveLegalServiceAnswer; has states;
-     {* Статус связи с ППО }
-      On = state
-       { Произошла ошибка связи при получении ответов службы Правовой поддержки онлайн. ' + 'В связи с этим ответы на ранее заданные Вами вопросы не могут быть доставлены.' + #13#10#13#10 + 'Для решения технических вопросов обратитесь, к Вашему системному администратору. ' + 'Если проблемы с интернет-соединением возникают только для системы ГАРАНТ, обратитесь в обслуживающую Вас организацию:' + #13#10 + '<текст из dealer.inf> }
-      end;//On
-      Off = state
-       { Связь восстановлена }
-      end;//Off
-      Disabled = state
-      end;//Disabled
- end;//System*)
-
-(* Fonts = operations
-   ['{C73B8471-4974-4B88-B2DC-93DDCBC811C5}']
-   operation IncreaseFont;
-   operation DecreaseFont;
- end;//Fonts*)
-
-(* Help = operations
-   ['{F2996D11-93B0-45B2-8122-E48530EAC0D5}']
-   operation HotInformation;
-   query HelpShortCuts;
-   query HelpNewFeatures;
-   query ContactInformation;
-   query ReplyBook;
-   operation GarantInternet;
-   query About;
- end;//Help*)
-
-(* System = operations
-   ['{69ACA76C-00B3-49C6-8745-E3070458A5C7}']
-   query BookmarkList;
- end;//System*)
-
-(* WarnOnControl = operations
-   ['{9CD2578F-69AF-4621-A604-C3A8FDE46C45}']
-   query BuildControlledList;
-     {* Построить список изменившихся документов на контроле }
-   query OpenUnderControlTree;
-     {* Открыть вкладку "Документы на контроле" }
-   query HideReminder;
-     {* Скрыть предупреждающий знак }
- end;//WarnOnControl*)
-
-(* Reminder = operations
-   ['{EE1B479C-466B-4926-BB80-A00E0B94AC88}']
-   operation RemMWControlledChangingWarning;
-   operation RemMWOldBaseWarning;
-   operation RemMWTrialModeWarning;
-   operation RemNewChatMessages;
-   operation RemOnlineDead;
-   operation remUnreadConsultations;
- end;//Reminder*)
-
-(* Common = operations
-   ['{7075BCC1-D217-4AA8-B336-94EAA01272AB}']
-   query MemUsage;
- end;//Common*)
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_System = 'System';
  en_capSystem = 'Система';
@@ -145,15 +73,20 @@ const
  op_MemUsage = 'MemUsage';
  op_capMemUsage = '';
 
-// Состояния операций:
-var st_user_System_CantReceiveLegalServiceAnswer_On : TvcmOperationStateIndex = (rID : -1);
-  // Система -> Статус связи с ППО <-> On
-var st_user_System_CantReceiveLegalServiceAnswer_Off : TvcmOperationStateIndex = (rID : -1);
-  // Система -> Статус связи с ППО <-> Связь восстановлена
-var st_user_System_CantReceiveLegalServiceAnswer_Disabled : TvcmOperationStateIndex = (rID : -1);
-  // Система -> Статус связи с ППО <-> Disabled
-{$IfEnd} //not Admin AND not Monitorings
+var st_user_System_CantReceiveLegalServiceAnswer_On: TvcmOperationStateIndex = (rID : -1);
+ {* Система -> Статус связи с ППО <->  }
+var st_user_System_CantReceiveLegalServiceAnswer_Off: TvcmOperationStateIndex = (rID : -1);
+ {* Система -> Статус связи с ППО <-> Связь восстановлена }
+var st_user_System_CantReceiveLegalServiceAnswer_Disabled: TvcmOperationStateIndex = (rID : -1);
+ {* Система -> Статус связи с ППО <->  }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

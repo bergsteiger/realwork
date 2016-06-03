@@ -19,7 +19,7 @@ uses
 ;
 
 type
- Op_Comment_Changed = class
+ Op_Comment_Changed = {final} class
   {* Класс для вызова операции Comment.Changed }
   public
    class function Call(const aTarget: IvcmEntity): Boolean; overload;
@@ -34,60 +34,91 @@ type
     {* Вызов операции Comment.Changed у всех зарегистрированных сущностей }
  end;//Op_Comment_Changed
 
+const
+ en_Comment = 'Comment';
+ en_capComment = '';
+ op_Changed = 'Changed';
+ op_capChanged = '';
+
 implementation
 
 uses
  l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmEntity): Boolean;
  {* Вызов операции Comment.Changed у сущности }
-//#UC START# *17D827C515B4_4CF941D32C80_var*
-//#UC END# *17D827C515B4_4CF941D32C80_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *17D827C515B4_4CF941D32C80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *17D827C515B4_4CF941D32C80_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_Comment_Changed, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmAggregate): Boolean;
  {* Вызов операции Comment.Changed у агрегации }
-//#UC START# *4817E7B4A004_4CF941D32C80_var*
-//#UC END# *4817E7B4A004_4CF941D32C80_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *4817E7B4A004_4CF941D32C80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4817E7B4A004_4CF941D32C80_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_Comment_Changed, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmEntityForm): Boolean;
  {* Вызов операции Comment.Changed у формы }
-//#UC START# *4ADAC3E354AB_4CF941D32C80_var*
-//#UC END# *4ADAC3E354AB_4CF941D32C80_var*
 begin
-//#UC START# *4ADAC3E354AB_4CF941D32C80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADAC3E354AB_4CF941D32C80_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity);
 end;//Op_Comment_Changed.Call
 
 class function Op_Comment_Changed.Call(const aTarget: IvcmContainer): Boolean;
  {* Вызов операции Comment.Changed у контейнера }
-//#UC START# *FEB78DFB4BFA_4CF941D32C80_var*
-//#UC END# *FEB78DFB4BFA_4CF941D32C80_var*
 begin
-//#UC START# *FEB78DFB4BFA_4CF941D32C80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FEB78DFB4BFA_4CF941D32C80_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm);
 end;//Op_Comment_Changed.Call
 
 class procedure Op_Comment_Changed.Broadcast;
  {* Вызов операции Comment.Changed у всех зарегистрированных сущностей }
-//#UC START# *F8509C861974_4CF941D32C80_var*
-//#UC END# *F8509C861974_4CF941D32C80_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *F8509C861974_4CF941D32C80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F8509C861974_4CF941D32C80_impl*
+ if (vcmDispatcher <> nil) then
+ begin
+  l_Params := vcmParams;
+  vcmDispatcher.EntityOperationBroadcast(TdmStdRes.opcode_Comment_Changed, l_Params);
+ end//vcmDispatcher <> nil
 end;//Op_Comment_Changed.Broadcast
 
 end.

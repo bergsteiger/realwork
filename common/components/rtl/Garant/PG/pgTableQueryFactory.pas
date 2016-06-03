@@ -27,8 +27,7 @@ type
   private
    function UserNameQuery: IdaTabledQuery;
   protected
-   function MakeTabledQuery(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaTabledQuery;
+   function MakeTabledQuery(const aFromClause: IdaFromClause): IdaTabledQuery;
    function MakeSelectField(const aTableAlias: AnsiString;
     const aField: IdaFieldDescription;
     const anAlias: AnsiString = ''): IdaSelectField;
@@ -47,14 +46,13 @@ type
     aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
    function MakeJoin(const aLeft: IdaFromClause;
     const aRight: IdaFromClause;
-    aKind: TdaJoinKind): IdaFromClause;
+    aKind: TdaJoinKind): IdaJoin;
    function MakeJoinCondition(const aLeftTableAlias: AnsiString;
     const aLeftField: IdaFieldDescription;
     const aRightTableAlias: AnsiString;
     const aRightField: IdaFieldDescription): IdaCondition;
    function MakeSimpleFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString): IdaFromClause;
-   function MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
+    const anAlias: AnsiString = ''): IdaFromClause;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -124,8 +122,7 @@ begin
 //#UC END# *56F11DEF037F_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.UserNameQuery
 
-function TpgTableQueryFactory.MakeTabledQuery(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaTabledQuery;
+function TpgTableQueryFactory.MakeTabledQuery(const aFromClause: IdaFromClause): IdaTabledQuery;
 //#UC START# *5549C65D038D_55F81B3F024D_var*
 //#UC END# *5549C65D038D_55F81B3F024D_var*
 begin
@@ -200,7 +197,7 @@ end;//TpgTableQueryFactory.MakeSortField
 
 function TpgTableQueryFactory.MakeJoin(const aLeft: IdaFromClause;
  const aRight: IdaFromClause;
- aKind: TdaJoinKind): IdaFromClause;
+ aKind: TdaJoinKind): IdaJoin;
 //#UC START# *574584D802F6_55F81B3F024D_var*
 //#UC END# *574584D802F6_55F81B3F024D_var*
 begin
@@ -222,7 +219,7 @@ begin
 end;//TpgTableQueryFactory.MakeJoinCondition
 
 function TpgTableQueryFactory.MakeSimpleFromClause(const aTable: IdaTableDescription;
- const anAlias: AnsiString): IdaFromClause;
+ const anAlias: AnsiString = ''): IdaFromClause;
 //#UC START# *574C32760314_55F81B3F024D_var*
 //#UC END# *574C32760314_55F81B3F024D_var*
 begin
@@ -231,17 +228,6 @@ begin
  Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeSimpleFromClause
-
-function TpgTableQueryFactory.MakeJoinQuery(const aJoin: IdaFromClause): IdaTabledQuery;
-//#UC START# *574C32D802C6_55F81B3F024D_var*
-//#UC END# *574C32D802C6_55F81B3F024D_var*
-begin
-//#UC START# *574C32D802C6_55F81B3F024D_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
-//#UC END# *574C32D802C6_55F81B3F024D_impl*
-end;//TpgTableQueryFactory.MakeJoinQuery
 
 procedure TpgTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

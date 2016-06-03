@@ -44,8 +44,8 @@ type
     {* Поле для области вывода dsSaveLoad }
   protected
    function GetQueryClass: TdsQueryClass; virtual;
-   function pm_GetdsQuery: IdsQuery;
-   function pm_GetdsSaveLoad: IdsSaveLoad;
+   function pm_GetDsQuery: IdsQuery;
+   function pm_GetDsSaveLoad: IdsSaveLoad;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
@@ -81,23 +81,23 @@ begin
 //#UC END# *492FEE0000FD_492FECE300EA_impl*
 end;//TsdsQuery.GetQueryClass
 
-function TsdsQuery.pm_GetdsQuery: IdsQuery;
+function TsdsQuery.pm_GetDsQuery: IdsQuery;
 //#UC START# *492F006F00BE_492FECE300EAget_var*
 //#UC END# *492F006F00BE_492FECE300EAget_var*
 begin
 //#UC START# *492F006F00BE_492FECE300EAget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492F006F00BE_492FECE300EAget_impl*
-end;//TsdsQuery.pm_GetdsQuery
+end;//TsdsQuery.pm_GetDsQuery
 
-function TsdsQuery.pm_GetdsSaveLoad: IdsSaveLoad;
+function TsdsQuery.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *492F00890059_492FECE300EAget_var*
 //#UC END# *492F00890059_492FECE300EAget_var*
 begin
 //#UC START# *492F00890059_492FECE300EAget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492F00890059_492FECE300EAget_impl*
-end;//TsdsQuery.pm_GetdsSaveLoad
+end;//TsdsQuery.pm_GetDsSaveLoad
 
 procedure TsdsQuery.ClearAreas;
  {* Очищает ссылки на области ввода }

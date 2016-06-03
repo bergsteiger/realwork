@@ -31,8 +31,6 @@ type
    function BuildOrderByClause: AnsiString;
   protected
    procedure pm_SetWhereCondition(const aValue: IdaCondition); virtual;
-   function MakeFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromClause; virtual; abstract;
    procedure PrepareTable; virtual; abstract;
    procedure UnPrepareTable; virtual; abstract;
    procedure AddSelectField(const aField: IdaSelectField);
@@ -50,8 +48,7 @@ type
   public
    constructor Create(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IdaDataConverter;
-    const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''); reintroduce;
+    const aFromClause: IdaFromClause); reintroduce;
   protected
    property SelectFields: TdaSelectFieldList
     read f_SelectFields;
@@ -86,8 +83,7 @@ end;//TdaTabledQuery.pm_SetWhereCondition
 
 constructor TdaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IdaDataConverter;
- const aTable: IdaTableDescription;
- const anAlias: AnsiString = '');
+ const aFromClause: IdaFromClause);
 //#UC START# *5600FB3903DE_5600FA2301B9_var*
 //#UC END# *5600FB3903DE_5600FA2301B9_var*
 begin

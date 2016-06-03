@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_SimpleListInterfaces;
+unit SimpleListInterfaces;
  {* Интерфейсы "простого списка" }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\NOT_COMPLETED_SimpleListInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\SimpleListInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "SimpleListInterfaces" MUID: (4922BFA000DD)
 

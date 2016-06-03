@@ -41,23 +41,20 @@ type
  )
   private
    f_rb_totmChangeDate: TvtRadioButton;
-    {* Поле для свойства rb_totmChangeDate }
+    {* Изменить дату в Машине времени }
    f_rb_totmStayInCurrentRedaction: TvtRadioButton;
-    {* Поле для свойства rb_totmStayInCurrentRedaction }
+    {* Выключить Машину времени и остаться в данной редакции }
    f_rb_totmGotoActualRedaction: TvtRadioButton;
-    {* Поле для свойства rb_totmGotoActualRedaction }
+    {* Выключить Машину времени и перейти в актуальную редакцию }
    f_deChangeDate: TvtDblClickDateEdit;
-    {* Поле для свойства deChangeDate }
    f_pbDialogIcon: TPaintBox;
-    {* Поле для свойства pbDialogIcon }
    f_lblTurnOnTimeMachineInfo: TvtLabel;
-    {* Поле для свойства lblTurnOnTimeMachineInfo }
+    {* Выберите вариант выключения Машины времени или измените дату в Машине времени: }
    f_btnOk: TvtButton;
-    {* Поле для свойства btnOk }
+    {* OK }
    f_btnCancel: TvtButton;
-    {* Поле для свойства btnCancel }
+    {* Отмена }
    f_Controller: InsTurnOffTimeMachine;
-    {* Поле для свойства Controller }
   private
    procedure CheckControls;
    procedure btnOkClick(Sender: TObject);
@@ -72,11 +69,11 @@ type
    procedure InitControls; override;
     {* Процедура инициализации контролов. Для перекрытия в потомках }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure SetupFormLayout; override;
     {* Тут можно настроить внешний вид формы }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
@@ -86,7 +83,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsTurnOffTimeMachine): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsTurnOffTimeMachine;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -157,6 +158,10 @@ uses
  , Graphics
  , Windows
  , vtCombo
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -252,15 +257,32 @@ begin
 //#UC END# *527914660245_4AC4F82F0234_impl*
 end;//TPrimTurnOffTimeMachineForm.pbDialogIconPaint
 
-class function TPrimTurnOffTimeMachineForm.Make(const aData: InsTurnOffTimeMachine): IvcmEntityForm;
+class function TPrimTurnOffTimeMachineForm.Make(const aData: InsTurnOffTimeMachine;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimTurnOffTimeMachineForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4F87001FB_4AC4F82F0234_impl*
+   f_Controller := aData;
+   CheckControls;
+  //#UC END# *4AC4F87001FB_4AC4F82F0234_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimTurnOffTimeMachineForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimTurnOffTimeMachineForm.Make
 
@@ -431,12 +453,6 @@ begin
 //#UC END# *4A8E8F2E0195_4AC4F82F0234_impl*
 end;//TPrimTurnOffTimeMachineForm.InitControls
 
-procedure TPrimTurnOffTimeMachineForm.ClearFields;
-begin
- f_Controller := nil;
- inherited;
-end;//TPrimTurnOffTimeMachineForm.ClearFields
-
 procedure TPrimTurnOffTimeMachineForm.SetupFormLayout;
  {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_4AC4F82F0234_var*
@@ -449,6 +465,12 @@ begin
  Position := poScreenCenter;
 //#UC END# *529332B40230_4AC4F82F0234_impl*
 end;//TPrimTurnOffTimeMachineForm.SetupFormLayout
+
+procedure TPrimTurnOffTimeMachineForm.ClearFields;
+begin
+ f_Controller := nil;
+ inherited;
+end;//TPrimTurnOffTimeMachineForm.ClearFields
 
 procedure TPrimTurnOffTimeMachineForm.InitEntities;
  {* инициализирует сущности не из dfm.

@@ -16,6 +16,37 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Result = 'Result';
+ en_capResult = 'Результат диалога';
+ op_Append = 'Append';
+ op_capAppend = 'Добавить';
+ en_ResultExt = 'ResultExt';
+ en_capResultExt = '';
+ op_Ok = 'Ok';
+ op_capOk = 'OK';
+ op_Cancel = 'Cancel';
+ op_capCancel = 'Отмена';
+
+var st_user_ResultExt_Ok_None: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <->  }
+var st_user_ResultExt_Ok_NewFolder: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <->  }
+var st_user_ResultExt_Ok_Edit: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <->  }
+var st_user_ResultExt_Ok_Load: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <-> Загрузить }
+var st_user_ResultExt_Ok_Select: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <->  }
+var st_user_ResultExt_Ok_FolderSave: TvcmOperationStateIndex = (rID : -1);
+ {*  -> OK <-> Сохранить }
+var st_user_ResultExt_Append_Bookmark: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Добавить <->  }
+var st_user_ResultExt_Append_List: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Добавить <->  }
+var st_user_ResultExt_Append_Query: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Добавить <->  }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

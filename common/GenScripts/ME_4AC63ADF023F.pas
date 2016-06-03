@@ -76,7 +76,11 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsConfigSettingsInfo): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsConfigSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
@@ -118,11 +122,15 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , afwFacade
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , afwFacade
- , SysUtils
  , PrimSettings_cutSettings_UserType
  {$If NOT Defined(NoVCM)}
  , StdRes
@@ -150,15 +158,34 @@ begin
 //#UC END# *4AC63BB001DA_4AC63ADF023F_impl*
 end;//TPrimSettingsForm.StartEdit
 
-class function TPrimSettingsForm.Make(const aData: InsConfigSettingsInfo): IvcmEntityForm;
+class function TPrimSettingsForm.Make(const aData: InsConfigSettingsInfo;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimSettingsForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AE069110160_4AC63ADF023F_impl*
+   f_ManagerConf := aData;
+   if (f_ManagerConf = nil) then
+    f_ManagerConf := ConfigurationList.ActiveConfig;
+   StartEdit; 
+  //#UC END# *4AE069110160_4AC63ADF023F_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimSettingsForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimSettingsForm.Make
 

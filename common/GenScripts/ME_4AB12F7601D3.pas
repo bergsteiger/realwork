@@ -37,7 +37,6 @@ type
   {* Информация о картинке }
   private
    f_Info: TeeMemoWithEditOperations;
-    {* Поле для свойства Info }
   protected
    {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
@@ -56,7 +55,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsLinkedObjectDescription): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsLinkedObjectDescription;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -87,12 +90,16 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Text_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -101,15 +108,31 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription): IvcmEntityForm;
+class function TPrimPictureInfoForm.Make(const aData: InsLinkedObjectDescription;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimPictureInfoForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4F7760311_4AB12F7601D3_impl*
+   Info.Text := l3Str(vcmFmt(str_PictureInfoTemplate, [aData.Name, aData.ShortName, aData.ID]));
+  //#UC END# *4AC4F7760311_4AB12F7601D3_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimPictureInfoForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimPictureInfoForm.Make
 

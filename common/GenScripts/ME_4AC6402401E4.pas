@@ -19,11 +19,11 @@ uses
  , Settings_Strange_Controls
  , ConfigInterfaces
  , vtProportionalPanel
- , vtPanel
- , vtSizeablePanel
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtPanel
+ , vtSizeablePanel
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -40,15 +40,10 @@ type
   {* Редактор стилей }
   private
    f_BackgroundPanel: TvtProportionalPanel;
-    {* Поле для свойства BackgroundPanel }
    f_MainZone: TvtPanel;
-    {* Поле для свойства MainZone }
    f_ParentZone: TvtSizeablePanel;
-    {* Поле для свойства ParentZone }
    f_ChildZone: TvtPanel;
-    {* Поле для свойства ChildZone }
    f_NavigatorZone: TvtSizeablePanel;
-    {* Поле для свойства NavigatorZone }
   protected
    f_SettingsInfo: InsStyleTableSettingsInfo;
   private
@@ -74,7 +69,11 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm; reintroduce;
+   class function Make(const aData: InsStyleTableSettingsInfo;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    procedure StyleEditor_ReloadStyleTable_Execute;
    procedure StyleEditor_ReloadStyleTable(const aParams: IvcmExecuteParams);
   public
@@ -101,6 +100,10 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -113,15 +116,34 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo): IvcmEntityForm;
+class function TPrimStyleEditorContainerForm.Make(const aData: InsStyleTableSettingsInfo;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimStyleEditorContainerForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AE06B82037F_4AC6402401E4_impl*
+   f_SettingsInfo := aData;
+   if not f_SettingsInfo.IsActive then
+    f_SettingsInfo.Load;
+   DoUpdateCaption;
+  //#UC END# *4AE06B82037F_4AC6402401E4_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimStyleEditorContainerForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimStyleEditorContainerForm.Make
 

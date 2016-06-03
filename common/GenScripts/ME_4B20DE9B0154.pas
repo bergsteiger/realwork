@@ -15,6 +15,14 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Selection = 'Selection';
+ en_capSelection = 'Выделенные элементы';
+ op_Analize = 'Analize';
+ op_capAnalize = 'Анализ списка...';
+ op_CopyToNewList = 'CopyToNewList';
+ op_capCopyToNewList = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

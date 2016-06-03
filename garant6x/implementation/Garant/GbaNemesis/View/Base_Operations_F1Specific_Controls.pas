@@ -1,47 +1,25 @@
 unit Base_Operations_F1Specific_Controls;
+ {* Операции, специфичные для F1 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Base_Operations_F1Specific_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Core::Base Operations::View::F1Specific
-//
-// Операции, специфичные для F1
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "F1Specific" MUID: (495237D80268)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Usual_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(* File = operations(File)
-  {* Файл }
-   ['{3041ED2E-9529-4DC4-A83B-0367A48DC97B}']
-   operation ToMSWord;
-     {* Экспорт в Word }
-   operation SendMailAsAttachment;
-     {* Послать по e-mail }
- end;//File*)
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_File = OfficeLike_Usual_Controls.en_File;
  en_capFile = OfficeLike_Usual_Controls.en_capFile;
@@ -49,8 +27,14 @@ const
  op_capToMSWord = 'Экспорт в Word';
  op_SendMailAsAttachment = 'SendMailAsAttachment';
  op_capSendMailAsAttachment = 'Послать по e-mail';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

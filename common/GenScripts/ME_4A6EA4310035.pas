@@ -53,9 +53,7 @@ type
   {* Абстрактное окно истории }
   private
    f_HistoryEditor: TnscChatMemo;
-    {* Поле для свойства HistoryEditor }
    f_UserID: TbsUserID;
-    {* Поле для свойства UserID }
   protected
    procedure RegisterInDispatcher; virtual; abstract;
    procedure UnRegisterInDispatcher; virtual; abstract;
@@ -100,7 +98,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    class function MakeSingleChild(anUID: TbsUserID;
-    const aName: Il3CString): IvcmEntityForm; reintroduce;
+    const aName: Il3CString;
+    const aCont: IvcmContainer;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
     {* Отмена }
@@ -150,9 +152,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , nevTools
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , DocumentRes
  , vtUtils
  , evdStyles
@@ -170,6 +169,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4A6EA4310035impl_uses*
  //#UC END# *4A6EA4310035impl_uses*
 ;
@@ -233,15 +236,35 @@ begin
 end;//TAbstractHistoryForm.ProcessMessages
 
 class function TAbstractHistoryForm.MakeSingleChild(anUID: TbsUserID;
- const aName: Il3CString): IvcmEntityForm;
+ const aName: Il3CString;
+ const aCont: IvcmContainer;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TAbstractHistoryForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4EFBA012A_4A6EA4310035_impl*
+   CCaption := vcmFmt(str_ChatWindowCaption, [aName]);
+   UserID := anUID;
+   InitEditors;
+   RegisterInDispatcher;
+   ProcessMessages(TdmStdRes.MakeChatDispatcher.GetMessages(UserID, HistoryLimit));
+  //#UC END# *4AC4EFBA012A_4A6EA4310035_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TAbstractHistoryForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(anUID, aName);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited MakeSingleChild(aCont, vcmMakeParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TAbstractHistoryForm.MakeSingleChild
 

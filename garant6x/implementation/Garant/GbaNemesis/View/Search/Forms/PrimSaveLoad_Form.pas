@@ -1289,7 +1289,7 @@ end;//TPrimSaveLoadForm.Loadable_Load_Execute
 procedure TPrimSaveLoadForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {*  оллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TPrimSaveLoadForm.Loadable_Load
 
@@ -1421,7 +1421,7 @@ end;//TPrimSaveLoadForm.Query_ClearAll_Execute
 
 procedure TPrimSaveLoadForm.Query_ClearAll(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IQuery_ClearAll_Params) do
+ with IQuery_ClearAll_Params(aParams.Data) do
   Self.Query_ClearAll_Execute(NotClearRange);
 end;//TPrimSaveLoadForm.Query_ClearAll
 
@@ -1449,7 +1449,7 @@ end;//TPrimSaveLoadForm.Query_SetList_Execute
 
 procedure TPrimSaveLoadForm.Query_SetList(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IQuery_SetList_Params) do
+ with IQuery_SetList_Params(aParams.Data) do
   Self.Query_SetList_Execute(List, InList);
 end;//TPrimSaveLoadForm.Query_SetList
 
@@ -1464,7 +1464,7 @@ end;//TPrimSaveLoadForm.Filterable_Add_Execute
 
 procedure TPrimSaveLoadForm.Filterable_Add(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Add_Params) do
+ with IFilterable_Add_Params(aParams.Data) do
   ResultValue := Self.Filterable_Add_Execute(Filter);
 end;//TPrimSaveLoadForm.Filterable_Add
 
@@ -1479,7 +1479,7 @@ end;//TPrimSaveLoadForm.Filterable_Delete_Execute
 
 procedure TPrimSaveLoadForm.Filterable_Delete(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Delete_Params) do
+ with IFilterable_Delete_Params(aParams.Data) do
   ResultValue := Self.Filterable_Delete_Execute(Filter);
 end;//TPrimSaveLoadForm.Filterable_Delete
 
@@ -1498,7 +1498,7 @@ end;//TPrimSaveLoadForm.Query_GetList_Execute
 
 procedure TPrimSaveLoadForm.Query_GetList(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IQuery_GetList_Params) do
+ with IQuery_GetList_Params(aParams.Data) do
   ResultValue := Self.Query_GetList_Execute;
 end;//TPrimSaveLoadForm.Query_GetList
 
@@ -1528,7 +1528,7 @@ end;//TPrimSaveLoadForm.Filterable_Refresh_Execute
 
 procedure TPrimSaveLoadForm.Filterable_Refresh(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_Refresh_Params) do
+ with IFilterable_Refresh_Params(aParams.Data) do
   ResultValue := Self.Filterable_Refresh_Execute;
 end;//TPrimSaveLoadForm.Filterable_Refresh
 
@@ -1777,7 +1777,7 @@ end;//TPrimSaveLoadForm.Filterable_GetListType_Execute
 
 procedure TPrimSaveLoadForm.Filterable_GetListType(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilterable_GetListType_Params) do
+ with IFilterable_GetListType_Params(aParams.Data) do
   ResultValue := Self.Filterable_GetListType_Execute;
 end;//TPrimSaveLoadForm.Filterable_GetListType
 

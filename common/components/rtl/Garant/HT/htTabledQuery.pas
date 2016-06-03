@@ -22,8 +22,6 @@ type
   private
    function FindTable(const anAlias: AnsiString): IhtFromTable;
   protected
-   function MakeFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -33,13 +31,11 @@ type
    constructor Create(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IhtDataConverter;
     const aHelper: IhtDataSchemeHelper;
-    const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''); reintroduce;
+    const aFromClause: IdaFromClause); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IhtDataConverter;
     const aHelper: IhtDataSchemeHelper;
-    const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
+    const aFromClause: IdaFromClause): IdaTabledQuery; reintroduce;
  end;//ThtTabledQuery
 
 implementation
@@ -62,8 +58,7 @@ uses
 constructor ThtTabledQuery.Create(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IhtDataConverter;
  const aHelper: IhtDataSchemeHelper;
- const aTable: IdaTableDescription;
- const anAlias: AnsiString = '');
+ const aFromClause: IdaFromClause);
 //#UC START# *5551AB780328_5551AB1602F4_var*
 //#UC END# *5551AB780328_5551AB1602F4_var*
 begin
@@ -76,12 +71,11 @@ end;//ThtTabledQuery.Create
 class function ThtTabledQuery.Make(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IhtDataConverter;
  const aHelper: IhtDataSchemeHelper;
- const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaTabledQuery;
+ const aFromClause: IdaFromClause): IdaTabledQuery;
 var
  l_Inst : ThtTabledQuery;
 begin
- l_Inst := Create(aFactory, aDataConverter, aHelper, aTable, anAlias);
+ l_Inst := Create(aFactory, aDataConverter, aHelper, aFromClause);
  try
   Result := l_Inst;
  finally
@@ -102,16 +96,6 @@ begin
   Result := nil;
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
 end;//ThtTabledQuery.FindTable
-
-function ThtTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromClause;
-//#UC START# *5600FFF80332_5551AB1602F4_var*
-//#UC END# *5600FFF80332_5551AB1602F4_var*
-begin
-//#UC START# *5600FFF80332_5551AB1602F4_impl*
- Result := ThtFromTable.Make(aTable, anAlias);
-//#UC END# *5600FFF80332_5551AB1602F4_impl*
-end;//ThtTabledQuery.MakeFromClause
 
 procedure ThtTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_5551AB1602F4_var*

@@ -21,6 +21,7 @@ type
  ThtUserManager = class(Tl3ProtoObject, IdaUserManager)
   private
    f_UserStatusChangedSubscriberList: TdaUserStatusChangedSubscriberList;
+   f_PriorityCalculator: IdaPriorityCalculator;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -54,6 +55,7 @@ type
     var aUserName: AnsiString;
     var aLoginName: AnsiString;
     var aActFlag: Byte);
+   function Get_PriorityCalculator: IdaPriorityCalculator;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -73,6 +75,7 @@ uses
  , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
+ , htPriorityCalculator
  , l3Base
 ;
 
@@ -323,6 +326,17 @@ begin
  aLoginName := l_LoginName;
 //#UC END# *573AEE9902DF_5629E343023B_impl*
 end;//ThtUserManager.GetUserInfo
+
+function ThtUserManager.Get_PriorityCalculator: IdaPriorityCalculator;
+//#UC START# *575020410175_5629E343023Bget_var*
+//#UC END# *575020410175_5629E343023Bget_var*
+begin
+//#UC START# *575020410175_5629E343023Bget_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := ThtPriorityCalculator.Make;
+ Result := f_PriorityCalculator;
+//#UC END# *575020410175_5629E343023Bget_impl*
+end;//ThtUserManager.Get_PriorityCalculator
 
 procedure ThtUserManager.Cleanup;
  {* Функция очистки полей объекта. }

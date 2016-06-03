@@ -16,6 +16,25 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Edit = 'Edit';
+ en_capEdit = 'Правка';
+ op_ToggleFoundWords = 'ToggleFoundWords';
+ op_capToggleFoundWords = 'Подсвечивать найденный контекст';
+ en_Text = 'Text';
+ en_capText = '';
+ op_AddToControl = 'AddToControl';
+ op_capAddToControl = 'Поставить на контроль';
+ en_Selection = 'Selection';
+ en_capSelection = '';
+ op_ShowCorrespondentListToPart = 'ShowCorrespondentListToPart';
+ op_capShowCorrespondentListToPart = '';
+ op_ShowRespondentListToPart = 'ShowRespondentListToPart';
+ op_capShowRespondentListToPart = '';
+
+var st_user_Text_AddToControl_RemoveFromControl: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Поставить на контроль <-> Снять с контроля }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

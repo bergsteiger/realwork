@@ -1,94 +1,76 @@
 unit PostingOrder_FormDefinitions_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PostingOrder_FormDefinitions_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Common For Shell And Monitoring::PostingOrder::View::FormDefinitions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "FormDefinitions" MUID: (4BD98A8C0110)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwString
-  {$IfEnd} //not NoScripts
-  ,
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 const
-   { PostingsListIDs }
-  fm_enPostingsList : TvcmFormDescriptor = (rFormID : (rName : 'enPostingsList'; rID : 0); rFactory : nil);
-   { Идентификатор формы TenPostingsList }
+ fm_enPostingsList: TvcmFormDescriptor = (rFormID : (rName : 'enPostingsList'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TenPostingsList }
 
 type
- PostingsListFormDef = interface(IUnknown)
-   ['{69D1C6BF-ECE3-4BB1-8DA5-998AB45694C7}']
+ PostingsListFormDef = interface
+  ['{69D1C6BF-ECE3-4BB1-8DA5-998AB45694C7}']
  end;//PostingsListFormDef
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-{$If not defined(Admin) AND not defined(NoScripts)}
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwString
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
+{$If NOT Defined(NoScripts)}
 type
- Tkw_Form_PostingsList_ID = {final scriptword} class(TtfwString)
+ Tkw_Form_PostingsList_ID = {final} class(TtfwString)
   {* Слово словаря для идентификатора формы PostingsList
 ----
 *Пример использования*:
 [code]
 'aControl' форма::PostingsList TryFocus ASSERT
 [code] }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
+  protected
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_PostingsList_ID
-{$IfEnd} //not Admin AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(Admin) AND not defined(NoScripts)}
-
-// start class Tkw_Form_PostingsList_ID
-
-class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'форма::PostingsList';
-end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
-
+{$If NOT Defined(NoScripts)}
 function Tkw_Form_PostingsList_ID.GetString: AnsiString;
- {-}
 begin
  Result := 'enPostingsList';
 end;//Tkw_Form_PostingsList_ID.GetString
 
-{$IfEnd} //not Admin AND not NoScripts
-{$IfEnd} //not Admin
-
+class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::PostingsList';
+end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
 
 initialization
-{$If not defined(Admin) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_PostingsList_ID
+{$If NOT Defined(NoScripts)}
  Tkw_Form_PostingsList_ID.RegisterInEngine;
-{$IfEnd} //not Admin AND not NoScripts
+ {* Регистрация Tkw_Form_PostingsList_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
 
 end.

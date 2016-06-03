@@ -1,161 +1,141 @@
 unit PrimRememberPassword_Form;
+ {* Забыли пароль? }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimRememberPassword_Form.pas"
-// Начат: 25.08.2009 17:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimRememberPassword
-//
-// Забыли пароль?
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimRememberPassword_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimRememberPassword" MUID: (4A93EC4B03CC)
+// Имя типа: "TPrimRememberPasswordForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  ElPopBtn,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , vtLabel
+ , ElPopBtn
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsSendAction = function (aSender: TCustomForm): TModalResult of object;
+ TnsSendAction = function(aSender: TCustomForm): TModalResult of object;
 
- TPrimRememberPasswordForm = {form} class(TvcmEntityForm)
+ TPrimRememberPasswordForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Забыли пароль? }
- private
- // private fields
-   f_EMailLabel : TvtLabel;
-    {* Поле для свойства EMailLabel}
-   f_HintLabel : TvtLabel;
-    {* Поле для свойства HintLabel}
-   f_btnCancel : TElPopupButton;
-    {* Поле для свойства btnCancel}
-   f_btnSend : TElPopupButton;
-    {* Поле для свойства btnSend}
-   f_edEmail : TnscEdit;
-    {* Поле для свойства edEmail}
-   f_SendAction : TnsSendAction;
-    {* Поле для свойства SendAction}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_EMailLabel: TvtLabel;
+    {* *Электронная почта: }
+   f_HintLabel: TvtLabel;
+    {* *Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль. }
+   f_btnCancel: TElPopupButton;
+    {* Отмена }
+   f_btnSend: TElPopupButton;
+    {* Отправить запрос }
+   f_edEmail: TnscEdit;
+   f_SendAction: TnsSendAction;
+  private
    procedure EMailEditChange(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure BtnSendClick(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
+   procedure btnSendClick(Sender: TObject);
    procedure DoSend;
-     {* Сигнатура метода DoSend }
- protected
- // property methods
+  protected
    function pm_GetEMail: Il3CString;
- protected
- // overridden protected methods
    procedure InitFields; override;
-   {$If not defined(NoVCL)}
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCL)}
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   class function Make(const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCL)}
    function IsRealInstance: Boolean; override;
-   {$IfEnd} //not NoVCL
- public
- // public methods
-   class function Make(
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+   {$IfEnd} // NOT Defined(NoVCL)
+  public
    property EMailLabel: TvtLabel
-     read f_EMailLabel;
-     {* *Электронная почта: }
+    read f_EMailLabel;
+    {* *Электронная почта: }
    property HintLabel: TvtLabel
-     read f_HintLabel;
-     {* *Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль. }
+    read f_HintLabel;
+    {* *Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль. }
    property btnCancel: TElPopupButton
-     read f_btnCancel;
-     {* Отмена }
+    read f_btnCancel;
+    {* Отмена }
    property btnSend: TElPopupButton
-     read f_btnSend;
-     {* Отправить запрос }
+    read f_btnSend;
+    {* Отправить запрос }
    property edEmail: TnscEdit
-     read f_edEmail;
+    read f_edEmail;
    property EMail: Il3CString
-     read pm_GetEMail;
+    read pm_GetEMail;
    property SendAction: TnsSendAction
-     read f_SendAction
-     write f_SendAction;
+    read f_SendAction
+    write f_SendAction;
  end;//TPrimRememberPasswordForm
-
- TvcmEntityFormRef = TPrimRememberPasswordForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3String,
-  nsVerifyValue,
-  Windows,
-  Graphics
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3String
+ , nsVerifyValue
+ , Windows
+ , Graphics
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4A93EC4B03CCimpl_uses*
+ //#UC END# *4A93EC4B03CCimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TPrimRememberPasswordForm
+{$If NOT Defined(NoVCM)}
+function TPrimRememberPasswordForm.pm_GetEMail: Il3CString;
+//#UC START# *525D1318002B_4A93EC4B03CCget_var*
+//#UC END# *525D1318002B_4A93EC4B03CCget_var*
+begin
+//#UC START# *525D1318002B_4A93EC4B03CCget_impl*
+ Result := edEmail.Text;
+//#UC END# *525D1318002B_4A93EC4B03CCget_impl*
+end;//TPrimRememberPasswordForm.pm_GetEMail
 
 procedure TPrimRememberPasswordForm.EMailEditChange(Sender: TObject);
 //#UC START# *525D12A30273_4A93EC4B03CC_var*
@@ -170,14 +150,14 @@ begin
 //#UC END# *525D12A30273_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.EMailEditChange
 
-procedure TPrimRememberPasswordForm.BtnSendClick(Sender: TObject);
+procedure TPrimRememberPasswordForm.btnSendClick(Sender: TObject);
 //#UC START# *525D12C2011A_4A93EC4B03CC_var*
 //#UC END# *525D12C2011A_4A93EC4B03CC_var*
 begin
 //#UC START# *525D12C2011A_4A93EC4B03CC_impl*
  DoSend;
 //#UC END# *525D12C2011A_4A93EC4B03CC_impl*
-end;//TPrimRememberPasswordForm.BtnSendClick
+end;//TPrimRememberPasswordForm.btnSendClick
 
 procedure TPrimRememberPasswordForm.DoSend;
 //#UC START# *525D13F30292_4A93EC4B03CC_var*
@@ -189,23 +169,13 @@ begin
 //#UC END# *525D13F30292_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.DoSend
 
-function TPrimRememberPasswordForm.pm_GetEMail: Il3CString;
-//#UC START# *525D1318002B_4A93EC4B03CCget_var*
-//#UC END# *525D1318002B_4A93EC4B03CCget_var*
-begin
-//#UC START# *525D1318002B_4A93EC4B03CCget_impl*
- Result := edEmail.Text;
-//#UC END# *525D1318002B_4A93EC4B03CCget_impl*
-end;//TPrimRememberPasswordForm.pm_GetEMail
-
-class function TPrimRememberPasswordForm.Make(
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+class function TPrimRememberPasswordForm.Make(const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 begin
  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource);
-end;
+end;//TPrimRememberPasswordForm.Make
 
 procedure TPrimRememberPasswordForm.InitFields;
 //#UC START# *47A042E100E2_4A93EC4B03CC_var*
@@ -219,7 +189,7 @@ begin
 //#UC END# *47A042E100E2_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.InitFields
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TPrimRememberPasswordForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_4A93EC4B03CC_var*
 //#UC END# *48C7925A02E5_4A93EC4B03CC_var*
@@ -233,10 +203,10 @@ begin
  end;
 //#UC END# *48C7925A02E5_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCM)}
 procedure TPrimRememberPasswordForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93EC4B03CC_var*
 //#UC END# *4A8E8F2E0195_4A93EC4B03CC_var*
 begin
@@ -314,9 +284,8 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TPrimRememberPasswordForm.IsRealInstance: Boolean;
 //#UC START# *4B0E846D022B_4A93EC4B03CC_var*
 //#UC END# *4B0E846D022B_4A93EC4B03CC_var*
@@ -325,7 +294,7 @@ begin
  Result := True;
 //#UC END# *4B0E846D022B_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.IsRealInstance
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TPrimRememberPasswordForm.MakeControls;
 begin
@@ -349,14 +318,14 @@ begin
  f_edEmail := TnscEdit.Create(Self);
  f_edEmail.Name := 'edEmail';
  f_edEmail.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimRememberPasswordForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimRememberPassword
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimRememberPasswordForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimRememberPassword }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

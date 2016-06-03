@@ -29,33 +29,36 @@ type
  TnsCaptionChangeEvent = procedure(aIndex: Integer;
   const aNewCaption: Il3CString) of object;
 
- TnsPostingsTree = class(TvcmCacheableBase, If1NotificationListener)
+ TnsPostingsTree = class({$If NOT Defined(NoVCM)}
+ TvcmCacheableBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , If1NotificationListener)
   private
    f_MgrSearch: Pointer;
     {* IqaMgrSearch
 поле для свойства MgrSearch }
    f_Root: Il3Node;
-    {* Поле для свойства Root }
+    {* указатель на корневой узел дерева, где хранятся списки рассылок списка рассылок. Фактически "Мои документы" для пользователя "_predefined_data". }
    f_DataChanged: Boolean;
-    {* Поле для свойства DataChanged }
+    {* флаг изменения окна дерева (удаление или добавление узлов). Если пустое, то флаг автоматически выставляется в False. Реально нужен для проверки перед сохранением списка рассылки на диск. }
    f_LastCatalog: Il3CString;
-    {* Поле для свойства LastCatalog }
+    {* каталог, в который последний раз производилось сохранение. }
    f_EditNodeIndex: Integer;
-    {* Поле для свойства EditNodeIndex }
+    {* индекс редактируемого элемента в дереве (для которого открыта КЗ). Может не соответствовать выделенному. }
    f_OldModifed: Boolean;
-    {* Поле для свойства OldModifed }
+    {* кэширование флага изменения параметров рассылки. }
    f_Closed: Boolean;
-    {* Поле для свойства Closed }
+    {* признак того, что приложение закрывается. }
    f_NeedLoad: Boolean;
-    {* Поле для свойства NeedLoad }
+    {* флаг для загрузки данных из первой рассылки в КЗ. Флаг сбрасывается в функции GetFirstQuery. }
    f_ServerDown: Boolean;
-    {* Поле для свойства ServerDown }
+    {* флаг закрытия приложения по выключению сервера. }
    f_OnAddNode: TnsAddEvent;
-    {* Поле для свойства OnAddNode }
+    {* обработчик события добавления узла в дерево. }
    f_OnDelNode: TnsAddEvent;
-    {* Поле для свойства OnDelNode }
+    {* обработчик события удаления узла из дерева. }
    f_OnEditNode: TnsCaptionChangeEvent;
-    {* Поле для свойства OnEditNode }
+    {* обработчик изменения названия узла. }
   private
    procedure LoadChildren;
     {* загружает список рассылок. }
@@ -183,6 +186,9 @@ uses
  , l3Nodes
  , PrimeUnit
  , l3Chars
+ //#UC START# *4AAF93E201FDimpl_uses*
+ , l3TreeInterfaces
+ //#UC END# *4AAF93E201FDimpl_uses*
 ;
 
 function TnsPostingsTree.pm_GetRoot: Il3Node;

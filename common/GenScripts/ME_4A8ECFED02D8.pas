@@ -20,7 +20,7 @@ uses
 ;
 
 type
- Op_DateInterval_OpenInt = class
+ Op_DateInterval_OpenInt = {final} class
   {* Класс для вызова операции DateInterval.OpenInt }
   public
    class function Call(const aTarget: IvcmEntity): Boolean; overload;
@@ -32,6 +32,18 @@ type
    class function Call(const aTarget: IvcmContainer): Boolean; overload;
     {* Вызов операции DateInterval.OpenInt у контейнера }
  end;//Op_DateInterval_OpenInt
+
+const
+ en_DateInterval = 'DateInterval';
+ en_capDateInterval = '';
+ op_OpenInt = 'OpenInt';
+ op_capOpenInt = '';
+ en_NewsThemes = 'NewsThemes';
+ en_capNewsThemes = '';
+ op_SelectCurrent = 'SelectCurrent';
+ op_capSelectCurrent = '';
+ op_Open = 'Open';
+ op_capOpen = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -39,46 +51,69 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmEntity): Boolean;
  {* Вызов операции DateInterval.OpenInt у сущности }
-//#UC START# *6AFD6E8DD994_32B115C22595_var*
-//#UC END# *6AFD6E8DD994_32B115C22595_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *6AFD6E8DD994_32B115C22595_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6AFD6E8DD994_32B115C22595_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_DateInterval_OpenInt, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmAggregate): Boolean;
  {* Вызов операции DateInterval.OpenInt у агрегации }
-//#UC START# *9B3D2E7C63E4_32B115C22595_var*
-//#UC END# *9B3D2E7C63E4_32B115C22595_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *9B3D2E7C63E4_32B115C22595_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9B3D2E7C63E4_32B115C22595_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := vcmParams;
+  aTarget.Operation(TdmStdRes.opcode_DateInterval_OpenInt, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := true;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmEntityForm): Boolean;
  {* Вызов операции DateInterval.OpenInt у формы }
-//#UC START# *B301CD786AA1_32B115C22595_var*
-//#UC END# *B301CD786AA1_32B115C22595_var*
 begin
-//#UC START# *B301CD786AA1_32B115C22595_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B301CD786AA1_32B115C22595_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity);
 end;//Op_DateInterval_OpenInt.Call
 
 class function Op_DateInterval_OpenInt.Call(const aTarget: IvcmContainer): Boolean;
  {* Вызов операции DateInterval.OpenInt у контейнера }
-//#UC START# *25CA0B80FF03_32B115C22595_var*
-//#UC END# *25CA0B80FF03_32B115C22595_var*
 begin
-//#UC START# *25CA0B80FF03_32B115C22595_impl*
- !!! Needs to be implemented !!!
-//#UC END# *25CA0B80FF03_32B115C22595_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm);
 end;//Op_DateInterval_OpenInt.Call
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

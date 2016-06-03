@@ -22,12 +22,12 @@ uses
  , Classes
  , nsQueryInterfaces
  , vtPanel
- , vtLabel
- , vtDblClickDateEdit
- , vtRadioButton
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ , vtLabel
+ , vtDblClickDateEdit
+ , vtRadioButton
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -54,33 +54,26 @@ type
    f_ButtonList: TList;
    f_DateReq: IqaDateReqDataHolder;
    f_Panel1: TvtPanel;
-    {* Поле для свойства Panel1 }
-   f_ElLabel1: TvtLabel;
-    {* Поле для свойства ElLabel1 }
-   f_ElLabel2: TvtLabel;
-    {* Поле для свойства ElLabel2 }
-   f_ElLabel3: TvtLabel;
-    {* Поле для свойства ElLabel3 }
-   f_dD1EqD2: TvtDblClickDateEdit;
-    {* Поле для свойства dD1EqD2 }
-   f_rbEq: TvtRadioButton;
-    {* Поле для свойства rbEq }
-   f_rbInt: TvtRadioButton;
-    {* Поле для свойства rbInt }
-   f_rbD2Only: TvtRadioButton;
-    {* Поле для свойства rbD2Only }
-   f_dD1Only: TvtDblClickDateEdit;
-    {* Поле для свойства dD1Only }
-   f_dD2Only: TvtDblClickDateEdit;
-    {* Поле для свойства dD2Only }
-   f_dD1: TvtDblClickDateEdit;
-    {* Поле для свойства dD1 }
-   f_rbD1Only: TvtRadioButton;
-    {* Поле для свойства rbD1Only }
-   f_dD2: TvtDblClickDateEdit;
-    {* Поле для свойства dD2 }
    f_TypeDate: TTypeDate;
-    {* Поле для свойства TypeDate }
+   f_ElLabel1: TvtLabel;
+    {* Выберите тип диапазона: }
+   f_ElLabel2: TvtLabel;
+    {* С }
+   f_ElLabel3: TvtLabel;
+    {* По }
+   f_dD1EqD2: TvtDblClickDateEdit;
+   f_rbEq: TvtRadioButton;
+    {* Точная дата: }
+   f_rbInt: TvtRadioButton;
+    {* Интервал дат: }
+   f_rbD2Only: TvtRadioButton;
+    {* Раньше: }
+   f_dD1Only: TvtDblClickDateEdit;
+   f_dD2Only: TvtDblClickDateEdit;
+   f_dD1: TvtDblClickDateEdit;
+   f_rbD1Only: TvtRadioButton;
+    {* Позже: }
+   f_dD2: TvtDblClickDateEdit;
   private
    procedure vcmEntityFormKeyDown(Sender: TObject;
     var Key: Word;
@@ -112,7 +105,11 @@ type
   public
    procedure GetDates(const aDateReq: IqaDateReqDataHolder);
    procedure SetDates(const aDateReq: IqaDateReqDataHolder);
-   class function Make(const aData: IqaDateReqDataHolder): IvcmEntityForm; reintroduce;
+   class function Make(const aData: IqaDateReqDataHolder;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
     {* Отмена }
@@ -183,6 +180,9 @@ uses
  , vtCombo
  , DefineSearchDateUtils
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -439,15 +439,36 @@ begin
 //#UC END# *51B5C3360189_4AC6324502DA_impl*
 end;//TPrimDefineSearchDateForm.SetDates
 
-class function TPrimDefineSearchDateForm.Make(const aData: IqaDateReqDataHolder): IvcmEntityForm;
+class function TPrimDefineSearchDateForm.Make(const aData: IqaDateReqDataHolder;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimDefineSearchDateForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *51B6D069027B_4AC6324502DA_impl*
+   f_DateReq := aData;
+   Assert(Assigned(f_DateReq));
+   SetDates(f_DateReq);
+   if not l3IsNil(f_DateReq.ReqCaption) then
+    CCaption := f_DateReq.ReqCaption;
+   Position := poScreenCenter;
+  //#UC END# *51B6D069027B_4AC6324502DA_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimDefineSearchDateForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimDefineSearchDateForm.Make
 

@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_WorkWithDocumentInterfaces;
+unit WorkWithDocumentInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\NOT_COMPLETED_WorkWithDocumentInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\WorkWithDocumentInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "WorkWithDocumentInterfaces" MUID: (4D1B548F00EE)
 
@@ -46,25 +46,33 @@ type
 
  IucpDocumentWithContents = interface
   ['{F12A4027-23C0-463E-BE27-720F8D76BEEE}']
-  function pm_GetdsContents: IdsBaseContents;
+  function pm_GetDsContents: IdsBaseContents;
+  function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
   procedure OpenContents(const aTree: IdeSimpleTree;
    anForceOpen: TnsContentsOpenMode;
    const aContainerOfDocument: InevDocumentContainer);
   property dsContents: IdsBaseContents
-   read pm_GetdsContents;
+   read pm_GetDsContents;
    {* Оглавление }
+  property dsContentsRef: IvcmViewAreaControllerRef
+   read pm_GetDsContentsRef;
+   {* Ссылка на "Оглавление" }
  end;//IucpDocumentWithContents
 
  IsdsDocument = interface(IsdsDocInfo)
   ['{158D206F-A24B-4C44-A989-F2563E04402E}']
-  function pm_GetdsBaloonWarning: IdsWarning;
-  function pm_GetdsTimeMachineWarning: IdsWarning;
-  function pm_GetdsTranslationWarning: IdsWarning;
-  function pm_GetdsCRBaloonWarning: IdsWarning;
-  function pm_GetdsWarning: IdsWarning;
-  function pm_GetdsIncomingLinksToPart: IdsDocumentList;
-  function pm_GetdsEditions: IdsEditions;
-  function pm_GetdsOutgoingLinksFromPart: IdsDocumentList;
+  function pm_GetDsBaloonWarning: IdsWarning;
+  function pm_GetDsTimeMachineWarning: IdsWarning;
+  function pm_GetDsTranslationWarning: IdsWarning;
+  function pm_GetDsCRBaloonWarning: IdsWarning;
+  function pm_GetDsWarning: IdsWarning;
+  function pm_GetDsIncomingLinksToPart: IdsDocumentList;
+  function pm_GetDsEditions: IdsEditions;
+  function pm_GetDsOutgoingLinksFromPart: IdsDocumentList;
+  function pm_GetDsWarningRef: IvcmViewAreaControllerRef;
+  function pm_GetDsIncomingLinksToPartRef: IvcmViewAreaControllerRef;
+  function pm_GetDsEditionsRef: IvcmViewAreaControllerRef;
+  function pm_GetDsOutgoingLinksFromPartRef: IvcmViewAreaControllerRef;
   procedure OpenWarning;
    {* предупреждение }
   procedure OpenEditions;
@@ -94,27 +102,39 @@ type
   function As_IucpBaseSearchSupportQuery: IucpBaseSearchSupportQuery;
    {* Метод приведения нашего интерфейса к IucpBaseSearchSupportQuery }
   property dsBaloonWarning: IdsWarning
-   read pm_GetdsBaloonWarning;
+   read pm_GetDsBaloonWarning;
    {* Предупреждение для баллона }
   property dsTimeMachineWarning: IdsWarning
-   read pm_GetdsTimeMachineWarning;
+   read pm_GetDsTimeMachineWarning;
   property dsTranslationWarning: IdsWarning
-   read pm_GetdsTranslationWarning;
+   read pm_GetDsTranslationWarning;
    {* Предупреждения к переводу }
   property dsCRBaloonWarning: IdsWarning
-   read pm_GetdsCRBaloonWarning;
+   read pm_GetDsCRBaloonWarning;
   property dsWarning: IdsWarning
-   read pm_GetdsWarning;
+   read pm_GetDsWarning;
    {* БОФ предупреждения }
   property dsIncomingLinksToPart: IdsDocumentList
-   read pm_GetdsIncomingLinksToPart;
+   read pm_GetDsIncomingLinksToPart;
    {* БОФ ссылок на фрагмент (корреспондентов) }
   property dsEditions: IdsEditions
-   read pm_GetdsEditions;
+   read pm_GetDsEditions;
    {* БОФ редакции документа }
   property dsOutgoingLinksFromPart: IdsDocumentList
-   read pm_GetdsOutgoingLinksFromPart;
+   read pm_GetDsOutgoingLinksFromPart;
    {* БОФ ссылок из фрагмента (респондентов) }
+  property dsWarningRef: IvcmViewAreaControllerRef
+   read pm_GetDsWarningRef;
+   {* Ссылка на "БОФ предупреждения" }
+  property dsIncomingLinksToPartRef: IvcmViewAreaControllerRef
+   read pm_GetDsIncomingLinksToPartRef;
+   {* Ссылка на "БОФ ссылок на фрагмент (корреспондентов)" }
+  property dsEditionsRef: IvcmViewAreaControllerRef
+   read pm_GetDsEditionsRef;
+   {* Ссылка на "БОФ редакции документа" }
+  property dsOutgoingLinksFromPartRef: IvcmViewAreaControllerRef
+   read pm_GetDsOutgoingLinksFromPartRef;
+   {* Ссылка на "БОФ ссылок из фрагмента (респондентов)" }
  end;//IsdsDocument
 
  IdDocument = interface(IdDocInfo)
@@ -136,11 +156,11 @@ type
   procedure pm_SetSimilarDocumentsBlockId(aValue: Integer);
   function pm_GetContentsTree: IdeSimpleTree;
   procedure pm_SetContentsTree(const aValue: IdeSimpleTree);
-  function pm_GetdsWarningRef: IvcmFormDataSourceRef;
-  function pm_GetdsIncomingLinksToPartRef: IvcmFormDataSourceRef;
-  function pm_GetdsEditionsRef: IvcmFormDataSourceRef;
-  function pm_GetdsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
-  function pm_GetdsContentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsWarningRef: IvcmFormDataSourceRef;
+  function pm_GetDsIncomingLinksToPartRef: IvcmFormDataSourceRef;
+  function pm_GetDsEditionsRef: IvcmFormDataSourceRef;
+  function pm_GetDsOutgoingLinksFromPartRef: IvcmFormDataSourceRef;
+  function pm_GetDsContentsRef: IvcmFormDataSourceRef;
   property IncomingLinksToPartFilter: INodeBase
    read pm_GetIncomingLinksToPartFilter
    write pm_SetIncomingLinksToPartFilter;
@@ -166,19 +186,19 @@ type
    read pm_GetContentsTree
    write pm_SetContentsTree;
   property dsWarningRef: IvcmFormDataSourceRef
-   read pm_GetdsWarningRef;
+   read pm_GetDsWarningRef;
    {* Ссылка на "БОФ предупреждения" }
   property dsIncomingLinksToPartRef: IvcmFormDataSourceRef
-   read pm_GetdsIncomingLinksToPartRef;
+   read pm_GetDsIncomingLinksToPartRef;
    {* Ссылка на "БОФ ссылок на фрагмент (корреспондентов)" }
   property dsEditionsRef: IvcmFormDataSourceRef
-   read pm_GetdsEditionsRef;
+   read pm_GetDsEditionsRef;
    {* Ссылка на "БОФ редакции документа" }
   property dsOutgoingLinksFromPartRef: IvcmFormDataSourceRef
-   read pm_GetdsOutgoingLinksFromPartRef;
+   read pm_GetDsOutgoingLinksFromPartRef;
    {* Ссылка на "БОФ ссылок из фрагмента (респондентов)" }
   property dsContentsRef: IvcmFormDataSourceRef
-   read pm_GetdsContentsRef;
+   read pm_GetDsContentsRef;
    {* Ссылка на "Оглавление" }
  end;//IdDocument
 

@@ -1,114 +1,73 @@
 unit PrimAdminMain_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/PrimAdminMain_Form.pas"
-// Начат: 07.09.2009 18:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMMainForm::Class>> F1 Администратор::Admin$Shell::AdminApp::PrimAdminMain
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_Form.pas"
+// Стереотип: "VCMMainForm"
+// Элемент модели: "PrimAdminMain" MUID: (4AA518EB039C)
+// Имя типа: "TPrimAdminMainForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3StringIDEx,
-  PrimMainOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimAdminMain_utEmptyMainWindow_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , PrimMainOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
 type
  _AdminAndMonitoringsMainForm_Parent_ = TPrimMainOptionsForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas}
- TPrimAdminMainForm = {form} class(_AdminAndMonitoringsMainForm_)
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+ TPrimAdminMainForm = class(_AdminAndMonitoringsMainForm_)
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TPrimAdminMainForm
-
- TvcmMainFormRef = TPrimAdminMainForm;
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmSettings
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
+ l3ImplUses
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmSettings
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , PrimAdminMain_utEmptyMainWindow_UserType
+ //#UC START# *4AA518EB039Cimpl_uses*
+ //#UC END# *4AA518EB039Cimpl_uses*
+;
 
 type _Instance_R_ = TPrimAdminMainForm;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas}
 
-var
-   { Локализуемые строки utEmptyMainWindowLocalConstants }
-  str_utEmptyMainWindowCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowCaption'; rValue : 'Главное окно');
-   { Заголовок пользовательского типа "Главное окно" }
-  str_utEmptyMainWindowSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utEmptyMainWindowSettingsCaption'; rValue : 'Главная панель инструментов');
-   { Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов }
-
-// start class TPrimAdminMainForm
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TPrimAdminMainForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AA518EB039C_var*
 //#UC END# *49803F5503AA_4AA518EB039C_var*
 begin
@@ -117,15 +76,16 @@ begin
  TdmStdRes.OpenUserList(Self);
 //#UC END# *49803F5503AA_4AA518EB039C_impl*
 end;//TPrimAdminMainForm.DoInit
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$If NOT Defined(NoVCM)}
 procedure TPrimAdminMainForm.MakeControls;
 begin
  inherited;
  with AddUsertype(utEmptyMainWindowName,
   str_utEmptyMainWindowCaption,
   str_utEmptyMainWindowSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -135,22 +95,14 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utEmptyMainWindowName
-end;
-
-{$IfEnd} //Admin
+end;//TPrimAdminMainForm.MakeControls
+{$IfEnd} // NOT Defined(NoVCM)
 
 initialization
-{$If defined(Admin)}
-// Инициализация str_utEmptyMainWindowCaption
- str_utEmptyMainWindowCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin)}
-// Инициализация str_utEmptyMainWindowSettingsCaption
- str_utEmptyMainWindowSettingsCaption.Init;
-{$IfEnd} //Admin
-{$If defined(Admin) AND not defined(NoScripts)}
-// Регистрация PrimAdminMain
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimAdminMainForm);
-{$IfEnd} //Admin AND not NoScripts
+ {* Регистрация PrimAdminMain }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Admin)
 
 end.

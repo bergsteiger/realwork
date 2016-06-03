@@ -16,7 +16,7 @@
    function NeedMakeDrugList: Boolean; virtual;
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure OpenDrugList;
-   function pm_GetdsDrugList: IdsDrugList;
+   function pm_GetDsDrugList: IdsDrugList;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -78,14 +78,14 @@ begin
 //#UC END# *4937AC23020B_4939633A025D_impl*
 end;//_sdsMedicFirmDocument_.OpenDrugList
 
-function _sdsMedicFirmDocument_.pm_GetdsDrugList: IdsDrugList;
+function _sdsMedicFirmDocument_.pm_GetDsDrugList: IdsDrugList;
 //#UC START# *500D3D150007_4939633A025Dget_var*
 //#UC END# *500D3D150007_4939633A025Dget_var*
 begin
 //#UC START# *500D3D150007_4939633A025Dget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500D3D150007_4939633A025Dget_impl*
-end;//_sdsMedicFirmDocument_.pm_GetdsDrugList
+end;//_sdsMedicFirmDocument_.pm_GetDsDrugList
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsMedicFirmDocument_.DataExchange;

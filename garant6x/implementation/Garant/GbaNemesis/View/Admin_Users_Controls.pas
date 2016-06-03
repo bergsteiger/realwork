@@ -1,104 +1,22 @@
 unit Admin_Users_Controls;
+ {* Операции для работ с учётными записями пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Admin_Users_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Администратор::Admin::View::Users
-//
-// Операции для работ с учётными записями пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_Users_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "Users" MUID: (494FD61000CC)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(* Users = operations
-  {* Пользователи }
-   ['{0B5DD01F-00EA-4EBA-83B9-539EAEFC687F}']
-   operation LogoutUser; has states;
-     {* Отключить пользователя }
-      SingleUser = state
-      end;//SingleUser
-      MultiUsers = state
-       { Отключить выделенных пользователей }
-      end;//MultiUsers
-   query ConsultingStateForNewbie; has states;
-     {* Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга }
-      Enabled = state
-       { Запретить вновь созданным пользователям использование услуги Правового консалтинга }
-      end;//Enabled
-      Disabled = state
-       { Разрешить вновь созданным пользователям использование услуги Правового консалтинга }
-      end;//Disabled
-   query Autoregistration; has states;
-     {* Разрешить/Запретить авторегистрацию новых пользователей }
-      Enabled = state
-       { Запретить авторегистрацию новых пользователей }
-      end;//Enabled
-      Disabled = state
-       { Разрешить авторегистрацию новых пользователей }
-      end;//Disabled
-   operation AddPrivelegedRight; has states;
-     {* Сделать выделенных пользователей привилегированными }
-      MultiUsers = state
-      end;//MultiUsers
-      SingleUser = state
-       { Сделать привилегированным }
-      end;//SingleUser
-   operation RemovePrivelegedRight; has states;
-     {* Отменить для выделенных пользователей режим привилегий }
-      MultiUsers = state
-      end;//MultiUsers
-      SingleUser = state
-       { Отменить режим привилегий }
-      end;//SingleUser
-   operation UserFilter;
-   operation DisableConsulting;
-   operation EnableConsulting;
-   operation MakeFiltersShared;
-     {* Сделать фильтры данного пользователя общими }
-   operation DenyDeleteIdle;
-     {* Не удалять при бездействии }
-   operation Add;
-     {* Добавить }
- end;//Users*)
-
-(* Groups = operations
-  {* Группы }
-   ['{8E4CE498-63B9-40FF-8F38-9206BEECDD02}']
-   operation Add;
-     {* Добавить }
-   operation ChangeBaseAccess;
-   operation Rename;
-     {* Переименовать группу }
- end;//Groups*)
-
-(* Result = operations
-   ['{41A48F4D-7C40-4F47-BF30-91E4FF0E3B80}']
-   operation Save; has states;
-     {* Сохранить }
-      Create = state
-       { Создать }
-      end;//Create
-   operation Save;
- end;//Result*)
-{$IfEnd} //Admin
-
-{$If defined(Admin)}
 const
  en_Users = 'Users';
  en_capUsers = 'Пользователи';
@@ -135,31 +53,36 @@ const
  op_Save = 'Save';
  op_capSave = 'Сохранить';
 
-// Состояния операций:
-var st_user_Users_LogoutUser_SingleUser : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Отключить пользователя <-> SingleUser
-var st_user_Users_LogoutUser_MultiUsers : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Отключить пользователя <-> Отключить выделенных пользователей
-var st_user_Users_ConsultingStateForNewbie_Enabled : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга <-> Запретить вновь созданным пользователям использование услуги Правового консалтинга
-var st_user_Users_ConsultingStateForNewbie_Disabled : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга <-> Разрешить вновь созданным пользователям использование услуги Правового консалтинга
-var st_user_Users_Autoregistration_Enabled : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Разрешить/Запретить авторегистрацию новых пользователей <-> Запретить авторегистрацию новых пользователей
-var st_user_Users_Autoregistration_Disabled : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Разрешить/Запретить авторегистрацию новых пользователей <-> Разрешить авторегистрацию новых пользователей
-var st_user_Users_AddPrivelegedRight_MultiUsers : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Сделать выделенных пользователей привилегированными <-> MultiUsers
-var st_user_Users_AddPrivelegedRight_SingleUser : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Сделать выделенных пользователей привилегированными <-> Сделать привилегированным
-var st_user_Users_RemovePrivelegedRight_MultiUsers : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Отменить для выделенных пользователей режим привилегий <-> MultiUsers
-var st_user_Users_RemovePrivelegedRight_SingleUser : TvcmOperationStateIndex = (rID : -1);
-  // Пользователи -> Отменить для выделенных пользователей режим привилегий <-> Отменить режим привилегий
-var st_user_Result_Save_Create : TvcmOperationStateIndex = (rID : -1);
-  // Result -> Сохранить <-> Создать
-{$IfEnd} //Admin
+var st_user_Users_LogoutUser_SingleUser: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Отключить пользователя <->  }
+var st_user_Users_LogoutUser_MultiUsers: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Отключить пользователя <-> Отключить выделенных пользователей }
+var st_user_Users_ConsultingStateForNewbie_Enabled: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга <-> Запретить вновь созданным пользователям использование услуги Правового консалтинга }
+var st_user_Users_ConsultingStateForNewbie_Disabled: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Разрешить/Запретить вновь созданным пользователям использование услуги Правового консалтинга <-> Разрешить вновь созданным пользователям использование услуги Правового консалтинга }
+var st_user_Users_Autoregistration_Enabled: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Разрешить/Запретить авторегистрацию новых пользователей <-> Запретить авторегистрацию новых пользователей }
+var st_user_Users_Autoregistration_Disabled: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Разрешить/Запретить авторегистрацию новых пользователей <-> Разрешить авторегистрацию новых пользователей }
+var st_user_Users_AddPrivelegedRight_MultiUsers: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Сделать выделенных пользователей привилегированными <->  }
+var st_user_Users_AddPrivelegedRight_SingleUser: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Сделать выделенных пользователей привилегированными <-> Сделать привилегированным }
+var st_user_Users_RemovePrivelegedRight_MultiUsers: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Отменить для выделенных пользователей режим привилегий <->  }
+var st_user_Users_RemovePrivelegedRight_SingleUser: TvcmOperationStateIndex = (rID : -1);
+ {* Пользователи -> Отменить для выделенных пользователей режим привилегий <-> Отменить режим привилегий }
+var st_user_Result_Save_Create: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Сохранить <-> Создать }
+{$IfEnd} // Defined(Admin)
 
 implementation
+
+{$If Defined(Admin)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(Admin)
 
 end.

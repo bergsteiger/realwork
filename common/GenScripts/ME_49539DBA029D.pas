@@ -2186,6 +2186,24 @@ var l_PositionList: IPositionList absolute Result;
    anIndex: Integer): Boolean;
    {* Подитеративная функция для вызова Iterate из CollectParas }
 
+   procedure AddParaToList(const aPara: InevObject);
+   //#UC START# *4F98298400DA__var*
+   var
+    l_Pos : DocumentUnit.TPosition;
+   //#UC END# *4F98298400DA__var*
+   begin
+   //#UC START# *4F98298400DA__impl*
+    l3FillChar(l_Pos, SizeOf(l_Pos));
+    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
+    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
+    begin
+     l_Pos.rType := PT_PARA;
+     l_PositionList.Add(l_Pos);
+    end;//l_Pos.rPoint <> 0
+   //#UC END# *4F98298400DA__impl*
+   end;//AddParaToList
+
+
    function CorrectPara(const aPara: InevObject): Boolean;
    //#UC START# *4F981D29027B__var*
 
@@ -2257,24 +2275,6 @@ var l_PositionList: IPositionList absolute Result;
     end;//l_WasCorrection
    //#UC END# *4F981D29027B__impl*
    end;//CorrectPara
-
-
-   procedure AddParaToList(const aPara: InevObject);
-   //#UC START# *4F98298400DA__var*
-   var
-    l_Pos : DocumentUnit.TPosition;
-   //#UC END# *4F98298400DA__var*
-   begin
-   //#UC START# *4F98298400DA__impl*
-    l3FillChar(l_Pos, SizeOf(l_Pos));
-    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
-    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
-    begin
-     l_Pos.rType := PT_PARA;
-     l_PositionList.Add(l_Pos);
-    end;//l_Pos.rPoint <> 0
-   //#UC END# *4F98298400DA__impl*
-   end;//AddParaToList
 
   //#UC START# *4F981D630001__var*
   var
@@ -2976,7 +2976,7 @@ end;//TExTextForm.Document_OpenCorrespondentList_Execute
 procedure TExTextForm.Document_OpenCorrespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
- with (aParams.Data As IDocument_OpenCorrespondentList_Params) do
+ with IDocument_OpenCorrespondentList_Params(aParams.Data) do
   Self.Document_OpenCorrespondentList_Execute(Kind, CRType);
 end;//TExTextForm.Document_OpenCorrespondentList
 
@@ -3008,7 +3008,7 @@ end;//TExTextForm.Document_OpenRespondentList_Execute
 procedure TExTextForm.Document_OpenRespondentList(const aParams: IvcmExecuteParams);
  {* Коллеги, это что? }
 begin
- with (aParams.Data As IDocument_OpenRespondentList_Params) do
+ with IDocument_OpenRespondentList_Params(aParams.Data) do
   Self.Document_OpenRespondentList_Execute(Kind, CRType);
 end;//TExTextForm.Document_OpenRespondentList
 
@@ -3113,7 +3113,7 @@ end;//TExTextForm.Loadable_Load_Execute
 procedure TExTextForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {* Коллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TExTextForm.Loadable_Load
 
@@ -3223,7 +3223,7 @@ end;//TExTextForm.Document_AttributesCanBeClosed_Execute
 procedure TExTextForm.Document_AttributesCanBeClosed(const aParams: IvcmExecuteParams);
  {* Это кандидат на перенос в Facet или что-то подобное }
 begin
- with (aParams.Data As IDocument_AttributesCanBeClosed_Params) do
+ with IDocument_AttributesCanBeClosed_Params(aParams.Data) do
   ResultValue := Self.Document_AttributesCanBeClosed_Execute;
 end;//TExTextForm.Document_AttributesCanBeClosed
 
@@ -3468,7 +3468,7 @@ end;//TExTextForm.Document_CommonDocumentOpenNewWindow_Execute
 procedure TExTextForm.Document_CommonDocumentOpenNewWindow(const aParams: IvcmExecuteParams);
  {* Что это? }
 begin
- with (aParams.Data As IDocument_CommonDocumentOpenNewWindow_Params) do
+ with IDocument_CommonDocumentOpenNewWindow_Params(aParams.Data) do
   Self.Document_CommonDocumentOpenNewWindow_Execute(UserType);
 end;//TExTextForm.Document_CommonDocumentOpenNewWindow
 
@@ -3502,7 +3502,7 @@ end;//TExTextForm.System_TimeMachineStateChange_Execute
 
 procedure TExTextForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
+ with ISystem_TimeMachineStateChange_Params(aParams.Data) do
   Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
 end;//TExTextForm.System_TimeMachineStateChange
 
@@ -3519,7 +3519,7 @@ end;//TExTextForm.Redactions_RedactionOnID_Execute
 
 procedure TExTextForm.Redactions_RedactionOnID(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IRedactions_RedactionOnID_Params) do
+ with IRedactions_RedactionOnID_Params(aParams.Data) do
   Self.Redactions_RedactionOnID_Execute(RedactionID);
 end;//TExTextForm.Redactions_RedactionOnID
 
@@ -3540,7 +3540,7 @@ end;//TExTextForm.Document_FindExplanation_Execute
 procedure TExTextForm.Document_FindExplanation(const aParams: IvcmExecuteParams);
  {* Найти толкование }
 begin
- with (aParams.Data As IDocument_FindExplanation_Params) do
+ with IDocument_FindExplanation_Params(aParams.Data) do
   ResultValue := Self.Document_FindExplanation_Execute;
 end;//TExTextForm.Document_FindExplanation
 
@@ -3586,7 +3586,7 @@ end;//TExTextForm.Document_SetPosition_Execute
 
 procedure TExTextForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_SetPosition_Params) do
+ with IDocument_SetPosition_Params(aParams.Data) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
 end;//TExTextForm.Document_SetPosition
 
@@ -3608,7 +3608,7 @@ end;//TExTextForm.Document_SetActive_Execute
 
 procedure TExTextForm.Document_SetActive(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_SetActive_Params) do
+ with IDocument_SetActive_Params(aParams.Data) do
   Self.Document_SetActive_Execute(UserType);
 end;//TExTextForm.Document_SetActive
 
@@ -3625,7 +3625,7 @@ end;//TExTextForm.Document_ExportBlock_Execute
 
 procedure TExTextForm.Document_ExportBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_ExportBlock_Params) do
+ with IDocument_ExportBlock_Params(aParams.Data) do
   Self.Document_ExportBlock_Execute(Data, UserType, ToActiveWindow);
 end;//TExTextForm.Document_ExportBlock
 
@@ -3659,7 +3659,7 @@ end;//TExTextForm.Document_GetCurrentPosition_Execute
 
 procedure TExTextForm.Document_GetCurrentPosition(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_GetCurrentPosition_Params) do
+ with IDocument_GetCurrentPosition_Params(aParams.Data) do
   ResultValue := Self.Document_GetCurrentPosition_Execute;
 end;//TExTextForm.Document_GetCurrentPosition
 
@@ -3675,7 +3675,7 @@ end;//TExTextForm.Document_SelectBlock_Execute
 
 procedure TExTextForm.Document_SelectBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_SelectBlock_Params) do
+ with IDocument_SelectBlock_Params(aParams.Data) do
   Self.Document_SelectBlock_Execute(Data, UserType);
 end;//TExTextForm.Document_SelectBlock
 
@@ -3691,7 +3691,7 @@ end;//TExTextForm.Document_CopyBlock_Execute
 
 procedure TExTextForm.Document_CopyBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_CopyBlock_Params) do
+ with IDocument_CopyBlock_Params(aParams.Data) do
   Self.Document_CopyBlock_Execute(Data, UserType);
 end;//TExTextForm.Document_CopyBlock
 
@@ -3707,7 +3707,7 @@ end;//TExTextForm.Document_PrintBlock_Execute
 
 procedure TExTextForm.Document_PrintBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_PrintBlock_Params) do
+ with IDocument_PrintBlock_Params(aParams.Data) do
   Self.Document_PrintBlock_Execute(Data, UserType);
 end;//TExTextForm.Document_PrintBlock
 
@@ -3723,7 +3723,7 @@ end;//TExTextForm.Document_PrintDialogBlock_Execute
 
 procedure TExTextForm.Document_PrintDialogBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_PrintDialogBlock_Params) do
+ with IDocument_PrintDialogBlock_Params(aParams.Data) do
   Self.Document_PrintDialogBlock_Execute(Data, UserType);
 end;//TExTextForm.Document_PrintDialogBlock
 
@@ -3739,7 +3739,7 @@ end;//TExTextForm.Document_PreviewBlock_Execute
 
 procedure TExTextForm.Document_PreviewBlock(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_PreviewBlock_Params) do
+ with IDocument_PreviewBlock_Params(aParams.Data) do
   Self.Document_PreviewBlock_Execute(Data, UserType);
 end;//TExTextForm.Document_PreviewBlock
 
@@ -3756,7 +3756,7 @@ end;//TExTextForm.Document_ShowRespondentListToPart_Execute
 
 procedure TExTextForm.Document_ShowRespondentListToPart(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_ShowRespondentListToPart_Params) do
+ with IDocument_ShowRespondentListToPart_Params(aParams.Data) do
   Self.Document_ShowRespondentListToPart_Execute(List, Current);
 end;//TExTextForm.Document_ShowRespondentListToPart
 
@@ -3773,7 +3773,7 @@ end;//TExTextForm.Document_ShowCorrespondentListToPart_Execute
 
 procedure TExTextForm.Document_ShowCorrespondentListToPart(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_ShowCorrespondentListToPart_Params) do
+ with IDocument_ShowCorrespondentListToPart_Params(aParams.Data) do
   Self.Document_ShowCorrespondentListToPart_Execute(List, Current);
 end;//TExTextForm.Document_ShowCorrespondentListToPart
 
@@ -3803,7 +3803,7 @@ end;//TExTextForm.Document_ModifyBookmarkNotify_Execute
 
 procedure TExTextForm.Document_ModifyBookmarkNotify(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_ModifyBookmarkNotify_Params) do
+ with IDocument_ModifyBookmarkNotify_Params(aParams.Data) do
   Self.Document_ModifyBookmarkNotify_Execute(nEntity);
 end;//TExTextForm.Document_ModifyBookmarkNotify
 
@@ -3829,7 +3829,7 @@ end;//TExTextForm.Document_AddBookmarkFromContents_Execute
 
 procedure TExTextForm.Document_AddBookmarkFromContents(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_AddBookmarkFromContents_Params) do
+ with IDocument_AddBookmarkFromContents_Params(aParams.Data) do
   Self.Document_AddBookmarkFromContents_Execute(Tag);
 end;//TExTextForm.Document_AddBookmarkFromContents
 
@@ -4019,7 +4019,7 @@ end;//TExTextForm.Document_GotoPara_Execute
 
 procedure TExTextForm.Document_GotoPara(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_GotoPara_Params) do
+ with IDocument_GotoPara_Params(aParams.Data) do
   ResultValue := Self.Document_GotoPara_Execute(Para, UserType);
 end;//TExTextForm.Document_GotoPara
 
@@ -4121,7 +4121,7 @@ end;//TExTextForm.Document_GetParaForPositionning_Execute
 
 procedure TExTextForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+ with IDocument_GetParaForPositionning_Params(aParams.Data) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
 end;//TExTextForm.Document_GetParaForPositionning
 
@@ -6026,7 +6026,7 @@ end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute
 
 procedure TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params) do
+ with IBaseSearchPresentationHolder_GetBaseSearchPresentation_Params(aParams.Data) do
   ResultValue := Self.BaseSearchPresentationHolder_GetBaseSearchPresentation_Execute;
 end;//TExTextForm.BaseSearchPresentationHolder_GetBaseSearchPresentation
 
@@ -6277,7 +6277,7 @@ end;//TExTextForm.Document_CommonDocumentOpenNewTab_Execute
 
 procedure TExTextForm.Document_CommonDocumentOpenNewTab(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_CommonDocumentOpenNewTab_Params) do
+ with IDocument_CommonDocumentOpenNewTab_Params(aParams.Data) do
   Self.Document_CommonDocumentOpenNewTab_Execute(UserType);
 end;//TExTextForm.Document_CommonDocumentOpenNewTab
 

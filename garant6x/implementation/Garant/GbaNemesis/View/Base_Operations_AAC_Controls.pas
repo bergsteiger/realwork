@@ -1,105 +1,80 @@
 unit Base_Operations_AAC_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Base_Operations_AAC_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Core::Base Operations::View::AAC
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_AAC_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "AAC" MUID: (50052359008A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3CProtoObject
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  evCustomEditorWindow,
-  vtScrollBar,
-  vcmExternalInterfaces {a}
-  ;
-
-(* AACTextContainer = operations({, Scrollbar в правой части должен располагаться на всю высоту, вместе с плашкой "напишите нам".})
-   ['{07772026-7D05-41DD-8E5C-B71C2DFAA455}']
-   query GetVScrollBar(aLeft: Boolean): TvtScrollBar;
-   query SetJumpTo(aJumpTo: TevJumpToEvent);
- end;//AACTextContainer*)
+ l3IntfUses
+ , vtScrollBar
+ , evCustomEditorWindow
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- IAACTextContainer_GetVScrollBar_Params = interface(IUnknown)
+ IAACTextContainer_GetVScrollBar_Params = interface
   {* Параметры для операции AACTextContainer.GetVScrollBar }
-   ['{D92D17BA-66ED-45D0-A44D-46B0A151F82F}']
-   function Get_Left: Boolean;
-   function Get_ResultValue: TvtScrollBar;
-   procedure Set_ResultValue(aValue: TvtScrollBar);
-   property Left: Boolean
-     read Get_Left;
-     {* undefined }
-   property ResultValue: TvtScrollBar
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_Left: Boolean;
+  function Get_ResultValue: TvtScrollBar;
+  procedure Set_ResultValue(aValue: TvtScrollBar);
+  property Left: Boolean
+   read Get_Left;
+  property ResultValue: TvtScrollBar
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IAACTextContainer_GetVScrollBar_Params
 
- Op_AACTextContainer_GetVScrollBar = class
+ Op_AACTextContainer_GetVScrollBar = {final} class
   {* Класс для вызова операции AACTextContainer.GetVScrollBar }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aLeft: Boolean): TvtScrollBar; overload; 
-     {* Вызов операции AACTextContainer.GetVScrollBar у сущности }
+    aLeft: Boolean): TvtScrollBar; overload;
+    {* Вызов операции AACTextContainer.GetVScrollBar у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aLeft: Boolean): TvtScrollBar; overload; 
-     {* Вызов операции AACTextContainer.GetVScrollBar у агрегации }
+    aLeft: Boolean): TvtScrollBar; overload;
+    {* Вызов операции AACTextContainer.GetVScrollBar у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aLeft: Boolean): TvtScrollBar; overload; 
-     {* Вызов операции AACTextContainer.GetVScrollBar у формы }
+    aLeft: Boolean): TvtScrollBar; overload;
+    {* Вызов операции AACTextContainer.GetVScrollBar у формы }
    class function Call(const aTarget: IvcmContainer;
-    aLeft: Boolean): TvtScrollBar; overload; 
-     {* Вызов операции AACTextContainer.GetVScrollBar у контейнера }
+    aLeft: Boolean): TvtScrollBar; overload;
+    {* Вызов операции AACTextContainer.GetVScrollBar у контейнера }
  end;//Op_AACTextContainer_GetVScrollBar
 
- IAACTextContainer_SetJumpTo_Params = interface(IUnknown)
+ IAACTextContainer_SetJumpTo_Params = interface
   {* Параметры для операции AACTextContainer.SetJumpTo }
-   ['{AA22C948-B816-4987-8949-17CE74250FCC}']
-   function Get_JumpTo: TevJumpToEvent;
-   property JumpTo: TevJumpToEvent
-     read Get_JumpTo;
-     {* undefined }
+  function Get_JumpTo: TevJumpToEvent;
+  property JumpTo: TevJumpToEvent
+   read Get_JumpTo;
  end;//IAACTextContainer_SetJumpTo_Params
 
- Op_AACTextContainer_SetJumpTo = class
+ Op_AACTextContainer_SetJumpTo = {final} class
   {* Класс для вызова операции AACTextContainer.SetJumpTo }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aJumpTo: TevJumpToEvent): Boolean; overload; 
-     {* Вызов операции AACTextContainer.SetJumpTo у сущности }
+    aJumpTo: TevJumpToEvent): Boolean; overload;
+    {* Вызов операции AACTextContainer.SetJumpTo у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aJumpTo: TevJumpToEvent): Boolean; overload; 
-     {* Вызов операции AACTextContainer.SetJumpTo у агрегации }
+    aJumpTo: TevJumpToEvent): Boolean; overload;
+    {* Вызов операции AACTextContainer.SetJumpTo у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aJumpTo: TevJumpToEvent): Boolean; overload; 
-     {* Вызов операции AACTextContainer.SetJumpTo у формы }
+    aJumpTo: TevJumpToEvent): Boolean; overload;
+    {* Вызов операции AACTextContainer.SetJumpTo у формы }
    class function Call(const aTarget: IvcmContainer;
-    aJumpTo: TevJumpToEvent): Boolean; overload; 
-     {* Вызов операции AACTextContainer.SetJumpTo у контейнера }
+    aJumpTo: TevJumpToEvent): Boolean; overload;
+    {* Вызов операции AACTextContainer.SetJumpTo у контейнера }
  end;//Op_AACTextContainer_SetJumpTo
-{$IfEnd} //not Admin AND not Monitorings
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_AACTextContainer = 'AACTextContainer';
  en_capAACTextContainer = '';
@@ -107,41 +82,50 @@ const
  op_capGetVScrollBar = '';
  op_SetJumpTo = 'SetJumpTo';
  op_capSetJumpTo = '';
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TAACTextContainer_GetVScrollBar_Params = class(Tl3CProtoObject, IAACTextContainer_GetVScrollBar_Params)
+ TAACTextContainer_GetVScrollBar_Params = {final} class(Tl3CProtoObject, IAACTextContainer_GetVScrollBar_Params)
   {* Реализация IAACTextContainer_GetVScrollBar_Params }
- private
- // private fields
-   f_Left : Boolean;
-   f_ResultValue : TvtScrollBar;
- protected
- // realized methods
+  private
+   f_Left: Boolean;
+   f_ResultValue: TvtScrollBar;
+  protected
+   function Get_Left: Boolean;
    function Get_ResultValue: TvtScrollBar;
    procedure Set_ResultValue(aValue: TvtScrollBar);
-   function Get_Left: Boolean;
- public
- // public methods
+  public
    constructor Create(aLeft: Boolean); reintroduce;
-     {* Конструктор TAACTextContainer_GetVScrollBar_Params }
    class function Make(aLeft: Boolean): IAACTextContainer_GetVScrollBar_Params; reintroduce;
-     {* Фабрика TAACTextContainer_GetVScrollBar_Params }
  end;//TAACTextContainer_GetVScrollBar_Params
 
-// start class TAACTextContainer_GetVScrollBar_Params
+ TAACTextContainer_SetJumpTo_Params = {final} class(Tl3CProtoObject, IAACTextContainer_SetJumpTo_Params)
+  {* Реализация IAACTextContainer_SetJumpTo_Params }
+  private
+   f_JumpTo: TevJumpToEvent;
+  protected
+   function Get_JumpTo: TevJumpToEvent;
+  public
+   constructor Create(aJumpTo: TevJumpToEvent); reintroduce;
+   class function Make(aJumpTo: TevJumpToEvent): IAACTextContainer_SetJumpTo_Params; reintroduce;
+ end;//TAACTextContainer_SetJumpTo_Params
 
 constructor TAACTextContainer_GetVScrollBar_Params.Create(aLeft: Boolean);
- {-}
 begin
  inherited Create;
  f_Left := aLeft;
@@ -157,29 +141,26 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TAACTextContainer_GetVScrollBar_Params.Make
+
+function TAACTextContainer_GetVScrollBar_Params.Get_Left: Boolean;
+begin
+ Result := f_Left;
+end;//TAACTextContainer_GetVScrollBar_Params.Get_Left
 
 function TAACTextContainer_GetVScrollBar_Params.Get_ResultValue: TvtScrollBar;
- {-}
 begin
  Result := f_ResultValue;
 end;//TAACTextContainer_GetVScrollBar_Params.Get_ResultValue
 
 procedure TAACTextContainer_GetVScrollBar_Params.Set_ResultValue(aValue: TvtScrollBar);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TAACTextContainer_GetVScrollBar_Params.Set_ResultValue
 
-function TAACTextContainer_GetVScrollBar_Params.Get_Left: Boolean;
- {-}
-begin
- Result := f_Left;
-end;//TAACTextContainer_GetVScrollBar_Params.Get_Left
-// start class Op_AACTextContainer_GetVScrollBar
-
 class function Op_AACTextContainer_GetVScrollBar.Call(const aTarget: IvcmEntity;
-  aLeft: Boolean): TvtScrollBar;
+ aLeft: Boolean): TvtScrollBar;
+ {* Вызов операции AACTextContainer.GetVScrollBar у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -199,7 +180,8 @@ begin
 end;//Op_AACTextContainer_GetVScrollBar.Call
 
 class function Op_AACTextContainer_GetVScrollBar.Call(const aTarget: IvcmAggregate;
-  aLeft: Boolean): TvtScrollBar;
+ aLeft: Boolean): TvtScrollBar;
+ {* Вызов операции AACTextContainer.GetVScrollBar у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -219,8 +201,8 @@ begin
 end;//Op_AACTextContainer_GetVScrollBar.Call
 
 class function Op_AACTextContainer_GetVScrollBar.Call(const aTarget: IvcmEntityForm;
-  aLeft: Boolean): TvtScrollBar;
- {-}
+ aLeft: Boolean): TvtScrollBar;
+ {* Вызов операции AACTextContainer.GetVScrollBar у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -228,35 +210,15 @@ begin
 end;//Op_AACTextContainer_GetVScrollBar.Call
 
 class function Op_AACTextContainer_GetVScrollBar.Call(const aTarget: IvcmContainer;
-  aLeft: Boolean): TvtScrollBar;
- {-}
+ aLeft: Boolean): TvtScrollBar;
+ {* Вызов операции AACTextContainer.GetVScrollBar у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aLeft);
 end;//Op_AACTextContainer_GetVScrollBar.Call
 
-type
- TAACTextContainer_SetJumpTo_Params = class(Tl3CProtoObject, IAACTextContainer_SetJumpTo_Params)
-  {* Реализация IAACTextContainer_SetJumpTo_Params }
- private
- // private fields
-   f_JumpTo : TevJumpToEvent;
- protected
- // realized methods
-   function Get_JumpTo: TevJumpToEvent;
- public
- // public methods
-   constructor Create(aJumpTo: TevJumpToEvent); reintroduce;
-     {* Конструктор TAACTextContainer_SetJumpTo_Params }
-   class function Make(aJumpTo: TevJumpToEvent): IAACTextContainer_SetJumpTo_Params; reintroduce;
-     {* Фабрика TAACTextContainer_SetJumpTo_Params }
- end;//TAACTextContainer_SetJumpTo_Params
-
-// start class TAACTextContainer_SetJumpTo_Params
-
 constructor TAACTextContainer_SetJumpTo_Params.Create(aJumpTo: TevJumpToEvent);
- {-}
 begin
  inherited Create;
  f_JumpTo := aJumpTo;
@@ -272,17 +234,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TAACTextContainer_SetJumpTo_Params.Make
 
 function TAACTextContainer_SetJumpTo_Params.Get_JumpTo: TevJumpToEvent;
- {-}
 begin
  Result := f_JumpTo;
 end;//TAACTextContainer_SetJumpTo_Params.Get_JumpTo
-// start class Op_AACTextContainer_SetJumpTo
 
 class function Op_AACTextContainer_SetJumpTo.Call(const aTarget: IvcmEntity;
-  aJumpTo: TevJumpToEvent): Boolean;
+ aJumpTo: TevJumpToEvent): Boolean;
+ {* Вызов операции AACTextContainer.SetJumpTo у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -302,7 +263,8 @@ begin
 end;//Op_AACTextContainer_SetJumpTo.Call
 
 class function Op_AACTextContainer_SetJumpTo.Call(const aTarget: IvcmAggregate;
-  aJumpTo: TevJumpToEvent): Boolean;
+ aJumpTo: TevJumpToEvent): Boolean;
+ {* Вызов операции AACTextContainer.SetJumpTo у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -322,8 +284,8 @@ begin
 end;//Op_AACTextContainer_SetJumpTo.Call
 
 class function Op_AACTextContainer_SetJumpTo.Call(const aTarget: IvcmEntityForm;
-  aJumpTo: TevJumpToEvent): Boolean;
- {-}
+ aJumpTo: TevJumpToEvent): Boolean;
+ {* Вызов операции AACTextContainer.SetJumpTo у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -331,14 +293,13 @@ begin
 end;//Op_AACTextContainer_SetJumpTo.Call
 
 class function Op_AACTextContainer_SetJumpTo.Call(const aTarget: IvcmContainer;
-  aJumpTo: TevJumpToEvent): Boolean;
- {-}
+ aJumpTo: TevJumpToEvent): Boolean;
+ {* Вызов операции AACTextContainer.SetJumpTo у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aJumpTo);
 end;//Op_AACTextContainer_SetJumpTo.Call
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

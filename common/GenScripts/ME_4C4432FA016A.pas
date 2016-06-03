@@ -15,6 +15,12 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Rubric = 'Rubric';
+ en_capRubric = '';
+ op_Execute = 'Execute';
+ op_capExecute = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

@@ -64,7 +64,7 @@ type
     {* параметры создани€ списка }
    procedure OpenDrugInternationalNameSynonims;
     {* открыть список похожих по международному названию }
-   function Get_dsContents: IdsBaseContents;
+   function Get_DsContents: IdsBaseContents;
    function MakeContainer: InevDocumentContainer; override;
     {*  онструирует контейнер документа }
   public
@@ -160,7 +160,7 @@ begin
 //#UC END# *4953D3B20211_491D89A001A9_impl*
 end;//TdsDrugDocument.OpenContents
 
-function TdsDrugDocument.Get_dsContents: IdsBaseContents;
+function TdsDrugDocument.Get_DsContents: IdsBaseContents;
 //#UC START# *4E7B663D00A9_491D89A001A9get_var*
 //#UC END# *4E7B663D00A9_491D89A001A9get_var*
 begin
@@ -170,7 +170,7 @@ begin
  else
   Result := ucc_DocumentWithContents.dsContents;
 //#UC END# *4E7B663D00A9_491D89A001A9get_impl*
-end;//TdsDrugDocument.Get_dsContents
+end;//TdsDrugDocument.Get_DsContents
 
 function TdsDrugDocument.MakeContainer: InevDocumentContainer;
  {*  онструирует контейнер документа }

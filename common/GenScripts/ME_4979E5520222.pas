@@ -276,7 +276,7 @@ end;//TPrimWarningForm.System_TimeMachineStateChange_Execute
 
 procedure TPrimWarningForm.System_TimeMachineStateChange(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISystem_TimeMachineStateChange_Params) do
+ with ISystem_TimeMachineStateChange_Params(aParams.Data) do
   Self.System_TimeMachineStateChange_Execute(StayInCurrentRedaction);
 end;//TPrimWarningForm.System_TimeMachineStateChange
 

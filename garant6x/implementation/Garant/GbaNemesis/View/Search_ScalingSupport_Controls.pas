@@ -1,119 +1,90 @@
 unit Search_ScalingSupport_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View$For F1 and Monitorings"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search_ScalingSupport_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Common For Shell And Monitoring::Search::View$For F1 and Monitorings::ScalingSupport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "ScalingSupport" MUID: (5278E45101D3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3CProtoObject
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
  TCanChangeScale = (
-   ccsUnknown
- , ccsNo
- , ccsYes
- , ccsYesIfPossible
+  ccsUnknown
+  , ccsNo
+  , ccsYes
+  , ccsYesIfPossible
  );//TCanChangeScale
 
-(* Scalable = operations
-  {* Масштабируемый объект }
-   ['{0CE5ACBF-CAB7-4200-B628-2E6EC058514D}']
-   query ChangeScale(aInc: Boolean): Boolean;
-     {* Изменить масштаб }
-   query CanChangeScale(anInc: Boolean): TCanChangeScale;
-     {* Масштабирование запрещено }
- end;//Scalable*)
-
- IScalable_ChangeScale_Params = interface(IUnknown)
+ IScalable_ChangeScale_Params = interface
   {* Параметры для операции Scalable.ChangeScale }
-   ['{9E4E6D77-C687-4BAE-BB0F-50404EDCFC48}']
-   function Get_Inc: Boolean;
-   function Get_ResultValue: Boolean;
-   procedure Set_ResultValue(aValue: Boolean);
-   property Inc: Boolean
-     read Get_Inc;
-     {* undefined }
-   property ResultValue: Boolean
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_Inc: Boolean;
+  function Get_ResultValue: Boolean;
+  procedure Set_ResultValue(aValue: Boolean);
+  property Inc: Boolean
+   read Get_Inc;
+  property ResultValue: Boolean
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IScalable_ChangeScale_Params
 
- Op_Scalable_ChangeScale = class
+ Op_Scalable_ChangeScale = {final} class
   {* Класс для вызова операции Scalable.ChangeScale }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aInc: Boolean): Boolean; overload; 
-     {* Вызов операции Scalable.ChangeScale у сущности }
+    aInc: Boolean): Boolean; overload;
+    {* Вызов операции Scalable.ChangeScale у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aInc: Boolean): Boolean; overload; 
-     {* Вызов операции Scalable.ChangeScale у агрегации }
+    aInc: Boolean): Boolean; overload;
+    {* Вызов операции Scalable.ChangeScale у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aInc: Boolean): Boolean; overload; 
-     {* Вызов операции Scalable.ChangeScale у формы }
+    aInc: Boolean): Boolean; overload;
+    {* Вызов операции Scalable.ChangeScale у формы }
    class function Call(const aTarget: IvcmContainer;
-    aInc: Boolean): Boolean; overload; 
-     {* Вызов операции Scalable.ChangeScale у контейнера }
+    aInc: Boolean): Boolean; overload;
+    {* Вызов операции Scalable.ChangeScale у контейнера }
  end;//Op_Scalable_ChangeScale
 
- IScalable_CanChangeScale_Params = interface(IUnknown)
+ IScalable_CanChangeScale_Params = interface
   {* Параметры для операции Scalable.CanChangeScale }
-   ['{4065276A-A0EE-41AB-A50F-3B65D3263E75}']
-   function Get_NInc: Boolean;
-   function Get_ResultValue: TCanChangeScale;
-   procedure Set_ResultValue(aValue: TCanChangeScale);
-   property nInc: Boolean
-     read Get_NInc;
-     {* undefined }
-   property ResultValue: TCanChangeScale
-     read Get_ResultValue
-     write Set_ResultValue;
-     {* undefined }
+  function Get_nInc: Boolean;
+  function Get_ResultValue: TCanChangeScale;
+  procedure Set_ResultValue(aValue: TCanChangeScale);
+  property nInc: Boolean
+   read Get_nInc;
+  property ResultValue: TCanChangeScale
+   read Get_ResultValue
+   write Set_ResultValue;
  end;//IScalable_CanChangeScale_Params
 
- Op_Scalable_CanChangeScale = class
+ Op_Scalable_CanChangeScale = {final} class
   {* Класс для вызова операции Scalable.CanChangeScale }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    anInc: Boolean): TCanChangeScale; overload; 
-     {* Вызов операции Scalable.CanChangeScale у сущности }
+    anInc: Boolean): TCanChangeScale; overload;
+    {* Вызов операции Scalable.CanChangeScale у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    anInc: Boolean): TCanChangeScale; overload; 
-     {* Вызов операции Scalable.CanChangeScale у агрегации }
+    anInc: Boolean): TCanChangeScale; overload;
+    {* Вызов операции Scalable.CanChangeScale у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    anInc: Boolean): TCanChangeScale; overload; 
-     {* Вызов операции Scalable.CanChangeScale у формы }
+    anInc: Boolean): TCanChangeScale; overload;
+    {* Вызов операции Scalable.CanChangeScale у формы }
    class function Call(const aTarget: IvcmContainer;
-    anInc: Boolean): TCanChangeScale; overload; 
-     {* Вызов операции Scalable.CanChangeScale у контейнера }
+    anInc: Boolean): TCanChangeScale; overload;
+    {* Вызов операции Scalable.CanChangeScale у контейнера }
  end;//Op_Scalable_CanChangeScale
-{$IfEnd} //not Admin
 
-{$If not defined(Admin)}
 const
  en_Scalable = 'Scalable';
  en_capScalable = 'Масштабируемый объект';
@@ -121,41 +92,53 @@ const
  op_capChangeScale = 'Изменить масштаб';
  op_CanChangeScale = 'CanChangeScale';
  op_capCanChangeScale = 'Масштабирование запрещено';
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TScalable_ChangeScale_Params = class(Tl3CProtoObject, IScalable_ChangeScale_Params)
+ TScalable_ChangeScale_Params = {final} class(Tl3CProtoObject, IScalable_ChangeScale_Params)
   {* Реализация IScalable_ChangeScale_Params }
- private
- // private fields
-   f_Inc : Boolean;
-   f_ResultValue : Boolean;
- protected
- // realized methods
+  private
+   f_Inc: Boolean;
+   f_ResultValue: Boolean;
+  protected
    function Get_Inc: Boolean;
    function Get_ResultValue: Boolean;
    procedure Set_ResultValue(aValue: Boolean);
- public
- // public methods
+  public
    constructor Create(aInc: Boolean); reintroduce;
-     {* Конструктор TScalable_ChangeScale_Params }
    class function Make(aInc: Boolean): IScalable_ChangeScale_Params; reintroduce;
-     {* Фабрика TScalable_ChangeScale_Params }
  end;//TScalable_ChangeScale_Params
 
-// start class TScalable_ChangeScale_Params
+ TScalable_CanChangeScale_Params = {final} class(Tl3CProtoObject, IScalable_CanChangeScale_Params)
+  {* Реализация IScalable_CanChangeScale_Params }
+  private
+   f_nInc: Boolean;
+   f_ResultValue: TCanChangeScale;
+  protected
+   function Get_nInc: Boolean;
+   function Get_ResultValue: TCanChangeScale;
+   procedure Set_ResultValue(aValue: TCanChangeScale);
+  public
+   constructor Create(anInc: Boolean); reintroduce;
+   class function Make(anInc: Boolean): IScalable_CanChangeScale_Params; reintroduce;
+ end;//TScalable_CanChangeScale_Params
 
 constructor TScalable_ChangeScale_Params.Create(aInc: Boolean);
- {-}
 begin
  inherited Create;
  f_Inc := aInc;
@@ -171,29 +154,26 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TScalable_ChangeScale_Params.Make
 
 function TScalable_ChangeScale_Params.Get_Inc: Boolean;
- {-}
 begin
  Result := f_Inc;
 end;//TScalable_ChangeScale_Params.Get_Inc
 
 function TScalable_ChangeScale_Params.Get_ResultValue: Boolean;
- {-}
 begin
  Result := f_ResultValue;
 end;//TScalable_ChangeScale_Params.Get_ResultValue
 
 procedure TScalable_ChangeScale_Params.Set_ResultValue(aValue: Boolean);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TScalable_ChangeScale_Params.Set_ResultValue
-// start class Op_Scalable_ChangeScale
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmEntity;
-  aInc: Boolean): Boolean;
+ aInc: Boolean): Boolean;
+ {* Вызов операции Scalable.ChangeScale у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -213,7 +193,8 @@ begin
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmAggregate;
-  aInc: Boolean): Boolean;
+ aInc: Boolean): Boolean;
+ {* Вызов операции Scalable.ChangeScale у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -233,8 +214,8 @@ begin
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmEntityForm;
-  aInc: Boolean): Boolean;
- {-}
+ aInc: Boolean): Boolean;
+ {* Вызов операции Scalable.ChangeScale у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -242,38 +223,15 @@ begin
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmContainer;
-  aInc: Boolean): Boolean;
- {-}
+ aInc: Boolean): Boolean;
+ {* Вызов операции Scalable.ChangeScale у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aInc);
 end;//Op_Scalable_ChangeScale.Call
 
-type
- TScalable_CanChangeScale_Params = class(Tl3CProtoObject, IScalable_CanChangeScale_Params)
-  {* Реализация IScalable_CanChangeScale_Params }
- private
- // private fields
-   f_nInc : Boolean;
-   f_ResultValue : TCanChangeScale;
- protected
- // realized methods
-   function Get_NInc: Boolean;
-   function Get_ResultValue: TCanChangeScale;
-   procedure Set_ResultValue(aValue: TCanChangeScale);
- public
- // public methods
-   constructor Create(anInc: Boolean); reintroduce;
-     {* Конструктор TScalable_CanChangeScale_Params }
-   class function Make(anInc: Boolean): IScalable_CanChangeScale_Params; reintroduce;
-     {* Фабрика TScalable_CanChangeScale_Params }
- end;//TScalable_CanChangeScale_Params
-
-// start class TScalable_CanChangeScale_Params
-
 constructor TScalable_CanChangeScale_Params.Create(anInc: Boolean);
- {-}
 begin
  inherited Create;
  f_nInc := anInc;
@@ -289,29 +247,26 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TScalable_CanChangeScale_Params.Make
 
-function TScalable_CanChangeScale_Params.Get_NInc: Boolean;
- {-}
+function TScalable_CanChangeScale_Params.Get_nInc: Boolean;
 begin
  Result := f_nInc;
-end;//TScalable_CanChangeScale_Params.Get_NInc
+end;//TScalable_CanChangeScale_Params.Get_nInc
 
 function TScalable_CanChangeScale_Params.Get_ResultValue: TCanChangeScale;
- {-}
 begin
  Result := f_ResultValue;
 end;//TScalable_CanChangeScale_Params.Get_ResultValue
 
 procedure TScalable_CanChangeScale_Params.Set_ResultValue(aValue: TCanChangeScale);
- {-}
 begin
  f_ResultValue := aValue;
 end;//TScalable_CanChangeScale_Params.Set_ResultValue
-// start class Op_Scalable_CanChangeScale
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmEntity;
-  anInc: Boolean): TCanChangeScale;
+ anInc: Boolean): TCanChangeScale;
+ {* Вызов операции Scalable.CanChangeScale у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -331,7 +286,8 @@ begin
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmAggregate;
-  anInc: Boolean): TCanChangeScale;
+ anInc: Boolean): TCanChangeScale;
+ {* Вызов операции Scalable.CanChangeScale у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -351,8 +307,8 @@ begin
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmEntityForm;
-  anInc: Boolean): TCanChangeScale;
- {-}
+ anInc: Boolean): TCanChangeScale;
+ {* Вызов операции Scalable.CanChangeScale у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -360,14 +316,13 @@ begin
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmContainer;
-  anInc: Boolean): TCanChangeScale;
- {-}
+ anInc: Boolean): TCanChangeScale;
+ {* Вызов операции Scalable.CanChangeScale у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, anInc);
 end;//Op_Scalable_CanChangeScale.Call
-{$IfEnd} //not Admin
-
+{$IfEnd} // NOT Defined(Admin)
 
 end.

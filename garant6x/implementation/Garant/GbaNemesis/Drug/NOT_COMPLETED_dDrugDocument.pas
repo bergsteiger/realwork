@@ -36,7 +36,7 @@ type
    f_dsContentsRef: IvcmFormDataSourceRef;
     {* —сылка на "ќглавление" }
   protected
-   function pm_GetdsContentsRef: IvcmFormDataSourceRef;
+   function pm_GetDsContentsRef: IvcmFormDataSourceRef;
    function pm_GetContentsTree: IdeSimpleTree;
    procedure pm_SetContentsTree(const aValue: IdeSimpleTree);
    procedure Cleanup; override;
@@ -78,14 +78,14 @@ begin
  end;//try..finally
 end;//TdDrugDocument.Make
 
-function TdDrugDocument.pm_GetdsContentsRef: IvcmFormDataSourceRef;
+function TdDrugDocument.pm_GetDsContentsRef: IvcmFormDataSourceRef;
 //#UC START# *3A7D008F28B6_47F4CCAD037Fget_var*
 //#UC END# *3A7D008F28B6_47F4CCAD037Fget_var*
 begin
 //#UC START# *3A7D008F28B6_47F4CCAD037Fget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *3A7D008F28B6_47F4CCAD037Fget_impl*
-end;//TdDrugDocument.pm_GetdsContentsRef
+end;//TdDrugDocument.pm_GetDsContentsRef
 
 function TdDrugDocument.pm_GetContentsTree: IdeSimpleTree;
 //#UC START# *493925D603CF_47F4CCAD037Fget_var*

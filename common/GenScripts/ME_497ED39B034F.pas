@@ -19,12 +19,12 @@ uses
  , AdminInterfaces
  , vtLabel
  , vtGroupBox
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
@@ -41,19 +41,17 @@ type
   {* Используется при запрете авторегистрации }
   private
    f_lblReference: TvtLabel;
-    {* Поле для свойства lblReference }
+    {* Введите координаты, по которым пользователи могут связаться с вами для регистрации в системе ГАРАНТ. }
    f_gbInfo: TvtGroupBox;
-    {* Поле для свойства gbInfo }
+    {* Администратор системы }
    f_lblPhone: TvtLabel;
-    {* Поле для свойства lblPhone }
+    {* Телефон }
    f_lblEmail: TvtLabel;
-    {* Поле для свойства lblEmail }
+    {* E-mail }
    f_lblHint: TvtLabel;
-    {* Поле для свойства lblHint }
+    {* (Заполнение одного из полей обязательно) }
    f_cbPhone: TnscEdit;
-    {* Поле для свойства cbPhone }
    f_cbEmail: TnscEdit;
-    {* Поле для свойства cbEmail }
   protected
    dsForbidAutoregistration: IdsForbidAutoregistration;
   private
@@ -76,7 +74,10 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make: IvcmEntityForm; reintroduce;
+   class function Make(const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
   public
    property lblReference: TvtLabel
     read f_lblReference;
@@ -113,6 +114,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -136,16 +141,12 @@ begin
 //#UC END# *51C3165101B7_497ED39B034F_impl*
 end;//TPrimForbidAutoregistrationForm.cbEmailChange
 
-class function TPrimForbidAutoregistrationForm.Make: IvcmEntityForm;
-var
- l_Inst : TPrimForbidAutoregistrationForm;
+class function TPrimForbidAutoregistrationForm.Make(const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource);
 end;//TPrimForbidAutoregistrationForm.Make
 
 procedure TPrimForbidAutoregistrationForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;

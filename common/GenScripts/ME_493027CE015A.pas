@@ -61,12 +61,12 @@ type
    procedure Open;
     {* открыть форму фильтры }
    function pm_GetSearch: IdeSearch;
-   function pm_GetdsFilters: IdsFilters;
-   function pm_GetdsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
-   function pm_GetdsSaveLoad: IdsSaveLoad;
-   function pm_GetdsSelectedAttributes: IdsSelectedAttributes;
-   function pm_GetdsTreeAttributeSelect: IdsTreeAttributeSelect;
-   function pm_GetdsAttributeSelect: IdsAttributeSelect;
+   function pm_GetDsFilters: IdsFilters;
+   function pm_GetDsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+   function pm_GetDsSaveLoad: IdsSaveLoad;
+   function pm_GetDsSelectedAttributes: IdsSelectedAttributes;
+   function pm_GetDsTreeAttributeSelect: IdsTreeAttributeSelect;
+   function pm_GetDsAttributeSelect: IdsAttributeSelect;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
@@ -148,59 +148,59 @@ begin
 //#UC END# *492EF70F0275_493027CE015Aget_impl*
 end;//TsdsSituation.pm_GetSearch
 
-function TsdsSituation.pm_GetdsFilters: IdsFilters;
+function TsdsSituation.pm_GetDsFilters: IdsFilters;
 //#UC START# *492EF8440252_493027CE015Aget_var*
 //#UC END# *492EF8440252_493027CE015Aget_var*
 begin
 //#UC START# *492EF8440252_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EF8440252_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsFilters
+end;//TsdsSituation.pm_GetDsFilters
 
-function TsdsSituation.pm_GetdsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+function TsdsSituation.pm_GetDsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
 //#UC START# *492EF877026C_493027CE015Aget_var*
 //#UC END# *492EF877026C_493027CE015Aget_var*
 begin
 //#UC START# *492EF877026C_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EF877026C_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsTreeAttributeFirstLevel
+end;//TsdsSituation.pm_GetDsTreeAttributeFirstLevel
 
-function TsdsSituation.pm_GetdsSaveLoad: IdsSaveLoad;
+function TsdsSituation.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *492EF8AA024F_493027CE015Aget_var*
 //#UC END# *492EF8AA024F_493027CE015Aget_var*
 begin
 //#UC START# *492EF8AA024F_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EF8AA024F_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsSaveLoad
+end;//TsdsSituation.pm_GetDsSaveLoad
 
-function TsdsSituation.pm_GetdsSelectedAttributes: IdsSelectedAttributes;
+function TsdsSituation.pm_GetDsSelectedAttributes: IdsSelectedAttributes;
 //#UC START# *492EF8E10244_493027CE015Aget_var*
 //#UC END# *492EF8E10244_493027CE015Aget_var*
 begin
 //#UC START# *492EF8E10244_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EF8E10244_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsSelectedAttributes
+end;//TsdsSituation.pm_GetDsSelectedAttributes
 
-function TsdsSituation.pm_GetdsTreeAttributeSelect: IdsTreeAttributeSelect;
+function TsdsSituation.pm_GetDsTreeAttributeSelect: IdsTreeAttributeSelect;
 //#UC START# *492EF8F20381_493027CE015Aget_var*
 //#UC END# *492EF8F20381_493027CE015Aget_var*
 begin
 //#UC START# *492EF8F20381_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *492EF8F20381_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsTreeAttributeSelect
+end;//TsdsSituation.pm_GetDsTreeAttributeSelect
 
-function TsdsSituation.pm_GetdsAttributeSelect: IdsAttributeSelect;
+function TsdsSituation.pm_GetDsAttributeSelect: IdsAttributeSelect;
 //#UC START# *493027030386_493027CE015Aget_var*
 //#UC END# *493027030386_493027CE015Aget_var*
 begin
 //#UC START# *493027030386_493027CE015Aget_impl*
  !!! Needs to be implemented !!!
 //#UC END# *493027030386_493027CE015Aget_impl*
-end;//TsdsSituation.pm_GetdsAttributeSelect
+end;//TsdsSituation.pm_GetDsAttributeSelect
 
 procedure TsdsSituation.UpdateSelectedAttributes;
  {* обновить данные в форме выбранных атрибутов }

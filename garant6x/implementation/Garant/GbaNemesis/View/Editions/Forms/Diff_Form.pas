@@ -1463,7 +1463,7 @@ end;//TDiffForm.Finder_GotoPara_Execute
 procedure TDiffForm.Finder_GotoPara(const aParams: IvcmExecuteParams);
  {* Перейти к параграфу по номеру }
 begin
- with (aParams.Data As IFinder_GotoPara_Params) do
+ with IFinder_GotoPara_Params(aParams.Data) do
   ResultValue := Self.Finder_GotoPara_Execute(Para);
 end;//TDiffForm.Finder_GotoPara
 
@@ -1508,7 +1508,7 @@ end;//TDiffForm.Document_SetPosition_Execute
 
 procedure TDiffForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_SetPosition_Params) do
+ with IDocument_SetPosition_Params(aParams.Data) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
 end;//TDiffForm.Document_SetPosition
 
@@ -1538,7 +1538,7 @@ end;//TDiffForm.Document_OpenEditionLocalLink_Execute
 procedure TDiffForm.Document_OpenEditionLocalLink(const aParams: IvcmExecuteParams);
  {* Переход по локальной ссылке на редакцию }
 begin
- with (aParams.Data As IDocument_OpenEditionLocalLink_Params) do
+ with IDocument_OpenEditionLocalLink_Params(aParams.Data) do
   Self.Document_OpenEditionLocalLink_Execute(Document, Sub, Behaviour);
 end;//TDiffForm.Document_OpenEditionLocalLink
 

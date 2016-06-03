@@ -16,15 +16,15 @@ uses
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtLabel
  , vtGradientWaitbar
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtButton
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -52,21 +52,14 @@ type
   private
    f_InLongProcess: Boolean;
    f_ClientPanel: TvtPanel;
-    {* Поле для свойства ClientPanel }
-   f_MessageLabel: TvtLabel;
-    {* Поле для свойства MessageLabel }
    f_BottomPanel: TvtPanel;
-    {* Поле для свойства BottomPanel }
-   f_ProgressBar: TvtGradientWaitbar;
-    {* Поле для свойства ProgressBar }
    f_LeftPanel: TvtPanel;
-    {* Поле для свойства LeftPanel }
-   f_Image: TImage;
-    {* Поле для свойства Image }
    f_ButtonPanel: TvtPanel;
-    {* Поле для свойства ButtonPanel }
+   f_MessageLabel: TvtLabel;
+   f_ProgressBar: TvtGradientWaitbar;
+   f_Image: TImage;
    f_btnExit: TvtButton;
-    {* Поле для свойства btnExit }
+    {* Выход }
   protected
    f_Data: TnsLongProcessData;
   private
@@ -94,7 +87,11 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
   public
    constructor Create(const aData: TnsLongProcessData); reintroduce;
-   class function Make(const aData: TnsLongProcessData): IvcmEntityForm; reintroduce;
+   class function Make(const aData: TnsLongProcessData;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function ShowModal: Integer; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -135,6 +132,14 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -273,15 +278,33 @@ begin
 //#UC END# *523ADA5A023D_4A93DDAE0396_impl*
 end;//TPrimLongProcessForm.vcmEntityFormCloseQuery
 
-class function TPrimLongProcessForm.Make(const aData: TnsLongProcessData): IvcmEntityForm;
+class function TPrimLongProcessForm.Make(const aData: TnsLongProcessData;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimLongProcessForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *4AC4E25E0258_4A93DDAE0396_impl*
+   f_Data := aData;
+   //Assert(f_Data <> nil);
+   Prepare;
+  //#UC END# *4AC4E25E0258_4A93DDAE0396_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimLongProcessForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimLongProcessForm.Make
 

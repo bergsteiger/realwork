@@ -1,195 +1,148 @@
 unit PrimProgressIndicator_Form;
+ {* Индикатор прогресса }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Common/Forms/PrimProgressIndicator_Form.pas"
-// Начат: 25.08.2009 18:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Core::Common::View::Common::PrimProgressIndicator
-//
-// Индикатор прогресса
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimProgressIndicator" MUID: (4A93F1980324)
+// Имя типа: "TPrimProgressIndicatorForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces,
-  Messages,
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  l3StringIDEx
-  {$If not defined(NoVGScene)}
-  ,
-  vg_scene
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vtVGButton
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimProgressIndicator_utProgressIndicator_UserType,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVGScene)}
+ , vtVGButton
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVGScene)}
+ , vg_scene
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Messages
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
-  { ProgressIndicatorConstants }
  WM_USER_SET_CURRENT = WM_USER + $0101;
  WM_USER_FINISH_PROCESS = WM_USER + $0102;
 
 type
- TPrimProgressIndicatorForm = {form} class(TvcmEntityForm)
+ TPrimProgressIndicatorForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* Индикатор прогресса }
- private
- // private fields
-   f_CancelButton : TvtVGButton;
-   f_Scene : TvgScene;
-   f_Background : TvgBackground;
-   f_ProgressBar : TProgressBar;
-    {* Поле для свойства ProgressBar}
- protected
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_CancelButton: TvtVGButton;
+   f_Scene: TvgScene;
+   f_Background: TvgBackground;
+   f_ProgressBar: TProgressBar;
+  protected
+   f_Owner: InsProgressIndicator;
+   f_Caption: Il3CString;
+   f_SearchStarted: Boolean;
+   f_SearchFinished: Boolean;
+   f_SearchFinishing: Boolean;
+  private
    procedure VcmEntityFormRefCloseQuery(Sender: TObject;
-     var CanClose: Boolean);
+    var CanClose: Boolean);
    procedure WMUserSetCurrent(var Message: TMessage); message WM_USER_SET_CURRENT;
    procedure WMUserFinishProcess(var Message: TMessage); message WM_USER_FINISH_PROCESS;
- protected
- // property methods
+  protected
    function pm_GetProgressBar: TProgressBar;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure BecomeActive; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_Owner : InsProgressIndicator;
-   f_Caption : Il3CString;
-   f_SearchStarted : Boolean;
-   f_SearchFinished : Boolean;
-   f_SearchFinishing : Boolean;
- public
- // public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aProgress: InsProgressIndicator;
     const aCaption: Il3CString;
     aMaxCount: Integer;
-    const aParams : IvcmMakeParams = nil;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+  public
    property ProgressBar: TProgressBar
-     read pm_GetProgressBar;
+    read pm_GetProgressBar;
  end;//TPrimProgressIndicatorForm
-
- TvcmEntityFormRef = TPrimProgressIndicatorForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Defaults
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  vtDialogsResEx,
-  l3String,
-  l3Math
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics
-  {$If not defined(NoVGScene)}
-  ,
-  vtVGSceneRes
-  {$IfEnd} //not NoVGScene
-  ,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3StringIDEx
+ , l3Defaults
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , vtDialogsResEx
+ , l3String
+ , l3Math
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+ {$If NOT Defined(NoVGScene)}
+ , vtVGSceneRes
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimProgressIndicator_utProgressIndicator_UserType
+ //#UC START# *4A93F1980324impl_uses*
+ //#UC END# *4A93F1980324impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(NoVCM)}
+const
+ {* Локализуемые строки ProgressIndicatorLocalConst }
+ str_CancelButtonCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CancelButtonCaption'; rValue : '&Отмена');
+  {* '&Отмена' }
 
-var
-   { Локализуемые строки utProgressIndicatorLocalConstants }
-  str_utProgressIndicatorCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorCaption'; rValue : 'Ход выполнения');
-   { Заголовок пользовательского типа "Ход выполнения" }
-  str_utProgressIndicatorSettingsCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utProgressIndicatorSettingsCaption'; rValue : 'Ход выполнения');
-   { Заголовок пользовательского типа "Ход выполнения" для настройки панелей инструментов }
-
-var
-   { Локализуемые строки ProgressIndicatorLocalConst }
-  str_CancelButtonCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'CancelButtonCaption'; rValue : '&Отмена');
-   { '&Отмена' }
-
-// start class TPrimProgressIndicatorForm
+function TPrimProgressIndicatorForm.pm_GetProgressBar: TProgressBar;
+begin
+ if (f_ProgressBar = nil) then
+  f_ProgressBar := FindComponent('ProgressBar') As TProgressBar;
+ Result := f_ProgressBar;
+end;//TPrimProgressIndicatorForm.pm_GetProgressBar
 
 procedure TPrimProgressIndicatorForm.VcmEntityFormRefCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+ var CanClose: Boolean);
 //#UC START# *50F98967031E_4A93F1980324_var*
 //#UC END# *50F98967031E_4A93F1980324_var*
 begin
@@ -206,26 +159,19 @@ begin
 //#UC END# *50F98967031E_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.VcmEntityFormRefCloseQuery
 
-function TPrimProgressIndicatorForm.pm_GetProgressBar: TProgressBar;
-begin
- if (f_ProgressBar = nil) then
-  f_ProgressBar := FindComponent('ProgressBar') As TProgressBar;
- Result := f_ProgressBar;
-end;
-
 class function TPrimProgressIndicatorForm.Make(const aProgress: InsProgressIndicator;
-  const aCaption: Il3CString;
-  aMaxCount: Integer;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aCaption: Il3CString;
+ aMaxCount: Integer;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimProgressIndicatorForm);
  begin
   with aForm do
   begin
-//#UC START# *4AC6270C00E2_4A93F1980324_impl*
+  //#UC START# *4AC6270C00E2_4A93F1980324_impl*
    f_Owner := aProgress;
    if (aCaption <> nil) then
    begin
@@ -236,7 +182,7 @@ class function TPrimProgressIndicatorForm.Make(const aProgress: InsProgressIndic
     f_Caption := CCaption;
    ProgressBar.Max := aMaxCount;
    f_SearchStarted := False;
-//#UC END# *4AC6270C00E2_4A93F1980324_impl*
+  //#UC END# *4AC6270C00E2_4A93F1980324_impl*
   end;//with aForm
  end;
 
@@ -250,7 +196,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimProgressIndicatorForm.Make
 
 procedure TPrimProgressIndicatorForm.WMUserSetCurrent(var Message: TMessage);
 //#UC START# *50F98780007B_4A93F1980324_var*
@@ -289,6 +235,7 @@ begin
 end;//TPrimProgressIndicatorForm.WMUserFinishProcess
 
 procedure TPrimProgressIndicatorForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4A93F1980324_var*
 //#UC END# *479731C50290_4A93F1980324_var*
 begin
@@ -299,7 +246,6 @@ begin
 //#UC END# *479731C50290_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.Cleanup
 
-{$If not defined(NoVCM)}
 procedure TPrimProgressIndicatorForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4A93F1980324_var*
 //#UC END# *4A8AE0FA03B2_4A93F1980324_var*
@@ -313,10 +259,9 @@ begin
  end;//Assigned(f_Owner) and not f_SearchStarted
 //#UC END# *4A8AE0FA03B2_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.BecomeActive
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimProgressIndicatorForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4A93F1980324_var*
 var
  l_Top : Integer;
@@ -377,7 +322,6 @@ begin
  f_Scene.ActiveControl := f_CancelButton;
 //#UC END# *4A8E8F2E0195_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimProgressIndicatorForm.MakeControls;
 begin
@@ -385,7 +329,7 @@ begin
  with AddUsertype(utProgressIndicatorName,
   str_utProgressIndicatorCaption,
   str_utProgressIndicatorSettingsCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -395,26 +339,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(utProgressIndicatorName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimProgressIndicatorForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utProgressIndicatorCaption
- str_utProgressIndicatorCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_utProgressIndicatorSettingsCaption
- str_utProgressIndicatorSettingsCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_CancelButtonCaption
  str_CancelButtonCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimProgressIndicator
+ {* Инициализация str_CancelButtonCaption }
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimProgressIndicatorForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimProgressIndicator }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

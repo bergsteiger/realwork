@@ -118,20 +118,20 @@ type
    function XXXMakeData: Boolean;
     {* Вызывается при запросе данных у бизнес объекта формы. Результат определяет нужно ли возвращать данные форме }
    function Get_CanRunBaseSearch: Boolean;
-   function Get_dsListPrim: IdsList;
+   function Get_DsListPrim: IdsList;
    function Get_IsShortList: Boolean;
    function MakeFullList(const aNodeForPositioning: Il3SimpleNode): IdeDocumentList;
    function pm_GetIsSnippet: Boolean;
    function MakeAnalizeTree: Il3SimpleTree;
    function pm_GetIsSimilarDocumentsActive: Boolean;
    procedure ReplaceList(const aList: IDynList);
-   function pm_GetdsBaloonWarning: IdsWarning;
-   function pm_GetdsListAnalize: IdsListAnalize;
-   function pm_GetdsTextBaloonWarning: IdsWarning;
-   function pm_GetdsList: IdsDocumentList;
-   function pm_GetdsSynchroView: IdsSynchroView;
-   function pm_GetdsListInfo: IdsListInfo;
-   function pm_GetdsFilters: IdsFilters;
+   function pm_GetDsBaloonWarning: IdsWarning;
+   function pm_GetDsListAnalize: IdsListAnalize;
+   function pm_GetDsTextBaloonWarning: IdsWarning;
+   function pm_GetDsList: IdsDocumentList;
+   function pm_GetDsSynchroView: IdsSynchroView;
+   function pm_GetDsListInfo: IdsListInfo;
+   function pm_GetDsFilters: IdsFilters;
    function pm_GetShortListName: Il3CString;
    function pm_GetListName: Il3CString;
    procedure OpenAttributes;
@@ -514,14 +514,14 @@ begin
 //#UC END# *496F344101D0_493E78640269get_impl*
 end;//TsdsList.Get_CanRunBaseSearch
 
-function TsdsList.Get_dsListPrim: IdsList;
+function TsdsList.Get_DsListPrim: IdsList;
 //#UC START# *49AE664F006B_493E78640269get_var*
 //#UC END# *49AE664F006B_493E78640269get_var*
 begin
 //#UC START# *49AE664F006B_493E78640269get_impl*
  Result := pm_GetDsList;
 //#UC END# *49AE664F006B_493E78640269get_impl*
-end;//TsdsList.Get_dsListPrim
+end;//TsdsList.Get_DsListPrim
 
 function TsdsList.Get_IsShortList: Boolean;
 //#UC START# *4A2CD4640322_493E78640269get_var*
@@ -626,68 +626,68 @@ begin
 //#UC END# *4BFA28D4017F_493E78640269_impl*
 end;//TsdsList.ReplaceList
 
-function TsdsList.pm_GetdsBaloonWarning: IdsWarning;
+function TsdsList.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DB984CF00E5_493E78640269get_var*
 //#UC END# *4DB984CF00E5_493E78640269get_var*
 begin
 //#UC START# *4DB984CF00E5_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DB984CF00E5_493E78640269get_impl*
-end;//TsdsList.pm_GetdsBaloonWarning
+end;//TsdsList.pm_GetDsBaloonWarning
 
-function TsdsList.pm_GetdsListAnalize: IdsListAnalize;
+function TsdsList.pm_GetDsListAnalize: IdsListAnalize;
 //#UC START# *4E36899100B5_493E78640269get_var*
 //#UC END# *4E36899100B5_493E78640269get_var*
 begin
 //#UC START# *4E36899100B5_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E36899100B5_493E78640269get_impl*
-end;//TsdsList.pm_GetdsListAnalize
+end;//TsdsList.pm_GetDsListAnalize
 
-function TsdsList.pm_GetdsTextBaloonWarning: IdsWarning;
+function TsdsList.pm_GetDsTextBaloonWarning: IdsWarning;
 //#UC START# *4EFC594701E9_493E78640269get_var*
 //#UC END# *4EFC594701E9_493E78640269get_var*
 begin
 //#UC START# *4EFC594701E9_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4EFC594701E9_493E78640269get_impl*
-end;//TsdsList.pm_GetdsTextBaloonWarning
+end;//TsdsList.pm_GetDsTextBaloonWarning
 
-function TsdsList.pm_GetdsList: IdsDocumentList;
+function TsdsList.pm_GetDsList: IdsDocumentList;
 //#UC START# *500CFA670146_493E78640269get_var*
 //#UC END# *500CFA670146_493E78640269get_var*
 begin
 //#UC START# *500CFA670146_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CFA670146_493E78640269get_impl*
-end;//TsdsList.pm_GetdsList
+end;//TsdsList.pm_GetDsList
 
-function TsdsList.pm_GetdsSynchroView: IdsSynchroView;
+function TsdsList.pm_GetDsSynchroView: IdsSynchroView;
 //#UC START# *500CFA9800C8_493E78640269get_var*
 //#UC END# *500CFA9800C8_493E78640269get_var*
 begin
 //#UC START# *500CFA9800C8_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CFA9800C8_493E78640269get_impl*
-end;//TsdsList.pm_GetdsSynchroView
+end;//TsdsList.pm_GetDsSynchroView
 
-function TsdsList.pm_GetdsListInfo: IdsListInfo;
+function TsdsList.pm_GetDsListInfo: IdsListInfo;
 //#UC START# *500CFABF0356_493E78640269get_var*
 //#UC END# *500CFABF0356_493E78640269get_var*
 begin
 //#UC START# *500CFABF0356_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CFABF0356_493E78640269get_impl*
-end;//TsdsList.pm_GetdsListInfo
+end;//TsdsList.pm_GetDsListInfo
 
-function TsdsList.pm_GetdsFilters: IdsFilters;
+function TsdsList.pm_GetDsFilters: IdsFilters;
 //#UC START# *500CFAE50070_493E78640269get_var*
 //#UC END# *500CFAE50070_493E78640269get_var*
 begin
 //#UC START# *500CFAE50070_493E78640269get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *500CFAE50070_493E78640269get_impl*
-end;//TsdsList.pm_GetdsFilters
+end;//TsdsList.pm_GetDsFilters
 
 function TsdsList.pm_GetShortListName: Il3CString;
 //#UC START# *501806DE0323_493E78640269get_var*

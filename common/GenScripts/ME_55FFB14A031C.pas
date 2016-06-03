@@ -30,7 +30,7 @@ type
    function HasTable(const aTable: IdaTableDescription): Boolean;
    function FindTable(const aTableAlias: AnsiString): IdaFromTable;
    function Join(const aRight: IdaFromClause;
-    aKind: TdaJoinKind): IdaFromClause;
+    aKind: TdaJoinKind): IdaJoin;
    function IsRelationsConditionsValid: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -158,7 +158,7 @@ begin
 end;//TdaFromTable.IterateTablesF
 
 function TdaFromTable.Join(const aRight: IdaFromClause;
- aKind: TdaJoinKind): IdaFromClause;
+ aKind: TdaJoinKind): IdaJoin;
 //#UC START# *574570790329_55FFB14A031C_var*
 //#UC END# *574570790329_55FFB14A031C_var*
 begin

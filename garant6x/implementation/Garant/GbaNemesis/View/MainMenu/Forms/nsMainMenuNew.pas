@@ -11,16 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3IntfUses
+ , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
- , l3Interfaces
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
- , vtLister
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -28,10 +27,11 @@ uses
  {$If Defined(Nemesis)}
  , nscTreeViewHotTruck
  {$IfEnd} // Defined(Nemesis)
+ , vtLister
+ , eeTreeView
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
- , eeTreeView
  , l3ProtoDataContainer
  , MainMenuDomainInterfaces
  , SearchUnit
@@ -47,7 +47,10 @@ const
  c_mmSecondItemColor = $00F2F2F2;
 
 type
- TnsLastOpenDocsManager = class(TvcmBase)
+ TnsLastOpenDocsManager = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* менеджер дерева последних открытых документов }
   private
    f_MainMenuColor: TColor;
@@ -76,7 +79,10 @@ type
     aNewSchool: Boolean); reintroduce;
  end;//TnsLastOpenDocsManager
 
- TnsTreeStyleManager = class(TvcmBase)
+ TnsTreeStyleManager = class({$If NOT Defined(NoVCM)}
+ TvcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
   {* менеджер стилей деревьев для основного меню }
   private
    f_MainMenuColor: TColor;
@@ -150,6 +156,10 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4AC9A3F801F3impl_uses*
+ , vtOutliner
+ , l3ControlsTypes
+ //#UC END# *4AC9A3F801F3impl_uses*
 ;
 
 type

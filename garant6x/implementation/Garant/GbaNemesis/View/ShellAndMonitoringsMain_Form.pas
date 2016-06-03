@@ -13,6 +13,9 @@ interface
 uses
  l3IntfUses
  , PrimMainOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -28,6 +31,11 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AAA43F601F7impl_uses*
+ //#UC END# *4AAA43F601F7impl_uses*
 ;
 
 initialization

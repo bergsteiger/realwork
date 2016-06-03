@@ -26,8 +26,6 @@ type
   private
    function BuildSQL: AnsiString;
   protected
-   function MakeFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -37,14 +35,12 @@ type
   public
    constructor Create(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IpgDataConverter;
-    const aTable: IdaTableDescription;
-    aConnection: TpgConnection;
-    const anAlias: AnsiString = ''); reintroduce;
+    const aFromClause: IdaFromClause;
+    aConnection: TpgConnection); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IpgDataConverter;
-    const aTable: IdaTableDescription;
-    aConnection: TpgConnection;
-    const anAlias: AnsiString = ''): IdaTabledQuery; reintroduce;
+    const aFromClause: IdaFromClause;
+    aConnection: TpgConnection): IdaTabledQuery; reintroduce;
  end;//TpgTabledQuery
 {$IfEnd} // Defined(UsePostgres)
 
@@ -63,9 +59,8 @@ uses
 
 constructor TpgTabledQuery.Create(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IpgDataConverter;
- const aTable: IdaTableDescription;
- aConnection: TpgConnection;
- const anAlias: AnsiString = '');
+ const aFromClause: IdaFromClause;
+ aConnection: TpgConnection);
 //#UC START# *55F9617402F2_55F960D502F6_var*
 //#UC END# *55F9617402F2_55F960D502F6_var*
 begin
@@ -77,13 +72,12 @@ end;//TpgTabledQuery.Create
 
 class function TpgTabledQuery.Make(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IpgDataConverter;
- const aTable: IdaTableDescription;
- aConnection: TpgConnection;
- const anAlias: AnsiString = ''): IdaTabledQuery;
+ const aFromClause: IdaFromClause;
+ aConnection: TpgConnection): IdaTabledQuery;
 var
  l_Inst : TpgTabledQuery;
 begin
- l_Inst := Create(aFactory, aDataConverter, aTable, aConnection, anAlias);
+ l_Inst := Create(aFactory, aDataConverter, aFromClause, aConnection);
  try
   Result := l_Inst;
  finally
@@ -99,16 +93,6 @@ begin
  Result := BuildSQLValue(Params);
 //#UC END# *560506760367_55F960D502F6_impl*
 end;//TpgTabledQuery.BuildSQL
-
-function TpgTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromClause;
-//#UC START# *5600FFF80332_55F960D502F6_var*
-//#UC END# *5600FFF80332_55F960D502F6_var*
-begin
-//#UC START# *5600FFF80332_55F960D502F6_impl*
- Result := TdaFromTable.Make(aTable, anAlias);
-//#UC END# *5600FFF80332_55F960D502F6_impl*
-end;//TpgTabledQuery.MakeFromClause
 
 procedure TpgTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_55F960D502F6_var*

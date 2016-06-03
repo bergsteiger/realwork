@@ -622,7 +622,7 @@ end;//TPrimRedactionsForm.Editions_SetCurrent_Execute
 procedure TPrimRedactionsForm.Editions_SetCurrent(const aParams: IvcmExecuteParams);
  {* Установить текущую }
 begin
- with (aParams.Data As IEditions_SetCurrent_Params) do
+ with IEditions_SetCurrent_Params(aParams.Data) do
   Self.Editions_SetCurrent_Execute(Document);
 end;//TPrimRedactionsForm.Editions_SetCurrent
 

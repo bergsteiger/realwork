@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_DocInfoInterfaces;
+unit DocInfoInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\NOT_COMPLETED_DocInfoInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\BusinessInterfaces\DocInfoInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "DocInfoInterfaces" MUID: (4D1B7B830045)
 
@@ -42,17 +42,17 @@ type
 
  IsdsDocInfo = interface(IsdsBaseDocumentWithAttributes)
   ['{BE860412-EE8F-4EE3-9949-BDB397D6BCFE}']
-  function pm_GetdsRelatedDoc: IdsDocument;
-  function pm_GetdsRespondents: IdsDocumentList;
-  function pm_GetdsCorrespondents: IdsDocumentList;
-  function pm_GetdsUserCR1: IdsDocumentList;
-  function pm_GetdsUserCR2: IdsDocumentList;
-  function pm_GetdsDocumentWithFlash: IdsDocumentWithFlash;
-  function pm_GetdsAnnotation: IdsDocument;
-  function pm_GetdsTranslation: IdsDocument;
-  function pm_GetdsSimilarDocuments: IdsDocumentList;
-  function pm_GetdsChronology: IdsDocument;
-  function pm_GetdsSimilarDocumentsToFragment: IdsDocumentList;
+  function pm_GetDsRelatedDoc: IdsDocument;
+  function pm_GetDsRespondents: IdsDocumentList;
+  function pm_GetDsCorrespondents: IdsDocumentList;
+  function pm_GetDsUserCR1: IdsDocumentList;
+  function pm_GetDsUserCR2: IdsDocumentList;
+  function pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
+  function pm_GetDsAnnotation: IdsDocument;
+  function pm_GetDsTranslation: IdsDocument;
+  function pm_GetDsSimilarDocuments: IdsDocumentList;
+  function pm_GetDsChronology: IdsDocument;
+  function pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
   function pm_GetIsUnderControl: Boolean;
   function pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
   function pm_GetHasRelatedDoc: Boolean;
@@ -62,6 +62,17 @@ type
   function pm_GetHasTranslation: Boolean;
   function pm_GetHasSimilarDocuments: Boolean;
   function pm_GetHasChronology: Boolean;
+  function pm_GetDsRelatedDocRef: IvcmViewAreaControllerRef;
+  function pm_GetDsRespondentsRef: IvcmViewAreaControllerRef;
+  function pm_GetDsCorrespondentsRef: IvcmViewAreaControllerRef;
+  function pm_GetDsUserCR1Ref: IvcmViewAreaControllerRef;
+  function pm_GetDsUserCR2Ref: IvcmViewAreaControllerRef;
+  function pm_GetDsDocumentWithFlashRef: IvcmViewAreaControllerRef;
+  function pm_GetDsAnnotationRef: IvcmViewAreaControllerRef;
+  function pm_GetDsTranslationRef: IvcmViewAreaControllerRef;
+  function pm_GetDsSimilarDocumentsRef: IvcmViewAreaControllerRef;
+  function pm_GetDsChronologyRef: IvcmViewAreaControllerRef;
+  function pm_GetDsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
   procedure OpenCorrespondents;
    {* корреспонденты }
   procedure OpenRespondents;
@@ -84,37 +95,37 @@ type
   function As_IbsFlash: IbsFlash;
    {* Метод приведения нашего интерфейса к IbsFlash }
   property dsRelatedDoc: IdsDocument
-   read pm_GetdsRelatedDoc;
+   read pm_GetDsRelatedDoc;
    {* справка к документу }
   property dsRespondents: IdsDocumentList
-   read pm_GetdsRespondents;
+   read pm_GetDsRespondents;
    {* БОФ респонденты документа }
   property dsCorrespondents: IdsDocumentList
-   read pm_GetdsCorrespondents;
+   read pm_GetDsCorrespondents;
    {* БОФ корреспонденты документа }
   property dsUserCR1: IdsDocumentList
-   read pm_GetdsUserCR1;
+   read pm_GetDsUserCR1;
    {* БОФ пользовательский СКР1 }
   property dsUserCR2: IdsDocumentList
-   read pm_GetdsUserCR2;
+   read pm_GetDsUserCR2;
    {* БОФ пользовательский СКР2 }
   property dsDocumentWithFlash: IdsDocumentWithFlash
-   read pm_GetdsDocumentWithFlash;
+   read pm_GetDsDocumentWithFlash;
    {* документ-схема }
   property dsAnnotation: IdsDocument
-   read pm_GetdsAnnotation;
+   read pm_GetDsAnnotation;
    {* аннотация к документу }
   property dsTranslation: IdsDocument
-   read pm_GetdsTranslation;
+   read pm_GetDsTranslation;
    {* БОФ перевода документа }
   property dsSimilarDocuments: IdsDocumentList
-   read pm_GetdsSimilarDocuments;
+   read pm_GetDsSimilarDocuments;
    {* БОФ похожие документы }
   property dsChronology: IdsDocument
-   read pm_GetdsChronology;
+   read pm_GetDsChronology;
    {* Хронология судебного дела }
   property dsSimilarDocumentsToFragment: IdsDocumentList
-   read pm_GetdsSimilarDocumentsToFragment;
+   read pm_GetDsSimilarDocumentsToFragment;
   property IsUnderControl: Boolean
    read pm_GetIsUnderControl;
    {* поставлен ли документ на контроль }
@@ -142,6 +153,39 @@ type
   property HasChronology: Boolean
    read pm_GetHasChronology;
    {* Определяет что есть данные для "Хронология судебного дела" }
+  property dsRelatedDocRef: IvcmViewAreaControllerRef
+   read pm_GetDsRelatedDocRef;
+   {* Ссылка на "справка к документу" }
+  property dsRespondentsRef: IvcmViewAreaControllerRef
+   read pm_GetDsRespondentsRef;
+   {* Ссылка на "БОФ респонденты документа" }
+  property dsCorrespondentsRef: IvcmViewAreaControllerRef
+   read pm_GetDsCorrespondentsRef;
+   {* Ссылка на "БОФ корреспонденты документа" }
+  property dsUserCR1Ref: IvcmViewAreaControllerRef
+   read pm_GetDsUserCR1Ref;
+   {* Ссылка на "БОФ пользовательский СКР1" }
+  property dsUserCR2Ref: IvcmViewAreaControllerRef
+   read pm_GetDsUserCR2Ref;
+   {* Ссылка на "БОФ пользовательский СКР2" }
+  property dsDocumentWithFlashRef: IvcmViewAreaControllerRef
+   read pm_GetDsDocumentWithFlashRef;
+   {* Ссылка на "документ-схема" }
+  property dsAnnotationRef: IvcmViewAreaControllerRef
+   read pm_GetDsAnnotationRef;
+   {* Ссылка на "аннотация к документу" }
+  property dsTranslationRef: IvcmViewAreaControllerRef
+   read pm_GetDsTranslationRef;
+   {* Ссылка на "БОФ перевода документа" }
+  property dsSimilarDocumentsRef: IvcmViewAreaControllerRef
+   read pm_GetDsSimilarDocumentsRef;
+   {* Ссылка на "БОФ похожие документы" }
+  property dsChronologyRef: IvcmViewAreaControllerRef
+   read pm_GetDsChronologyRef;
+   {* Ссылка на "Хронология судебного дела" }
+  property dsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef
+   read pm_GetDsSimilarDocumentsToFragmentRef;
+   {* Ссылка на "" }
  end;//IsdsDocInfo
 
  IdDocInfo = interface(IdBaseDocumentWithAttributes)
@@ -156,31 +200,31 @@ type
   function pm_GetRespList: IDynList;
   procedure pm_SetRespList(const aValue: IDynList);
   function pm_GetUserCRListInfo(aValue: TnsUserCRListId): IbsUserCRListInfoModify;
-  function pm_GetdsRelatedDocRef: IvcmFormDataSourceRef;
+  function pm_GetDsRelatedDocRef: IvcmFormDataSourceRef;
   function pm_GetHasRelatedDoc: Tl3Bool;
   procedure pm_SetHasRelatedDoc(aValue: Tl3Bool);
-  function pm_GetdsRespondentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsRespondentsRef: IvcmFormDataSourceRef;
   function pm_GetHasRespondents: Tl3Bool;
   procedure pm_SetHasRespondents(aValue: Tl3Bool);
-  function pm_GetdsCorrespondentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsCorrespondentsRef: IvcmFormDataSourceRef;
   function pm_GetHasCorrespondents: Tl3Bool;
   procedure pm_SetHasCorrespondents(aValue: Tl3Bool);
-  function pm_GetdsUserCR1Ref: IvcmFormDataSourceRef;
-  function pm_GetdsUserCR2Ref: IvcmFormDataSourceRef;
-  function pm_GetdsDocumentWithFlashRef: IvcmFormDataSourceRef;
-  function pm_GetdsAnnotationRef: IvcmFormDataSourceRef;
+  function pm_GetDsUserCR1Ref: IvcmFormDataSourceRef;
+  function pm_GetDsUserCR2Ref: IvcmFormDataSourceRef;
+  function pm_GetDsDocumentWithFlashRef: IvcmFormDataSourceRef;
+  function pm_GetDsAnnotationRef: IvcmFormDataSourceRef;
   function pm_GetHasAnnotation: Tl3Bool;
   procedure pm_SetHasAnnotation(aValue: Tl3Bool);
-  function pm_GetdsTranslationRef: IvcmFormDataSourceRef;
+  function pm_GetDsTranslationRef: IvcmFormDataSourceRef;
   function pm_GetHasTranslation: Tl3Bool;
   procedure pm_SetHasTranslation(aValue: Tl3Bool);
-  function pm_GetdsSimilarDocumentsRef: IvcmFormDataSourceRef;
+  function pm_GetDsSimilarDocumentsRef: IvcmFormDataSourceRef;
   function pm_GetHasSimilarDocuments: Tl3Bool;
   procedure pm_SetHasSimilarDocuments(aValue: Tl3Bool);
-  function pm_GetdsChronologyRef: IvcmFormDataSourceRef;
+  function pm_GetDsChronologyRef: IvcmFormDataSourceRef;
   function pm_GetHasChronology: Tl3Bool;
   procedure pm_SetHasChronology(aValue: Tl3Bool);
-  function pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
+  function pm_GetDsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
   function pm_GetIsUnderControl: Tl3Bool;
   procedure pm_SetIsUnderControl(aValue: Tl3Bool);
   function pm_GetFlashData: IExternalObject;
@@ -201,65 +245,65 @@ type
   property UserCRListInfo[aValue: TnsUserCRListId]: IbsUserCRListInfoModify
    read pm_GetUserCRListInfo;
   property dsRelatedDocRef: IvcmFormDataSourceRef
-   read pm_GetdsRelatedDocRef;
+   read pm_GetDsRelatedDocRef;
    {* Ссылка на "справка к документу" }
   property HasRelatedDoc: Tl3Bool
    read pm_GetHasRelatedDoc
    write pm_SetHasRelatedDoc;
    {* Есть ли "справка к документу" }
   property dsRespondentsRef: IvcmFormDataSourceRef
-   read pm_GetdsRespondentsRef;
+   read pm_GetDsRespondentsRef;
    {* Ссылка на "БОФ респонденты документа" }
   property HasRespondents: Tl3Bool
    read pm_GetHasRespondents
    write pm_SetHasRespondents;
    {* Есть ли "БОФ респонденты документа" }
   property dsCorrespondentsRef: IvcmFormDataSourceRef
-   read pm_GetdsCorrespondentsRef;
+   read pm_GetDsCorrespondentsRef;
    {* Ссылка на "БОФ корреспонденты документа" }
   property HasCorrespondents: Tl3Bool
    read pm_GetHasCorrespondents
    write pm_SetHasCorrespondents;
    {* Есть ли "БОФ корреспонденты документа" }
   property dsUserCR1Ref: IvcmFormDataSourceRef
-   read pm_GetdsUserCR1Ref;
+   read pm_GetDsUserCR1Ref;
    {* Ссылка на "БОФ пользовательский СКР1" }
   property dsUserCR2Ref: IvcmFormDataSourceRef
-   read pm_GetdsUserCR2Ref;
+   read pm_GetDsUserCR2Ref;
    {* Ссылка на "БОФ пользовательский СКР2" }
   property dsDocumentWithFlashRef: IvcmFormDataSourceRef
-   read pm_GetdsDocumentWithFlashRef;
+   read pm_GetDsDocumentWithFlashRef;
    {* Ссылка на "документ-схема" }
   property dsAnnotationRef: IvcmFormDataSourceRef
-   read pm_GetdsAnnotationRef;
+   read pm_GetDsAnnotationRef;
    {* Ссылка на "аннотация к документу" }
   property HasAnnotation: Tl3Bool
    read pm_GetHasAnnotation
    write pm_SetHasAnnotation;
    {* Есть ли "аннотация к документу" }
   property dsTranslationRef: IvcmFormDataSourceRef
-   read pm_GetdsTranslationRef;
+   read pm_GetDsTranslationRef;
    {* Ссылка на "БОФ перевода документа" }
   property HasTranslation: Tl3Bool
    read pm_GetHasTranslation
    write pm_SetHasTranslation;
    {* Есть ли "БОФ перевода документа" }
   property dsSimilarDocumentsRef: IvcmFormDataSourceRef
-   read pm_GetdsSimilarDocumentsRef;
+   read pm_GetDsSimilarDocumentsRef;
    {* Ссылка на "БОФ похожие документы" }
   property HasSimilarDocuments: Tl3Bool
    read pm_GetHasSimilarDocuments
    write pm_SetHasSimilarDocuments;
    {* Есть ли "БОФ похожие документы" }
   property dsChronologyRef: IvcmFormDataSourceRef
-   read pm_GetdsChronologyRef;
+   read pm_GetDsChronologyRef;
    {* Ссылка на "Хронология судебного дела" }
   property HasChronology: Tl3Bool
    read pm_GetHasChronology
    write pm_SetHasChronology;
    {* Есть ли "Хронология судебного дела" }
   property dsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef
-   read pm_GetdsSimilarDocumentsToFragmentRef;
+   read pm_GetDsSimilarDocumentsToFragmentRef;
    {* Ссылка на "dsSimilarDocumentsToFragment" }
   property IsUnderControl: Tl3Bool
    read pm_GetIsUnderControl

@@ -1376,7 +1376,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_ExternalCharPressed_Params) do
+ with IAttributeTree_ExternalCharPressed_Params(aParams.Data) do
   Self.AttributeTree_ExternalCharPressed_Execute(Char);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_ExternalCharPressed
 
@@ -1393,7 +1393,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetCurrent_Params) do
+ with IAttributeTree_SetCurrent_Params(aParams.Data) do
   Self.AttributeTree_SetCurrent_Execute(Node, Expand);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetCurrent
 
@@ -1420,7 +1420,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_DropAllLogicSelection_Params) do
+ with IAttributeTree_DropAllLogicSelection_Params(aParams.Data) do
   Self.AttributeTree_DropAllLogicSelection_Execute(DropSelection, NotifyMultipleChanges, SetToTop);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_DropAllLogicSelection
 
@@ -1440,7 +1440,7 @@ end;//TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty_Execute
 
 procedure TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_IsQueryEmpty_Params) do
+ with ISearchParameters_IsQueryEmpty_Params(aParams.Data) do
   ResultValue := Self.SearchParameters_IsQueryEmpty_Execute;
 end;//TPrimTreeAttributeSelectForm.SearchParameters_IsQueryEmpty
 
@@ -1456,7 +1456,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SaveToQuery_Params) do
+ with IAttributeTree_SaveToQuery_Params(aParams.Data) do
   Self.AttributeTree_SaveToQuery_Execute(Query);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SaveToQuery
 
@@ -1473,7 +1473,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_Invalidate_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_Invalidate(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_Invalidate_Params) do
+ with IAttributeTree_Invalidate_Params(aParams.Data) do
   Self.AttributeTree_Invalidate_Execute(UserType);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_Invalidate
 
@@ -1488,7 +1488,7 @@ end;//TPrimTreeAttributeSelectForm.Attribute_DefaultAction_Execute
 
 procedure TPrimTreeAttributeSelectForm.Attribute_DefaultAction(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttribute_DefaultAction_Params) do
+ with IAttribute_DefaultAction_Params(aParams.Data) do
   Self.Attribute_DefaultAction_Execute(nIndex);
 end;//TPrimTreeAttributeSelectForm.Attribute_DefaultAction
 
@@ -1513,7 +1513,7 @@ end;//TPrimTreeAttributeSelectForm.SearchParameters_SetQuery_Execute
 
 procedure TPrimTreeAttributeSelectForm.SearchParameters_SetQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISearchParameters_SetQuery_Params) do
+ with ISearchParameters_SetQuery_Params(aParams.Data) do
   Self.SearchParameters_SetQuery_Execute(Query);
 end;//TPrimTreeAttributeSelectForm.SearchParameters_SetQuery
 
@@ -1533,7 +1533,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_DropLogicSelection_Params) do
+ with IAttributeTree_DropLogicSelection_Params(aParams.Data) do
   Self.AttributeTree_DropLogicSelection_Execute(Node);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_DropLogicSelection
 
@@ -1559,7 +1559,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_LoadQuery_Params) do
+ with IAttributeTree_LoadQuery_Params(aParams.Data) do
   Self.AttributeTree_LoadQuery_Execute(Query);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_LoadQuery
 
@@ -1576,7 +1576,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetOneLevelCurrent_Params) do
+ with IAttributeTree_SetOneLevelCurrent_Params(aParams.Data) do
   Self.AttributeTree_SetOneLevelCurrent_Execute(Node);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetOneLevelCurrent
 
@@ -1607,7 +1607,7 @@ end;//TPrimTreeAttributeSelectForm.Context_SetContext_Execute
 
 procedure TPrimTreeAttributeSelectForm.Context_SetContext(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContext_SetContext_Params) do
+ with IContext_SetContext_Params(aParams.Data) do
   Self.Context_SetContext_Execute(State);
 end;//TPrimTreeAttributeSelectForm.Context_SetContext
 
@@ -1636,7 +1636,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_SetRoot_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_SetRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_SetRoot_Params) do
+ with IAttributeTree_SetRoot_Params(aParams.Data) do
   Self.AttributeTree_SetRoot_Execute(Tag);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_SetRoot
 
@@ -1672,7 +1672,7 @@ end;//TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot_Execute
 
 procedure TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAttributeTree_ChangeRoot_Params) do
+ with IAttributeTree_ChangeRoot_Params(aParams.Data) do
   Self.AttributeTree_ChangeRoot_Execute(Tag, Root, Current);
 end;//TPrimTreeAttributeSelectForm.AttributeTree_ChangeRoot
 
@@ -1687,7 +1687,7 @@ end;//TPrimTreeAttributeSelectForm.Context_SyncContextParams_Execute
 
 procedure TPrimTreeAttributeSelectForm.Context_SyncContextParams(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContext_SyncContextParams_Params) do
+ with IContext_SyncContextParams_Params(aParams.Data) do
   Self.Context_SyncContextParams_Execute(AdditionalFilter);
 end;//TPrimTreeAttributeSelectForm.Context_SyncContextParams
 

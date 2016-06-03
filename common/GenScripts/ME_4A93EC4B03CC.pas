@@ -46,17 +46,15 @@ type
   {* Забыли пароль? }
   private
    f_EMailLabel: TvtLabel;
-    {* Поле для свойства EMailLabel }
+    {* *Электронная почта: }
    f_HintLabel: TvtLabel;
-    {* Поле для свойства HintLabel }
+    {* *Адрес электронной почты, указанный при регистрации. На этот адрес будет выслано письмо, содержащее Ваши регистрационное имя и пароль. }
    f_btnCancel: TElPopupButton;
-    {* Поле для свойства btnCancel }
+    {* Отмена }
    f_btnSend: TElPopupButton;
-    {* Поле для свойства btnSend }
+    {* Отправить запрос }
    f_edEmail: TnscEdit;
-    {* Поле для свойства edEmail }
    f_SendAction: TnsSendAction;
-    {* Поле для свойства SendAction }
   private
    procedure EMailEditChange(Sender: TObject);
    procedure btnSendClick(Sender: TObject);
@@ -75,7 +73,10 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make: IvcmEntityForm; reintroduce;
+   class function Make(const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function IsRealInstance: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -111,6 +112,11 @@ uses
  , nsVerifyValue
  , Windows
  , Graphics
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -163,16 +169,12 @@ begin
 //#UC END# *525D13F30292_4A93EC4B03CC_impl*
 end;//TPrimRememberPasswordForm.DoSend
 
-class function TPrimRememberPasswordForm.Make: IvcmEntityForm;
-var
- l_Inst : TPrimRememberPasswordForm;
+class function TPrimRememberPasswordForm.Make(const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource);
 end;//TPrimRememberPasswordForm.Make
 
 procedure TPrimRememberPasswordForm.InitFields;

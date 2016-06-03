@@ -17,13 +17,8 @@ uses
 ;
 
 type
- TdaCalcPriorityCallBack = function(aUserId: TdaUserID;
-  out aImportPriority: TdaPriority;
-  out aExportPriority: TdaPriority): Boolean of object;
-
  TdaArchiUser = class(Tl3ProtoObject, IdaArchiUser)
   private
-   f_CalcPriorityCallBack: TdaCalcPriorityCallBack;
    f_ID: TdaUserID;
    f_ExportPriority: TdaPriority;
    f_ImportPriority: TdaPriority;
@@ -34,6 +29,7 @@ type
    f_LoginName: AnsiString;
    f_Password: AnsiString;
    f_UserName: AnsiString;
+   f_PriorityCalculator: IdaPriorityCalculator;
   protected
    procedure Save(aStream: TStream);
    procedure Load(aStream: TStream);
@@ -57,9 +53,11 @@ type
    procedure Set_Password(const aValue: AnsiString);
    function Get_UserName: AnsiString;
    procedure Set_UserName(const aValue: AnsiString);
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
   public
-   constructor Create(aCalcPriorityCallback: TdaCalcPriorityCallBack); reintroduce;
-   class function Make(aCalcPriorityCallback: TdaCalcPriorityCallBack): IdaArchiUser; reintroduce;
+   constructor Create(const aPriorityCalculator: IdaPriorityCalculator); reintroduce;
+   class function Make(const aPriorityCalculator: IdaPriorityCalculator): IdaArchiUser; reintroduce;
  end;//TdaArchiUser
 
 implementation
@@ -72,7 +70,7 @@ uses
 const
  cPriorityNeedCalc: TdaPriority = daTypes.TdaPriority(-3);
 
-constructor TdaArchiUser.Create(aCalcPriorityCallback: TdaCalcPriorityCallBack);
+constructor TdaArchiUser.Create(const aPriorityCalculator: IdaPriorityCalculator);
 //#UC START# *572B1324003C_52FBA57600AB_var*
 //#UC END# *572B1324003C_52FBA57600AB_var*
 begin
@@ -84,11 +82,11 @@ begin
 //#UC END# *572B1324003C_52FBA57600AB_impl*
 end;//TdaArchiUser.Create
 
-class function TdaArchiUser.Make(aCalcPriorityCallback: TdaCalcPriorityCallBack): IdaArchiUser;
+class function TdaArchiUser.Make(const aPriorityCalculator: IdaPriorityCalculator): IdaArchiUser;
 var
  l_Inst : TdaArchiUser;
 begin
- l_Inst := Create(aCalcPriorityCallback);
+ l_Inst := Create(aPriorityCalculator);
  try
   Result := l_Inst;
  finally
@@ -323,5 +321,15 @@ begin
  f_UserName := aValue;
 //#UC END# *572B12AE028C_52FBA57600ABset_impl*
 end;//TdaArchiUser.Set_UserName
+
+procedure TdaArchiUser.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_52FBA57600AB_var*
+//#UC END# *479731C50290_52FBA57600AB_var*
+begin
+//#UC START# *479731C50290_52FBA57600AB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *479731C50290_52FBA57600AB_impl*
+end;//TdaArchiUser.Cleanup
 
 end.

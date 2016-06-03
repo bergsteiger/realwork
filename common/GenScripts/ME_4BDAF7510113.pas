@@ -14,6 +14,16 @@ uses
  l3IntfUses
  , vcmExternalInterfaces
 ;
+
+const
+ en_Tree = 'Tree';
+ en_capTree = 'Дерево';
+ op_ExpandAll = 'ExpandAll';
+ op_capExpandAll = 'Развернуть все';
+ op_CollapseAll = 'CollapseAll';
+ op_capCollapseAll = 'Свернуть все';
+ op_Wrap = 'Wrap';
+ op_capWrap = 'Перенос по словам';
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

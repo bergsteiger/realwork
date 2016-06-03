@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ShellAndMonitoringsMain_Form;
+unit ShellAndMonitoringsMain_Form;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_ShellAndMonitoringsMain_Form.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsMain_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "ShellAndMonitoringsMain" MUID: (4AAA43F601F7)
 // Имя типа: "TShellAndMonitoringsMainForm"

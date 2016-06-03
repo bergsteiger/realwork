@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_QueryCardInterfaces;
+unit QueryCardInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_COMPLETED_QueryCardInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\QueryCardInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "QueryCardInterfaces" MUID: (4AA5503000D7)
 
@@ -63,12 +63,12 @@ type
 
  IsdsSituation = interface(IsdsAttributeSelect)
   ['{53453074-B221-4E0D-8FB1-538D5C3A930D}']
-  function pm_GetdsFilters: IdsFilters;
-  function pm_GetdsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
-  function pm_GetdsSaveLoad: IdsSaveLoad;
-  function pm_GetdsSelectedAttributes: IdsSelectedAttributes;
-  function pm_GetdsTreeAttributeSelect: IdsTreeAttributeSelect;
-  function pm_GetdsAttributeSelect: IdsAttributeSelect;
+  function pm_GetDsFilters: IdsFilters;
+  function pm_GetDsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+  function pm_GetDsSaveLoad: IdsSaveLoad;
+  function pm_GetDsSelectedAttributes: IdsSelectedAttributes;
+  function pm_GetDsTreeAttributeSelect: IdsTreeAttributeSelect;
+  function pm_GetDsAttributeSelect: IdsAttributeSelect;
   function As_IucpFilters: IucpFilters;
    {* Метод приведения нашего интерфейса к IucpFilters }
   function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
@@ -76,22 +76,22 @@ type
   function As_IbsSelectedAttributes: IbsSelectedAttributes;
    {* Метод приведения нашего интерфейса к IbsSelectedAttributes }
   property dsFilters: IdsFilters
-   read pm_GetdsFilters;
+   read pm_GetDsFilters;
    {* БОС формы фильтры }
   property dsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel
-   read pm_GetdsTreeAttributeFirstLevel;
+   read pm_GetDsTreeAttributeFirstLevel;
    {* БОС формы "Ситуации первого уровня" }
   property dsSaveLoad: IdsSaveLoad
-   read pm_GetdsSaveLoad;
+   read pm_GetDsSaveLoad;
    {* БОС формы контейнер карточек запроса }
   property dsSelectedAttributes: IdsSelectedAttributes
-   read pm_GetdsSelectedAttributes;
+   read pm_GetDsSelectedAttributes;
    {* БОС формы выбранные атрибуты }
   property dsTreeAttributeSelect: IdsTreeAttributeSelect
-   read pm_GetdsTreeAttributeSelect;
+   read pm_GetDsTreeAttributeSelect;
    {* БОС формы выбора атрибутов }
   property dsAttributeSelect: IdsAttributeSelect
-   read pm_GetdsAttributeSelect;
+   read pm_GetDsAttributeSelect;
    {* Бизнес-объект формы cfAttributeSelect }
  end;//IsdsSituation
 

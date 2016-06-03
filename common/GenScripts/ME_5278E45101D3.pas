@@ -29,7 +29,6 @@ type
 
  IScalable_ChangeScale_Params = interface
   {* Параметры для операции Scalable.ChangeScale }
-  ['{9E4E6D77-C687-4BAE-BB0F-50404EDCFC48}']
   function Get_Inc: Boolean;
   function Get_ResultValue: Boolean;
   procedure Set_ResultValue(aValue: Boolean);
@@ -40,7 +39,7 @@ type
    write Set_ResultValue;
  end;//IScalable_ChangeScale_Params
 
- Op_Scalable_ChangeScale = class
+ Op_Scalable_ChangeScale = {final} class
   {* Класс для вызова операции Scalable.ChangeScale }
   public
    class function Call(const aTarget: IvcmEntity;
@@ -59,7 +58,6 @@ type
 
  IScalable_CanChangeScale_Params = interface
   {* Параметры для операции Scalable.CanChangeScale }
-  ['{4065276A-A0EE-41AB-A50F-3B65D3263E75}']
   function Get_nInc: Boolean;
   function Get_ResultValue: TCanChangeScale;
   procedure Set_ResultValue(aValue: TCanChangeScale);
@@ -70,7 +68,7 @@ type
    write Set_ResultValue;
  end;//IScalable_CanChangeScale_Params
 
- Op_Scalable_CanChangeScale = class
+ Op_Scalable_CanChangeScale = {final} class
   {* Класс для вызова операции Scalable.CanChangeScale }
   public
    class function Call(const aTarget: IvcmEntity;
@@ -86,6 +84,14 @@ type
     anInc: Boolean): TCanChangeScale; overload;
     {* Вызов операции Scalable.CanChangeScale у контейнера }
  end;//Op_Scalable_CanChangeScale
+
+const
+ en_Scalable = 'Scalable';
+ en_capScalable = 'Масштабируемый объект';
+ op_ChangeScale = 'ChangeScale';
+ op_capChangeScale = 'Изменить масштаб';
+ op_CanChangeScale = 'CanChangeScale';
+ op_capCanChangeScale = 'Масштабирование запрещено';
 {$IfEnd} // NOT Defined(Admin)
 
 implementation
@@ -94,10 +100,17 @@ implementation
 uses
  l3ImplUses
  , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
- TScalable_ChangeScale_Params = class(Tl3CProtoObject, IScalable_ChangeScale_Params)
+ TScalable_ChangeScale_Params = {final} class(Tl3CProtoObject, IScalable_ChangeScale_Params)
   {* Реализация IScalable_ChangeScale_Params }
   private
    f_Inc: Boolean;
@@ -108,12 +121,10 @@ type
    procedure Set_ResultValue(aValue: Boolean);
   public
    constructor Create(aInc: Boolean); reintroduce;
-    {* Конструктор TScalable_ChangeScale_Params }
    class function Make(aInc: Boolean): IScalable_ChangeScale_Params; reintroduce;
-    {* Фабрика TScalable_ChangeScale_Params }
  end;//TScalable_ChangeScale_Params
 
- TScalable_CanChangeScale_Params = class(Tl3CProtoObject, IScalable_CanChangeScale_Params)
+ TScalable_CanChangeScale_Params = {final} class(Tl3CProtoObject, IScalable_CanChangeScale_Params)
   {* Реализация IScalable_CanChangeScale_Params }
   private
    f_nInc: Boolean;
@@ -124,23 +135,16 @@ type
    procedure Set_ResultValue(aValue: TCanChangeScale);
   public
    constructor Create(anInc: Boolean); reintroduce;
-    {* Конструктор TScalable_CanChangeScale_Params }
    class function Make(anInc: Boolean): IScalable_CanChangeScale_Params; reintroduce;
-    {* Фабрика TScalable_CanChangeScale_Params }
  end;//TScalable_CanChangeScale_Params
 
 constructor TScalable_ChangeScale_Params.Create(aInc: Boolean);
- {* Конструктор TScalable_ChangeScale_Params }
-//#UC START# *985CBC63003D_81AD64B9BA03_var*
-//#UC END# *985CBC63003D_81AD64B9BA03_var*
 begin
-//#UC START# *985CBC63003D_81AD64B9BA03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *985CBC63003D_81AD64B9BA03_impl*
+ inherited Create;
+ f_Inc := aInc;
 end;//TScalable_ChangeScale_Params.Create
 
 class function TScalable_ChangeScale_Params.Make(aInc: Boolean): IScalable_ChangeScale_Params;
- {* Фабрика TScalable_ChangeScale_Params }
 var
  l_Inst : TScalable_ChangeScale_Params;
 begin
@@ -153,88 +157,87 @@ begin
 end;//TScalable_ChangeScale_Params.Make
 
 function TScalable_ChangeScale_Params.Get_Inc: Boolean;
-//#UC START# *24A6D91049DE_81AD64B9BA03get_var*
-//#UC END# *24A6D91049DE_81AD64B9BA03get_var*
 begin
-//#UC START# *24A6D91049DE_81AD64B9BA03get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *24A6D91049DE_81AD64B9BA03get_impl*
+ Result := f_Inc;
 end;//TScalable_ChangeScale_Params.Get_Inc
 
 function TScalable_ChangeScale_Params.Get_ResultValue: Boolean;
-//#UC START# *90C7E6911559_81AD64B9BA03get_var*
-//#UC END# *90C7E6911559_81AD64B9BA03get_var*
 begin
-//#UC START# *90C7E6911559_81AD64B9BA03get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *90C7E6911559_81AD64B9BA03get_impl*
+ Result := f_ResultValue;
 end;//TScalable_ChangeScale_Params.Get_ResultValue
 
 procedure TScalable_ChangeScale_Params.Set_ResultValue(aValue: Boolean);
-//#UC START# *90C7E6911559_81AD64B9BA03set_var*
-//#UC END# *90C7E6911559_81AD64B9BA03set_var*
 begin
-//#UC START# *90C7E6911559_81AD64B9BA03set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *90C7E6911559_81AD64B9BA03set_impl*
+ f_ResultValue := aValue;
 end;//TScalable_ChangeScale_Params.Set_ResultValue
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmEntity;
  aInc: Boolean): Boolean;
  {* Вызов операции Scalable.ChangeScale у сущности }
-//#UC START# *8A812A227C0E_25951C257B97_var*
-//#UC END# *8A812A227C0E_25951C257B97_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *8A812A227C0E_25951C257B97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8A812A227C0E_25951C257B97_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TScalable_ChangeScale_Params.Make(aInc));
+  aTarget.Operation(TdmStdRes.opcode_Scalable_ChangeScale, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IScalable_ChangeScale_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmAggregate;
  aInc: Boolean): Boolean;
  {* Вызов операции Scalable.ChangeScale у агрегации }
-//#UC START# *BAC0EA12065E_25951C257B97_var*
-//#UC END# *BAC0EA12065E_25951C257B97_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *BAC0EA12065E_25951C257B97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BAC0EA12065E_25951C257B97_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TScalable_ChangeScale_Params.Make(aInc));
+  aTarget.Operation(TdmStdRes.opcode_Scalable_ChangeScale, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IScalable_ChangeScale_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmEntityForm;
  aInc: Boolean): Boolean;
  {* Вызов операции Scalable.ChangeScale у формы }
-//#UC START# *9BE14DE7BF75_25951C257B97_var*
-//#UC END# *9BE14DE7BF75_25951C257B97_var*
 begin
-//#UC START# *9BE14DE7BF75_25951C257B97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9BE14DE7BF75_25951C257B97_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity, aInc);
 end;//Op_Scalable_ChangeScale.Call
 
 class function Op_Scalable_ChangeScale.Call(const aTarget: IvcmContainer;
  aInc: Boolean): Boolean;
  {* Вызов операции Scalable.ChangeScale у контейнера }
-//#UC START# *3EC6914F2E31_25951C257B97_var*
-//#UC END# *3EC6914F2E31_25951C257B97_var*
 begin
-//#UC START# *3EC6914F2E31_25951C257B97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3EC6914F2E31_25951C257B97_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm, aInc);
 end;//Op_Scalable_ChangeScale.Call
 
 constructor TScalable_CanChangeScale_Params.Create(anInc: Boolean);
- {* Конструктор TScalable_CanChangeScale_Params }
-//#UC START# *8A9EA0F03618_1753199D1976_var*
-//#UC END# *8A9EA0F03618_1753199D1976_var*
 begin
-//#UC START# *8A9EA0F03618_1753199D1976_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8A9EA0F03618_1753199D1976_impl*
+ inherited Create;
+ f_nInc := anInc;
 end;//TScalable_CanChangeScale_Params.Create
 
 class function TScalable_CanChangeScale_Params.Make(anInc: Boolean): IScalable_CanChangeScale_Params;
- {* Фабрика TScalable_CanChangeScale_Params }
 var
  l_Inst : TScalable_CanChangeScale_Params;
 begin
@@ -247,74 +250,78 @@ begin
 end;//TScalable_CanChangeScale_Params.Make
 
 function TScalable_CanChangeScale_Params.Get_nInc: Boolean;
-//#UC START# *3EFDB3BD4B04_1753199D1976get_var*
-//#UC END# *3EFDB3BD4B04_1753199D1976get_var*
 begin
-//#UC START# *3EFDB3BD4B04_1753199D1976get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3EFDB3BD4B04_1753199D1976get_impl*
+ Result := f_nInc;
 end;//TScalable_CanChangeScale_Params.Get_nInc
 
 function TScalable_CanChangeScale_Params.Get_ResultValue: TCanChangeScale;
-//#UC START# *AF00B961C300_1753199D1976get_var*
-//#UC END# *AF00B961C300_1753199D1976get_var*
 begin
-//#UC START# *AF00B961C300_1753199D1976get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AF00B961C300_1753199D1976get_impl*
+ Result := f_ResultValue;
 end;//TScalable_CanChangeScale_Params.Get_ResultValue
 
 procedure TScalable_CanChangeScale_Params.Set_ResultValue(aValue: TCanChangeScale);
-//#UC START# *AF00B961C300_1753199D1976set_var*
-//#UC END# *AF00B961C300_1753199D1976set_var*
 begin
-//#UC START# *AF00B961C300_1753199D1976set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AF00B961C300_1753199D1976set_impl*
+ f_ResultValue := aValue;
 end;//TScalable_CanChangeScale_Params.Set_ResultValue
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmEntity;
  anInc: Boolean): TCanChangeScale;
  {* Вызов операции Scalable.CanChangeScale у сущности }
-//#UC START# *0225FE012A4D_8565FBAA5A84_var*
-//#UC END# *0225FE012A4D_8565FBAA5A84_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *0225FE012A4D_8565FBAA5A84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0225FE012A4D_8565FBAA5A84_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TScalable_CanChangeScale_Params.Make(anInc));
+  aTarget.Operation(TdmStdRes.opcode_Scalable_CanChangeScale, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IScalable_CanChangeScale_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmAggregate;
  anInc: Boolean): TCanChangeScale;
  {* Вызов операции Scalable.CanChangeScale у агрегации }
-//#UC START# *3265BDEFB49D_8565FBAA5A84_var*
-//#UC END# *3265BDEFB49D_8565FBAA5A84_var*
+var
+ l_Params : IvcmExecuteParams;
 begin
-//#UC START# *3265BDEFB49D_8565FBAA5A84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3265BDEFB49D_8565FBAA5A84_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+ begin
+  l_Params := TvcmExecuteParams.MakeForInternal(TScalable_CanChangeScale_Params.Make(anInc));
+  aTarget.Operation(TdmStdRes.opcode_Scalable_CanChangeScale, l_Params);
+  with l_Params do
+  begin
+   if Done then
+   begin
+    Result := IScalable_CanChangeScale_Params(Data).ResultValue;
+   end;//Done
+  end;//with l_Params
+ end;//aTarget <> nil
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmEntityForm;
  anInc: Boolean): TCanChangeScale;
  {* Вызов операции Scalable.CanChangeScale у формы }
-//#UC START# *3B35EDE07BB7_8565FBAA5A84_var*
-//#UC END# *3B35EDE07BB7_8565FBAA5A84_var*
 begin
-//#UC START# *3B35EDE07BB7_8565FBAA5A84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3B35EDE07BB7_8565FBAA5A84_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.Entity, anInc);
 end;//Op_Scalable_CanChangeScale.Call
 
 class function Op_Scalable_CanChangeScale.Call(const aTarget: IvcmContainer;
  anInc: Boolean): TCanChangeScale;
  {* Вызов операции Scalable.CanChangeScale у контейнера }
-//#UC START# *6D9C781FFBF0_8565FBAA5A84_var*
-//#UC END# *6D9C781FFBF0_8565FBAA5A84_var*
 begin
-//#UC START# *6D9C781FFBF0_8565FBAA5A84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6D9C781FFBF0_8565FBAA5A84_impl*
+ l3FillChar(Result, SizeOf(Result));
+ if (aTarget <> nil) then
+  Result := Call(aTarget.AsForm, anInc);
 end;//Op_Scalable_CanChangeScale.Call
 {$IfEnd} // NOT Defined(Admin)
 

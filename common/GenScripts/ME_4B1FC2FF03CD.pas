@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_DocumentInterfaces;
+unit DocumentInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessingInterfaces\NOT_COMPLETED_DocumentInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessingInterfaces\DocumentInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "DocumentInterfaces" MUID: (4B1FC2FF03CD)
 

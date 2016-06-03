@@ -400,7 +400,7 @@ end;//TPrimGroupListForm.Switcher_BecomeActive_Execute
 
 procedure TPrimGroupListForm.Switcher_BecomeActive(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISwitcher_BecomeActive_Params) do
+ with ISwitcher_BecomeActive_Params(aParams.Data) do
   Self.Switcher_BecomeActive_Execute(Form);
 end;//TPrimGroupListForm.Switcher_BecomeActive
 

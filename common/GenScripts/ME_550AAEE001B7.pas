@@ -34,7 +34,7 @@ type
    f_dsInpharmMainMenuData: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsInpharmMainMenuData }
   protected
-   function pm_GetdsInpharmMainMenuData: IdsInpharmMainMenu;
+   function pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
@@ -61,14 +61,14 @@ type _Instance_R_ = TsdsInpharmMainMenu;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
 
-function TsdsInpharmMainMenu.pm_GetdsInpharmMainMenuData: IdsInpharmMainMenu;
+function TsdsInpharmMainMenu.pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
 //#UC START# *550C0D1A00CC_550AAEE001B7get_var*
 //#UC END# *550C0D1A00CC_550AAEE001B7get_var*
 begin
 //#UC START# *550C0D1A00CC_550AAEE001B7get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *550C0D1A00CC_550AAEE001B7get_impl*
-end;//TsdsInpharmMainMenu.pm_GetdsInpharmMainMenuData
+end;//TsdsInpharmMainMenu.pm_GetDsInpharmMainMenuData
 
 procedure TsdsInpharmMainMenu.ClearAreas;
  {* Очищает ссылки на области ввода }

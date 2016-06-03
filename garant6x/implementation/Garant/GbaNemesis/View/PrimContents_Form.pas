@@ -348,6 +348,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
+ , Base_Operations_Editions_Controls
  , ContentsUserTypes_utContents_UserType
  , DataAdapter
  , ExternalObjectUnit
@@ -1579,7 +1580,7 @@ end;//TPrimContentsForm.Contents_SetCurrent_Execute
 
 procedure TPrimContentsForm.Contents_SetCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContents_SetCurrent_Params) do
+ with IContents_SetCurrent_Params(aParams.Data) do
   Self.Contents_SetCurrent_Execute(Sub);
 end;//TPrimContentsForm.Contents_SetCurrent
 
@@ -1652,7 +1653,7 @@ end;//TPrimContentsForm.Contents_MoveCurrent_Execute
 
 procedure TPrimContentsForm.Contents_MoveCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContents_MoveCurrent_Params) do
+ with IContents_MoveCurrent_Params(aParams.Data) do
   Self.Contents_MoveCurrent_Execute(Sub, Down);
 end;//TPrimContentsForm.Contents_MoveCurrent
 
@@ -2098,7 +2099,7 @@ end;//TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged_Execute
 
 procedure TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IContentsValidator_IsDocumentAdornmentsChanged_Params) do
+ with IContentsValidator_IsDocumentAdornmentsChanged_Params(aParams.Data) do
   ResultValue := Self.ContentsValidator_IsDocumentAdornmentsChanged_Execute(New);
 end;//TPrimContentsForm.ContentsValidator_IsDocumentAdornmentsChanged
 
@@ -2115,7 +2116,7 @@ end;//TPrimContentsForm.Contents_HasUserComments_Execute
 procedure TPrimContentsForm.Contents_HasUserComments(const aParams: IvcmExecuteParams);
  {* Есть ли в оглавление пользовательские комментарии }
 begin
- with (aParams.Data As IContents_HasUserComments_Params) do
+ with IContents_HasUserComments_Params(aParams.Data) do
   ResultValue := Self.Contents_HasUserComments_Execute;
 end;//TPrimContentsForm.Contents_HasUserComments
 
@@ -2132,7 +2133,7 @@ end;//TPrimContentsForm.Contents_HasBookmarks_Execute
 procedure TPrimContentsForm.Contents_HasBookmarks(const aParams: IvcmExecuteParams);
  {* Есть ли в оглавлении закладки }
 begin
- with (aParams.Data As IContents_HasBookmarks_Params) do
+ with IContents_HasBookmarks_Params(aParams.Data) do
   ResultValue := Self.Contents_HasBookmarks_Execute;
 end;//TPrimContentsForm.Contents_HasBookmarks
 
@@ -2162,7 +2163,7 @@ end;//TPrimContentsForm.Contents_ToggleContentsVisibility_Execute
 procedure TPrimContentsForm.Contents_ToggleContentsVisibility(const aParams: IvcmExecuteParams);
  {* Переключает видимость ПЛАВАЮЩЕГО окна оглавления, возвращает true если переключение удалось }
 begin
- with (aParams.Data As IContents_ToggleContentsVisibility_Params) do
+ with IContents_ToggleContentsVisibility_Params(aParams.Data) do
   ResultValue := Self.Contents_ToggleContentsVisibility_Execute;
 end;//TPrimContentsForm.Contents_ToggleContentsVisibility
 
@@ -2190,7 +2191,7 @@ end;//TPrimContentsForm.Contents_IsContentsVisible_Execute
 procedure TPrimContentsForm.Contents_IsContentsVisible(const aParams: IvcmExecuteParams);
  {* Возвращает состояние видимости ПЛАВАЮЩЕГО окна оглавления }
 begin
- with (aParams.Data As IContents_IsContentsVisible_Params) do
+ with IContents_IsContentsVisible_Params(aParams.Data) do
   ResultValue := Self.Contents_IsContentsVisible_Execute;
 end;//TPrimContentsForm.Contents_IsContentsVisible
 

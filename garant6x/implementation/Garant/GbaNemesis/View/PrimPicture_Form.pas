@@ -497,7 +497,7 @@ end;//TPrimPictureForm.Picture_InitNewContent_Execute
 
 procedure TPrimPictureForm.Picture_InitNewContent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IPicture_InitNewContent_Params) do
+ with IPicture_InitNewContent_Params(aParams.Data) do
   Self.Picture_InitNewContent_Execute(Data);
 end;//TPrimPictureForm.Picture_InitNewContent
 

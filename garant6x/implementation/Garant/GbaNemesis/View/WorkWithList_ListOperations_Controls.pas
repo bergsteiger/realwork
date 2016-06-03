@@ -1,118 +1,21 @@
 unit WorkWithList_ListOperations_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/WorkWithList_ListOperations_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> F1 Работа с документом и списком документов::WorkWithList::View::ListOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithList_ListOperations_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "ListOperations" MUID: (4C371629008F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  vcmExternalInterfaces {a}
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(* List = operations
-  {* Список }
-   ['{E27EA2A0-C07E-4410-951E-BD3D7F23E60E}']
-   operation SortDirection; has states;
-     {* Установить направление сортировки }
-      Ascending = state
-       { Отсортировано по возрастанию }
-       { Отсортировано по возрастанию значений }
-      end;//Ascending
-      Descending = state
-       { Отсортировано по убыванию }
-       { Отсортировано по убыванию значений }
-      end;//Descending
-   operation Sort; has states;
-     {* Сортировать список }
-   operation AnalizeList;
-     {* Анализ списка... }
-   operation SortForReminders;
-     {* Сортировать список }
-   operation SortDirectionForReminders; has states;
-     {* Установить направление сортировки }
-      Ascending = state
-       { Отсортировано по возрастанию }
-      end;//Ascending
-      Descending = state
-       { Отсортировано по убыванию }
-      end;//Descending
-   operation OrAnotherListForReminders;
-   operation AndAnotherListForReminders;
-   operation AndNotAnotherListForReminders;
-   operation SpecifyListForReminders;
-   operation ListInfo;
-   operation Sort;
-   operation SortDirection; has states;
-   operation SpecifyList;
-   operation ExportToXML;
-   query OrAnotherList;
-   query AndAnotherList;
-   query AndNotAnotherList;
-   operation Analize;
-     {* Анализ списка }
- end;//List*)
-
-(* CRList = operations
-   ['{01A3CC80-5F89-45A8-84E3-0B97545932D6}']
-   operation SetType;
- end;//CRList*)
-
-(* WarnListFiltered = operations
-  {* Предупреждение о фильтрованном списке }
-   ['{DD1309C7-0FEE-495F-9F46-99F093A24342}']
-   query ClearAll;
-     {* Отменить все фильтры }
- end;//WarnListFiltered*)
-
-(* Reminder = operations
-   ['{C14B163A-D44B-441A-BB34-712A2CE628E9}']
-   operation RemListModified;
-   operation RemListFiltered;
-   FormActivate RemListTimeMachineWarning;
- end;//Reminder*)
-
-(* List = operations
-  {* Список }
-   ['{876EDE4D-6A8C-4519-AD3D-4378D49C73A8}']
-   FormActivate WorkWithList;
-     {* Работа со списком }
- end;//List*)
-
-(* DocumentInList = operations
-   ['{B75280D8-48BE-49BC-87CF-9C977EA2BB35}']
-   operation OpenDocumentInNewTab;
-     {* Открыть документ в новой вкладке }
-   operation OpenDocumentInNewWindow;
-     {* Открыть документ в новом окне }
- end;//DocumentInList*)
-
-(* SelectedDocuments = operations
-   ['{E8BFBCA0-14C8-4D00-9B18-992885F719F6}']
-   operation AddToControl; has states;
-     {* Поставить на контроль }
-      RemoveFromControl = state
-       { Снять с контроля }
-      end;//RemoveFromControl
-   operation MakeHyperlinkToDocument;
-     {* Создать ссылку на документ }
- end;//SelectedDocuments*)
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
 const
  en_List = 'List';
  en_capList = 'Список';
@@ -179,19 +82,24 @@ const
  op_MakeHyperlinkToDocument = 'MakeHyperlinkToDocument';
  op_capMakeHyperlinkToDocument = 'Создать ссылку на документ';
 
-// Состояния операций:
-var st_user_List_SortDirection_Ascending : TvcmOperationStateIndex = (rID : -1);
-  // Список -> Установить направление сортировки <-> Отсортировано по возрастанию
-var st_user_List_SortDirection_Descending : TvcmOperationStateIndex = (rID : -1);
-  // Список -> Установить направление сортировки <-> Отсортировано по убыванию
-var st_user_List_SortDirectionForReminders_Ascending : TvcmOperationStateIndex = (rID : -1);
-  // Список -> Установить направление сортировки <-> Отсортировано по возрастанию
-var st_user_List_SortDirectionForReminders_Descending : TvcmOperationStateIndex = (rID : -1);
-  // Список -> Установить направление сортировки <-> Отсортировано по убыванию
-var st_user_SelectedDocuments_AddToControl_RemoveFromControl : TvcmOperationStateIndex = (rID : -1);
-  // SelectedDocuments -> Поставить на контроль <-> Снять с контроля
-{$IfEnd} //not Admin AND not Monitorings
+var st_user_List_SortDirection_Ascending: TvcmOperationStateIndex = (rID : -1);
+ {* Список -> Установить направление сортировки <-> Отсортировано по возрастанию }
+var st_user_List_SortDirection_Descending: TvcmOperationStateIndex = (rID : -1);
+ {* Список -> Установить направление сортировки <-> Отсортировано по убыванию }
+var st_user_List_SortDirectionForReminders_Ascending: TvcmOperationStateIndex = (rID : -1);
+ {* Список -> Установить направление сортировки <-> Отсортировано по возрастанию }
+var st_user_List_SortDirectionForReminders_Descending: TvcmOperationStateIndex = (rID : -1);
+ {* Список -> Установить направление сортировки <-> Отсортировано по убыванию }
+var st_user_SelectedDocuments_AddToControl_RemoveFromControl: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Поставить на контроль <-> Снять с контроля }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -924,7 +924,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_GetState_Execute
 procedure TPrimFoldersElementInfoForm.FolderElement_GetState(const aParams: IvcmExecuteParams);
  {* Возвращает статус элемента }
 begin
- with (aParams.Data As IFolderElement_GetState_Params) do
+ with IFolderElement_GetState_Params(aParams.Data) do
   ResultValue := Self.FolderElement_GetState_Execute;
 end;//TPrimFoldersElementInfoForm.FolderElement_GetState
 
@@ -958,7 +958,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo_Execute
 procedure TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo(const aParams: IvcmExecuteParams);
  {* Устанавливает параметры элемента }
 begin
- with (aParams.Data As IFolderElement_SetLoadInfo_Params) do
+ with IFolderElement_SetLoadInfo_Params(aParams.Data) do
   Self.FolderElement_SetLoadInfo_Execute(Form, FolderFilterInfo, Caption, Data, nOp);
 end;//TPrimFoldersElementInfoForm.FolderElement_SetLoadInfo
 
@@ -1016,7 +1016,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetContent_Execute
 procedure TPrimFoldersElementInfoForm.FolderElement_SetContent(const aParams: IvcmExecuteParams);
  {* SetContent }
 begin
- with (aParams.Data As IFolderElement_SetContent_Params) do
+ with IFolderElement_SetContent_Params(aParams.Data) do
   Self.FolderElement_SetContent_Execute(Node, IsNewFolder);
 end;//TPrimFoldersElementInfoForm.FolderElement_SetContent
 
@@ -1121,7 +1121,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolderElement_SetSaveInfo_Params) do
+ with IFolderElement_SetSaveInfo_Params(aParams.Data) do
   Self.FolderElement_SetSaveInfo_Execute(Form, FilterInfo, nElementType, nEntity, SaveAs);
 end;//TPrimFoldersElementInfoForm.FolderElement_SetSaveInfo
 
@@ -1145,7 +1145,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_SetState_Execute
 
 procedure TPrimFoldersElementInfoForm.FolderElement_SetState(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolderElement_SetState_Params) do
+ with IFolderElement_SetState_Params(aParams.Data) do
   Self.FolderElement_SetState_Execute(InfoType);
 end;//TPrimFoldersElementInfoForm.FolderElement_SetState
 
@@ -1160,7 +1160,7 @@ end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights_Execute
 
 procedure TPrimFoldersElementInfoForm.UsersRights_UpdateRights(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IUsersRights_UpdateRights_Params) do
+ with IUsersRights_UpdateRights_Params(aParams.Data) do
   Self.UsersRights_UpdateRights_Execute(Node);
 end;//TPrimFoldersElementInfoForm.UsersRights_UpdateRights
 
@@ -1179,7 +1179,7 @@ end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete_Execut
 
 procedure TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolderElement_ResetModificationOnDelete_Params) do
+ with IFolderElement_ResetModificationOnDelete_Params(aParams.Data) do
   Self.FolderElement_ResetModificationOnDelete_Execute(Node);
 end;//TPrimFoldersElementInfoForm.FolderElement_ResetModificationOnDelete
 

@@ -1,138 +1,117 @@
 unit PrimDocNumberQuery_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/PrimDocNumberQuery_Form.pas"
-// Начат: 02.10.2009 21:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Работа с документом и списком документов::Document::View::OpenDocumentByNumber::PrimDocNumberQuery
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocNumberQuery_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimDocNumberQuery" MUID: (4AC63602020E)
+// Имя типа: "TPrimDocNumberQueryForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  NavigationInterfaces,
-  vtLabel,
-  vtCheckBox,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , NavigationInterfaces
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimDocNumberQueryForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   f_Label1 : TvtLabel;
-    {* Поле для свойства Label1}
-   f_edNumber : TnscComboBox;
-    {* Поле для свойства edNumber}
-   f_cbInternal : TvtCheckBox;
-    {* Поле для свойства cbInternal}
- protected
-  procedure MakeControls; override;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Results : InsOpenDocOnNumberData;
- protected
- // protected methods
+ TPrimDocNumberQueryForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   f_Label1: TvtLabel;
+    {* Номер документа: }
+   f_edNumber: TnscComboBox;
+   f_cbInternal: TvtCheckBox;
+    {* Внутренний номер в базе }
+  protected
+   f_Results: InsOpenDocOnNumberData;
+  protected
    function Save: Boolean;
    procedure LoadHistory(const aHistory: Il3CString);
    procedure SaveHistory(aLastNumber: LongInt;
-     var aHistory: AnsiString);
- public
- // public methods
+    var aHistory: AnsiString);
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aData: InsOpenDocOnNumberData;
-     const aParams : IvcmMakeParams = nil;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0;
-     aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+  public
    property Label1: TvtLabel
-     read f_Label1;
-     {* Номер документа: }
+    read f_Label1;
+    {* Номер документа: }
    property edNumber: TnscComboBox
-     read f_edNumber;
+    read f_edNumber;
    property cbInternal: TvtCheckBox
-     read f_cbInternal;
-     {* Внутренний номер в базе }
+    read f_cbInternal;
+    {* Внутренний номер в базе }
  end;//TPrimDocNumberQueryForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsUtils,
-  nsTypes,
-  SysUtils,
-  bsTypesNew,
-  l3String
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a},
-  l3Base {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , nsUtils
+ , nsTypes
+ , SysUtils
+ , bsTypesNew
+ , l3String
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AC63602020Eimpl_uses*
+ //#UC END# *4AC63602020Eimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 const
-   { DocNumberQuery Const }
-  c_HistoryFormat = 'DDDDDDDDDD';
-  c_HistoryCapacity = 10;
-
-// start class TPrimDocNumberQueryForm
+ c_HistoryFormat = 'DDDDDDDDDD';
+ c_HistoryCapacity = 10;
 
 function TPrimDocNumberQueryForm.Save: Boolean;
 //#UC START# *4C863FCD0121_4AC63602020E_var*
@@ -187,16 +166,16 @@ begin
 end;//TPrimDocNumberQueryForm.LoadHistory
 
 class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimDocNumberQueryForm);
  begin
   with aForm do
   begin
-//#UC START# *51B9E27000CD_4AC63602020E_impl*
+  //#UC START# *51B9E27000CD_4AC63602020E_impl*
    if (aData.PosID <> 0) then
    begin
     case aData.PosType of
@@ -214,7 +193,7 @@ class function TPrimDocNumberQueryForm.Make(const aData: InsOpenDocOnNumberData;
    cbInternal.Checked := aData.Internal;
    LoadHistory(aData.History);
    f_Results := aData;
-//#UC END# *51B9E27000CD_4AC63602020E_impl*
+  //#UC END# *51B9E27000CD_4AC63602020E_impl*
   end;//with aForm
  end;
 
@@ -228,10 +207,10 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimDocNumberQueryForm.Make
 
 procedure TPrimDocNumberQueryForm.SaveHistory(aLastNumber: LongInt;
-  var aHistory: AnsiString);
+ var aHistory: AnsiString);
 //#UC START# *51B9E2AC030D_4AC63602020E_var*
 var
  l_DocNumberHistory: packed array [0..c_HistoryCapacity-1] of Longint;
@@ -262,8 +241,8 @@ begin
 //#UC END# *51B9E2AC030D_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.SaveHistory
 
-{$If not defined(NoVCM)}
 procedure TPrimDocNumberQueryForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AC63602020E_var*
 //#UC END# *49803F5503AA_4AC63602020E_var*
 begin
@@ -272,10 +251,9 @@ begin
  Position := poScreenCenter;
 //#UC END# *49803F5503AA_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimDocNumberQueryForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AC63602020E_var*
 //#UC END# *4A8E8F2E0195_4AC63602020E_var*
 begin
@@ -313,14 +291,10 @@ begin
  end;
 //#UC END# *4A8E8F2E0195_4AC63602020E_impl*
 end;//TPrimDocNumberQueryForm.InitControls
-{$IfEnd} //not NoVCM
 
 procedure TPrimDocNumberQueryForm.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Results := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TPrimDocNumberQueryForm.ClearFields
 
@@ -338,14 +312,14 @@ begin
  f_cbInternal.Name := 'cbInternal';
  f_cbInternal.Parent := Self;
  f_cbInternal.Caption := 'Внутренний номер в базе';
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimDocNumberQueryForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimDocNumberQuery
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimDocNumberQueryForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimDocNumberQuery }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

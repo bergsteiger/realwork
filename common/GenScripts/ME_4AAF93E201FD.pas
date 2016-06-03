@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsPostingsLine;
+unit nsPostingsLine;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\NOT_COMPLETED_nsPostingsLine.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsLine.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "nsPostingsLine" MUID: (4AAF93E201FD)
 
@@ -186,6 +186,9 @@ uses
  , l3Nodes
  , PrimeUnit
  , l3Chars
+ //#UC START# *4AAF93E201FDimpl_uses*
+ , l3TreeInterfaces
+ //#UC END# *4AAF93E201FDimpl_uses*
 ;
 
 function TnsPostingsTree.pm_GetRoot: Il3Node;

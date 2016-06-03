@@ -99,7 +99,7 @@ end;//TPrimDockedWarningForm.Warning_BecomeActive_Execute
 
 procedure TPrimDockedWarningForm.Warning_BecomeActive(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IWarning_BecomeActive_Params) do
+ with IWarning_BecomeActive_Params(aParams.Data) do
   Self.Warning_BecomeActive_Execute(SubID);
 end;//TPrimDockedWarningForm.Warning_BecomeActive
 
@@ -125,7 +125,7 @@ end;//TPrimDockedWarningForm.Warning_SwitchActive_Execute
 
 procedure TPrimDockedWarningForm.Warning_SwitchActive(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IWarning_SwitchActive_Params) do
+ with IWarning_SwitchActive_Params(aParams.Data) do
   Self.Warning_SwitchActive_Execute(SubID);
 end;//TPrimDockedWarningForm.Warning_SwitchActive
 

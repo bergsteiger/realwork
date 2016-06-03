@@ -21,8 +21,6 @@ type
    f_PGQuery: IdaTabledQuery;
    f_HTQuery: IdaTabledQuery;
   protected
-   function MakeFromClause(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromClause; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -32,14 +30,12 @@ type
   public
    constructor Create(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IdaDataConverter;
-    const aTable: IdaTableDescription;
-    const anAlias: AnsiString;
+    const aFromClause: IdaFromClause;
     const aHTQuery: IdaTabledQuery;
     const aPGQuery: IdaTabledQuery); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory;
     const aDataConverter: IdaDataConverter;
-    const aTable: IdaTableDescription;
-    const anAlias: AnsiString;
+    const aFromClause: IdaFromClause;
     const aHTQuery: IdaTabledQuery;
     const aPGQuery: IdaTabledQuery): IdaTabledQuery; reintroduce;
  end;//TcaTabledQuery
@@ -57,8 +53,7 @@ uses
 
 constructor TcaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IdaDataConverter;
- const aTable: IdaTableDescription;
- const anAlias: AnsiString;
+ const aFromClause: IdaFromClause;
  const aHTQuery: IdaTabledQuery;
  const aPGQuery: IdaTabledQuery);
 //#UC START# *56C6DC070160_56C6DB730289_var*
@@ -73,30 +68,19 @@ end;//TcaTabledQuery.Create
 
 class function TcaTabledQuery.Make(const aFactory: IdaTableQueryFactory;
  const aDataConverter: IdaDataConverter;
- const aTable: IdaTableDescription;
- const anAlias: AnsiString;
+ const aFromClause: IdaFromClause;
  const aHTQuery: IdaTabledQuery;
  const aPGQuery: IdaTabledQuery): IdaTabledQuery;
 var
  l_Inst : TcaTabledQuery;
 begin
- l_Inst := Create(aFactory, aDataConverter, aTable, anAlias, aHTQuery, aPGQuery);
+ l_Inst := Create(aFactory, aDataConverter, aFromClause, aHTQuery, aPGQuery);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
 end;//TcaTabledQuery.Make
-
-function TcaTabledQuery.MakeFromClause(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromClause;
-//#UC START# *5600FFF80332_56C6DB730289_var*
-//#UC END# *5600FFF80332_56C6DB730289_var*
-begin
-//#UC START# *5600FFF80332_56C6DB730289_impl*
- Result := TdaFromTable.Make(aTable, anAlias);
-//#UC END# *5600FFF80332_56C6DB730289_impl*
-end;//TcaTabledQuery.MakeFromClause
 
 procedure TcaTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_56C6DB730289_var*

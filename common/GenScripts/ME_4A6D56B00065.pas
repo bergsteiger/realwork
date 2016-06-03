@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_EditionsInterfaces;
+unit EditionsInterfaces;
  {* Работа с редакциями }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\NOT_COMPLETED_EditionsInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "EditionsInterfaces" MUID: (4A6D56B00065)
 

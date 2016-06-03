@@ -535,7 +535,7 @@ end;//TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode_Execute
 procedure TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode(const aParams: IvcmExecuteParams);
  {* Редактирование элемента }
 begin
- with (aParams.Data As IFolderElement_InternalEditByFoldersNode_Params) do
+ with IFolderElement_InternalEditByFoldersNode_Params(aParams.Data) do
   Self.FolderElement_InternalEditByFoldersNode_Execute(Node, InternalCall);
 end;//TPrimFoldersTreeForm.FolderElement_InternalEditByFoldersNode
 
@@ -576,7 +576,7 @@ end;//TPrimFoldersTreeForm.FolderElement_InternalDelete_Execute
 procedure TPrimFoldersTreeForm.FolderElement_InternalDelete(const aParams: IvcmExecuteParams);
  {* Удаляет элемент папок }
 begin
- with (aParams.Data As IFolderElement_InternalDelete_Params) do
+ with IFolderElement_InternalDelete_Params(aParams.Data) do
   ResultValue := Self.FolderElement_InternalDelete_Execute(Node, Ask);
 end;//TPrimFoldersTreeForm.FolderElement_InternalDelete
 
@@ -600,7 +600,7 @@ end;//TPrimFoldersTreeForm.FolderElement_InternalEdit_Execute
 
 procedure TPrimFoldersTreeForm.FolderElement_InternalEdit(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolderElement_InternalEdit_Params) do
+ with IFolderElement_InternalEdit_Params(aParams.Data) do
   Self.FolderElement_InternalEdit_Execute(Node, InternalCall);
 end;//TPrimFoldersTreeForm.FolderElement_InternalEdit
 
@@ -614,7 +614,7 @@ end;//TPrimFoldersTreeForm.SavedQuery_SetFilterState_Execute
 
 procedure TPrimFoldersTreeForm.SavedQuery_SetFilterState(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ISavedQuery_SetFilterState_Params) do
+ with ISavedQuery_SetFilterState_Params(aParams.Data) do
   Self.SavedQuery_SetFilterState_Execute(Node);
 end;//TPrimFoldersTreeForm.SavedQuery_SetFilterState
 
@@ -631,7 +631,7 @@ end;//TPrimFoldersTreeForm.Folders_SetCurrent_Execute
 
 procedure TPrimFoldersTreeForm.Folders_SetCurrent(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolders_SetCurrent_Params) do
+ with IFolders_SetCurrent_Params(aParams.Data) do
   Self.Folders_SetCurrent_Execute(Node);
 end;//TPrimFoldersTreeForm.Folders_SetCurrent
 
@@ -670,7 +670,7 @@ end;//TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo_Execute
 
 procedure TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFolders_FiltrateByFilterInfo_Params) do
+ with IFolders_FiltrateByFilterInfo_Params(aParams.Data) do
   Self.Folders_FiltrateByFilterInfo_Execute(nInfo);
 end;//TPrimFoldersTreeForm.Folders_FiltrateByFilterInfo
 

@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Interfaces
  , vtPanel
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , vtLabel
  {$If Defined(Nemesis)}
  , nscComboBox
@@ -29,9 +32,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ElPopBtn
  , vtFocusLabel
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -53,55 +53,43 @@ type
   {* Регистрация }
   private
    f_pnMainData: TvtPanel;
-    {* Поле для свойства pnMainData }
-   f_UserNameLabel: TvtLabel;
-    {* Поле для свойства UserNameLabel }
-   f_PasswordLabel: TvtLabel;
-    {* Поле для свойства PasswordLabel }
-   f_LoginLabel: TvtLabel;
-    {* Поле для свойства LoginLabel }
-   f_InfoLabel: TvtLabel;
-    {* Поле для свойства InfoLabel }
-   f_EMailLabel: TvtLabel;
-    {* Поле для свойства EMailLabel }
-   f_ConfirmPasswordLabel: TvtLabel;
-    {* Поле для свойства ConfirmPasswordLabel }
-   f_vtAsteriskLabelLogin: TvtLabel;
-    {* Поле для свойства vtAsteriskLabelLogin }
-   f_vtAsteriskLabelFIO: TvtLabel;
-    {* Поле для свойства vtAsteriskLabelFIO }
-   f_edPassword: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edPassword }
-   f_edUserName: TnscEdit;
-    {* Поле для свойства edUserName }
-   f_edLogin: TnscEdit;
-    {* Поле для свойства edLogin }
-   f_edEmail: TnscEdit;
-    {* Поле для свойства edEmail }
-   f_edConfirm: TnscComboBoxWithPwdChar;
-    {* Поле для свойства edConfirm }
-   f_cbAutoLogin: TvtCheckBox;
-    {* Поле для свойства cbAutoLogin }
-   f_NewUserGroupBox: TvtGroupBox;
-    {* Поле для свойства NewUserGroupBox }
-   f_NewUserLabel: TvtLabel;
-    {* Поле для свойства NewUserLabel }
-   f_NewUserPaintBox: TPaintBox;
-    {* Поле для свойства NewUserPaintBox }
    f_BottomPanel: TvtPanel;
-    {* Поле для свойства BottomPanel }
-   f_RegisterButton: TElPopupButton;
-    {* Поле для свойства RegisterButton }
-   f_HelpPanel: TvtPanel;
-    {* Поле для свойства HelpPanel }
-   f_HelpPaintBox: TPaintBox;
-    {* Поле для свойства HelpPaintBox }
-   f_HelpLabel: TvtFocusLabel;
-    {* Поле для свойства HelpLabel }
    f_CanRelogin: Boolean;
-    {* Поле для свойства CanRelogin }
    f_RegisterAction: TnsRegisterAction;
-    {* Поле для свойства RegisterAction }
+   f_UserNameLabel: TvtLabel;
+    {* ФИО пользователя: }
+   f_PasswordLabel: TvtLabel;
+    {* Новый пароль: }
+   f_LoginLabel: TvtLabel;
+    {* Новое регистрационное имя: }
+   f_InfoLabel: TvtLabel;
+    {* * - поля, обязательные для заполнения }
+   f_EMailLabel: TvtLabel;
+    {* Электронная почта: }
+   f_ConfirmPasswordLabel: TvtLabel;
+    {* Подтверждение пароля: }
+   f_vtAsteriskLabelLogin: TvtLabel;
+    {* * }
+   f_vtAsteriskLabelFIO: TvtLabel;
+    {* * }
+   f_edPassword: TnscComboBoxWithPwdChar;
+   f_edUserName: TnscEdit;
+   f_edLogin: TnscEdit;
+   f_edEmail: TnscEdit;
+   f_edConfirm: TnscComboBoxWithPwdChar;
+   f_cbAutoLogin: TvtCheckBox;
+    {* Запомнить пароль }
+   f_NewUserGroupBox: TvtGroupBox;
+    {* Новый пользователь }
+   f_NewUserLabel: TvtLabel;
+    {* Чтобы начать работу с системой ГАРАНТ необходимо зарегистрироваться в системе, создав свою учетную запись. }
+   f_NewUserPaintBox: TPaintBox;
+   f_RegisterButton: TElPopupButton;
+    {* Зарегистрироваться }
+   f_HelpPanel: TvtPanel;
+   f_HelpPaintBox: TPaintBox;
+   f_HelpLabel: TvtFocusLabel;
+    {* Помощь }
   private
    procedure edPasswordChange(Sender: TObject);
    procedure edUserNameChange(Sender: TObject);
@@ -136,7 +124,11 @@ type
   public
    procedure IncreaseLogin;
    class function Make(aIsAutoLogin: Boolean;
-    aCanRelogin: Boolean): IvcmEntityForm; reintroduce;
+    aCanRelogin: Boolean;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCL)}
    function IsRealInstance: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCL)
@@ -246,7 +238,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
+ , Classes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -619,15 +614,33 @@ begin
 end;//TPrimRegistrationForm.CMDialogKey
 
 class function TPrimRegistrationForm.Make(aIsAutoLogin: Boolean;
- aCanRelogin: Boolean): IvcmEntityForm;
+ aCanRelogin: Boolean;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimRegistrationForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *525BCC29025A_525AE04E0326_impl*
+   cbAutoLogin.Checked := aIsAutoLogin;
+   f_CanRelogin := aCanRelogin;
+   Position := poScreenCenter;
+  //#UC END# *525BCC29025A_525AE04E0326_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimRegistrationForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aIsAutoLogin, aCanRelogin);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited Make(aParams, aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimRegistrationForm.Make
 

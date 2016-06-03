@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_ConsultationInterfaces;
+unit ConsultationInterfaces;
  {* Интерфейсы для работы с консультациями }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\NOT_COMPLETED_ConsultationInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\ConsultationInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "ConsultationInterfaces" MUID: (491C3E540050)
 
@@ -25,13 +25,13 @@ type
  IsdsQuery = interface(IvcmUseCaseController)
   {* Бизнес объект прецедентов "Поисковый запрос" }
   ['{0D4BCBD4-AA04-45B7-AAF0-34CEFA6EE31C}']
-  function pm_GetdsQuery: IdsQuery;
-  function pm_GetdsSaveLoad: IdsSaveLoad;
+  function pm_GetDsQuery: IdsQuery;
+  function pm_GetDsSaveLoad: IdsSaveLoad;
   property dsQuery: IdsQuery
-   read pm_GetdsQuery;
+   read pm_GetDsQuery;
    {* для формы поискового запроса }
   property dsSaveLoad: IdsSaveLoad
-   read pm_GetdsSaveLoad;
+   read pm_GetDsSaveLoad;
    {* для контейнера поискового запроса }
  end;//IsdsQuery
 

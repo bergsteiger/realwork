@@ -17,7 +17,7 @@
    f_HasDrugInternationalNameSynonims: Tl3Bool;
     {* Есть ли "Бизнес объект "Синонимы по международному названию"" }
   protected
-   function pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
+   function pm_GetDsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
    function pm_GetHasDrugInternationalNameSynonims: Tl3Bool;
    procedure pm_SetHasDrugInternationalNameSynonims(aValue: Tl3Bool);
    {$If NOT Defined(NoVCM)}
@@ -42,14 +42,14 @@ _dBaseDrugDocument_ = _dBaseDocumentWithAttributes_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
-function _dBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
+function _dBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
 //#UC START# *64B8F5213895_47F07A9F0098get_var*
 //#UC END# *64B8F5213895_47F07A9F0098get_var*
 begin
 //#UC START# *64B8F5213895_47F07A9F0098get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *64B8F5213895_47F07A9F0098get_impl*
-end;//_dBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonimsRef
+end;//_dBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef
 
 function _dBaseDrugDocument_.pm_GetHasDrugInternationalNameSynonims: Tl3Bool;
 //#UC START# *B07FE8A09521_47F07A9F0098get_var*

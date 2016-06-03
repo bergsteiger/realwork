@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_InternetAgentInterfaces;
+unit InternetAgentInterfaces;
  {* Интерфейсы для реализации [Интернет-агента|$124453728] }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\NOT_COMPLETED_InternetAgentInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\InternetAgentInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "InternetAgentInterfaces" MUID: (49EC6D9000EE)
 

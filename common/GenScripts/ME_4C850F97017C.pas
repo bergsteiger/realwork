@@ -15,6 +15,22 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Lang = 'Lang';
+ en_capLang = '';
+ op_Russian = 'Russian';
+ op_capRussian = '';
+ op_English = 'English';
+ op_capEnglish = '';
+ op_French = 'French';
+ op_capFrench = '';
+ op_Deutch = 'Deutch';
+ op_capDeutch = '';
+ op_Italian = 'Italian';
+ op_capItalian = '';
+ op_Spanish = 'Spanish';
+ op_capSpanish = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

@@ -37,10 +37,10 @@ type
    f_dsFirmListRef: IvcmFormDataSourceRef;
     {* —сылка на "dsFirmList" }
   protected
-   function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
-   function pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
-   procedure pm_SetMedicFirmList_SynchroView_Form(aValue: TMedicFirmList_SynchroView_Areas);
-   function pm_GetdsFirmListRef: IvcmFormDataSourceRef;
+   function pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
+   function pm_GetMedicFirmListSynchroViewForm: TMedicFirmList_SynchroView_Areas;
+   procedure pm_SetMedicFirmListSynchroViewForm(aValue: TMedicFirmList_SynchroView_Areas);
+   function pm_GetDsFirmListRef: IvcmFormDataSourceRef;
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}
    procedure AssignData(const aData: _IvcmRealData_); override;
@@ -79,41 +79,41 @@ begin
  end;//try..finally
 end;//TdMedicFirmList.Make
 
-function TdMedicFirmList.pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+function TdMedicFirmList.pm_GetDsSynchroViewRef: IvcmFormDataSourceRef;
 //#UC START# *2A46ABCE9C2A_493A66C50034get_var*
 //#UC END# *2A46ABCE9C2A_493A66C50034get_var*
 begin
 //#UC START# *2A46ABCE9C2A_493A66C50034get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *2A46ABCE9C2A_493A66C50034get_impl*
-end;//TdMedicFirmList.pm_GetdsSynchroViewRef
+end;//TdMedicFirmList.pm_GetDsSynchroViewRef
 
-function TdMedicFirmList.pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
+function TdMedicFirmList.pm_GetMedicFirmListSynchroViewForm: TMedicFirmList_SynchroView_Areas;
 //#UC START# *9B8E07D2C1BA_493A66C50034get_var*
 //#UC END# *9B8E07D2C1BA_493A66C50034get_var*
 begin
 //#UC START# *9B8E07D2C1BA_493A66C50034get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *9B8E07D2C1BA_493A66C50034get_impl*
-end;//TdMedicFirmList.pm_GetMedicFirmList_SynchroView_Form
+end;//TdMedicFirmList.pm_GetMedicFirmListSynchroViewForm
 
-procedure TdMedicFirmList.pm_SetMedicFirmList_SynchroView_Form(aValue: TMedicFirmList_SynchroView_Areas);
+procedure TdMedicFirmList.pm_SetMedicFirmListSynchroViewForm(aValue: TMedicFirmList_SynchroView_Areas);
 //#UC START# *9B8E07D2C1BA_493A66C50034set_var*
 //#UC END# *9B8E07D2C1BA_493A66C50034set_var*
 begin
 //#UC START# *9B8E07D2C1BA_493A66C50034set_impl*
  !!! Needs to be implemented !!!
 //#UC END# *9B8E07D2C1BA_493A66C50034set_impl*
-end;//TdMedicFirmList.pm_SetMedicFirmList_SynchroView_Form
+end;//TdMedicFirmList.pm_SetMedicFirmListSynchroViewForm
 
-function TdMedicFirmList.pm_GetdsFirmListRef: IvcmFormDataSourceRef;
+function TdMedicFirmList.pm_GetDsFirmListRef: IvcmFormDataSourceRef;
 //#UC START# *DD81AF5E2804_493A66C50034get_var*
 //#UC END# *DD81AF5E2804_493A66C50034get_var*
 begin
 //#UC START# *DD81AF5E2804_493A66C50034get_impl*
  !!! Needs to be implemented !!!
 //#UC END# *DD81AF5E2804_493A66C50034get_impl*
-end;//TdMedicFirmList.pm_GetdsFirmListRef
+end;//TdMedicFirmList.pm_GetDsFirmListRef
 
 procedure TdMedicFirmList.InitFields;
 //#UC START# *47A042E100E2_493A66C50034_var*
