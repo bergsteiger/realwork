@@ -1,20 +1,49 @@
 //#UC START# *574C359C0010_574C0F390376_impl*
- !!! Needs to be implemented !!!
+
 //#UC END# *574C359C0010_574C0F390376_impl*
 //#UC START# *574C359C0010_574C0F390376_var*
 //#UC END# *574C359C0010_574C0F390376_var*
 //#UC START# *574C36DA009E_574C0F390376_impl*
- !!! Needs to be implemented !!!
+ l_Ini := GetBaseIni;
+ try
+  l_Ini.Section := cMDPCfgSection;
+  l_DefaultDate := IncDay(Now, -3); // по умолчанию - этапы за прошлые три дня
+  f_DateFrom := l_Ini.ReadParamDateDef(cCfgLastStagesSync, l_DefaultDate);
+  f_DateTo := Now;
+ finally
+  FreeAndNil(l_Ini);
+ end;
 //#UC END# *574C36DA009E_574C0F390376_impl*
 //#UC START# *574C36DA009E_574C0F390376_var*
+var
+ l_Ini: Tl3IniFile;
+ l_DefaultDate: TDateTime;
 //#UC END# *574C36DA009E_574C0F390376_var*
 //#UC START# *574C37130370_574C0F390376_impl*
- !!! Needs to be implemented !!!
+ l_Ini := GetBaseIni;
+ try
+  l_Ini.Section := cMDPCfgSection;
+  l_Ini.WriteParamDate(cCfgLastStagesSync, aStart);
+ finally
+  FreeAndNil(l_Ini);
+ end;
 //#UC END# *574C37130370_574C0F390376_impl*
 //#UC START# *574C37130370_574C0F390376_var*
+var
+ l_Ini: Tl3IniFile;
 //#UC END# *574C37130370_574C0F390376_var*
 //#UC START# *574C395100E9_574C0F390376_impl*
- !!! Needs to be implemented !!!
+
 //#UC END# *574C395100E9_574C0F390376_impl*
 //#UC START# *574C395100E9_574C0F390376_var*
 //#UC END# *574C395100E9_574C0F390376_var*
+//#UC START# *574E9F28031C_574C0F390376_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *574E9F28031C_574C0F390376_impl*
+//#UC START# *574E9F28031C_574C0F390376_var*
+//#UC END# *574E9F28031C_574C0F390376_var*
+//#UC START# *574EC035002D_574C0F390376_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *574EC035002D_574C0F390376_impl*
+//#UC START# *574EC035002D_574C0F390376_var*
+//#UC END# *574EC035002D_574C0F390376_var*

@@ -2738,6 +2738,26 @@ ref; // ME_55EED401013F f_MdpDocImporter
 
 ref; // ME_52FA29CA0141 
 
+: ME_574D797902A9
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ : Target WL 'ME_573D9F0A01BB' '52FA3DD30094.pas.ms.script' // TalcuMdpSyncStages
+ ;
+
+ref; // ME_574D797902A9 
+
+: ME_574D797E008B
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ : Target WL 'ME_574C213703E2' '52FA3DD30094.pas.ms.script' // TalcuMdpSyncImport
+ ;
+
+ref; // ME_574D797E008B 
+
 : ME_52F8C97B02D6
  CONST UID '52F8C97B02D6'
  CONST Name 'TalcuServerPrim'
@@ -2760,6 +2780,8 @@ ref; // ME_52FA29CA0141
  ; // Attributes
  : Dependencies
    Seq: ( ME_52FA29CA0141 // TalcuServerTaskManagerFactory
+ ME_574D797902A9 // TalcuMdpSyncStages
+ ME_574D797E008B // TalcuMdpSyncImport
  )
  ; // Dependencies
  CONST extprop:rc:SelfName 'alcuServerPrim'

@@ -170,56 +170,6 @@ ref; // ME_4AE0691A03CC DoIt
 
 ref; // ME_4AE069110160 Make
 
-FORWARD ME_5264FF0A0241
-
-: ME_A096E0FAA211
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A096E0FAA211 Sender
-
-: ME_72501485CFA1
- CONST Name 'Key'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
- ;
-
-ref; // ME_72501485CFA1 Key
-
-: ME_6F407BF0D6B4
- CONST Name 'Shift'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728CE680258' '4AB0997B00A2.pas.ms.script' // TShiftState
- ;
-
-ref; // ME_6F407BF0D6B4 Shift
-
-: ME_36FC524A602B
- CONST UID '36FC524A602B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5264FF0A0241 // vcmContainerFormKeyDown
- ;
- : Parameters
-   Seq: ( ME_A096E0FAA211 // Sender
- ME_72501485CFA1 // Key
- ME_6F407BF0D6B4 // Shift
- )
- ; // Parameters
-
-ref; // ME_36FC524A602B DoIt
-
 : ME_5264FF0A0241
  CONST UID '5264FF0A0241'
  CONST Name 'vcmContainerFormKeyDown'
@@ -234,28 +184,9 @@ ref; // ME_36FC524A602B DoIt
    Seq: ( WL 'ME_51B595330096' '4799D29F033F.pas.ms.script' // TKeyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_36FC524A602B // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ContainerFormKeyDown'
 
 ref; // ME_5264FF0A0241 vcmContainerFormKeyDown
-
-: ME_ED2E3C379506
- CONST UID 'ED2E3C379506'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimSettings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC63ADF023F // PrimSettings
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_ED2E3C379506 Ini_Reg_Class
 
 : ME_4AC63C070300
  CONST Class class_Dependency
@@ -376,17 +307,6 @@ ref; // ME_52651FC70048
  ;
 
 ref; // ME_5445F912036C 
-
-: ME_CD4FD0AB2F90
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC63ADF023F // PrimSettings
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CD4FD0AB2F90 
 
 : ME_4A8AD46D0226_ME_4AC63ADF023F
  : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
@@ -562,7 +482,6 @@ ref; // ME_5445EA440078_ME_4AC63ADF023F DoOnShowModal
    Seq: ( ME_4AC63BB001DA // StartEdit
  ME_4AE069110160 // Make
  ME_5264FF0A0241 // vcmContainerFormKeyDown
- ME_ED2E3C379506 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -601,7 +520,6 @@ ref; // ME_5445EA440078_ME_4AC63ADF023F DoOnShowModal
  ME_52651FC40162 // Controls
  ME_52651FC70048 // Forms
  ME_5445F912036C // vcmTabbedContainerFormDispatcher
- ME_CD4FD0AB2F90 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -848,86 +766,6 @@ ref; // ME_526A56B701E8 BackgroundPanel
 
 ref; // ME_4AC640AE01E0 f_SettingsInfo
 
-: ME_4959E9BBBA43
- CONST UID '4959E9BBBA43'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_4A7AD11C028B' '4A7960CC03A4.pas.ms.script' // TvtProportionalPanel
- ;
-
-ref; // ME_4959E9BBBA43 f_BackgroundPanel
-
-: ME_68C6CC3A5430
- CONST UID '68C6CC3A5430'
- CONST Name 'f_MainZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства MainZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_68C6CC3A5430 f_MainZone
-
-: ME_A763B5E76CDD
- CONST UID 'A763B5E76CDD'
- CONST Name 'f_ParentZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ParentZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_A763B5E76CDD f_ParentZone
-
-: ME_CD3DCE9795AE
- CONST UID 'CD3DCE9795AE'
- CONST Name 'f_ChildZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ChildZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_CD3DCE9795AE f_ChildZone
-
-: ME_FDBE81618F53
- CONST UID 'FDBE81618F53'
- CONST Name 'f_NavigatorZone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NavigatorZone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_4A7961300264' '4A7960CC03A4.pas.ms.script' // TvtSizeablePanel
- ;
-
-ref; // ME_FDBE81618F53 f_NavigatorZone
-
 FORWARD ME_4AE06B82037F
 
 : ME_4AE06B8E03A0
@@ -971,21 +809,6 @@ ref; // ME_4AE06B8B0250 DoIt
 
 ref; // ME_4AE06B82037F Make
 
-FORWARD ME_526A556A020C
-
-: ME_4BF7562BF94D
- CONST UID '4BF7562BF94D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoUpdateCaption' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_526A556A020C // DoUpdateCaption
- ;
-
-ref; // ME_4BF7562BF94D DoIt
-
 : ME_526A556A020C
  CONST UID '526A556A020C'
  CONST Name 'DoUpdateCaption'
@@ -996,41 +819,8 @@ ref; // ME_4BF7562BF94D DoIt
  CONST Abstraction at_final
  : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
  ;
- : Operations
-   Seq: ( ME_4BF7562BF94D // DoIt
- )
- ; // Operations
 
 ref; // ME_526A556A020C DoUpdateCaption
-
-FORWARD ME_526A55940144
-
-: ME_26B4327C10D7
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_26B4327C10D7 Sender
-
-: ME_940BC24D2388
- CONST UID '940BC24D2388'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_526A55940144 // FormResize
- ;
- : Parameters
-   Seq: ( ME_26B4327C10D7 // Sender
- )
- ; // Parameters
-
-ref; // ME_940BC24D2388 DoIt
 
 : ME_526A55940144
  CONST UID '526A55940144'
@@ -1046,62 +836,8 @@ ref; // ME_940BC24D2388 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_940BC24D2388 // DoIt
- )
- ; // Operations
 
 ref; // ME_526A55940144 FormResize
-
-FORWARD ME_526A55DF0164
-
-: ME_305D7F769C6D
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_305D7F769C6D Sender
-
-: ME_558532D03874
- CONST Name 'CanClose'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_558532D03874 CanClose
-
-: ME_7C702161F7D9
- CONST Name 'aCaller'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_484529DC0276' '4799D29F033F.pas.ms.script' // TCustomForm
- ;
-
-ref; // ME_7C702161F7D9 aCaller
-
-: ME_43B2EA31DDDF
- CONST UID '43B2EA31DDDF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_526A55DF0164 // vcmContainerFormCloseQueryEx
- ;
- : Parameters
-   Seq: ( ME_305D7F769C6D // Sender
- ME_558532D03874 // CanClose
- ME_7C702161F7D9 // aCaller
- )
- ; // Parameters
-
-ref; // ME_43B2EA31DDDF DoIt
 
 : ME_526A55DF0164
  CONST UID '526A55DF0164'
@@ -1117,28 +853,9 @@ ref; // ME_43B2EA31DDDF DoIt
    Seq: ( WL 'ME_526A563601F5' '4AADF9450143.pas.ms.script' // TvcmCloseQueryEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_43B2EA31DDDF // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ContainerFormCloseQueryEx'
 
 ref; // ME_526A55DF0164 vcmContainerFormCloseQueryEx
-
-: ME_587A943F8244
- CONST UID '587A943F8244'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimStyleEditorContainer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_587A943F8244 Ini_Reg_Class
 
 : ME_526A72B000B4
  CONST Class class_Dependency
@@ -1169,17 +886,6 @@ ref; // ME_526A734603D0
  ;
 
 ref; // ME_5318335400F2 
-
-: ME_C6CA1F49A797
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC6402401E4 // PrimStyleEditorContainer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C6CA1F49A797 
 
 : ME_4AF8660E0079_ME_4AC6402401E4
  : Original WL 'ME_4AF8660E0079' '4AE824CB035A.pas.ms.script' // ReloadStyleTable
@@ -1235,11 +941,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC6402401E4 InitControls
  : Attributes
    Seq: ( ME_526A56B701E8 // BackgroundPanel
  ME_4AC640AE01E0 // f_SettingsInfo
- ME_4959E9BBBA43 // f_BackgroundPanel
- ME_68C6CC3A5430 // f_MainZone
- ME_A763B5E76CDD // f_ParentZone
- ME_CD3DCE9795AE // f_ChildZone
- ME_FDBE81618F53 // f_NavigatorZone
  )
  ; // Attributes
  : Operations
@@ -1247,7 +948,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC6402401E4 InitControls
  ME_526A556A020C // DoUpdateCaption
  ME_526A55940144 // FormResize
  ME_526A55DF0164 // vcmContainerFormCloseQueryEx
- ME_587A943F8244 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1271,7 +971,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC6402401E4 InitControls
    Seq: ( ME_526A72B000B4 // DataAdapter
  ME_526A734603D0 // Controls
  ME_5318335400F2 // afwFacade
- ME_C6CA1F49A797 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1680,136 +1379,6 @@ ref; // ME_530DD5BA0376
  CONST "array type" 'dynamic'
 
 ref; // ME_530DD5430120 TseComboValues
-
-FORWARD ME_9AEFDFE51930
-
-: ME_FBE2BE014966
- CONST UID 'FBE2BE014966'
- CONST Name 'ValueIsGreaterThan'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Значение не может быть больше чем %d''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9AEFDFE51930 // LCImpl
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ValueIsGreaterThan''; rValue : ''Значение не может быть больше чем %d'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ValueIsGreaterThan''; rValue : ''Значение не может быть больше чем %d'')'
- : Speller ME_5310736B02EF // ValueIsGreaterThan
- ;
-
-ref; // ME_FBE2BE014966 ValueIsGreaterThan
-
-: ME_02992BA44CCA
- CONST UID '02992BA44CCA'
- CONST Name 'ValueIsLessThan'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Значение не может быть меньше чем %d''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9AEFDFE51930 // LCImpl
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''ValueIsLessThan''; rValue : ''Значение не может быть меньше чем %d'')'
- : ValueType WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''ValueIsLessThan''; rValue : ''Значение не может быть меньше чем %d'')'
- : Speller ME_531073E2017C // ValueIsLessThan
- ;
-
-ref; // ME_02992BA44CCA ValueIsLessThan
-
-: ME_3CAEB9FA99A8
- CONST UID '3CAEB9FA99A8'
- CONST Name 'InheritanceButtonHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Тип наследования (Собственное, Родительское, Прозрачное)''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9AEFDFE51930 // LCImpl
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''InheritanceButtonHint''; rValue : ''Тип наследования (Собственное, Родительское, Прозрачное)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InheritanceButtonHint''; rValue : ''Тип наследования (Собственное, Родительское, Прозрачное)'')'
- : Speller ME_5270D8F802D5 // InheritanceButtonHint
- ;
-
-ref; // ME_3CAEB9FA99A8 InheritanceButtonHint
-
-: ME_C475CA64706B
- CONST UID 'C475CA64706B'
- CONST Name 'InheritanceButtonNoTransparentHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Тип наследования (Собственное, Родительское)''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9AEFDFE51930 // LCImpl
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''InheritanceButtonNoTransparentHint''; rValue : ''Тип наследования (Собственное, Родительское)'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''InheritanceButtonNoTransparentHint''; rValue : ''Тип наследования (Собственное, Родительское)'')'
- : Speller ME_53184E0700F5 // InheritanceButtonNoTransparentHint
- ;
-
-ref; // ME_C475CA64706B InheritanceButtonNoTransparentHint
-
-: ME_9AEFDFE51930
- CONST UID '9AEFDFE51930'
- CONST Name 'LCImpl'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Attributes
-   Seq: ( ME_FBE2BE014966 // ValueIsGreaterThan
- ME_02992BA44CCA // ValueIsLessThan
- ME_3CAEB9FA99A8 // InheritanceButtonHint
- ME_C475CA64706B // InheritanceButtonNoTransparentHint
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5270D8EE0205 // 
- ;
-
-ref; // ME_9AEFDFE51930 LCImpl
 
 FORWARD ME_5270A640033D
 
@@ -2831,726 +2400,6 @@ ref; // ME_52709D34006E f_UpdateLockCount
 
 ref; // ME_530DCF85010D f_LastKnownGoodComboBoxText
 
-: ME_2FA2ED0FA880
- CONST UID '2FA2ED0FA880'
- CONST Name 'f_FontScrollBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontScrollBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5270DE77001D' '4799D29F033F.pas.ms.script' // TScrollBox
- ;
-
-ref; // ME_2FA2ED0FA880 f_FontScrollBox
-
-: ME_98DBAF017AA8
- CONST UID '98DBAF017AA8'
- CONST Name 'f_FontUnderlineLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontUnderlineLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_98DBAF017AA8 f_FontUnderlineLabel
-
-: ME_7692B21B8105
- CONST UID '7692B21B8105'
- CONST Name 'f_FontStrikeoutLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontStrikeoutLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_7692B21B8105 f_FontStrikeoutLabel
-
-: ME_29578D95820C
- CONST UID '29578D95820C'
- CONST Name 'f_FontSizeLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontSizeLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_29578D95820C f_FontSizeLabel
-
-: ME_23F8C83CAE21
- CONST UID '23F8C83CAE21'
- CONST Name 'f_FontNameLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontNameLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_23F8C83CAE21 f_FontNameLabel
-
-: ME_4C24F1DE4DF8
- CONST UID '4C24F1DE4DF8'
- CONST Name 'f_FontItalicLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontItalicLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_4C24F1DE4DF8 f_FontItalicLabel
-
-: ME_6AFBD47CED1F
- CONST UID '6AFBD47CED1F'
- CONST Name 'f_FontForeColorLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontForeColorLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_6AFBD47CED1F f_FontForeColorLabel
-
-: ME_AD960E0174CE
- CONST UID 'AD960E0174CE'
- CONST Name 'f_FontBoldLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBoldLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_AD960E0174CE f_FontBoldLabel
-
-: ME_9C26EF10F439
- CONST UID '9C26EF10F439'
- CONST Name 'f_FontBackColorLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBackColorLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_9C26EF10F439 f_FontBackColorLabel
-
-: ME_D0C9CE8A84A1
- CONST UID 'D0C9CE8A84A1'
- CONST Name 'f_FontScalableLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontScalableLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_D0C9CE8A84A1 f_FontScalableLabel
-
-: ME_B744FC760BF5
- CONST UID 'B744FC760BF5'
- CONST Name 'f_FontScalableBevel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontScalableBevel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5270B3E3024B' '4799D29F033F.pas.ms.script' // TBevel
- ;
-
-ref; // ME_B744FC760BF5 f_FontScalableBevel
-
-: ME_9D9947595417
- CONST UID '9D9947595417'
- CONST Name 'f_FontStrikeoutInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontStrikeoutInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_9D9947595417 f_FontStrikeoutInheritanceButton
-
-: ME_DBD6219CE55A
- CONST UID 'DBD6219CE55A'
- CONST Name 'f_FontSizeInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontSizeInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_DBD6219CE55A f_FontSizeInheritanceButton
-
-: ME_86F007213D84
- CONST UID '86F007213D84'
- CONST Name 'f_FontNameInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontNameInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_86F007213D84 f_FontNameInheritanceButton
-
-: ME_CC4997A1106D
- CONST UID 'CC4997A1106D'
- CONST Name 'f_FontItalicInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontItalicInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_CC4997A1106D f_FontItalicInheritanceButton
-
-: ME_93DE674E6449
- CONST UID '93DE674E6449'
- CONST Name 'f_FontForeColorInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontForeColorInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_93DE674E6449 f_FontForeColorInheritanceButton
-
-: ME_B424DEA6EFDC
- CONST UID 'B424DEA6EFDC'
- CONST Name 'f_FontBoldInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBoldInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_B424DEA6EFDC f_FontBoldInheritanceButton
-
-: ME_46FE02D9FF06
- CONST UID '46FE02D9FF06'
- CONST Name 'f_FontBackColorInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBackColorInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_46FE02D9FF06 f_FontBackColorInheritanceButton
-
-: ME_028428CB7466
- CONST UID '028428CB7466'
- CONST Name 'f_FontUnderlineInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontUnderlineInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_028428CB7466 f_FontUnderlineInheritanceButton
-
-: ME_D85FD31020E0
- CONST UID 'D85FD31020E0'
- CONST Name 'f_FontUnderlineCheckBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontUnderlineCheckBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_D85FD31020E0 f_FontUnderlineCheckBox
-
-: ME_DC1595F6DF5A
- CONST UID 'DC1595F6DF5A'
- CONST Name 'f_FontStrikeoutCheckBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontStrikeoutCheckBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_DC1595F6DF5A f_FontStrikeoutCheckBox
-
-: ME_886F68A7C19A
- CONST UID '886F68A7C19A'
- CONST Name 'f_FontSizeComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontSizeComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_886F68A7C19A f_FontSizeComboBox
-
-: ME_B2F57B19E293
- CONST UID 'B2F57B19E293'
- CONST Name 'f_FontNameComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontNameComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_B2F57B19E293 f_FontNameComboBox
-
-: ME_3DE666971C0B
- CONST UID '3DE666971C0B'
- CONST Name 'f_FontItalicCheckBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontItalicCheckBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_3DE666971C0B f_FontItalicCheckBox
-
-: ME_3B6EC5BDCD94
- CONST UID '3B6EC5BDCD94'
- CONST Name 'f_FontForeColorBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontForeColorBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5270BBC702C7' '4A83EE0E0002.pas.ms.script' // TvtColorBox
- ;
-
-ref; // ME_3B6EC5BDCD94 f_FontForeColorBox
-
-: ME_B812BAE0CDB3
- CONST UID 'B812BAE0CDB3'
- CONST Name 'f_FontBoldCheckBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBoldCheckBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_B812BAE0CDB3 f_FontBoldCheckBox
-
-: ME_459DA21790E4
- CONST UID '459DA21790E4'
- CONST Name 'f_FontBackColorBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontBackColorBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5270BBC702C7' '4A83EE0E0002.pas.ms.script' // TvtColorBox
- ;
-
-ref; // ME_459DA21790E4 f_FontBackColorBox
-
-: ME_2794830E394B
- CONST UID '2794830E394B'
- CONST Name 'f_FontScalableCheckBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FontScalableCheckBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_2794830E394B f_FontScalableCheckBox
-
-: ME_7D0B6CFAEDB9
- CONST UID '7D0B6CFAEDB9'
- CONST Name 'f_LeftIndentLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LeftIndentLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_7D0B6CFAEDB9 f_LeftIndentLabel
-
-: ME_9E5F8FA388B4
- CONST UID '9E5F8FA388B4'
- CONST Name 'f_LeftIndentComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LeftIndentComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_9E5F8FA388B4 f_LeftIndentComboBox
-
-: ME_9119EC79642E
- CONST UID '9119EC79642E'
- CONST Name 'f_RightIndentLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RightIndentLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_9119EC79642E f_RightIndentLabel
-
-: ME_297E2E9F02A9
- CONST UID '297E2E9F02A9'
- CONST Name 'f_RightIndentComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RightIndentComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_297E2E9F02A9 f_RightIndentComboBox
-
-: ME_574721820031
- CONST UID '574721820031'
- CONST Name 'f_FirstIndentLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FirstIndentLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_574721820031 f_FirstIndentLabel
-
-: ME_8277C2A01FA0
- CONST UID '8277C2A01FA0'
- CONST Name 'f_FirstIndentComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FirstIndentComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_8277C2A01FA0 f_FirstIndentComboBox
-
-: ME_FC5F4D179CFF
- CONST UID 'FC5F4D179CFF'
- CONST Name 'f_SpaceBeforeLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceBeforeLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_FC5F4D179CFF f_SpaceBeforeLabel
-
-: ME_C2B09D47AFFD
- CONST UID 'C2B09D47AFFD'
- CONST Name 'f_SpaceBeforeComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceBeforeComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_C2B09D47AFFD f_SpaceBeforeComboBox
-
-: ME_5C22E38A2B2D
- CONST UID '5C22E38A2B2D'
- CONST Name 'f_SpaceAfterLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceAfterLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_5C22E38A2B2D f_SpaceAfterLabel
-
-: ME_EE2030A13BEA
- CONST UID 'EE2030A13BEA'
- CONST Name 'f_SpaceAfterComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceAfterComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_EE2030A13BEA f_SpaceAfterComboBox
-
-: ME_938A09B3474E
- CONST UID '938A09B3474E'
- CONST Name 'f_LeftIndentInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LeftIndentInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_938A09B3474E f_LeftIndentInheritanceButton
-
-: ME_F63A63A084FB
- CONST UID 'F63A63A084FB'
- CONST Name 'f_RightIndentInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RightIndentInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_F63A63A084FB f_RightIndentInheritanceButton
-
-: ME_6A0741915DFF
- CONST UID '6A0741915DFF'
- CONST Name 'f_FirstIndentInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FirstIndentInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_6A0741915DFF f_FirstIndentInheritanceButton
-
-: ME_3341EEFDB9B9
- CONST UID '3341EEFDB9B9'
- CONST Name 'f_SpaceBeforeInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceBeforeInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_3341EEFDB9B9 f_SpaceBeforeInheritanceButton
-
-: ME_A9B1EAD47897
- CONST UID 'A9B1EAD47897'
- CONST Name 'f_SpaceAfterInheritanceButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SpaceAfterInheritanceButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_A9B1EAD47897 f_SpaceAfterInheritanceButton
-
-: ME_E4BF49CB6D14
- CONST UID 'E4BF49CB6D14'
- CONST Name 'f_StyleCaptionLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StyleCaptionLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_E4BF49CB6D14 f_StyleCaptionLabel
-
-: ME_CAF26B0B0DA2
- CONST UID 'CAF26B0B0DA2'
- CONST Name 'f_StyleCaptionComboBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства StyleCaptionComboBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4A83EE2702B6' '4A83EE0E0002.pas.ms.script' // TvtComboBoxQS
- ;
-
-ref; // ME_CAF26B0B0DA2 f_StyleCaptionComboBox
-
 FORWARD ME_4AE06B9B01B9
 
 : ME_4AE06BA4034E
@@ -3684,21 +2533,6 @@ ref; // ME_52709AD403A6 DoIt
 
 ref; // ME_52709AC30234 SendToAggregateReloadStyleTableNotify
 
-FORWARD ME_52709AF200D7
-
-: ME_1204CD009F16
- CONST UID '1204CD009F16'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DisableUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52709AF200D7 // DisableUpdate
- ;
-
-ref; // ME_1204CD009F16 DoIt
-
 : ME_52709AF200D7
  CONST UID '52709AF200D7'
  CONST Name 'DisableUpdate'
@@ -3709,27 +2543,8 @@ ref; // ME_1204CD009F16 DoIt
  CONST Abstraction at_final
  : Parent ME_4AC642480314 // PrimStyleEditorFont
  ;
- : Operations
-   Seq: ( ME_1204CD009F16 // DoIt
- )
- ; // Operations
 
 ref; // ME_52709AF200D7 DisableUpdate
-
-FORWARD ME_52709AFB00A3
-
-: ME_D96E76E4B120
- CONST UID 'D96E76E4B120'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода EnableUpdate' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52709AFB00A3 // EnableUpdate
- ;
-
-ref; // ME_D96E76E4B120 DoIt
 
 : ME_52709AFB00A3
  CONST UID '52709AFB00A3'
@@ -3741,10 +2556,6 @@ ref; // ME_D96E76E4B120 DoIt
  CONST Abstraction at_final
  : Parent ME_4AC642480314 // PrimStyleEditorFont
  ;
- : Operations
-   Seq: ( ME_D96E76E4B120 // DoIt
- )
- ; // Operations
 
 ref; // ME_52709AFB00A3 EnableUpdate
 
@@ -3880,21 +2691,6 @@ ref; // ME_5270A23A0270 DoIt
 
 ref; // ME_52709F5D014F UpdateControlsFromStyleInterface
 
-FORWARD ME_5270A26E0251
-
-: ME_A2CAAE0493B2
- CONST UID 'A2CAAE0493B2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ReloadFontNameList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5270A26E0251 // ReloadFontNameList
- ;
-
-ref; // ME_A2CAAE0493B2 DoIt
-
 : ME_5270A26E0251
  CONST UID '5270A26E0251'
  CONST Name 'ReloadFontNameList'
@@ -3905,10 +2701,6 @@ ref; // ME_A2CAAE0493B2 DoIt
  CONST Abstraction at_final
  : Parent ME_4AC642480314 // PrimStyleEditorFont
  ;
- : Operations
-   Seq: ( ME_A2CAAE0493B2 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A26E0251 ReloadFontNameList
 
@@ -4384,35 +3176,6 @@ ref; // ME_5270E52A006C DoIt
 
 ref; // ME_5270E51C0231 IsTransparentFont
 
-FORWARD ME_5270A4A70280
-
-: ME_9EF5AC58E89B
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_9EF5AC58E89B Sender
-
-: ME_D95BF4538823
- CONST UID 'D95BF4538823'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4A70280 // FontBackColorBoxChange
- ;
- : Parameters
-   Seq: ( ME_9EF5AC58E89B // Sender
- )
- ; // Parameters
-
-ref; // ME_D95BF4538823 DoIt
-
 : ME_5270A4A70280
  CONST UID '5270A4A70280'
  CONST Name 'FontBackColorBoxChange'
@@ -4427,41 +3190,8 @@ ref; // ME_D95BF4538823 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D95BF4538823 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4A70280 FontBackColorBoxChange
-
-FORWARD ME_5270A49C01A0
-
-: ME_8984FAC7FFB4
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_8984FAC7FFB4 Sender
-
-: ME_8F6697D70647
- CONST UID '8F6697D70647'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A49C01A0 // FontBackColorInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_8984FAC7FFB4 // Sender
- )
- ; // Parameters
-
-ref; // ME_8F6697D70647 DoIt
 
 : ME_5270A49C01A0
  CONST UID '5270A49C01A0'
@@ -4477,41 +3207,8 @@ ref; // ME_8F6697D70647 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8F6697D70647 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A49C01A0 FontBackColorInheritanceButtonClick
-
-FORWARD ME_5270A4BB00A1
-
-: ME_CC2F305C99BC
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_CC2F305C99BC Sender
-
-: ME_0EED14FB1A2B
- CONST UID '0EED14FB1A2B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4BB00A1 // FontBoldCheckBoxClick
- ;
- : Parameters
-   Seq: ( ME_CC2F305C99BC // Sender
- )
- ; // Parameters
-
-ref; // ME_0EED14FB1A2B DoIt
 
 : ME_5270A4BB00A1
  CONST UID '5270A4BB00A1'
@@ -4527,41 +3224,8 @@ ref; // ME_0EED14FB1A2B DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0EED14FB1A2B // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4BB00A1 FontBoldCheckBoxClick
-
-FORWARD ME_5270A4B20394
-
-: ME_AE3C787AAB40
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_AE3C787AAB40 Sender
-
-: ME_45B810E47A75
- CONST UID '45B810E47A75'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4B20394 // FontBoldInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_AE3C787AAB40 // Sender
- )
- ; // Parameters
-
-ref; // ME_45B810E47A75 DoIt
 
 : ME_5270A4B20394
  CONST UID '5270A4B20394'
@@ -4577,41 +3241,8 @@ ref; // ME_45B810E47A75 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_45B810E47A75 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4B20394 FontBoldInheritanceButtonClick
-
-FORWARD ME_5270A4930193
-
-: ME_C009DBDAE97F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_C009DBDAE97F Sender
-
-: ME_2933B8A8F8D3
- CONST UID '2933B8A8F8D3'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4930193 // FontForeColorBoxChange
- ;
- : Parameters
-   Seq: ( ME_C009DBDAE97F // Sender
- )
- ; // Parameters
-
-ref; // ME_2933B8A8F8D3 DoIt
 
 : ME_5270A4930193
  CONST UID '5270A4930193'
@@ -4627,41 +3258,8 @@ ref; // ME_2933B8A8F8D3 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2933B8A8F8D3 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4930193 FontForeColorBoxChange
-
-FORWARD ME_5270A48B0154
-
-: ME_73D96C6BB245
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_73D96C6BB245 Sender
-
-: ME_28FFFC11B4A0
- CONST UID '28FFFC11B4A0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A48B0154 // FontForeColorInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_73D96C6BB245 // Sender
- )
- ; // Parameters
-
-ref; // ME_28FFFC11B4A0 DoIt
 
 : ME_5270A48B0154
  CONST UID '5270A48B0154'
@@ -4677,41 +3275,8 @@ ref; // ME_28FFFC11B4A0 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_28FFFC11B4A0 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A48B0154 FontForeColorInheritanceButtonClick
-
-FORWARD ME_5270A4CC03E2
-
-: ME_F4DFFE532D12
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_F4DFFE532D12 Sender
-
-: ME_BB08B492E5C6
- CONST UID 'BB08B492E5C6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4CC03E2 // FontItalicCheckBoxClick
- ;
- : Parameters
-   Seq: ( ME_F4DFFE532D12 // Sender
- )
- ; // Parameters
-
-ref; // ME_BB08B492E5C6 DoIt
 
 : ME_5270A4CC03E2
  CONST UID '5270A4CC03E2'
@@ -4727,41 +3292,8 @@ ref; // ME_BB08B492E5C6 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BB08B492E5C6 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4CC03E2 FontItalicCheckBoxClick
-
-FORWARD ME_5270A4C4013A
-
-: ME_2C1EC9438742
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2C1EC9438742 Sender
-
-: ME_22EAEFBA4068
- CONST UID '22EAEFBA4068'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4C4013A // FontItalicInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_2C1EC9438742 // Sender
- )
- ; // Parameters
-
-ref; // ME_22EAEFBA4068 DoIt
 
 : ME_5270A4C4013A
  CONST UID '5270A4C4013A'
@@ -4777,41 +3309,8 @@ ref; // ME_22EAEFBA4068 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_22EAEFBA4068 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4C4013A FontItalicInheritanceButtonClick
-
-FORWARD ME_5270A44F0105
-
-: ME_0DB5C9E03655
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0DB5C9E03655 Sender
-
-: ME_52A51B63552E
- CONST UID '52A51B63552E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A44F0105 // FontNameComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_0DB5C9E03655 // Sender
- )
- ; // Parameters
-
-ref; // ME_52A51B63552E DoIt
 
 : ME_5270A44F0105
  CONST UID '5270A44F0105'
@@ -4827,41 +3326,8 @@ ref; // ME_52A51B63552E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_52A51B63552E // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A44F0105 FontNameComboBoxChange
-
-FORWARD ME_5270A4450142
-
-: ME_DC3EABE67021
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_DC3EABE67021 Sender
-
-: ME_4D41F0B8973B
- CONST UID '4D41F0B8973B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4450142 // FontNameInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_DC3EABE67021 // Sender
- )
- ; // Parameters
-
-ref; // ME_4D41F0B8973B DoIt
 
 : ME_5270A4450142
  CONST UID '5270A4450142'
@@ -4877,41 +3343,8 @@ ref; // ME_4D41F0B8973B DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4D41F0B8973B // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4450142 FontNameInheritanceButtonClick
-
-FORWARD ME_5270A5010089
-
-: ME_D191D5B46114
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D191D5B46114 Sender
-
-: ME_9D627F27DA8B
- CONST UID '9D627F27DA8B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A5010089 // FontScalableCheckBoxClick
- ;
- : Parameters
-   Seq: ( ME_D191D5B46114 // Sender
- )
- ; // Parameters
-
-ref; // ME_9D627F27DA8B DoIt
 
 : ME_5270A5010089
  CONST UID '5270A5010089'
@@ -4927,41 +3360,8 @@ ref; // ME_9D627F27DA8B DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9D627F27DA8B // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A5010089 FontScalableCheckBoxClick
-
-FORWARD ME_5270A47E0168
-
-: ME_128676A8F6B6
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_128676A8F6B6 Sender
-
-: ME_8FAE3E509AD6
- CONST UID '8FAE3E509AD6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A47E0168 // FontSizeComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_128676A8F6B6 // Sender
- )
- ; // Parameters
-
-ref; // ME_8FAE3E509AD6 DoIt
 
 : ME_5270A47E0168
  CONST UID '5270A47E0168'
@@ -4977,41 +3377,8 @@ ref; // ME_8FAE3E509AD6 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8FAE3E509AD6 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A47E0168 FontSizeComboBoxChange
-
-FORWARD ME_5270A45A0310
-
-: ME_377CB413BFC8
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_377CB413BFC8 Sender
-
-: ME_11344D579794
- CONST UID '11344D579794'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A45A0310 // FontSizeInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_377CB413BFC8 // Sender
- )
- ; // Parameters
-
-ref; // ME_11344D579794 DoIt
 
 : ME_5270A45A0310
  CONST UID '5270A45A0310'
@@ -5027,41 +3394,8 @@ ref; // ME_11344D579794 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_11344D579794 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A45A0310 FontSizeInheritanceButtonClick
-
-FORWARD ME_5270A4F801A8
-
-: ME_EBEAB0989C29
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_EBEAB0989C29 Sender
-
-: ME_91F352F3CC0B
- CONST UID '91F352F3CC0B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4F801A8 // FontStrikeoutCheckBoxClick
- ;
- : Parameters
-   Seq: ( ME_EBEAB0989C29 // Sender
- )
- ; // Parameters
-
-ref; // ME_91F352F3CC0B DoIt
 
 : ME_5270A4F801A8
  CONST UID '5270A4F801A8'
@@ -5077,41 +3411,8 @@ ref; // ME_91F352F3CC0B DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_91F352F3CC0B // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4F801A8 FontStrikeoutCheckBoxClick
-
-FORWARD ME_5270A4EC0017
-
-: ME_98FBAFC4432E
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_98FBAFC4432E Sender
-
-: ME_09624DFB37E4
- CONST UID '09624DFB37E4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4EC0017 // FontStrikeoutInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_98FBAFC4432E // Sender
- )
- ; // Parameters
-
-ref; // ME_09624DFB37E4 DoIt
 
 : ME_5270A4EC0017
  CONST UID '5270A4EC0017'
@@ -5127,41 +3428,8 @@ ref; // ME_09624DFB37E4 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_09624DFB37E4 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4EC0017 FontStrikeoutInheritanceButtonClick
-
-FORWARD ME_5270A4E30367
-
-: ME_B4A1E91D38C0
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_B4A1E91D38C0 Sender
-
-: ME_264D0A5F7CD2
- CONST UID '264D0A5F7CD2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4E30367 // FontUnderlineCheckBoxClick
- ;
- : Parameters
-   Seq: ( ME_B4A1E91D38C0 // Sender
- )
- ; // Parameters
-
-ref; // ME_264D0A5F7CD2 DoIt
 
 : ME_5270A4E30367
  CONST UID '5270A4E30367'
@@ -5177,41 +3445,8 @@ ref; // ME_264D0A5F7CD2 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_264D0A5F7CD2 // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4E30367 FontUnderlineCheckBoxClick
-
-FORWARD ME_5270A4D601A5
-
-: ME_EFD2E1B7B84C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_EFD2E1B7B84C Sender
-
-: ME_D58904F9EE4C
- CONST UID 'D58904F9EE4C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5270A4D601A5 // FontUnderlineInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_EFD2E1B7B84C // Sender
- )
- ; // Parameters
-
-ref; // ME_D58904F9EE4C DoIt
 
 : ME_5270A4D601A5
  CONST UID '5270A4D601A5'
@@ -5227,41 +3462,8 @@ ref; // ME_D58904F9EE4C DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_D58904F9EE4C // DoIt
- )
- ; // Operations
 
 ref; // ME_5270A4D601A5 FontUnderlineInheritanceButtonClick
-
-FORWARD ME_530DBD890048
-
-: ME_6D5EA50B77F2
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_6D5EA50B77F2 Sender
-
-: ME_BB15BA0F0387
- CONST UID 'BB15BA0F0387'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBD890048 // LeftIndentInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_6D5EA50B77F2 // Sender
- )
- ; // Parameters
-
-ref; // ME_BB15BA0F0387 DoIt
 
 : ME_530DBD890048
  CONST UID '530DBD890048'
@@ -5277,41 +3479,8 @@ ref; // ME_BB15BA0F0387 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BB15BA0F0387 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBD890048 LeftIndentInheritanceButtonClick
-
-FORWARD ME_530DBD9A01B7
-
-: ME_E84CD4DE64C3
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E84CD4DE64C3 Sender
-
-: ME_7B9BE2239DBD
- CONST UID '7B9BE2239DBD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBD9A01B7 // RightIndentInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_E84CD4DE64C3 // Sender
- )
- ; // Parameters
-
-ref; // ME_7B9BE2239DBD DoIt
 
 : ME_530DBD9A01B7
  CONST UID '530DBD9A01B7'
@@ -5327,41 +3496,8 @@ ref; // ME_7B9BE2239DBD DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7B9BE2239DBD // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBD9A01B7 RightIndentInheritanceButtonClick
-
-FORWARD ME_530DBDAC0212
-
-: ME_7C523E7A0020
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_7C523E7A0020 Sender
-
-: ME_65925BE4CFA1
- CONST UID '65925BE4CFA1'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBDAC0212 // FirstIndentInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_7C523E7A0020 // Sender
- )
- ; // Parameters
-
-ref; // ME_65925BE4CFA1 DoIt
 
 : ME_530DBDAC0212
  CONST UID '530DBDAC0212'
@@ -5377,41 +3513,8 @@ ref; // ME_65925BE4CFA1 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_65925BE4CFA1 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBDAC0212 FirstIndentInheritanceButtonClick
-
-FORWARD ME_530DBDB602D7
-
-: ME_E091EB290B19
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E091EB290B19 Sender
-
-: ME_84192007D2DB
- CONST UID '84192007D2DB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBDB602D7 // SpaceBeforeInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_E091EB290B19 // Sender
- )
- ; // Parameters
-
-ref; // ME_84192007D2DB DoIt
 
 : ME_530DBDB602D7
  CONST UID '530DBDB602D7'
@@ -5427,41 +3530,8 @@ ref; // ME_84192007D2DB DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_84192007D2DB // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBDB602D7 SpaceBeforeInheritanceButtonClick
-
-FORWARD ME_530DBDC801F6
-
-: ME_68944A47933E
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_68944A47933E Sender
-
-: ME_DDCB9A150C14
- CONST UID 'DDCB9A150C14'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBDC801F6 // SpaceAfterInheritanceButtonClick
- ;
- : Parameters
-   Seq: ( ME_68944A47933E // Sender
- )
- ; // Parameters
-
-ref; // ME_DDCB9A150C14 DoIt
 
 : ME_530DBDC801F6
  CONST UID '530DBDC801F6'
@@ -5477,41 +3547,8 @@ ref; // ME_DDCB9A150C14 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DDCB9A150C14 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBDC801F6 SpaceAfterInheritanceButtonClick
-
-FORWARD ME_530DBE110062
-
-: ME_E3741EEBF538
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E3741EEBF538 Sender
-
-: ME_0DB891BEF92D
- CONST UID '0DB891BEF92D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBE110062 // LeftIndentComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_E3741EEBF538 // Sender
- )
- ; // Parameters
-
-ref; // ME_0DB891BEF92D DoIt
 
 : ME_530DBE110062
  CONST UID '530DBE110062'
@@ -5527,41 +3564,8 @@ ref; // ME_0DB891BEF92D DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0DB891BEF92D // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBE110062 LeftIndentComboBoxChange
-
-FORWARD ME_530DBE1D0076
-
-: ME_E43E0E79B6E2
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_E43E0E79B6E2 Sender
-
-: ME_4F4E25A15C13
- CONST UID '4F4E25A15C13'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBE1D0076 // RightIndentComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_E43E0E79B6E2 // Sender
- )
- ; // Parameters
-
-ref; // ME_4F4E25A15C13 DoIt
 
 : ME_530DBE1D0076
  CONST UID '530DBE1D0076'
@@ -5577,41 +3581,8 @@ ref; // ME_4F4E25A15C13 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4F4E25A15C13 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBE1D0076 RightIndentComboBoxChange
-
-FORWARD ME_530DBE25012F
-
-: ME_C28AD6AF121B
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_C28AD6AF121B Sender
-
-: ME_5D5C92082335
- CONST UID '5D5C92082335'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBE25012F // FirstIndentComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_C28AD6AF121B // Sender
- )
- ; // Parameters
-
-ref; // ME_5D5C92082335 DoIt
 
 : ME_530DBE25012F
  CONST UID '530DBE25012F'
@@ -5627,41 +3598,8 @@ ref; // ME_5D5C92082335 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5D5C92082335 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBE25012F FirstIndentComboBoxChange
-
-FORWARD ME_530DBE600072
-
-: ME_70B604BDA485
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_70B604BDA485 Sender
-
-: ME_F694ACCDE891
- CONST UID 'F694ACCDE891'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBE600072 // SpaceBeforeComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_70B604BDA485 // Sender
- )
- ; // Parameters
-
-ref; // ME_F694ACCDE891 DoIt
 
 : ME_530DBE600072
  CONST UID '530DBE600072'
@@ -5677,41 +3615,8 @@ ref; // ME_F694ACCDE891 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F694ACCDE891 // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBE600072 SpaceBeforeComboBoxChange
-
-FORWARD ME_530DBE6D008C
-
-: ME_A36F6EA84B28
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A36F6EA84B28 Sender
-
-: ME_DE266489578E
- CONST UID 'DE266489578E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_530DBE6D008C // SpaceAfterComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_A36F6EA84B28 // Sender
- )
- ; // Parameters
-
-ref; // ME_DE266489578E DoIt
 
 : ME_530DBE6D008C
  CONST UID '530DBE6D008C'
@@ -5727,10 +3632,6 @@ ref; // ME_DE266489578E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DE266489578E // DoIt
- )
- ; // Operations
 
 ref; // ME_530DBE6D008C SpaceAfterComboBoxChange
 
@@ -5830,35 +3731,6 @@ ref; // ME_531052130360 DoIt
 
 ref; // ME_531051E20053 CheckComboBoxValue
 
-FORWARD ME_53108AEA00D5
-
-: ME_234A98056F60
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_234A98056F60 Sender
-
-: ME_3309FD019086
- CONST UID '3309FD019086'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_53108AEA00D5 // SpacingComboExit
- ;
- : Parameters
-   Seq: ( ME_234A98056F60 // Sender
- )
- ; // Parameters
-
-ref; // ME_3309FD019086 DoIt
-
 : ME_53108AEA00D5
  CONST UID '53108AEA00D5'
  CONST Name 'SpacingComboExit'
@@ -5873,41 +3745,8 @@ ref; // ME_3309FD019086 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3309FD019086 // DoIt
- )
- ; // Operations
 
 ref; // ME_53108AEA00D5 SpacingComboExit
-
-FORWARD ME_531868C7033D
-
-: ME_9AB566766080
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_9AB566766080 Sender
-
-: ME_3C79B632E1B6
- CONST UID '3C79B632E1B6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_531868C7033D // StyleCaptionComboBoxChange
- ;
- : Parameters
-   Seq: ( ME_9AB566766080 // Sender
- )
- ; // Parameters
-
-ref; // ME_3C79B632E1B6 DoIt
 
 : ME_531868C7033D
  CONST UID '531868C7033D'
@@ -5923,99 +3762,8 @@ ref; // ME_3C79B632E1B6 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3C79B632E1B6 // DoIt
- )
- ; // Operations
 
 ref; // ME_531868C7033D StyleCaptionComboBoxChange
-
-: ME_178BA57746FE
- CONST UID '178BA57746FE'
- CONST Name 'Init_Str_ValueIsGreaterThan'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ValueIsGreaterThan' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Speller ME_5310736B02EF // ValueIsGreaterThan
- ;
- : SpelledFor ME_FBE2BE014966 // ValueIsGreaterThan
- ;
-
-ref; // ME_178BA57746FE Init_Str_ValueIsGreaterThan
-
-: ME_254ADFB6C583
- CONST UID '254ADFB6C583'
- CONST Name 'Init_Str_ValueIsLessThan'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_ValueIsLessThan' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Speller ME_531073E2017C // ValueIsLessThan
- ;
- : SpelledFor ME_02992BA44CCA // ValueIsLessThan
- ;
-
-ref; // ME_254ADFB6C583 Init_Str_ValueIsLessThan
-
-: ME_1CBA68A94851
- CONST UID '1CBA68A94851'
- CONST Name 'Init_Str_InheritanceButtonHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_InheritanceButtonHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Speller ME_5270D8F802D5 // InheritanceButtonHint
- ;
- : SpelledFor ME_3CAEB9FA99A8 // InheritanceButtonHint
- ;
-
-ref; // ME_1CBA68A94851 Init_Str_InheritanceButtonHint
-
-: ME_CEE3C4AA2BFC
- CONST UID 'CEE3C4AA2BFC'
- CONST Name 'Init_Str_InheritanceButtonNoTransparentHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_InheritanceButtonNoTransparentHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Speller ME_53184E0700F5 // InheritanceButtonNoTransparentHint
- ;
- : SpelledFor ME_C475CA64706B // InheritanceButtonNoTransparentHint
- ;
-
-ref; // ME_CEE3C4AA2BFC Init_Str_InheritanceButtonNoTransparentHint
-
-: ME_EE91183460A5
- CONST UID 'EE91183460A5'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimStyleEditorFont' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EE91183460A5 Ini_Reg_Class
 
 : ME_4AE86B5E018D
  CONST Class class_Dependency
@@ -6217,39 +3965,6 @@ ref; // ME_5310747700EB
 
 ref; // ME_54D4872F0032 
 
-: ME_E110E69A6623
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_E110E69A6623 
-
-: ME_D5CD1FDC40D2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_D5CD1FDC40D2 
-
-: ME_8F2077B8A84D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC642480314 // PrimStyleEditorFont
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_8F2077B8A84D 
-
 : ME_4AE8696C001B_ME_4AC642480314
  : Original WL 'ME_4AE8696C001B' '4AE824CB035A.pas.ms.script' // RestoreStyleTable
  ;
@@ -6341,51 +4056,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
  ME_4AE86D3103E4 // f_StyleInterface
  ME_52709D34006E // f_UpdateLockCount
  ME_530DCF85010D // f_LastKnownGoodComboBoxText
- ME_2FA2ED0FA880 // f_FontScrollBox
- ME_98DBAF017AA8 // f_FontUnderlineLabel
- ME_7692B21B8105 // f_FontStrikeoutLabel
- ME_29578D95820C // f_FontSizeLabel
- ME_23F8C83CAE21 // f_FontNameLabel
- ME_4C24F1DE4DF8 // f_FontItalicLabel
- ME_6AFBD47CED1F // f_FontForeColorLabel
- ME_AD960E0174CE // f_FontBoldLabel
- ME_9C26EF10F439 // f_FontBackColorLabel
- ME_D0C9CE8A84A1 // f_FontScalableLabel
- ME_B744FC760BF5 // f_FontScalableBevel
- ME_9D9947595417 // f_FontStrikeoutInheritanceButton
- ME_DBD6219CE55A // f_FontSizeInheritanceButton
- ME_86F007213D84 // f_FontNameInheritanceButton
- ME_CC4997A1106D // f_FontItalicInheritanceButton
- ME_93DE674E6449 // f_FontForeColorInheritanceButton
- ME_B424DEA6EFDC // f_FontBoldInheritanceButton
- ME_46FE02D9FF06 // f_FontBackColorInheritanceButton
- ME_028428CB7466 // f_FontUnderlineInheritanceButton
- ME_D85FD31020E0 // f_FontUnderlineCheckBox
- ME_DC1595F6DF5A // f_FontStrikeoutCheckBox
- ME_886F68A7C19A // f_FontSizeComboBox
- ME_B2F57B19E293 // f_FontNameComboBox
- ME_3DE666971C0B // f_FontItalicCheckBox
- ME_3B6EC5BDCD94 // f_FontForeColorBox
- ME_B812BAE0CDB3 // f_FontBoldCheckBox
- ME_459DA21790E4 // f_FontBackColorBox
- ME_2794830E394B // f_FontScalableCheckBox
- ME_7D0B6CFAEDB9 // f_LeftIndentLabel
- ME_9E5F8FA388B4 // f_LeftIndentComboBox
- ME_9119EC79642E // f_RightIndentLabel
- ME_297E2E9F02A9 // f_RightIndentComboBox
- ME_574721820031 // f_FirstIndentLabel
- ME_8277C2A01FA0 // f_FirstIndentComboBox
- ME_FC5F4D179CFF // f_SpaceBeforeLabel
- ME_C2B09D47AFFD // f_SpaceBeforeComboBox
- ME_5C22E38A2B2D // f_SpaceAfterLabel
- ME_EE2030A13BEA // f_SpaceAfterComboBox
- ME_938A09B3474E // f_LeftIndentInheritanceButton
- ME_F63A63A084FB // f_RightIndentInheritanceButton
- ME_6A0741915DFF // f_FirstIndentInheritanceButton
- ME_3341EEFDB9B9 // f_SpaceBeforeInheritanceButton
- ME_A9B1EAD47897 // f_SpaceAfterInheritanceButton
- ME_E4BF49CB6D14 // f_StyleCaptionLabel
- ME_CAF26B0B0DA2 // f_StyleCaptionComboBox
  )
  ; // Attributes
  : Operations
@@ -6438,11 +4108,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
  ME_531051E20053 // CheckComboBoxValue
  ME_53108AEA00D5 // SpacingComboExit
  ME_531868C7033D // StyleCaptionComboBoxChange
- ME_178BA57746FE // Init_Str_ValueIsGreaterThan
- ME_254ADFB6C583 // Init_Str_ValueIsLessThan
- ME_1CBA68A94851 // Init_Str_InheritanceButtonHint
- ME_CEE3C4AA2BFC // Init_Str_InheritanceButtonNoTransparentHint
- ME_EE91183460A5 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -6467,7 +4132,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
  : Constants
    Seq: ( ME_5270B1E40331 // FontInheritance
  ME_5270D8EE0205 // 
- ME_9AEFDFE51930 // LCImpl
  )
  ; // Constants
  : Dependencies
@@ -6491,9 +4155,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC642480314 InitControls
  ME_531074630113 // l3ScreenIC
  ME_5310747700EB // Tl3Point
  ME_54D4872F0032 // l3Interlocked
- ME_E110E69A6623 // Tl3StringIDEx
- ME_D5CD1FDC40D2 // Tl3MessageID
- ME_8F2077B8A84D // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -12732,7 +10393,6 @@ ref; // ME_08C8B06C1F0E Tkw_Settings_opUserProperties
  WL 'ME_537B83AD01F0' '537B83AD01F0.pas.ms.script' // l3Math
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings'

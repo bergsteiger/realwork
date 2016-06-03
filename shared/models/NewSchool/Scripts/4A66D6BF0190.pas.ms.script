@@ -86,39 +86,6 @@ ref; // ME_4DEE1D6603C6 HistoryEditor
 
 ref; // ME_4A6EB952020C UserID
 
-: ME_94F2A99C907D
- CONST UID '94F2A99C907D'
- CONST Name 'f_HistoryEditor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HistoryEditor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA4310035 // AbstractHistory
- ;
- : Target WL 'ME_4A8A8739017D' '4A8A86C301BE.pas.ms.script' // TnscChatMemo
- ;
-
-ref; // ME_94F2A99C907D f_HistoryEditor
-
-: ME_0F4D11894F3E
- CONST UID '0F4D11894F3E'
- CONST Name 'f_UserID'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UserID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A6EA4310035 // AbstractHistory
- ;
- : Target WL 'ME_4A66BABA015C' '4A66B9840002.pas.ms.script' // TbsUserID
- ;
- CONST extprop:clearViaProperty 'UserID'
-
-ref; // ME_0F4D11894F3E f_UserID
-
 : ME_4A6EA5EA00CD
  CONST UID '4A6EA5EA00CD'
  CONST Name 'RegisterInDispatcher'
@@ -261,21 +228,6 @@ ref; // ME_4AC5CD9C02FA HistoryLimit
 
 ref; // ME_4B1633CF01C2 NeedClose
 
-: ME_80CB11A27778
- CONST UID '80CB11A27778'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация AbstractHistory' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A6EA4310035 // AbstractHistory
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_80CB11A27778 Ini_Reg_Class
-
 : ME_4A6EC2FB0147
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -416,17 +368,6 @@ ref; // ME_4C2C38F10320
 
 ref; // ME_4E5E43B20193 
 
-: ME_C83F44E8AB93
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A6EA4310035 // AbstractHistory
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_C83F44E8AB93 
-
 : ME_4A6EA502033A_ME_4A6EA4310035
  : Original WL 'ME_4A6EA502033A' '4A66DD3C01E8.pas.ms.script' // UserID
  ;
@@ -561,8 +502,6 @@ ref; // ME_4A8E8F2E0195_ME_4A6EA4310035 InitControls
  : Attributes
    Seq: ( ME_4DEE1D6603C6 // HistoryEditor
  ME_4A6EB952020C // UserID
- ME_94F2A99C907D // f_HistoryEditor
- ME_0F4D11894F3E // f_UserID
  )
  ; // Attributes
  : Operations
@@ -574,7 +513,6 @@ ref; // ME_4A8E8F2E0195_ME_4A6EA4310035 InitControls
  ME_4AC5CD4402E7 // InitEditors
  ME_4AC5CD9C02FA // HistoryLimit
  ME_4B1633CF01C2 // NeedClose
- ME_80CB11A27778 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -613,7 +551,6 @@ ref; // ME_4A8E8F2E0195_ME_4A6EA4310035 InitControls
  ME_4A8AA72602B3 // TAlign
  ME_4C2C38F10320 // Windows
  ME_4E5E43B20193 // InevTagWriter
- ME_C83F44E8AB93 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -1750,35 +1687,6 @@ ref; // ME_519A13A103E6 Do
 
 ref; // ME_519A138E01CC Create
 
-FORWARD ME_519A13AE026D
-
-: ME_1B84234ADE28
- CONST Name 'aCurrentFlagFilter'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4A66BA3A0268' '4A66B9840002.pas.ms.script' // TContactListFilterTypes
- ;
-
-ref; // ME_1B84234ADE28 aCurrentFlagFilter
-
-: ME_5835D4A1707E
- CONST UID '5835D4A1707E'
- CONST Name 'Do'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TContactListFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_519A13AE026D // Make
- ;
- : Parameters
-   Seq: ( ME_1B84234ADE28 // aCurrentFlagFilter
- )
- ; // Parameters
-
-ref; // ME_5835D4A1707E Do
-
 : ME_519A13AE026D
  CONST UID '519A13AE026D'
  CONST Name 'Make'
@@ -1793,10 +1701,6 @@ ref; // ME_5835D4A1707E Do
    Seq: ( ME_519A138E01CC // Create
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_5835D4A1707E // Do
- )
- ; // Operations
 
 ref; // ME_519A13AE026D Make
 
@@ -2075,58 +1979,6 @@ ref; // ME_8E02C0CC146E DisplayNameToValue
 
 ref; // ME_8EEA1E00C0C3 ContactTypeMapHelper
 
-FORWARD ME_E8481A6CB6A6
-
-: ME_66895FA40F21
- CONST UID '66895FA40F21'
- CONST Name 'SelectUser'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Выберите пользователей для переписки''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E8481A6CB6A6 // LCImplContactList Strings
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''SelectUser''; rValue : ''Выберите пользователей для переписки'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''SelectUser''; rValue : ''Выберите пользователей для переписки'')'
- : Speller ME_5199DDBD0381 // SelectUser
- ;
-
-ref; // ME_66895FA40F21 SelectUser
-
-: ME_E8481A6CB6A6
- CONST UID 'E8481A6CB6A6'
- CONST Name 'LCImplContactList Strings'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ContactList Strings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Attributes
-   Seq: ( ME_66895FA40F21 // SelectUser
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_5199DD8C0345 // ContactList Strings
- ;
-
-ref; // ME_E8481A6CB6A6 LCImplContactList Strings
-
 FORWARD ME_5199D121037F
 
 : ME_4C84D6E9011A
@@ -2277,54 +2129,6 @@ ref; // ME_4C84D5FD014C f_NeedFillFilterList
 
 ref; // ME_4C84D6280132 f_CurrentFlagFilter
 
-: ME_91236C853078
- CONST UID '91236C853078'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_91236C853078 f_BackgroundPanel
-
-: ME_B2D6C7CF3EC3
- CONST UID 'B2D6C7CF3EC3'
- CONST Name 'f_ContextFilter'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Target WL 'ME_49F0314802E7' '49F02FDF02B9.pas.ms.script' // TnscContextFilter
- ;
-
-ref; // ME_B2D6C7CF3EC3 f_ContextFilter
-
-: ME_B02000465F31
- CONST UID 'B02000465F31'
- CONST Name 'f_trContactList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства trContactList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
-
-ref; // ME_B02000465F31 f_trContactList
-
 FORWARD ME_4C2B2B220052
 
 : ME_4C2B2B3003A5
@@ -2357,21 +2161,6 @@ ref; // ME_4C2B2B3003A5 DoIt
 
 ref; // ME_4C2B2B220052 AddingContact
 
-FORWARD ME_4C2B2FEE01AB
-
-: ME_C26FD050FFAF
- CONST UID 'C26FD050FFAF'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoAddContact' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4C2B2FEE01AB // DoAddContact
- ;
-
-ref; // ME_C26FD050FFAF DoIt
-
 : ME_4C2B2FEE01AB
  CONST UID '4C2B2FEE01AB'
  CONST Name 'DoAddContact'
@@ -2382,41 +2171,8 @@ ref; // ME_C26FD050FFAF DoIt
  CONST Abstraction at_final
  : Parent ME_4AC4EF5600B4 // PrimContactList
  ;
- : Operations
-   Seq: ( ME_C26FD050FFAF // DoIt
- )
- ; // Operations
 
 ref; // ME_4C2B2FEE01AB DoAddContact
-
-FORWARD ME_5199D7B40201
-
-: ME_10AC855923BD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_10AC855923BD Sender
-
-: ME_E6F1309EA20A
- CONST UID 'E6F1309EA20A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199D7B40201 // ContextFilterChange
- ;
- : Parameters
-   Seq: ( ME_10AC855923BD // Sender
- )
- ; // Parameters
-
-ref; // ME_E6F1309EA20A DoIt
 
 : ME_5199D7B40201
  CONST UID '5199D7B40201'
@@ -2432,41 +2188,8 @@ ref; // ME_E6F1309EA20A DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E6F1309EA20A // DoIt
- )
- ; // Operations
 
 ref; // ME_5199D7B40201 ContextFilterChange
-
-FORWARD ME_5199D7C7035C
-
-: ME_C400183A6EB9
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_C400183A6EB9 Sender
-
-: ME_F9E7D7DAD5C0
- CONST UID 'F9E7D7DAD5C0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199D7C7035C // ContextFilterWrongContext
- ;
- : Parameters
-   Seq: ( ME_C400183A6EB9 // Sender
- )
- ; // Parameters
-
-ref; // ME_F9E7D7DAD5C0 DoIt
 
 : ME_5199D7C7035C
  CONST UID '5199D7C7035C'
@@ -2482,40 +2205,8 @@ ref; // ME_F9E7D7DAD5C0 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F9E7D7DAD5C0 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199D7C7035C ContextFilterWrongContext
-
-FORWARD ME_5199D9F30296
-
-: ME_F733F8E09C8D
- CONST Name 'theTree'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
- ;
-
-ref; // ME_F733F8E09C8D theTree
-
-: ME_F91B27389C64
- CONST UID 'F91B27389C64'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199D9F30296 // trContactListMakeTreeSource
- ;
- : Parameters
-   Seq: ( ME_F733F8E09C8D // theTree
- )
- ; // Parameters
-
-ref; // ME_F91B27389C64 DoIt
 
 : ME_5199D9F30296
  CONST UID '5199D9F30296'
@@ -2531,65 +2222,8 @@ ref; // ME_F91B27389C64 DoIt
    Seq: ( WL 'ME_5199D8F700DB' '494B947D0127.pas.ms.script' // TeeMakeTreeSource
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F91B27389C64 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199D9F30296 trContactListMakeTreeSource
-
-FORWARD ME_5199DAAF00FD
-
-: ME_BD07A069BE62
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_BD07A069BE62 Sender
-
-: ME_8F480EDDCE7F
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_8F480EDDCE7F Index
-
-: ME_1D5E7825F667
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_1D5E7825F667 aImages
-
-: ME_6DDAB4DC6CF9
- CONST UID '6DDAB4DC6CF9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199DAAF00FD // trContactListGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_BD07A069BE62 // Sender
- ME_8F480EDDCE7F // Index
- ME_1D5E7825F667 // aImages
- )
- ; // Parameters
-
-ref; // ME_6DDAB4DC6CF9 DoIt
 
 : ME_5199DAAF00FD
  CONST UID '5199DAAF00FD'
@@ -2605,51 +2239,8 @@ ref; // ME_6DDAB4DC6CF9 DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6DDAB4DC6CF9 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199DAAF00FD trContactListGetItemImage
-
-FORWARD ME_5199DAFF0296
-
-: ME_D34A3BB92A1A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_D34A3BB92A1A Sender
-
-: ME_E34D90D4718D
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_E34D90D4718D Index
-
-: ME_A9FE4331EB05
- CONST UID 'A9FE4331EB05'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199DAFF0296 // trContactListActionElement
- ;
- : Parameters
-   Seq: ( ME_D34A3BB92A1A // Sender
- ME_E34D90D4718D // Index
- )
- ; // Parameters
-
-ref; // ME_A9FE4331EB05 DoIt
 
 : ME_5199DAFF0296
  CONST UID '5199DAFF0296'
@@ -2665,84 +2256,8 @@ ref; // ME_A9FE4331EB05 DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A9FE4331EB05 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199DAFF0296 trContactListActionElement
-
-FORWARD ME_5199DBBE021D
-
-: ME_0E5D03E0F066
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_0E5D03E0F066 aSender
-
-: ME_AB2F4B07B682
- CONST Name 'Info'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
- ;
-
-ref; // ME_AB2F4B07B682 Info
-
-: ME_0192BB7B4436
- CONST Name 'aCurrent'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_0192BB7B4436 aCurrent
-
-: ME_6B190DE31D8A
- CONST Name 'aCount'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_6B190DE31D8A aCount
-
-: ME_095663D494AB
- CONST Name 'aSelected'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_095663D494AB aSelected
-
-: ME_E1F901C0D122
- CONST UID 'E1F901C0D122'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199DBBE021D // trContactListFormatStatusInfo
- ;
- : Parameters
-   Seq: ( ME_0E5D03E0F066 // aSender
- ME_AB2F4B07B682 // Info
- ME_0192BB7B4436 // aCurrent
- ME_6B190DE31D8A // aCount
- ME_095663D494AB // aSelected
- )
- ; // Parameters
-
-ref; // ME_E1F901C0D122 DoIt
 
 : ME_5199DBBE021D
  CONST UID '5199DBBE021D'
@@ -2758,41 +2273,8 @@ ref; // ME_E1F901C0D122 DoIt
    Seq: ( WL 'ME_5143245F0209' '494B947D0127.pas.ms.script' // TeeFormatStatusInfo
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_E1F901C0D122 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199DBBE021D trContactListFormatStatusInfo
-
-FORWARD ME_5199DC120058
-
-: ME_3D26E8C574D1
- CONST Name 'aChar'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
- ;
-
-ref; // ME_3D26E8C574D1 aChar
-
-: ME_F9D467261A0B
- CONST UID 'F9D467261A0B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'событие для внешней обработки WMChar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199DC120058 // trContactListNewCharPressed
- ;
- : Parameters
-   Seq: ( ME_3D26E8C574D1 // aChar
- )
- ; // Parameters
-
-ref; // ME_F9D467261A0B DoIt
 
 : ME_5199DC120058
  CONST UID '5199DC120058'
@@ -2808,41 +2290,8 @@ ref; // ME_F9D467261A0B DoIt
    Seq: ( WL 'ME_5143230F01E4' '494B947D0127.pas.ms.script' // TeeNewCharPressed
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_F9D467261A0B // DoIt
- )
- ; // Operations
 
 ref; // ME_5199DC120058 trContactListNewCharPressed
-
-FORWARD ME_5199DC98012F
-
-: ME_DCFEDA9931C1
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_DCFEDA9931C1 Sender
-
-: ME_350AE3887249
- CONST UID '350AE3887249'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5199DC98012F // trContactListFooterClick
- ;
- : Parameters
-   Seq: ( ME_DCFEDA9931C1 // Sender
- )
- ; // Parameters
-
-ref; // ME_350AE3887249 DoIt
 
 : ME_5199DC98012F
  CONST UID '5199DC98012F'
@@ -2858,10 +2307,6 @@ ref; // ME_350AE3887249 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_350AE3887249 // DoIt
- )
- ; // Operations
 
 ref; // ME_5199DC98012F trContactListFooterClick
 
@@ -2876,75 +2321,6 @@ ref; // ME_5199DC98012F trContactListFooterClick
  ;
 
 ref; // ME_4AC4EFA302F9 MakeSingleChild
-
-: ME_1A3E74343352
- CONST UID '1A3E74343352'
- CONST Name 'Init_Str_AllUsers'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_culfAllUsers' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Speller ME_4C2B34C00291 // AllUsers
- ;
- : SpelledFor ME_D4B399B3DACC // AllUsers
- ;
-
-ref; // ME_1A3E74343352 Init_Str_AllUsers
-
-: ME_5E671595B4E1
- CONST UID '5E671595B4E1'
- CONST Name 'Init_Str_ActiveUsers'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_culfActiveUsers' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Speller ME_4C2B34D50059 // ActiveUsers
- ;
- : SpelledFor ME_D1E0DE3A30E8 // ActiveUsers
- ;
-
-ref; // ME_5E671595B4E1 Init_Str_ActiveUsers
-
-: ME_7EDEF4DE048D
- CONST UID '7EDEF4DE048D'
- CONST Name 'Init_Str_SelectUser'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_SelectUser' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Speller ME_5199DDBD0381 // SelectUser
- ;
- : SpelledFor ME_66895FA40F21 // SelectUser
- ;
-
-ref; // ME_7EDEF4DE048D Init_Str_SelectUser
-
-: ME_928820E1F723
- CONST UID '928820E1F723'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimContactList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_928820E1F723 Ini_Reg_Class
 
 : ME_4AD5B25F02FA
  CONST Class class_Dependency
@@ -3121,17 +2497,6 @@ ref; // ME_D5F144F8B9B9
  ;
 
 ref; // ME_97DB904DF9B4 
-
-: ME_67855BBC2C8C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC4EF5600B4 // PrimContactList
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_67855BBC2C8C 
 
 : ME_4A728A4900FD_ME_4AC4EF5600B4
  : Original WL 'ME_4A728A4900FD' '4A66DD3C01E8.pas.ms.script' // NotifyContactListChanged
@@ -3321,9 +2686,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
    Seq: ( ME_5199D121037F // BackgroundPanel
  ME_4C84D5FD014C // f_NeedFillFilterList
  ME_4C84D6280132 // f_CurrentFlagFilter
- ME_91236C853078 // f_BackgroundPanel
- ME_B2D6C7CF3EC3 // f_ContextFilter
- ME_B02000465F31 // f_trContactList
  )
  ; // Attributes
  : Operations
@@ -3338,10 +2700,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  ME_5199DC120058 // trContactListNewCharPressed
  ME_5199DC98012F // trContactListFooterClick
  ME_4AC4EFA302F9 // MakeSingleChild
- ME_1A3E74343352 // Init_Str_AllUsers
- ME_5E671595B4E1 // Init_Str_ActiveUsers
- ME_7EDEF4DE048D // Init_Str_SelectUser
- ME_928820E1F723 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -3380,7 +2738,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  ME_5199DD8C0345 // ContactList Strings
  ME_8AC15E5F85C4 // LCImplContactType
  ME_7AAC84FA6DB8 // ContactTypeMap
- ME_E8481A6CB6A6 // LCImplContactList Strings
  )
  ; // Constants
  : Dependencies
@@ -3401,7 +2758,6 @@ ref; // ME_4F7C65380244_ME_4AC4EF5600B4 FormInsertedIntoContainer
  ME_5E9BD8848D4C // Tl3MessageID
  ME_D5F144F8B9B9 // l3String
  ME_97DB904DF9B4 // Exception
- ME_67855BBC2C8C // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -4550,7 +3906,6 @@ ref; // ME_D4640548703B Tkw_Chat_opOpenContactList
  WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat'

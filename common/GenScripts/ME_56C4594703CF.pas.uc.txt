@@ -7,8 +7,8 @@
 //#UC START# *479731C50290_56C4594703CF_var*
 //#UC END# *479731C50290_56C4594703CF_var*
 //#UC START# *5549C65D038D_56C4594703CF_impl*
- Result := TcaTabledQuery.Make(f_DataConverter, aTable, anAlias, f_HTFactory.MakeTabledQuery(aTable, anALias),
-  f_PGFactory.MakeTabledQuery(aTable, anALias));
+ Result := TcaTabledQuery.Make(Self, f_DataConverter, aFromClause, f_HTFactory.MakeTabledQuery((aFromClause as IdaComboAccessFromClauseHelper).HTClause),
+  f_PGFactory.MakeTabledQuery((aFromClause as IdaComboAccessFromClauseHelper).PGClause));
 //#UC END# *5549C65D038D_56C4594703CF_impl*
 //#UC START# *5549C65D038D_56C4594703CF_var*
 //#UC END# *5549C65D038D_56C4594703CF_var*
@@ -57,7 +57,8 @@
 //#UC START# *56C45EE801FB_56C4594703CF_var*
 //#UC END# *56C45EE801FB_56C4594703CF_var*
 //#UC START# *574584D802F6_56C4594703CF_impl*
- Result := TdaJoin.Make(Self, aLeft, aRight, aKind);
+ Result := TcaFromClause.Make(Self, f_HTFactory.MakeJoin((aLeft as IdaComboAccessFromClauseHelper).HTClause, (aRight as IdaComboAccessFromClauseHelper).HTClause, aKind) as IdaFromClause,
+  f_PGFactory.MakeJoin((aLeft as IdaComboAccessFromClauseHelper).PGClause, (aRight as IdaComboAccessFromClauseHelper).PGClause, aKind) as IdaFromClause);
 //#UC END# *574584D802F6_56C4594703CF_impl*
 //#UC START# *574584D802F6_56C4594703CF_var*
 //#UC END# *574584D802F6_56C4594703CF_var*
@@ -67,8 +68,7 @@
 //#UC START# *574BF2B20123_56C4594703CF_var*
 //#UC END# *574BF2B20123_56C4594703CF_var*
 //#UC START# *574C32760314_56C4594703CF_impl*
- Assert(anAlias <> '');
- Result := TdaFromTable.Make(Self, aTable, anAlias);
+ Result := TcaFromClause.Make(Self, f_HTFactory.MakeSimpleFromClause(aTable, anAlias), f_PGFactory.MakeSimpleFromClause(aTable, anAlias));
 //#UC END# *574C32760314_56C4594703CF_impl*
 //#UC START# *574C32760314_56C4594703CF_var*
 //#UC END# *574C32760314_56C4594703CF_var*

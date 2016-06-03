@@ -6,72 +6,6 @@ FORWARD ME_57234C1A014C
 
 FORWARD ME_52FBA57600AB
 
-FORWARD ME_572B217B02E8
-
-: ME_572B221A01B8
- CONST Name 'aUserId'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
- ;
-
-ref; // ME_572B221A01B8 aUserId
-
-: ME_572B221A01E6
- CONST Name 'aImportPriority'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
- ;
-
-ref; // ME_572B221A01E6 aImportPriority
-
-: ME_572B221A0225
- CONST Name 'aExportPriority'
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_571DB8E5025A' '5432448401BC.pas.ms.script' // TdaPriority
- ;
-
-ref; // ME_572B221A0225 aExportPriority
-
-: ME_572B219B0131
- CONST UID '572B219B0131'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_572B217B02E8 // TdaCalcPriorityCallBack
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_572B221A01B8 // aUserId
- ME_572B221A01E6 // aImportPriority
- ME_572B221A0225 // aExportPriority
- )
- ; // Parameters
-
-ref; // ME_572B219B0131 DoIt
-
-: ME_572B217B02E8
- CONST UID '572B217B02E8'
- CONST Name 'TdaCalcPriorityCallBack'
- CONST Class class_Class
- : Stereotype st_Function ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_52FBA57600AB // TdaArchiUser
- ;
- : Operations
-   Seq: ( ME_572B219B0131 // DoIt
- )
- ; // Operations
- CONST "of object" true
-
-ref; // ME_572B217B02E8 TdaCalcPriorityCallBack
-
 FORWARD ME_572B137E00C0
 
 : ME_572B13DB01B2
@@ -112,20 +46,6 @@ ref; // ME_572B13DB01B2 cPriorityNeedCalc
  CONST "spell names" false
 
 ref; // ME_572B137E00C0 Priorities
-
-: ME_572B225E03BD
- CONST UID '572B225E03BD'
- CONST Name 'f_CalcPriorityCallBack'
- CONST Class class_Attribute
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_52FBA57600AB // TdaArchiUser
- ;
- : Target ME_572B217B02E8 // TdaCalcPriorityCallBack
- ;
-
-ref; // ME_572B225E03BD f_CalcPriorityCallBack
 
 : ME_572B2296001C
  CONST UID '572B2296001C'
@@ -267,16 +187,30 @@ ref; // ME_572B23480256 f_Password
 
 ref; // ME_572B2352016C f_UserName
 
-FORWARD ME_572B1324003C
-
-: ME_572B22440369
- CONST Name 'aCalcPriorityCallback'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target ME_572B217B02E8 // TdaCalcPriorityCallBack
+: ME_57502A1C0177
+ CONST UID '57502A1C0177'
+ CONST Name 'f_PriorityCalculator'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_52FBA57600AB // TdaArchiUser
+ ;
+ : Target WL 'ME_574FFFCF0148' '5432518A0316.pas.ms.script' // IdaPriorityCalculator
  ;
 
-ref; // ME_572B22440369 aCalcPriorityCallback
+ref; // ME_57502A1C0177 f_PriorityCalculator
+
+FORWARD ME_572B1324003C
+
+: ME_57502A3B02AB
+ CONST Name 'aPriorityCalculator'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_574FFFCF0148' '5432518A0316.pas.ms.script' // IdaPriorityCalculator
+ ;
+
+ref; // ME_57502A3B02AB aPriorityCalculator
 
 : ME_572B22290087
  CONST UID '572B22290087'
@@ -287,7 +221,7 @@ ref; // ME_572B22440369 aCalcPriorityCallback
  : Parent ME_572B1324003C // Create
  ;
  : Parameters
-   Seq: ( ME_572B22440369 // aCalcPriorityCallback
+   Seq: ( ME_57502A3B02AB // aPriorityCalculator
  )
  ; // Parameters
 
@@ -423,6 +357,12 @@ ref; // ME_572B129D021B_ME_52FBA57600AB Password
  CONST "pm" false
 ref; // ME_572B12AE028C_ME_52FBA57600AB UserName
 
+: ME_479731C50290_ME_52FBA57600AB
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_52FBA57600AB Cleanup
+
 : ME_52FBA57600AB
  CONST UID '52FBA57600AB'
  CONST Name 'TdaArchiUser'
@@ -442,8 +382,7 @@ ref; // ME_572B12AE028C_ME_52FBA57600AB UserName
  )
  ; // Implements
  : Attributes
-   Seq: ( ME_572B225E03BD // f_CalcPriorityCallBack
- ME_572B2296001C // f_ID
+   Seq: ( ME_572B2296001C // f_ID
  ME_572B22B0011C // f_ExportPriority
  ME_572B22BF003A // f_ImportPriority
  ME_572B22E40156 // f_Active
@@ -453,6 +392,7 @@ ref; // ME_572B12AE028C_ME_52FBA57600AB UserName
  ME_572B233B0161 // f_LoginName
  ME_572B23480256 // f_Password
  ME_572B2352016C // f_UserName
+ ME_57502A1C0177 // f_PriorityCalculator
  )
  ; // Attributes
  : Operations
@@ -475,10 +415,10 @@ ref; // ME_572B12AE028C_ME_52FBA57600AB UserName
  ME_572B12AE028C_ME_52FBA57600AB // UserName
  )
  ; // Implemented
- : Children
-   Seq: ( ME_572B217B02E8 // TdaCalcPriorityCallBack
+ : Overridden
+   Seq: ( ME_479731C50290_ME_52FBA57600AB // Cleanup
  )
- ; // Children
+ ; // Overridden
  : Constants
    Seq: ( ME_572B137E00C0 // Priorities
  )

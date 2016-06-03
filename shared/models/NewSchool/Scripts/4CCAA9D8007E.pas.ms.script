@@ -1479,38 +1479,6 @@ ref; // ME_4CBED3A1022F FilterName
 
 ref; // ME_4CB6DB710291 ViewArea
 
-: ME_F476CDB8FDA3
- CONST UID 'F476CDB8FDA3'
- CONST Name 'f_NameLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NameLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CB6D95D003A // PrimCreateFilter
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_F476CDB8FDA3 f_NameLabel
-
-: ME_5C5ED946AF3C
- CONST UID '5C5ED946AF3C'
- CONST Name 'f_FilterName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FilterName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4CB6D95D003A // PrimCreateFilter
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_5C5ED946AF3C f_FilterName
-
 FORWARD ME_4CBEF6690037
 
 : ME_4CBEF7000050
@@ -1555,21 +1523,6 @@ ref; // ME_4CBEF6F7004D DoIt
 
 ref; // ME_4CBEF6690037 Make
 
-: ME_D3D6075C590E
- CONST UID 'D3D6075C590E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimCreateFilter' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CB6D95D003A // PrimCreateFilter
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D3D6075C590E Ini_Reg_Class
-
 : ME_4CB6EB44008E
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1609,17 +1562,6 @@ ref; // ME_4D0B5AD602D5
  ;
 
 ref; // ME_50214FCA026F 
-
-: ME_4D32558F1271
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4CB6D95D003A // PrimCreateFilter
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4D32558F1271 
 
 : ME_4C762A1501FC_ME_4CB6D95D003A
  : Original WL 'ME_4C762A1501FC' '4A8AD3C70195.pas.ms.script' // Ok
@@ -1704,13 +1646,10 @@ ref; // ME_4A8E8F2E0195_ME_4CB6D95D003A InitControls
    Seq: ( ME_4CBED37D0160 // NameLabel
  ME_4CBED3A1022F // FilterName
  ME_4CB6DB710291 // ViewArea
- ME_F476CDB8FDA3 // f_NameLabel
- ME_5C5ED946AF3C // f_FilterName
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4CBEF6690037 // Make
- ME_D3D6075C590E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -1735,7 +1674,6 @@ ref; // ME_4A8E8F2E0195_ME_4CB6D95D003A InitControls
  ME_4CB6EE120017 // TBorderStyle
  ME_4D0B5AD602D5 // l3CStr
  ME_50214FCA026F // Result
- ME_4D32558F1271 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -3152,7 +3090,6 @@ ref; // ME_571E1AF302D6 FiltersProcessingWordsPack
  WL 'ME_4EEA0958023A' '4EEA0958023A.pas.ms.script' // SearchRes
  WL 'ME_52DE57B200A5' '52DE57B200A5.pas.ms.script' // Tree$WithDnD
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Filters'

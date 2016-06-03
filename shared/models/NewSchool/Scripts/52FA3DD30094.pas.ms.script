@@ -1052,6 +1052,20 @@ ref; // ME_540867560194 TalcuRegionImportTask
 
 ref; // ME_540867800117 TalcuRegionImportTaskResult
 
+FORWARD ME_55E978530295
+
+FORWARD ME_574D928F01C4
+
+: ME_574D929D00CC
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55E978530295 // TalcuMdpSyncDicts
+ ;
+ : Target ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ref; // ME_574D929D00CC 
+
 : ME_55E978530295
  CONST UID '55E978530295'
  CONST Name 'TalcuMdpSyncDicts'
@@ -1066,6 +1080,10 @@ ref; // ME_540867800117 TalcuRegionImportTaskResult
    Seq: ( WL 'ME_55E9759603C8' '52F8C298005C.pas.ms.script' // TcsMdpSyncDicts
  )
  ; // Inherits
+ : Dependencies
+   Seq: ( ME_574D929D00CC // alcuMdpSyncParamUtils
+ )
+ ; // Dependencies
  CONST "finished" false
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncDicts.pas'
  CONST extprop:rc:SelfName 'alcuMdpSyncDicts'
@@ -1096,6 +1114,28 @@ ref; // ME_55E978530295 TalcuMdpSyncDicts
 
 ref; // ME_55EEC72501BF TalcuMdpImportDocs
 
+FORWARD ME_573D9F0A01BB
+
+: ME_574D92A2002C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ : Target ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ref; // ME_574D92A2002C 
+
+: ME_574D92E3021E
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ : Target WL 'ME_574C0F390376' '54041E840266.pas.ms.script' // TalcuMdpStagesSyncronizer
+ ;
+
+ref; // ME_574D92E3021E 
+
 : ME_573D9F0A01BB
  CONST UID '573D9F0A01BB'
  CONST Name 'TalcuMdpSyncStages'
@@ -1110,6 +1150,11 @@ ref; // ME_55EEC72501BF TalcuMdpImportDocs
    Seq: ( WL 'ME_573D91050026' '52F8C298005C.pas.ms.script' // TcsMdpSyncStages
  )
  ; // Inherits
+ : Dependencies
+   Seq: ( ME_574D92A2002C // alcuMdpSyncParamUtils
+ ME_574D92E3021E // TalcuMdpStagesSyncronizer
+ )
+ ; // Dependencies
  CONST "finished" false
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncStages.pas'
  CONST extprop:rc:SelfName 'alcuMdpSyncStages'
@@ -1117,6 +1162,28 @@ ref; // ME_55EEC72501BF TalcuMdpImportDocs
  CONST extprop:pas:UnitName 'alcuMdpSyncStages'
 
 ref; // ME_573D9F0A01BB TalcuMdpSyncStages
+
+FORWARD ME_574C213703E2
+
+: ME_574D92A502C5
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ : Target ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ref; // ME_574D92A502C5 
+
+: ME_574D93000030
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ : Target WL 'ME_574C0FA701BB' '54041E840266.pas.ms.script' // TalcuMdpImportSyncronizer
+ ;
+
+ref; // ME_574D93000030 
 
 : ME_574C213703E2
  CONST UID '574C213703E2'
@@ -1132,6 +1199,11 @@ ref; // ME_573D9F0A01BB TalcuMdpSyncStages
    Seq: ( WL 'ME_574C16DD0300' '52F8C298005C.pas.ms.script' // TcsMdpSyncImport
  )
  ; // Inherits
+ : Dependencies
+   Seq: ( ME_574D92A502C5 // alcuMdpSyncParamUtils
+ ME_574D93000030 // TalcuMdpImportSyncronizer
+ )
+ ; // Dependencies
  CONST "finished" false
  CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncImport.pas'
  CONST extprop:rc:SelfName 'alcuMdpSyncImport'
@@ -1139,6 +1211,21 @@ ref; // ME_573D9F0A01BB TalcuMdpSyncStages
  CONST extprop:pas:UnitName 'alcuMdpSyncImport'
 
 ref; // ME_574C213703E2 TalcuMdpSyncImport
+
+: ME_574D928F01C4
+ CONST UID '574D928F01C4'
+ CONST Name 'alcuMdpSyncParamUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_52FA3DD30094 // Lists
+ ;
+ CONST "finished" false
+ CONST intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncParamUtils.pas'
+
+ref; // ME_574D928F01C4 alcuMdpSyncParamUtils
 
 : ME_52FA3DD30094
  CONST UID '52FA3DD30094'
@@ -1183,6 +1270,7 @@ ref; // ME_574C213703E2 TalcuMdpSyncImport
  ME_55EEC72501BF // TalcuMdpImportDocs
  ME_573D9F0A01BB // TalcuMdpSyncStages
  ME_574C213703E2 // TalcuMdpSyncImport
+ ME_574D928F01C4 // alcuMdpSyncParamUtils
  )
  ; // Children
  : Depends

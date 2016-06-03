@@ -790,7 +790,7 @@ var
    if Assigned(l_Document) then
    begin
     SaveDialog.FileName := nsEStr(CreateFileName(l_Document));
-    if SaveDialog.Execute then
+    if TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
     begin
      afw.ProcessMessages;
      try
@@ -853,6 +853,7 @@ var
 //#UC END# *4C52914202E1_4C46AA3401DBexec_var*
 //#UC START# *4C52914202E1_4C46AA3401DBtest_impl*
  aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and dsList.IsChanged;
+ CheckExSearchPanelVisibility;
 //#UC END# *4C52914202E1_4C46AA3401DBtest_impl*
 //#UC START# *4C52914202E1_4C46AA3401DBtest_var*
 //#UC END# *4C52914202E1_4C46AA3401DBtest_var*

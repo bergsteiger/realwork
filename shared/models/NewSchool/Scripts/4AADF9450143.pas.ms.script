@@ -2245,6 +2245,276 @@ ref; // ME_573AFFFA00F1 DoIt
 
 ref; // ME_573AFFE5038D GetExistingInstance
 
+FORWARD ME_574D6CF301EF
+
+: ME_574D6D73032F
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930F8B0367' '4683F37902CF.pas.ms.script' // IvcmMakeParams
+ ;
+
+ref; // ME_574D6D73032F aParams
+
+: ME_574D6D73036B
+ CONST Name 'aZoneType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+ CONST Value 'vcm_ztAny'
+ : ValueType WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+ CONST extprop:pas:Value 'vcm_ztvcm_ztAny'
+
+ref; // ME_574D6D73036B aZoneType
+
+: ME_574D6D73038E
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F9230369' '4683F37902CF.pas.ms.script' // TvcmEffectiveUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_4992F9230369' '4683F37902CF.pas.ms.script' // TvcmEffectiveUserType
+ ;
+ CONST extprop:pas:Value 'vcmInterfaces.0'
+
+ref; // ME_574D6D73038E aUserType
+
+: ME_574D6D7303A6
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_574D6D7303A6 aGUID
+
+: ME_574D6D7303C4
+ CONST Name 'aDataSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_574D6D7303C4 aDataSource
+
+: ME_574D6D7303E2
+ CONST Name 'aSubUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 'vcm_utAny'
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST extprop:pas:Value 'vcmUserControls.vcm_utAny'
+
+ref; // ME_574D6D7303E2 aSubUserType
+
+: ME_574D6D740022
+ CONST Name 'aAfterCreate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4FFC228602FD' '4683F37902CF.pas.ms.script' // TvcmInitProc
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4FFC228602FD' '4683F37902CF.pas.ms.script' // TvcmInitProc
+ ;
+ CONST extprop:pas:Value 'vcmInterfaces.nil'
+
+ref; // ME_574D6D740022 aAfterCreate
+
+: ME_574D6D120207
+ CONST UID '574D6D120207'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574D6CF301EF // Make
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ : Parameters
+   Seq: ( ME_574D6D73032F // aParams
+ ME_574D6D73036B // aZoneType
+ ME_574D6D73038E // aUserType
+ ME_574D6D7303A6 // aGUID
+ ME_574D6D7303C4 // aDataSource
+ ME_574D6D7303E2 // aSubUserType
+ ME_574D6D740022 // aAfterCreate
+ )
+ ; // Parameters
+
+ref; // ME_574D6D120207 DoIt
+
+: ME_574D6CF301EF
+ CONST UID '574D6CF301EF'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'создает форму сущности и добавляет ее к диспетчеру форм' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49525B34022A // TvcmEntityForm
+ ;
+ : Operations
+   Seq: ( ME_574D6D120207 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574D6CF301EF Make
+
+FORWARD ME_574D6D92023B
+
+: ME_574D6E13006E
+ CONST Name 'aCont'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_574D6E13006E aCont
+
+: ME_574D6E13008A
+ CONST Name 'aParams'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49930F8B0367' '4683F37902CF.pas.ms.script' // IvcmMakeParams
+ ;
+
+ref; // ME_574D6E13008A aParams
+
+: ME_574D6E1300A8
+ CONST Name 'aZoneType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+ CONST Value 'vcm_ztAny'
+ : ValueType WL 'ME_4992F763038E' '4683F37902CF.pas.ms.script' // TvcmZoneType
+ ;
+ CONST extprop:pas:Value 'vcm_ztvcm_ztAny'
+
+ref; // ME_574D6E1300A8 aZoneType
+
+: ME_574D6E1300C6
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST extprop:pas:Value 'vcmUserControls.0'
+
+ref; // ME_574D6E1300C6 aUserType
+
+: ME_574D6E1300EE
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_49956803035F' '4AB0C3C60310.pas.ms.script' // PGUID
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_574D6E1300EE aGUID
+
+: ME_574D6E13010C
+ CONST Name 'aDataSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_47EB900B0216' '4683F37902CF.pas.ms.script' // IvcmFormDataSource
+ ;
+ CONST extprop:pas:Value 'nil'
+
+ref; // ME_574D6E13010C aDataSource
+
+: ME_574D6E13012A
+ CONST Name 'aSubUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 'vcm_utAny'
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST extprop:pas:Value 'vcmUserControls.vcm_utAny'
+
+ref; // ME_574D6E13012A aSubUserType
+
+: ME_574D6E130152
+ CONST Name 'aAfterCreate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4FFC228602FD' '4683F37902CF.pas.ms.script' // TvcmInitProc
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_4FFC228602FD' '4683F37902CF.pas.ms.script' // TvcmInitProc
+ ;
+ CONST extprop:pas:Value 'vcmInterfaces.nil'
+
+ref; // ME_574D6E130152 aAfterCreate
+
+: ME_574D6DA5028A
+ CONST UID '574D6DA5028A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_574D6D92023B // MakeSingleChild
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+ : Parameters
+   Seq: ( ME_574D6E13006E // aCont
+ ME_574D6E13008A // aParams
+ ME_574D6E1300A8 // aZoneType
+ ME_574D6E1300C6 // aUserType
+ ME_574D6E1300EE // aGUID
+ ME_574D6E13010C // aDataSource
+ ME_574D6E13012A // aSubUserType
+ ME_574D6E130152 // aAfterCreate
+ )
+ ; // Parameters
+
+ref; // ME_574D6DA5028A DoIt
+
+: ME_574D6D92023B
+ CONST UID '574D6D92023B'
+ CONST Name 'MakeSingleChild'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'создает форму сущности если таковой не было и вставляет ее в контейнер' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49525B34022A // TvcmEntityForm
+ ;
+ : Operations
+   Seq: ( ME_574D6DA5028A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_574D6D92023B MakeSingleChild
+
 : ME_4AC62CC00340
  CONST Name 'aFromHistory'
  CONST Class class_Parameter
@@ -2676,6 +2946,8 @@ ref; // ME_4FC38C4C0119_ME_49525B34022A NeedSaveInSettings
  ME_561CB1350027 // NeedLoadFormStateForClone
  ME_562E15F20132 // DoBeforeHistoryNavigate
  ME_573AFFE5038D // GetExistingInstance
+ ME_574D6CF301EF // Make
+ ME_574D6D92023B // MakeSingleChild
  ME_49803F5503AA // DoInit
  ME_49806ED503D5 // DoSaveState
  ME_49807428008C // DoLoadState

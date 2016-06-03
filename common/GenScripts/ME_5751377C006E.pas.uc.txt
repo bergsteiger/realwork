@@ -1,0 +1,36 @@
+//#UC START# *479731C50290_5751377C006E_impl*
+ f_PriorityQuery := nil;
+ inherited;
+//#UC END# *479731C50290_5751377C006E_impl*
+//#UC START# *479731C50290_5751377C006E_var*
+//#UC END# *479731C50290_5751377C006E_var*
+//#UC START# *575000000164_5751377C006E_impl*
+ PriorityQuery.Param['p_userID'].AsLargeInt := aUserID;
+ l_ResultSet := PriorityQuery.OpenResultSet;
+ try
+  Result := not l_ResultSet.IsEmpty;
+  if Result then
+  begin
+   aImportPriority := TdaPriority(l_ResultSet.Field['import_priority'].AsInteger);
+   aExportPriority := TdaPriority(l_ResultSet.Field['export_priority'].AsInteger);
+  end;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *575000000164_5751377C006E_impl*
+//#UC START# *575000000164_5751377C006E_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *575000000164_5751377C006E_var*
+//#UC START# *575137CF01E2_5751377C006E_impl*
+ inherited Create;
+//#UC END# *575137CF01E2_5751377C006E_impl*
+//#UC START# *575137CF01E2_5751377C006E_var*
+//#UC END# *575137CF01E2_5751377C006E_var*
+//#UC START# *57513C4C02C0_5751377C006E_impl*
+ Result := nil;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *57513C4C02C0_5751377C006E_impl*
+//#UC START# *57513C4C02C0_5751377C006E_var*
+//#UC END# *57513C4C02C0_5751377C006E_var*

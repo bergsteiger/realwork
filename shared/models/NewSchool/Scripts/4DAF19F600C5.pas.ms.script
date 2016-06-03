@@ -7013,6 +7013,38 @@ ref; // ME_5673E72003AD DoIt
 
 ref; // ME_5673E71002C8 SetParent
 
+FORWARD ME_57500A22001C
+
+: ME_57500A4202F2
+ CONST UID '57500A4202F2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57500A22001C // GetRefForCompare
+ ;
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ref; // ME_57500A4202F2 DoIt
+
+: ME_57500A22001C
+ CONST UID '57500A22001C'
+ CONST Name 'GetRefForCompare'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DAEED140007 // TtfwWord
+ ;
+ : Operations
+   Seq: ( ME_57500A4202F2 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57500A22001C GetRefForCompare
+
 : ME_4EF4B52A02AF
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -7247,6 +7279,7 @@ ref; // ME_556317DE02B5_ME_4DAEED140007 SourcePoint
  ME_5619162C0102 // ParamsInfos
  ME_56456DDD037D // IsGlobalVar
  ME_5673E71002C8 // SetParent
+ ME_57500A22001C // GetRefForCompare
  )
  ; // Operations
  : Implemented

@@ -1598,147 +1598,6 @@ ref; // ME_51C313FD00BF gbInfo
 
 ref; // ME_497ED3E60038 dsForbidAutoregistration
 
-: ME_A0737F1D8FE2
- CONST UID 'A0737F1D8FE2'
- CONST Name 'f_lblReference'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblReference' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_A0737F1D8FE2 f_lblReference
-
-: ME_1F6F5127A71D
- CONST UID '1F6F5127A71D'
- CONST Name 'f_gbInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства gbInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
-
-ref; // ME_1F6F5127A71D f_gbInfo
-
-: ME_A1C8CEC17505
- CONST UID 'A1C8CEC17505'
- CONST Name 'f_lblPhone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblPhone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_A1C8CEC17505 f_lblPhone
-
-: ME_B80459E0548D
- CONST UID 'B80459E0548D'
- CONST Name 'f_lblEmail'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblEmail' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_B80459E0548D f_lblEmail
-
-: ME_2A5558E7FCC5
- CONST UID '2A5558E7FCC5'
- CONST Name 'f_lblHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_2A5558E7FCC5 f_lblHint
-
-: ME_44311DB15BFD
- CONST UID '44311DB15BFD'
- CONST Name 'f_cbPhone'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства cbPhone' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_44311DB15BFD f_cbPhone
-
-: ME_10893AB9AD46
- CONST UID '10893AB9AD46'
- CONST Name 'f_cbEmail'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства cbEmail' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_10893AB9AD46 f_cbEmail
-
-FORWARD ME_51C3165101B7
-
-: ME_53877C39DB75
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_53877C39DB75 Sender
-
-: ME_C6F2770CBEF2
- CONST UID 'C6F2770CBEF2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51C3165101B7 // cbEmailChange
- ;
- : Parameters
-   Seq: ( ME_53877C39DB75 // Sender
- )
- ; // Parameters
-
-ref; // ME_C6F2770CBEF2 DoIt
-
 : ME_51C3165101B7
  CONST UID '51C3165101B7'
  CONST Name 'cbEmailChange'
@@ -1753,10 +1612,6 @@ ref; // ME_C6F2770CBEF2 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C6F2770CBEF2 // DoIt
- )
- ; // Operations
 
 ref; // ME_51C3165101B7 cbEmailChange
 
@@ -1771,21 +1626,6 @@ ref; // ME_51C3165101B7 cbEmailChange
  ;
 
 ref; // ME_4AC4EB630347 Make
-
-: ME_DC9CB2C6A88E
- CONST UID 'DC9CB2C6A88E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimForbidAutoregistration' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_DC9CB2C6A88E Ini_Reg_Class
 
 : ME_51C32C1102F2
  CONST Class class_Dependency
@@ -1827,17 +1667,6 @@ ref; // ME_51C32D00033F
 
 ref; // ME_51C32D030288 
 
-: ME_CEEAE13981B5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497ED39B034F // PrimForbidAutoregistration
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_CEEAE13981B5 
-
 : ME_497469C90140_ME_497ED39B034F
  : Original WL 'ME_497469C90140' '5000041101C8.pas.ms.script' // NotifyDataSourceChanged
  ;
@@ -1869,19 +1698,11 @@ ref; // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
    Seq: ( ME_51C3139D029E // lblReference
  ME_51C313FD00BF // gbInfo
  ME_497ED3E60038 // dsForbidAutoregistration
- ME_A0737F1D8FE2 // f_lblReference
- ME_1F6F5127A71D // f_gbInfo
- ME_A1C8CEC17505 // f_lblPhone
- ME_B80459E0548D // f_lblEmail
- ME_2A5558E7FCC5 // f_lblHint
- ME_44311DB15BFD // f_cbPhone
- ME_10893AB9AD46 // f_cbEmail
  )
  ; // Attributes
  : Operations
    Seq: ( ME_51C3165101B7 // cbEmailChange
  ME_4AC4EB630347 // Make
- ME_DC9CB2C6A88E // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1894,7 +1715,6 @@ ref; // ME_4A8E8F2E0195_ME_497ED39B034F InitControls
  ME_51C32CD10196 // nsEmailVerify
  ME_51C32D00033F // Controls
  ME_51C32D030288 // Forms
- ME_CEEAE13981B5 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -3944,38 +3764,6 @@ ref; // ME_52397ECC0100 Label1
 
 ref; // ME_4AC5F419038D f_Data
 
-: ME_75630EBF525B
- CONST UID '75630EBF525B'
- CONST Name 'f_edName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4ED6801F3 // PrimGroupProperty
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_75630EBF525B f_edName
-
-: ME_592B87DFC9BB
- CONST UID '592B87DFC9BB'
- CONST Name 'f_Label1'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Label1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4ED6801F3 // PrimGroupProperty
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_592B87DFC9BB f_Label1
-
 : ME_4AC4EDA1031A
  CONST Name 'aData'
  CONST Class class_Parameter
@@ -4000,21 +3788,6 @@ ref; // ME_4AC4EDA1031A aData
  ; // Parameters
 
 ref; // ME_4AC4EDA102E4 Make
-
-: ME_A94808F02BEF
- CONST UID 'A94808F02BEF'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimGroupProperty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4ED6801F3 // PrimGroupProperty
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A94808F02BEF Ini_Reg_Class
 
 : ME_4AC5F6AA034C
  CONST Class class_Dependency
@@ -4055,17 +3828,6 @@ ref; // ME_523990B002BA
  ;
 
 ref; // ME_523990DF013F 
-
-: ME_E032C29845A0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC4ED6801F3 // PrimGroupProperty
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E032C29845A0 
 
 : ME_4A8AD46D0226_ME_4AC4ED6801F3
  : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
@@ -4165,13 +3927,10 @@ ref; // ME_4A8E8F2E0195_ME_4AC4ED6801F3 InitControls
    Seq: ( ME_4AC5F4D601EA // edName
  ME_52397ECC0100 // Label1
  ME_4AC5F419038D // f_Data
- ME_75630EBF525B // f_edName
- ME_592B87DFC9BB // f_Label1
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4AC4EDA102E4 // Make
- ME_A94808F02BEF // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -4196,7 +3955,6 @@ ref; // ME_4A8E8F2E0195_ME_4AC4ED6801F3 InitControls
  ME_4AC5F816011B // l3String
  ME_523990B002BA // Result$Ok
  ME_523990DF013F // Forms
- ME_E032C29845A0 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -7550,7 +7308,6 @@ ref; // ME_4AA5120303E5 Admin
  WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin'

@@ -151,48 +151,6 @@ ref; // ME_4CF4F8510139 DoIt
 
 ref; // ME_4CF4F8470359 Create
 
-FORWARD ME_4CF4F83200CD
-
-: ME_FE1BB342B882
- CONST Name 'aData'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496B629D0188' '4A9F98B901A5.pas.ms.script' // InsBaseSearcherWindowData
- ;
-
-ref; // ME_FE1BB342B882 aData
-
-: ME_E84FA71FE289
- CONST Name 'anActiveClass'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_496B5F7603B4' '4A9F98B901A5.pas.ms.script' // InsBaseSearchClass
- ;
-
-ref; // ME_E84FA71FE289 anActiveClass
-
-: ME_12EB9CE8051C
- CONST UID '12EB9CE8051C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TnsBaseSearchFormState.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4CF4F83200CD // Make
- ;
- : Target ME_4ACB5740039A // InsBaseSearchFormState
- ;
- : Parameters
-   Seq: ( ME_FE1BB342B882 // aData
- ME_E84FA71FE289 // anActiveClass
- )
- ; // Parameters
-
-ref; // ME_12EB9CE8051C DoIt
-
 : ME_4CF4F83200CD
  CONST UID '4CF4F83200CD'
  CONST Name 'Make'
@@ -211,10 +169,6 @@ ref; // ME_12EB9CE8051C DoIt
    Seq: ( ME_4ACB5740039A // InsBaseSearchFormState
  )
  ; // Implements
- : Operations
-   Seq: ( ME_12EB9CE8051C // DoIt
- )
- ; // Operations
 
 ref; // ME_4CF4F83200CD Make
 
@@ -243,12 +197,6 @@ ref; // ME_479731C50290_ME_4ACB57C4023E Cleanup
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_47EA4E9002C6_ME_4ACB57C4023E FinishDataUpdate
-
-: ME_5000565C019C_ME_4ACB57C4023E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4ACB57C4023E ClearFields
 
 : ME_4ACB57C4023E
  CONST UID '4ACB57C4023E'
@@ -287,7 +235,6 @@ ref; // ME_5000565C019C_ME_4ACB57C4023E ClearFields
  : Overridden
    Seq: ( ME_479731C50290_ME_4ACB57C4023E // Cleanup
  ME_47EA4E9002C6_ME_4ACB57C4023E // FinishDataUpdate
- ME_5000565C019C_ME_4ACB57C4023E // ClearFields
  )
  ; // Overridden
  CONST "author" 'Люлин А.В.'
@@ -299,23 +246,6 @@ ref; // ME_5000565C019C_ME_4ACB57C4023E ClearFields
 ref; // ME_4ACB57C4023E TnsBaseSearchFormState
 
 FORWARD ME_4B13B3BD01CD
-
-: ME_DAC5C7F25991
- CONST UID 'DAC5C7F25991'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13B3BD01CD // TnsUseBaseSearchExampleEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_DAC5C7F25991 Exists
 
 : ME_4B13A26203DB_ME_4B13B3BD01CD
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -337,10 +267,6 @@ ref; // ME_4B13A26203DB_ME_4B13B3BD01CD EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_DAC5C7F25991 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B3BD01CD // EventID
  )
@@ -352,23 +278,6 @@ ref; // ME_4B13A26203DB_ME_4B13B3BD01CD EventID
 ref; // ME_4B13B3BD01CD TnsUseBaseSearchExampleEvent
 
 FORWARD ME_4B13B90D007E
-
-: ME_BE4D37807263
- CONST UID 'BE4D37807263'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13B90D007E // TnsUseBaseSearchHintEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_BE4D37807263 Exists
 
 : ME_4B13A26203DB_ME_4B13B90D007E
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -390,10 +299,6 @@ ref; // ME_4B13A26203DB_ME_4B13B90D007E EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_BE4D37807263 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B90D007E // EventID
  )
@@ -405,23 +310,6 @@ ref; // ME_4B13A26203DB_ME_4B13B90D007E EventID
 ref; // ME_4B13B90D007E TnsUseBaseSearchHintEvent
 
 FORWARD ME_4B13B9AA029F
-
-: ME_751B02BCB152
- CONST UID '751B02BCB152'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4B13B9AA029F // TnsUseBackSearchButtonEvent
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_751B02BCB152 Exists
 
 : ME_4B13A26203DB_ME_4B13B9AA029F
  : Original WL 'ME_4B13A26203DB' '4B0A60DF01F2.pas.ms.script' // EventID
@@ -443,10 +331,6 @@ ref; // ME_4B13A26203DB_ME_4B13B9AA029F EventID
    Seq: ( WL 'ME_4B13A1A2000F' '4B0A60DF01F2.pas.ms.script' // TnsCounterEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_751B02BCB152 // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_4B13A26203DB_ME_4B13B9AA029F // EventID
  )
@@ -796,53 +680,6 @@ ref; // ME_5400403202EA f_ControlToActivate
 
 ref; // ME_5672B2190230 f_IsActive
 
-: ME_3492941EE30C
- CONST UID '3492941EE30C'
- CONST Name 'f_ContextEdit'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ContextEdit' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Target WL 'ME_4CF4D14700AE' '495119A901CE.pas.ms.script' // TnscTreeComboWithHistoryAndOperations
- ;
-
-ref; // ME_3492941EE30C f_ContextEdit
-
-: ME_36C5605B279E
- CONST UID '36C5605B279E'
- CONST Name 'f_FlashTimer'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства FlashTimer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Target WL 'ME_48C7C96E0135' '4799D29F033F.pas.ms.script' // TTimer
- ;
-
-ref; // ME_36C5605B279E f_FlashTimer
-
-FORWARD ME_4ACB59F7011B
-
-: ME_77B3FA007D00
- CONST UID '77B3FA007D00'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода AfterSearcherSet' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4ACB59F7011B // AfterSearcherSet
- ;
-
-ref; // ME_77B3FA007D00 DoIt
-
 : ME_4ACB59F7011B
  CONST UID '4ACB59F7011B'
  CONST Name 'AfterSearcherSet'
@@ -853,10 +690,6 @@ ref; // ME_77B3FA007D00 DoIt
  CONST Abstraction at_final
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Operations
-   Seq: ( ME_77B3FA007D00 // DoIt
- )
- ; // Operations
 
 ref; // ME_4ACB59F7011B AfterSearcherSet
 
@@ -892,21 +725,6 @@ ref; // ME_72B9ADE45B59 DoIt
 
 ref; // ME_4B13B419036C ApplyCurrentExample
 
-FORWARD ME_4CF4D7110264
-
-: ME_9CA9DDE47836
- CONST UID '9CA9DDE47836'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода UnregisterFromSearcher' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CF4D7110264 // UnregisterFromSearcher
- ;
-
-ref; // ME_9CA9DDE47836 DoIt
-
 : ME_4CF4D7110264
  CONST UID '4CF4D7110264'
  CONST Name 'UnregisterFromSearcher'
@@ -917,27 +735,8 @@ ref; // ME_9CA9DDE47836 DoIt
  CONST Abstraction at_final
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Operations
-   Seq: ( ME_9CA9DDE47836 // DoIt
- )
- ; // Operations
 
 ref; // ME_4CF4D7110264 UnregisterFromSearcher
-
-FORWARD ME_4CFCCEAC01C9
-
-: ME_68A0554A25BB
- CONST UID '68A0554A25BB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoFindBtnClick' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CFCCEAC01C9 // DoFindBtnClick
- ;
-
-ref; // ME_68A0554A25BB DoIt
 
 : ME_4CFCCEAC01C9
  CONST UID '4CFCCEAC01C9'
@@ -949,10 +748,6 @@ ref; // ME_68A0554A25BB DoIt
  CONST Abstraction at_final
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Operations
-   Seq: ( ME_68A0554A25BB // DoIt
- )
- ; // Operations
 
 ref; // ME_4CFCCEAC01C9 DoFindBtnClick
 
@@ -1421,21 +1216,6 @@ ref; // ME_4CFCE41901EA DoIt
 
 ref; // ME_4CFCE40A036B ContextEditSelect
 
-FORWARD ME_4CFCEC8B030B
-
-: ME_AFD3CD334F0E
- CONST UID 'AFD3CD334F0E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoCloseBtnClick' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CFCEC8B030B // DoCloseBtnClick
- ;
-
-ref; // ME_AFD3CD334F0E DoIt
-
 : ME_4CFCEC8B030B
  CONST UID '4CFCEC8B030B'
  CONST Name 'DoCloseBtnClick'
@@ -1446,10 +1226,6 @@ ref; // ME_AFD3CD334F0E DoIt
  CONST Abstraction at_final
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Operations
-   Seq: ( ME_AFD3CD334F0E // DoIt
- )
- ; // Operations
 
 ref; // ME_4CFCEC8B030B DoCloseBtnClick
 
@@ -1665,21 +1441,6 @@ ref; // ME_4CFE39A60000 DoIt
 
 ref; // ME_4CFE398A0128 UpdateSearcherArea
 
-FORWARD ME_4CFE48BF01E2
-
-: ME_F1AC32843A04
- CONST UID 'F1AC32843A04'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoFindBackBtnClick' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4CFE48BF01E2 // DoFindBackBtnClick
- ;
-
-ref; // ME_F1AC32843A04 DoIt
-
 : ME_4CFE48BF01E2
  CONST UID '4CFE48BF01E2'
  CONST Name 'DoFindBackBtnClick'
@@ -1690,10 +1451,6 @@ ref; // ME_F1AC32843A04 DoIt
  CONST Abstraction at_final
  : Parent ME_4AB791130260 // PrimBaseSearch
  ;
- : Operations
-   Seq: ( ME_F1AC32843A04 // DoIt
- )
- ; // Operations
 
 ref; // ME_4CFE48BF01E2 DoFindBackBtnClick
 
@@ -1837,21 +1594,6 @@ ref; // ME_565445EE01EF aData
  CONST "need Aggregate" true
 
 ref; // ME_565445DF038D MakeSingleChild
-
-: ME_A77233AF329D
- CONST UID 'A77233AF329D'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimBaseSearch' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_A77233AF329D Ini_Reg_Class
 
 : ME_4AC630CC02EB
  CONST Class class_Dependency
@@ -2054,17 +1796,6 @@ ref; // ME_56167106024D
  ;
 
 ref; // ME_5654228601E3 
-
-: ME_4BD95767E4D0
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB791130260 // PrimBaseSearch
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_4BD95767E4D0 
 
 : ME_496B51AA02C3_ME_4AB791130260
  : Original WL 'ME_496B51AA02C3' '4A9F98B901A5.pas.ms.script' // ParamsChanged
@@ -2355,12 +2086,6 @@ ref; // ME_4AD5FA8E03DD_ME_4AB791130260 BecomeInactive
  CONST OpKind opkind_Overridden
 ref; // ME_4EBBC63E032A_ME_4AB791130260 CreateFormGUID
 
-: ME_5000565C019C_ME_4AB791130260
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AB791130260 ClearFields
-
 : ME_55B9F0BD0069_ME_4AB791130260
  : Original WL 'ME_55B9F0BD0069' '4AADF9450143.pas.ms.script' // DoGetNeedSaveToTabHistory
  ;
@@ -2419,8 +2144,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_54003FF203B9 // f_IsTabActive
  ME_5400403202EA // f_ControlToActivate
  ME_5672B2190230 // f_IsActive
- ME_3492941EE30C // f_ContextEdit
- ME_36C5605B279E // f_FlashTimer
  )
  ; // Attributes
  : Operations
@@ -2453,7 +2176,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_4CF4DC7C0129 // UpdateExamplePanelWidthAndPosition
  ME_506AB26A0032 // CMVisibleChanged
  ME_565445DF038D // MakeSingleChild
- ME_A77233AF329D // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2497,7 +2219,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_4A8E8F2E0195_ME_4AB791130260 // InitControls
  ME_4AD5FA8E03DD_ME_4AB791130260 // BecomeInactive
  ME_4EBBC63E032A_ME_4AB791130260 // CreateFormGUID
- ME_5000565C019C_ME_4AB791130260 // ClearFields
  ME_55B9F0BD0069_ME_4AB791130260 // DoGetNeedSaveToTabHistory
  ME_573AFFE5038D_ME_4AB791130260 // GetExistingInstance
  )
@@ -2536,7 +2257,6 @@ ref; // ME_573AFFE5038D_ME_4AB791130260 GetExistingInstance
  ME_5534E19D03D7 // vcmTabbedContainerFormDispatcher
  ME_56167106024D // TnsSearchWindowManager
  ME_5654228601E3 // TnsBaseSearchService
- ME_4BD95767E4D0 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false

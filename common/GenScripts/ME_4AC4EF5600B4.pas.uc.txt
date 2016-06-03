@@ -147,6 +147,12 @@ var
 //#UC END# *4A97EBE702F8_4AC4EF5600B4test_impl*
 //#UC START# *4A97EBE702F8_4AC4EF5600B4test_var*
 //#UC END# *4A97EBE702F8_4AC4EF5600B4test_var*
+//#UC START# *4AC4EF5600B4impl_uses*
+ , l3ControlsTypes
+//#UC END# *4AC4EF5600B4impl_uses*
+//#UC START# *4AC4EFA302F9_4AC4EF5600B4_impl*
+   !!! Needs to be implemented !!!
+//#UC END# *4AC4EFA302F9_4AC4EF5600B4_impl*
 //#UC START# *4C2B245F01F2_4AC4EF5600B4exec_impl*
  TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
 //#UC END# *4C2B245F01F2_4AC4EF5600B4exec_impl*
@@ -377,3 +383,25 @@ const
 //#UC END# *519A138E01CC_519A11C801A1_impl*
 //#UC START# *519A138E01CC_519A11C801A1_var*
 //#UC END# *519A138E01CC_519A11C801A1_var*
+//#UC START# *641F3EC9C833_8EEA1E00C0C3_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(ContactTypeMap[l_Index].AsCStr);
+//#UC END# *641F3EC9C833_8EEA1E00C0C3_impl*
+//#UC START# *641F3EC9C833_8EEA1E00C0C3_var*
+var
+ l_Index: TContactListFilterTypes;
+//#UC END# *641F3EC9C833_8EEA1E00C0C3_var*
+//#UC START# *8E02C0CC146E_8EEA1E00C0C3_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, ContactTypeMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "ContactTypeMap"', [l3Str(aDisplayName)]);
+//#UC END# *8E02C0CC146E_8EEA1E00C0C3_impl*
+//#UC START# *8E02C0CC146E_8EEA1E00C0C3_var*
+var
+ l_Index: TContactListFilterTypes;
+//#UC END# *8E02C0CC146E_8EEA1E00C0C3_var*

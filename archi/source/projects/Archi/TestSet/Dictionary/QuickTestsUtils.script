@@ -1703,3 +1703,64 @@ PROCEDURE "Вызывать окно замены. Замена текста при поиске от курсора"
 		"Установить фокус в контрол с именем" "Контрол редактора текста"
 ;
 
+PROCEDURE "Разбивка на блоки и установить значение индекса вложенности" INTEGER IN aIndex	
+	@ ( "Разбивка на блоки действие" ) MODAL 
+	( aIndex "Установить значение индекса 'уровень вложенности'"
+	"Контрол по имени {('BitBtn1')}" pop:Control:Click )
+;
+
+PROCEDURE "Разбивка на блоки и установить значение чекбокса 'Подтверждать слияние заголовков'"
+	@ ( 
+		"Разбивка на блоки действие" 
+	) MODAL 
+	(
+	OBJECT VAR l_Control
+		"Контрол по имени {('ddBlockDeepLevelDialog')}" >>> l_Control
+	OBJECT VAR l_CheckBoxResult
+		"Найти контрол {('checkConfirmJoin')} на форме {(l_Control)}"  >>> l_CheckBoxResult
+	Если ( "Чекбокс {(l_CheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_CheckBoxResult)}")
+		"Контрол по имени {('BitBtn1')}" pop:Control:Click 
+	)
+;
+
+PROCEDURE "Разбивка на блоки и убрать значение чекбокса 'Подтверждать слияние заголовков'"
+	@ ( 
+		"Разбивка на блоки действие" 
+	) MODAL 
+	(
+	OBJECT VAR l_Control
+		"Контрол по имени {('ddBlockDeepLevelDialog')}" >>> l_Control
+	OBJECT VAR l_CheckBoxResult
+		"Найти контрол {('checkConfirmJoin')} на форме {(l_Control)}"  >>> l_CheckBoxResult
+	Если ( "Чекбокс {(l_CheckBoxResult)} отмечен?" ! ) то ( "Убрать галочку в чекбоксе {(l_CheckBoxResult)}")
+		"Контрол по имени {('BitBtn1')}" pop:Control:Click 
+	)
+;
+
+PROCEDURE "Разбивка на блоки и установить значение чекбокса 'Выделять сноски в блок'"
+	@ ( 
+		"Разбивка на блоки действие" 
+	) MODAL 
+	(
+	OBJECT VAR l_Control
+		"Контрол по имени {('ddBlockDeepLevelDialog')}" >>> l_Control
+	OBJECT VAR l_CheckBoxResult
+		"Найти контрол {('cbUseFootnotes')} на форме {(l_Control)}"  >>> l_CheckBoxResult
+	Если ( "Чекбокс {(l_CheckBoxResult)} отмечен?" ! ) то ( "Выставить галочку в чекбоксе {(l_CheckBoxResult)}")
+		"Контрол по имени {('BitBtn1')}" pop:Control:Click
+	)
+;
+
+PROCEDURE "Разбивка на блоки и убрать значение чекбокса 'Настроить структуру'"
+	@ ( 
+		"Разбивка на блоки действие" 
+	) MODAL 
+	(
+	OBJECT VAR l_Control
+		"Контрол по имени {('ddBlockDeepLevelDialog')}" >>> l_Control
+	OBJECT VAR l_CheckBoxResult
+		"Найти контрол {('cbTuneStructure')} на форме {(l_Control)}"  >>> l_CheckBoxResult
+	Если ( "Чекбокс {(l_CheckBoxResult)} отмечен?" ! ) то ( "Убрать галочку в чекбоксе {(l_CheckBoxResult)}")
+		"Контрол по имени {('BitBtn1')}" pop:Control:Click 
+	)
+;

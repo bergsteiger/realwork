@@ -2323,21 +2323,6 @@ ref; // ME_4C2E168700A3 ExcludeForAllExceptPostingOrder
 
 FORWARD ME_525542460297
 
-FORWARD ME_5255425502CE
-
-: ME_1471BB8A888B
- CONST UID '1471BB8A888B'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Log' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5255425502CE // Log
- ;
-
-ref; // ME_1471BB8A888B DoIt
-
 : ME_5255425502CE
  CONST UID '5255425502CE'
  CONST Name 'Log'
@@ -2348,10 +2333,6 @@ ref; // ME_1471BB8A888B DoIt
  CONST Abstraction at_final
  : Parent ME_525542460297 // TnsSendTestRequestToLegalAdviceEvent
  ;
- : Operations
-   Seq: ( ME_1471BB8A888B // DoIt
- )
- ; // Operations
  CONST "is static" true
 
 ref; // ME_5255425502CE Log
@@ -2620,55 +2601,6 @@ ref; // ME_52553B1C025F f_Update
  ;
 
 ref; // ME_52553D8400E1 f_QueryCard
-
-: ME_1CE489C48E85
- CONST UID '1CE489C48E85'
- CONST Name 'f_Editor'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Editor' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EBA4301CA // PrimQueryCard
- ;
- : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
- ;
-
-ref; // ME_1CE489C48E85 f_Editor
-
-: ME_3BDC30A1BB2E
- CONST UID '3BDC30A1BB2E'
- CONST Name 'f_TextSource'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства TextSource' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EBA4301CA // PrimQueryCard
- ;
- : Target WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
- ;
-
-ref; // ME_3BDC30A1BB2E f_TextSource
-
-: ME_F37275C778C2
- CONST UID 'F37275C778C2'
- CONST Name 'f_CanWriteMgrSettings'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanWriteMgrSettings' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_497EBA4301CA // PrimQueryCard
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:clearViaProperty 'CanWriteMgrSettings'
-
-ref; // ME_F37275C778C2 f_CanWriteMgrSettings
 
 FORWARD ME_4C2E199E00BE
 
@@ -3024,21 +2956,6 @@ ref; // ME_4CC015D40351 DoIt
 
 ref; // ME_4CC015B701A1 MakeSingleChild
 
-FORWARD ME_4F69A6310375
-
-: ME_BD6418121650
- CONST UID 'BD6418121650'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода WriteMgrSettings' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F69A6310375 // WriteMgrSettings
- ;
-
-ref; // ME_BD6418121650 DoIt
-
 : ME_4F69A6310375
  CONST UID '4F69A6310375'
  CONST Name 'WriteMgrSettings'
@@ -3049,62 +2966,8 @@ ref; // ME_BD6418121650 DoIt
  CONST Abstraction at_final
  : Parent ME_497EBA4301CA // PrimQueryCard
  ;
- : Operations
-   Seq: ( ME_BD6418121650 // DoIt
- )
- ; // Operations
 
 ref; // ME_4F69A6310375 WriteMgrSettings
-
-FORWARD ME_52543D9F0041
-
-: ME_5742D1B58864
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5742D1B58864 aSender
-
-: ME_130FAC579085
- CONST Name 'aControl'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4E25BB410189' '4678209200A6.pas.ms.script' // TnevControlInfo
- ;
-
-ref; // ME_130FAC579085 aControl
-
-: ME_C27B8EEE0C4B
- CONST Name 'theImageInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_out ;
- : Target WL 'ME_4D5936FC01A0' '4678209200A6.pas.ms.script' // TnevControlImageInfo
- ;
-
-ref; // ME_C27B8EEE0C4B theImageInfo
-
-: ME_0C9F39424249
- CONST UID '0C9F39424249'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52543D9F0041 // TextSourceGetControlItemImg
- ;
- : Parameters
-   Seq: ( ME_5742D1B58864 // aSender
- ME_130FAC579085 // aControl
- ME_C27B8EEE0C4B // theImageInfo
- )
- ; // Parameters
-
-ref; // ME_0C9F39424249 DoIt
 
 : ME_52543D9F0041
  CONST UID '52543D9F0041'
@@ -3120,62 +2983,8 @@ ref; // ME_0C9F39424249 DoIt
    Seq: ( WL 'ME_52543B960049' '482BFB50007B.pas.ms.script' // TevGetControlItemImgEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0C9F39424249 // DoIt
- )
- ; // Operations
 
 ref; // ME_52543D9F0041 TextSourceGetControlItemImg
-
-FORWARD ME_52543DC1034A
-
-: ME_F1DB4ACE5201
- CONST Name 'aSender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_F1DB4ACE5201 aSender
-
-: ME_76A3AC49B39D
- CONST Name 'anOldDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_76A3AC49B39D anOldDocument
-
-: ME_54660BE28052
- CONST Name 'aNewDocument'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_534572370056' '47913B47006E.pas.ms.script' // Tl3Tag
- ;
-
-ref; // ME_54660BE28052 aNewDocument
-
-: ME_B67114949CCD
- CONST UID 'B67114949CCD'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52543DC1034A // TextSourceDocumentChanged
- ;
- : Parameters
-   Seq: ( ME_F1DB4ACE5201 // aSender
- ME_76A3AC49B39D // anOldDocument
- ME_54660BE28052 // aNewDocument
- )
- ; // Parameters
-
-ref; // ME_B67114949CCD DoIt
 
 : ME_52543DC1034A
  CONST UID '52543DC1034A'
@@ -3191,41 +3000,8 @@ ref; // ME_B67114949CCD DoIt
    Seq: ( WL 'ME_52543D1702DA' '482BFB50007B.pas.ms.script' // TevDocumentChangedEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_B67114949CCD // DoIt
- )
- ; // Operations
 
 ref; // ME_52543DC1034A TextSourceDocumentChanged
-
-FORWARD ME_52543E860039
-
-: ME_2644CAF5D66E
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_2644CAF5D66E Sender
-
-: ME_AC81D25B8CE2
- CONST UID 'AC81D25B8CE2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52543E860039 // EditorAfterFirstPaint
- ;
- : Parameters
-   Seq: ( ME_2644CAF5D66E // Sender
- )
- ; // Parameters
-
-ref; // ME_AC81D25B8CE2 DoIt
 
 : ME_52543E860039
  CONST UID '52543E860039'
@@ -3241,64 +3017,8 @@ ref; // ME_AC81D25B8CE2 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_AC81D25B8CE2 // DoIt
- )
- ; // Operations
 
 ref; // ME_52543E860039 EditorAfterFirstPaint
-
-FORWARD ME_52543F180277
-
-: ME_121F5D3FD3EF
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_121F5D3FD3EF Sender
-
-: ME_4DC1645F6802
- CONST Name 'anEffects'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_49DC7BDE0398' '467823B7002C.pas.ms.script' // TafwJumpToEffects
- ;
-
-ref; // ME_4DC1645F6802 anEffects
-
-: ME_661E438A1660
- CONST Name 'aMoniker'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_47C5BD35000A' '4A23935A0282.pas.ms.script' // IevMoniker
- ;
-
-ref; // ME_661E438A1660 aMoniker
-
-: ME_7EF94BF5070E
- CONST UID '7EF94BF5070E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_52543F180277 // EditorJumpTo
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- : Parameters
-   Seq: ( ME_121F5D3FD3EF // Sender
- ME_4DC1645F6802 // anEffects
- ME_661E438A1660 // aMoniker
- )
- ; // Parameters
-
-ref; // ME_7EF94BF5070E DoIt
 
 : ME_52543F180277
  CONST UID '52543F180277'
@@ -3314,10 +3034,6 @@ ref; // ME_7EF94BF5070E DoIt
    Seq: ( WL 'ME_50041C7C0270' '4829D7D50156.pas.ms.script' // TevJumpToEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_7EF94BF5070E // DoIt
- )
- ; // Operations
 
 ref; // ME_52543F180277 EditorJumpTo
 
@@ -3387,21 +3103,6 @@ ref; // ME_5254401B0297 DoIt
 
 ref; // ME_5254400500F5 GetQueryType
 
-FORWARD ME_525440440050
-
-: ME_2718C53FE3C4
- CONST UID '2718C53FE3C4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ReadDocument' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525440440050 // ReadDocument
- ;
-
-ref; // ME_2718C53FE3C4 DoIt
-
 : ME_525440440050
  CONST UID '525440440050'
  CONST Name 'ReadDocument'
@@ -3412,10 +3113,6 @@ ref; // ME_2718C53FE3C4 DoIt
  CONST Abstraction at_final
  : Parent ME_497EBA4301CA // PrimQueryCard
  ;
- : Operations
-   Seq: ( ME_2718C53FE3C4 // DoIt
- )
- ; // Operations
 
 ref; // ME_525440440050 ReadDocument
 
@@ -3462,21 +3159,6 @@ ref; // ME_525440F400C8 DoIt
 
 ref; // ME_525440E8004E HandleException
 
-FORWARD ME_5254410600C5
-
-: ME_CB6159C31DD0
- CONST UID 'CB6159C31DD0'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода SaveConsultationCreditnails' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5254410600C5 // SaveConsultationCreditnails
- ;
-
-ref; // ME_CB6159C31DD0 DoIt
-
 : ME_5254410600C5
  CONST UID '5254410600C5'
  CONST Name 'SaveConsultationCreditnails'
@@ -3487,27 +3169,8 @@ ref; // ME_CB6159C31DD0 DoIt
  CONST Abstraction at_final
  : Parent ME_497EBA4301CA // PrimQueryCard
  ;
- : Operations
-   Seq: ( ME_CB6159C31DD0 // DoIt
- )
- ; // Operations
 
 ref; // ME_5254410600C5 SaveConsultationCreditnails
-
-FORWARD ME_5254410F01DF
-
-: ME_4A1B83B02B01
- CONST UID '4A1B83B02B01'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода LoadConsultationCreditnails' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5254410F01DF // LoadConsultationCreditnails
- ;
-
-ref; // ME_4A1B83B02B01 DoIt
 
 : ME_5254410F01DF
  CONST UID '5254410F01DF'
@@ -3519,10 +3182,6 @@ ref; // ME_4A1B83B02B01 DoIt
  CONST Abstraction at_final
  : Parent ME_497EBA4301CA // PrimQueryCard
  ;
- : Operations
-   Seq: ( ME_4A1B83B02B01 // DoIt
- )
- ; // Operations
 
 ref; // ME_5254410F01DF LoadConsultationCreditnails
 
@@ -3740,35 +3399,6 @@ ref; // ME_525444DE0038 DoIt
 
 ref; // ME_525444D40315 OnDateQuery
 
-FORWARD ME_5254451903D6
-
-: ME_CFDCF7C12B36
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_CFDCF7C12B36 Sender
-
-: ME_9C9AD8C96D17
- CONST UID '9C9AD8C96D17'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5254451903D6 // OnNeedExecQuery
- ;
- : Parameters
-   Seq: ( ME_CFDCF7C12B36 // Sender
- )
- ; // Parameters
-
-ref; // ME_9C9AD8C96D17 DoIt
-
 : ME_5254451903D6
  CONST UID '5254451903D6'
  CONST Name 'OnNeedExecQuery'
@@ -3783,41 +3413,8 @@ ref; // ME_9C9AD8C96D17 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_9C9AD8C96D17 // DoIt
- )
- ; // Operations
 
 ref; // ME_5254451903D6 OnNeedExecQuery
-
-FORWARD ME_525445250272
-
-: ME_7829FE97725F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_7829FE97725F Sender
-
-: ME_C42973968FB2
- CONST UID 'C42973968FB2'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525445250272 // OnModifiedChanged
- ;
- : Parameters
-   Seq: ( ME_7829FE97725F // Sender
- )
- ; // Parameters
-
-ref; // ME_C42973968FB2 DoIt
 
 : ME_525445250272
  CONST UID '525445250272'
@@ -3833,10 +3430,6 @@ ref; // ME_C42973968FB2 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C42973968FB2 // DoIt
- )
- ; // Operations
 
 ref; // ME_525445250272 OnModifiedChanged
 
@@ -3904,21 +3497,6 @@ ref; // ME_52554E100361 DoIt
  CONST extprop:rc:SelfName 'EntityFormSaveState'
 
 ref; // ME_52554DFA0270 vcmEntityFormSaveState
-
-: ME_3746682AAA8F
- CONST UID '3746682AAA8F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimQueryCard' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497EBA4301CA // PrimQueryCard
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_3746682AAA8F Ini_Reg_Class
 
 : ME_4AE89393028E
  CONST Class class_Dependency
@@ -4280,17 +3858,6 @@ ref; // ME_54F98E830138
 
 ref; // ME_54FEB53C0106 
 
-: ME_663301D32E48
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_497EBA4301CA // PrimQueryCard
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_663301D32E48 
-
 : ME_495220DE0298_ME_497EBA4301CA
  : Original WL 'ME_495220DE0298' '494F898C013E.pas.ms.script' // PrintDialog
  ;
@@ -4541,12 +4108,6 @@ ref; // ME_49807428008C_ME_497EBA4301CA DoLoadState
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_497EBA4301CA InitControls
 
-: ME_5000565C019C_ME_497EBA4301CA
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_497EBA4301CA ClearFields
-
 : ME_52544597027B_ME_497EBA4301CA
  : Original WL 'ME_52544597027B' '4AADF9450143.pas.ms.script' // CleanDependencies
  ;
@@ -4589,9 +4150,6 @@ FORWARD ME_571A240100B0
  ME_4F69A65F027C // CanWriteMgrSettings
  ME_52553B1C025F // f_Update
  ME_52553D8400E1 // f_QueryCard
- ME_1CE489C48E85 // f_Editor
- ME_3BDC30A1BB2E // f_TextSource
- ME_F37275C778C2 // f_CanWriteMgrSettings
  )
  ; // Attributes
  : Operations
@@ -4618,7 +4176,6 @@ FORWARD ME_571A240100B0
  ME_5254451903D6 // OnNeedExecQuery
  ME_525445250272 // OnModifiedChanged
  ME_52554DFA0270 // vcmEntityFormSaveState
- ME_3746682AAA8F // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -4647,7 +4204,6 @@ FORWARD ME_571A240100B0
  ME_49803F5503AA_ME_497EBA4301CA // DoInit
  ME_49807428008C_ME_497EBA4301CA // DoLoadState
  ME_4A8E8F2E0195_ME_497EBA4301CA // InitControls
- ME_5000565C019C_ME_497EBA4301CA // ClearFields
  ME_52544597027B_ME_497EBA4301CA // CleanDependencies
  ME_562E15F20132_ME_497EBA4301CA // DoBeforeHistoryNavigate
  )
@@ -4704,7 +4260,6 @@ FORWARD ME_571A240100B0
  ME_54F987C9004D // nsQueryAttribute
  ME_54F98E830138 // nsQueryUtils
  ME_54FEB53C0106 // InsContextSearchHistory
- ME_663301D32E48 // TtfwClassRef
  )
  ; // Dependencies
  : Injected
@@ -5342,58 +4897,6 @@ ref; // ME_540D655B036D PrintPreviewTabCaption
 
 ref; // ME_540D65500256 Local
 
-FORWARD ME_FFC411FBE431
-
-: ME_1D84B592C14B
- CONST UID '1D84B592C14B'
- CONST Name 'PrintPreviewTabCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Предварительный просмотр''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_FFC411FBE431 // LCImplLocal
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''PrintPreviewTabCaption''; rValue : ''Предварительный просмотр'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintPreviewTabCaption''; rValue : ''Предварительный просмотр'')'
- : Speller ME_540D655B036D // PrintPreviewTabCaption
- ;
-
-ref; // ME_1D84B592C14B PrintPreviewTabCaption
-
-: ME_FFC411FBE431
- CONST UID 'FFC411FBE431'
- CONST Name 'LCImplLocal'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Local' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Attributes
-   Seq: ( ME_1D84B592C14B // PrintPreviewTabCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_540D65500256 // Local
- ;
-
-ref; // ME_FFC411FBE431 LCImplLocal
-
 : ME_4AC61151002B
  CONST UID '4AC61151002B'
  CONST Name 'PreviewPanel'
@@ -5427,22 +4930,6 @@ ref; // ME_4AC61151002B PreviewPanel
  ;
 
 ref; // ME_4AC610A4031D f_Preview
-
-: ME_3CFB64149275
- CONST UID '3CFB64149275'
- CONST Name 'f_PreviewPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PreviewPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Target WL 'ME_4AC6113D038A' '495119A901CE.pas.ms.script' // TnscPreviewPanel
- ;
-
-ref; // ME_3CFB64149275 f_PreviewPanel
 
 FORWARD ME_4AC61241009B
 
@@ -5533,39 +5020,6 @@ ref; // ME_4AC610E60237 aData
  ; // Parameters
 
 ref; // ME_4AC610DF03A7 Make
-
-: ME_D536781F85FF
- CONST UID 'D536781F85FF'
- CONST Name 'Init_Str_PrintPreviewTabCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_PrintPreviewTabCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Speller ME_540D655B036D // PrintPreviewTabCaption
- ;
- : SpelledFor ME_1D84B592C14B // PrintPreviewTabCaption
- ;
-
-ref; // ME_D536781F85FF Init_Str_PrintPreviewTabCaption
-
-: ME_0D084DFF238E
- CONST UID '0D084DFF238E'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPreview' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_0D084DFF238E Ini_Reg_Class
 
 : ME_4AC61293015D
  CONST Class class_Dependency
@@ -5658,39 +5112,6 @@ ref; // ME_544741E601FC
  ;
 
 ref; // ME_569E1BA800D2 
-
-: ME_DF6C596218F1
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_DF6C596218F1 
-
-: ME_80A929D3EBD2
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_80A929D3EBD2 
-
-: ME_DE66AE914639
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF6F4E010E // PrimPreview
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_DE66AE914639 
 
 : ME_49521D8E0295_ME_4AAF6F4E010E
  : Original WL 'ME_49521D8E0295' '494F898C013E.pas.ms.script' // Print
@@ -5982,15 +5403,12 @@ ref; // ME_543E3AA801D0_ME_4AAF6F4E010E DoGetTabImageIndex
  : Attributes
    Seq: ( ME_4AC61151002B // PreviewPanel
  ME_4AC610A4031D // f_Preview
- ME_3CFB64149275 // f_PreviewPanel
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4AC61241009B // IsReady
  ME_4AC612AF032F // Preview
  ME_4AC610DF03A7 // Make
- ME_D536781F85FF // Init_Str_PrintPreviewTabCaption
- ME_0D084DFF238E // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -6026,7 +5444,6 @@ ref; // ME_543E3AA801D0_ME_4AAF6F4E010E DoGetTabImageIndex
  ; // Children
  : Constants
    Seq: ( ME_540D65500256 // Local
- ME_FFC411FBE431 // LCImplLocal
  )
  ; // Constants
  : Dependencies
@@ -6039,9 +5456,6 @@ ref; // ME_543E3AA801D0_ME_4AAF6F4E010E DoGetTabImageIndex
  ME_5278E67E0127 // evStyles
  ME_544741E601FC // nsTabbedInterfaceTypes
  ME_569E1BA800D2 // TvcmHistoryService
- ME_DF6C596218F1 // Tl3StringIDEx
- ME_80A929D3EBD2 // Tl3MessageID
- ME_DE66AE914639 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -6164,38 +5578,6 @@ ref; // ME_4AC60842003B f_PageSetup
 
 ref; // ME_4AC608570314 f_DisableControls
 
-: ME_67684FF6A79F
- CONST UID '67684FF6A79F'
- CONST Name 'f_PreviewGroupBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PreviewGroupBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAF8637036A // PrimPageSetup
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
-
-ref; // ME_67684FF6A79F f_PreviewGroupBox
-
-: ME_F28C6F71B4AA
- CONST UID 'F28C6F71B4AA'
- CONST Name 'f_SettingsPageControl'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SettingsPageControl' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AAF8637036A // PrimPageSetup
- ;
- : Target WL 'ME_4AC60C4B00AA' '4AC5E84C02AA.pas.ms.script' // TnscPageControl
- ;
-
-ref; // ME_F28C6F71B4AA f_SettingsPageControl
-
 : ME_4AC607D4024D
  CONST Name 'aData'
  CONST Class class_Parameter
@@ -6267,21 +5649,6 @@ ref; // ME_4AC6089603D4 SetColontitulComboBoxItemIndex
 
 ref; // ME_4AC608AC03C7 ToGUIMargins
 
-: ME_62F76606E02F
- CONST UID '62F76606E02F'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPageSetup' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF8637036A // PrimPageSetup
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_62F76606E02F Ini_Reg_Class
-
 : ME_4AC609690346
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -6291,17 +5658,6 @@ ref; // ME_62F76606E02F Ini_Reg_Class
  ;
 
 ref; // ME_4AC609690346 
-
-: ME_295ED4848636
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF8637036A // PrimPageSetup
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_295ED4848636 
 
 : ME_479731C50290_ME_4AAF8637036A
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
@@ -6330,8 +5686,6 @@ ref; // ME_479731C50290_ME_4AAF8637036A Cleanup
  ME_4AC6080200B3 // f_CurrentColontitul
  ME_4AC60842003B // f_PageSetup
  ME_4AC608570314 // f_DisableControls
- ME_67684FF6A79F // f_PreviewGroupBox
- ME_F28C6F71B4AA // f_SettingsPageControl
  )
  ; // Attributes
  : Operations
@@ -6339,7 +5693,6 @@ ref; // ME_479731C50290_ME_4AAF8637036A Cleanup
  ME_4AC608780164 // ReadPageFormats
  ME_4AC6089603D4 // SetColontitulComboBoxItemIndex
  ME_4AC608AC03C7 // ToGUIMargins
- ME_62F76606E02F // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -6352,7 +5705,6 @@ ref; // ME_479731C50290_ME_4AAF8637036A Cleanup
  ; // Children
  : Dependencies
    Seq: ( ME_4AC609690346 // TnsPageSetup
- ME_295ED4848636 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -6437,32 +5789,6 @@ ref; // ME_4AC6228E018B Make
 
 ref; // ME_4AF8271C0033 UpdatePrintersList
 
-: ME_EE6C73ABD927
- CONST UID 'EE6C73ABD927'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPrintDialog' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AAF8E8701C9 // PrimPrintDialog
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_EE6C73ABD927 Ini_Reg_Class
-
-: ME_5756863E2C00
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AAF8E8701C9 // PrimPrintDialog
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_5756863E2C00 
-
 : ME_4AF82660008B_ME_4AAF8E8701C9
  : Original WL 'ME_4AF82660008B' '4AE89F8A004B.pas.ms.script' // UpdatePrinter
  ;
@@ -6509,7 +5835,6 @@ ref; // ME_479731C50290_ME_4AAF8E8701C9 Cleanup
    Seq: ( ME_4AC6228101B1 // UpdateState
  ME_4AC6228E018B // Make
  ME_4AF8271C0033 // UpdatePrintersList
- ME_EE6C73ABD927 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -6520,10 +5845,6 @@ ref; // ME_479731C50290_ME_4AAF8E8701C9 Cleanup
    Seq: ( ME_479731C50290_ME_4AAF8E8701C9 // Cleanup
  )
  ; // Overridden
- : Dependencies
-   Seq: ( ME_5756863E2C00 // TtfwClassRef
- )
- ; // Dependencies
  CONST "NeedsHackRef" false
  CONST "ZoneType" 'Any'
  CONST "author" 'Люлин А.В.'
@@ -10916,7 +10237,6 @@ ref; // ME_571A23EE0196 PrimQueryCardWordsPack
  WL 'ME_499C2614028C' '499C2614028C.pas.ms.script' // Tree
  WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
- WL 'ME_4A23935A0282' '4A23935A0282.pas.ms.script' // afwNavigation
  WL 'ME_4A251D6E00BD' '4A251D6E00BD.pas.ms.script' // nevNavigation
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4A83EE0E0002' '4A83EE0E0002.pas.ms.script' // Combos
@@ -10969,7 +10289,6 @@ ref; // ME_571A23EE0196 PrimQueryCardWordsPack
  WL 'ME_553893E60323' '553893E60323.pas.ms.script' // Services
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST "ifndef" 'Admin'

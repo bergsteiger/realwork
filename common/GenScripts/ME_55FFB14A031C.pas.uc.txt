@@ -1,12 +1,14 @@
 //#UC START# *479731C50290_55FFB14A031C_impl*
  Assert(not Prepared);
  f_Table := nil;
+ f_Factory := nil;
  inherited;
 //#UC END# *479731C50290_55FFB14A031C_impl*
 //#UC START# *479731C50290_55FFB14A031C_var*
 //#UC END# *479731C50290_55FFB14A031C_var*
 //#UC START# *55530BE50143_55FFB14A031C_impl*
  inherited Create;
+ f_Factory := aFactory;
  f_TableAlias := anAlias;
  f_Table := aTable;
 //#UC END# *55530BE50143_55FFB14A031C_impl*
@@ -48,9 +50,15 @@
 //#UC START# *5744366C003B_55FFB14A031C_var*
 //#UC END# *5744366C003B_55FFB14A031C_var*
 //#UC START# *574443A401BE_55FFB14A031C_impl*
- !!! Needs to be implemented !!!
+ try
+  anAction(Self);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
 //#UC END# *574443A401BE_55FFB14A031C_impl*
 //#UC START# *574443A401BE_55FFB14A031C_var*
+var
+ Hack : Pointer absolute anAction;
 //#UC END# *574443A401BE_55FFB14A031C_var*
 //#UC START# *574570790329_55FFB14A031C_impl*
  Result := f_Factory.MakeJoin(Self, aRight, aKind);

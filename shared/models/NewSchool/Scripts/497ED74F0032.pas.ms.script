@@ -391,132 +391,6 @@ ref; // ME_525D1318002B EMail
 
 ref; // ME_525D137401E5 SendAction
 
-: ME_F3C9E03277E7
- CONST UID 'F3C9E03277E7'
- CONST Name 'f_EMailLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EMailLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_F3C9E03277E7 f_EMailLabel
-
-: ME_3DC1C106CE13
- CONST UID '3DC1C106CE13'
- CONST Name 'f_HintLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HintLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_3DC1C106CE13 f_HintLabel
-
-: ME_6C8C4E883A87
- CONST UID '6C8C4E883A87'
- CONST Name 'f_btnCancel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства btnCancel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_6C8C4E883A87 f_btnCancel
-
-: ME_A7695B2C3E76
- CONST UID 'A7695B2C3E76'
- CONST Name 'f_btnSend'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства btnSend' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_A7695B2C3E76 f_btnSend
-
-: ME_74630CDF7D92
- CONST UID '74630CDF7D92'
- CONST Name 'f_edEmail'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edEmail' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_74630CDF7D92 f_edEmail
-
-: ME_972AD20B2457
- CONST UID '972AD20B2457'
- CONST Name 'f_SendAction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства SendAction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- : Target ME_525D13510088 // TnsSendAction
- ;
- CONST extprop:clearViaProperty 'SendAction'
-
-ref; // ME_972AD20B2457 f_SendAction
-
-FORWARD ME_525D12A30273
-
-: ME_A348523F5DDE
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_A348523F5DDE Sender
-
-: ME_8B3A70DE2E09
- CONST UID '8B3A70DE2E09'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525D12A30273 // EMailEditChange
- ;
- : Parameters
-   Seq: ( ME_A348523F5DDE // Sender
- )
- ; // Parameters
-
-ref; // ME_8B3A70DE2E09 DoIt
-
 : ME_525D12A30273
  CONST UID '525D12A30273'
  CONST Name 'EMailEditChange'
@@ -531,41 +405,8 @@ ref; // ME_8B3A70DE2E09 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8B3A70DE2E09 // DoIt
- )
- ; // Operations
 
 ref; // ME_525D12A30273 EMailEditChange
-
-FORWARD ME_525D12C2011A
-
-: ME_B69F4D6E8366
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_B69F4D6E8366 Sender
-
-: ME_ABB4EABC818E
- CONST UID 'ABB4EABC818E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525D12C2011A // btnSendClick
- ;
- : Parameters
-   Seq: ( ME_B69F4D6E8366 // Sender
- )
- ; // Parameters
-
-ref; // ME_ABB4EABC818E DoIt
 
 : ME_525D12C2011A
  CONST UID '525D12C2011A'
@@ -581,27 +422,8 @@ ref; // ME_ABB4EABC818E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_ABB4EABC818E // DoIt
- )
- ; // Operations
 
 ref; // ME_525D12C2011A btnSendClick
-
-FORWARD ME_525D13F30292
-
-: ME_06816610BB65
- CONST UID '06816610BB65'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoSend' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525D13F30292 // DoSend
- ;
-
-ref; // ME_06816610BB65 DoIt
 
 : ME_525D13F30292
  CONST UID '525D13F30292'
@@ -613,10 +435,6 @@ ref; // ME_06816610BB65 DoIt
  CONST Abstraction at_final
  : Parent ME_4A93EC4B03CC // PrimRememberPassword
  ;
- : Operations
-   Seq: ( ME_06816610BB65 // DoIt
- )
- ; // Operations
 
 ref; // ME_525D13F30292 DoSend
 
@@ -631,21 +449,6 @@ ref; // ME_525D13F30292 DoSend
  ;
 
 ref; // ME_525D38F40219 Make
-
-: ME_917B7EB9B6E2
- CONST UID '917B7EB9B6E2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimRememberPassword' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93EC4B03CC // PrimRememberPassword
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_917B7EB9B6E2 Ini_Reg_Class
 
 : ME_525D144D02DD
  CONST Class class_Dependency
@@ -687,16 +490,15 @@ ref; // ME_525D43CF003F
 
 ref; // ME_525D43D2020E 
 
-: ME_DF7C3C1B9F92
- CONST IsSummoned true
+: ME_574DC8F800A3
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_4A93EC4B03CC // PrimRememberPassword
  ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
  ;
 
-ref; // ME_DF7C3C1B9F92 
+ref; // ME_574DC8F800A3 
 
 : ME_47A042E100E2_ME_4A93EC4B03CC
  : Original WL 'ME_47A042E100E2' '47913B47006E.pas.ms.script' // InitFields
@@ -745,12 +547,6 @@ ref; // ME_4B0E846D022B_ME_4A93EC4B03CC IsRealInstance
  ME_525D127703B4 // edEmail
  ME_525D1318002B // EMail
  ME_525D137401E5 // SendAction
- ME_F3C9E03277E7 // f_EMailLabel
- ME_3DC1C106CE13 // f_HintLabel
- ME_6C8C4E883A87 // f_btnCancel
- ME_A7695B2C3E76 // f_btnSend
- ME_74630CDF7D92 // f_edEmail
- ME_972AD20B2457 // f_SendAction
  )
  ; // Attributes
  : Operations
@@ -758,7 +554,6 @@ ref; // ME_4B0E846D022B_ME_4A93EC4B03CC IsRealInstance
  ME_525D12C2011A // btnSendClick
  ME_525D13F30292 // DoSend
  ME_525D38F40219 // Make
- ME_917B7EB9B6E2 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -777,7 +572,7 @@ ref; // ME_4B0E846D022B_ME_4A93EC4B03CC IsRealInstance
  ME_525D147301B9 // nsVerifyValue
  ME_525D43CF003F // Windows
  ME_525D43D2020E // Graphics
- ME_DF7C3C1B9F92 // TtfwClassRef
+ ME_574DC8F800A3 // Classes
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -911,58 +706,6 @@ ref; // ME_50F98032028A CancelButtonCaption
 
 ref; // ME_50F97F89002A ProgressIndicatorLocalConst
 
-FORWARD ME_37BDE1F9676B
-
-: ME_B8463DC7C6A2
- CONST UID 'B8463DC7C6A2'
- CONST Name 'CancelButtonCaption'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''&Отмена''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_37BDE1F9676B // LCImplProgressIndicatorLocalConst
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''CancelButtonCaption''; rValue : ''&Отмена'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''CancelButtonCaption''; rValue : ''&Отмена'')'
- : Speller ME_50F98032028A // CancelButtonCaption
- ;
-
-ref; // ME_B8463DC7C6A2 CancelButtonCaption
-
-: ME_37BDE1F9676B
- CONST UID '37BDE1F9676B'
- CONST Name 'LCImplProgressIndicatorLocalConst'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки ProgressIndicatorLocalConst' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Attributes
-   Seq: ( ME_B8463DC7C6A2 // CancelButtonCaption
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_50F97F89002A // ProgressIndicatorLocalConst
- ;
-
-ref; // ME_37BDE1F9676B LCImplProgressIndicatorLocalConst
-
 : ME_4AC627D2039B
  CONST UID '4AC627D2039B'
  CONST Name 'ProgressBar'
@@ -1094,22 +837,6 @@ ref; // ME_50F927B30145 f_Scene
  ;
 
 ref; // ME_50F927BC0149 f_Background
-
-: ME_EAAA396B0B92
- CONST UID 'EAAA396B0B92'
- CONST Name 'f_ProgressBar'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ProgressBar' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Target WL 'ME_4AC627AD00F4' '4799D29F033F.pas.ms.script' // TProgressBar
- ;
-
-ref; // ME_EAAA396B0B92 f_ProgressBar
 
 FORWARD ME_50F98967031E
 
@@ -1261,39 +988,6 @@ ref; // ME_50F987AC0371 Message
 
 ref; // ME_50F987AA03D9 WMUserFinishProcess
 
-: ME_7536AE49335A
- CONST UID '7536AE49335A'
- CONST Name 'Init_Str_CancelButtonCaption'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_CancelButtonCaption' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Speller ME_50F98032028A // CancelButtonCaption
- ;
- : SpelledFor ME_B8463DC7C6A2 // CancelButtonCaption
- ;
-
-ref; // ME_7536AE49335A Init_Str_CancelButtonCaption
-
-: ME_E24019B98CC3
- CONST UID 'E24019B98CC3'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimProgressIndicator' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E24019B98CC3 Ini_Reg_Class
-
 : ME_50F9850803DE
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -1404,39 +1098,6 @@ ref; // ME_50F985220320
 
 ref; // ME_50F98524015D 
 
-: ME_63982D59DBFA
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_63982D59DBFA 
-
-: ME_4E2E88B77DF9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_4E2E88B77DF9 
-
-: ME_E074C2872239
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A93F1980324 // PrimProgressIndicator
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_E074C2872239 
-
 : ME_479731C50290_ME_4A93F1980324
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1480,7 +1141,6 @@ ref; // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
  ME_50F83173019D // f_CancelButton
  ME_50F927B30145 // f_Scene
  ME_50F927BC0149 // f_Background
- ME_EAAA396B0B92 // f_ProgressBar
  )
  ; // Attributes
  : Operations
@@ -1488,8 +1148,6 @@ ref; // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
  ME_4AC6270C00E2 // Make
  ME_50F98780007B // WMUserSetCurrent
  ME_50F987AA03D9 // WMUserFinishProcess
- ME_7536AE49335A // Init_Str_CancelButtonCaption
- ME_E24019B98CC3 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -1505,7 +1163,6 @@ ref; // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
  : Constants
    Seq: ( ME_50F988320278 // ProgressIndicatorConstants
  ME_50F97F89002A // ProgressIndicatorLocalConst
- ME_37BDE1F9676B // LCImplProgressIndicatorLocalConst
  )
  ; // Constants
  : Dependencies
@@ -1520,9 +1177,6 @@ ref; // ME_4A8E8F2E0195_ME_4A93F1980324 InitControls
  ME_50F9852003D8 // TMsgDlgButtons
  ME_50F985220320 // ColorToRGB
  ME_50F98524015D // vtVGSceneRes
- ME_63982D59DBFA // Tl3StringIDEx
- ME_4E2E88B77DF9 // Tl3MessageID
- ME_E074C2872239 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -3072,165 +2726,6 @@ ref; // ME_5279138D03C1 btnCancel
 
 ref; // ME_4AC5D9AC00CC Controller
 
-: ME_BBC066691334
- CONST UID 'BBC066691334'
- CONST Name 'f_rb_totmChangeDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rb_totmChangeDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_BBC066691334 f_rb_totmChangeDate
-
-: ME_01F21DA250AF
- CONST UID '01F21DA250AF'
- CONST Name 'f_rb_totmStayInCurrentRedaction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rb_totmStayInCurrentRedaction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_01F21DA250AF f_rb_totmStayInCurrentRedaction
-
-: ME_E6C85EE0CABE
- CONST UID 'E6C85EE0CABE'
- CONST Name 'f_rb_totmGotoActualRedaction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства rb_totmGotoActualRedaction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_517941E500BF' '4C43D64C0168.pas.ms.script' // TvtRadioButton
- ;
-
-ref; // ME_E6C85EE0CABE f_rb_totmGotoActualRedaction
-
-: ME_694EA87CE6B7
- CONST UID '694EA87CE6B7'
- CONST Name 'f_deChangeDate'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства deChangeDate' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_4AC5DAE50246' '4AC5DADB00C9.pas.ms.script' // TvtDblClickDateEdit
- ;
-
-ref; // ME_694EA87CE6B7 f_deChangeDate
-
-: ME_0A6FA4793610
- CONST UID '0A6FA4793610'
- CONST Name 'f_pbDialogIcon'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pbDialogIcon' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_0A6FA4793610 f_pbDialogIcon
-
-: ME_18B1E2BDCFA1
- CONST UID '18B1E2BDCFA1'
- CONST Name 'f_lblTurnOnTimeMachineInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства lblTurnOnTimeMachineInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_18B1E2BDCFA1 f_lblTurnOnTimeMachineInfo
-
-: ME_89DE486B7B40
- CONST UID '89DE486B7B40'
- CONST Name 'f_btnOk'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства btnOk' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_517941310082' '4C43D64C0168.pas.ms.script' // TvtButton
- ;
-
-ref; // ME_89DE486B7B40 f_btnOk
-
-: ME_24DB52D19D40
- CONST UID '24DB52D19D40'
- CONST Name 'f_btnCancel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства btnCancel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_517941310082' '4C43D64C0168.pas.ms.script' // TvtButton
- ;
-
-ref; // ME_24DB52D19D40 f_btnCancel
-
-: ME_570A4C282275
- CONST UID '570A4C282275'
- CONST Name 'f_Controller'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Controller' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_49805ECD020F' '49804E310263.pas.ms.script' // InsTurnOffTimeMachine
- ;
-
-ref; // ME_570A4C282275 f_Controller
-
-FORWARD ME_4AC5DC1900CE
-
-: ME_5D87326D3C5A
- CONST UID '5D87326D3C5A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckControls' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AC5DC1900CE // CheckControls
- ;
-
-ref; // ME_5D87326D3C5A DoIt
-
 : ME_4AC5DC1900CE
  CONST UID '4AC5DC1900CE'
  CONST Name 'CheckControls'
@@ -3241,27 +2736,8 @@ ref; // ME_5D87326D3C5A DoIt
  CONST Abstraction at_final
  : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
  ;
- : Operations
-   Seq: ( ME_5D87326D3C5A // DoIt
- )
- ; // Operations
 
 ref; // ME_4AC5DC1900CE CheckControls
-
-FORWARD ME_4AC5DDF603C3
-
-: ME_334F38B77D09
- CONST UID '334F38B77D09'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DoOk' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4AC5DDF603C3 // DoOk
- ;
-
-ref; // ME_334F38B77D09 DoIt
 
 : ME_4AC5DDF603C3
  CONST UID '4AC5DDF603C3'
@@ -3273,41 +2749,8 @@ ref; // ME_334F38B77D09 DoIt
  CONST Abstraction at_final
  : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
  ;
- : Operations
-   Seq: ( ME_334F38B77D09 // DoIt
- )
- ; // Operations
 
 ref; // ME_4AC5DDF603C3 DoOk
-
-FORWARD ME_527914350245
-
-: ME_44C53ADA07E2
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_44C53ADA07E2 Sender
-
-: ME_97A7DC212CA9
- CONST UID '97A7DC212CA9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527914350245 // btnOkClick
- ;
- : Parameters
-   Seq: ( ME_44C53ADA07E2 // Sender
- )
- ; // Parameters
-
-ref; // ME_97A7DC212CA9 DoIt
 
 : ME_527914350245
  CONST UID '527914350245'
@@ -3323,41 +2766,8 @@ ref; // ME_97A7DC212CA9 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_97A7DC212CA9 // DoIt
- )
- ; // Operations
 
 ref; // ME_527914350245 btnOkClick
-
-FORWARD ME_527914590396
-
-: ME_8A19AF2055E9
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_8A19AF2055E9 Sender
-
-: ME_29B80AC2E49E
- CONST UID '29B80AC2E49E'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527914590396 // deChangeDateChange
- ;
- : Parameters
-   Seq: ( ME_8A19AF2055E9 // Sender
- )
- ; // Parameters
-
-ref; // ME_29B80AC2E49E DoIt
 
 : ME_527914590396
  CONST UID '527914590396'
@@ -3373,41 +2783,8 @@ ref; // ME_29B80AC2E49E DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_29B80AC2E49E // DoIt
- )
- ; // Operations
 
 ref; // ME_527914590396 deChangeDateChange
-
-FORWARD ME_527914660245
-
-: ME_FE4A0ACA81CD
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_FE4A0ACA81CD Sender
-
-: ME_3533275E3A30
- CONST UID '3533275E3A30'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_527914660245 // pbDialogIconPaint
- ;
- : Parameters
-   Seq: ( ME_FE4A0ACA81CD // Sender
- )
- ; // Parameters
-
-ref; // ME_3533275E3A30 DoIt
 
 : ME_527914660245
  CONST UID '527914660245'
@@ -3423,10 +2800,6 @@ ref; // ME_3533275E3A30 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_3533275E3A30 // DoIt
- )
- ; // Operations
 
 ref; // ME_527914660245 pbDialogIconPaint
 
@@ -3454,21 +2827,6 @@ ref; // ME_4AC4F87701C0 aData
  ; // Parameters
 
 ref; // ME_4AC4F87001FB Make
-
-: ME_BCE46F8A1094
- CONST UID 'BCE46F8A1094'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimTurnOffTimeMachine' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_BCE46F8A1094 Ini_Reg_Class
 
 : ME_4AC5DF4E0197
  CONST Class class_Dependency
@@ -3570,17 +2928,6 @@ ref; // ME_5279289B0040
 
 ref; // ME_527928EF018E 
 
-: ME_78853FE1BF32
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC4F82F0234 // PrimTurnOffTimeMachine
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_78853FE1BF32 
-
 : ME_4A8AD46D0226_ME_4AC4F82F0234
  : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
  ;
@@ -3659,12 +3006,6 @@ ref; // ME_47A042E100E2_ME_4AC4F82F0234 InitFields
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_4AC4F82F0234 InitControls
 
-: ME_5000565C019C_ME_4AC4F82F0234
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AC4F82F0234 ClearFields
-
 : ME_529332B40230_ME_4AC4F82F0234
  : Original WL 'ME_529332B40230' '4AADF9450143.pas.ms.script' // SetupFormLayout
  ;
@@ -3700,15 +3041,6 @@ ref; // ME_529332B40230_ME_4AC4F82F0234 SetupFormLayout
  ME_5279136E017E // btnOk
  ME_5279138D03C1 // btnCancel
  ME_4AC5D9AC00CC // Controller
- ME_BBC066691334 // f_rb_totmChangeDate
- ME_01F21DA250AF // f_rb_totmStayInCurrentRedaction
- ME_E6C85EE0CABE // f_rb_totmGotoActualRedaction
- ME_694EA87CE6B7 // f_deChangeDate
- ME_0A6FA4793610 // f_pbDialogIcon
- ME_18B1E2BDCFA1 // f_lblTurnOnTimeMachineInfo
- ME_89DE486B7B40 // f_btnOk
- ME_24DB52D19D40 // f_btnCancel
- ME_570A4C282275 // f_Controller
  )
  ; // Attributes
  : Operations
@@ -3718,7 +3050,6 @@ ref; // ME_529332B40230_ME_4AC4F82F0234 SetupFormLayout
  ME_527914590396 // deChangeDateChange
  ME_527914660245 // pbDialogIconPaint
  ME_4AC4F87001FB // Make
- ME_BCE46F8A1094 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -3732,7 +3063,6 @@ ref; // ME_529332B40230_ME_4AC4F82F0234 SetupFormLayout
    Seq: ( ME_479731C50290_ME_4AC4F82F0234 // Cleanup
  ME_47A042E100E2_ME_4AC4F82F0234 // InitFields
  ME_4A8E8F2E0195_ME_4AC4F82F0234 // InitControls
- ME_5000565C019C_ME_4AC4F82F0234 // ClearFields
  ME_529332B40230_ME_4AC4F82F0234 // SetupFormLayout
  )
  ; // Overridden
@@ -3747,7 +3077,6 @@ ref; // ME_529332B40230_ME_4AC4F82F0234 SetupFormLayout
  ME_5279288C0285 // Graphics
  ME_5279289B0040 // Windows
  ME_527928EF018E // vtCombo
- ME_78853FE1BF32 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -5151,188 +4480,6 @@ ref; // ME_5267A7720119 errLoginIsTooLong
 
 ref; // ME_525AE843000D Registration Form Controls' Hints
 
-FORWARD ME_0F51D59E69AB
-
-: ME_DE89ED2A6E7A
- CONST UID 'DE89ED2A6E7A'
- CONST Name 'edPasswordHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Введите пароль для авторизации в системе''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''edPasswordHint''; rValue : ''Введите пароль для авторизации в системе'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''edPasswordHint''; rValue : ''Введите пароль для авторизации в системе'')'
- : Speller ME_525AE88A031C // edPasswordHint
- ;
-
-ref; // ME_DE89ED2A6E7A edPasswordHint
-
-: ME_05CF2F79FB69
- CONST UID '05CF2F79FB69'
- CONST Name 'edUserNameHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Введите свои имя, фамилию и отчество''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''edUserNameHint''; rValue : ''Введите свои имя, фамилию и отчество'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''edUserNameHint''; rValue : ''Введите свои имя, фамилию и отчество'')'
- : Speller ME_525AE8A600A4 // edUserNameHint
- ;
-
-ref; // ME_05CF2F79FB69 edUserNameHint
-
-: ME_201143CE5E7E
- CONST UID '201143CE5E7E'
- CONST Name 'edLoginHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Введите имя для работы в системе ГАРАНТ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''edLoginHint''; rValue : ''Введите имя для работы в системе ГАРАНТ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''edLoginHint''; rValue : ''Введите имя для работы в системе ГАРАНТ'')'
- : Speller ME_525AE8EE0111 // edLoginHint
- ;
-
-ref; // ME_201143CE5E7E edLoginHint
-
-: ME_FD1A5580AD11
- CONST UID 'FD1A5580AD11'
- CONST Name 'edEmailHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Электронная почта: адрес, на который будет выслан забытый Вами пароль''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''edEmailHint''; rValue : ''Электронная почта: адрес, на который будет выслан забытый Вами пароль'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''edEmailHint''; rValue : ''Электронная почта: адрес, на который будет выслан забытый Вами пароль'')'
- : Speller ME_525AE94F02FE // edEmailHint
- ;
-
-ref; // ME_FD1A5580AD11 edEmailHint
-
-: ME_80DC08508859
- CONST UID '80DC08508859'
- CONST Name 'edConfirmHint'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Подтвердите пароль, введенный в предыдущей строке''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''edConfirmHint''; rValue : ''Подтвердите пароль, введенный в предыдущей строке'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''edConfirmHint''; rValue : ''Подтвердите пароль, введенный в предыдущей строке'')'
- : Speller ME_525AE98D0103 // edConfirmHint
- ;
-
-ref; // ME_80DC08508859 edConfirmHint
-
-: ME_2E4C93D4E761
- CONST UID '2E4C93D4E761'
- CONST Name 'errLoginIsTooLong'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Регистрационное имя может содержать не более 31 символа!''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''errLoginIsTooLong''; rValue : ''Регистрационное имя может содержать не более 31 символа!'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''errLoginIsTooLong''; rValue : ''Регистрационное имя может содержать не более 31 символа!'')'
- : Speller ME_5267A7720119 // errLoginIsTooLong
- ;
-
-ref; // ME_2E4C93D4E761 errLoginIsTooLong
-
-: ME_0F51D59E69AB
- CONST UID '0F51D59E69AB'
- CONST Name 'LCImplRegistration Form Controls'' Hints'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки Registration Form Controls'' Hints' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Attributes
-   Seq: ( ME_DE89ED2A6E7A // edPasswordHint
- ME_05CF2F79FB69 // edUserNameHint
- ME_201143CE5E7E // edLoginHint
- ME_FD1A5580AD11 // edEmailHint
- ME_80DC08508859 // edConfirmHint
- ME_2E4C93D4E761 // errLoginIsTooLong
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_525AE843000D // Registration Form Controls' Hints
- ;
-
-ref; // ME_0F51D59E69AB LCImplRegistration Form Controls' Hints
-
 FORWARD ME_525AE124002F
 
 : ME_525AE13E0226
@@ -5969,436 +5116,6 @@ ref; // ME_525AEDF803A9 CanRelogin
 
 ref; // ME_525AEE0D005C RegisterAction
 
-: ME_CE93C1962C15
- CONST UID 'CE93C1962C15'
- CONST Name 'f_pnMainData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства pnMainData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_CE93C1962C15 f_pnMainData
-
-: ME_5591E3CBE3A9
- CONST UID '5591E3CBE3A9'
- CONST Name 'f_UserNameLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства UserNameLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_5591E3CBE3A9 f_UserNameLabel
-
-: ME_BDEB5421477D
- CONST UID 'BDEB5421477D'
- CONST Name 'f_PasswordLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства PasswordLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_BDEB5421477D f_PasswordLabel
-
-: ME_5E2FF7346A9B
- CONST UID '5E2FF7346A9B'
- CONST Name 'f_LoginLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства LoginLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_5E2FF7346A9B f_LoginLabel
-
-: ME_403D265C2052
- CONST UID '403D265C2052'
- CONST Name 'f_InfoLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства InfoLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_403D265C2052 f_InfoLabel
-
-: ME_8BB43B6562A1
- CONST UID '8BB43B6562A1'
- CONST Name 'f_EMailLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства EMailLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_8BB43B6562A1 f_EMailLabel
-
-: ME_5B011CCC7A2C
- CONST UID '5B011CCC7A2C'
- CONST Name 'f_ConfirmPasswordLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ConfirmPasswordLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_5B011CCC7A2C f_ConfirmPasswordLabel
-
-: ME_7F060B15FF5E
- CONST UID '7F060B15FF5E'
- CONST Name 'f_vtAsteriskLabelLogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства vtAsteriskLabelLogin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_7F060B15FF5E f_vtAsteriskLabelLogin
-
-: ME_06B85D610E52
- CONST UID '06B85D610E52'
- CONST Name 'f_vtAsteriskLabelFIO'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства vtAsteriskLabelFIO' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_06B85D610E52 f_vtAsteriskLabelFIO
-
-: ME_EF52F95B9734
- CONST UID 'EF52F95B9734'
- CONST Name 'f_edPassword'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edPassword' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_520A36BD00B7' '495119A901CE.pas.ms.script' // TnscComboBoxWithPwdChar
- ;
-
-ref; // ME_EF52F95B9734 f_edPassword
-
-: ME_21126B0B378A
- CONST UID '21126B0B378A'
- CONST Name 'f_edUserName'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edUserName' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_21126B0B378A f_edUserName
-
-: ME_9C836A979CFA
- CONST UID '9C836A979CFA'
- CONST Name 'f_edLogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edLogin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_9C836A979CFA f_edLogin
-
-: ME_9FC2097ADAEB
- CONST UID '9FC2097ADAEB'
- CONST Name 'f_edEmail'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edEmail' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AC5F4B9037A' '495119A901CE.pas.ms.script' // TnscEdit
- ;
-
-ref; // ME_9FC2097ADAEB f_edEmail
-
-: ME_1814AECABAE5
- CONST UID '1814AECABAE5'
- CONST Name 'f_edConfirm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edConfirm' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_520A36BD00B7' '495119A901CE.pas.ms.script' // TnscComboBoxWithPwdChar
- ;
-
-ref; // ME_1814AECABAE5 f_edConfirm
-
-: ME_7C5A0EA4FCCC
- CONST UID '7C5A0EA4FCCC'
- CONST Name 'f_cbAutoLogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства cbAutoLogin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_7C5A0EA4FCCC f_cbAutoLogin
-
-: ME_DB97FDBCA473
- CONST UID 'DB97FDBCA473'
- CONST Name 'f_NewUserGroupBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NewUserGroupBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AC608E40294' '4AC5DA5A01AD.pas.ms.script' // TvtGroupBox
- ;
-
-ref; // ME_DB97FDBCA473 f_NewUserGroupBox
-
-: ME_0C946EE1725C
- CONST UID '0C946EE1725C'
- CONST Name 'f_NewUserLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NewUserLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_0C946EE1725C f_NewUserLabel
-
-: ME_F4882F4930F3
- CONST UID 'F4882F4930F3'
- CONST Name 'f_NewUserPaintBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства NewUserPaintBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_F4882F4930F3 f_NewUserPaintBox
-
-: ME_37AF4773F1A4
- CONST UID '37AF4773F1A4'
- CONST Name 'f_BottomPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BottomPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_37AF4773F1A4 f_BottomPanel
-
-: ME_1FB05934C109
- CONST UID '1FB05934C109'
- CONST Name 'f_RegisterButton'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RegisterButton' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_520A3B0702A0' '48342A280198.pas.ms.script' // TElPopupButton
- ;
-
-ref; // ME_1FB05934C109 f_RegisterButton
-
-: ME_6C0C65C39ECF
- CONST UID '6C0C65C39ECF'
- CONST Name 'f_HelpPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HelpPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_6C0C65C39ECF f_HelpPanel
-
-: ME_EF2E5F915801
- CONST UID 'EF2E5F915801'
- CONST Name 'f_HelpPaintBox'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HelpPaintBox' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4ACB3E4B0001' '4799D29F033F.pas.ms.script' // TPaintBox
- ;
-
-ref; // ME_EF2E5F915801 f_HelpPaintBox
-
-: ME_154CD1ED089B
- CONST UID '154CD1ED089B'
- CONST Name 'f_HelpLabel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства HelpLabel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4A9B9BC00258' '4A9B9BAA0207.pas.ms.script' // TvtFocusLabel
- ;
-
-ref; // ME_154CD1ED089B f_HelpLabel
-
-: ME_EB13A69A9B94
- CONST UID 'EB13A69A9B94'
- CONST Name 'f_CanRelogin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства CanRelogin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_EB13A69A9B94 f_CanRelogin
-
-: ME_6B45F76DCB3D
- CONST UID '6B45F76DCB3D'
- CONST Name 'f_RegisterAction'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства RegisterAction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target ME_525AE0FA0147 // TnsRegisterAction
- ;
- CONST extprop:clearViaProperty 'RegisterAction'
-
-ref; // ME_6B45F76DCB3D f_RegisterAction
-
-FORWARD ME_525AE9C902D1
-
-: ME_5D7E54A94C88
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5D7E54A94C88 Sender
-
-: ME_1F1B86CE4C21
- CONST UID '1F1B86CE4C21'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE9C902D1 // edPasswordChange
- ;
- : Parameters
-   Seq: ( ME_5D7E54A94C88 // Sender
- )
- ; // Parameters
-
-ref; // ME_1F1B86CE4C21 DoIt
-
 : ME_525AE9C902D1
  CONST UID '525AE9C902D1'
  CONST Name 'edPasswordChange'
@@ -6413,42 +5130,9 @@ ref; // ME_1F1B86CE4C21 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_1F1B86CE4C21 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'PasswordChange'
 
 ref; // ME_525AE9C902D1 edPasswordChange
-
-FORWARD ME_525AE9D5033E
-
-: ME_31CA2632A833
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_31CA2632A833 Sender
-
-: ME_2179273D7611
- CONST UID '2179273D7611'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE9D5033E // edUserNameChange
- ;
- : Parameters
-   Seq: ( ME_31CA2632A833 // Sender
- )
- ; // Parameters
-
-ref; // ME_2179273D7611 DoIt
 
 : ME_525AE9D5033E
  CONST UID '525AE9D5033E'
@@ -6464,42 +5148,9 @@ ref; // ME_2179273D7611 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_2179273D7611 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'UserNameChange'
 
 ref; // ME_525AE9D5033E edUserNameChange
-
-FORWARD ME_525AE9F100C2
-
-: ME_861C332BF97F
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_861C332BF97F Sender
-
-: ME_71D3D47B42E6
- CONST UID '71D3D47B42E6'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE9F100C2 // edLoginChange
- ;
- : Parameters
-   Seq: ( ME_861C332BF97F // Sender
- )
- ; // Parameters
-
-ref; // ME_71D3D47B42E6 DoIt
 
 : ME_525AE9F100C2
  CONST UID '525AE9F100C2'
@@ -6515,42 +5166,9 @@ ref; // ME_71D3D47B42E6 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_71D3D47B42E6 // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'LoginChange'
 
 ref; // ME_525AE9F100C2 edLoginChange
-
-FORWARD ME_525AE9FB00ED
-
-: ME_143E3E68AD5C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_143E3E68AD5C Sender
-
-: ME_193B68AC157C
- CONST UID '193B68AC157C'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE9FB00ED // edConfirmChange
- ;
- : Parameters
-   Seq: ( ME_143E3E68AD5C // Sender
- )
- ; // Parameters
-
-ref; // ME_193B68AC157C DoIt
 
 : ME_525AE9FB00ED
  CONST UID '525AE9FB00ED'
@@ -6566,42 +5184,9 @@ ref; // ME_193B68AC157C DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_193B68AC157C // DoIt
- )
- ; // Operations
  CONST extprop:rc:SelfName 'ConfirmChange'
 
 ref; // ME_525AE9FB00ED edConfirmChange
-
-FORWARD ME_525AEA140367
-
-: ME_5D91CA4EE20C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_5D91CA4EE20C Sender
-
-: ME_C972FC9A7C47
- CONST UID 'C972FC9A7C47'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AEA140367 // NewUserPaintBoxPaint
- ;
- : Parameters
-   Seq: ( ME_5D91CA4EE20C // Sender
- )
- ; // Parameters
-
-ref; // ME_C972FC9A7C47 DoIt
 
 : ME_525AEA140367
  CONST UID '525AEA140367'
@@ -6617,41 +5202,8 @@ ref; // ME_C972FC9A7C47 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_C972FC9A7C47 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEA140367 NewUserPaintBoxPaint
-
-FORWARD ME_525AEA3E0143
-
-: ME_93869AE84F1B
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_93869AE84F1B Sender
-
-: ME_0F74DE8F00A4
- CONST UID '0F74DE8F00A4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AEA3E0143 // RegisterButtonClick
- ;
- : Parameters
-   Seq: ( ME_93869AE84F1B // Sender
- )
- ; // Parameters
-
-ref; // ME_0F74DE8F00A4 DoIt
 
 : ME_525AEA3E0143
  CONST UID '525AEA3E0143'
@@ -6667,41 +5219,8 @@ ref; // ME_0F74DE8F00A4 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0F74DE8F00A4 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEA3E0143 RegisterButtonClick
-
-FORWARD ME_525AEA4B0070
-
-: ME_73FE32C13278
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_73FE32C13278 Sender
-
-: ME_A69C15576F58
- CONST UID 'A69C15576F58'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AEA4B0070 // HelpPaintBoxPaint
- ;
- : Parameters
-   Seq: ( ME_73FE32C13278 // Sender
- )
- ; // Parameters
-
-ref; // ME_A69C15576F58 DoIt
 
 : ME_525AEA4B0070
  CONST UID '525AEA4B0070'
@@ -6717,41 +5236,8 @@ ref; // ME_A69C15576F58 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_A69C15576F58 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEA4B0070 HelpPaintBoxPaint
-
-FORWARD ME_525AEA560331
-
-: ME_859A642F062A
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_859A642F062A Sender
-
-: ME_42F9730D3606
- CONST UID '42F9730D3606'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AEA560331 // HelpLabelClick
- ;
- : Parameters
-   Seq: ( ME_859A642F062A // Sender
- )
- ; // Parameters
-
-ref; // ME_42F9730D3606 DoIt
 
 : ME_525AEA560331
  CONST UID '525AEA560331'
@@ -6767,27 +5253,8 @@ ref; // ME_42F9730D3606 DoIt
    Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_42F9730D3606 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEA560331 HelpLabelClick
-
-FORWARD ME_525AEF5B01E9
-
-: ME_7D5120C5ABCE
- CONST UID '7D5120C5ABCE'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода IncreaseLogin' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525AEF5B01E9 // IncreaseLogin
- ;
-
-ref; // ME_7D5120C5ABCE DoIt
 
 : ME_525AEF5B01E9
  CONST UID '525AEF5B01E9'
@@ -6799,27 +5266,8 @@ ref; // ME_7D5120C5ABCE DoIt
  CONST Abstraction at_final
  : Parent ME_525AE04E0326 // PrimRegistration
  ;
- : Operations
-   Seq: ( ME_7D5120C5ABCE // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEF5B01E9 IncreaseLogin
-
-FORWARD ME_525AEF6D0366
-
-: ME_A28C19FE5B65
- CONST UID 'A28C19FE5B65'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода RepositionControls' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525AEF6D0366 // RepositionControls
- ;
-
-ref; // ME_A28C19FE5B65 DoIt
 
 : ME_525AEF6D0366
  CONST UID '525AEF6D0366'
@@ -6831,27 +5279,8 @@ ref; // ME_A28C19FE5B65 DoIt
  CONST Abstraction at_final
  : Parent ME_525AE04E0326 // PrimRegistration
  ;
- : Operations
-   Seq: ( ME_A28C19FE5B65 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEF6D0366 RepositionControls
-
-FORWARD ME_525AEF7702EB
-
-: ME_95F3F087E4A9
- CONST UID '95F3F087E4A9'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Save' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525AEF7702EB // Save
- ;
-
-ref; // ME_95F3F087E4A9 DoIt
 
 : ME_525AEF7702EB
  CONST UID '525AEF7702EB'
@@ -6863,27 +5292,8 @@ ref; // ME_95F3F087E4A9 DoIt
  CONST Abstraction at_final
  : Parent ME_525AE04E0326 // PrimRegistration
  ;
- : Operations
-   Seq: ( ME_95F3F087E4A9 // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEF7702EB Save
-
-FORWARD ME_525AEF8102B9
-
-: ME_72E875A943FA
- CONST UID '72E875A943FA'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CheckForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_525AEF8102B9 // CheckForm
- ;
-
-ref; // ME_72E875A943FA DoIt
 
 : ME_525AEF8102B9
  CONST UID '525AEF8102B9'
@@ -6895,10 +5305,6 @@ ref; // ME_72E875A943FA DoIt
  CONST Abstraction at_final
  : Parent ME_525AE04E0326 // PrimRegistration
  ;
- : Operations
-   Seq: ( ME_72E875A943FA // DoIt
- )
- ; // Operations
 
 ref; // ME_525AEF8102B9 CheckForm
 
@@ -6962,129 +5368,6 @@ ref; // ME_525BCC42003B aCanRelogin
  ; // Parameters
 
 ref; // ME_525BCC29025A Make
-
-: ME_19C6F665FBD4
- CONST UID '19C6F665FBD4'
- CONST Name 'Init_Str_edPasswordHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_edPasswordHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_525AE88A031C // edPasswordHint
- ;
- : SpelledFor ME_DE89ED2A6E7A // edPasswordHint
- ;
-
-ref; // ME_19C6F665FBD4 Init_Str_edPasswordHint
-
-: ME_263A4016AE34
- CONST UID '263A4016AE34'
- CONST Name 'Init_Str_edUserNameHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_edUserNameHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_525AE8A600A4 // edUserNameHint
- ;
- : SpelledFor ME_05CF2F79FB69 // edUserNameHint
- ;
-
-ref; // ME_263A4016AE34 Init_Str_edUserNameHint
-
-: ME_A6D3981BB3A2
- CONST UID 'A6D3981BB3A2'
- CONST Name 'Init_Str_edLoginHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_edLoginHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_525AE8EE0111 // edLoginHint
- ;
- : SpelledFor ME_201143CE5E7E // edLoginHint
- ;
-
-ref; // ME_A6D3981BB3A2 Init_Str_edLoginHint
-
-: ME_D40FA0E066FF
- CONST UID 'D40FA0E066FF'
- CONST Name 'Init_Str_edEmailHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_edEmailHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_525AE94F02FE // edEmailHint
- ;
- : SpelledFor ME_FD1A5580AD11 // edEmailHint
- ;
-
-ref; // ME_D40FA0E066FF Init_Str_edEmailHint
-
-: ME_FD8D6C0C1668
- CONST UID 'FD8D6C0C1668'
- CONST Name 'Init_Str_edConfirmHint'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_edConfirmHint' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_525AE98D0103 // edConfirmHint
- ;
- : SpelledFor ME_80DC08508859 // edConfirmHint
- ;
-
-ref; // ME_FD8D6C0C1668 Init_Str_edConfirmHint
-
-: ME_9D6B96D5B339
- CONST UID '9D6B96D5B339'
- CONST Name 'Init_Str_errLoginIsTooLong'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Инициализация str_errLoginIsTooLong' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Speller ME_5267A7720119 // errLoginIsTooLong
- ;
- : SpelledFor ME_2E4C93D4E761 // errLoginIsTooLong
- ;
-
-ref; // ME_9D6B96D5B339 Init_Str_errLoginIsTooLong
-
-: ME_00690AF0C149
- CONST UID '00690AF0C149'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimRegistration' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_00690AF0C149 Ini_Reg_Class
 
 : ME_525AF23A0163
  CONST Class class_Dependency
@@ -7226,38 +5509,15 @@ ref; // ME_525BD53B0037
 
 ref; // ME_5267AE510159 
 
-: ME_A4DB0C74EC7A
- CONST IsSummoned true
+: ME_574DC7E9012D
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
  : Parent ME_525AE04E0326 // PrimRegistration
  ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ : Target WL 'ME_478CF30500C1' '4AB0997B00A2.pas.ms.script' // Classes
  ;
 
-ref; // ME_A4DB0C74EC7A 
-
-: ME_DE974D67D03E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_DE974D67D03E 
-
-: ME_9621A537B8B5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_525AE04E0326 // PrimRegistration
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_9621A537B8B5 
+ref; // ME_574DC7E9012D 
 
 : ME_48C7925A02E5_ME_525AE04E0326
  : Original WL 'ME_48C7925A02E5' '4799D29F033F.pas.ms.script' // CreateParams
@@ -7302,31 +5562,6 @@ ref; // ME_4B0E846D022B_ME_525AE04E0326 IsRealInstance
  ME_525AEDBE00D1 // IsAutoLogin
  ME_525AEDF803A9 // CanRelogin
  ME_525AEE0D005C // RegisterAction
- ME_CE93C1962C15 // f_pnMainData
- ME_5591E3CBE3A9 // f_UserNameLabel
- ME_BDEB5421477D // f_PasswordLabel
- ME_5E2FF7346A9B // f_LoginLabel
- ME_403D265C2052 // f_InfoLabel
- ME_8BB43B6562A1 // f_EMailLabel
- ME_5B011CCC7A2C // f_ConfirmPasswordLabel
- ME_7F060B15FF5E // f_vtAsteriskLabelLogin
- ME_06B85D610E52 // f_vtAsteriskLabelFIO
- ME_EF52F95B9734 // f_edPassword
- ME_21126B0B378A // f_edUserName
- ME_9C836A979CFA // f_edLogin
- ME_9FC2097ADAEB // f_edEmail
- ME_1814AECABAE5 // f_edConfirm
- ME_7C5A0EA4FCCC // f_cbAutoLogin
- ME_DB97FDBCA473 // f_NewUserGroupBox
- ME_0C946EE1725C // f_NewUserLabel
- ME_F4882F4930F3 // f_NewUserPaintBox
- ME_37AF4773F1A4 // f_BottomPanel
- ME_1FB05934C109 // f_RegisterButton
- ME_6C0C65C39ECF // f_HelpPanel
- ME_EF2E5F915801 // f_HelpPaintBox
- ME_154CD1ED089B // f_HelpLabel
- ME_EB13A69A9B94 // f_CanRelogin
- ME_6B45F76DCB3D // f_RegisterAction
  )
  ; // Attributes
  : Operations
@@ -7344,13 +5579,6 @@ ref; // ME_4B0E846D022B_ME_525AE04E0326 IsRealInstance
  ME_525AEF8102B9 // CheckForm
  ME_525AF00601EC // CMDialogKey
  ME_525BCC29025A // Make
- ME_19C6F665FBD4 // Init_Str_edPasswordHint
- ME_263A4016AE34 // Init_Str_edUserNameHint
- ME_A6D3981BB3A2 // Init_Str_edLoginHint
- ME_D40FA0E066FF // Init_Str_edEmailHint
- ME_FD8D6C0C1668 // Init_Str_edConfirmHint
- ME_9D6B96D5B339 // Init_Str_errLoginIsTooLong
- ME_00690AF0C149 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
@@ -7365,7 +5593,6 @@ ref; // ME_4B0E846D022B_ME_525AE04E0326 IsRealInstance
  ; // Children
  : Constants
    Seq: ( ME_525AE843000D // Registration Form Controls' Hints
- ME_0F51D59E69AB // LCImplRegistration Form Controls' Hints
  )
  ; // Constants
  : Dependencies
@@ -7383,9 +5610,7 @@ ref; // ME_4B0E846D022B_ME_525AE04E0326 IsRealInstance
  ME_525BC7FE02F6 // Windows
  ME_525BD53B0037 // Graphics
  ME_5267AE510159 // vcmMessagesSupport
- ME_A4DB0C74EC7A // Tl3StringIDEx
- ME_DE974D67D03E // Tl3MessageID
- ME_9621A537B8B5 // TtfwClassRef
+ ME_574DC7E9012D // Classes
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -12468,7 +10693,6 @@ ref; // ME_FD67982952E3 Tkw_Common_opOpenIntranet
  WL 'ME_556F09AA036E' '556F09AA036E.pas.ms.script' // l3PrinterInterfaces
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
  WL 'ME_55DDB8900080' '55DDB8900080.pas.ms.script' // VersionInfo
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common'

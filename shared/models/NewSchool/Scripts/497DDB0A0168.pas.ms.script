@@ -8056,77 +8056,6 @@ ref; // ME_4AA0D02303C3 ListTree
 
 ref; // ME_51C062B8030D BackgroundPanel
 
-: ME_F9617194F5BC
- CONST UID 'F9617194F5BC'
- CONST Name 'f_BackgroundPanel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства BackgroundPanel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Target WL 'ME_4A7961A701CF' '4A7960CC03A4.pas.ms.script' // TvtPanel
- ;
-
-ref; // ME_F9617194F5BC f_BackgroundPanel
-
-: ME_9A0C1F018316
- CONST UID '9A0C1F018316'
- CONST Name 'f_ListTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства ListTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Target WL 'ME_494B949E022B' '494B947D0127.pas.ms.script' // TeeTreeView
- ;
-
-ref; // ME_9A0C1F018316 f_ListTree
-
-FORWARD ME_51C06313011B
-
-: ME_AF40CF788C90
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
- ;
-
-ref; // ME_AF40CF788C90 Sender
-
-: ME_A2E8C3A0D52D
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_A2E8C3A0D52D Index
-
-: ME_56A8A1E90A2D
- CONST UID '56A8A1E90A2D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51C06313011B // ListTreeActionElement
- ;
- : Parameters
-   Seq: ( ME_AF40CF788C90 // Sender
- ME_A2E8C3A0D52D // Index
- )
- ; // Parameters
-
-ref; // ME_56A8A1E90A2D DoIt
-
 : ME_51C06313011B
  CONST UID '51C06313011B'
  CONST Name 'ListTreeActionElement'
@@ -8141,51 +8070,8 @@ ref; // ME_56A8A1E90A2D DoIt
    Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_56A8A1E90A2D // DoIt
- )
- ; // Operations
 
 ref; // ME_51C06313011B ListTreeActionElement
-
-FORWARD ME_51C063260008
-
-: ME_22EC81C2D7AD
- CONST Name 'aNode'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_468259900322' '4682595B0268.pas.ms.script' // Il3SimpleNode
- ;
-
-ref; // ME_22EC81C2D7AD aNode
-
-: ME_1B1EA26C284B
- CONST Name 'aOkEffect'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
- ;
-
-ref; // ME_1B1EA26C284B aOkEffect
-
-: ME_245B23EE93AB
- CONST UID '245B23EE93AB'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51C063260008 // ListTreeCanBeginDrag
- ;
- : Parameters
-   Seq: ( ME_22EC81C2D7AD // aNode
- ME_1B1EA26C284B // aOkEffect
- )
- ; // Parameters
-
-ref; // ME_245B23EE93AB DoIt
 
 : ME_51C063260008
  CONST UID '51C063260008'
@@ -8201,65 +8087,8 @@ ref; // ME_245B23EE93AB DoIt
    Seq: ( WL 'ME_51BB14E6006F' '4B97E7FD006C.pas.ms.script' // Tl3CanBeginDrag
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_245B23EE93AB // DoIt
- )
- ; // Operations
 
 ref; // ME_51C063260008 ListTreeCanBeginDrag
-
-FORWARD ME_51C0635E00EF
-
-: ME_60B326F2A75C
- CONST Name 'Sender'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_469F8577004B' '4AB0C3C60310.pas.ms.script' // TObject$Stub
- ;
-
-ref; // ME_60B326F2A75C Sender
-
-: ME_9ACD0C0018AD
- CONST Name 'Index'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_9ACD0C0018AD Index
-
-: ME_0D7F1269C726
- CONST Name 'aImages'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_473DA2AF0168' '4799D29F033F.pas.ms.script' // TCustomImageList
- ;
-
-ref; // ME_0D7F1269C726 aImages
-
-: ME_4AB003FCFE5D
- CONST UID '4AB003FCFE5D'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_51C0635E00EF // ListTreeGetItemImage
- ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
- : Parameters
-   Seq: ( ME_60B326F2A75C // Sender
- ME_9ACD0C0018AD // Index
- ME_0D7F1269C726 // aImages
- )
- ; // Parameters
-
-ref; // ME_4AB003FCFE5D DoIt
 
 : ME_51C0635E00EF
  CONST UID '51C0635E00EF'
@@ -8275,10 +8104,6 @@ ref; // ME_4AB003FCFE5D DoIt
    Seq: ( WL 'ME_47D63B6D0157' '47D036150077.pas.ms.script' // Tl3GetItemImage
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_4AB003FCFE5D // DoIt
- )
- ; // Operations
 
 ref; // ME_51C0635E00EF ListTreeGetItemImage
 
@@ -8358,21 +8183,6 @@ ref; // ME_4AC4FB30036E aData
  ; // Parameters
 
 ref; // ME_4AC4FB28001B Make
-
-: ME_6AF69ACF1B14
- CONST UID '6AF69ACF1B14'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimListAnalizer' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_6AF69ACF1B14 Ini_Reg_Class
 
 : ME_4AA0D2A801AE
  CONST Class class_Dependency
@@ -8474,17 +8284,6 @@ ref; // ME_51C06DDF0396
 
 ref; // ME_51C06F3D0105 
 
-: ME_79C3294B176F
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AA0CE2B0073 // PrimListAnalizer
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_79C3294B176F 
-
 : ME_4A8AD46D0226_ME_4AA0CE2B0073
  : Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.pas.ms.script' // Cancel
  ;
@@ -8585,8 +8384,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  ; // Implements
  : Attributes
    Seq: ( ME_51C062B8030D // BackgroundPanel
- ME_F9617194F5BC // f_BackgroundPanel
- ME_9A0C1F018316 // f_ListTree
  )
  ; // Attributes
  : Operations
@@ -8596,7 +8393,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  ME_4AA0CE5D036E // CanOpen
  ME_4AA0CE940142 // TryOpen
  ME_4AC4FB28001B // Make
- ME_6AF69ACF1B14 // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -8627,7 +8423,6 @@ ref; // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
  ME_51C06D58024C // IStream
  ME_51C06DDF0396 // SearchRes
  ME_51C06F3D0105 // Forms
- ME_79C3294B176F // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" true
@@ -22173,7 +21968,6 @@ ref; // ME_5130D80002C1 nscTreeViewForDocumentListWordsPack
  WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
  WL 'ME_55C4AEB903E1' '55C4AEB903E1.pas.ms.script' // Printing
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List'

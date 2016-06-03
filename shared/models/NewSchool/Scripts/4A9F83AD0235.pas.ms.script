@@ -20,6 +20,34 @@ FORWARD ME_493E5C580280
 
 ref; // ME_493E5E4400B0 f_LockWarningCount
 
+: ME_574FCD4201D1
+ CONST UID '574FCD4201D1'
+ CONST Name 'f_ChangeWorker'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_493E5C580280 // sdsDocument
+ ;
+ : Target WL 'ME_4937D8C80242' '491B305A0096.pas.ms.script' // IbsChangeRedactionWorker
+ ;
+
+ref; // ME_574FCD4201D1 f_ChangeWorker
+
+: ME_574FCD5A01AA
+ CONST UID '574FCD5A01AA'
+ CONST Name 'f_ChangeRedactionPos'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_493E5C580280 // sdsDocument
+ ;
+ : Target WL 'ME_491B329F0330' '47F2170002B2.pas.ms.script' // TbsDocPos
+ ;
+
+ref; // ME_574FCD5A01AA f_ChangeRedactionPos
+
 : ME_494166DF0122
  CONST UID '494166DF0122'
  CONST Name 'SetDataType'
@@ -862,6 +890,12 @@ ref; // ME_5236A4FB0320_ME_493E5C580280 dsOutgoingLinksFromPart
  CONST OpKind opkind_Implemented
 ref; // ME_559510480014_ME_493E5C580280 OpenSimilarDocumentsToFragment
 
+: ME_479731C50290_ME_493E5C580280
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_493E5C580280 Cleanup
+
 : ME_47EA4E9002C6_ME_493E5C580280
  : Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.pas.ms.script' // FinishDataUpdate
  ;
@@ -922,6 +956,18 @@ ref; // ME_493D6B5B02DE_ME_493E5C580280 DoChangeCRType
  CONST OpKind opkind_Overridden
 ref; // ME_53B3BF9C00EF_ME_493E5C580280 DoGetFormSetImageIndex
 
+: ME_555B0E0B0084_ME_493E5C580280
+ : Original WL 'ME_555B0E0B0084' '47D0E1500033.pas.ms.script' // DoMakeClone
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_555B0E0B0084_ME_493E5C580280 DoMakeClone
+
+: ME_55C1DD070354_ME_493E5C580280
+ : Original WL 'ME_55C1DD070354' '47D0E1500033.pas.ms.script' // GetDataForClone
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_55C1DD070354_ME_493E5C580280 GetDataForClone
+
 : ME_493E5C580280
  CONST UID '493E5C580280'
  CONST Name 'sdsDocument'
@@ -947,6 +993,8 @@ ref; // ME_53B3BF9C00EF_ME_493E5C580280 DoGetFormSetImageIndex
  ; // Implements
  : Attributes
    Seq: ( ME_493E5E4400B0 // f_LockWarningCount
+ ME_574FCD4201D1 // f_ChangeWorker
+ ME_574FCD5A01AA // f_ChangeRedactionPos
  ME_494166DF0122 // SetDataType
  ME_4947AC9D028A // InitDataType
  ME_B36E68E54E74 // f_dsBaloonWarning
@@ -992,7 +1040,8 @@ ref; // ME_53B3BF9C00EF_ME_493E5C580280 DoGetFormSetImageIndex
  )
  ; // Implemented
  : Overridden
-   Seq: ( ME_47EA4E9002C6_ME_493E5C580280 // FinishDataUpdate
+   Seq: ( ME_479731C50290_ME_493E5C580280 // Cleanup
+ ME_47EA4E9002C6_ME_493E5C580280 // FinishDataUpdate
  ME_47F37DF001FE_ME_493E5C580280 // DataExchange
  ME_491B02D80112_ME_493E5C580280 // GetIsNeedChangePosition
  ME_491B06F000BB_ME_493E5C580280 // DoPushFromHistory
@@ -1002,6 +1051,8 @@ ref; // ME_53B3BF9C00EF_ME_493E5C580280 DoGetFormSetImageIndex
  ME_493D51ED0329_ME_493E5C580280 // FillState
  ME_493D6B5B02DE_ME_493E5C580280 // DoChangeCRType
  ME_53B3BF9C00EF_ME_493E5C580280 // DoGetFormSetImageIndex
+ ME_555B0E0B0084_ME_493E5C580280 // DoMakeClone
+ ME_55C1DD070354_ME_493E5C580280 // GetDataForClone
  )
  ; // Overridden
  : Dependencies

@@ -6955,45 +6955,32 @@ ref; // ME_5746E8BC038F Factory
 
 FORWARD ME_5600FB3903DE
 
-: ME_5746E8A1031E
+: ME_574D599F029D
  CONST Name 'aFactory'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
  ;
 
-ref; // ME_5746E8A1031E aFactory
+ref; // ME_574D599F029D aFactory
 
-: ME_5746E8A1031F
+: ME_574D599F02AD
  CONST Name 'aDataConverter'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
  ;
 
-ref; // ME_5746E8A1031F aDataConverter
+ref; // ME_574D599F02AD aDataConverter
 
-: ME_5746E8A1032E
- CONST Name 'aTable'
+: ME_574D599F02AE
+ CONST Name 'aFromClause'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
  ;
 
-ref; // ME_5746E8A1032E aTable
-
-: ME_5746E8A1033D
- CONST Name 'anAlias'
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:pas:Value ''''''
-
-ref; // ME_5746E8A1033D anAlias
+ref; // ME_574D599F02AE aFromClause
 
 : ME_5600FB45039D
  CONST UID '5600FB45039D'
@@ -7004,10 +6991,9 @@ ref; // ME_5746E8A1033D anAlias
  : Parent ME_5600FB3903DE // Create
  ;
  : Parameters
-   Seq: ( ME_5746E8A1031E // aFactory
- ME_5746E8A1031F // aDataConverter
- ME_5746E8A1032E // aTable
- ME_5746E8A1033D // anAlias
+   Seq: ( ME_574D599F029D // aFactory
+ ME_574D599F02AD // aDataConverter
+ ME_574D599F02AE // aFromClause
  )
  ; // Parameters
 
@@ -7151,65 +7137,6 @@ ref; // ME_56050F7102DF DoIt
  ; // Operations
 
 ref; // ME_56050F510228 BuildWhereClause
-
-FORWARD ME_5600FFF80332
-
-: ME_563B40CF0249
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
- ;
-
-ref; // ME_563B40CF0249 aTable
-
-: ME_563B40CF024A
- CONST Name 'anAlias'
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:pas:Value ''''''
-
-ref; // ME_563B40CF024A anAlias
-
-: ME_5601000B0269
- CONST UID '5601000B0269'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_5600FFF80332 // MakeFromClause
- ;
- : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
- ;
- : Parameters
-   Seq: ( ME_563B40CF0249 // aTable
- ME_563B40CF024A // anAlias
- )
- ; // Parameters
-
-ref; // ME_5601000B0269 DoIt
-
-: ME_5600FFF80332
- CONST UID '5600FFF80332'
- CONST Name 'MakeFromClause'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
- : Parent ME_5600FA2301B9 // TdaTabledQuery
- ;
- : Operations
-   Seq: ( ME_5601000B0269 // DoIt
- )
- ; // Operations
-
-ref; // ME_5600FFF80332 MakeFromClause
 
 FORWARD ME_566A892A0191
 
@@ -7413,7 +7340,6 @@ ref; // ME_479731C50290_ME_5600FA2301B9 Cleanup
  ME_56050F450363 // BuildFromClause
  ME_56050F3E0081 // BuildSelectClause
  ME_56050F510228 // BuildWhereClause
- ME_5600FFF80332 // MakeFromClause
  ME_566A892A0191 // PrepareTable
  ME_566A893B03C7 // UnPrepareTable
  ME_5680E19E003D // BuildOrderByClause
@@ -7857,7 +7783,7 @@ ref; // ME_5745778600BC Create
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
+   Seq: ( WL 'ME_57456F5A03D0' '5432518A0316.pas.ms.script' // IdaJoin
  )
  ; // Implements
 

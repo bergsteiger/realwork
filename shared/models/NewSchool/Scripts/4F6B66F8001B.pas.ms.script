@@ -138,26 +138,6 @@ ref; // ME_4F6B6714032D Parent
 
 FORWARD ME_BBEB9821B6DA
 
-: ME_584E5BC3E8D4
- CONST UID '584E5BC3E8D4'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_Form_Child_ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_BBEB9821B6DA // Tkw_Form_Child_ID
- ;
-
-ref; // ME_584E5BC3E8D4 Ini_Reg
-
-: ME_4DB0614603C8_ME_BBEB9821B6DA
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BBEB9821B6DA GetWordNameForRegister
-
 : ME_4DDFD2EA0116_ME_BBEB9821B6DA
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
  ;
@@ -180,13 +160,8 @@ ref; // ME_4DDFD2EA0116_ME_BBEB9821B6DA GetString
    Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_584E5BC3E8D4 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BBEB9821B6DA // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_BBEB9821B6DA // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_BBEB9821B6DA // GetString
  )
  ; // Overridden
  CONST "NameForScript" 'форма::Child'
@@ -199,26 +174,6 @@ ref; // ME_4DDFD2EA0116_ME_BBEB9821B6DA GetString
 ref; // ME_BBEB9821B6DA Tkw_Form_Child_ID
 
 FORWARD ME_4D2D1B64FF3F
-
-: ME_6BF361D23EF3
- CONST UID '6BF361D23EF3'
- CONST Name 'Ini_Reg'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация Tkw_Form_Parent_ID' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4D2D1B64FF3F // Tkw_Form_Parent_ID
- ;
-
-ref; // ME_6BF361D23EF3 Ini_Reg
-
-: ME_4DB0614603C8_ME_4D2D1B64FF3F
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_4D2D1B64FF3F GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_4D2D1B64FF3F
  : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
@@ -242,13 +197,8 @@ ref; // ME_4DDFD2EA0116_ME_4D2D1B64FF3F GetString
    Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_6BF361D23EF3 // Ini_Reg
- )
- ; // Operations
  : Overridden
-   Seq: ( ME_4DB0614603C8_ME_4D2D1B64FF3F // GetWordNameForRegister
- ME_4DDFD2EA0116_ME_4D2D1B64FF3F // GetString
+   Seq: ( ME_4DDFD2EA0116_ME_4D2D1B64FF3F // GetString
  )
  ; // Overridden
  CONST "NameForScript" 'форма::Parent'
@@ -277,11 +227,11 @@ ref; // ME_4D2D1B64FF3F Tkw_Form_Parent_ID
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  )
  ; // Depends
+ CONST "UseNewGen" true
  CONST "is namespace" true
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
  CONST extprop:pas:UnitName 'F1Like_FormDefinitions_Controls'

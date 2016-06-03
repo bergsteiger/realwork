@@ -1,4 +1,5 @@
 //#UC START# *479731C50290_5629E343023B_impl*
+ f_PriorityCalculator := nil;
  FreeAndNil(f_UserStatusChangedSubscriberList);
  inherited;
 //#UC END# *479731C50290_5629E343023B_impl*
@@ -23,6 +24,7 @@ var
 //#UC END# *5628D14D0151_5629E343023B_var*
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
+ f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 //#UC START# *5629F0F901C8_5629E343023B_var*
 //#UC END# *5629F0F901C8_5629E343023B_var*
@@ -74,17 +76,17 @@ var
 //#UC START# *5715E78F013E_5629E343023B_var*
 //#UC END# *5715E78F013E_5629E343023B_var*
 //#UC START# *5718B5CF0399_5629E343023B_impl*
- Result := dt_User.UserManager.GetUserName(anUserID);
+ Result := dt_User.UserManager.xxxGetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 //#UC START# *5718B5CF0399_5629E343023B_var*
 //#UC END# *5718B5CF0399_5629E343023B_var*
 //#UC START# *571DCFB50217_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ Result := dt_User.UserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
 //#UC END# *571DCFB50217_5629E343023B_impl*
 //#UC START# *571DCFB50217_5629E343023B_var*
 //#UC END# *571DCFB50217_5629E343023B_var*
 //#UC START# *5721F5E60367_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ dt_User.UserManager.xxxReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_impl*
 //#UC START# *5721F5E60367_5629E343023B_var*
 //#UC END# *5721F5E60367_5629E343023B_var*
@@ -175,3 +177,17 @@ var
  l_UserName: ShortString;
  l_LoginName: ShortString;
 //#UC END# *573AEE9902DF_5629E343023B_var*
+//#UC START# *575009A70197_5629E343023B_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := ThtPriorityCalculator.Make;
+ Result := f_PriorityCalculator;
+//#UC END# *575009A70197_5629E343023B_impl*
+//#UC START# *575009A70197_5629E343023B_var*
+//#UC END# *575009A70197_5629E343023B_var*
+//#UC START# *575020410175_5629E343023Bget_impl*
+ if f_PriorityCalculator = nil then
+  f_PriorityCalculator := ThtPriorityCalculator.Make;
+ Result := f_PriorityCalculator;
+//#UC END# *575020410175_5629E343023Bget_impl*
+//#UC START# *575020410175_5629E343023Bget_var*
+//#UC END# *575020410175_5629E343023Bget_var*

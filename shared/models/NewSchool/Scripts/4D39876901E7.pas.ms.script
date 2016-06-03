@@ -138,54 +138,6 @@ ref; // ME_51B9DF2E024F cbInternal
 
 ref; // ME_4AC63719029F f_Results
 
-: ME_D122DAAB5928
- CONST UID 'D122DAAB5928'
- CONST Name 'f_Label1'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Label1' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC63602020E // PrimDocNumberQuery
- ;
- : Target WL 'ME_4AE8541A01AE' '4A9B9BAA0207.pas.ms.script' // TvtLabel
- ;
-
-ref; // ME_D122DAAB5928 f_Label1
-
-: ME_ECD6953DD9D8
- CONST UID 'ECD6953DD9D8'
- CONST Name 'f_edNumber'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства edNumber' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC63602020E // PrimDocNumberQuery
- ;
- : Target WL 'ME_4AC63691012B' '495119A901CE.pas.ms.script' // TnscComboBox
- ;
-
-ref; // ME_ECD6953DD9D8 f_edNumber
-
-: ME_62612C85CC63
- CONST UID '62612C85CC63'
- CONST Name 'f_cbInternal'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства cbInternal' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AC63602020E // PrimDocNumberQuery
- ;
- : Target WL 'ME_5179419B01DA' '4C43D64C0168.pas.ms.script' // TvtCheckBox
- ;
-
-ref; // ME_62612C85CC63 f_cbInternal
-
 FORWARD ME_4C863FCD0121
 
 : ME_4C863FD502C6
@@ -357,21 +309,6 @@ ref; // ME_51B9E2B90352 DoIt
 
 ref; // ME_51B9E2AC030D SaveHistory
 
-: ME_D8EEAB1634C2
- CONST UID 'D8EEAB1634C2'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimDocNumberQuery' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AC63602020E // PrimDocNumberQuery
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_D8EEAB1634C2 Ini_Reg_Class
-
 : ME_4AC637C90203
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -442,17 +379,6 @@ ref; // ME_51B9FF8D01C9
 
 ref; // ME_51B9FF90017A 
 
-: ME_85FD201D3E50
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AC63602020E // PrimDocNumberQuery
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_85FD201D3E50 
-
 : ME_49803F5503AA_ME_4AC63602020E
  : Original WL 'ME_49803F5503AA' '4AADF9450143.pas.ms.script' // DoInit
  ;
@@ -464,12 +390,6 @@ ref; // ME_49803F5503AA_ME_4AC63602020E DoInit
  ;
  CONST OpKind opkind_Overridden
 ref; // ME_4A8E8F2E0195_ME_4AC63602020E InitControls
-
-: ME_5000565C019C_ME_4AC63602020E
- : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_5000565C019C_ME_4AC63602020E ClearFields
 
 : ME_4AC63602020E
  CONST UID '4AC63602020E'
@@ -490,9 +410,6 @@ ref; // ME_5000565C019C_ME_4AC63602020E ClearFields
  ME_51B9DC6D0127 // edNumber
  ME_51B9DF2E024F // cbInternal
  ME_4AC63719029F // f_Results
- ME_D122DAAB5928 // f_Label1
- ME_ECD6953DD9D8 // f_edNumber
- ME_62612C85CC63 // f_cbInternal
  )
  ; // Attributes
  : Operations
@@ -500,13 +417,11 @@ ref; // ME_5000565C019C_ME_4AC63602020E ClearFields
  ME_51B9E1A00192 // LoadHistory
  ME_51B9E27000CD // Make
  ME_51B9E2AC030D // SaveHistory
- ME_D8EEAB1634C2 // Ini_Reg_Class
  )
  ; // Operations
  : Overridden
    Seq: ( ME_49803F5503AA_ME_4AC63602020E // DoInit
  ME_4A8E8F2E0195_ME_4AC63602020E // InitControls
- ME_5000565C019C_ME_4AC63602020E // ClearFields
  )
  ; // Overridden
  : Constants
@@ -521,7 +436,6 @@ ref; // ME_5000565C019C_ME_4AC63602020E ClearFields
  ME_51B9FD930128 // l3String
  ME_51B9FF8D01C9 // Controls
  ME_51B9FF90017A // Forms
- ME_85FD201D3E50 // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -668,7 +582,6 @@ ref; // ME_4C863B1E0196 PrimDocNumberQueryOptions
  WL 'ME_4ACF514E0337' '4ACF514E0337.pas.ms.script' // NavigationInterfaces
  WL 'ME_4C43D64C0168' '4C43D64C0168.pas.ms.script' // Buttons
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

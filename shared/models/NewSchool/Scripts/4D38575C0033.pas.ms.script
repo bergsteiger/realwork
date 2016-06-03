@@ -2145,22 +2145,6 @@ ref; // ME_4C7D0C7B0185_ME_4AC5D3A600A3 Copy
 
 ref; // ME_4AC5D3A600A3 Info
 
-: ME_C49B77A16715
- CONST UID 'C49B77A16715'
- CONST Name 'f_Info'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для свойства Info' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4AB12F7601D3 // PrimPictureInfo
- ;
- : Target WL 'ME_4AC5D3380185' '4952683C007B.pas.ms.script' // TeeMemoWithEditOperations
- ;
-
-ref; // ME_C49B77A16715 f_Info
-
 : ME_4AC4F77F019D
  CONST Name 'aData'
  CONST Class class_Parameter
@@ -2185,21 +2169,6 @@ ref; // ME_4AC4F77F019D aData
  ; // Parameters
 
 ref; // ME_4AC4F7760311 Make
-
-: ME_E85B57FC471C
- CONST UID 'E85B57FC471C'
- CONST Name 'Ini_Reg_Class'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_ini::Operation ;
- %SUMMARY 'Регистрация PrimPictureInfo' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4AB12F7601D3 // PrimPictureInfo
- ;
- CONST "ifndef" 'NoScripts'
-
-ref; // ME_E85B57FC471C Ini_Reg_Class
 
 : ME_4AC5D2A803C9
  CONST Class class_Dependency
@@ -2240,17 +2209,6 @@ ref; // ME_528247E002AC
  ;
 
 ref; // ME_52825B3E0365 
-
-: ME_7631842E0F5E
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4AB12F7601D3 // PrimPictureInfo
- ;
- : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
- ;
-
-ref; // ME_7631842E0F5E 
 
 : ME_4AC5D61E0284_ME_4AB12F7601D3
  : Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.pas.ms.script' // Cancel
@@ -2315,12 +2273,10 @@ ref; // ME_529332B40230_ME_4AB12F7601D3 SetupFormLayout
  ; // Implements
  : Attributes
    Seq: ( ME_4AC5D3A600A3 // Info
- ME_C49B77A16715 // f_Info
  )
  ; // Attributes
  : Operations
    Seq: ( ME_4AC4F7760311 // Make
- ME_E85B57FC471C // Ini_Reg_Class
  )
  ; // Operations
  : Implemented
@@ -2338,7 +2294,6 @@ ref; // ME_529332B40230_ME_4AB12F7601D3 SetupFormLayout
  ME_528247DD0224 // Controls
  ME_528247E002AC // Forms
  ME_52825B3E0365 // Result$CancelWithState
- ME_7631842E0F5E // TtfwClassRef
  )
  ; // Dependencies
  CONST "NeedsHackRef" false
@@ -2501,7 +2456,6 @@ ref; // ME_4C86319003CD PrimPictureInfoOptions
  WL 'ME_53A402C7010D' '53A402C7010D.pas.ms.script' // TabbedInterfaceSupport
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
- WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
  )
  ; // Depends
 

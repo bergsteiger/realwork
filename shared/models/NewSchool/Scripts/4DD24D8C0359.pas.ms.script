@@ -19,6 +19,191 @@ FORWARD ME_4DD24D8C0359
 
 ref; // ME_4E313DB8007F SectionTypeConverter
 
+FORWARD ME_5748213B02F2
+
+: ME_574821F801F8
+ CONST UID '574821F801F8'
+ CONST Name 'server_section'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+
+ref; // ME_574821F801F8 server_section
+
+: ME_574D3DB3034F
+ CONST UID '574D3DB3034F'
+ CONST Name 'caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+ CONST "pm" true
+
+ref; // ME_574D3DB3034F caption
+
+: ME_5748215D010B
+ CONST Name 'server_section'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+
+ref; // ME_5748215D010B server_section
+
+: ME_5748214B008D
+ CONST UID '5748214B008D'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Parameters
+   Seq: ( ME_5748215D010B // server_section
+ )
+ ; // Parameters
+
+ref; // ME_5748214B008D make
+
+: ME_574821A70373
+ CONST UID '574821A70373'
+ CONST Name 'get_items'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Target WL 'ME_4E36C8550143' '4DD24BD40021.pas.ms.script' // SectionItemList
+ ;
+
+ref; // ME_574821A70373 get_items
+
+: ME_57482234032A
+ CONST UID '57482234032A'
+ CONST Name 'clear_cache'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+
+ref; // ME_57482234032A clear_cache
+
+: ME_574825A0002D
+ CONST Name 'type'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4E3011A101F7' '4DD24BD40021.pas.ms.script' // SectionType
+ ;
+
+ref; // ME_574825A0002D type
+
+: ME_5748258C020E
+ CONST UID '5748258C020E'
+ CONST Name 'make'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Parameters
+   Seq: ( ME_574825A0002D // type
+ )
+ ; // Parameters
+
+ref; // ME_5748258C020E make
+
+: ME_574828C20279
+ CONST UID '574828C20279'
+ CONST Name 'get_section_id'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+ CONST TargetStereotype 'const,cached'
+
+ref; // ME_574828C20279 get_section_id
+
+: ME_574DA22000A6
+ CONST UID '574DA22000A6'
+ CONST Name 'destroy_server_servants'
+ CONST Class class_Operation
+ : Stereotype st_chg::Operation ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+
+ref; // ME_574DA22000A6 destroy_server_servants
+
+: ME_57482B4F00F6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Target ME_4E313DB8007F // SectionTypeConverter
+ ;
+
+ref; // ME_57482B4F00F6 
+
+: ME_57482C9401A6
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5748213B02F2 // SectionImpl
+ ;
+ : Target WL 'ME_460A6EF8024B' '460BAAA30119.pas.ms.script' // ApplicationHelper
+ ;
+
+ref; // ME_57482C9401A6 
+
+: ME_5748213B02F2
+ CONST UID '5748213B02F2'
+ CONST Name 'SectionImpl'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DD24D8C0359 // MainMenu_i
+ ;
+ : Attributes
+   Seq: ( ME_574821F801F8 // server_section
+ ME_574D3DB3034F // caption
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5748214B008D // make
+ ME_574821A70373 // get_items
+ ME_57482234032A // clear_cache
+ ME_5748258C020E // make
+ ME_574828C20279 // get_section_id
+ ME_574DA22000A6 // destroy_server_servants
+ )
+ ; // Operations
+ : Dependencies
+   Seq: ( ME_57482B4F00F6 // SectionTypeConverter
+ ME_57482C9401A6 // ApplicationHelper
+ )
+ ; // Dependencies
+ CONST cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\MainMenu_i\SectionImpl.cpp'
+ CONST h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\MainMenu_i\SectionImpl.h'
+ CONST intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SectionImpl.pas'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_5748213B02F2 SectionImpl
+
 : ME_4DD24D8C0359
  CONST UID '4DD24D8C0359'
  CONST Name 'MainMenu_i'
@@ -31,10 +216,12 @@ ref; // ME_4E313DB8007F SectionTypeConverter
  ;
  : Children
    Seq: ( ME_4E313DB8007F // SectionTypeConverter
+ ME_5748213B02F2 // SectionImpl
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.pas.ms.script' // IO
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
  WL 'ME_45EEA4490239' '45EEA4490239.pas.ms.script' // DynamicTree_i
  WL 'ME_45EEAA8A031F' '45EEAA8A031F.pas.ms.script' // Rubricator_i

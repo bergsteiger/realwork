@@ -41,7 +41,7 @@ var
  f_FamilyID := aFamilyID;
  l_Description := TdaScheme.Instance.Table(TableKind);
  try
-  f_IntervalQuery := aFactory.MakeTabledQuery(l_Description);
+  f_IntervalQuery := aFactory.MakeTabledQuery(aFactory.MakeSimpleFromClause(l_Description));
   f_IntervalQuery.AddSelectField(aFactory.MakeSelectField('', l_Description.Field['start_num']));
   l_FieldToSort := aFactory.MakeSelectField('', l_Description.Field['last_num']);
   f_IntervalQuery.AddSelectField(l_FieldToSort);

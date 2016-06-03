@@ -1788,12 +1788,6 @@ ref; // ME_574BF2B20123_ME_55F81B3F024D MakeJoinCondition
  CONST OpKind opkind_Implemented
 ref; // ME_574C32760314_ME_55F81B3F024D MakeSimpleFromClause
 
-: ME_574C32D802C6_ME_55F81B3F024D
- : Original WL 'ME_574C32D802C6' '5432518A0316.pas.ms.script' // MakeJoinQuery
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_574C32D802C6_ME_55F81B3F024D MakeJoinQuery
-
 : ME_479731C50290_ME_55F81B3F024D
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1841,7 +1835,6 @@ ref; // ME_479731C50290_ME_55F81B3F024D Cleanup
  ME_574584D802F6_ME_55F81B3F024D // MakeJoin
  ME_574BF2B20123_ME_55F81B3F024D // MakeJoinCondition
  ME_574C32760314_ME_55F81B3F024D // MakeSimpleFromClause
- ME_574C32D802C6_ME_55F81B3F024D // MakeJoinQuery
  )
  ; // Implemented
  : Overridden
@@ -1899,54 +1892,41 @@ ref; // ME_5603E2A1028F f_QueryName
 
 FORWARD ME_55F9617402F2
 
-: ME_5746EFB8024C
+: ME_574D5A0301E4
  CONST Name 'aFactory'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
  ;
 
-ref; // ME_5746EFB8024C aFactory
+ref; // ME_574D5A0301E4 aFactory
 
-: ME_5746EFB8025B
+: ME_574D5A0301F4
  CONST Name 'aDataConverter'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
  ;
 
-ref; // ME_5746EFB8025B aDataConverter
+ref; // ME_574D5A0301F4 aDataConverter
 
-: ME_5746EFB8025C
- CONST Name 'aTable'
+: ME_574D5A030203
+ CONST Name 'aFromClause'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ : Target WL 'ME_57442A09018B' '5432518A0316.pas.ms.script' // IdaFromClause
  ;
 
-ref; // ME_5746EFB8025C aTable
+ref; // ME_574D5A030203 aFromClause
 
-: ME_5746EFB8026B
+: ME_574D5A030204
  CONST Name 'aConnection'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_55F6875803A8 // TpgConnection
  ;
 
-ref; // ME_5746EFB8026B aConnection
-
-: ME_5746EFB8027B
- CONST Name 'anAlias'
- CONST Class class_Parameter
- : Stereotype st_const ;
- : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST Value ''''''
- : ValueType WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
- ;
- CONST extprop:pas:Value ''''''
-
-ref; // ME_5746EFB8027B anAlias
+ref; // ME_574D5A030204 aConnection
 
 : ME_55F9617D0100
  CONST UID '55F9617D0100'
@@ -1957,11 +1937,10 @@ ref; // ME_5746EFB8027B anAlias
  : Parent ME_55F9617402F2 // Create
  ;
  : Parameters
-   Seq: ( ME_5746EFB8024C // aFactory
- ME_5746EFB8025B // aDataConverter
- ME_5746EFB8025C // aTable
- ME_5746EFB8026B // aConnection
- ME_5746EFB8027B // anAlias
+   Seq: ( ME_574D5A0301E4 // aFactory
+ ME_574D5A0301F4 // aDataConverter
+ ME_574D5A030203 // aFromClause
+ ME_574D5A030204 // aConnection
  )
  ; // Parameters
 
@@ -2103,12 +2082,6 @@ ref; // ME_560B963D002C
 
 ref; // ME_56C845AD00C5 
 
-: ME_5600FFF80332_ME_55F960D502F6
- : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromClause
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_5600FFF80332_ME_55F960D502F6 MakeFromClause
-
 : ME_566A892A0191_ME_55F960D502F6
  : Original WL 'ME_566A892A0191' '54F85B2500FB.pas.ms.script' // PrepareTable
  ;
@@ -2165,8 +2138,7 @@ ref; // ME_560B861302E9_ME_55F960D502F6 MakeParamList
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_5600FFF80332_ME_55F960D502F6 // MakeFromClause
- ME_566A892A0191_ME_55F960D502F6 // PrepareTable
+   Seq: ( ME_566A892A0191_ME_55F960D502F6 // PrepareTable
  ME_566A893B03C7_ME_55F960D502F6 // UnPrepareTable
  )
  ; // Implemented
@@ -3535,6 +3507,34 @@ ref; // ME_5739943300C7 f_UserStatusChangedSubscriberList
 
 ref; // ME_573B085A0143 f_UserLoginQuery
 
+: ME_575026D803AD
+ CONST UID '575026D803AD'
+ CONST Name 'f_PriorityCalculator'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target WL 'ME_574FFFCF0148' '5432518A0316.pas.ms.script' // IdaPriorityCalculator
+ ;
+
+ref; // ME_575026D803AD f_PriorityCalculator
+
+: ME_575142240318
+ CONST UID '575142240318'
+ CONST Name 'f_AllArchiUsersQuery'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_575142240318 f_AllArchiUsersQuery
+
 FORWARD ME_562A074E0321
 
 : ME_562DCE95018B
@@ -3875,6 +3875,38 @@ ref; // ME_573B08460346 DoIt
 
 ref; // ME_573B0837013B UserLoginQuery
 
+FORWARD ME_57514203013A
+
+: ME_5751420B0063
+ CONST UID '5751420B0063'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57514203013A // AllArchiUsersQuery
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_5751420B0063 DoIt
+
+: ME_57514203013A
+ CONST UID '57514203013A'
+ CONST Name 'AllArchiUsersQuery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Operations
+   Seq: ( ME_5751420B0063 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57514203013A AllArchiUsersQuery
+
 : ME_562A031E02CB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -3954,6 +3986,28 @@ ref; // ME_571891BF0016
  ;
 
 ref; // ME_5718CBDE01FB 
+
+FORWARD ME_5751377C006E
+
+: ME_575137A90395
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target ME_5751377C006E // TpgPriorityCalculator
+ ;
+
+ref; // ME_575137A90395 
+
+: ME_57513C8C03DD
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5629FC88034B // TpgUserManager
+ ;
+ : Target WL 'ME_52FBA57600AB' '57234C1A014C.pas.ms.script' // TdaArchiUser
+ ;
+
+ref; // ME_57513C8C03DD 
 
 : ME_5628D14D0151_ME_5629FC88034B
  : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
@@ -4080,6 +4134,13 @@ ref; // ME_573AC17202BF_ME_5629FC88034B CSCheckPassword
  CONST OpKind opkind_Implemented
 ref; // ME_573AEE9902DF_ME_5629FC88034B GetUserInfo
 
+: ME_575020410175_ME_5629FC88034B
+ : Original WL 'ME_575020410175' '5432518A0316.pas.ms.script' // PriorityCalculator
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_575020410175_ME_5629FC88034B PriorityCalculator
+
 : ME_479731C50290_ME_5629FC88034B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -4114,6 +4175,8 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_57347AD502EA // f_ArchiUsers
  ME_5739943300C7 // f_UserStatusChangedSubscriberList
  ME_573B085A0143 // f_UserLoginQuery
+ ME_575026D803AD // f_PriorityCalculator
+ ME_575142240318 // f_AllArchiUsersQuery
  )
  ; // Attributes
  : Operations
@@ -4125,6 +4188,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5715ED0002E0 // SortUsersInList
  ME_5718C16B036E // UserNameQuery
  ME_573B0837013B // UserLoginQuery
+ ME_57514203013A // AllArchiUsersQuery
  )
  ; // Operations
  : Implemented
@@ -4148,6 +4212,7 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_5739835200CF_ME_5629FC88034B // NotifyUserActiveChanged
  ME_573AC17202BF_ME_5629FC88034B // CSCheckPassword
  ME_573AEE9902DF_ME_5629FC88034B // GetUserInfo
+ ME_575020410175_ME_5629FC88034B // PriorityCalculator
  )
  ; // Implemented
  : Overridden
@@ -4163,6 +4228,8 @@ ref; // ME_479731C50290_ME_5629FC88034B Cleanup
  ME_571891BB0357 // GetUserRegion
  ME_571891BF0016 // l3LocalStub
  ME_5718CBDE01FB // GlobalDataProvider
+ ME_575137A90395 // TpgPriorityCalculator
+ ME_57513C8C03DD // TdaArchiUser
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgUserManager.pas'
@@ -8675,6 +8742,141 @@ ref; // ME_479731C50290_ME_5694BA3500C4 Cleanup
 
 ref; // ME_5694BA3500C4 TpgCommandExecutor
 
+: ME_57513C3603AD
+ CONST UID '57513C3603AD'
+ CONST Name 'f_PriorityQuery'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5751377C006E // TpgPriorityCalculator
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_57513C3603AD f_PriorityQuery
+
+: ME_575137CF01E2
+ CONST UID '575137CF01E2'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5751377C006E // TpgPriorityCalculator
+ ;
+
+ref; // ME_575137CF01E2 Create
+
+: ME_575137D8005D
+ CONST UID '575137D8005D'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5751377C006E // TpgPriorityCalculator
+ ;
+ : Inherits
+   Seq: ( ME_575137CF01E2 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_574FFFCF0148' '5432518A0316.pas.ms.script' // IdaPriorityCalculator
+ )
+ ; // Implements
+
+ref; // ME_575137D8005D Make
+
+FORWARD ME_57513C4C02C0
+
+: ME_57513C590268
+ CONST UID '57513C590268'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_57513C4C02C0 // PriorityQuery
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_57513C590268 DoIt
+
+: ME_57513C4C02C0
+ CONST UID '57513C4C02C0'
+ CONST Name 'PriorityQuery'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5751377C006E // TpgPriorityCalculator
+ ;
+ : Operations
+   Seq: ( ME_57513C590268 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_57513C4C02C0 PriorityQuery
+
+: ME_575000000164_ME_5751377C006E
+ : Original WL 'ME_575000000164' '5432518A0316.pas.ms.script' // Calc
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_575000000164_ME_5751377C006E Calc
+
+: ME_479731C50290_ME_5751377C006E
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5751377C006E Cleanup
+
+: ME_5751377C006E
+ CONST UID '5751377C006E'
+ CONST Name 'TpgPriorityCalculator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55D6CF3B014B // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_574FFFCF0148' '5432518A0316.pas.ms.script' // IdaPriorityCalculator
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_57513C3603AD // f_PriorityQuery
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_575137CF01E2 // Create
+ ME_575137D8005D // Make
+ ME_57513C4C02C0 // PriorityQuery
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_575000000164_ME_5751377C006E // Calc
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5751377C006E // Cleanup
+ )
+ ; // Overridden
+ CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgPriorityCalculator.pas'
+ CONST extprop:rc:SelfName 'pgPriorityCalculator'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'pgPriorityCalculator'
+
+ref; // ME_5751377C006E TpgPriorityCalculator
+
 : ME_55D6CF3B014B
  CONST UID '55D6CF3B014B'
  CONST Name 'Provider'
@@ -8709,6 +8911,7 @@ ref; // ME_5694BA3500C4 TpgCommandExecutor
  ME_5671531301DB // TpgFunctionParamDescription
  ME_567A8BE7002D // TpgFunctionSelectField
  ME_5694BA3500C4 // TpgCommandExecutor
+ ME_5751377C006E // TpgPriorityCalculator
  )
  ; // Children
  : Depends

@@ -1094,6 +1094,25 @@ FORWARD ME_51BAE2BF011A
 
 ref; // ME_5433C1D30101 TCfgList
 
+: ME_574E9DD80366
+ CONST UID '574E9DD80366'
+ CONST Name 'Tl3IniFile'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51BAE2BF011A // l3IniFile
+ ;
+ : Inherits
+   Seq: ( ME_5433C1D30101 // TCfgList
+ )
+ ; // Inherits
+ CONST extprop:rc:SelfName 'IniFile'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_574E9DD80366 Tl3IniFile
+
 : ME_51BAE2BF011A
  CONST UID '51BAE2BF011A'
  CONST Name 'l3IniFile'
@@ -1106,6 +1125,7 @@ ref; // ME_5433C1D30101 TCfgList
  ;
  : Children
    Seq: ( ME_5433C1D30101 // TCfgList
+ ME_574E9DD80366 // Tl3IniFile
  )
  ; // Children
  CONST "finished" false
