@@ -79,7 +79,7 @@ type
    class function GetExistingInstance(const aContainer: IvcmContainer;
     const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
-    aUserType: TvcmUserType = vcmUserControls.0;
+    aUserType: TvcmUserType = 0;
     aGUID: PGUID = nil;
     const aDataSource: IvcmFormDataSource = nil;
     aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; virtual;
@@ -118,6 +118,23 @@ type
    procedure NotifyUserTypeSet; virtual;
    procedure DefaultQueryClose(aSender: TObject); virtual;
    function AddUserType: TvcmUserTypesCollectionItem;
+   class function Make(const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    aGUID: PGUID = nil;
+    const aDataSource: IvcmFormDataSource = nil;
+    aSubUserType: TvcmUserType = vcm_utAny;
+    aAfterCreate: TvcmInitProc = nil): IvcmEntityForm; reintroduce;
+    {* создает форму сущности и добавляет ее к диспетчеру форм }
+   class function MakeSingleChild(const aCont: IvcmContainer;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmUserType = 0;
+    aGUID: PGUID = nil;
+    const aDataSource: IvcmFormDataSource = nil;
+    aSubUserType: TvcmUserType = vcm_utAny;
+    aAfterCreate: TvcmInitProc = nil): IvcmEntityForm; reintroduce;
+    {* создает форму сущности если таковой не было и вставляет ее в контейнер }
    procedure SetPositionByDS; virtual;
     {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
    function NeedDrawCaption: Boolean; virtual;
@@ -387,7 +404,7 @@ end;//TvcmEntityForm.DoBeforeHistoryNavigate
 class function TvcmEntityForm.GetExistingInstance(const aContainer: IvcmContainer;
  const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
- aUserType: TvcmUserType = vcmUserControls.0;
+ aUserType: TvcmUserType = 0;
  aGUID: PGUID = nil;
  const aDataSource: IvcmFormDataSource = nil;
  aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
@@ -398,6 +415,45 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *573AFFE5038D_49525B34022A_impl*
 end;//TvcmEntityForm.GetExistingInstance
+
+class function TvcmEntityForm.Make(const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ aGUID: PGUID = nil;
+ const aDataSource: IvcmFormDataSource = nil;
+ aSubUserType: TvcmUserType = vcm_utAny;
+ aAfterCreate: TvcmInitProc = nil): IvcmEntityForm;
+ {* создает форму сущности и добавляет ее к диспетчеру форм }
+var
+ l_Inst : TvcmEntityForm;
+begin
+ l_Inst := Create(aParams, aZoneType, aUserType, aGUID, aDataSource, aSubUserType, aAfterCreate);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TvcmEntityForm.Make
+
+class function TvcmEntityForm.MakeSingleChild(const aCont: IvcmContainer;
+ const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmUserType = 0;
+ aGUID: PGUID = nil;
+ const aDataSource: IvcmFormDataSource = nil;
+ aSubUserType: TvcmUserType = vcm_utAny;
+ aAfterCreate: TvcmInitProc = nil): IvcmEntityForm;
+ {* создает форму сущности если таковой не было и вставляет ее в контейнер }
+var
+ l_Inst : TvcmEntityForm;
+begin
+ l_Inst := Create(aCont, aParams, aZoneType, aUserType, aGUID, aDataSource, aSubUserType, aAfterCreate);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TvcmEntityForm.MakeSingleChild
 
 procedure TvcmEntityForm.DoInit(aFromHistory: Boolean);
  {* Инициализация формы. Для перекрытия в потомках }
