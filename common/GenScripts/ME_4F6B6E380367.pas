@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_NewGenMainPrim_Form;
+unit NewGenMainPrim_Form;
 
-// Модуль: "w:\MDProcess\NewGen\NOT_COMPLETED_NewGenMainPrim_Form.pas"
+// Модуль: "w:\MDProcess\NewGen\NewGenMainPrim_Form.pas"
 // Стереотип: "VCMMainForm"
 // Элемент модели: "NewGenMainPrim" MUID: (4F6B6E380367)
 // Имя типа: "TNewGenMainPrimForm"

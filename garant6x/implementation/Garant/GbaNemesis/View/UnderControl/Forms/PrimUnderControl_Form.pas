@@ -575,7 +575,7 @@ end;//TPrimUnderControlForm.Loadable_Load_Execute
 procedure TPrimUnderControlForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {*  оллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TPrimUnderControlForm.Loadable_Load
 

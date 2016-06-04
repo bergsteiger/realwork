@@ -1,183 +1,132 @@
 unit PrimBaseSearch_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/BaseSearch/Forms/PrimBaseSearch_Form.pas"
-// Начат: 21.09.2009 18:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::BaseSearch::View::BaseSearch$Module::PrimBaseSearch
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimBaseSearch" MUID: (4AB791130260)
+// Имя типа: "TPrimBaseSearchForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmEntityForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  ,
-  BaseSearchInterfaces,
-  nsCounterEvent,
-  l3StringIDEx,
-  BaseSearch_Controls
-  {$If defined(Nemesis)}
-  ,
-  nscTreeComboWithHistoryAndOperations
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  nsNotificationManager,
-  ContextHistoryInterfaces,
-  l3TabbedContainersDispatcher,
-  Graphics,
-  l3Region,
-  LoggingUnit,
-  PrimBaseSearch_BaseSearch_UserType,
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseSearchInterfaces
+ , ContextHistoryInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseSearch_Controls
+ , nsNotificationManager
+ , l3TabbedContainersDispatcher
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscTreeComboWithHistoryAndOperations
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBaseTypes
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Graphics
+ , l3Region
+ , nsCounterEvent
+ , LoggingUnit
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- InsBaseSearchFormState = interface(IUnknown{, IvcmBase, Данный выбор не запоминается, когда мы сами инициируем вызов "Основного Меню", При хождении по истории выбор должен восстанавливаться})
+ InsBaseSearchFormState = interface
   {* Состояние формы "Базоывый поиск" }
-   ['{239F47AA-B37E-447C-BE52-E487DE8A8397}']
-   function Get_ActiveClass: InsBaseSearchClass;
-   function Get_Data: InsBaseSearcherWindowData;
-   property ActiveClass: InsBaseSearchClass
-     read Get_ActiveClass;
-   property Data: InsBaseSearcherWindowData
-     read Get_Data;
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
+  ['{239F47AA-B37E-447C-BE52-E487DE8A8397}']
+  function Get_ActiveClass: InsBaseSearchClass;
+  function Get_Data: InsBaseSearcherWindowData;
+  function As_IvcmBase: IvcmBase;
+   {* Метод приведения нашего интерфейса к IvcmBase }
+  property ActiveClass: InsBaseSearchClass
+   read Get_ActiveClass;
+  property Data: InsBaseSearcherWindowData
+   read Get_Data;
  end;//InsBaseSearchFormState
 
  TnsUseBaseSearchExampleEvent = class(TnsCounterEvent)
- protected
- // realized methods
+  protected
    function EventID: TLogEvent; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TnsUseBaseSearchExampleEvent;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsUseBaseSearchExampleEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchExampleEvent
 
  TnsUseBaseSearchHintEvent = class(TnsCounterEvent)
- protected
- // realized methods
+  protected
    function EventID: TLogEvent; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TnsUseBaseSearchHintEvent;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsUseBaseSearchHintEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchHintEvent
 
  TnsUseBackSearchButtonEvent = class(TnsCounterEvent)
- protected
- // realized methods
+  protected
    function EventID: TLogEvent; override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TnsUseBackSearchButtonEvent;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TnsUseBackSearchButtonEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBackSearchButtonEvent
 
  _BaseSearch2010_Parent_ = TvcmEntityForm;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
- TPrimBaseSearchForm = {form} class(_BaseSearch2010_, InsSearchWindow, InsContextSearchHistoryNotifier {$If not defined(NoVCM)}, IvcmLockListener{$IfEnd} //not NoVCM
+ TPrimBaseSearchForm = class(_BaseSearch2010_, InsSearchWindow, InsContextSearchHistoryNotifier{$If NOT Defined(NoVCM)}
+ , IvcmLockListener
+ {$IfEnd} // NOT Defined(NoVCM)
  , InsNotificationListener, Il3TabbedContainersListener)
- private
- // private fields
-   f_InCreate : Boolean;
-   f_ContextHistory : InsContextSearchHistory;
-   f_NeedParamsChanged : Boolean;
-   f_NeedPresentationChanged : Boolean;
-   f_FlashCounter : Integer;
-   f_IsTabActive : Boolean;
-    {* активна ли вкладка, на которой лежит форма}
-   f_ControlToActivate : TWinControl;
-    {* контрол, в который надо установить фокус при переходе на вкладку}
-   f_IsActive : Boolean;
-   f_ContextEdit : TnscTreeComboWithHistoryAndOperations;
-    {* Поле для свойства ContextEdit}
-   f_FlashTimer : TTimer;
-    {* Поле для свойства FlashTimer}
- protected
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- private
- // private methods
+  private
+   f_InCreate: Boolean;
+   f_ContextHistory: InsContextSearchHistory;
+   f_NeedParamsChanged: Boolean;
+   f_NeedPresentationChanged: Boolean;
+   f_FlashCounter: Integer;
+   f_IsTabActive: Boolean;
+    {* активна ли вкладка, на которой лежит форма }
+   f_ControlToActivate: TWinControl;
+    {* контрол, в который надо установить фокус при переходе на вкладку }
+   f_IsActive: Boolean;
+   f_ContextEdit: TnscTreeComboWithHistoryAndOperations;
+   f_FlashTimer: TTimer;
+  protected
+   f_BaseSearcher: InsBaseSearcher;
+   f_LockParamsChange: Integer;
+   f_ActiveClassForSaveInHistory: InsBaseSearchClass;
+  private
    procedure AfterSearcherSet;
-     {* Сигнатура метода AfterSearcherSet }
    function MainMenuLikeBaseSearch: Boolean;
    procedure CMVisibleChanged(var Msg: TMessage); message CM_VISIBLECHANGED;
- protected
- // property methods
+  protected
    function pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
    procedure pm_SetFindBtnEnabled(aValue: Boolean); virtual; abstract;
    procedure pm_SetFindBackBtnEnabled(aValue: Boolean); virtual; abstract;
@@ -185,124 +134,14 @@ type
    procedure pm_SetContextLabelVisible(aValue: Boolean); virtual; abstract;
    function pm_GetCloseBtnEnabled: Boolean; virtual; abstract;
    procedure pm_SetCloseBtnEnabled(aValue: Boolean); virtual; abstract;
- protected
- // realized methods
-   procedure ParamsChanged;
-   procedure PresentationChanged;
-   procedure ExampleChanged;
-   procedure CheckFindEnabled;
-   procedure ClassNamesChanged;
-   procedure CloseWindow;
-   procedure ActivateWindow(aNeedFlash: Boolean = True);
-   procedure HistoryChanged(const aNewHistory: IvcmStrings);
-   procedure ContextSearched;
-     {$If not defined(NoVCM)}
-   procedure Lock;
-     {* отрисовка запрещена }
-     {$IfEnd} //not NoVCM
-     {$If not defined(NoVCM)}
-   procedure BeforeUnlock;
-     {* переходные процессы уже завершились, но отрисовка ещё запрещена }
-     {$IfEnd} //not NoVCM
-     {$If not defined(NoVCM)}
-   procedure Unlock;
-     {* отрисовка разрешена }
-     {$IfEnd} //not NoVCM
-   procedure CheckFragmentsCount;
-   {$If not defined(NoVCM)}
-   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   function Get_Container: IvcmContainer;
-   procedure EnclosedForms_CloseChild_Test(const aParams: IvcmTestParamsPrim);
-   procedure EnclosedForms_CloseChild_Execute(const aParams: IvcmExecuteParamsPrim);
-   procedure NsNotification(aType: TnsNotificationType);
-   procedure ForceUpdateClassForHistory;
-   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
-   function pm_GetIsActive: Boolean;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoSaveState(out theState: IvcmBase;
-    aStateType: TvcmStateType;
-    aForClone: Boolean): Boolean; override;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   function DoLoadState(const aState: IvcmBase;
-    aStateType: TvcmStateType): Boolean; override;
-     {* Загружает состояние формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure BecomeActive; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure BecomeInactive; override;
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
-   procedure CreateFormGUID(var theGUID: TGUID); override;
-     {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
-    {$IfEnd} //not NoVCM
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
-    {$If not defined(NoVCM)}
-   function DoGetNeedSaveToTabHistory: Boolean; override;
-    {$IfEnd} //not NoVCM
- public
- // overridden public methods
-   {$If not defined(NoVCM)}
-   function NeedDrawCaption: Boolean; override;
-     {* Нужно ли рисовать заголовок зоны }
-   {$IfEnd} //not NoVCM
- protected
- // protected fields
-   f_BaseSearcher : InsBaseSearcher{WindowData};
-   f_LockParamsChange : Integer;
-   f_ActiveClassForSaveInHistory : InsBaseSearchClass;
- protected
- // protected methods
    procedure ApplyCurrentExample; virtual;
-     {* Сигнатура метода ApplyCurrentExample }
    procedure UnregisterFromSearcher;
-     {* Сигнатура метода UnregisterFromSearcher }
    procedure DoFindBtnClick;
-     {* Сигнатура метода DoFindBtnClick }
    procedure SearchByContext(const aClassToSaveInHistory: InsBaseSearchClass;
-     aNeedUpdateAndStoreActiveClass: Boolean;
-     aUpdateClassBeforeSearch: Boolean);
+    aNeedUpdateAndStoreActiveClass: Boolean;
+    aUpdateClassBeforeSearch: Boolean);
    procedure ContextEditPastingString(Sender: TObject;
-     var aText: Il3CString);
+    var aText: Il3CString);
    procedure StopFlash;
    procedure UpdateSearcherContext;
    procedure ContextEditChange(Sender: TObject);
@@ -313,160 +152,264 @@ type
    procedure StartFlash;
    procedure ContextEditSelect(Sender: TObject);
    procedure DoCloseBtnClick;
-     {* Сигнатура метода DoCloseBtnClick }
    procedure SetCurrentSearchArea(anArea: TnsSearchArea); virtual; abstract;
    procedure SetupThemePages; virtual; abstract;
    procedure DoCheckFragmentsCount(const aFragmentsCountSuffix: Il3CString); virtual; abstract;
    procedure DoExampleChanged(const anExampleText: Il3CString); virtual; abstract;
    procedure UpdateSearcherArea(anArea: TnsSearchArea;
-     anKind: TnsBaseSearchKind);
+    anKind: TnsBaseSearchKind);
    procedure DoFindBackBtnClick;
-     {* Сигнатура метода DoFindBackBtnClick }
    procedure AdjustParamsPagesHeight; virtual; abstract;
    procedure SetUpFindButtons; virtual; abstract;
    procedure SetupClasses(aFromUpdate: Boolean); virtual; abstract;
    procedure UpdateExamplePanelWidthAndPosition; virtual; abstract;
- public
- // public methods
+   procedure ParamsChanged;
+   procedure PresentationChanged;
+   procedure ExampleChanged;
+   procedure CheckFindEnabled;
+   procedure ClassNamesChanged;
+   procedure CloseWindow;
+   procedure ActivateWindow(aNeedFlash: Boolean = True);
+   procedure HistoryChanged(const aNewHistory: IvcmStrings);
+   procedure ContextSearched;
+   {$If NOT Defined(NoVCM)}
+   procedure Lock;
+    {* отрисовка запрещена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BeforeUnlock;
+    {* переходные процессы уже завершились, но отрисовка ещё запрещена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Unlock;
+    {* отрисовка разрешена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure CheckFragmentsCount;
+   function Get_Container: IvcmContainer;
+   procedure nsNotification(aType: TnsNotificationType);
+   procedure ForceUpdateClassForHistory;
+   procedure NotifyContainersChanged(aNotification: Tl3TabbedContainerNotificationType);
+   function pm_GetIsActive: Boolean;
+   function pm_GetIsMainInUseCase: Boolean;
+   function pm_GetVisible: Boolean;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FinishDataUpdate; override;
+   {$If NOT Defined(NoVCM)}
+   procedure DoInit(aFromHistory: Boolean); override;
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoSaveState(out theState: IvcmBase;
+    aStateType: TvcmStateType;
+    aForClone: Boolean): Boolean; override;
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoLoadState(const aState: IvcmBase;
+    aStateType: TvcmStateType): Boolean; override;
+    {* Загружает состояние формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeActive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitControls; override;
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure BecomeInactive; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure CreateFormGUID(var theGUID: TGUID); override;
+    {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetNeedSaveToTabHistory: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   class function GetExistingInstance(const aContainer: IvcmContainer;
+    const aParams: IvcmMakeParams;
+    aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+    aUserType: TvcmUserType = 0;
+    aGUID: PGUID = nil;
+    const aDataSource: IvcmFormDataSource = nil;
+    aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function MakeSingleChild(const aData: InsBaseSearcherWindowData;
-    const aCont   : IvcmContainer;
-    const anAgg   : IvcmAggregate;
-    aZoneType     : TvcmZoneType = vcm_ztAny;
-    aUserType     : TvcmEffectiveUserType = 0;
-    aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
- protected
- // protected properties
+    const aCont: IvcmContainer;
+    const anAgg: IvcmAggregate;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure EnclosedForms_CloseChild_Test(const aParams: IvcmTestParamsPrim);
+   procedure EnclosedForms_CloseChild_Execute(const aParams: IvcmExecuteParamsPrim);
+   {$If NOT Defined(NoVCM)}
+   function NeedDrawCaption: Boolean; override;
+    {* Нужно ли рисовать заголовок зоны }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property FindBtnEnabled: Boolean
-     write pm_SetFindBtnEnabled;
+    write pm_SetFindBtnEnabled;
    property FindBackBtnEnabled: Boolean
-     write pm_SetFindBackBtnEnabled;
+    write pm_SetFindBackBtnEnabled;
    property ContextLabelVisible: Boolean
-     read pm_GetContextLabelVisible
-     write pm_SetContextLabelVisible;
+    read pm_GetContextLabelVisible
+    write pm_SetContextLabelVisible;
    property CloseBtnEnabled: Boolean
-     read pm_GetCloseBtnEnabled
-     write pm_SetCloseBtnEnabled;
- public
- // public properties
+    read pm_GetCloseBtnEnabled
+    write pm_SetCloseBtnEnabled;
+  public
    property ContextEdit: TnscTreeComboWithHistoryAndOperations
-     read pm_GetContextEdit;
+    read pm_GetContextEdit;
    property FlashTimer: TTimer
-     read f_FlashTimer;
+    read f_FlashTimer;
  end;//TPrimBaseSearchForm
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  afwFacade,
-  l3Base {a},
-  nsLogEventData,
-  nsLogManager,
-  LoggingWrapperInterfaces,
-  l3Chars,
-  SysUtils,
-  nsContextHistory,
-  l3String,
-  nsTypes,
-  nsQuery
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  ,
-  l3Const
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Common_FormDefinitions_Controls,
-  nsBaseSearchFormGUIDFactory
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerForm
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
-  nsSearchWindowManager,
-  nsBaseSearchService,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Units,
-  nsConst
-  {$If not defined(NoVCL)}
-  ,
-  Themes
-  {$IfEnd} //not NoVCL
-  ,
-  Windows,
-  afwInterfaces,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , l3ProtoObject
+ , afwInterfaces
+ , SysUtils
+ , nsContextHistory
+ , l3String
+ , nsTypes
+ , nsQuery
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Const
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Common_FormDefinitions_Controls
+ , nsBaseSearchFormGUIDFactory
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerForm
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
+ , vcmTabbedContainerFormDispatcher
+ {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ , nsSearchWindowManager
+ , nsBaseSearchService
+ , l3Units
+ , nsConst
+ {$If NOT Defined(NoVCL)}
+ , Themes
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ , l3Chars
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimBaseSearch_BaseSearch_UserType
+ , afwFacade
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4AB791130260impl_uses*
+ //#UC END# *4AB791130260impl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TPrimBaseSearchForm;
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
-
-const
-   { Const }
-  cMaxLen = 300;
-  c_FlashTimes = 2;
-
-var
-   { Локализуемые строки BaseSearchLocalConstants }
-  str_BaseSearchCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'BaseSearchCaption'; rValue : 'Базовый поиск');
-   { Заголовок пользовательского типа "Базовый поиск" }
-
+{$If NOT Defined(NoVCM)}
 type
-  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
+ _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-  TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState, IvcmBase {from InsBaseSearchFormState})
+ TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState, IvcmBase)
   private
-  // private fields
-   f_ActiveClass : InsBaseSearchClass;
-   f_Data : InsBaseSearcherWindowData;
+   f_ActiveClass: InsBaseSearchClass;
+   f_Data: InsBaseSearcherWindowData;
   protected
-  // realized methods
+   function As_IvcmBase: IvcmBase;
+    {* Метод приведения нашего интерфейса к IvcmBase }
    function Get_Data: InsBaseSearcherWindowData;
    function Get_ActiveClass: InsBaseSearchClass;
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
   public
-  // public methods
    constructor Create(const aData: InsBaseSearcherWindowData;
-      const anActiveClass: InsBaseSearchClass); reintroduce;
+    const anActiveClass: InsBaseSearchClass); reintroduce;
    class function Make(const aData: InsBaseSearcherWindowData;
-      const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState; reintroduce;
-     {* Сигнатура фабрики TnsBaseSearchFormState.Make }
-  protected
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IvcmBase: IvcmBase;
-  end;//TnsBaseSearchFormState
+    const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState; reintroduce;
+ end;//TnsBaseSearchFormState
+
+var g_TnsUseBaseSearchExampleEvent: TnsUseBaseSearchExampleEvent = nil;
+ {* Экземпляр синглетона TnsUseBaseSearchExampleEvent }
+var g_TnsUseBaseSearchHintEvent: TnsUseBaseSearchHintEvent = nil;
+ {* Экземпляр синглетона TnsUseBaseSearchHintEvent }
+var g_TnsUseBackSearchButtonEvent: TnsUseBackSearchButtonEvent = nil;
+ {* Экземпляр синглетона TnsUseBackSearchButtonEvent }
+
+const
+ cMaxLen = 300;
+ c_FlashTimes = 2;
+
+procedure TnsUseBaseSearchExampleEventFree;
+ {* Метод освобождения экземпляра синглетона TnsUseBaseSearchExampleEvent }
+begin
+ l3Free(g_TnsUseBaseSearchExampleEvent);
+end;//TnsUseBaseSearchExampleEventFree
+
+procedure TnsUseBaseSearchHintEventFree;
+ {* Метод освобождения экземпляра синглетона TnsUseBaseSearchHintEvent }
+begin
+ l3Free(g_TnsUseBaseSearchHintEvent);
+end;//TnsUseBaseSearchHintEventFree
+
+procedure TnsUseBackSearchButtonEventFree;
+ {* Метод освобождения экземпляра синглетона TnsUseBackSearchButtonEvent }
+begin
+ l3Free(g_TnsUseBackSearchButtonEvent);
+end;//TnsUseBackSearchButtonEventFree
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-// start class TnsBaseSearchFormState
-
 constructor TnsBaseSearchFormState.Create(const aData: InsBaseSearcherWindowData;
-  const anActiveClass: InsBaseSearchClass);
+ const anActiveClass: InsBaseSearchClass);
 //#UC START# *4CF4F8470359_4ACB57C4023E_var*
 //#UC END# *4CF4F8470359_4ACB57C4023E_var*
 begin
@@ -481,7 +424,7 @@ begin
 end;//TnsBaseSearchFormState.Create
 
 class function TnsBaseSearchFormState.Make(const aData: InsBaseSearcherWindowData;
-  const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState;
+ const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState;
 var
  l_Inst : TnsBaseSearchFormState;
 begin
@@ -491,7 +434,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TnsBaseSearchFormState.Make
+
+function TnsBaseSearchFormState.As_IvcmBase: IvcmBase;
+ {* Метод приведения нашего интерфейса к IvcmBase }
+begin
+ Result := Self;
+end;//TnsBaseSearchFormState.As_IvcmBase
 
 function TnsBaseSearchFormState.Get_Data: InsBaseSearcherWindowData;
 //#UC START# *4ACB5763027B_4ACB57C4023Eget_var*
@@ -512,6 +461,7 @@ begin
 end;//TnsBaseSearchFormState.Get_ActiveClass
 
 procedure TnsBaseSearchFormState.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ACB57C4023E_var*
 //#UC END# *479731C50290_4ACB57C4023E_var*
 begin
@@ -533,20 +483,99 @@ begin
 end;//TnsBaseSearchFormState.FinishDataUpdate
 
 procedure TnsBaseSearchFormState.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_ActiveClass := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsBaseSearchFormState.ClearFields
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TnsBaseSearchFormState.As_IvcmBase: IvcmBase;
+function TnsUseBaseSearchExampleEvent.EventID: TLogEvent;
+//#UC START# *4B13A26203DB_4B13B3BD01CD_var*
+//#UC END# *4B13A26203DB_4B13B3BD01CD_var*
 begin
- Result := Self;
-end;
+//#UC START# *4B13A26203DB_4B13B3BD01CD_impl*
+ Result := LE_USE_BASE_SEARCH_EXAMPLE;
+//#UC END# *4B13A26203DB_4B13B3BD01CD_impl*
+end;//TnsUseBaseSearchExampleEvent.EventID
+
+class function TnsUseBaseSearchExampleEvent.Instance: TnsUseBaseSearchExampleEvent;
+ {* Метод получения экземпляра синглетона TnsUseBaseSearchExampleEvent }
+begin
+ if (g_TnsUseBaseSearchExampleEvent = nil) then
+ begin
+  l3System.AddExitProc(TnsUseBaseSearchExampleEventFree);
+  g_TnsUseBaseSearchExampleEvent := Create;
+ end;
+ Result := g_TnsUseBaseSearchExampleEvent;
+end;//TnsUseBaseSearchExampleEvent.Instance
+
+class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseBaseSearchExampleEvent <> nil;
+end;//TnsUseBaseSearchExampleEvent.Exists
+
+function TnsUseBaseSearchHintEvent.EventID: TLogEvent;
+//#UC START# *4B13A26203DB_4B13B90D007E_var*
+//#UC END# *4B13A26203DB_4B13B90D007E_var*
+begin
+//#UC START# *4B13A26203DB_4B13B90D007E_impl*
+ Result := LE_USE_BASE_SEARCH_HINT;
+//#UC END# *4B13A26203DB_4B13B90D007E_impl*
+end;//TnsUseBaseSearchHintEvent.EventID
+
+class function TnsUseBaseSearchHintEvent.Instance: TnsUseBaseSearchHintEvent;
+ {* Метод получения экземпляра синглетона TnsUseBaseSearchHintEvent }
+begin
+ if (g_TnsUseBaseSearchHintEvent = nil) then
+ begin
+  l3System.AddExitProc(TnsUseBaseSearchHintEventFree);
+  g_TnsUseBaseSearchHintEvent := Create;
+ end;
+ Result := g_TnsUseBaseSearchHintEvent;
+end;//TnsUseBaseSearchHintEvent.Instance
+
+class function TnsUseBaseSearchHintEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseBaseSearchHintEvent <> nil;
+end;//TnsUseBaseSearchHintEvent.Exists
+
+function TnsUseBackSearchButtonEvent.EventID: TLogEvent;
+//#UC START# *4B13A26203DB_4B13B9AA029F_var*
+//#UC END# *4B13A26203DB_4B13B9AA029F_var*
+begin
+//#UC START# *4B13A26203DB_4B13B9AA029F_impl*
+ Result := LE_USE_BACK_SEARCH_BUTTON;
+//#UC END# *4B13A26203DB_4B13B9AA029F_impl*
+end;//TnsUseBackSearchButtonEvent.EventID
+
+class function TnsUseBackSearchButtonEvent.Instance: TnsUseBackSearchButtonEvent;
+ {* Метод получения экземпляра синглетона TnsUseBackSearchButtonEvent }
+begin
+ if (g_TnsUseBackSearchButtonEvent = nil) then
+ begin
+  l3System.AddExitProc(TnsUseBackSearchButtonEventFree);
+  g_TnsUseBackSearchButtonEvent := Create;
+ end;
+ Result := g_TnsUseBackSearchButtonEvent;
+end;//TnsUseBackSearchButtonEvent.Instance
+
+class function TnsUseBackSearchButtonEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseBackSearchButtonEvent <> nil;
+end;//TnsUseBackSearchButtonEvent.Exists
+
+type _Instance_R_ = TPrimBaseSearchForm;
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
+
+function TPrimBaseSearchForm.pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
+begin
+ if (f_ContextEdit = nil) then
+  f_ContextEdit := FindComponent('ContextEdit') As TnscTreeComboWithHistoryAndOperations;
+ Result := f_ContextEdit;
+end;//TPrimBaseSearchForm.pm_GetContextEdit
 
 procedure TPrimBaseSearchForm.AfterSearcherSet;
 //#UC START# *4ACB59F7011B_4AB791130260_var*
@@ -577,30 +606,6 @@ begin
 //#UC END# *4ACB59F7011B_4AB791130260_impl*
 end;//TPrimBaseSearchForm.AfterSearcherSet
 
-function TPrimBaseSearchForm.MainMenuLikeBaseSearch: Boolean;
-//#UC START# *4F2021110102_4AB791130260_var*
-var
- l_O : InsMainMenuLikeBaseSearchOwner;
-//#UC END# *4F2021110102_4AB791130260_var*
-begin
-//#UC START# *4F2021110102_4AB791130260_impl*
- Assert(Owner Is TvcmEntityForm);
-(* if TvcmEntityForm(Owner).As_IvcmEntityForm.SameName(fm_en_MainMenuNew)
- // - разделяем случай когда БП встроен в ОМ и все остальные, а иначе при хождении
- //   по истории пропадает БП из ОМ
-   OR TvcmEntityForm(Owner).As_IvcmEntityForm.SameName(fm_BaseSearchContainerForm)
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=300515366*)
- if Supports(Owner, InsMainMenuLikeBaseSearchOwner, l_O) AND
-    l_O.IsIt 
- // - разделяем случай когда БП встроен в ОМ и все остальные, а иначе при хождении
- //   по истории пропадает БП из ОМ
- then
-  Result := true
- else
-  Result := false;
-//#UC END# *4F2021110102_4AB791130260_impl*
-end;//TPrimBaseSearchForm.MainMenuLikeBaseSearch
-
 procedure TPrimBaseSearchForm.ApplyCurrentExample;
 //#UC START# *4B13B419036C_4AB791130260_var*
 //#UC END# *4B13B419036C_4AB791130260_var*
@@ -613,13 +618,6 @@ begin
  end;//if Assigned(f_BaseSearcher) then
 //#UC END# *4B13B419036C_4AB791130260_impl*
 end;//TPrimBaseSearchForm.ApplyCurrentExample
-
-function TPrimBaseSearchForm.pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
-begin
- if (f_ContextEdit = nil) then
-  f_ContextEdit := FindComponent('ContextEdit') As TnscTreeComboWithHistoryAndOperations;
- Result := f_ContextEdit;
-end;
 
 procedure TPrimBaseSearchForm.UnregisterFromSearcher;
 //#UC START# *4CF4D7110264_4AB791130260_var*
@@ -660,8 +658,8 @@ begin
 end;//TPrimBaseSearchForm.DoFindBtnClick
 
 procedure TPrimBaseSearchForm.SearchByContext(const aClassToSaveInHistory: InsBaseSearchClass;
-  aNeedUpdateAndStoreActiveClass: Boolean;
-  aUpdateClassBeforeSearch: Boolean);
+ aNeedUpdateAndStoreActiveClass: Boolean;
+ aUpdateClassBeforeSearch: Boolean);
 //#UC START# *4CFCCFCE0297_4AB791130260_var*
 
 (*var
@@ -743,7 +741,7 @@ begin
 end;//TPrimBaseSearchForm.SearchByContext
 
 procedure TPrimBaseSearchForm.ContextEditPastingString(Sender: TObject;
-  var aText: Il3CString);
+ var aText: Il3CString);
 //#UC START# *4CFCD7CF000D_4AB791130260_var*
 //#UC END# *4CFCD7CF000D_4AB791130260_var*
 begin
@@ -874,7 +872,7 @@ begin
 end;//TPrimBaseSearchForm.DoCloseBtnClick
 
 procedure TPrimBaseSearchForm.UpdateSearcherArea(anArea: TnsSearchArea;
-  anKind: TnsBaseSearchKind);
+ anKind: TnsBaseSearchKind);
 //#UC START# *4CFE398A0128_4AB791130260_var*
 //#UC END# *4CFE398A0128_4AB791130260_var*
 begin
@@ -901,110 +899,29 @@ begin
 //#UC END# *4CFE48BF01E2_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoFindBackBtnClick
 
-// start class TnsUseBaseSearchExampleEvent
-
-var g_TnsUseBaseSearchExampleEvent : TnsUseBaseSearchExampleEvent = nil;
-
-procedure TnsUseBaseSearchExampleEventFree;
+function TPrimBaseSearchForm.MainMenuLikeBaseSearch: Boolean;
+//#UC START# *4F2021110102_4AB791130260_var*
+var
+ l_O : InsMainMenuLikeBaseSearchOwner;
+//#UC END# *4F2021110102_4AB791130260_var*
 begin
- l3Free(g_TnsUseBaseSearchExampleEvent);
-end;
-
-class function TnsUseBaseSearchExampleEvent.Instance: TnsUseBaseSearchExampleEvent;
-begin
- if (g_TnsUseBaseSearchExampleEvent = nil) then
- begin
-  l3System.AddExitProc(TnsUseBaseSearchExampleEventFree);
-  g_TnsUseBaseSearchExampleEvent := Create;
- end;
- Result := g_TnsUseBaseSearchExampleEvent;
-end;
-
-
-class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
- {-}
-begin
- Result := g_TnsUseBaseSearchExampleEvent <> nil;
-end;//TnsUseBaseSearchExampleEvent.Exists
-
-function TnsUseBaseSearchExampleEvent.EventID: TLogEvent;
-//#UC START# *4B13A26203DB_4B13B3BD01CD_var*
-//#UC END# *4B13A26203DB_4B13B3BD01CD_var*
-begin
-//#UC START# *4B13A26203DB_4B13B3BD01CD_impl*
- Result := LE_USE_BASE_SEARCH_EXAMPLE;
-//#UC END# *4B13A26203DB_4B13B3BD01CD_impl*
-end;//TnsUseBaseSearchExampleEvent.EventID
-
-// start class TnsUseBaseSearchHintEvent
-
-var g_TnsUseBaseSearchHintEvent : TnsUseBaseSearchHintEvent = nil;
-
-procedure TnsUseBaseSearchHintEventFree;
-begin
- l3Free(g_TnsUseBaseSearchHintEvent);
-end;
-
-class function TnsUseBaseSearchHintEvent.Instance: TnsUseBaseSearchHintEvent;
-begin
- if (g_TnsUseBaseSearchHintEvent = nil) then
- begin
-  l3System.AddExitProc(TnsUseBaseSearchHintEventFree);
-  g_TnsUseBaseSearchHintEvent := Create;
- end;
- Result := g_TnsUseBaseSearchHintEvent;
-end;
-
-
-class function TnsUseBaseSearchHintEvent.Exists: Boolean;
- {-}
-begin
- Result := g_TnsUseBaseSearchHintEvent <> nil;
-end;//TnsUseBaseSearchHintEvent.Exists
-
-function TnsUseBaseSearchHintEvent.EventID: TLogEvent;
-//#UC START# *4B13A26203DB_4B13B90D007E_var*
-//#UC END# *4B13A26203DB_4B13B90D007E_var*
-begin
-//#UC START# *4B13A26203DB_4B13B90D007E_impl*
- Result := LE_USE_BASE_SEARCH_HINT;
-//#UC END# *4B13A26203DB_4B13B90D007E_impl*
-end;//TnsUseBaseSearchHintEvent.EventID
-
-// start class TnsUseBackSearchButtonEvent
-
-var g_TnsUseBackSearchButtonEvent : TnsUseBackSearchButtonEvent = nil;
-
-procedure TnsUseBackSearchButtonEventFree;
-begin
- l3Free(g_TnsUseBackSearchButtonEvent);
-end;
-
-class function TnsUseBackSearchButtonEvent.Instance: TnsUseBackSearchButtonEvent;
-begin
- if (g_TnsUseBackSearchButtonEvent = nil) then
- begin
-  l3System.AddExitProc(TnsUseBackSearchButtonEventFree);
-  g_TnsUseBackSearchButtonEvent := Create;
- end;
- Result := g_TnsUseBackSearchButtonEvent;
-end;
-
-
-class function TnsUseBackSearchButtonEvent.Exists: Boolean;
- {-}
-begin
- Result := g_TnsUseBackSearchButtonEvent <> nil;
-end;//TnsUseBackSearchButtonEvent.Exists
-
-function TnsUseBackSearchButtonEvent.EventID: TLogEvent;
-//#UC START# *4B13A26203DB_4B13B9AA029F_var*
-//#UC END# *4B13A26203DB_4B13B9AA029F_var*
-begin
-//#UC START# *4B13A26203DB_4B13B9AA029F_impl*
- Result := LE_USE_BACK_SEARCH_BUTTON;
-//#UC END# *4B13A26203DB_4B13B9AA029F_impl*
-end;//TnsUseBackSearchButtonEvent.EventID
+//#UC START# *4F2021110102_4AB791130260_impl*
+ Assert(Owner Is TvcmEntityForm);
+(* if TvcmEntityForm(Owner).As_IvcmEntityForm.SameName(fm_en_MainMenuNew)
+ // - разделяем случай когда БП встроен в ОМ и все остальные, а иначе при хождении
+ //   по истории пропадает БП из ОМ
+   OR TvcmEntityForm(Owner).As_IvcmEntityForm.SameName(fm_BaseSearchContainerForm)
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=300515366*)
+ if Supports(Owner, InsMainMenuLikeBaseSearchOwner, l_O) AND
+    l_O.IsIt 
+ // - разделяем случай когда БП встроен в ОМ и все остальные, а иначе при хождении
+ //   по истории пропадает БП из ОМ
+ then
+  Result := true
+ else
+  Result := false;
+//#UC END# *4F2021110102_4AB791130260_impl*
+end;//TPrimBaseSearchForm.MainMenuLikeBaseSearch
 
 procedure TPrimBaseSearchForm.CMVisibleChanged(var Msg: TMessage);
 //#UC START# *506AB26A0032_4AB791130260_var*
@@ -1031,22 +948,22 @@ begin
 end;//TPrimBaseSearchForm.CMVisibleChanged
 
 class function TPrimBaseSearchForm.MakeSingleChild(const aData: InsBaseSearcherWindowData;
-  const aCont   : IvcmContainer;
-  const anAgg   : IvcmAggregate;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0;
-  aDataSource   : IvcmFormDataSource = nil): IvcmEntityForm;
+ const aCont: IvcmContainer;
+ const anAgg: IvcmAggregate;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
 
  procedure AfterCreate(aForm : TPrimBaseSearchForm);
  begin
   with aForm do
   begin
-//#UC START# *565445DF038D_4AB791130260_impl*
+  //#UC START# *565445DF038D_4AB791130260_impl*
    Assert(aData <> nil);
    f_BaseSearcher := aData as InsBaseSearcher;
    f_BaseSearcher.ValidateBaseSearchForm(aForm.As_IvcmEntityForm);
    AfterSearcherSet;
-//#UC END# *565445DF038D_4AB791130260_impl*
+  //#UC END# *565445DF038D_4AB791130260_impl*
   end;//with aForm
  end;
 
@@ -1060,7 +977,7 @@ begin
  finally
   l3FreeLocalStub(l_ACHack);
  end;//try..finally
-end;
+end;//TPrimBaseSearchForm.MakeSingleChild
 
 procedure TPrimBaseSearchForm.ParamsChanged;
 //#UC START# *496B51AA02C3_4AB791130260_var*
@@ -1211,8 +1128,8 @@ begin
 //#UC END# *496B53C30337_4AB791130260_impl*
 end;//TPrimBaseSearchForm.ContextSearched
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Lock;
+ {* отрисовка запрещена }
 //#UC START# *4995562701A0_4AB791130260_var*
 //#UC END# *4995562701A0_4AB791130260_var*
 begin
@@ -1220,10 +1137,9 @@ begin
  // DoNothings;
 //#UC END# *4995562701A0_4AB791130260_impl*
 end;//TPrimBaseSearchForm.Lock
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.BeforeUnlock;
+ {* переходные процессы уже завершились, но отрисовка ещё запрещена }
 //#UC START# *4995563201CA_4AB791130260_var*
 //#UC END# *4995563201CA_4AB791130260_var*
 begin
@@ -1231,10 +1147,9 @@ begin
  // DoNothings;
 //#UC END# *4995563201CA_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BeforeUnlock
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Unlock;
+ {* отрисовка разрешена }
 //#UC START# *4995563E01A9_4AB791130260_var*
 //#UC END# *4995563E01A9_4AB791130260_var*
 begin
@@ -1248,7 +1163,6 @@ begin
  end;//if not VCMCLosing then
 //#UC END# *4995563E01A9_4AB791130260_impl*
 end;//TPrimBaseSearchForm.Unlock
-{$IfEnd} //not NoVCM
 
 procedure TPrimBaseSearchForm.CheckFragmentsCount;
 //#UC START# *49FFD8050279_4AB791130260_var*
@@ -1259,8 +1173,8 @@ begin
 //#UC END# *49FFD8050279_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CheckFragmentsCount
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A8AD47D0357_4AB791130260test_var*
 //#UC END# *4A8AD47D0357_4AB791130260test_var*
 begin
@@ -1268,10 +1182,9 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4A8AD47D0357_4AB791130260test_impl*
 end;//TPrimBaseSearchForm.Result_OkExt_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A8AD47D0357_4AB791130260exec_var*
 //#UC END# *4A8AD47D0357_4AB791130260exec_var*
 begin
@@ -1279,10 +1192,9 @@ begin
  DoFindBtnClick;
 //#UC END# *4A8AD47D0357_4AB791130260exec_impl*
 end;//TPrimBaseSearchForm.Result_OkExt_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_Ok_Test(const aParams: IvcmTestParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AB791130260test_var*
 //#UC END# *4A97EBE702F8_4AB791130260test_var*
 begin
@@ -1290,10 +1202,9 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4A97EBE702F8_4AB791130260test_impl*
 end;//TPrimBaseSearchForm.Result_Ok_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4A97EBE702F8_4AB791130260exec_var*
 //#UC END# *4A97EBE702F8_4AB791130260exec_var*
 begin
@@ -1301,10 +1212,9 @@ begin
  DoFindBtnClick;
 //#UC END# *4A97EBE702F8_4AB791130260exec_impl*
 end;//TPrimBaseSearchForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_Cancel_Test(const aParams: IvcmTestParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4AB791130260test_var*
 //#UC END# *4AC5D61E0284_4AB791130260test_var*
 begin
@@ -1312,10 +1222,9 @@ begin
  aParams.Op.Flag[vcm_ofVisible] := False;
 //#UC END# *4AC5D61E0284_4AB791130260test_impl*
 end;//TPrimBaseSearchForm.Result_Cancel_Test
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4AC5D61E0284_4AB791130260exec_var*
 //#UC END# *4AC5D61E0284_4AB791130260exec_var*
 begin
@@ -1326,7 +1235,6 @@ begin
   aParams.DoneStatus := vcm_dsNotDone; 
 //#UC END# *4AC5D61E0284_4AB791130260exec_impl*
 end;//TPrimBaseSearchForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
 function TPrimBaseSearchForm.Get_Container: IvcmContainer;
 //#UC START# *4ACB63B502EA_4AB791130260get_var*
@@ -1355,7 +1263,7 @@ begin
 //#UC END# *4C43D2F002EC_4AB791130260exec_impl*
 end;//TPrimBaseSearchForm.EnclosedForms_CloseChild_Execute
 
-procedure TPrimBaseSearchForm.NsNotification(aType: TnsNotificationType);
+procedure TPrimBaseSearchForm.nsNotification(aType: TnsNotificationType);
 //#UC START# *542BF11D00B6_4AB791130260_var*
 //#UC END# *542BF11D00B6_4AB791130260_var*
 begin
@@ -1367,7 +1275,7 @@ begin
    f_ContextEdit.SetFocus;
   end;
 //#UC END# *542BF11D00B6_4AB791130260_impl*
-end;//TPrimBaseSearchForm.NsNotification
+end;//TPrimBaseSearchForm.nsNotification
 
 procedure TPrimBaseSearchForm.ForceUpdateClassForHistory;
 //#UC START# *5437B4340246_4AB791130260_var*
@@ -1462,7 +1370,26 @@ begin
 //#UC END# *567290190285_4AB791130260get_impl*
 end;//TPrimBaseSearchForm.pm_GetIsActive
 
+function TPrimBaseSearchForm.pm_GetIsMainInUseCase: Boolean;
+//#UC START# *56E13D0501D6_4AB791130260get_var*
+//#UC END# *56E13D0501D6_4AB791130260get_var*
+begin
+//#UC START# *56E13D0501D6_4AB791130260get_impl*
+ Result := MainMenuLikeBaseSearch;
+//#UC END# *56E13D0501D6_4AB791130260get_impl*
+end;//TPrimBaseSearchForm.pm_GetIsMainInUseCase
+
+function TPrimBaseSearchForm.pm_GetVisible: Boolean;
+//#UC START# *56F5028901D2_4AB791130260get_var*
+//#UC END# *56F5028901D2_4AB791130260get_var*
+begin
+//#UC START# *56F5028901D2_4AB791130260get_impl*
+ Result := Visible;
+//#UC END# *56F5028901D2_4AB791130260get_impl*
+end;//TPrimBaseSearchForm.pm_GetVisible
+
 procedure TPrimBaseSearchForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4AB791130260_var*
 //#UC END# *479731C50290_4AB791130260_var*
 begin
@@ -1498,8 +1425,8 @@ begin
 //#UC END# *47EA4E9002C6_4AB791130260_impl*
 end;//TPrimBaseSearchForm.FinishDataUpdate
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4AB791130260_var*
 //#UC END# *49803F5503AA_4AB791130260_var*
 begin
@@ -1531,12 +1458,11 @@ begin
  TnsSearchWindowManager.Instance.Subscribe(Self);
 //#UC END# *49803F5503AA_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimBaseSearchForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_4AB791130260_var*
 var
  l_ClassToSave: InsBaseSearchClass;
@@ -1592,11 +1518,10 @@ begin
   Result := inherited DoSaveState(theState, aStateType, aForClone);
 //#UC END# *49806ED503D5_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoSaveState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimBaseSearchForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_4AB791130260_var*
 var
  l_State : InsBaseSearchFormState;
@@ -1635,10 +1560,9 @@ begin
   Result := inherited DoLoadState(aState, aStateType);
 //#UC END# *49807428008C_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoLoadState
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TPrimBaseSearchForm.NeedDrawCaption: Boolean;
+ {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_4AB791130260_var*
 //#UC END# *4A84183701B9_4AB791130260_var*
 begin
@@ -1646,9 +1570,7 @@ begin
  Result := false;
 //#UC END# *4A84183701B9_4AB791130260_impl*
 end;//TPrimBaseSearchForm.NeedDrawCaption
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.BecomeActive;
 //#UC START# *4A8AE0FA03B2_4AB791130260_var*
 //#UC END# *4A8AE0FA03B2_4AB791130260_var*
@@ -1658,10 +1580,9 @@ begin
  f_IsActive := True;
 //#UC END# *4A8AE0FA03B2_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BecomeActive
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4AB791130260_var*
 //#UC END# *4A8E8F2E0195_4AB791130260_var*
 begin
@@ -1683,9 +1604,7 @@ begin
  end;//with FlashTimer
 //#UC END# *4A8E8F2E0195_4AB791130260_impl*
 end;//TPrimBaseSearchForm.InitControls
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.BecomeInactive;
 //#UC START# *4AD5FA8E03DD_4AB791130260_var*
 //#UC END# *4AD5FA8E03DD_4AB791130260_var*
@@ -1694,10 +1613,9 @@ begin
  f_IsActive := False;
 //#UC END# *4AD5FA8E03DD_4AB791130260_impl*
 end;//TPrimBaseSearchForm.BecomeInactive
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimBaseSearchForm.CreateFormGUID(var theGUID: TGUID);
+ {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
 //#UC START# *4EBBC63E032A_4AB791130260_var*
 //#UC END# *4EBBC63E032A_4AB791130260_var*
 begin
@@ -1716,18 +1634,7 @@ begin
   // http://mdp.garant.ru/pages/viewpage.action?pageId=330139744&focusedCommentId=330142549#comment-330142549
 //#UC END# *4EBBC63E032A_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CreateFormGUID
-{$IfEnd} //not NoVCM
 
-procedure TPrimBaseSearchForm.ClearFields;
- {-}
-begin
- {$If not defined(Admin) AND not defined(Monitorings)}
- f_ActiveClassForSaveInHistory := nil;
- {$IfEnd} //not Admin AND not Monitorings
- inherited;
-end;//TPrimBaseSearchForm.ClearFields
-
-{$If not defined(NoVCM)}
 function TPrimBaseSearchForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC START# *55B9F0BD0069_4AB791130260_var*
 //#UC END# *55B9F0BD0069_4AB791130260_var*
@@ -1736,48 +1643,73 @@ begin
  Result := {not MainMenuLikeBaseSearch}True;
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
-{$IfEnd} //not NoVCM
+
+class function TPrimBaseSearchForm.GetExistingInstance(const aContainer: IvcmContainer;
+ const aParams: IvcmMakeParams;
+ aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
+ aUserType: TvcmUserType = 0;
+ aGUID: PGUID = nil;
+ const aDataSource: IvcmFormDataSource = nil;
+ aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
+//#UC START# *573AFFE5038D_4AB791130260_var*
+var
+ l_BaseSearcher: InsBaseSearcher;
+ l_SearchWindow: InsSearchWindow;
+//#UC END# *573AFFE5038D_4AB791130260_var*
+begin
+//#UC START# *573AFFE5038D_4AB791130260_impl*
+ Result := nil;
+ l_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(aContainer.AsForm);
+ try
+  l_SearchWindow := l_BaseSearcher.SearchWindow;
+  try
+   Supports(l_SearchWindow, IvcmEntityForm, Result); 
+  finally
+   l_SearchWindow := nil;
+  end;
+ finally
+  l_BaseSearcher := nil;
+ end;
+//#UC END# *573AFFE5038D_4AB791130260_impl*
+end;//TPrimBaseSearchForm.GetExistingInstance
+
+procedure TPrimBaseSearchForm.ClearFields;
+begin
+ f_ActiveClassForSaveInHistory := nil;
+ inherited;
+end;//TPrimBaseSearchForm.ClearFields
 
 procedure TPrimBaseSearchForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   PublishFormEntity(en_EnclosedForms, nil);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, Result_OkExt_Test, nil);
-  ShowInContextMenu(en_Result, op_OkExt, true);
-  ShowInToolbar(en_Result, op_OkExt, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_OkExt, True);
+  ShowInToolbar(en_Result, op_OkExt, True);
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, Result_Ok_Test, nil);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, false);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, False);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, Result_Cancel_Test, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, False);
   PublishOp(en_EnclosedForms, op_CloseChild, EnclosedForms_CloseChild_Execute, EnclosedForms_CloseChild_Test, nil);
-  ShowInContextMenu(en_EnclosedForms, op_CloseChild, false);
-  ShowInToolbar(en_EnclosedForms, op_CloseChild, false);
+  ShowInContextMenu(en_EnclosedForms, op_CloseChild, False);
+  ShowInToolbar(en_EnclosedForms, op_CloseChild, False);
  end;//with Entities.Entities
-end;
+end;//TPrimBaseSearchForm.InitEntities
 
 procedure TPrimBaseSearchForm.MakeControls;
 begin
  inherited;
- f_FlashTimer := TTimer.Create(Self);
- f_FlashTimer.Name := 'FlashTimer';
  with AddUsertype(BaseSearchName,
   str_BaseSearchCaption,
   str_BaseSearchCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -1787,18 +1719,16 @@ begin
   vcm_ccNone) do
  begin
  end;//with AddUsertype(BaseSearchName
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+ f_FlashTimer := TTimer.Create(Self);
+ f_FlashTimer.Name := 'FlashTimer';
+end;//TPrimBaseSearchForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_BaseSearchCaption
- str_BaseSearchCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimBaseSearch
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimBaseSearchForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimBaseSearch }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

@@ -52,8 +52,8 @@ type
 'aControl' форма::Child TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Child_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -67,33 +67,33 @@ type
 'aControl' форма::Parent TryFocus ASSERT
 [code] }
   protected
-   class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//Tkw_Form_Parent_ID
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Child_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Child';
-end;//Tkw_Form_Child_ID.GetWordNameForRegister
-
 function Tkw_Form_Child_ID.GetString: AnsiString;
 begin
  Result := 'ChildForm';
 end;//Tkw_Form_Child_ID.GetString
+
+class function Tkw_Form_Child_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Child';
+end;//Tkw_Form_Child_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$If NOT Defined(NoScripts)}
-class function Tkw_Form_Parent_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::Parent';
-end;//Tkw_Form_Parent_ID.GetWordNameForRegister
-
 function Tkw_Form_Parent_ID.GetString: AnsiString;
 begin
  Result := 'ParentForm';
 end;//Tkw_Form_Parent_ID.GetString
+
+class function Tkw_Form_Parent_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::Parent';
+end;//Tkw_Form_Parent_ID.GetWordNameForRegister
 {$IfEnd} // NOT Defined(NoScripts)
 
 initialization

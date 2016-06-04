@@ -559,7 +559,7 @@ end;//TPrimChangesBetweenEditonsForm.Document_SetPosition_Execute
 
 procedure TPrimChangesBetweenEditonsForm.Document_SetPosition(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_SetPosition_Params) do
+ with IDocument_SetPosition_Params(aParams.Data) do
   ResultValue := Self.Document_SetPosition_Execute(PointID, PointType, UserType);
 end;//TPrimChangesBetweenEditonsForm.Document_SetPosition
 
@@ -614,7 +614,7 @@ end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning_Execute
 
 procedure TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IDocument_GetParaForPositionning_Params) do
+ with IDocument_GetParaForPositionning_Params(aParams.Data) do
   ResultValue := Self.Document_GetParaForPositionning_Execute;
 end;//TPrimChangesBetweenEditonsForm.Document_GetParaForPositionning
 

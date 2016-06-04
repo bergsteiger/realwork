@@ -1,180 +1,143 @@
 unit PrimCreateFilter_Form;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Filters/Forms/PrimCreateFilter_Form.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMForm::Class>> F1 Основные прецеденты::Filters::View::Filters::PrimCreateFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimCreateFilter_Form.pas"
+// Стереотип: "VCMForm"
+// Элемент модели: "PrimCreateFilter" MUID: (4CB6D95D003A)
+// Имя типа: "TPrimCreateFilterForm"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_Result_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  OfficeLike_ResultEx_Controls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx,
-  PrimCreateFilter_cfCreate_UserType,
-  FiltersInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  PrimCreateFilter_cfRename_UserType
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a},
-  vcmBase {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Result_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , FiltersInterfaces
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TPrimCreateFilterForm = {form} class(TvcmEntityForm)
- private
- // private fields
-   ViewArea : IdsCreateFilter;
-   f_NameLabel : TvtLabel;
-    {* Поле для свойства NameLabel}
-   f_FilterName : TnscEdit;
-    {* Поле для свойства FilterName}
- protected
-  procedure SignalDataSourceChanged(const anOld : IvcmViewAreaController;
-                                const aDsNew : IvcmViewAreaController); override;
-  procedure InitEntities; override;
-  procedure MakeControls; override;
- protected
- // realized methods
-   {$If not defined(NoVCM)}
-   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* Отмена }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
-     {* OK }
-   {$IfEnd} //not NoVCM
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+ TPrimCreateFilterForm = class({$If NOT Defined(NoVCM)}
+ TvcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  private
+   ViewArea: IdsCreateFilter;
+   f_NameLabel: TvtLabel;
+    {* Название фильтра }
+   f_FilterName: TnscEdit;
+  protected
+   {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
     const aNew: IvcmViewAreaController); override;
-     {* Изменился источник данных. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Изменился источник данных. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* Инициализация формы. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
-   {$IfEnd} //not NoVCM
- public
- // public methods
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure InitEntities; override;
+    {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure MakeControls; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    class function Make(const aData: IdsCreateFilter;
-     const aParams : IvcmMakeParams = nil;
-     aZoneType     : TvcmZoneType = vcm_ztAny;
-     aUserType     : TvcmEffectiveUserType = 0): IvcmEntityForm; reintroduce;
- public
- // public properties
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0): IvcmEntityForm; reintroduce;
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* Отмена }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+    {* OK }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
    property NameLabel: TvtLabel
-     read f_NameLabel;
-     {* Название фильтра }
+    read f_NameLabel;
+    {* Название фильтра }
    property FilterName: TnscEdit
-     read f_FilterName;
+    read f_FilterName;
  end;//TPrimCreateFilterForm
-
- TvcmEntityFormRef = TPrimCreateFilterForm;
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  l3Base,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , PrimCreateFilter_cfCreate_UserType
+ , PrimCreateFilter_cfRename_UserType
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *4CB6D95D003Aimpl_uses*
+ //#UC END# *4CB6D95D003Aimpl_uses*
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-var
-   { Локализуемые строки cfCreateLocalConstants }
-  str_cfCreateCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfCreateCaption'; rValue : 'Создать фильтр');
-   { Заголовок пользовательского типа "Создать фильтр" }
-
-var
-   { Локализуемые строки cfRenameLocalConstants }
-  str_cfRenameCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'cfRenameCaption'; rValue : 'Переименовать фильтр');
-   { Заголовок пользовательского типа "Переименовать фильтр" }
-
-// start class TPrimCreateFilterForm
-
+{$If NOT Defined(NoVCM)}
 class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter;
-  const aParams : IvcmMakeParams = nil;
-  aZoneType     : TvcmZoneType = vcm_ztAny;
-  aUserType     : TvcmEffectiveUserType = 0): IvcmEntityForm;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0): IvcmEntityForm;
 begin
  Result := inherited Make(aParams, aZoneType, aUserType, nil, aData);
-end;
+end;//TPrimCreateFilterForm.Make
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4C762A1501FC_4CB6D95D003Aexec_var*
 //#UC END# *4C762A1501FC_4CB6D95D003Aexec_var*
 begin
@@ -182,10 +145,9 @@ begin
  Result_OkExt_Execute(aParams);
 //#UC END# *4C762A1501FC_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_Ok_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_Cancel_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* Отмена }
 //#UC START# *4C762C910358_4CB6D95D003Aexec_var*
 //#UC END# *4C762C910358_4CB6D95D003Aexec_var*
 begin
@@ -193,10 +155,9 @@ begin
  ModalResult := mrCancel;
 //#UC END# *4C762C910358_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_Cancel_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.Result_OkExt_Execute(const aParams: IvcmExecuteParamsPrim);
+ {* OK }
 //#UC START# *4C762D9B0224_4CB6D95D003Aexec_var*
 //#UC END# *4C762D9B0224_4CB6D95D003Aexec_var*
 begin
@@ -208,11 +169,10 @@ begin
  ModalResult := mrOk;
 //#UC END# *4C762D9B0224_4CB6D95D003Aexec_impl*
 end;//TPrimCreateFilterForm.Result_OkExt_Execute
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
-  const aNew: IvcmViewAreaController);
+ const aNew: IvcmViewAreaController);
+ {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_4CB6D95D003A_var*
 //#UC END# *497469C90140_4CB6D95D003A_var*
 begin
@@ -222,10 +182,9 @@ begin
   FilterName.Text := ViewArea.Name;
 //#UC END# *497469C90140_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.NotifyDataSourceChanged
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_4CB6D95D003A_var*
 //#UC END# *49803F5503AA_4CB6D95D003A_var*
 begin
@@ -234,10 +193,9 @@ begin
  CCaption := l3CStr(CurUserType.Caption);
 //#UC END# *49803F5503AA_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.DoInit
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 procedure TPrimCreateFilterForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_4CB6D95D003A_var*
 //#UC END# *4A8E8F2E0195_4CB6D95D003A_var*
 begin
@@ -256,49 +214,41 @@ begin
  Position := poScreenCenter;
 //#UC END# *4A8E8F2E0195_4CB6D95D003A_impl*
 end;//TPrimCreateFilterForm.InitControls
-{$IfEnd} //not NoVCM
 
-procedure TPrimCreateFilterForm.SignalDataSourceChanged(const anOld : IvcmViewAreaController;
- const aDsNew : IvcmViewAreaController);
+procedure TPrimCreateFilterForm.SignalDataSourceChanged(const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
 begin
  inherited;
- if (aDsNew = nil) then
+ if (aNew = nil) then
  begin
   ViewArea := nil;
- end//aDsNew = nil
+ end//aNew = nil
  else
  begin
-  Supports(aDsNew, IdsCreateFilter, ViewArea);
- end;//aDsNew = nil
-end;
+  Supports(aNew, IdsCreateFilter, ViewArea);
+ end;//aNew = nil
+end;//TPrimCreateFilterForm.SignalDataSourceChanged
 
 procedure TPrimCreateFilterForm.InitEntities;
+ {* инициализирует сущности не из dfm.
+             Нужно для перекрытия потомками при переносе VCM на модель }
 begin
  inherited;
  with Entities.Entities do
  begin
   PublishFormEntity(en_Result, nil);
   ToolbarAtBottom(en_Result);
-  {$If not defined(NoVCM)}
   PublishOp(en_Result, op_Ok, Result_Ok_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Ok, false);
-  ShowInToolbar(en_Result, op_Ok, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Ok, False);
+  ShowInToolbar(en_Result, op_Ok, True);
   PublishOp(en_Result, op_Cancel, Result_Cancel_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_Cancel, false);
-  ShowInToolbar(en_Result, op_Cancel, true);
-  {$IfEnd} //not NoVCM
-
-  {$If not defined(NoVCM)}
+  ShowInContextMenu(en_Result, op_Cancel, False);
+  ShowInToolbar(en_Result, op_Cancel, True);
   PublishOp(en_Result, op_OkExt, Result_OkExt_Execute, nil, nil);
-  ShowInContextMenu(en_Result, op_OkExt, false);
-  ShowInToolbar(en_Result, op_OkExt, false);
-  {$IfEnd} //not NoVCM
-
+  ShowInContextMenu(en_Result, op_OkExt, False);
+  ShowInToolbar(en_Result, op_OkExt, False);
  end;//with Entities.Entities
-end;
+end;//TPrimCreateFilterForm.InitEntities
 
 procedure TPrimCreateFilterForm.MakeControls;
 begin
@@ -306,7 +256,7 @@ begin
  with AddUsertype(cfCreateName,
   str_cfCreateCaption,
   str_cfCreateCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -319,7 +269,7 @@ begin
  with AddUsertype(cfRenameName,
   str_cfRenameCaption,
   str_cfRenameCaption,
-  true,
+  True,
   -1,
   -1,
   '',
@@ -336,22 +286,14 @@ begin
  f_FilterName := TnscEdit.Create(Self);
  f_FilterName.Name := 'FilterName';
  f_FilterName.Parent := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
+end;//TPrimCreateFilterForm.MakeControls
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cfCreateCaption
- str_cfCreateCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings)}
-// Инициализация str_cfRenameCaption
- str_cfRenameCaption.Init;
-{$IfEnd} //not Admin AND not Monitorings
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация PrimCreateFilter
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPrimCreateFilterForm);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация PrimCreateFilter }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

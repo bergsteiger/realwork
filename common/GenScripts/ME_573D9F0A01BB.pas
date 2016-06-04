@@ -29,6 +29,8 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
+ , alcuMdpSyncParamUtils
+ , alcuMdpStagesSyncronizer
 ;
 
 {$If NOT Defined(Nemesis)}

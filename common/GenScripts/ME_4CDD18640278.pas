@@ -15,6 +15,16 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
+const
+ en_File = 'File';
+ en_capFile = 'Файл';
+ op_MakeHyperlinkToDocument = 'MakeHyperlinkToDocument';
+ op_capMakeHyperlinkToDocument = 'Создать ссылку на документ';
+ en_Text = 'Text';
+ en_capText = 'Текст';
+ en_Document = 'Document';
+ en_capDocument = 'Документ';
+
 implementation
 
 uses

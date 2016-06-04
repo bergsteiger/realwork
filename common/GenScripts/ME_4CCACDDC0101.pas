@@ -15,6 +15,24 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_ControlCenter = 'ControlCenter';
+ en_capControlCenter = '';
+ op_Add = 'Add';
+ op_capAdd = '';
+ op_CreateList = 'CreateList';
+ op_capCreateList = '';
+ op_Sort = 'Sort';
+ op_capSort = '';
+ op_ClearAllStatus = 'ClearAllStatus';
+ op_capClearAllStatus = '';
+ en_ControledObject = 'ControledObject';
+ en_capControledObject = '';
+ op_Open = 'Open';
+ op_capOpen = '';
+ op_ClearStatus = 'ClearStatus';
+ op_capClearStatus = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

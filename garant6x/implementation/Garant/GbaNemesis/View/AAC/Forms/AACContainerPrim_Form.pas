@@ -152,7 +152,7 @@ end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar_Execute
 
 procedure TAACContainerPrimForm.AACTextContainer_GetVScrollBar(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAACTextContainer_GetVScrollBar_Params) do
+ with IAACTextContainer_GetVScrollBar_Params(aParams.Data) do
   ResultValue := Self.AACTextContainer_GetVScrollBar_Execute(Left);
 end;//TAACContainerPrimForm.AACTextContainer_GetVScrollBar
 
@@ -167,7 +167,7 @@ end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo_Execute
 
 procedure TAACContainerPrimForm.AACTextContainer_SetJumpTo(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IAACTextContainer_SetJumpTo_Params) do
+ with IAACTextContainer_SetJumpTo_Params(aParams.Data) do
   Self.AACTextContainer_SetJumpTo_Execute(JumpTo);
 end;//TAACContainerPrimForm.AACTextContainer_SetJumpTo
 

@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_AACInterfaces;
+unit AACInterfaces;
  {* Интерфейсы контроллеров прецедента "Актуальная аналитика" }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\NOT_COMPLETED_AACInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\AACInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "AACInterfaces" MUID: (4FF2E6570285)
 

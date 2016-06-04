@@ -14,6 +14,7 @@ uses
 
 const
  cMdpSyncVersion = 5;
+ cMDPCfgSection = 'MDP';
 
 type
  TmssOperation = (

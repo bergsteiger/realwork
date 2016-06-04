@@ -36,6 +36,12 @@ implementation
 uses
  l3ImplUses
  , alcuServerTaskManagerFactory
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncStages
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncImport
+ {$IfEnd} // Defined(ServerTasks)
 ;
 {$IfEnd} // Defined(AppServerSide)
 

@@ -15,6 +15,12 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_EnclosedForms = 'EnclosedForms';
+ en_capEnclosedForms = '';
+ op_CloseChild = 'CloseChild';
+ op_capCloseChild = '';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

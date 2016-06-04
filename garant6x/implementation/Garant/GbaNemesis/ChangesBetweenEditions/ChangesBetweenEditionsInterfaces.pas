@@ -1,106 +1,101 @@
 unit ChangesBetweenEditionsInterfaces;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChangesBetweenEditions$Domain"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ChangesBetweenEditions/ChangesBetweenEditionsInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ControllerInterfaces::Category>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions$Domain::ChangesBetweenEditionsInterfaces
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas"
+// Стереотип: "ControllerInterfaces"
+// Элемент модели: "ChangesBetweenEditionsInterfaces" MUID: (4DDCD71E027C)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nevTools,
-  DocumentAndListInterfaces,
-  DocumentInterfaces,
-  vcmControllers {a}
-  ;
+ l3IntfUses
+ , DocumentUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-(*
- MnsEditionsHolder = PureMixIn
-   function Get_RightEdition: IDocument;
-   function Get_LeftEdition: IDocument;
-   property RightEdition: IDocument
-     read Get_RightEdition;
-     {* Правая редакция }
-   property LeftEdition: IDocument
-     read Get_LeftEdition;
-     {* Левая редакция }
+ (*
+ MnsEditionsHolder = interface
+  function Get_RightEdition: IDocument;
+  function Get_LeftEdition: IDocument;
+  property RightEdition: IDocument
+   read Get_RightEdition;
+   {* Правая редакция }
+  property LeftEdition: IDocument
+   read Get_LeftEdition;
+   {* Левая редакция }
  end;//MnsEditionsHolder
-*)
+ *)
 
 type
  IdsChangesBetweenEditions = interface(IvcmViewAreaController)
-   ['{2D74CBC5-124E-4777-A6CA-891E3037761E}']
-   function Get_DocumentContainer: InevDocumentContainer;
-   property DocumentContainer: InevDocumentContainer
-     read Get_DocumentContainer;
-  // MdeDocInfoProvider
-   function pm_GetDocInfo: IdeDocInfo;
-   property DocInfo: IdeDocInfo
-     read pm_GetDocInfo;
-  // MnsEditionsHolder
-   function Get_RightEdition: IDocument;
-   function Get_LeftEdition: IDocument;
-   property RightEdition: IDocument
-     read Get_RightEdition;
-     {* Правая редакция }
-   property LeftEdition: IDocument
-     read Get_LeftEdition;
-     {* Левая редакция }
+  ['{2D74CBC5-124E-4777-A6CA-891E3037761E}']
+  function Get_DocumentContainer: InevDocumentContainer;
+  function pm_GetDocInfo: IdeDocInfo;
+  function Get_RightEdition: IDocument;
+  function Get_LeftEdition: IDocument;
+  property DocumentContainer: InevDocumentContainer
+   read Get_DocumentContainer;
+  property DocInfo: IdeDocInfo
+   read pm_GetDocInfo;
+  property RightEdition: IDocument
+   read Get_RightEdition;
+   {* Правая редакция }
+  property LeftEdition: IDocument
+   read Get_LeftEdition;
+   {* Левая редакция }
  end;//IdsChangesBetweenEditions
 
- InsChangesBetweenEditionsInfo = interface(IUnknown)
-   ['{66611345-5B71-4A0D-863D-C2903B8296A9}']
-   function Get_DiffProvider: IDiffDocDataProvider;
-   property DiffProvider: IDiffDocDataProvider
-     read Get_DiffProvider;
-  // MnsEditionsHolder
-   function Get_RightEdition: IDocument;
-   function Get_LeftEdition: IDocument;
-   property RightEdition: IDocument
-     read Get_RightEdition;
-     {* Правая редакция }
-   property LeftEdition: IDocument
-     read Get_LeftEdition;
-     {* Левая редакция }
+ InsChangesBetweenEditionsInfo = interface
+  ['{66611345-5B71-4A0D-863D-C2903B8296A9}']
+  function Get_DiffProvider: IDiffDocDataProvider;
+  function Get_RightEdition: IDocument;
+  function Get_LeftEdition: IDocument;
+  property DiffProvider: IDiffDocDataProvider
+   read Get_DiffProvider;
+  property RightEdition: IDocument
+   read Get_RightEdition;
+   {* Правая редакция }
+  property LeftEdition: IDocument
+   read Get_LeftEdition;
+   {* Левая редакция }
  end;//InsChangesBetweenEditionsInfo
 
  IsdsChangesBetweenEditionsData = interface(IvcmData)
-   ['{840AD10B-834F-49F5-B4BC-521EE38DB3AA}']
-   function Get_Info: InsChangesBetweenEditionsInfo;
-   property Info: InsChangesBetweenEditionsInfo
-     read Get_Info;
+  ['{840AD10B-834F-49F5-B4BC-521EE38DB3AA}']
+  function Get_Info: InsChangesBetweenEditionsInfo;
+  property Info: InsChangesBetweenEditionsInfo
+   read Get_Info;
  end;//IsdsChangesBetweenEditionsData
 
- IsdsChangesBetweenEditions = interface(IvcmUseCaseController{, IsdsPrimDocument, IsdsEditionsHolder})
+ IsdsChangesBetweenEditions = interface(IvcmUseCaseController)
   {* Прецедент ОИД }
-   ['{CEB84047-C17B-48F3-BEA2-191D90F3BBE6}']
-   function pm_GetChanges: IdsChangesBetweenEditions;
-   property Changes: IdsChangesBetweenEditions
-     read pm_GetChanges;
-  // Методы преобразования к реализуемым интерфейсам
-   function As_IsdsPrimDocument: IsdsPrimDocument;
-   function As_IsdsEditionsHolder: IsdsEditionsHolder;
+  ['{CEB84047-C17B-48F3-BEA2-191D90F3BBE6}']
+  function pm_GetChanges: IdsChangesBetweenEditions;
+  function As_IsdsPrimDocument: IsdsPrimDocument;
+   {* Метод приведения нашего интерфейса к IsdsPrimDocument }
+  function As_IsdsEditionsHolder: IsdsEditionsHolder;
+   {* Метод приведения нашего интерфейса к IsdsEditionsHolder }
+  property Changes: IdsChangesBetweenEditions
+   read pm_GetChanges;
  end;//IsdsChangesBetweenEditions
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

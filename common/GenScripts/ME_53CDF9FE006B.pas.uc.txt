@@ -73,7 +73,7 @@ var
  function DoIt(aThread: PalcuSubmitterWorkThread; Index: Long): Bool;
  begin
    aThread.CheckExecution(aServices);
-   if aThread.StillRunning(CountAbortingTask) then
+   if aThread.StillRunning then
      l_Result := True;
    Result := not l_Result;
  end;
@@ -136,14 +136,14 @@ var
   l_NeedRefillUserList := False;
   for l_UserIDX := usFirstWorkUser downto usFirstWorkUser - (WorkThreadCount - 1) do
   begin
-   if not GlobalDataProvider.UserManager.IsUserExists(l_UserIDX) then
+   if not UserManager.IsUserExists(l_UserIDX) then
    begin
     UserManager.AddUserID(l_UserIDX, Format('Служебный пользователь %d', [usFirstWorkUser - l_UserIDX + 1]), Format('%s%.8x', [Chr(3), l_UserIDX]), '', 1);
     l_NeedRefillUserList := True;
    end;
   end;
   if l_NeedRefillUserList then
-   GlobalDataProvider.UserManager.MakeFullArchiUsersList;
+   UserManager.MakeFullUsersList;
 
   l_UserIDX := usFirstWorkUser;
   for l_IDX := 0 to WorkThreadCount - 1 do

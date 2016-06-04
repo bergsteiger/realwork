@@ -15,6 +15,26 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_Filter = 'Filter';
+ en_capFilter = '';
+ op_Activate = 'Activate';
+ op_capActivate = '';
+ op_Edit = 'Edit';
+ op_capEdit = '';
+ op_PersistentFilter = 'PersistentFilter';
+ op_capPersistentFilter = '';
+ op_RenameFilter = 'RenameFilter';
+ op_capRenameFilter = 'Переименовать';
+ en_Filters = 'Filters';
+ en_capFilters = '';
+ op_New = 'New';
+ op_capNew = '';
+ op_Refresh = 'Refresh';
+ op_capRefresh = '';
+ op_CreateFilter = 'CreateFilter';
+ op_capCreateFilter = 'Добавить фильтр из сохраненных запросов';
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

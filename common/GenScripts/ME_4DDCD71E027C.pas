@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_ChangesBetweenEditionsInterfaces;
+unit ChangesBetweenEditionsInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\NOT_COMPLETED_ChangesBetweenEditionsInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\ChangesBetweenEditionsInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "ChangesBetweenEditionsInterfaces" MUID: (4DDCD71E027C)
 

@@ -2486,6 +2486,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , mdpSync_Const in 'w:\common\components\rtl\Garant\EVD\mdpSync_Const.pas'
  , mdpSyncDicts_Const in 'w:\common\components\rtl\Garant\EVD\mdpSyncDicts_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncParamUtils in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpSyncParamUtils.pas'
+ {$IfEnd} // Defined(ServerTasks)
  {$If Defined(MDPSyncIntegrated)}
  , alcuMdpDocImporter in 'w:\archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas'
  {$IfEnd} // Defined(MDPSyncIntegrated)
@@ -2497,6 +2500,27 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , mdpImportDocs_Const in 'w:\common\components\rtl\Garant\EVD\mdpImportDocs_Const.pas'
  , alcuServerTaskManagerFactory in 'w:\archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncStages in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpSyncStages.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMdpSyncStages in 'w:\common\components\rtl\Garant\cs\csMdpSyncStages.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , mdpSyncStages_Const in 'w:\common\components\rtl\Garant\EVD\mdpSyncStages_Const.pas'
+ , alcuMdpStagesSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpStagesSyncronizer.pas'
+ , alcuMdpDatedSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpDatedSyncronizer.pas'
+ , alcuMdpProtoSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(ServerTasks)}
+ , alcuMdpSyncImport in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMdpSyncImport.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMdpSyncImport in 'w:\common\components\rtl\Garant\cs\csMdpSyncImport.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , mdpSyncImport_Const in 'w:\common\components\rtl\Garant\EVD\mdpSyncImport_Const.pas'
+ , alcuMdpImportSyncronizer in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpImportSyncronizer.pas'
  , alcuStrings in 'w:\archi\source\projects\PipeInAuto\Core\alcuStrings.pas'
  , alcuTaskChangeHelper in 'w:\archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas'
  {$If NOT Defined(Nemesis)}

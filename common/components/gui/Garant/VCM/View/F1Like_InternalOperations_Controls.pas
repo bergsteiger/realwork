@@ -1,141 +1,107 @@
 unit F1Like_InternalOperations_Controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/F1Like_InternalOperations_Controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMControls::Category>> Shared Delphi F1 Like Application::F1Like::View::InternalOperations
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas"
+// Стереотип: "VCMControls"
+// Элемент модели: "InternalOperations" MUID: (4F71AD0E01FE)
 
 {$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3CProtoObject,
-  vcmExternalInterfaces {a}
-  ;
-
-(* Switcher = operations
-  {* Сущность для управления закладками формы-контейнера }
-   ['{62B70A4A-7796-47CF-A637-933518E72425}']
-   query BecomeActive(const aForm: IvcmEntityForm);
-   query SetFirstPageActive;
- end;//Switcher*)
-
-(* Common = operations
-   ['{D0B715FD-AF53-458D-95BB-6B65BDD1D01D}']
-   query ShowSplitter(aVisible: Boolean);
-   query CheckChildZone(aToggle: Boolean);
- end;//Common*)
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- ISwitcher_BecomeActive_Params = interface(IUnknown)
+ ISwitcher_BecomeActive_Params = interface
   {* Параметры для операции Switcher.BecomeActive }
-   ['{EF87C1B2-C651-415F-BB29-5A3843B62AE9}']
-   function Get_Form: IvcmEntityForm;
-   property Form: IvcmEntityForm
-     read Get_Form;
-     {* undefined }
+  function Get_Form: IvcmEntityForm;
+  property Form: IvcmEntityForm
+   read Get_Form;
  end;//ISwitcher_BecomeActive_Params
 
- Op_Switcher_BecomeActive = class
+ Op_Switcher_BecomeActive = {final} class
   {* Класс для вызова операции Switcher.BecomeActive }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    const aForm: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Switcher.BecomeActive у сущности }
+    const aForm: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Switcher.BecomeActive у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    const aForm: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Switcher.BecomeActive у агрегации }
+    const aForm: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Switcher.BecomeActive у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    const aForm: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Switcher.BecomeActive у формы }
+    const aForm: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Switcher.BecomeActive у формы }
    class function Call(const aTarget: IvcmContainer;
-    const aForm: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Switcher.BecomeActive у контейнера }
+    const aForm: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Switcher.BecomeActive у контейнера }
  end;//Op_Switcher_BecomeActive
 
- Op_Switcher_SetFirstPageActive = class
+ Op_Switcher_SetFirstPageActive = {final} class
   {* Класс для вызова операции Switcher.SetFirstPageActive }
- public
- // public methods
-   class function Call(const aTarget: IvcmEntity): Boolean; overload; 
-     {* Вызов операции Switcher.SetFirstPageActive у сущности }
-   class function Call(const aTarget: IvcmAggregate): Boolean; overload; 
-     {* Вызов операции Switcher.SetFirstPageActive у агрегации }
-   class function Call(const aTarget: IvcmEntityForm): Boolean; overload; 
-     {* Вызов операции Switcher.SetFirstPageActive у формы }
-   class function Call(const aTarget: IvcmContainer): Boolean; overload; 
-     {* Вызов операции Switcher.SetFirstPageActive у контейнера }
+  public
+   class function Call(const aTarget: IvcmEntity): Boolean; overload;
+    {* Вызов операции Switcher.SetFirstPageActive у сущности }
+   class function Call(const aTarget: IvcmAggregate): Boolean; overload;
+    {* Вызов операции Switcher.SetFirstPageActive у агрегации }
+   class function Call(const aTarget: IvcmEntityForm): Boolean; overload;
+    {* Вызов операции Switcher.SetFirstPageActive у формы }
+   class function Call(const aTarget: IvcmContainer): Boolean; overload;
+    {* Вызов операции Switcher.SetFirstPageActive у контейнера }
  end;//Op_Switcher_SetFirstPageActive
 
- ICommon_ShowSplitter_Params = interface(IUnknown)
+ ICommon_ShowSplitter_Params = interface
   {* Параметры для операции Common.ShowSplitter }
-   ['{AF74D4F2-0734-4719-BBD8-5E33BA04A510}']
-   function Get_Visible: Boolean;
-   property Visible: Boolean
-     read Get_Visible;
-     {* undefined }
+  function Get_Visible: Boolean;
+  property Visible: Boolean
+   read Get_Visible;
  end;//ICommon_ShowSplitter_Params
 
- Op_Common_ShowSplitter = class
+ Op_Common_ShowSplitter = {final} class
   {* Класс для вызова операции Common.ShowSplitter }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aVisible: Boolean): Boolean; overload; 
-     {* Вызов операции Common.ShowSplitter у сущности }
+    aVisible: Boolean): Boolean; overload;
+    {* Вызов операции Common.ShowSplitter у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aVisible: Boolean): Boolean; overload; 
-     {* Вызов операции Common.ShowSplitter у агрегации }
+    aVisible: Boolean): Boolean; overload;
+    {* Вызов операции Common.ShowSplitter у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aVisible: Boolean): Boolean; overload; 
-     {* Вызов операции Common.ShowSplitter у формы }
+    aVisible: Boolean): Boolean; overload;
+    {* Вызов операции Common.ShowSplitter у формы }
    class function Call(const aTarget: IvcmContainer;
-    aVisible: Boolean): Boolean; overload; 
-     {* Вызов операции Common.ShowSplitter у контейнера }
+    aVisible: Boolean): Boolean; overload;
+    {* Вызов операции Common.ShowSplitter у контейнера }
  end;//Op_Common_ShowSplitter
 
- ICommon_CheckChildZone_Params = interface(IUnknown)
+ ICommon_CheckChildZone_Params = interface
   {* Параметры для операции Common.CheckChildZone }
-   ['{C0C35601-A404-4BE5-9C4D-376FA4AA3760}']
-   function Get_Toggle: Boolean;
-   property Toggle: Boolean
-     read Get_Toggle;
-     {* undefined }
+  function Get_Toggle: Boolean;
+  property Toggle: Boolean
+   read Get_Toggle;
  end;//ICommon_CheckChildZone_Params
 
- Op_Common_CheckChildZone = class
+ Op_Common_CheckChildZone = {final} class
   {* Класс для вызова операции Common.CheckChildZone }
- public
- // public methods
+  public
    class function Call(const aTarget: IvcmEntity;
-    aToggle: Boolean): Boolean; overload; 
-     {* Вызов операции Common.CheckChildZone у сущности }
+    aToggle: Boolean): Boolean; overload;
+    {* Вызов операции Common.CheckChildZone у сущности }
    class function Call(const aTarget: IvcmAggregate;
-    aToggle: Boolean): Boolean; overload; 
-     {* Вызов операции Common.CheckChildZone у агрегации }
+    aToggle: Boolean): Boolean; overload;
+    {* Вызов операции Common.CheckChildZone у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
-    aToggle: Boolean): Boolean; overload; 
-     {* Вызов операции Common.CheckChildZone у формы }
+    aToggle: Boolean): Boolean; overload;
+    {* Вызов операции Common.CheckChildZone у формы }
    class function Call(const aTarget: IvcmContainer;
-    aToggle: Boolean): Boolean; overload; 
-     {* Вызов операции Common.CheckChildZone у контейнера }
+    aToggle: Boolean): Boolean; overload;
+    {* Вызов операции Common.CheckChildZone у контейнера }
  end;//Op_Common_CheckChildZone
 
 const
@@ -155,36 +121,53 @@ const
 implementation
 
 uses
-  l3Base {a},
-  vcmBase {a},
-  StdRes {a}
-  ;
+ l3ImplUses
+ , l3CProtoObject
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type
- TSwitcher_BecomeActive_Params = class(Tl3CProtoObject, ISwitcher_BecomeActive_Params)
+ TSwitcher_BecomeActive_Params = {final} class(Tl3CProtoObject, ISwitcher_BecomeActive_Params)
   {* Реализация ISwitcher_BecomeActive_Params }
- private
- // private fields
-   f_Form : IvcmEntityForm;
- protected
- // realized methods
+  private
+   f_Form: IvcmEntityForm;
+  protected
    function Get_Form: IvcmEntityForm;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aForm: IvcmEntityForm); reintroduce;
-     {* Конструктор TSwitcher_BecomeActive_Params }
    class function Make(const aForm: IvcmEntityForm): ISwitcher_BecomeActive_Params; reintroduce;
-     {* Фабрика TSwitcher_BecomeActive_Params }
  end;//TSwitcher_BecomeActive_Params
 
-// start class TSwitcher_BecomeActive_Params
+ TCommon_ShowSplitter_Params = {final} class(Tl3CProtoObject, ICommon_ShowSplitter_Params)
+  {* Реализация ICommon_ShowSplitter_Params }
+  private
+   f_Visible: Boolean;
+  protected
+   function Get_Visible: Boolean;
+  public
+   constructor Create(aVisible: Boolean); reintroduce;
+   class function Make(aVisible: Boolean): ICommon_ShowSplitter_Params; reintroduce;
+ end;//TCommon_ShowSplitter_Params
+
+ TCommon_CheckChildZone_Params = {final} class(Tl3CProtoObject, ICommon_CheckChildZone_Params)
+  {* Реализация ICommon_CheckChildZone_Params }
+  private
+   f_Toggle: Boolean;
+  protected
+   function Get_Toggle: Boolean;
+  public
+   constructor Create(aToggle: Boolean); reintroduce;
+   class function Make(aToggle: Boolean): ICommon_CheckChildZone_Params; reintroduce;
+ end;//TCommon_CheckChildZone_Params
 
 constructor TSwitcher_BecomeActive_Params.Create(const aForm: IvcmEntityForm);
- {-}
 begin
  inherited Create;
  f_Form := aForm;
@@ -200,24 +183,22 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TSwitcher_BecomeActive_Params.Make
 
 function TSwitcher_BecomeActive_Params.Get_Form: IvcmEntityForm;
- {-}
 begin
  Result := f_Form;
 end;//TSwitcher_BecomeActive_Params.Get_Form
 
 procedure TSwitcher_BecomeActive_Params.ClearFields;
- {-}
 begin
  f_Form := nil;
  inherited;
 end;//TSwitcher_BecomeActive_Params.ClearFields
-// start class Op_Switcher_BecomeActive
 
 class function Op_Switcher_BecomeActive.Call(const aTarget: IvcmEntity;
-  const aForm: IvcmEntityForm): Boolean;
+ const aForm: IvcmEntityForm): Boolean;
+ {* Вызов операции Switcher.BecomeActive у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -237,7 +218,8 @@ begin
 end;//Op_Switcher_BecomeActive.Call
 
 class function Op_Switcher_BecomeActive.Call(const aTarget: IvcmAggregate;
-  const aForm: IvcmEntityForm): Boolean;
+ const aForm: IvcmEntityForm): Boolean;
+ {* Вызов операции Switcher.BecomeActive у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -257,8 +239,8 @@ begin
 end;//Op_Switcher_BecomeActive.Call
 
 class function Op_Switcher_BecomeActive.Call(const aTarget: IvcmEntityForm;
-  const aForm: IvcmEntityForm): Boolean;
- {-}
+ const aForm: IvcmEntityForm): Boolean;
+ {* Вызов операции Switcher.BecomeActive у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -266,16 +248,16 @@ begin
 end;//Op_Switcher_BecomeActive.Call
 
 class function Op_Switcher_BecomeActive.Call(const aTarget: IvcmContainer;
-  const aForm: IvcmEntityForm): Boolean;
- {-}
+ const aForm: IvcmEntityForm): Boolean;
+ {* Вызов операции Switcher.BecomeActive у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aForm);
 end;//Op_Switcher_BecomeActive.Call
-// start class Op_Switcher_SetFirstPageActive
 
 class function Op_Switcher_SetFirstPageActive.Call(const aTarget: IvcmEntity): Boolean;
+ {* Вызов операции Switcher.SetFirstPageActive у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -295,6 +277,7 @@ begin
 end;//Op_Switcher_SetFirstPageActive.Call
 
 class function Op_Switcher_SetFirstPageActive.Call(const aTarget: IvcmAggregate): Boolean;
+ {* Вызов операции Switcher.SetFirstPageActive у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -314,7 +297,7 @@ begin
 end;//Op_Switcher_SetFirstPageActive.Call
 
 class function Op_Switcher_SetFirstPageActive.Call(const aTarget: IvcmEntityForm): Boolean;
- {-}
+ {* Вызов операции Switcher.SetFirstPageActive у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -322,34 +305,14 @@ begin
 end;//Op_Switcher_SetFirstPageActive.Call
 
 class function Op_Switcher_SetFirstPageActive.Call(const aTarget: IvcmContainer): Boolean;
- {-}
+ {* Вызов операции Switcher.SetFirstPageActive у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm);
 end;//Op_Switcher_SetFirstPageActive.Call
 
-type
- TCommon_ShowSplitter_Params = class(Tl3CProtoObject, ICommon_ShowSplitter_Params)
-  {* Реализация ICommon_ShowSplitter_Params }
- private
- // private fields
-   f_Visible : Boolean;
- protected
- // realized methods
-   function Get_Visible: Boolean;
- public
- // public methods
-   constructor Create(aVisible: Boolean); reintroduce;
-     {* Конструктор TCommon_ShowSplitter_Params }
-   class function Make(aVisible: Boolean): ICommon_ShowSplitter_Params; reintroduce;
-     {* Фабрика TCommon_ShowSplitter_Params }
- end;//TCommon_ShowSplitter_Params
-
-// start class TCommon_ShowSplitter_Params
-
 constructor TCommon_ShowSplitter_Params.Create(aVisible: Boolean);
- {-}
 begin
  inherited Create;
  f_Visible := aVisible;
@@ -365,17 +328,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TCommon_ShowSplitter_Params.Make
 
 function TCommon_ShowSplitter_Params.Get_Visible: Boolean;
- {-}
 begin
  Result := f_Visible;
 end;//TCommon_ShowSplitter_Params.Get_Visible
-// start class Op_Common_ShowSplitter
 
 class function Op_Common_ShowSplitter.Call(const aTarget: IvcmEntity;
-  aVisible: Boolean): Boolean;
+ aVisible: Boolean): Boolean;
+ {* Вызов операции Common.ShowSplitter у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -395,7 +357,8 @@ begin
 end;//Op_Common_ShowSplitter.Call
 
 class function Op_Common_ShowSplitter.Call(const aTarget: IvcmAggregate;
-  aVisible: Boolean): Boolean;
+ aVisible: Boolean): Boolean;
+ {* Вызов операции Common.ShowSplitter у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -415,8 +378,8 @@ begin
 end;//Op_Common_ShowSplitter.Call
 
 class function Op_Common_ShowSplitter.Call(const aTarget: IvcmEntityForm;
-  aVisible: Boolean): Boolean;
- {-}
+ aVisible: Boolean): Boolean;
+ {* Вызов операции Common.ShowSplitter у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -424,35 +387,15 @@ begin
 end;//Op_Common_ShowSplitter.Call
 
 class function Op_Common_ShowSplitter.Call(const aTarget: IvcmContainer;
-  aVisible: Boolean): Boolean;
- {-}
+ aVisible: Boolean): Boolean;
+ {* Вызов операции Common.ShowSplitter у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
   Result := Call(aTarget.AsForm, aVisible);
 end;//Op_Common_ShowSplitter.Call
 
-type
- TCommon_CheckChildZone_Params = class(Tl3CProtoObject, ICommon_CheckChildZone_Params)
-  {* Реализация ICommon_CheckChildZone_Params }
- private
- // private fields
-   f_Toggle : Boolean;
- protected
- // realized methods
-   function Get_Toggle: Boolean;
- public
- // public methods
-   constructor Create(aToggle: Boolean); reintroduce;
-     {* Конструктор TCommon_CheckChildZone_Params }
-   class function Make(aToggle: Boolean): ICommon_CheckChildZone_Params; reintroduce;
-     {* Фабрика TCommon_CheckChildZone_Params }
- end;//TCommon_CheckChildZone_Params
-
-// start class TCommon_CheckChildZone_Params
-
 constructor TCommon_CheckChildZone_Params.Create(aToggle: Boolean);
- {-}
 begin
  inherited Create;
  f_Toggle := aToggle;
@@ -468,17 +411,16 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TCommon_CheckChildZone_Params.Make
 
 function TCommon_CheckChildZone_Params.Get_Toggle: Boolean;
- {-}
 begin
  Result := f_Toggle;
 end;//TCommon_CheckChildZone_Params.Get_Toggle
-// start class Op_Common_CheckChildZone
 
 class function Op_Common_CheckChildZone.Call(const aTarget: IvcmEntity;
-  aToggle: Boolean): Boolean;
+ aToggle: Boolean): Boolean;
+ {* Вызов операции Common.CheckChildZone у сущности }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -498,7 +440,8 @@ begin
 end;//Op_Common_CheckChildZone.Call
 
 class function Op_Common_CheckChildZone.Call(const aTarget: IvcmAggregate;
-  aToggle: Boolean): Boolean;
+ aToggle: Boolean): Boolean;
+ {* Вызов операции Common.CheckChildZone у агрегации }
 var
  l_Params : IvcmExecuteParams;
 begin
@@ -518,8 +461,8 @@ begin
 end;//Op_Common_CheckChildZone.Call
 
 class function Op_Common_CheckChildZone.Call(const aTarget: IvcmEntityForm;
-  aToggle: Boolean): Boolean;
- {-}
+ aToggle: Boolean): Boolean;
+ {* Вызов операции Common.CheckChildZone у формы }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then
@@ -527,8 +470,8 @@ begin
 end;//Op_Common_CheckChildZone.Call
 
 class function Op_Common_CheckChildZone.Call(const aTarget: IvcmContainer;
-  aToggle: Boolean): Boolean;
- {-}
+ aToggle: Boolean): Boolean;
+ {* Вызов операции Common.CheckChildZone у контейнера }
 begin
  l3FillChar(Result, SizeOf(Result));
  if (aTarget <> nil) then

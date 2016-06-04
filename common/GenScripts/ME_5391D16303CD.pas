@@ -15,6 +15,19 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+const
+ en_DocumentsCache = 'DocumentsCache';
+ en_capDocumentsCache = '';
+ op_Clear = 'Clear';
+ op_capClear = 'Очистить кэш документов';
+ op_Disable = 'Disable';
+ op_capDisable = 'Запретить кэш документов';
+
+var st_user_DocumentsCache_Disable_Disable: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Запретить кэш документов <->  }
+var st_user_DocumentsCache_Disable_Enable: TvcmOperationStateIndex = (rID : -1);
+ {*  -> Запретить кэш документов <->  }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

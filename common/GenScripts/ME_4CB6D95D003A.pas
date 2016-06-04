@@ -45,9 +45,8 @@ type
   private
    ViewArea: IdsCreateFilter;
    f_NameLabel: TvtLabel;
-    {* Поле для свойства NameLabel }
+    {* Название фильтра }
    f_FilterName: TnscEdit;
-    {* Поле для свойства FilterName }
   protected
    {$If NOT Defined(NoVCM)}
    procedure NotifyDataSourceChanged(const anOld: IvcmViewAreaController;
@@ -75,7 +74,10 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function Make(const aData: IdsCreateFilter): IvcmEntityForm; reintroduce;
+   class function Make(const aData: IdsCreateFilter;
+    const aParams: IvcmMakeParams = nil;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);
     {* OK }
@@ -109,6 +111,9 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -123,16 +128,12 @@ uses
 ;
 
 {$If NOT Defined(NoVCM)}
-class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter): IvcmEntityForm;
-var
- l_Inst : TPrimCreateFilterForm;
+class function TPrimCreateFilterForm.Make(const aData: IdsCreateFilter;
+ const aParams: IvcmMakeParams = nil;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0): IvcmEntityForm;
 begin
- l_Inst := Create(aData);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ Result := inherited Make(aParams, aZoneType, aUserType, nil, aData);
 end;//TPrimCreateFilterForm.Make
 
 procedure TPrimCreateFilterForm.Result_Ok_Execute(const aParams: IvcmExecuteParamsPrim);

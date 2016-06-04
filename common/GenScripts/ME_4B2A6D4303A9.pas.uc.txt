@@ -1668,13 +1668,8 @@ var
  if not Supports(aTest, ITestSuite) then
  begin
  // - пишем только конечные тесты, а не наборы
-  try
-   System.WriteLn(f_AllRunnedTests, TestNameForOutputInTestLists(aTest));
-   System.Flush(f_AllRunnedTests);
-  except
-   on E: Exception do
-    l3System.Exception2Log(E);
-  end;
+  System.WriteLn(f_AllRunnedTests, TestNameForOutputInTestLists(aTest));
+  System.Flush(f_AllRunnedTests);
  end;//not Supports(aTest, ITestSuite)
 //#UC END# *4F16C8890222_4B2A6CEB0377_impl*
 //#UC START# *4F16C8890222_4B2A6CEB0377_var*

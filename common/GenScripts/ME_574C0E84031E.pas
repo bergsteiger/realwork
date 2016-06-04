@@ -45,6 +45,11 @@ implementation
 
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Memory
+ , l3Stream
+ , l3Types
  //#UC START# *574C0E84031Eimpl_uses*
  //#UC END# *574C0E84031Eimpl_uses*
 ;

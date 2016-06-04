@@ -1,35 +1,34 @@
 unit AACInterfaces;
+ {* Интерфейсы контроллеров прецедента "Актуальная аналитика" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AAC$DataSources"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/AAC/AACInterfaces.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ControllerInterfaces::Category>> F1 Пользовательские сервисы::AAC::AAC$DataSources::AACInterfaces
-//
-// Интерфейсы контроллеров прецедента "Актуальная аналитика"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\AACInterfaces.pas"
+// Стереотип: "ControllerInterfaces"
+// Элемент модели: "AACInterfaces" MUID: (4FF2E6570285)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentAndListInterfaces,
-  WorkWithDocumentInterfaces,
-  vcmInterfaces {a},
-  vcmControllers {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , WorkWithDocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

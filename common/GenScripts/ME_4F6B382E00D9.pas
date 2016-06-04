@@ -682,7 +682,7 @@ end;//TMainPrimForm.Common_ShowSplitter_Execute
 
 procedure TMainPrimForm.Common_ShowSplitter(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ICommon_ShowSplitter_Params) do
+ with ICommon_ShowSplitter_Params(aParams.Data) do
   Self.Common_ShowSplitter_Execute(Visible);
 end;//TMainPrimForm.Common_ShowSplitter
 
@@ -711,7 +711,7 @@ end;//TMainPrimForm.Common_CheckChildZone_Execute
 
 procedure TMainPrimForm.Common_CheckChildZone(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As ICommon_CheckChildZone_Params) do
+ with ICommon_CheckChildZone_Params(aParams.Data) do
   Self.Common_CheckChildZone_Execute(Toggle);
 end;//TMainPrimForm.Common_CheckChildZone
 

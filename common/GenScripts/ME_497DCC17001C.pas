@@ -687,7 +687,7 @@ end;//TPrimFiltersForm.Loadable_Load_Execute
 procedure TPrimFiltersForm.Loadable_Load(const aParams: IvcmExecuteParams);
  {*  оллеги, кто может описать этот метод? }
 begin
- with (aParams.Data As ILoadable_Load_Params) do
+ with ILoadable_Load_Params(aParams.Data) do
   ResultValue := Self.Loadable_Load_Execute(Node, Data, nOp);
 end;//TPrimFiltersForm.Loadable_Load
 
@@ -706,7 +706,7 @@ end;//TPrimFiltersForm.Filter_ActivateNode_Execute
 
 procedure TPrimFiltersForm.Filter_ActivateNode(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilter_ActivateNode_Params) do
+ with IFilter_ActivateNode_Params(aParams.Data) do
   Self.Filter_ActivateNode_Execute(Node);
 end;//TPrimFiltersForm.Filter_ActivateNode
 
@@ -737,7 +737,7 @@ end;//TPrimFiltersForm.Filters_GetSelected_Execute
 
 procedure TPrimFiltersForm.Filters_GetSelected(const aParams: IvcmExecuteParams);
 begin
- with (aParams.Data As IFilters_GetSelected_Params) do
+ with IFilters_GetSelected_Params(aParams.Data) do
   ResultValue := Self.Filters_GetSelected_Execute;
 end;//TPrimFiltersForm.Filters_GetSelected
 

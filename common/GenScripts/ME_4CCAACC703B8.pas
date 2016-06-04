@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_FiltersInterfaces;
+unit FiltersInterfaces;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\NOT_COMPLETED_FiltersInterfaces.pas"
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\FiltersInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 // Элемент модели: "FiltersInterfaces" MUID: (4CCAACC703B8)
 

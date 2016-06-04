@@ -73,30 +73,30 @@ type
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBaseSearchExampleEvent;
     {* Метод получения экземпляра синглетона TnsUseBaseSearchExampleEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchExampleEvent
 
  TnsUseBaseSearchHintEvent = class(TnsCounterEvent)
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBaseSearchHintEvent;
     {* Метод получения экземпляра синглетона TnsUseBaseSearchHintEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBaseSearchHintEvent
 
  TnsUseBackSearchButtonEvent = class(TnsCounterEvent)
   protected
    function EventID: TLogEvent; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsUseBackSearchButtonEvent;
     {* Метод получения экземпляра синглетона TnsUseBackSearchButtonEvent }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TnsUseBackSearchButtonEvent
 
  _BaseSearch2010_Parent_ = TvcmEntityForm;
@@ -117,9 +117,7 @@ type
     {* контрол, в который надо установить фокус при переходе на вкладку }
    f_IsActive: Boolean;
    f_ContextEdit: TnscTreeComboWithHistoryAndOperations;
-    {* Поле для свойства ContextEdit }
    f_FlashTimer: TTimer;
-    {* Поле для свойства FlashTimer }
   protected
    f_BaseSearcher: InsBaseSearcher;
    f_LockParamsChange: Integer;
@@ -226,7 +224,6 @@ type
    procedure CreateFormGUID(var theGUID: TGUID); override;
     {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    function DoGetNeedSaveToTabHistory: Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
@@ -234,11 +231,12 @@ type
    class function GetExistingInstance(const aContainer: IvcmContainer;
     const aParams: IvcmMakeParams;
     aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
-    aUserType: TvcmUserType = vcmUserControls.0;
+    aUserType: TvcmUserType = 0;
     aGUID: PGUID = nil;
     const aDataSource: IvcmFormDataSource = nil;
     aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure InitEntities; override;
     {* инициализирует сущности не из dfm.
@@ -248,7 +246,12 @@ type
    procedure MakeControls; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
-   class function MakeSingleChild(const aData: InsBaseSearcherWindowData): IvcmEntityForm; reintroduce;
+   class function MakeSingleChild(const aData: InsBaseSearcherWindowData;
+    const aCont: IvcmContainer;
+    const anAgg: IvcmAggregate;
+    aZoneType: TvcmZoneType = vcm_ztAny;
+    aUserType: TvcmEffectiveUserType = 0;
+    const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm; reintroduce;
    {$If NOT Defined(NoVCM)}
    procedure Result_OkExt_Test(const aParams: IvcmTestParamsPrim);
     {* OK }
@@ -327,9 +330,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsSearchWindowManager
  , nsBaseSearchService
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , l3Units
  , nsConst
  {$If NOT Defined(NoVCL)}
@@ -337,9 +337,15 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
  , l3Chars
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , PrimBaseSearch_BaseSearch_UserType
  , afwFacade
- , l3Base
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -482,12 +488,6 @@ begin
  inherited;
 end;//TnsBaseSearchFormState.ClearFields
 
-class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TnsUseBaseSearchExampleEvent <> nil;
-end;//TnsUseBaseSearchExampleEvent.Exists
-
 function TnsUseBaseSearchExampleEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B3BD01CD_var*
 //#UC END# *4B13A26203DB_4B13B3BD01CD_var*
@@ -508,11 +508,11 @@ begin
  Result := g_TnsUseBaseSearchExampleEvent;
 end;//TnsUseBaseSearchExampleEvent.Instance
 
-class function TnsUseBaseSearchHintEvent.Exists: Boolean;
+class function TnsUseBaseSearchExampleEvent.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TnsUseBaseSearchHintEvent <> nil;
-end;//TnsUseBaseSearchHintEvent.Exists
+ Result := g_TnsUseBaseSearchExampleEvent <> nil;
+end;//TnsUseBaseSearchExampleEvent.Exists
 
 function TnsUseBaseSearchHintEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B90D007E_var*
@@ -534,11 +534,11 @@ begin
  Result := g_TnsUseBaseSearchHintEvent;
 end;//TnsUseBaseSearchHintEvent.Instance
 
-class function TnsUseBackSearchButtonEvent.Exists: Boolean;
+class function TnsUseBaseSearchHintEvent.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
 begin
- Result := g_TnsUseBackSearchButtonEvent <> nil;
-end;//TnsUseBackSearchButtonEvent.Exists
+ Result := g_TnsUseBaseSearchHintEvent <> nil;
+end;//TnsUseBaseSearchHintEvent.Exists
 
 function TnsUseBackSearchButtonEvent.EventID: TLogEvent;
 //#UC START# *4B13A26203DB_4B13B9AA029F_var*
@@ -559,6 +559,12 @@ begin
  end;
  Result := g_TnsUseBackSearchButtonEvent;
 end;//TnsUseBackSearchButtonEvent.Instance
+
+class function TnsUseBackSearchButtonEvent.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnsUseBackSearchButtonEvent <> nil;
+end;//TnsUseBackSearchButtonEvent.Exists
 
 type _Instance_R_ = TPrimBaseSearchForm;
 
@@ -941,15 +947,35 @@ begin
 //#UC END# *506AB26A0032_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CMVisibleChanged
 
-class function TPrimBaseSearchForm.MakeSingleChild(const aData: InsBaseSearcherWindowData): IvcmEntityForm;
+class function TPrimBaseSearchForm.MakeSingleChild(const aData: InsBaseSearcherWindowData;
+ const aCont: IvcmContainer;
+ const anAgg: IvcmAggregate;
+ aZoneType: TvcmZoneType = vcm_ztAny;
+ aUserType: TvcmEffectiveUserType = 0;
+ const aDataSource: IvcmFormDataSource = nil): IvcmEntityForm;
+
+ procedure AfterCreate(aForm : TPrimBaseSearchForm);
+ begin
+  with aForm do
+  begin
+  //#UC START# *565445DF038D_4AB791130260_impl*
+   Assert(aData <> nil);
+   f_BaseSearcher := aData as InsBaseSearcher;
+   f_BaseSearcher.ValidateBaseSearchForm(aForm.As_IvcmEntityForm);
+   AfterSearcherSet;
+  //#UC END# *565445DF038D_4AB791130260_impl*
+  end;//with aForm
+ end;
+
 var
- l_Inst : TPrimBaseSearchForm;
+ l_AC : TvcmInitProc;
+ l_ACHack : Pointer absolute l_AC;
 begin
- l_Inst := Create(aData);
+ l_AC := l3LocalStub(@AfterCreate);
  try
-  Result := l_Inst;
+  Result := inherited MakeSingleChild(aCont, vcmSetAggregate(anAgg, vcmMakeParams), aZoneType, aUserType, nil, aDataSource, vcm_utAny, l_AC);
  finally
-  l_Inst.Free;
+  l3FreeLocalStub(l_ACHack);
  end;//try..finally
 end;//TPrimBaseSearchForm.MakeSingleChild
 
@@ -1609,12 +1635,6 @@ begin
 //#UC END# *4EBBC63E032A_4AB791130260_impl*
 end;//TPrimBaseSearchForm.CreateFormGUID
 
-procedure TPrimBaseSearchForm.ClearFields;
-begin
- f_ActiveClassForSaveInHistory := nil;
- inherited;
-end;//TPrimBaseSearchForm.ClearFields
-
 function TPrimBaseSearchForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC START# *55B9F0BD0069_4AB791130260_var*
 //#UC END# *55B9F0BD0069_4AB791130260_var*
@@ -1627,7 +1647,7 @@ end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
 class function TPrimBaseSearchForm.GetExistingInstance(const aContainer: IvcmContainer;
  const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType = vcmBaseTypes.vcm_ztAny;
- aUserType: TvcmUserType = vcmUserControls.0;
+ aUserType: TvcmUserType = 0;
  aGUID: PGUID = nil;
  const aDataSource: IvcmFormDataSource = nil;
  aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
@@ -1652,6 +1672,12 @@ begin
  end;
 //#UC END# *573AFFE5038D_4AB791130260_impl*
 end;//TPrimBaseSearchForm.GetExistingInstance
+
+procedure TPrimBaseSearchForm.ClearFields;
+begin
+ f_ActiveClassForSaveInHistory := nil;
+ inherited;
+end;//TPrimBaseSearchForm.ClearFields
 
 procedure TPrimBaseSearchForm.InitEntities;
  {* инициализирует сущности не из dfm.
