@@ -2858,6 +2858,90 @@ ref; // ME_573B0BE4012E c_UnknownUserName
 
 ref; // ME_573B0B9402F1 cUserNames
 
+FORWARD ME_575530A80134
+
+: ME_575530B90010
+ CONST UID '575530B90010'
+ CONST Name 'da_aopCount'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ref; // ME_575530B90010 da_aopCount
+
+: ME_575530ED03E2
+ CONST UID '575530ED03E2'
+ CONST Name 'da_aopMin'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ref; // ME_575530ED03E2 da_aopMin
+
+: ME_575530F7025B
+ CONST UID '575530F7025B'
+ CONST Name 'da_aopMax'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ref; // ME_575530F7025B da_aopMax
+
+: ME_57553101021C
+ CONST UID '57553101021C'
+ CONST Name 'da_aopAverage'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ref; // ME_57553101021C da_aopAverage
+
+: ME_5755310E00D0
+ CONST UID '5755310E00D0'
+ CONST Name 'da_aopSum'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ref; // ME_5755310E00D0 da_aopSum
+
+: ME_575530A80134
+ CONST UID '575530A80134'
+ CONST Name 'TdaAggregateOperation'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432448401BC // daTypes
+ ;
+ : Attributes
+   Seq: ( ME_575530B90010 // da_aopCount
+ ME_575530ED03E2 // da_aopMin
+ ME_575530F7025B // da_aopMax
+ ME_57553101021C // da_aopAverage
+ ME_5755310E00D0 // da_aopSum
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_575530A80134 TdaAggregateOperation
+
 : ME_5432448401BC
  CONST UID '5432448401BC'
  CONST Name 'daTypes'
@@ -2903,6 +2987,7 @@ ref; // ME_573B0B9402F1 cUserNames
  ME_56667A4D00EA // TdaParamType
  ME_567CF81B01BA // TdaSortOrder
  ME_571DB8E5025A // TdaPriority
+ ME_575530A80134 // TdaAggregateOperation
  )
  ; // Children
  : Constants

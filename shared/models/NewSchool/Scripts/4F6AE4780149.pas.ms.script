@@ -94,52 +94,6 @@ FORWARD ME_4F6AEAE5007B
 
 ref; // ME_A8FD32960190 ut_Main
 
-FORWARD ME_D8C3E0B6746B
-
-FORWARD ME_82DB055F0F7A
-
-: ME_08ADF3E7F68F
- CONST UID '08ADF3E7F68F'
- CONST Name 'fm_MainForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TMainForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_82DB055F0F7A // MainIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''MainForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''MainForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_08ADF3E7F68F fm_MainForm
-
-: ME_82DB055F0F7A
- CONST UID '82DB055F0F7A'
- CONST Name 'MainIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_D8C3E0B6746B // Main$Def
- ;
- : Attributes
-   Seq: ( ME_08ADF3E7F68F // fm_MainForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_82DB055F0F7A MainIDs
-
 : ME_D8C3E0B6746B
  CONST UID 'D8C3E0B6746B'
  CONST GUID '45D03D24-01B1-4C43-89B5-AF75285241AE'
@@ -153,10 +107,10 @@ ref; // ME_82DB055F0F7A MainIDs
  CONST Abstraction at_regular
  : Parent ME_4F6AEAE5007B // Main
  ;
- : Constants
-   Seq: ( ME_82DB055F0F7A // MainIDs
+ : Implementors
+   Seq: ( ME_4F6AEAE5007B // Main
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'MainFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -379,6 +333,6 @@ ref; // ME_4F6AE4A6014D NewGen
  CONST "needs second icon" false
  CONST "vendor" 'none'
  CONST intf.pas:Path 'MDProcess\NewGen\NewGen.dpr'
- CONST Version 12
+ CONST Version 17
 
 ref; // ME_4F6AE4780149 NewGen

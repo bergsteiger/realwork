@@ -66,14 +66,6 @@ p debug tie log:b=false ? Нужно ли генерить логирование вызов всех tie-методов, 
 	][{"%S{debug tie log}"!="%S{!debug tie log}"}%f_up_prefix(%S) *debug tie log* = *%S{debug tie log}* - Нужно ли генерить логирование вызов всех tie-методов, на всех интерфейсах/фасетах, определённых в пакете
 	]
 
-%f _pas_BeforeUnitImplementation
-//#UC START# *4A82C8F9037Cfor4704865603A9*
-	[{%S{need UC}=true}\
-	\n\
-	%U[{unit_intf}\n]\n\
-	]
-//#UC END# *4A82C8F9037Cfor4704865603A9*
-
 // Предназначена для перекрытия в потомках, чтоб иметь возможность сгенерить дополнительные инклуды.
 %f _additional_includes
 //#UC START# *4B4C82AB0199for4704865603A9*
@@ -305,7 +297,6 @@ O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
 	[{%Cx=true}\
 	[%S%f_close_ifdef()\n]\
 	]\
-	%S%f_pas_BeforeUnitImplementation()\
 
 	%f_pas_OpenUnitImplementation(%S)\
 	[{%Cx=true&"%f_with_gen_id(impl.pas,<{}{"%CO"=""}%CX>)"!=""}\
@@ -442,7 +433,12 @@ O %SNUnit.pas
 + spell
 //#UC START# *4A41A13D03D5for4704865603A9*
 	[{%S#f_NoSpellRec()!=true}\
+//	[{%SS=ControllerInterfaces|%SN=vcmControllers}{\
+	[{%SS=ControllerInterfaces}{\
+	<{}{%CS=Constants&%C{spell names}=true}%CX>\
+	}\
 	<%CX>\
+	]\
 	]
 //#UC END# *4A41A13D03D5for4704865603A9*
 

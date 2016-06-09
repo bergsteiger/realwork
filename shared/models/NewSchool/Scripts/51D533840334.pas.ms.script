@@ -26,52 +26,6 @@ FORWARD ME_51D534260378
 
 ref; // ME_C8D510D2786B ut_FromWithPanel
 
-FORWARD ME_DA3DF41960FE
-
-FORWARD ME_2B78060AC0E3
-
-: ME_EF0B111C70AB
- CONST UID 'EF0B111C70AB'
- CONST Name 'fm_FromWithPanelForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TFromWithPanelForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2B78060AC0E3 // FromWithPanelIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''FromWithPanelForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''FromWithPanelForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_EF0B111C70AB fm_FromWithPanelForm
-
-: ME_2B78060AC0E3
- CONST UID '2B78060AC0E3'
- CONST Name 'FromWithPanelIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_DA3DF41960FE // FromWithPanel$Def
- ;
- : Attributes
-   Seq: ( ME_EF0B111C70AB // fm_FromWithPanelForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2B78060AC0E3 FromWithPanelIDs
-
 : ME_DA3DF41960FE
  CONST UID 'DA3DF41960FE'
  CONST GUID '52A98A72-5DD1-4BDA-8FD3-152438D1B28D'
@@ -85,10 +39,10 @@ ref; // ME_2B78060AC0E3 FromWithPanelIDs
  CONST Abstraction at_regular
  : Parent ME_51D534260378 // FromWithPanel
  ;
- : Constants
-   Seq: ( ME_2B78060AC0E3 // FromWithPanelIDs
+ : Implementors
+   Seq: ( ME_51D534260378 // FromWithPanel
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'FromWithPanelFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -215,7 +169,6 @@ ref; // ME_51D534260378 FromWithPanel
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4A7960CC03A4' '4A7960CC03A4.pas.ms.script' //  Panels
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual

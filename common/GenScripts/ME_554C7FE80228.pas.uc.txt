@@ -6,7 +6,7 @@
 //#UC START# *479731C50290_554C7FE80228_var*
 //#UC END# *479731C50290_554C7FE80228_var*
 //#UC START# *5549C65D038D_554C7FE80228_impl*
- Result := ThtTabledQuery.Make(f_DataConverter, f_Helper, aTable, anAlias);
+ Result := ThtTabledQuery.Make(Self, f_DataConverter, f_Helper, aFromClause);
 //#UC END# *5549C65D038D_554C7FE80228_impl*
 //#UC START# *5549C65D038D_554C7FE80228_var*
 //#UC END# *5549C65D038D_554C7FE80228_var*
@@ -63,8 +63,7 @@
 //#UC START# *574BF2B20123_554C7FE80228_var*
 //#UC END# *574BF2B20123_554C7FE80228_var*
 //#UC START# *574C32760314_554C7FE80228_impl*
- Assert(anAlias <> '');
- Result := TdaFromTable.Make(Self, aTable, anAlias);
+ Result := ThtFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_554C7FE80228_impl*
 //#UC START# *574C32760314_554C7FE80228_var*
 //#UC END# *574C32760314_554C7FE80228_var*
@@ -75,3 +74,8 @@
 //#UC END# *574C32D802C6_554C7FE80228_impl*
 //#UC START# *574C32D802C6_554C7FE80228_var*
 //#UC END# *574C32D802C6_554C7FE80228_var*
+//#UC START# *5755313E0083_554C7FE80228_impl*
+ Result := TdaAggregateField.Make(anOperation, aField, anAlias);
+//#UC END# *5755313E0083_554C7FE80228_impl*
+//#UC START# *5755313E0083_554C7FE80228_var*
+//#UC END# *5755313E0083_554C7FE80228_var*

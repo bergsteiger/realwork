@@ -26,52 +26,6 @@ FORWARD ME_4D4697F30281
 
 ref; // ME_2404FCE7338E ut_OutlinerForm
 
-FORWARD ME_6CA6AB1D6951
-
-FORWARD ME_F910C15A567C
-
-: ME_259D730085F5
- CONST UID '259D730085F5'
- CONST Name 'fm_OutlinerFormForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TOutlinerFormForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F910C15A567C // OutlinerFormIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''OutlinerFormForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''OutlinerFormForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_259D730085F5 fm_OutlinerFormForm
-
-: ME_F910C15A567C
- CONST UID 'F910C15A567C'
- CONST Name 'OutlinerFormIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_6CA6AB1D6951 // OutlinerForm$Def
- ;
- : Attributes
-   Seq: ( ME_259D730085F5 // fm_OutlinerFormForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_F910C15A567C OutlinerFormIDs
-
 : ME_6CA6AB1D6951
  CONST UID '6CA6AB1D6951'
  CONST GUID '0BC56D56-6AF0-47F9-9D0B-4AE7FEEE4483'
@@ -85,10 +39,10 @@ ref; // ME_F910C15A567C OutlinerFormIDs
  CONST Abstraction at_regular
  : Parent ME_4D4697F30281 // OutlinerForm
  ;
- : Constants
-   Seq: ( ME_F910C15A567C // OutlinerFormIDs
+ : Implementors
+   Seq: ( ME_4D4697F30281 // OutlinerForm
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'OutlinerFormFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -216,7 +170,6 @@ ref; // ME_4D4697F30281 OutlinerForm
  ; // Children
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.pas.ms.script' // Outliner

@@ -945,12 +945,6 @@ ref; // ME_4925B7F00156_ME_493D2F7B031D ClearAllDS
  CONST OpKind opkind_Overridden
 ref; // ME_4925B9370022_ME_493D2F7B031D DoChangeDocument
 
-: ME_4938F7E702B7_ME_493D2F7B031D
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_493D2F7B031D ClearAreas
-
 : ME_493D51ED0329_ME_493D2F7B031D
  : Original WL 'ME_493D51ED0329' '47EA50050263.pas.ms.script' // FillState
  ;
@@ -1051,7 +1045,6 @@ ref; // ME_4958BE910345_ME_493D2F7B031D UserSettingsChanged
  ME_47EA8B9601FE_ME_493D2F7B031D // SettingsReplaceFinish
  ME_4925B7F00156_ME_493D2F7B031D // ClearAllDS
  ME_4925B9370022_ME_493D2F7B031D // DoChangeDocument
- ME_4938F7E702B7_ME_493D2F7B031D // ClearAreas
  ME_493D51ED0329_ME_493D2F7B031D // FillState
  ME_4958BE910345_ME_493D2F7B031D // UserSettingsChanged
  )
@@ -1698,6 +1691,27 @@ ref; // ME_53D8E620037C_ME_53BFEDC40225 DoGetDocumentShortName
 
 ref; // ME_53BFEDC40225 TdsChronology
 
+: ME_57596003024D
+ CONST UID '57596003024D'
+ CONST Name 'sdsDocInfoFS'
+ CONST Class class_Class
+ : Stereotype st_UseCaseControllerImp ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_493D465902FA // DocumentAndList
+ ;
+ : Inherits
+   Seq: ( ME_493D2F7B031D // sdsDocInfo
+ )
+ ; // Inherits
+ CONST "finished" false
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_FINISHED_sdsDocInfoFS.imp.pas'
+ CONST extprop:pas:TypeName '_sdsDocInfoFS_'
+ CONST extprop:pas:UnitName 'sdsDocInfoFS.imp'
+
+ref; // ME_57596003024D sdsDocInfoFS
+
 : ME_493D465902FA
  CONST UID '493D465902FA'
  CONST Name 'DocumentAndList'
@@ -1718,6 +1732,7 @@ ref; // ME_53BFEDC40225 TdsChronology
  ME_49589FF7027D // TnsChildDocInfoHAFMacroReplacer
  ME_492D687F0214 // TdsDocumentListCR
  ME_53BFEDC40225 // TdsChronology
+ ME_57596003024D // sdsDocInfoFS
  )
  ; // Children
  : Depends

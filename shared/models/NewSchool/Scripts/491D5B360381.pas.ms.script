@@ -458,23 +458,6 @@ FORWARD ME_4936CB1B0022
 
 ref; // ME_494167380288 SetDataType
 
-: ME_FA37F19310F1
- CONST UID 'FA37F19310F1'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_4936CB1B0022 // TsdsDiction
- ;
- : Target WL 'ME_493682F9024E' '491D57C802CD.pas.ms.script' // IsdsDiction
- ;
-
-ref; // ME_FA37F19310F1 SetType
-
 : ME_4936CD6503DA
  CONST Name 'aDocument'
  CONST Class class_Parameter
@@ -826,7 +809,6 @@ ref; // ME_55C1DD070354_ME_4936CB1B0022 GetDataForClone
  ; // Implements
  : Attributes
    Seq: ( ME_494167380288 // SetDataType
- ME_FA37F19310F1 // SetType
  )
  ; // Attributes
  : Operations

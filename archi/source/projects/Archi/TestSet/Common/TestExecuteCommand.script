@@ -21,7 +21,6 @@ USES
  AttributeUtils.script
  ArchiControls.script
  CommonWords.script
-
 ;
 
 PROCEDURE "Убрать галочки со всех чекбоксов"
@@ -258,12 +257,6 @@ PROCEDURE "Подготовить для блоков"
 	 "Включить режим отображения блоков"
 ;
 
-PROCEDURE "Подготовка для блоков с переходом к метке"
-	"Подготовить для блоков"
-	"Перейти к метке с номером {(g_SubID)}"
-	"Обработать сообщения"
-;
-
 PROCEDURE "Размеры редактора для широкой формы"
  	 1115 >>> g_EditorWidth4Drawing
 	 565 >>> g_EditorHeight4Drawing	
@@ -415,7 +408,6 @@ PROCEDURE "Изменить размеры"
 		cnPageBreakSize ( "Подготовка к вставке разрыва" )	
 		cnTableAlignment ( "Подготовка к выравниванию линий" )
 		cnPrepare2Drawing ( "Подготовка к отрисовке" )
-		cnPrepare4BlocksAndGo2Sub ( "Подготовка для блоков с переходом к метке" )
 		cnPrepare2DrawingSBS  ( "Выполнить подготовку к отрисовке SBS" )
 		cnPrepare2DrawingWithWideForm ( "Подготовка к отрисовке с широкой формой" )
 		cnPrepare2DrawingWithBreak ( "Подготовка к отрисовке с отображением разрывов разделов" )
@@ -459,7 +451,9 @@ INTEGER FUNCTION "Проверить ширину контрола" OBJECT IN aControl INTEGER IN aWidt
 	Если ( aControl pop:object:ClassName РАВНО 'TevEditor' ) то
 	(	 
         g_EditorWidth4Drawing <> 0 'Используются нестандартные размеры' ASSERTS
-		g_EditorWidth4Drawing =: Result
+		aWidth =: Result
+		Если ( aControl pop:Control:VScrollerVisible ) то 		
+			( -16 +! Result )
 	)		
 	иначе
 	( aWidth =: Result )
@@ -469,7 +463,7 @@ INTEGER FUNCTION "Проверить высоту контрола" OBJECT IN aControl INTEGER IN aHeig
 	Если ( aControl pop:object:ClassName РАВНО 'TevEditor' ) то
 	(	 
         g_EditorHeight4Drawing <> 0 'Используются нестандартные размеры' ASSERTS
-		g_EditorHeight4Drawing =: Result
+		aHeight =: Result
 	)
 	иначе
 	( aHeight =: Result )

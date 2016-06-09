@@ -10,17 +10,17 @@
  begin
   try
    PureDir(aDirName);
-   RmDir(aDirName);
+   RemoveDir(aDirName);
   except
    on E: Exception do
     l3System.Exception2Log(E);
   end;
- end;
+ end; // if DirectoryExists(aDirName) then
  if ForceDirectories(aDirName) then
  begin
-  Result := UnZipFiles(aFileName, aDirName); 
+  Result := UnZipFiles(aFileName, aDirName);
   if not Result then
-   aMessage := 'Не удалось распакавать архив.' 
+   aMessage := 'Не удалось распакавать архив.'
  end // if ForceDirectories(aDirName) then
  else
  begin

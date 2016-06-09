@@ -1102,7 +1102,7 @@ PROCEDURE "Установить фокус в КЗ после переключения баз"
 
 PROCEDURE "##Установить фокус в Предварительный просмотр после переключения баз"
  OBJECT VAR l_Form
- ANYUSERTYPE форма::Preview vcm:FindForm ?ASSURE 'Не найдена форма PreviewPanel'
+ ANYUSERTYPE форма::PreviewForm vcm:FindForm ?ASSURE 'Не найдена форма PreviewPanel'
  >>> l_Form
  l_Form .TefPreviewForm.PreviewPanel pop:Control:SetFocus ?ASSURE
   'Не удалось поставить фокус в Предварительный просмотр после переключения баз'
@@ -1305,3 +1305,22 @@ PROCEDURE "Подготовить настройки: стандартный вид ОМ"
   "Кликаем Ок в Настройке конфигурации"
  )
 ;
+
+OBJECT FUNCTION "Выпадающий список класса " IN aName
+ PROCEDURE "Перебор главных окон" INTEGER IN hWnd
+  STRING VAR lClass
+  hWnd wnd:GetClassName >>> lClass
+ ( lClass РАВНО aName ) ? (
+  ( hWnd wnd:IsVisible ) ? 
+   ( hWnd Control:ByHandle >>> Result )
+ ) 
+; 
+
+ @ "Перебор главных окон" IterateWindows
+ Result "Объект существует?" ?ASSURE 'Не нашли выпадающий список!'
+;
+
+OBJECT FUNCTION "Выпадающий список с подсказками контекстов в БП"
+"Выпадающий список класса {(class::TnscSubTree)}" >>> Result
+;
+

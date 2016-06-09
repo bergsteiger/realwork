@@ -171,12 +171,6 @@ ref; // ME_4925B9370022_ME_47F075CD00DC DoChangeDocument
  CONST OpKind opkind_Overridden
 ref; // ME_49352CEF0222_ME_47F075CD00DC GetHasAttributes
 
-: ME_4938F7E702B7_ME_47F075CD00DC
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_47F075CD00DC ClearAreas
-
 : ME_47F075CD00DC
  CONST UID '47F075CD00DC'
  CONST Name 'sdsBaseDrugDocument'
@@ -211,7 +205,6 @@ ref; // ME_4938F7E702B7_ME_47F075CD00DC ClearAreas
  ME_4925B7F00156_ME_47F075CD00DC // ClearAllDS
  ME_4925B9370022_ME_47F075CD00DC // DoChangeDocument
  ME_49352CEF0222_ME_47F075CD00DC // GetHasAttributes
- ME_4938F7E702B7_ME_47F075CD00DC // ClearAreas
  )
  ; // Overridden
  : Dependencies
@@ -265,23 +258,6 @@ ref; // ME_49416779025C SetDataType
  ;
 
 ref; // ME_4947AE0900DC InitDataType
-
-: ME_CD9CE9489C04
- CONST UID 'CD9CE9489C04'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDrugDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_47F4A2F801D8 // TsdsDrugDocument
- ;
- : Target WL 'ME_4953C95E038F' '491D7C9603B2.pas.ms.script' // IsdsDrugDocument
- ;
-
-ref; // ME_CD9CE9489C04 SetType
 
 : ME_49365AB50258
  CONST Class class_Dependency
@@ -368,12 +344,6 @@ ref; // ME_47F37DF001FE_ME_47F4A2F801D8 DataExchange
  CONST OpKind opkind_Overridden
 ref; // ME_4925B7F00156_ME_47F4A2F801D8 ClearAllDS
 
-: ME_4938F7E702B7_ME_47F4A2F801D8
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_47F4A2F801D8 ClearAreas
-
 : ME_493D51ED0329_ME_47F4A2F801D8
  : Original WL 'ME_493D51ED0329' '47EA50050263.pas.ms.script' // FillState
  ;
@@ -404,7 +374,6 @@ ref; // ME_493D51ED0329_ME_47F4A2F801D8 FillState
  : Attributes
    Seq: ( ME_49416779025C // SetDataType
  ME_4947AE0900DC // InitDataType
- ME_CD9CE9489C04 // SetType
  )
  ; // Attributes
  : Implemented
@@ -418,7 +387,6 @@ ref; // ME_493D51ED0329_ME_47F4A2F801D8 FillState
    Seq: ( ME_47EA4E9002C6_ME_47F4A2F801D8 // FinishDataUpdate
  ME_47F37DF001FE_ME_47F4A2F801D8 // DataExchange
  ME_4925B7F00156_ME_47F4A2F801D8 // ClearAllDS
- ME_4938F7E702B7_ME_47F4A2F801D8 // ClearAreas
  ME_493D51ED0329_ME_47F4A2F801D8 // FillState
  )
  ; // Overridden

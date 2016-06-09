@@ -442,71 +442,6 @@ ref; // ME_492286CA0097 TdsFoldersTree
 
 FORWARD ME_492EE1A80008
 
-: ME_683180CB3B23
- CONST UID '683180CB3B23'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsFolders' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_492EE1A80008 // TsdsFolders
- ;
- : Target WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
- ;
-
-ref; // ME_683180CB3B23 SetType
-
-: ME_553C5C8D3ADE
- CONST UID '553C5C8D3ADE'
- CONST Name 'f_dsFolders'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsFolders' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_492EE1A80008 // TsdsFolders
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_553C5C8D3ADE f_dsFolders
-
-: ME_D67377950837
- CONST UID 'D67377950837'
- CONST Name 'f_dsFoldersTree'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsFoldersTree' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_492EE1A80008 // TsdsFolders
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_D67377950837 f_dsFoldersTree
-
-: ME_650E81AFE71D
- CONST UID '650E81AFE71D'
- CONST Name 'f_dsFolderElement'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsFolderElement' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_492EE1A80008 // TsdsFolders
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_650E81AFE71D f_dsFolderElement
-
 : ME_492EE3CD0086
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -558,12 +493,6 @@ ref; // ME_492EB06D013C_ME_492EE1A80008 dsFoldersTree
  CONST "pm" true
 ref; // ME_492EB098008A_ME_492EE1A80008 dsFolderElement
 
-: ME_4938F7E702B7_ME_492EE1A80008
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_492EE1A80008 ClearAreas
-
 : ME_492EE1A80008
  CONST UID '492EE1A80008'
  CONST Name 'TsdsFolders'
@@ -583,23 +512,12 @@ ref; // ME_4938F7E702B7_ME_492EE1A80008 ClearAreas
    Seq: ( WL 'ME_492EAE13002A' '492192300095.pas.ms.script' // IsdsFolders
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_683180CB3B23 // SetType
- ME_553C5C8D3ADE // f_dsFolders
- ME_D67377950837 // f_dsFoldersTree
- ME_650E81AFE71D // f_dsFolderElement
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_492EAE8B01AC_ME_492EE1A80008 // dsFolders
  ME_492EB06D013C_ME_492EE1A80008 // dsFoldersTree
  ME_492EB098008A_ME_492EE1A80008 // dsFolderElement
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4938F7E702B7_ME_492EE1A80008 // ClearAreas
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_492EE3CD0086 // TdsFolders
  ME_492EE3E9018A // TdsFoldersTree
@@ -1222,7 +1140,6 @@ ref; // ME_4921953602C1 TdeSaveObject
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
  WL 'ME_492192300095' '492192300095.pas.ms.script' // FoldersInterfaces
  WL 'ME_4922BFA000DD' '4922BFA000DD.pas.ms.script' // SimpleListInterfaces
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4ABCF04F00DF' '4ABCF04F00DF.pas.ms.script' // ConsultationDomainInterfaces

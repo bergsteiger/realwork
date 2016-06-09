@@ -1796,6 +1796,22 @@ ref; // ME_56E152870083 CurrentIndex
 
 ref; // ME_56A9DE4C03A0 Options
 
+: ME_5750305000AF
+ CONST UID '5750305000AF'
+ CONST Name 'WasFiltered'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_5677B9F80322 // IPrimListFormState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_5750305000AF WasFiltered
+
 : ME_5677B9F80322
  CONST UID '5677B9F80322'
  CONST GUID '05608760-BE05-4CBD-B87E-A50CB768DCA8'
@@ -1818,6 +1834,7 @@ ref; // ME_56A9DE4C03A0 Options
  ME_56A9C9980259 // TopItemIndex
  ME_56E152870083 // CurrentIndex
  ME_56A9DE4C03A0 // Options
+ ME_5750305000AF // WasFiltered
  )
  ; // Attributes
  : Children
@@ -1916,6 +1933,20 @@ ref; // ME_56A9DE1E023B f_Options
 
 ref; // ME_56E152C9025B f_CurrentIndex
 
+: ME_575030A701B5
+ CONST UID '575030A701B5'
+ CONST Name 'f_WasFiltered'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5677B9280204 // TPrimListFormState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_575030A701B5 f_WasFiltered
+
 FORWARD ME_5677BAD7012E
 
 : ME_56A9DE6E0301
@@ -1972,6 +2003,15 @@ ref; // ME_56E1612400AA aCurrentIndex
 
 ref; // ME_56A9DE6E037E aOptions
 
+: ME_575030990131
+ CONST Name 'aWasFiltered'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_575030990131 aWasFiltered
+
 : ME_5677BADD0383
  CONST UID '5677BADD0383'
  CONST Name 'DoIt'
@@ -1987,6 +2027,7 @@ ref; // ME_56A9DE6E037E aOptions
  ME_56A9DE6E034F // aTopItemIndex
  ME_56E1612400AA // aCurrentIndex
  ME_56A9DE6E037E // aOptions
+ ME_575030990131 // aWasFiltered
  )
  ; // Parameters
 
@@ -2072,6 +2113,13 @@ ref; // ME_56A9DE4C03A0_ME_5677B9280204 Options
  CONST "pm" true
 ref; // ME_56E152870083_ME_5677B9280204 CurrentIndex
 
+: ME_5750305000AF_ME_5677B9280204
+ : Original ME_5750305000AF // WasFiltered
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_5750305000AF_ME_5677B9280204 WasFiltered
+
 : ME_47A0AD3A01F7_ME_5677B9280204
  : Original WL 'ME_47A0AD3A01F7' '47BB24D30205.pas.ms.script' // QueryInterface
  ;
@@ -2111,6 +2159,7 @@ ref; // ME_47EA4E9002C6_ME_5677B9280204 FinishDataUpdate
  ME_56A9C9B2003D // f_TopItemIndex
  ME_56A9DE1E023B // f_Options
  ME_56E152C9025B // f_CurrentIndex
+ ME_575030A701B5 // f_WasFiltered
  )
  ; // Attributes
  : Operations
@@ -2125,6 +2174,7 @@ ref; // ME_47EA4E9002C6_ME_5677B9280204 FinishDataUpdate
  ME_56A9C9980259_ME_5677B9280204 // TopItemIndex
  ME_56A9DE4C03A0_ME_5677B9280204 // Options
  ME_56E152870083_ME_5677B9280204 // CurrentIndex
+ ME_5750305000AF_ME_5677B9280204 // WasFiltered
  )
  ; // Implemented
  : Overridden
@@ -2970,6 +3020,21 @@ ref; // ME_5527D2660021 f_AllowCallCurrentChangedOnTest
 
 ref; // ME_56F54A4302F0 f_SearchContext
 
+: ME_57502F9E0039
+ CONST UID '57502F9E0039'
+ CONST Name 'f_WasFiltered'
+ CONST Class class_Attribute
+ %SUMMARY 'Флаг, что список был отфильтрован. Нужен, чтобы не показывать ссылку "Продолжить поиск..."' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_497DDB2B001B // PrimList
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_57502F9E0039 f_WasFiltered
+
 FORWARD ME_4C341EE90370
 
 : ME_4C341EF501BC
@@ -3045,19 +3110,6 @@ ref; // ME_4C3440B603AA DoIt
 
 ref; // ME_4C3440AB00A0 SelectionOpsTest
 
-FORWARD ME_4C344155021B
-
-: ME_4C3441620107
- CONST UID '4C3441620107'
- CONST Name 'DoIt'
- CONST Class class_Operation
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4C344155021B // StatusParamsShow
- ;
-
-ref; // ME_4C3441620107 DoIt
-
 : ME_4C344155021B
  CONST UID '4C344155021B'
  CONST Name 'StatusParamsShow'
@@ -3068,10 +3120,6 @@ ref; // ME_4C3441620107 DoIt
  CONST Abstraction at_final
  : Parent ME_497DDB2B001B // PrimList
  ;
- : Operations
-   Seq: ( ME_4C3441620107 // DoIt
- )
- ; // Operations
 
 ref; // ME_4C344155021B StatusParamsShow
 
@@ -7147,6 +7195,7 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4C3AB32C00A9 // f_NeedDropCRList
  ME_5527D2660021 // f_AllowCallCurrentChangedOnTest
  ME_56F54A4302F0 // f_SearchContext
+ ME_57502F9E0039 // f_WasFiltered
  )
  ; // Attributes
  : Operations
@@ -12127,52 +12176,6 @@ ref; // ME_4A9BF56C0166 ListInfo
 
 FORWARD ME_4AA0CE0E02C4
 
-FORWARD ME_BBDBB6B3AB03
-
-FORWARD ME_19F783016AD7
-
-: ME_D79E828AFB3C
- CONST UID 'D79E828AFB3C'
- CONST Name 'fm_ListAnalizerForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TListAnalizerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_19F783016AD7 // ListAnalizerIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''ListAnalizerForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''ListAnalizerForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_D79E828AFB3C fm_ListAnalizerForm
-
-: ME_19F783016AD7
- CONST UID '19F783016AD7'
- CONST Name 'ListAnalizerIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_BBDBB6B3AB03 // ListAnalizer$Def
- ;
- : Attributes
-   Seq: ( ME_D79E828AFB3C // fm_ListAnalizerForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_19F783016AD7 ListAnalizerIDs
-
 : ME_BBDBB6B3AB03
  CONST UID 'BBDBB6B3AB03'
  CONST GUID '534B1ADF-ACC6-4DD9-AF54-C92914E3CBA4'
@@ -12186,10 +12189,10 @@ ref; // ME_19F783016AD7 ListAnalizerIDs
  CONST Abstraction at_regular
  : Parent ME_4AA0CE0E02C4 // ListAnalizer
  ;
- : Constants
-   Seq: ( ME_19F783016AD7 // ListAnalizerIDs
+ : Implementors
+   Seq: ( ME_4AA0CE0E02C4 // ListAnalizer
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'ListAnalizerFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

@@ -6513,52 +6513,6 @@ ref; // ME_4AA5128C0195 Admin$FSF
 
 FORWARD ME_4AA8E3E20024
 
-FORWARD ME_71BC5A4EDB66
-
-FORWARD ME_1EAF8C166FEB
-
-: ME_7465EC1B2247
- CONST UID '7465EC1B2247'
- CONST Name 'fm_efGroupProperty'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefGroupProperty' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_1EAF8C166FEB // GroupPropertyIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efGroupProperty''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efGroupProperty''; rID : 0); rFactory : nil)'
-
-ref; // ME_7465EC1B2247 fm_efGroupProperty
-
-: ME_1EAF8C166FEB
- CONST UID '1EAF8C166FEB'
- CONST Name 'GroupPropertyIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_71BC5A4EDB66 // GroupProperty$Def
- ;
- : Attributes
-   Seq: ( ME_7465EC1B2247 // fm_efGroupProperty
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_1EAF8C166FEB GroupPropertyIDs
-
 : ME_71BC5A4EDB66
  CONST UID '71BC5A4EDB66'
  CONST GUID 'F213AE84-ECF9-427D-8B89-53C6221D1F27'
@@ -6572,10 +6526,10 @@ ref; // ME_1EAF8C166FEB GroupPropertyIDs
  CONST Abstraction at_regular
  : Parent ME_4AA8E3E20024 // GroupProperty
  ;
- : Constants
-   Seq: ( ME_1EAF8C166FEB // GroupPropertyIDs
+ : Implementors
+   Seq: ( ME_4AA8E3E20024 // GroupProperty
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'GroupPropertyFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -6639,52 +6593,6 @@ ref; // ME_4AA8E3E20024 GroupProperty
 
 ref; // ME_5E9859CE8259 ut_ForbidAutoregistration
 
-FORWARD ME_79B951455BC4
-
-FORWARD ME_2C6DD82E7003
-
-: ME_E30BCFCD649E
- CONST UID 'E30BCFCD649E'
- CONST Name 'fm_efForbidAutoregistration'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefForbidAutoregistration' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2C6DD82E7003 // ForbidAutoregistrationIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efForbidAutoregistration''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efForbidAutoregistration''; rID : 0); rFactory : nil)'
-
-ref; // ME_E30BCFCD649E fm_efForbidAutoregistration
-
-: ME_2C6DD82E7003
- CONST UID '2C6DD82E7003'
- CONST Name 'ForbidAutoregistrationIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_79B951455BC4 // ForbidAutoregistration$Def
- ;
- : Attributes
-   Seq: ( ME_E30BCFCD649E // fm_efForbidAutoregistration
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2C6DD82E7003 ForbidAutoregistrationIDs
-
 : ME_79B951455BC4
  CONST UID '79B951455BC4'
  CONST GUID '5D4153F1-D087-4AF8-A4ED-39411EB7A1A3'
@@ -6698,10 +6606,10 @@ ref; // ME_2C6DD82E7003 ForbidAutoregistrationIDs
  CONST Abstraction at_regular
  : Parent ME_4AA8E405032A // ForbidAutoregistration
  ;
- : Constants
-   Seq: ( ME_2C6DD82E7003 // ForbidAutoregistrationIDs
+ : Implementors
+   Seq: ( ME_4AA8E405032A // ForbidAutoregistration
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'ForbidAutoregistrationFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

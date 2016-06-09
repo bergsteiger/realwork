@@ -35,70 +35,6 @@ $ f 5,200,150
 // Унаследованная реализация
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor492EC704029E*
-	<{}{%R#f_IsUseCaseController()=true}\
-	%f_set_var(IMPLEMENTED,R)\
-	%R%P<{}{%C{isSynchroEnum}=true&"%C%{SDS_CASTER}N"="%{IMPLEMENTED}U"}\
-	%1%f_add_operation(%1U_%CU_ChangeSynchroForm,,ChangeSynchroForm (aSynchroForm : %CU),Op_Inst)\
-	%{Op_Inst}%f_set_visibility_type(ProtectedAccess)\
-	%{Op_Inst}%f_set_abstraction_type(final)\
-	%{Op_Inst}%f_set_documentation(Переключает форму синхронного просмотра)\
-	>\
-	>\
-
-	[{%Sa!=abstract&"%f_SetType(%S)"!=""}\
-
-	%S%f_add_attribute(%SU_SetType,impurity value,\
-	SetType : %f_SetType(%S),\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_link_type(lnk)\
-	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
-	%{Attr_Inst}%f_set_documentation(Реальный интерфейс контроллера прецедента для %SN)\
-	]\
-
-	[{%S%f_HasAnyVCMArea()=true}\
-
-	[{"%{_vcmFormSetDataSource_.ClearAreas}N"=""}%f_find_element(4938F7E702B7,_vcmFormSetDataSource_.ClearAreas)]\
-	%S%f_add_override(%{_vcmFormSetDataSource_.ClearAreas}U)\
-	%{_vcmFormSetDataSource_.ClearAreas}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{_vcmFormSetDataSource_.ClearAreas},%S)_var,\
-	 {-}\
-	)\
-	%{_vcmFormSetDataSource_.ClearAreas}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{_vcmFormSetDataSource_.ClearAreas},%S)_impl,\
-	[ <{\n }{%o#f_IsVCMArea()=true}\
-	[{%o#f_IsVCMAreaLink()=true}{\
-	%o%f_pas_MethodName("arearef")\
-	}\
-	if (f_%oN \<\> nil) then f_%oN].Referred := nil;>]\
-	
-	 inherited;\
-	)\
-
-	]\
-
-	%S%[inherited]
-
-f _SetType
-@ %SU
-	[{"%f_SetTypePrim(%S)"!=""}{\
-	%f_set_var(l_Got,"false")\
-	<{}{%GS=UseCaseControllerImp}\
-	%G<{}{%R#f_IsUseCaseController()=true}\
-	[{%{l_Got}N!=true}\
-	%RU\
-	%f_set_var(l_Got,"true")\
-	]\
-	>>\
-	}\
-	%f_SetTypePrim(%S)\
-	]
-
-f _SetTypePrim
-@ %SU
-	<{}{%R#f_IsUseCaseController()=true}%RU>
-//#UC END# *4B2A19E3038Bfor492EC704029E*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Является ли примесью
 %f _IsMixIn
 //#UC START# *4947E5D40127for492EC704029E*
@@ -112,29 +48,6 @@ f _SetTypePrim
 	[{%Sa=abstract}{true}false]
 //#UC END# *4947E4DA0227for492EC704029E*
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Добавляет файлы необходимые элементу с точки зрения метамодели
-%f _pas_ImplUses
-//#UC START# *4948EB2601FAfor492EC704029E*
-	%S%[inherited]\
-	[{%S%f_HasAnyVCMAreaLink()=true}%f_pas_PutToUses("vcmFormDataSourceRef")]
-//#UC END# *4948EB2601FAfor492EC704029E*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит дополнительные модули необходимые элементу в интерфейсной секции
-%f _pas_IntfUses
-//#UC START# *4948F2EE0334for492EC704029E*
-	%S%[inherited]\
-	[{%S%f_HasAnyVCMArea()=true}%f_pas_PutToUses("vcmControllers")]
-//#UC END# *4948F2EE0334for492EC704029E*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит спец-метку класса
-%f _pas_OutClassMark
-//#UC START# *494B74D7016Bfor492EC704029E*
-	ucc
-//#UC END# *494B74D7016Bfor492EC704029E*
-
 // перекрытие базового стереотипа Документация::MDAGenerator
 // проверка ограничений накладываемых на элемент
 %t _constraint
@@ -142,6 +55,54 @@ f _SetTypePrim
 c	{}
 r {""=""}: {}
 //#UC END# *4704C0E30186for492EC704029E*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: UseCaseControllerImp::Class::Attribute
+= SimpleClass::Class::Attribute
+
+// Параметры стереотипа
+v -#+
+/ - типы видимости
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for5757284A001D*
+//#UC END# *46E6D4BB0339for5757284A001D*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor5757284A001D*
+//#UC END# *47022CCF00EAfor5757284A001D*
+
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor5757284A001D*
+//#UC END# *470321C1038Afor5757284A001D*
+
+// Функции стереотипа
+%f _st_space_key
+	SHD
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for5757284A001D*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for5757284A001D*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for5757284A001D*
+//#UC END# *470484D50138for5757284A001D*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

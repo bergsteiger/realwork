@@ -130,72 +130,6 @@ r {""=""}: {}
 //#UC END# *4704C0E30186for4B0402290215*
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor4B0402290215*
-	%S%[inherited]\
-	[{%S#f_UseNewGenRec()!=true}\
-	%S%f_add_class(%SU_Constants,Constants,%SNConstants,Constants_Inst)\
-	%{Constants_Inst}%f_set_documentation(Константы для типа формы %SN)\
-
-	[{"%{TvcmUserType}N"=""}%f_find_element(TvcmUserType,TvcmUserType)]\
-	%S%f_make_accessable(%{TvcmUserType}U)\
-
-	%{Constants_Inst}%f_add_attribute(%SU_NAME_ID,,\
-	%SNName = '%SN',\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_documentation(Строковый идентификатор пользовательского типа "%SD")\
-
-	%{Constants_Inst}%f_add_attribute(%SU_ID,,\
-	%SN : %{TvcmUserType}U = [{%Gx=true}{0}%GN],\
-	Attr_Inst)\
-	[{%Gx=true}\
-	%{Attr_Inst}%f_set_up(suffix expr,+ 1)\
-	]\
-	%{Attr_Inst}%f_set_up(is define,true)\
-	%{Attr_Inst}%f_set_up(no unit prefix,true)\
-	%{Attr_Inst}%f_set_documentation(%SD)\
-
-	%S%f_add_class(%SU_Local_Constants,LocalConst,%SNLocalConstants,LocalConstants_Inst)\
-	%{LocalConstants_Inst}%f_set_visibility_type(PublicAccess)\
-	%{LocalConstants_Inst}%f_set_documentation(Локализуемые константы для типа формы %SN)\
-	%{LocalConstants_Inst}%f_add_attribute(%SU_CAPTION_ID,,\
-	%SNCaption = '%SD',\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD")
-	[{"%S{SettingsCaption}"!=""}\
-	%{LocalConstants_Inst}%f_add_attribute(%SU_SETTINGS_CAPTION_ID,,\
-	%SNSettingsCaption = '%S{SettingsCaption}',\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_documentation(Заголовок пользовательского типа "%SD" для настройки панелей инструментов)\
-	]\
-
-	%S%f_add_class(%SU_Word,ScriptKeyword,Tkw_FormUserType_%f_N(%S),Word_Inst)\
-	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
-	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
-	[{"%{TtfwInteger}N"=""}%f_find_element(TtfwInteger,TtfwInteger)]\
-	%{Word_Inst}%f_make_accessable(%{TtfwInteger}U)\
-	%f_addG(%{Word_Inst},%{TtfwInteger})\
-	%{Word_Inst}%f_set_documentation(Слово словаря для типа формы %SN\
-	)\
-
-	[{"%{TtfwInteger.GetInteger}N"=""}%f_find_element(4EE1DC8903BB,TtfwInteger.GetInteger)]\
-	%{Word_Inst}%f_add_override(4EE1DC8903BB)\
-	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwInteger.GetInteger}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwInteger.GetInteger},%{Word_Inst})_impl,\
-	 Result := %f_N(%S);\
-	)\
-
-	%{Word_Inst}%f_set_up(NameForScript,тип_формы::%f_str_replace(%f_N(%S), ,_))\
-	%{Word_Inst}%f_set_abstraction_type(final)\
-
-	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
-	]
-//#UC END# *4B2A19E3038Bfor4B0402290215*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Определяет, что элемент производит файл (Unit)
 %f _IsUnitFileProducer
 //#UC START# *4947EC0F0380for4B0402290215*
@@ -272,8 +206,8 @@ P
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	]\
 	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
-	]\
-	%S%f_DoSpell()
+	]
+//	%S%f_DoSpell()
 //#UC END# *4A41A13D03D5for4B0402290215*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

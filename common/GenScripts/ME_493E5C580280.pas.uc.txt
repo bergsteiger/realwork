@@ -1,3 +1,9 @@
+//#UC START# *479731C50290_493E5C580280_impl*
+ f_ChangeWorker := nil;
+ inherited;
+//#UC END# *479731C50290_493E5C580280_impl*
+//#UC START# *479731C50290_493E5C580280_var*
+//#UC END# *479731C50290_493E5C580280_var*
 //#UC START# *47EA4E9002C6_493E5C580280_impl*
  inherited;
  ResetCacheAfterUpdate;
@@ -54,9 +60,12 @@
 
 //#UC END# *491B06F000BB_493E5C580280_var*
 //#UC START# *4925B1EC0100_493E5C580280_impl*
- Result := TdsDocument.Make(Self, DocumentData);
+ l_DocData := DocumentData.Clone;
+ Result := TdsDocument.Make(Self, l_DocData);
 //#UC END# *4925B1EC0100_493E5C580280_impl*
 //#UC START# *4925B1EC0100_493E5C580280_var*
+var
+ l_DocData: IdeDocInfo;
 //#UC END# *4925B1EC0100_493E5C580280_var*
 //#UC START# *4925B7F00156_493E5C580280_impl*
  inherited;
@@ -230,7 +239,11 @@ var
    try
     Result := aChangeWorker.Change(l_DocInfo);
     if Result then
+    begin
+     f_ChangeWorker := aChangeWorker;
+     f_ChangeRedactionPos := aPos;
      DoDoChangeDocument(l_DocInfo, aPos, True, l_Data);
+    end;
    finally
     l_DocInfo := nil;
    end;//try..finally
@@ -639,7 +652,7 @@ var
 //#UC END# *500CEDBC03A5_493E5C580280area_var*
 //#UC START# *500CEDBC03A5_493E5C580280get_need*
      AND (NeedMake <> vcm_nmNo)
-     AND HasAnyRedaction   
+     AND HasAnyRedaction
    // - условие создания ViewArea
 //#UC END# *500CEDBC03A5_493E5C580280get_need*
 //#UC START# *500CEDBC03A5_493E5C580280get_var*
@@ -714,6 +727,13 @@ var
  l_State: IDocumentState;
  l_RI: TRedactionInfo;
 //#UC END# *53B3BF9C00EF_493E5C580280_var*
+//#UC START# *555B0E0B0084_493E5C580280_impl*
+ Result := inherited DoMakeClone;
+ if (f_ChangeWorker <> nil) then
+   (Result as IsdsDocument).ChangeRedaction(f_ChangeWorker, f_ChangeRedactionPos);
+//#UC END# *555B0E0B0084_493E5C580280_impl*
+//#UC START# *555B0E0B0084_493E5C580280_var*
+//#UC END# *555B0E0B0084_493E5C580280_var*
 //#UC START# *559510480014_493E5C580280_impl*
  SetData.dsSimilarDocumentsToFragmentRef.Clear;
  SetData.dsSimilarDocumentsToFragmentRef.NeedMake := vcm_nmForce;
@@ -722,3 +742,8 @@ var
 //#UC END# *559510480014_493E5C580280_impl*
 //#UC START# *559510480014_493E5C580280_var*
 //#UC END# *559510480014_493E5C580280_var*
+//#UC START# *55C1DD070354_493E5C580280_impl*
+ Result := InitialUseCaseData.Clone;
+//#UC END# *55C1DD070354_493E5C580280_impl*
+//#UC START# *55C1DD070354_493E5C580280_var*
+//#UC END# *55C1DD070354_493E5C580280_var*

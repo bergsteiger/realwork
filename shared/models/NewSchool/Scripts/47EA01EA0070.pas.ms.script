@@ -36,66 +36,6 @@ ref; // ME_494167B70065 SetDataType
 
 ref; // ME_4947AE45000E InitDataType
 
-: ME_FBDCC06A70A6
- CONST UID 'FBDCC06A70A6'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDrugList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_47EA0F2B031C // TsdsDrugList
- ;
- : Target WL 'ME_47EA026B024C' '491D7C9603B2.pas.ms.script' // IsdsDrugList
- ;
-
-ref; // ME_FBDCC06A70A6 SetType
-
-: ME_4B4E4EF4C612
- CONST UID '4B4E4EF4C612'
- CONST Name 'f_dsBaloonWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsBaloonWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_47EA0F2B031C // TsdsDrugList
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_4B4E4EF4C612 f_dsBaloonWarning
-
-: ME_196F9532D3F5
- CONST Name 'aSynchroForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_EDFE395C8EE0' '491D7C9603B2.pas.ms.script' // TDrugList_SynchroView_Areas
- ;
-
-ref; // ME_196F9532D3F5 aSynchroForm
-
-: ME_341E87C755C8
- CONST UID '341E87C755C8'
- CONST Name 'ChangeSynchroForm'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Переключает форму синхронного просмотра' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_47EA0F2B031C // TsdsDrugList
- ;
- : Parameters
-   Seq: ( ME_196F9532D3F5 // aSynchroForm
- )
- ; // Parameters
-
-ref; // ME_341E87C755C8 ChangeSynchroForm
-
 : ME_47EA4CB00275
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -439,12 +379,6 @@ ref; // ME_47FE048E0224_ME_47EA0F2B031C NeedMakeDsDrugInternationalNameSynonims
  CONST OpKind opkind_Overridden
 ref; // ME_4925B7F00156_ME_47EA0F2B031C ClearAllDS
 
-: ME_4938F7E702B7_ME_47EA0F2B031C
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_47EA0F2B031C ClearAreas
-
 : ME_493D1BE601B1_ME_47EA0F2B031C
  : Original WL 'ME_493D1BE601B1' '47EA50050263.pas.ms.script' // NeedMakeDocument
  ;
@@ -480,14 +414,8 @@ ref; // ME_53B3BF9C00EF_ME_47EA0F2B031C DoGetFormSetImageIndex
  : Attributes
    Seq: ( ME_494167B70065 // SetDataType
  ME_4947AE45000E // InitDataType
- ME_FBDCC06A70A6 // SetType
- ME_4B4E4EF4C612 // f_dsBaloonWarning
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_341E87C755C8 // ChangeSynchroForm
- )
- ; // Operations
  : Implemented
    Seq: ( ME_41B49128CE19_ME_47EA0F2B031C // IsDocumentActive
  ME_47F3778403D9_ME_47EA0F2B031C // MakeData
@@ -518,7 +446,6 @@ ref; // ME_53B3BF9C00EF_ME_47EA0F2B031C DoGetFormSetImageIndex
  ME_47FE03AE0225_ME_47EA0F2B031C // NeedMakeDSAttributes
  ME_47FE048E0224_ME_47EA0F2B031C // NeedMakeDsDrugInternationalNameSynonims
  ME_4925B7F00156_ME_47EA0F2B031C // ClearAllDS
- ME_4938F7E702B7_ME_47EA0F2B031C // ClearAreas
  ME_493D1BE601B1_ME_47EA0F2B031C // NeedMakeDocument
  ME_53B3BF9C00EF_ME_47EA0F2B031C // DoGetFormSetImageIndex
  )
@@ -813,8 +740,7 @@ ref; // ME_47F5D70E03AB TdsMainDrugList
  )
  ; // Children
  : Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
- WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+   Seq: ( WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_47EA07FA02CE' '47EA07FA02CE.pas.ms.script' // bsTypes
  WL 'ME_47EA50050263' '47EA50050263.pas.ms.script' // BaseDocument
@@ -829,7 +755,6 @@ ref; // ME_47F5D70E03AB TdsMainDrugList
  WL 'ME_491DCA2C00A9' '491DCA2C00A9.pas.ms.script' // Search
  WL 'ME_4922BFA000DD' '4922BFA000DD.pas.ms.script' // SimpleListInterfaces
  WL 'ME_4955235700D2' '4955235700D2.pas.ms.script' // SimpleList
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.pas.ms.script' // DrugData
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_4B1D3D250382' '4B1D3D250382.pas.ms.script' // PrimPrimListInterfaces

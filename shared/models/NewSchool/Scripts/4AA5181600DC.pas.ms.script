@@ -116,52 +116,6 @@ ref; // ME_4F79AF370350 AdminTitle
 
 FORWARD ME_4F7C3C0B035C
 
-FORWARD ME_1EFCD4E79E8C
-
-FORWARD ME_3B4547FBE885
-
-: ME_9EA475CE6490
- CONST UID '9EA475CE6490'
- CONST Name 'fm_AdminMainForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TAdminMainForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3B4547FBE885 // AdminMainIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''AdminMainForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''AdminMainForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_9EA475CE6490 fm_AdminMainForm
-
-: ME_3B4547FBE885
- CONST UID '3B4547FBE885'
- CONST Name 'AdminMainIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_1EFCD4E79E8C // AdminMain$Def
- ;
- : Attributes
-   Seq: ( ME_9EA475CE6490 // fm_AdminMainForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_3B4547FBE885 AdminMainIDs
-
 : ME_1EFCD4E79E8C
  CONST UID '1EFCD4E79E8C'
  CONST GUID '26239010-1045-42DC-ABBF-3909601CF2CB'
@@ -175,10 +129,10 @@ ref; // ME_3B4547FBE885 AdminMainIDs
  CONST Abstraction at_regular
  : Parent ME_4F7C3C0B035C // AdminMain
  ;
- : Constants
-   Seq: ( ME_3B4547FBE885 // AdminMainIDs
+ : Implementors
+   Seq: ( ME_4F7C3C0B035C // AdminMain
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'AdminMainFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -348,8 +302,6 @@ ref; // ME_4AA517B5037A AdminApp
  : Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_4677FF4B0036' '4677FF4B0036.pas.ms.script' // Data
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
  WL 'ME_49549627008C' '49549627008C.pas.ms.script' // LegalDomain
  WL 'ME_4954D3580364' '4954D3580364.pas.ms.script' // Admin
@@ -365,6 +317,6 @@ ref; // ME_4AA517B5037A AdminApp
  CONST "needs second icon" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin.dpr'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
- CONST Version 20
+ CONST Version 26
 
 ref; // ME_4AA5181600DC Admin$Shell

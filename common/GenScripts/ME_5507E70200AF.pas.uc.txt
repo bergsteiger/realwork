@@ -127,6 +127,8 @@
    'Используя этот путь, программа выполняет подключение к базе данных для выполнения регламентных работ'));
   aConfig.AddItem(lp_AddFolderNameItem('ImageStoragePath', 'Образы документов',
    'Папка для хранения сканированных образов документов'));
+  aConfig.AddItem(lp_AddFolderNameItem('ImageCachePath', 'Кэш образов документов',
+   'Папка для кэширования образов документов'));
   l3FillChar(l_Default, SizeOf(l_Default), 0);
   l_Default.Kind := dd_vkBoolean;
   l_Default.AsBoolean := False;
@@ -162,3 +164,13 @@ var
  end;
 
 //#UC END# *551512370064_5507E70200AF_var*
+//#UC START# *5756BD40014A_5507E70200AFget_impl*
+ Result := ddAppConfiguration.AsString['ImageCachePath'];
+//#UC END# *5756BD40014A_5507E70200AFget_impl*
+//#UC START# *5756BD40014A_5507E70200AFget_var*
+//#UC END# *5756BD40014A_5507E70200AFget_var*
+//#UC START# *5756BD40014A_5507E70200AFset_impl*
+ // do nothing
+//#UC END# *5756BD40014A_5507E70200AFset_impl*
+//#UC START# *5756BD40014A_5507E70200AFset_var*
+//#UC END# *5756BD40014A_5507E70200AFset_var*

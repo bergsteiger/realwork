@@ -673,52 +673,6 @@ FORWARD ME_4A811C1A0293
 
 FORWARD ME_4A811C620210
 
-FORWARD ME_ED055FCF64DC
-
-FORWARD ME_689D83F3CE5F
-
-: ME_13C2BFCFE36F
- CONST UID '13C2BFCFE36F'
- CONST Name 'fm_WorkJournalForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TWorkJournalForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_689D83F3CE5F // WorkJournalIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''WorkJournalForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''WorkJournalForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_13C2BFCFE36F fm_WorkJournalForm
-
-: ME_689D83F3CE5F
- CONST UID '689D83F3CE5F'
- CONST Name 'WorkJournalIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_ED055FCF64DC // WorkJournal$Def
- ;
- : Attributes
-   Seq: ( ME_13C2BFCFE36F // fm_WorkJournalForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_689D83F3CE5F WorkJournalIDs
-
 : ME_ED055FCF64DC
  CONST UID 'ED055FCF64DC'
  CONST GUID 'D0739331-5959-49D1-A117-74FAFA0E0939'
@@ -732,10 +686,10 @@ ref; // ME_689D83F3CE5F WorkJournalIDs
  CONST Abstraction at_regular
  : Parent ME_4A811C620210 // WorkJournal
  ;
- : Constants
-   Seq: ( ME_689D83F3CE5F // WorkJournalIDs
+ : Implementors
+   Seq: ( ME_4A811C620210 // WorkJournal
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'WorkJournalFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1007,7 +961,6 @@ ref; // ME_AD86DC9C7EF5 Tkw_WorkJournal_opOpenJournal
  WL 'ME_457450470167' '457450470167.pas.ms.script' // DynamicTree
  WL 'ME_45EEAA8E034E' '45EEAA8E034E.pas.ms.script' // Search
  WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_47D036150077' '47D036150077.pas.ms.script' // l3ControlsTypes

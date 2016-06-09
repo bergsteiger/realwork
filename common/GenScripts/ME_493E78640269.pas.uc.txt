@@ -301,6 +301,43 @@ var
 //#UC END# *493D6EC40228_493E78640269_impl*
 //#UC START# *493D6EC40228_493E78640269_var*
 //#UC END# *493D6EC40228_493E78640269_var*
+//#UC START# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_impl*
+ if (aSynchroForm <> UCFormSet.CurrentSynchroForm) OR
+  (aDoSaveToHistory and (SetData.List_SynchroView_Form <> aSynchroForm)) then
+ begin
+  ClearAllDS;
+  if aDoSaveToHistory then
+  begin
+   SetData.List_SynchroView_Form := aSynchroForm;
+   SetData.DisableAutoOpenAnnotation := aSynchroForm <> sva_List_SynchroView_Annotation;
+  end;
+  UCFormSet.CurrentSynchroForm := aSynchroForm;
+  // При открытии документа сбрасываем типы корр/респ. CQ: 00018879
+  if (UCFormSet.CurrentSynchroForm = sva_List_SynchroView_Document) then
+  begin
+   ChangeCorrType(nil);
+   ChangeRespType(nil);
+  end;//SetData.List_SynchroView_Form = sva_List_SynchroView_Document
+  if aNeedRefresh then
+   Refresh;
+ end;//aSynchroForm <> SetData.List_SynchroView_Form
+//#UC END# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_impl*
+//#UC START# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_var*
+//#UC END# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_var*
+//#UC START# *493E78640269ci*
+_FormSetType_ = IfstList;
+//#UC END# *493E78640269ci*
+//#UC START# *493E78640269cit*
+//#UC END# *493E78640269cit*
+//#UC START# *493E78640269impl*
+//#UC END# *493E78640269impl*
+//#UC START# *493E78640269impl_uses*
+//#UC END# *493E78640269impl_uses*
+//#UC START# *493E78640269intf_uses*
+ , fstListInterfaces
+//#UC END# *493E78640269intf_uses*
+//#UC START# *493E78640269publ*
+//#UC END# *493E78640269publ*
 //#UC START# *493E7C24005A_493E78640269_impl*
  with SetData.UserCRListInfo[aId] do
   if KindOfList = bs_ulFullCR then

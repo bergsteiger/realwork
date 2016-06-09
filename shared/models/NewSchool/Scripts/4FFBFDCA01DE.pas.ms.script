@@ -4,52 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4FFBFDCA01DE
 
-FORWARD ME_4FFBFEA70185
-
-FORWARD ME_879E47D0811B
-
-: ME_4DD7E03496F7
- CONST UID '4DD7E03496F7'
- CONST Name 'fm_cfAdminForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TcfAdminForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_879E47D0811B // AdminFormIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''cfAdminForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''cfAdminForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_4DD7E03496F7 fm_cfAdminForm
-
-: ME_879E47D0811B
- CONST UID '879E47D0811B'
- CONST Name 'AdminFormIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFBFEA70185 // AdminForm
- ;
- : Attributes
-   Seq: ( ME_4DD7E03496F7 // fm_cfAdminForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_879E47D0811B AdminFormIDs
-
 : ME_4FFBFEA70185
  CONST UID '4FFBFEA70185'
  CONST GUID '7E787B8C-F566-443C-9C95-6711D628B038'
@@ -61,60 +15,14 @@ ref; // ME_879E47D0811B AdminFormIDs
  CONST Abstraction at_regular
  : Parent ME_4FFBFDCA01DE // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_879E47D0811B // AdminFormIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA8E4F1002A' '49480CD20303.pas.ms.script' // AdminForm
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'AdminFormFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFBFEA70185 AdminForm
-
-FORWARD ME_4FFBFF7B0180
-
-FORWARD ME_99654F346472
-
-: ME_9CE7067F3EE4
- CONST UID '9CE7067F3EE4'
- CONST Name 'fm_efGroupList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefGroupList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_99654F346472 // GroupListIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efGroupList''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efGroupList''; rID : 0); rFactory : nil)'
-
-ref; // ME_9CE7067F3EE4 fm_efGroupList
-
-: ME_99654F346472
- CONST UID '99654F346472'
- CONST Name 'GroupListIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFBFF7B0180 // GroupList
- ;
- : Attributes
-   Seq: ( ME_9CE7067F3EE4 // fm_efGroupList
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_99654F346472 GroupListIDs
 
 : ME_4FFBFF7B0180
  CONST UID '4FFBFF7B0180'
@@ -127,60 +35,14 @@ ref; // ME_99654F346472 GroupListIDs
  CONST Abstraction at_regular
  : Parent ME_4FFBFDCA01DE // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_99654F346472 // GroupListIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA8E4CD0348' '49480CD20303.pas.ms.script' // GroupList
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'GroupListFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFBFF7B0180 GroupList
-
-FORWARD ME_4FFBFFFD00A6
-
-FORWARD ME_213F7C784003
-
-: ME_46C585A400F8
- CONST UID '46C585A400F8'
- CONST Name 'fm_efUserList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefUserList' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_213F7C784003 // UserListIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efUserList''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efUserList''; rID : 0); rFactory : nil)'
-
-ref; // ME_46C585A400F8 fm_efUserList
-
-: ME_213F7C784003
- CONST UID '213F7C784003'
- CONST Name 'UserListIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFBFFFD00A6 // UserList
- ;
- : Attributes
-   Seq: ( ME_46C585A400F8 // fm_efUserList
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_213F7C784003 UserListIDs
 
 : ME_4FFBFFFD00A6
  CONST UID '4FFBFFFD00A6'
@@ -193,60 +55,14 @@ ref; // ME_213F7C784003 UserListIDs
  CONST Abstraction at_regular
  : Parent ME_4FFBFDCA01DE // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_213F7C784003 // UserListIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA8E45C00A8' '49480CD20303.pas.ms.script' // UserList
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'UserListFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFBFFFD00A6 UserList
-
-FORWARD ME_4FFC002E00A0
-
-FORWARD ME_9E073AF5CD74
-
-: ME_69329D8C8867
- CONST UID '69329D8C8867'
- CONST Name 'fm_efUserProperty'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefUserProperty' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_9E073AF5CD74 // UserPropertyIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efUserProperty''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efUserProperty''; rID : 0); rFactory : nil)'
-
-ref; // ME_69329D8C8867 fm_efUserProperty
-
-: ME_9E073AF5CD74
- CONST UID '9E073AF5CD74'
- CONST Name 'UserPropertyIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFC002E00A0 // UserProperty
- ;
- : Attributes
-   Seq: ( ME_69329D8C8867 // fm_efUserProperty
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_9E073AF5CD74 UserPropertyIDs
 
 : ME_4FFC002E00A0
  CONST UID '4FFC002E00A0'
@@ -259,162 +75,14 @@ ref; // ME_9E073AF5CD74 UserPropertyIDs
  CONST Abstraction at_regular
  : Parent ME_4FFBFDCA01DE // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_9E073AF5CD74 // UserPropertyIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA8E47C0065' '49480CD20303.pas.ms.script' // UserProperty
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'UserPropertyFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFC002E00A0 UserProperty
-
-FORWARD ME_E605A87B167C
-
-: ME_4DDFD2EA0116_ME_E605A87B167C
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_E605A87B167C GetString
-
-: ME_E605A87B167C
- CONST UID 'E605A87B167C'
- CONST Name 'Tkw_Form_AdminForm_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы AdminForm'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::AdminForm TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFBFDCA01DE // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_E605A87B167C // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::AdminForm'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_AdminForm_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA8E4F1002A' '49480CD20303.pas.ms.script' // AdminForm
- ;
-
-ref; // ME_E605A87B167C Tkw_Form_AdminForm_ID
-
-FORWARD ME_CDF7839CB8D8
-
-: ME_4DDFD2EA0116_ME_CDF7839CB8D8
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_CDF7839CB8D8 GetString
-
-: ME_CDF7839CB8D8
- CONST UID 'CDF7839CB8D8'
- CONST Name 'Tkw_Form_GroupList_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы GroupList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::GroupList TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFBFDCA01DE // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_CDF7839CB8D8 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::GroupList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_GroupList_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA8E4CD0348' '49480CD20303.pas.ms.script' // GroupList
- ;
-
-ref; // ME_CDF7839CB8D8 Tkw_Form_GroupList_ID
-
-FORWARD ME_5418C937AF03
-
-: ME_4DDFD2EA0116_ME_5418C937AF03
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_5418C937AF03 GetString
-
-: ME_5418C937AF03
- CONST UID '5418C937AF03'
- CONST Name 'Tkw_Form_UserList_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы UserList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::UserList TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFBFDCA01DE // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_5418C937AF03 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::UserList'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_UserList_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA8E45C00A8' '49480CD20303.pas.ms.script' // UserList
- ;
-
-ref; // ME_5418C937AF03 Tkw_Form_UserList_ID
-
-FORWARD ME_1FE220211105
-
-: ME_4DDFD2EA0116_ME_1FE220211105
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_1FE220211105 GetString
-
-: ME_1FE220211105
- CONST UID '1FE220211105'
- CONST Name 'Tkw_Form_UserProperty_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы UserProperty'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::UserProperty TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFBFDCA01DE // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_1FE220211105 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::UserProperty'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_UserProperty_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA8E47C0065' '49480CD20303.pas.ms.script' // UserProperty
- ;
-
-ref; // ME_1FE220211105 Tkw_Form_UserProperty_ID
 
 : ME_4FFBFDCA01DE
  CONST UID '4FFBFDCA01DE'
@@ -430,17 +98,8 @@ ref; // ME_1FE220211105 Tkw_Form_UserProperty_ID
  ME_4FFBFF7B0180 // GroupList
  ME_4FFBFFFD00A6 // UserList
  ME_4FFC002E00A0 // UserProperty
- ME_E605A87B167C // Tkw_Form_AdminForm_ID
- ME_CDF7839CB8D8 // Tkw_Form_GroupList_ID
- ME_5418C937AF03 // Tkw_Form_UserList_ID
- ME_1FE220211105 // Tkw_Form_UserProperty_ID
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- )
- ; // Depends
  CONST "UseNewGen" true
  CONST "is namespace" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin_FormDefinitions_Controls.pas'

@@ -532,6 +532,23 @@ VOID WORDWORKER "Выполнить с ожиданием 'Да'"
 	END
 ;
 
+VOID WORDWORKER "Выполнить с ожиданием 'Да для всех'"
+		mrYesToAll wait:Choice
+	 TRY
+	 	( WordToWork DO )
+	 FINALLY
+	 	waited:? ?ASSURE 'Не дождались диалога!'
+	 END
+;
+
+VOID WORDWORKER "Выполнить с ожиданием 'Нет для всех'"
+		mrNoToAll wait:Choice
+	 TRY
+	 	( WordToWork DO )
+	 FINALLY
+	 	waited:? ?ASSURE 'Не дождались диалога!'
+	END
+;
 
 PROCEDURE "Нажать 'Подпись'"
 	'Shift+Space' key
@@ -627,4 +644,5 @@ PROCEDURE "Нажать 'Ctrl+Alt+Enter'"
 	"Отпустить клавишу 'Alt'"
 	"Отпустить 'Ctrl'"
 ;
+
 

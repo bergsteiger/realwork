@@ -1,22 +1,25 @@
-
-: "Сохранить координаты" IN aForm
-	aForm pop:control:Left .
-	aForm pop:control:Top .
-	aForm pop:control:Width .
-	aForm pop:control:Height .
+USES
+	axiom:push
 ;
 
-/*'Главная форма (X, Y, Width, Height):' .
+PROCEDURE "Сохранить координаты" OBJECT IN aForm
+	aForm pop:Control:Left .
+	aForm pop:Control:Top .
+	aForm pop:Control:Width .
+	aForm pop:Control:Height .
+;
+
+//'Главная форма (X, Y, Width, Height):' .
 VAR l_MainForm
 push:MainForm >>> l_MainForm
-"Сохранить координаты {( l_MainForm )}" */
-VAR l_EditorWindow
+"Сохранить координаты {( l_MainForm )}" 
+/*VAR l_EditorWindow
 0 push:MainForm pop:form:MDIChildren >>> l_EditorWindow
 /* 'Окно редактора (X, Y, Width, Height):' .
 "Сохранить координаты {( l_EditorWindow )}" */
-WHILE ( l_EditorWindow pop:Editor:DocumentTailVisible ! )
+/* WHILE ( l_EditorWindow pop:Editor:DocumentTailVisible ! )
 BEGIN
 	cc:NextPage
-END
+END */
 
 

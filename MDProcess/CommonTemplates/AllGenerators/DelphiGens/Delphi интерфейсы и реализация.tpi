@@ -1378,6 +1378,7 @@ f _clear_TotalUses
 	%f_SpellAreaLinks(%S)
 
 f _SpellAreaLinks
+	[{%f_UseNewGenRecG(%S)!=true}\
 	[{%SC=Class}\
 	[{%S#f_IsMethod()!=true}\
 	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
@@ -1402,6 +1403,7 @@ f _SpellAreaLinks
 	%{Attr_Inst}%f_set_applied_gen(h,false)\
 	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
 	>\
+	]\
 	]\
 	]\
 	]
@@ -2279,7 +2281,7 @@ f _NeedFinalize
 	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
 	 ; // Zones
 	]\
-	[{%SS=Atom|%SS=Tag}\
+	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
 	[\
 	 : Implementors
 	   Seq: (<{}{%f_IsSameProject(%S,%L)=true}{%LSg} %L#f_pas_script_Reference()> )
@@ -2407,6 +2409,14 @@ f _NeedFinalize
 	]\
 	]\
 
+	[{%S{isSynchroEnum}=true}\
+	 CONST extprop:isSynchroEnum true
+	]\
+
+	[{"%S%{SDS_CASTER}N"!=""}\
+	 CONST extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
+	]\
+
 	[{%S#f_pas_script_IsAttribute()=true}\
 	[{"%S%{clearViaProperty}N"!=""}\
 	[\
@@ -2472,6 +2482,100 @@ f _NeedFinalize
 	]\
 	
 	ref; // %S%f_pas_script_Name() %SN\n
+
+t _SelfNamePrim
+@ %SU
+c {}
+r {%t_interface(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),I)}
+r {%S#f_IsStaticObject()=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+r {%t_simple_class(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+r {""=""}: {%f_pas_TypeName(%S)}
+
+t _SelfNameEx
+@ %SU
+c {}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),9)=nevCustom}: {%f_cut_prefix(%t_SelfNamePrim(%S),nevCustom)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),7)=vcmBase}: {%f_cut_prefix(%t_SelfNamePrim(%S),vcmBase)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),8)=evCustom}: {%f_cut_prefix(%t_SelfNamePrim(%S),evCustom)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=nsc}: {%f_cut_prefix(%t_SelfNamePrim(%S),nsc)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=tfw}: {%f_cut_prefix(%t_SelfNamePrim(%S),tfw)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=kw}: {%f_cut_prefix(%t_SelfNamePrim(%S),kw)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=nev}: {%f_cut_prefix(%t_SelfNamePrim(%S),nev)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=vcm}: {%f_cut_prefix(%t_SelfNamePrim(%S),vcm)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=vg}: {%f_cut_prefix(%t_SelfNamePrim(%S),vg)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=vt}: {%f_cut_prefix(%t_SelfNamePrim(%S),vt)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=k2}: {%f_cut_prefix(%t_SelfNamePrim(%S),k2)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ns}: {%f_cut_prefix(%t_SelfNamePrim(%S),ns)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=l3}: {%f_cut_prefix(%t_SelfNamePrim(%S),l3)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ed}: {%f_cut_prefix(%t_SelfNamePrim(%S),ed)}
+r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ev}: {%f_cut_prefix(%t_SelfNamePrim(%S),ev)}
+r {""=""}: {%t_SelfNamePrim(%S)}
+
+t _SelfName
+@ %SU
+c {}
+r {%t_SelfNameEx(%S)=EditorWindow}: {Editor}
+r {%t_SelfNameEx(%S)=EditorWindowPrim}: {Editor}
+r {%t_SelfNameEx(%S)=StackValue}: {SV}
+r {%t_SelfNameEx(%S)=FontInfo}: {Font}
+r {%t_SelfNameEx(%S)=ValueList}: {Array}
+r {%t_SelfNameEx(%S)=FileName}: {File}
+r {%t_SelfNameEx(%S)=SimpleTree}: {Tree}
+r {%t_SelfNameEx(%S)=SimpleNode}: {Node}
+r {%t_SelfNameEx(%S)=vcmEntityForm}: {Form}
+r {%t_SelfNameEx(%S)=EntityForm}: {Form}
+r {%t_SelfNameEx(%S)=WinControl}: {Control}
+r {%t_SelfNameEx(%S)=ElCustomPageControl}: {PageControl}
+r {%t_SelfNameEx(%S)=ShockwaveFlashEx}: {Flash}
+r {%t_SelfNameEx(%S)=TasksPanelView}: {TaskPanel}
+r {%t_SelfNameEx(%S)=CustomToolbarButton97}: {TB97Button}
+r {%t_SelfNameEx(%S)=ToolbarButton97}: {TB97Button}
+r {%t_SelfNameEx(%S)=CustomOutliner}: {Tree}
+r {%t_SelfNameEx(%S)=Outliner}: {Tree}
+r {%t_SelfNameEx(%S)=CString}: {String}
+r {%f_substr_from_begin(%t_SelfNameEx(%S),9)=Customize}: {%t_SelfNameEx(%S)}
+r {""=""}: {%f_cut_prefix(%t_SelfNameEx(%S),Custom)}
+
+t _isEnum
+@ %SU
+c {}
+r {%SS=Enum}: {true}
+r {%SS=Typedef}: {%t_isEnum(%G)}
+r {""=""}: {false}
+
+t _isClassRef
+@ %SU
+c {}
+r {%f_pas_TypeName(%S)=TClass}: {true}
+r {%SS=Typedef&%S{isClassRef}=true}: {true}
+r {%SS=Typedef}: {%t_isClassRef(%G)}
+r {""=""}: {false}
+
+t _isAcceptableForScripts
+@ %SU
+c {}
+r {%f_pas_TypeName(%S)=TClass}: {true}
+r {%f_pas_TypeName(%S)=TtfwStackValue}: {true}
+r {%f_pas_TypeName(%S)=ItfwValueList}: {true}
+r {%f_pas_TypeName(%S)=ItfwFile}: {true}
+r {%t_isClassRef(%S)=true}: {true}
+r {%f_pas_TypeName(%S)=Tl3WString|%f_pas_TypeName(%S)=Tl3PCharLenPrim|%f_pas_TypeName(%S)=Tl3PCharLen}: {true}
+r {%f_pas_TypeName(%S)=Il3CString}: {true}
+r {%t_simple_class(%S)=true}: {true}
+r {%t_interface(%S)=true}: {true}
+r {%f_pas_TypeName(%S)=String}: {true}
+r {%f_pas_TypeName(%S)=Char|%f_pas_TypeName(%S)=AnsiChar}: {true}
+r {%f_pas_TypeName(%S)=TPoint}: {true}
+r {%f_pas_TypeName(%S)=WideString}: {true}
+r {%f_pas_TypeName(%S)=AnsiString}: {true}
+r {%f_pas_TypeName(%S)=Integer}: {true}
+r {%f_pas_TypeName(%S)=TColor}: {true}
+r {%f_pas_TypeName(%S)=Cardinal}: {true}
+r {%t_isEnum(%S)=true}: {true}
+r {%f_pas_TypeName(%S)=THandle}: {true}
+r {%f_pas_TypeName(%S)=Boolean}: {true}
+r {%SS=Typedef}: {%t_isAcceptableForScripts(%G)}
+r {""=""}: {false}
 
 f _GetProject
 @ %SU
@@ -3084,7 +3188,7 @@ f _IsConstants
 	>\
 	]\
 
-	[{%SS=Atom|%SS=Tag}\
+	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
 	<{}{%f_IsSameProject(%S,%L)=true}{%LSg}%L#f_pas_script_GenerateIncludeOrForward()>\
 	]\
 

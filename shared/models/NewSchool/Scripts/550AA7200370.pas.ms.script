@@ -6,39 +6,6 @@ FORWARD ME_550AA7200370
 
 FORWARD ME_550AAEE001B7
 
-: ME_016CD173C388
- CONST UID '016CD173C388'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsInpharmMainMenu' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
- ;
- : Target WL 'ME_550AA65C0212' '4AC241AC01FC.pas.ms.script' // IsdsInpharmMainMenu
- ;
-
-ref; // ME_016CD173C388 SetType
-
-: ME_0864523B7906
- CONST UID '0864523B7906'
- CONST Name 'f_dsInpharmMainMenuData'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsInpharmMainMenuData' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_550AAEE001B7 // TsdsInpharmMainMenu
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_0864523B7906 f_dsInpharmMainMenuData
-
 FORWARD ME_550C0DA5022E
 
 : ME_550C0DC2012C
@@ -58,12 +25,6 @@ ref; // ME_550C0DC2012C
  CONST "pm" true
 ref; // ME_550C0D1A00CC_ME_550AAEE001B7 dsInpharmMainMenuData
 
-: ME_4938F7E702B7_ME_550AAEE001B7
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_550AAEE001B7 ClearAreas
-
 : ME_550AAEE001B7
  CONST UID '550AAEE001B7'
  CONST Name 'TsdsInpharmMainMenu'
@@ -82,19 +43,10 @@ ref; // ME_4938F7E702B7_ME_550AAEE001B7 ClearAreas
    Seq: ( WL 'ME_550AA65C0212' '4AC241AC01FC.pas.ms.script' // IsdsInpharmMainMenu
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_016CD173C388 // SetType
- ME_0864523B7906 // f_dsInpharmMainMenuData
- )
- ; // Attributes
  : Implemented
    Seq: ( ME_550C0D1A00CC_ME_550AAEE001B7 // dsInpharmMainMenuData
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4938F7E702B7_ME_550AAEE001B7 // ClearAreas
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_550C0DC2012C // TdsInpharmMainMenu
  )
@@ -172,7 +124,6 @@ ref; // ME_550C0DA5022E TdsInpharmMainMenu
  : Depends
    Seq: ( WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
  WL 'ME_48F747EC0073' '48F747EC0073.pas.ms.script' // Common
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4AC241AC01FC' '4AC241AC01FC.pas.ms.script' // InpharmInterfaces
  )
  ; // Depends

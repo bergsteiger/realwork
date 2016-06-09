@@ -1,5 +1,6 @@
 USES
  axiom:EVD
+ axiom:TevControlType
  
  HLTCLike.script
  WordsTranslation.script
@@ -77,18 +78,18 @@ PROCEDURE "Сравнить с эталоном имя поля КЗ и его контекстное меню"
  )
 ;
 
-: "Пробежаться по всем полям КЗ ППР и выполнить" IN aProc
+: "Открыть КЗ ППР и для каждого поля выполнить" IN aProc
 
  OBJECT VAR КЗ //"Контрол в фокусе" >>> КЗ 
  nil >>> КЗ
  
  BOOLEAN FUNCTION "Дошли до первого поля"
-  false =: Result
+  false >>> Result
   ( КЗ РАВНО "Контрол в фокусе" ) И 
   ( КЗ pop:QueryCard:GetCurrentReqName 'AT_TEXT_NAME' SameStr ) ?
   (
    'Попали в первое поле' .
-   true =: Result 
+   true >>> Result 
   )
  ; //   BOOLEAN FUNСTION
 
@@ -98,27 +99,27 @@ PROCEDURE "Сравнить с эталоном имя поля КЗ и его контекстное меню"
   // - тут поставили “костыль”?
   1000 раз ( 
    VAR "Предыдущий параграф"
-   КЗ pop:Editor:PushParaFromCursor >>> "Предыдущий параграф"
+   КЗ "Текущий параграф редактора" >>> "Предыдущий параграф"
    "Совершить переход по Таб"
-   evd::id_ControlsBlock КЗ pop:Editor:PushParaFromCursor Para:Type:Inherits ? CONTINUE
-   evd::id_ControlPara КЗ pop:Editor:PushParaFromCursor Para:Type:Inherits ?ASSURE [ 'Текущий параграф не является контролом, а: ' КЗ pop:Editor:PushParaFromCursor Para:GetType pop:object:ClassName ]
+   evd::id_ControlsBlock КЗ "Текущий параграф редактора" Para:Type:Inherits ? Продолжаем
+   evd::id_ControlPara КЗ "Текущий параграф редактора" Para:Type:Inherits ?ASSURE [ 'Текущий параграф не является контролом, а: ' КЗ "Текущий параграф редактора" Para:GetType pop:object:ClassName ]
 
-   evd::ti_Type КЗ pop:Editor:PushParaFromCursor Para:IntA РАВНО 0 ? "Совершить переход по Таб"
+   evd::ti_Type КЗ "Текущий параграф редактора" Para:IntA РАВНО TevControlType::ev_ctLabel ? "Совершить переход по Таб"
    Если ( КЗ "НЕ РАВНО" "Контрол в фокусе" ) то 
     (
      'Вышли за пределы КЗ' .
-     Выходим
+     выходим
     )
     
    Если "Дошли до первого поля" то 
     выходим
     
    VAR "Текущий параграф"
-   КЗ pop:Editor:PushParaFromCursor >>> "Текущий параграф"
+   КЗ "Текущий параграф редактора" >>> "Текущий параграф"
    Если ( "Предыдущий параграф" "Текущий параграф" Para:IsSame ) то 
     ( 
      'Предыдущее поле совпало с текущим (залипли)' .
-     Выходим
+     выходим
     ) 
 
    aProc DO
@@ -130,7 +131,7 @@ PROCEDURE "Сравнить с эталоном имя поля КЗ и его контекстное меню"
  "Контрол в фокусе" >>> КЗ 
  "В первом поле 'Слова в названии' выполнить {(aProc)}"
  "Выполнить {(@ Действия )} с развёрнутым полем Регистрация в МЮ"
-; // "Пробежаться по всем полям КЗ ППР и выполнить"
+;
 
 USES
  @\ExCtrls.script
@@ -143,37 +144,37 @@ PROCEDURE "Получить заголовок поля для ОИЗ"
   ( @ ( "Нажать Enter" ) MODAL ( 'Поле КЗ: ' "Контрол в фокусе" "Нижняя форма" "Заголовок контрола" ToPrintable Cat . ) )
 ; // "Получить заголовок поля для ОИЗ"
 
-PROCEDURE "Пробежаться по полям ОИЗ и выполнить" IN aProc
+PROCEDURE "Открыть ОИЗ и для каждого поля выполнить" IN aProc
 
  "Обзор изменений законодательства"
  OBJECT VAR КЗ "Контрол в фокусе" >>> КЗ 
  50 раз ( 
   VAR "Предыдущий параграф"
-  КЗ pop:Editor:PushParaFromCursor >>> "Предыдущий параграф"
+  КЗ "Текущий параграф редактора" >>> "Предыдущий параграф"
   aProc DO  
   "Совершить переход по Таб"
-  evd::id_ControlsBlock КЗ pop:Editor:PushParaFromCursor Para:Type:Inherits ? CONTINUE
-  evd::id_ControlPara КЗ pop:Editor:PushParaFromCursor Para:Type:Inherits ?ASSURE [ 'Текущий параграф не является контролом, а: ' КЗ pop:Editor:PushParaFromCursor Para:GetType pop:object:ClassName ]
-  evd::ti_Type КЗ pop:Editor:PushParaFromCursor Para:IntA РАВНО 0 ? "Совершить переход по Таб"
+  evd::id_ControlsBlock КЗ "Текущий параграф редактора" Para:Type:Inherits ? Продолжаем
+  evd::id_ControlPara КЗ "Текущий параграф редактора" Para:Type:Inherits ?ASSURE [ 'Текущий параграф не является контролом, а: ' КЗ "Текущий параграф редактора" Para:GetType pop:object:ClassName ]
+  evd::ti_Type КЗ "Текущий параграф редактора" Para:IntA РАВНО TevControlType::ev_ctLabel ? "Совершить переход по Таб"
   Если ( КЗ "НЕ РАВНО" "Контрол в фокусе" ) то 
    (
     'Вышли за пределы КЗ' .
-    Выходим
+    выходим
    ) // Вышли из КЗ
   VAR "Текущий параграф"
-  КЗ pop:Editor:PushParaFromCursor >>> "Текущий параграф"
+  КЗ "Текущий параграф редактора" >>> "Текущий параграф"
   Если ( "Предыдущий параграф" "Текущий параграф" Para:IsSame ) то 
    выходим 
  ) // 50 раз
 
-; // "Пробежаться по полям ОИЗ и выполнить"
-
-WORDWORKER "Пробежаться по всем полям КЗ ППР (по Tab) и выполнить"
- "Пробежаться по всем полям КЗ ППР и выполнить {(@  ( WordToWork DO )  )}"
 ;
 
-WORDWORKER "Пробежаться по полям ОИЗ (по Tab) и выполнить"
- "Пробежаться по полям ОИЗ и выполнить {(@  ( WordToWork DO )  )}"
+WORDWORKER "Открыть КЗ ППР и для каждого поля (переключаясь по Tab) выполнить"
+ "Открыть КЗ ППР и для каждого поля выполнить {(@  ( WordToWork DO )  )}"
+;
+
+WORDWORKER "Открыть ОИЗ и для каждого поля (переключаясь по Tab) выполнить"
+ "Открыть ОИЗ и для каждого поля выполнить {(@  ( WordToWork DO )  )}"
 ;
 
 PROCEDURE "Ввести контекст в контекстный фильтр модального окна 'Номер' и, если он корректен и кол-во номеров меньше 100 000, сравнить их с эталоном" STRING IN aContext

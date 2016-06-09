@@ -6248,52 +6248,6 @@ ref; // ME_4AA4B2ED00FE Folders$FSF
 
 FORWARD ME_4ABCD261014B
 
-FORWARD ME_59DEA5360CB3
-
-FORWARD ME_E07992E92D20
-
-: ME_9FFD109DD4D8
- CONST UID '9FFD109DD4D8'
- CONST Name 'fm_cfFoldersInfo'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TcfFoldersInfo' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E07992E92D20 // FoldersInfoIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''cfFoldersInfo''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''cfFoldersInfo''; rID : 0); rFactory : nil)'
-
-ref; // ME_9FFD109DD4D8 fm_cfFoldersInfo
-
-: ME_E07992E92D20
- CONST UID 'E07992E92D20'
- CONST Name 'FoldersInfoIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_59DEA5360CB3 // FoldersInfo$Def
- ;
- : Attributes
-   Seq: ( ME_9FFD109DD4D8 // fm_cfFoldersInfo
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_E07992E92D20 FoldersInfoIDs
-
 : ME_59DEA5360CB3
  CONST UID '59DEA5360CB3'
  CONST GUID 'A7FC5777-8418-45E1-9EE1-511BCC3B18B5'
@@ -6307,10 +6261,10 @@ ref; // ME_E07992E92D20 FoldersInfoIDs
  CONST Abstraction at_regular
  : Parent ME_4ABCD261014B // FoldersInfo
  ;
- : Constants
-   Seq: ( ME_E07992E92D20 // FoldersInfoIDs
+ : Implementors
+   Seq: ( ME_4ABCD261014B // FoldersInfo
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'FoldersInfoFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

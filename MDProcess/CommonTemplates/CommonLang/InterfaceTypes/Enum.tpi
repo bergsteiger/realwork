@@ -64,34 +64,6 @@ r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, и
 r {%M{force usage}=false&%ax=false&%S{force usage}=false}: {%SS ни кем не используется}
 //#UC END# *4704C0E30186for470F198F0000*
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor470F198F0000*
-	%S%[inherited]\
-
-	[{%Cx=true}\
-	[{%Zx=true}\
-	<{}{%ZS=Typedef&%ZN=%SN&%Z#f_UseNewGenRec()!=true}\
-
-	%f_set_var(CONSTANTS_NAME,"%ZN_%SN_Constants")\
-
-	[{%Z%P<{}{%CN=%{CONSTANTS_NAME}N}{C}>=0}\
-	%Z%P%f_add_class(%ZU_%SU_Constants,Constants,%ZN_%SN_Constants,Constants_Inst)\
-	%{Constants_Inst}%f_set_documentation(Алиасы для значений %PN.%SN)\
-	%{Constants_Inst}%f_set_up(children prefix,%S{children prefix})\
-	%{Constants_Inst}%f_set_up(elements prefix,%S{elements prefix})\
-	<{}{%CC=Attribute}{%C}\
-	%{Constants_Inst}%f_add_attribute(%CU_%{Constants_Inst}U_Alias,,\
-	%CN = %PN::%SN::%CN,\
-	Attr_Inst)\
-	%{Attr_Inst}%f_set_documentation(%CD)\
-	>\
-	]\
-	>\
-	]\
-	]
-//#UC END# *4B2A19E3038Bfor470F198F0000*
-
 // реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
 // генератор заголовочных файлов C++ (.h)
 + h
@@ -183,7 +155,6 @@ G %PU
 // артефактов
 + spell
 //#UC START# *4A41A13D03D5for470F198F0000*
-	%S%f_DoSpell()
 //#UC END# *4A41A13D03D5for470F198F0000*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

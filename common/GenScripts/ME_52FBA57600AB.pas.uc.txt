@@ -1,3 +1,9 @@
+//#UC START# *479731C50290_52FBA57600AB_impl*
+ f_PriorityCalculator := nil;
+ inherited;
+//#UC END# *479731C50290_52FBA57600AB_impl*
+//#UC START# *479731C50290_52FBA57600AB_var*
+//#UC END# *479731C50290_52FBA57600AB_var*
 //#UC START# *57234C5B02CA_57234C2903E3_impl*
  !!! Needs to be implemented !!!
 //#UC END# *57234C5B02CA_57234C2903E3_impl*
@@ -69,8 +75,8 @@
 //#UC START# *572B12420088_52FBA57600ABget_impl*
  if f_ExportPriority = cPriorityNeedCalc then
  begin
-  Assert(Assigned(f_CalcPriorityCallBack));
-  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+  Assert(Assigned(f_PriorityCalculator));
+  f_PriorityCalculator.Calc(f_ID, f_ExportPriority, f_ImportPriority);
  end;
 
  Result := f_ExportPriority;
@@ -85,8 +91,8 @@
 //#UC START# *572B125E006C_52FBA57600ABget_impl*
  if f_ImportPriority = cPriorityNeedCalc then
  begin
-  Assert(Assigned(f_CalcPriorityCallBack));
-  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+  Assert(Assigned(f_PriorityCalculator));
+  f_PriorityCalculator.Calc(f_ID, f_ExportPriority, f_ImportPriority);
  end;
 
  Result := f_ImportPriority;
@@ -150,9 +156,9 @@
 //#UC END# *572B12AE028C_52FBA57600ABset_var*
 //#UC START# *572B1324003C_52FBA57600AB_impl*
  inherited Create;
- f_CalcPriorityCallBack := aCalcPriorityCallback;
  f_ExportPriority := cPriorityNeedCalc;
  f_ImportPriority := cPriorityNeedCalc;
+ f_PriorityCalculator := aPriorityCalculator;
 //#UC END# *572B1324003C_52FBA57600AB_impl*
 //#UC START# *572B1324003C_52FBA57600AB_var*
 //#UC END# *572B1324003C_52FBA57600AB_var*

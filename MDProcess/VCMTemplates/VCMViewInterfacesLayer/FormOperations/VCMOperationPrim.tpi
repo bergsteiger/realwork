@@ -67,10 +67,6 @@ p AutoFocus:b=false ?
 	false
 //#UC END# *4A96B425021Afor494F818000E6*
 
-%f _Spell
-//#UC START# *4AE58E3801A3for494F818000E6*
-//#UC END# *4AE58E3801A3for494F818000E6*
-
 // Нужен ли код операции
 %f _NeedsOpCode
 // возвращаемый результат: boolean
@@ -322,21 +318,6 @@ R
 + intf.pas
 R  
 //#UC START# *470F1571031Cfor494F818000E6*
-	   \
-	[{%S{is FormActivate}!=true}{\
-	FormActivate}\
-	[{%S{is query}!=true}{\
-	query}\
-	operation\
-	]\
-	]\
-	 %f_N(%S)\
-	[(%S%f_pas_Params(""))][: %S%f_pas_ResultTypeName()]\
-	;\
-	[{%S{has states}=true} has states;\
-	]\
-	[\n     \{* %SD \}]\
-	<[\n%CX]>
 //#UC END# *470F1571031Cfor494F818000E6*
 
 // реализация абстрактного стереотипа Документация::MDAGenerator
@@ -350,7 +331,6 @@ R
 // артефактов
 + spell
 //#UC START# *4A41A13D03D5for494F818000E6*
-	%S%f_Spell()
 //#UC END# *4A41A13D03D5for494F818000E6*
 
 

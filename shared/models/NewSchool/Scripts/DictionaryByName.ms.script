@@ -21,12 +21,22 @@ CollectInAllDictionaries: (
  begin
   .join> ( aWord .Inherits )
  end // ( aWord .IsScriptKeywordsPack )
-)
+) // CollectInAllDictionaries:
  '.pas.ms.script.inj' '_InjectedElements' OutCollected
 
 CollectInAllDictionaries: (
   IN aWord
  aWord .Implements
- .filter> .IsAtom
-)
+ .filter> ( 
+   IN anElement
+  RULES 
+   ( anElement .IsVCMFormDefinition )
+    true
+   ( anElement .IsAtom )
+    true
+   DEFAULT
+    false
+  ; // RULES   
+ ) // .filter>
+) // CollectInAllDictionaries:
  '.pas.ms.script.impl' '_Implementors' OutCollected

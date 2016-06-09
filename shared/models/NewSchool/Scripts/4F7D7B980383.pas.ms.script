@@ -4956,52 +4956,6 @@ ref; // ME_4F7DAC14027A MainWithReminders
 
 FORWARD ME_4AA7EA010274
 
-FORWARD ME_65A08EE64C38
-
-FORWARD ME_0985CAEA9C4A
-
-: ME_71FF7147AB17
- CONST UID '71FF7147AB17'
- CONST Name 'fm_nsMainWindow'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TnsMainWindow' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_0985CAEA9C4A // MainWindowIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''nsMainWindow''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''nsMainWindow''; rID : 0); rFactory : nil)'
-
-ref; // ME_71FF7147AB17 fm_nsMainWindow
-
-: ME_0985CAEA9C4A
- CONST UID '0985CAEA9C4A'
- CONST Name 'MainWindowIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_65A08EE64C38 // MainWindow$Def
- ;
- : Attributes
-   Seq: ( ME_71FF7147AB17 // fm_nsMainWindow
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_0985CAEA9C4A MainWindowIDs
-
 : ME_65A08EE64C38
  CONST UID '65A08EE64C38'
  CONST GUID 'A88F9772-00AF-401E-BACE-E6A02B415485'
@@ -5015,10 +4969,10 @@ ref; // ME_0985CAEA9C4A MainWindowIDs
  CONST Abstraction at_regular
  : Parent ME_4AA7EA010274 // MainWindow
  ;
- : Constants
-   Seq: ( ME_0985CAEA9C4A // MainWindowIDs
+ : Implementors
+   Seq: ( ME_4AA7EA010274 // MainWindow
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'MainWindowFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -5421,6 +5375,16 @@ ref; // ME_5518EE0101BF
 
 ref; // ME_556489D2014B 
 
+: ME_57574E2502B3
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A925AFF01BA // PrimNemesis
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_57574E2502B3 
+
 : ME_628F6265FF78
  CONST IsSummoned true
  CONST Class class_Dependency
@@ -5516,6 +5480,7 @@ ref; // ME_4AC4A69D03B7_ME_4A925AFF01BA OpenQuery
  ME_54915CC6021C // TvgRemindersLineTabbedContainerNotificationProxy
  ME_5518EE0101BF // TChromeLikeTabSetParams
  ME_556489D2014B // vtDateEditRes
+ ME_57574E2502B3 // TvcmEntityForm
  ME_628F6265FF78 // TtfwClassRef
  )
  ; // Dependencies

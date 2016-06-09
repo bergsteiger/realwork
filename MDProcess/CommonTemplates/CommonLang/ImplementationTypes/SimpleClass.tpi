@@ -263,6 +263,9 @@ f _base_class_collect
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor471466900128*
+	%f_SimpleClassSpell(%S)
+
+f _SimpleClassSpell
 	[{%f_UseNewGenRecG(%S)!=true}{\
 //	%S#[inherited]\
 	%f_SpellAreaLinks(%S)\
@@ -765,8 +768,19 @@ f _ChildNeedOwnFile
 // артефактов
 + spell
 //#UC START# *4A41A13D03D5for471466900128*
+	[{%f_UseNewGenRecG(%S)!=true|%f_SimpleClassNeedsSpell(%S)=true|%SS=TestCase|%SS=TestCaseMixIn}{\
+	<{}{%C#f_IsMethod()=true|%f_SimpleClassNeedsSpell(%C)=true}%CX>\
+	}\
 	<%CX>\
-	%S#f_DoSpell()
+	%S#f_DoSpell()\
+	]
+
+f _SimpleClassNeedsSpell
+	[{%SS=Service|%SS=ServiceImplementation|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication}{\
+	false\
+	}\
+	true\
+	]
 //#UC END# *4A41A13D03D5for471466900128*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -63,65 +63,6 @@ $ f 64,224,208
 	%f_N(%S)_Controls
 //#UC END# *4948065C01DFfor494F7EF903BC*
 
-// перекрытие базового стереотипа Interfaces::Category
-%f _pas_BeforeUnitImplementation
-//#UC START# *4A82C8F9037Cfor494F7EF903BC*
-	%S%[inherited]\
-	%f_clear_list(PUBLISHED_ENTITIES_LIST)\
-	%f_clear_list(PUBLISHED_OPERATIONS_LIST)\
-	[{<{}{%C#f_IsVCMOperations()=true}{C}>!=0}\
-	[\n%S%f_open_ifdef()]\
-	%f_pas_OpenConst(%S)\
-	[<{}{%C#f_IsVCMOperations()=true}\
-	[{%f_exists_in_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")!=true}\
-	%f_add_to_list(PUBLISHED_ENTITIES_LIST,"%f_N(%C)")\
-	[{%f_N(%C)=%f_N(%C%G)}{\
-	 en_%f_N(%C) = '%f_N(%C)';\n\
-	 en_cap%f_N(%C) = '%f_str_replace(%CD,\n, )';\n\
-	}\
-	 en_%f_N(%C) = %f_pas_Unit(%C%G).en_%f_N(%C);\n\
-	 en_cap%f_N(%C) = %f_pas_Unit(%C%G).en_cap%f_N(%C);\n\
-	]\
-	]\
-	%C<{}{%C#f_IsVCMOperation()=true}\
-	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")!=true}\
-	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,"%f_N(%C)")\
-	 op_%f_N(%C) = '%f_N(%C)';\n\
-	 op_cap%f_N(%C) = '%CD';\n\
-	]\
-	>\
-	>\
-	]\
-
-	[
-	// Состояния операций:
-	<{}{%C#f_IsVCMOperations()=true}\
-	%C<{}{%C#f_IsVCMOperation()=true}\
-	%C<{}{%CS=VCMOperationState}\
-	[%C#f_open_ifdef()\n]\
-	var st_user_%f_N(%C%P%P)_%f_N(%C%P)_%f_N(%C) : TvcmOperationStateIndex = (rID : -1);\
-	\n  // [{}{%C%P%PN}%C%P%PD] -\> [{}{%C%PN}%C%PD] \<-\> [{}{%CN}%CD]\
-	[\n%C#f_close_ifdef()]\
-	\n\
-	>\
-	>\
-	>\
-	]\
-
-	[%S%f_close_ifdef()\n]\
-	]
-//#UC END# *4A82C8F9037Cfor494F7EF903BC*
-
-// перекрытие базового стереотипа ModelBuilding::MDAGenerator
-// генератор построения виртуальных элементов модели - запускается до генерации конкретных
-// артефактов
-+ spell
-//#UC START# *4A41A13D03D5for494F7EF903BC*
-	[{%S#f_NoSpellRec()!=true}\
-	<%CX>\
-	]
-//#UC END# *4A41A13D03D5for494F7EF903BC*
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

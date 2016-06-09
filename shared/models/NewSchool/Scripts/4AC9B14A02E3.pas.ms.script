@@ -164,21 +164,6 @@ ref; // ME_511258E202FD DoIt
 
 ref; // ME_511258C60285 MakeSettingId
 
-: ME_704562C84A3F
- CONST UID '704562C84A3F'
- CONST Name 'SettingIdStored'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY '"‘ункци€ определ€юща€, что свойство SettingId сохран€етс€"' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_4E732E0B0308 // TnscCustomHideField
- ;
- : Target WL 'ME_3DBFFE100240' '3DBFDB23006E.pas.ms.script' // boolean
- ;
-
-ref; // ME_704562C84A3F SettingIdStored
-
 : ME_511259BA02EB
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -247,7 +232,6 @@ ref; // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
  ; // Attributes
  : Operations
    Seq: ( ME_511258C60285 // MakeSettingId
- ME_704562C84A3F // SettingIdStored
  )
  ; // Operations
  : Overridden

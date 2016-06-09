@@ -617,52 +617,6 @@ FORWARD ME_4F882096008A
 
 ref; // ME_06C06D8D5AC2 ut_MemoryUsage
 
-FORWARD ME_53BB8038FD9C
-
-FORWARD ME_E9EF306B283B
-
-: ME_FE73236C8099
- CONST UID 'FE73236C8099'
- CONST Name 'fm_MemoryUsageForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TMemoryUsageForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E9EF306B283B // MemoryUsageIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''MemoryUsageForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''MemoryUsageForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_FE73236C8099 fm_MemoryUsageForm
-
-: ME_E9EF306B283B
- CONST UID 'E9EF306B283B'
- CONST Name 'MemoryUsageIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_53BB8038FD9C // MemoryUsage$Def
- ;
- : Attributes
-   Seq: ( ME_FE73236C8099 // fm_MemoryUsageForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_E9EF306B283B MemoryUsageIDs
-
 : ME_53BB8038FD9C
  CONST UID '53BB8038FD9C'
  CONST GUID '239C1E38-C6A8-4737-8D22-0F6E2D5E4762'
@@ -676,10 +630,10 @@ ref; // ME_E9EF306B283B MemoryUsageIDs
  CONST Abstraction at_regular
  : Parent ME_4F882096008A // MemoryUsage
  ;
- : Constants
-   Seq: ( ME_E9EF306B283B // MemoryUsageIDs
+ : Implementors
+   Seq: ( ME_4F882096008A // MemoryUsage
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'MemoryUsageFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

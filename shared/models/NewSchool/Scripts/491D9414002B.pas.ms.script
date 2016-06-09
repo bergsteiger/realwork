@@ -1092,87 +1092,6 @@ ref; // ME_4931297703B0 BaseAccessRoot
 
 ref; // ME_4947A57603E2 InitDataType
 
-: ME_733BB3F9441F
- CONST UID '733BB3F9441F'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAdmin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_491DAB560173' '491D961C0122.pas.ms.script' // IsdsAdmin
- ;
-
-ref; // ME_733BB3F9441F SetType
-
-: ME_179F043F89CE
- CONST UID '179F043F89CE'
- CONST Name 'f_dsUserList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsUserList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_179F043F89CE f_dsUserList
-
-: ME_1E0975AA7959
- CONST UID '1E0975AA7959'
- CONST Name 'f_dsAdmin'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsAdmin' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_1E0975AA7959 f_dsAdmin
-
-: ME_F7882BCE599E
- CONST UID 'F7882BCE599E'
- CONST Name 'f_dsUserProperty'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsUserProperty' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_F7882BCE599E f_dsUserProperty
-
-: ME_338696C416ED
- CONST UID '338696C416ED'
- CONST Name 'f_dsGroupsList'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsGroupsList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493126130280 // TsdsAdmin
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_338696C416ED f_dsGroupsList
-
 FORWARD ME_4AAF58000352
 
 : ME_4AAF58140359
@@ -1831,12 +1750,6 @@ ref; // ME_479731C50290_ME_493126130280 Cleanup
  CONST OpKind opkind_Overridden
 ref; // ME_47A042E100E2_ME_493126130280 InitFields
 
-: ME_4938F7E702B7_ME_493126130280
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_493126130280 ClearAreas
-
 : ME_493126130280
  CONST UID '493126130280'
  CONST Name 'TsdsAdmin'
@@ -1864,11 +1777,6 @@ ref; // ME_4938F7E702B7_ME_493126130280 ClearAreas
  ME_4931295B0260 // BaseAccessRootTag
  ME_4931297703B0 // BaseAccessRoot
  ME_4947A57603E2 // InitDataType
- ME_733BB3F9441F // SetType
- ME_179F043F89CE // f_dsUserList
- ME_1E0975AA7959 // f_dsAdmin
- ME_F7882BCE599E // f_dsUserProperty
- ME_338696C416ED // f_dsGroupsList
  )
  ; // Attributes
  : Operations
@@ -1912,7 +1820,6 @@ ref; // ME_4938F7E702B7_ME_493126130280 ClearAreas
  : Overridden
    Seq: ( ME_479731C50290_ME_493126130280 // Cleanup
  ME_47A042E100E2_ME_493126130280 // InitFields
- ME_4938F7E702B7_ME_493126130280 // ClearAreas
  )
  ; // Overridden
  : Dependencies
@@ -2865,7 +2772,6 @@ ref; // ME_559E9F2B02D6 TadminUserNodeList
  WL 'ME_49006FAB024A' '49006FAB024A.pas.ms.script' // Search
  WL 'ME_4901E79300F5' '4901E79300F5.pas.ms.script' // Users
  WL 'ME_491D961C0122' '491D961C0122.pas.ms.script' // AdminInterfaces
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4990510C0026' '4990510C0026.pas.ms.script' // SearchDomainInterfaces
  WL 'ME_4AA005310028' '4AA005310028.pas.ms.script' // Search
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys

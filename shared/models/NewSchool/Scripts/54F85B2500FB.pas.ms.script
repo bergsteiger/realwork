@@ -4121,6 +4121,14 @@ ref; // ME_555352070022_ME_5551DCD200EE Alias
  CONST OpKind opkind_Implemented
 ref; // ME_5608E5A4025F_ME_5551DCD200EE BuildSQLValue
 
+: ME_5756AC9B0213_ME_5551DCD200EE
+ : Original WL 'ME_5756AC9B0213' '5432518A0316.pas.ms.script' // IterateTables
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_5756AC9B0213_ME_5551DCD200EE IterateTables
+
 : ME_479731C50290_ME_5551DCD200EE
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -4162,6 +4170,7 @@ ref; // ME_479731C50290_ME_5551DCD200EE Cleanup
  ME_555351F500BC_ME_5551DCD200EE // Field
  ME_555352070022_ME_5551DCD200EE // Alias
  ME_5608E5A4025F_ME_5551DCD200EE // BuildSQLValue
+ ME_5756AC9B0213_ME_5551DCD200EE // IterateTables
  )
  ; // Implemented
  : Overridden
@@ -8335,6 +8344,221 @@ ref; // ME_479731C50290_ME_574C12B400EA Cleanup
 
 ref; // ME_574C12B400EA TdaFieldFromTable
 
+FORWARD ME_5755430A006F
+
+: ME_5755438D036A
+ CONST UID '5755438D036A'
+ CONST Name 'f_Alias'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5755438D036A f_Alias
+
+: ME_5755439C0037
+ CONST UID '5755439C0037'
+ CONST Name 'f_Field'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ ;
+
+ref; // ME_5755439C0037 f_Field
+
+: ME_575543AC0397
+ CONST UID '575543AC0397'
+ CONST Name 'f_Operation'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Target WL 'ME_575530A80134' '5432448401BC.pas.ms.script' // TdaAggregateOperation
+ ;
+
+ref; // ME_575543AC0397 f_Operation
+
+FORWARD ME_5755433A00FF
+
+: ME_57554369026B
+ CONST Name 'anOperation'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_575530A80134' '5432448401BC.pas.ms.script' // TdaAggregateOperation
+ ;
+
+ref; // ME_57554369026B anOperation
+
+: ME_57554369028A
+ CONST Name 'aField'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ ;
+
+ref; // ME_57554369028A aField
+
+: ME_575543690299
+ CONST Name 'anAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_575543690299 anAlias
+
+: ME_575543430111
+ CONST UID '575543430111'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5755433A00FF // Create
+ ;
+ : Parameters
+   Seq: ( ME_57554369026B // anOperation
+ ME_57554369028A // aField
+ ME_575543690299 // anAlias
+ )
+ ; // Parameters
+
+ref; // ME_575543430111 DoIt
+
+: ME_5755433A00FF
+ CONST UID '5755433A00FF'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Operations
+   Seq: ( ME_575543430111 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_5755433A00FF Create
+
+: ME_575543770081
+ CONST UID '575543770081'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Inherits
+   Seq: ( ME_5755433A00FF // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ )
+ ; // Implements
+
+ref; // ME_575543770081 Make
+
+: ME_575549A2008D
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5755430A006F // TdaAggregateField
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_575549A2008D 
+
+: ME_555352070022_ME_5755430A006F
+ : Original WL 'ME_555352070022' '5432518A0316.pas.ms.script' // Alias
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_555352070022_ME_5755430A006F Alias
+
+: ME_5608E5A4025F_ME_5755430A006F
+ : Original WL 'ME_5608E5A4025F' '5432518A0316.pas.ms.script' // BuildSQLValue
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5608E5A4025F_ME_5755430A006F BuildSQLValue
+
+: ME_5756AC9B0213_ME_5755430A006F
+ : Original WL 'ME_5756AC9B0213' '5432518A0316.pas.ms.script' // IterateTables
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" false
+ CONST "needs result" false
+ref; // ME_5756AC9B0213_ME_5755430A006F IterateTables
+
+: ME_479731C50290_ME_5755430A006F
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5755430A006F Cleanup
+
+: ME_5755430A006F
+ CONST UID '5755430A006F'
+ CONST Name 'TdaAggregateField'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54F85B2500FB // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5551DC0F012D' '5432518A0316.pas.ms.script' // IdaSelectField
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_5755438D036A // f_Alias
+ ME_5755439C0037 // f_Field
+ ME_575543AC0397 // f_Operation
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_5755433A00FF // Create
+ ME_575543770081 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_555352070022_ME_5755430A006F // Alias
+ ME_5608E5A4025F_ME_5755430A006F // BuildSQLValue
+ ME_5756AC9B0213_ME_5755430A006F // IterateTables
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_5755430A006F // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_575549A2008D // Format
+ )
+ ; // Dependencies
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\daAggregateField.pas'
+ CONST extprop:rc:SelfName 'daAggregateField'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'daAggregateField'
+
+ref; // ME_5755430A006F TdaAggregateField
+
 : ME_54F85B2500FB
  CONST UID '54F85B2500FB'
  CONST Name 'Provider'
@@ -8377,6 +8601,7 @@ ref; // ME_574C12B400EA TdaFieldFromTable
  ME_57457765036F // TdaJoin
  ME_574BF18D0334 // TdaJoinCondition
  ME_574C12B400EA // TdaFieldFromTable
+ ME_5755430A006F // TdaAggregateField
  )
  ; // Children
  : Depends

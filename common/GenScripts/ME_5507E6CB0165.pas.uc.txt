@@ -226,3 +226,23 @@ var
 //#UC END# *55DAD44D036F_5507E6CB0165set_impl*
 //#UC START# *55DAD44D036F_5507E6CB0165set_var*
 //#UC END# *55DAD44D036F_5507E6CB0165set_var*
+//#UC START# *5756BD40014A_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ if ServerConfig.ReadParamString('ImageCachePath', l_Path) then
+ begin
+  if not l3CheckPath(l_Path, True, False) then
+   l_Path:= '';
+  Result := NormalizedPath(l_Path);
+ end;
+//#UC END# *5756BD40014A_5507E6CB0165get_impl*
+//#UC START# *5756BD40014A_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *5756BD40014A_5507E6CB0165get_var*
+//#UC START# *5756BD40014A_5507E6CB0165set_impl*
+ ServerConfig.Section:= BaseSection;
+ ServerConfig.WriteParamStr('ImageCachePath', aValue);
+//#UC END# *5756BD40014A_5507E6CB0165set_impl*
+//#UC START# *5756BD40014A_5507E6CB0165set_var*
+//#UC END# *5756BD40014A_5507E6CB0165set_var*

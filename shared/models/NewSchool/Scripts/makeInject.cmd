@@ -1,3 +1,4 @@
+call makeControls.cmd
 call clear.cmd
 del *.script.inj
 del *.script.inj.co

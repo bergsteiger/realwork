@@ -286,119 +286,6 @@ FORWARD ME_493027CE015A
 
 ref; // ME_4947A1BA0079 InitDataType
 
-: ME_71917CF35699
- CONST UID '71917CF35699'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsSituation' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_49243C03023E' '4AA5503000D7.pas.ms.script' // IsdsSituation
- ;
-
-ref; // ME_71917CF35699 SetType
-
-: ME_EDB76DAEA3A0
- CONST UID 'EDB76DAEA3A0'
- CONST Name 'f_dsFilters'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsFilters' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_EDB76DAEA3A0 f_dsFilters
-
-: ME_250EB8CF93C8
- CONST UID '250EB8CF93C8'
- CONST Name 'f_dsTreeAttributeFirstLevel'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsTreeAttributeFirstLevel' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_250EB8CF93C8 f_dsTreeAttributeFirstLevel
-
-: ME_7074C33FA9CA
- CONST UID '7074C33FA9CA'
- CONST Name 'f_dsSaveLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsSaveLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_7074C33FA9CA f_dsSaveLoad
-
-: ME_287F3D5A7401
- CONST UID '287F3D5A7401'
- CONST Name 'f_dsSelectedAttributes'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsSelectedAttributes' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_287F3D5A7401 f_dsSelectedAttributes
-
-: ME_325063F81537
- CONST UID '325063F81537'
- CONST Name 'f_dsTreeAttributeSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsTreeAttributeSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_325063F81537 f_dsTreeAttributeSelect
-
-: ME_1D16BD645CBD
- CONST UID '1D16BD645CBD'
- CONST Name 'f_dsAttributeSelect'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsAttributeSelect' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493027CE015A // TsdsSituation
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_1D16BD645CBD f_dsAttributeSelect
-
 : ME_493028EB0064
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -564,12 +451,6 @@ ref; // ME_493027030386_ME_493027CE015A dsAttributeSelect
  CONST OpKind opkind_Implemented
 ref; // ME_4959149300F9_ME_493027CE015A UpdateSelectedAttributes
 
-: ME_4938F7E702B7_ME_493027CE015A
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_493027CE015A ClearAreas
-
 : ME_493027CE015A
  CONST UID '493027CE015A'
  CONST Name 'TsdsSituation'
@@ -592,13 +473,6 @@ ref; // ME_4938F7E702B7_ME_493027CE015A ClearAreas
  ; // Implements
  : Attributes
    Seq: ( ME_4947A1BA0079 // InitDataType
- ME_71917CF35699 // SetType
- ME_EDB76DAEA3A0 // f_dsFilters
- ME_250EB8CF93C8 // f_dsTreeAttributeFirstLevel
- ME_7074C33FA9CA // f_dsSaveLoad
- ME_287F3D5A7401 // f_dsSelectedAttributes
- ME_325063F81537 // f_dsTreeAttributeSelect
- ME_1D16BD645CBD // f_dsAttributeSelect
  )
  ; // Attributes
  : Implemented
@@ -613,10 +487,6 @@ ref; // ME_4938F7E702B7_ME_493027CE015A ClearAreas
  ME_4959149300F9_ME_493027CE015A // UpdateSelectedAttributes
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4938F7E702B7_ME_493027CE015A // ClearAreas
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_493028EB0064 // TdsTreeAttributeSelect
  ME_4930296500D8 // TdsSelectedAttributes
@@ -2198,7 +2068,6 @@ ref; // ME_54DC54FD024B TnsDocumentPreviewWithoutBlockNames
  WL 'ME_491DAF4202EE' '491DAF4202EE.pas.ms.script' // SearchInterfaces
  WL 'ME_4922BFA000DD' '4922BFA000DD.pas.ms.script' // SimpleListInterfaces
  WL 'ME_4955235700D2' '4955235700D2.pas.ms.script' // SimpleList
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_4990135D02F1' '4990135D02F1.pas.ms.script' // FoldersDomainInterfaces
  WL 'ME_4990510C0026' '4990510C0026.pas.ms.script' // SearchDomainInterfaces
  WL 'ME_49913F2C020C' '49913F2C020C.pas.ms.script' // LoggingInterfaces

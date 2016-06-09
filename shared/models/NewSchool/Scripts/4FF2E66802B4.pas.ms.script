@@ -334,48 +334,6 @@ ref; // ME_56A085890385 DoIt
 
 ref; // ME_56A0857B0382 Create
 
-FORWARD ME_56A085A10131
-
-: ME_2B5FCB2C5859
- CONST Name 'aDeDocInfo'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.pas.ms.script' // IdeDocInfo
- ;
-
-ref; // ME_2B5FCB2C5859 aDeDocInfo
-
-: ME_675DFC53084E
- CONST Name 'aLikeStateHolder'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_51ED558501F2' '47EA50050263.pas.ms.script' // InsDocumentLikeStateHolder
- ;
-
-ref; // ME_675DFC53084E aLikeStateHolder
-
-: ME_5E571A689C6A
- CONST UID '5E571A689C6A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура фабрики TdeAAC.Make' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_56A085A10131 // Make
- ;
- : Target ME_56A0633A0283 // IdeAAC
- ;
- : Parameters
-   Seq: ( ME_2B5FCB2C5859 // aDeDocInfo
- ME_675DFC53084E // aLikeStateHolder
- )
- ; // Parameters
-
-ref; // ME_5E571A689C6A DoIt
-
 : ME_56A085A10131
  CONST UID '56A085A10131'
  CONST Name 'Make'
@@ -394,10 +352,6 @@ ref; // ME_5E571A689C6A DoIt
    Seq: ( ME_56A0633A0283 // IdeAAC
  )
  ; // Implements
- : Operations
-   Seq: ( ME_5E571A689C6A // DoIt
- )
- ; // Operations
 
 ref; // ME_56A085A10131 Make
 
@@ -660,71 +614,6 @@ ref; // ME_56A08533037E TdeAAC
 
 ref; // ME_51ED56600317 f_DocumentLikeStateHolder
 
-: ME_494EE1591180
- CONST UID '494EE1591180'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsAAC' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_4FF2E6B003C4 // TsdsAAC
- ;
- : Target WL 'ME_4FF2E68A0253' '4D1B548F00EE.pas.ms.script' // IsdsAAC
- ;
-
-ref; // ME_494EE1591180 SetType
-
-: ME_969055BB864F
- CONST UID '969055BB864F'
- CONST Name 'f_Container'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода Container' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FF2E6B003C4 // TsdsAAC
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_969055BB864F f_Container
-
-: ME_AE9A908DE012
- CONST UID 'AE9A908DE012'
- CONST Name 'f_Left'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода Left' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FF2E6B003C4 // TsdsAAC
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_AE9A908DE012 f_Left
-
-: ME_AF3E1E574C58
- CONST UID 'AF3E1E574C58'
- CONST Name 'f_Right'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода Right' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4FF2E6B003C4 // TsdsAAC
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_AF3E1E574C58 f_Right
-
 FORWARD ME_51ED56B903D6
 
 : ME_51ED56CD01D2
@@ -854,12 +743,6 @@ ref; // ME_4925B1EC0100_ME_4FF2E6B003C4 BaseDocumentClass
  CONST OpKind opkind_Overridden
 ref; // ME_4925B7F00156_ME_4FF2E6B003C4 ClearAllDS
 
-: ME_4938F7E702B7_ME_4FF2E6B003C4
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_4FF2E6B003C4 ClearAreas
-
 : ME_54CF10260215_ME_4FF2E6B003C4
  : Original WL 'ME_54CF10260215' '47D0E1500033.pas.ms.script' // DoGetTabCaption
  ;
@@ -893,10 +776,6 @@ ref; // ME_55C1DD070354_ME_4FF2E6B003C4 GetDataForClone
  ; // Implements
  : Attributes
    Seq: ( ME_51ED56600317 // f_DocumentLikeStateHolder
- ME_494EE1591180 // SetType
- ME_969055BB864F // f_Container
- ME_AE9A908DE012 // f_Left
- ME_AF3E1E574C58 // f_Right
  )
  ; // Attributes
  : Operations
@@ -915,7 +794,6 @@ ref; // ME_55C1DD070354_ME_4FF2E6B003C4 GetDataForClone
  ME_491B02D80112_ME_4FF2E6B003C4 // GetIsNeedChangePosition
  ME_4925B1EC0100_ME_4FF2E6B003C4 // BaseDocumentClass
  ME_4925B7F00156_ME_4FF2E6B003C4 // ClearAllDS
- ME_4938F7E702B7_ME_4FF2E6B003C4 // ClearAreas
  ME_54CF10260215_ME_4FF2E6B003C4 // DoGetTabCaption
  ME_55C1DD070354_ME_4FF2E6B003C4 // GetDataForClone
  )
@@ -1296,7 +1174,6 @@ ref; // ME_500E75C90024 TnsAACRightDocumentContainer
  WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
  WL 'ME_484FA67302D7' '484FA67302D7.pas.ms.script' // GUI
  WL 'ME_491B305A0096' '491B305A0096.pas.ms.script' // DocumentAndListInterfaces
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
  WL 'ME_4A9F83AD0235' '4A9F83AD0235.pas.ms.script' // Document
  WL 'ME_4B1FC2FF03CD' '4B1FC2FF03CD.pas.ms.script' // DocumentInterfaces

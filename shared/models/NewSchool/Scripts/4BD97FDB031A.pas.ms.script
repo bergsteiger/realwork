@@ -4,52 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4BD97FDB031A
 
-FORWARD ME_4BD97FFF0005
-
-FORWARD ME_E4A7D6012259
-
-: ME_D2A96CFB393F
- CONST UID 'D2A96CFB393F'
- CONST Name 'fm_enQueryCard'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TenQueryCard' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_E4A7D6012259 // QueryCardIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''enQueryCard''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''enQueryCard''; rID : 0); rFactory : nil)'
-
-ref; // ME_D2A96CFB393F fm_enQueryCard
-
-: ME_E4A7D6012259
- CONST UID 'E4A7D6012259'
- CONST Name 'QueryCardIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD97FFF0005 // QueryCard
- ;
- : Attributes
-   Seq: ( ME_D2A96CFB393F // fm_enQueryCard
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_E4A7D6012259 QueryCardIDs
-
 : ME_4BD97FFF0005
  CONST UID '4BD97FFF0005'
  CONST GUID '5BDE6F09-5CC9-41E0-9B14-B0F2D62D4D46'
@@ -61,60 +15,14 @@ ref; // ME_E4A7D6012259 QueryCardIDs
  CONST Abstraction at_regular
  : Parent ME_4BD97FDB031A // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_E4A7D6012259 // QueryCardIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA9393C0164' '4958E382019E.pas.ms.script' // QueryCard
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'QueryCardFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BD97FFF0005 QueryCard
-
-FORWARD ME_4BD989CB0049
-
-FORWARD ME_3FC5B2BFC5C8
-
-: ME_B68E2F1F4F95
- CONST UID 'B68E2F1F4F95'
- CONST Name 'fm_efPreviewForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefPreviewForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_3FC5B2BFC5C8 // PreviewFormIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efPreviewForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efPreviewForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_B68E2F1F4F95 fm_efPreviewForm
-
-: ME_3FC5B2BFC5C8
- CONST UID '3FC5B2BFC5C8'
- CONST Name 'PreviewFormIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4BD989CB0049 // Preview
- ;
- : Attributes
-   Seq: ( ME_B68E2F1F4F95 // fm_efPreviewForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_3FC5B2BFC5C8 PreviewFormIDs
 
 : ME_4BD989CB0049
  CONST UID '4BD989CB0049'
@@ -127,60 +35,14 @@ ref; // ME_3FC5B2BFC5C8 PreviewFormIDs
  CONST Abstraction at_regular
  : Parent ME_4BD97FDB031A // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_3FC5B2BFC5C8 // PreviewFormIDs
+ : Implementors
+   Seq: ( WL 'ME_4AAF6F8100DB' '4958E382019E.pas.ms.script' // PreviewForm
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'PreviewFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BD989CB0049 Preview
-
-FORWARD ME_4D77A59D03E6
-
-FORWARD ME_642FAF21D82D
-
-: ME_10B6ED88508F
- CONST UID '10B6ED88508F'
- CONST Name 'fm_cfSaveLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TcfSaveLoad' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_642FAF21D82D // SaveLoadIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''cfSaveLoad''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''cfSaveLoad''; rID : 0); rFactory : nil)'
-
-ref; // ME_10B6ED88508F fm_cfSaveLoad
-
-: ME_642FAF21D82D
- CONST UID '642FAF21D82D'
- CONST Name 'SaveLoadIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4D77A59D03E6 // SaveLoad
- ;
- : Attributes
-   Seq: ( ME_10B6ED88508F // fm_cfSaveLoad
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_642FAF21D82D SaveLoadIDs
 
 : ME_4D77A59D03E6
  CONST UID '4D77A59D03E6'
@@ -193,125 +55,14 @@ ref; // ME_642FAF21D82D SaveLoadIDs
  CONST Abstraction at_regular
  : Parent ME_4BD97FDB031A // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_642FAF21D82D // SaveLoadIDs
+ : Implementors
+   Seq: ( WL 'ME_4AA931BF023D' '4958E382019E.pas.ms.script' // SaveLoad
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'SaveLoadFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4D77A59D03E6 SaveLoad
-
-FORWARD ME_9C995D4F8407
-
-: ME_4DDFD2EA0116_ME_9C995D4F8407
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_9C995D4F8407 GetString
-
-: ME_9C995D4F8407
- CONST UID '9C995D4F8407'
- CONST Name 'Tkw_Form_QueryCard_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы QueryCard'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::QueryCard TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD97FDB031A // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_9C995D4F8407 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::QueryCard'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_QueryCard_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA9393C0164' '4958E382019E.pas.ms.script' // QueryCard
- ;
-
-ref; // ME_9C995D4F8407 Tkw_Form_QueryCard_ID
-
-FORWARD ME_6334FE49477F
-
-: ME_4DDFD2EA0116_ME_6334FE49477F
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_6334FE49477F GetString
-
-: ME_6334FE49477F
- CONST UID '6334FE49477F'
- CONST Name 'Tkw_Form_Preview_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы Preview'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::Preview TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD97FDB031A // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_6334FE49477F // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::Preview'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_Preview_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AAF6F8100DB' '4958E382019E.pas.ms.script' // PreviewForm
- ;
-
-ref; // ME_6334FE49477F Tkw_Form_Preview_ID
-
-FORWARD ME_863CC8E7A493
-
-: ME_4DDFD2EA0116_ME_863CC8E7A493
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_863CC8E7A493 GetString
-
-: ME_863CC8E7A493
- CONST UID '863CC8E7A493'
- CONST Name 'Tkw_Form_SaveLoad_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы SaveLoad'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::SaveLoad TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4BD97FDB031A // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_863CC8E7A493 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::SaveLoad'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_SaveLoad_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4AA931BF023D' '4958E382019E.pas.ms.script' // SaveLoad
- ;
-
-ref; // ME_863CC8E7A493 Tkw_Form_SaveLoad_ID
 
 : ME_4BD97FDB031A
  CONST UID '4BD97FDB031A'
@@ -326,16 +77,8 @@ ref; // ME_863CC8E7A493 Tkw_Form_SaveLoad_ID
    Seq: ( ME_4BD97FFF0005 // QueryCard
  ME_4BD989CB0049 // Preview
  ME_4D77A59D03E6 // SaveLoad
- ME_9C995D4F8407 // Tkw_Form_QueryCard_ID
- ME_6334FE49477F // Tkw_Form_Preview_ID
- ME_863CC8E7A493 // Tkw_Form_SaveLoad_ID
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- )
- ; // Depends
  CONST "UseNewGen" true
  CONST "is namespace" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search_FormDefinitions_Controls.pas'

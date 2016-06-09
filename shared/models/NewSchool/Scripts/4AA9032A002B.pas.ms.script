@@ -116,52 +116,6 @@ ref; // ME_4F79AF74026A MonitoringTitle
 
 FORWARD ME_4F7C2E78015C
 
-FORWARD ME_C02C69F1F8D8
-
-FORWARD ME_AEDE99EEC64F
-
-: ME_A23ECB5FED28
- CONST UID 'A23ECB5FED28'
- CONST Name 'fm_MonitoringsMainForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TMonitoringsMainForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_AEDE99EEC64F // MonitoringsMainIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''MonitoringsMainForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''MonitoringsMainForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_A23ECB5FED28 fm_MonitoringsMainForm
-
-: ME_AEDE99EEC64F
- CONST UID 'AEDE99EEC64F'
- CONST Name 'MonitoringsMainIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_C02C69F1F8D8 // MonitoringsMain$Def
- ;
- : Attributes
-   Seq: ( ME_A23ECB5FED28 // fm_MonitoringsMainForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_AEDE99EEC64F MonitoringsMainIDs
-
 : ME_C02C69F1F8D8
  CONST UID 'C02C69F1F8D8'
  CONST GUID '302D255D-E242-47AD-ACB5-B3822A5E3F7F'
@@ -175,10 +129,10 @@ ref; // ME_AEDE99EEC64F MonitoringsMainIDs
  CONST Abstraction at_regular
  : Parent ME_4F7C2E78015C // MonitoringsMain
  ;
- : Constants
-   Seq: ( ME_AEDE99EEC64F // MonitoringsMainIDs
+ : Implementors
+   Seq: ( ME_4F7C2E78015C // MonitoringsMain
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'MonitoringsMainFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -338,7 +292,6 @@ ref; // ME_4AA9038C0387 Monitorings
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.pas.ms.script' // Primitives
  WL 'ME_447878770121' '447878770121.pas.ms.script' // GCI
  WL 'ME_456EA3D2031C' '456EA3D2031C.pas.ms.script' // GblAdapterLib
- WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
  WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
  WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
  WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
@@ -359,6 +312,6 @@ ref; // ME_4AA9038C0387 Monitorings
  CONST "needs second icon" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Monitoring.dpr'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
- CONST Version 20
+ CONST Version 26
 
 ref; // ME_4AA9032A002B Monitoring

@@ -1412,52 +1412,6 @@ FORWARD ME_4FF2E5C70060
 
 FORWARD ME_4FF2E95602D8
 
-FORWARD ME_E0E068E4963D
-
-FORWARD ME_07B5235C06C0
-
-: ME_6941D60D92F5
- CONST UID '6941D60D92F5'
- CONST Name 'fm_AACContainerForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TAACContainerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_07B5235C06C0 // AACContainerIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''AACContainerForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''AACContainerForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_6941D60D92F5 fm_AACContainerForm
-
-: ME_07B5235C06C0
- CONST UID '07B5235C06C0'
- CONST Name 'AACContainerIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_E0E068E4963D // AACContainer$Def
- ;
- : Attributes
-   Seq: ( ME_6941D60D92F5 // fm_AACContainerForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_07B5235C06C0 AACContainerIDs
-
 : ME_E0E068E4963D
  CONST UID 'E0E068E4963D'
  CONST GUID '548CB0E3-A19F-4AD8-A785-C6FB8E70BF73'
@@ -1471,10 +1425,10 @@ ref; // ME_07B5235C06C0 AACContainerIDs
  CONST Abstraction at_regular
  : Parent ME_4FF2E95602D8 // AACContainer
  ;
- : Constants
-   Seq: ( ME_07B5235C06C0 // AACContainerIDs
+ : Implementors
+   Seq: ( ME_4FF2E95602D8 // AACContainer
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'AACContainerFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1538,52 +1492,6 @@ ref; // ME_4FF2E95602D8 AACContainer
 
 FORWARD ME_4FF4543F014A
 
-FORWARD ME_FEEE527549A8
-
-FORWARD ME_8DFB28F53A38
-
-: ME_2762188A87B8
- CONST UID '2762188A87B8'
- CONST Name 'fm_AACContentsContainerForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TAACContentsContainerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_8DFB28F53A38 // AACContentsContainerIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''AACContentsContainerForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''AACContentsContainerForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_2762188A87B8 fm_AACContentsContainerForm
-
-: ME_8DFB28F53A38
- CONST UID '8DFB28F53A38'
- CONST Name 'AACContentsContainerIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_FEEE527549A8 // AACContentsContainer$Def
- ;
- : Attributes
-   Seq: ( ME_2762188A87B8 // fm_AACContentsContainerForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_8DFB28F53A38 AACContentsContainerIDs
-
 : ME_FEEE527549A8
  CONST UID 'FEEE527549A8'
  CONST GUID '3EBD2AC1-BEED-4678-BF35-5B80CE4A6852'
@@ -1597,10 +1505,10 @@ ref; // ME_8DFB28F53A38 AACContentsContainerIDs
  CONST Abstraction at_regular
  : Parent ME_4FF4543F014A // AACContentsContainer
  ;
- : Constants
-   Seq: ( ME_8DFB28F53A38 // AACContentsContainerIDs
+ : Implementors
+   Seq: ( ME_4FF4543F014A // AACContentsContainer
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'AACContentsContainerFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

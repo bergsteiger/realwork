@@ -1753,12 +1753,6 @@ ref; // ME_4925B9370022_ME_4939633A025D DoChangeDocument
  CONST OpKind opkind_Overridden
 ref; // ME_49352CEF0222_ME_4939633A025D GetHasAttributes
 
-: ME_4938F7E702B7_ME_4939633A025D
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_4939633A025D ClearAreas
-
 : ME_4939633A025D
  CONST UID '4939633A025D'
  CONST Name 'sdsMedicFirmDocument'
@@ -1797,7 +1791,6 @@ ref; // ME_4938F7E702B7_ME_4939633A025D ClearAreas
  ME_4925B7F00156_ME_4939633A025D // ClearAllDS
  ME_4925B9370022_ME_4939633A025D // DoChangeDocument
  ME_49352CEF0222_ME_4939633A025D // GetHasAttributes
- ME_4938F7E702B7_ME_4939633A025D // ClearAreas
  )
  ; // Overridden
  : Dependencies
@@ -1837,50 +1830,6 @@ FORWARD ME_493A658D0181
  ;
 
 ref; // ME_494167FF01AA SetDataType
-
-: ME_699AAB3BEEA9
- CONST UID '699AAB3BEEA9'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsMedicFirmList' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_493A658D0181 // TsdsMedicFirmList
- ;
- : Target WL 'ME_4922C5FF0235' '491D7C9603B2.pas.ms.script' // IsdsMedicFirmList
- ;
-
-ref; // ME_699AAB3BEEA9 SetType
-
-: ME_7F1128BD1C8A
- CONST Name 'aSynchroForm'
- CONST IsSummoned true
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_127F0A440BEB' '491D7C9603B2.pas.ms.script' // TMedicFirmList_SynchroView_Areas
- ;
-
-ref; // ME_7F1128BD1C8A aSynchroForm
-
-: ME_2D720EE59BD5
- CONST UID '2D720EE59BD5'
- CONST Name 'ChangeSynchroForm'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Переключает форму синхронного просмотра' ;
- CONST Visibility ProtectedAccess
- CONST Abstraction at_final
- : Parent ME_493A658D0181 // TsdsMedicFirmList
- ;
- : Parameters
-   Seq: ( ME_7F1128BD1C8A // aSynchroForm
- )
- ; // Parameters
-
-ref; // ME_2D720EE59BD5 ChangeSynchroForm
 
 : ME_493A66A70186
  CONST Class class_Dependency
@@ -1999,12 +1948,6 @@ ref; // ME_47FDDACC0101_ME_493A658D0181 DoOpenAttributes
  CONST OpKind opkind_Overridden
 ref; // ME_47FE03AE0225_ME_493A658D0181 NeedMakeDSAttributes
 
-: ME_4938F7E702B7_ME_493A658D0181
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_493A658D0181 ClearAreas
-
 : ME_493964C6039A_ME_493A658D0181
  : Original ME_493964C6039A // NeedMakeDrugList
  ;
@@ -2044,13 +1987,8 @@ ref; // ME_55C1DD070354_ME_493A658D0181 GetDataForClone
  ; // Implements
  : Attributes
    Seq: ( ME_494167FF01AA // SetDataType
- ME_699AAB3BEEA9 // SetType
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_2D720EE59BD5 // ChangeSynchroForm
- )
- ; // Operations
  : Implemented
    Seq: ( ME_47F3778403D9_ME_493A658D0181 // MakeData
  ME_500D3DC401D9_ME_493A658D0181 // dsFirmList
@@ -2066,7 +2004,6 @@ ref; // ME_55C1DD070354_ME_493A658D0181 GetDataForClone
  : Overridden
    Seq: ( ME_47FDDACC0101_ME_493A658D0181 // DoOpenAttributes
  ME_47FE03AE0225_ME_493A658D0181 // NeedMakeDSAttributes
- ME_4938F7E702B7_ME_493A658D0181 // ClearAreas
  ME_493964C6039A_ME_493A658D0181 // NeedMakeDrugList
  ME_493D1BE601B1_ME_493A658D0181 // NeedMakeDocument
  ME_55C1DD070354_ME_493A658D0181 // GetDataForClone
@@ -2225,23 +2162,6 @@ FORWARD ME_49414F880240
 
 ref; // ME_494167F003B7 SetDataType
 
-: ME_444F71855580
- CONST UID '444F71855580'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsMedicFirmDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_49414F880240 // TsdsMedicFirmDocument
- ;
- : Target WL 'ME_5016D8D0005D' '491D7C9603B2.pas.ms.script' // IsdsMedicFirmDocument
- ;
-
-ref; // ME_444F71855580 SetType
-
 FORWARD ME_493965B600E9
 
 : ME_49415013021A
@@ -2293,7 +2213,6 @@ ref; // ME_47F3778403D9_ME_49414F880240 MakeData
  ; // Implements
  : Attributes
    Seq: ( ME_494167F003B7 // SetDataType
- ME_444F71855580 // SetType
  )
  ; // Attributes
  : Implemented

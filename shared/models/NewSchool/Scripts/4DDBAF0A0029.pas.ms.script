@@ -682,52 +682,6 @@ FORWARD ME_4DDBAF2B0028
 
 FORWARD ME_4DDCD6800267
 
-FORWARD ME_18DFDA8DC53A
-
-FORWARD ME_91CE610EF569
-
-: ME_21336EFDC452
- CONST UID '21336EFDC452'
- CONST Name 'fm_ChangesBetweenEditonsForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TChangesBetweenEditonsForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_91CE610EF569 // ChangesBetweenEditonsIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''ChangesBetweenEditonsForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''ChangesBetweenEditonsForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_21336EFDC452 fm_ChangesBetweenEditonsForm
-
-: ME_91CE610EF569
- CONST UID '91CE610EF569'
- CONST Name 'ChangesBetweenEditonsIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_18DFDA8DC53A // ChangesBetweenEditons$Def
- ;
- : Attributes
-   Seq: ( ME_21336EFDC452 // fm_ChangesBetweenEditonsForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_91CE610EF569 ChangesBetweenEditonsIDs
-
 : ME_18DFDA8DC53A
  CONST UID '18DFDA8DC53A'
  CONST GUID 'E8402096-B641-4FAE-B341-69369D1BB399'
@@ -741,10 +695,10 @@ ref; // ME_91CE610EF569 ChangesBetweenEditonsIDs
  CONST Abstraction at_regular
  : Parent ME_4DDCD6800267 // ChangesBetweenEditons
  ;
- : Constants
-   Seq: ( ME_91CE610EF569 // ChangesBetweenEditonsIDs
+ : Implementors
+   Seq: ( ME_4DDCD6800267 // ChangesBetweenEditons
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'ChangesBetweenEditonsFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

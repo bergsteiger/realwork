@@ -1607,52 +1607,6 @@ FORWARD ME_4AB9DA410090
 
 ref; // ME_0F70FC525F19 ut_StartupTips
 
-FORWARD ME_0E5003440F0B
-
-FORWARD ME_2D9CA97CB2A6
-
-: ME_AAC8D2A64303
- CONST UID 'AAC8D2A64303'
- CONST Name 'fm_efStartupTips'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TefStartupTips' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2D9CA97CB2A6 // StartupTipsIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''efStartupTips''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''efStartupTips''; rID : 0); rFactory : nil)'
-
-ref; // ME_AAC8D2A64303 fm_efStartupTips
-
-: ME_2D9CA97CB2A6
- CONST UID '2D9CA97CB2A6'
- CONST Name 'StartupTipsIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_0E5003440F0B // StartupTips$Def
- ;
- : Attributes
-   Seq: ( ME_AAC8D2A64303 // fm_efStartupTips
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2D9CA97CB2A6 StartupTipsIDs
-
 : ME_0E5003440F0B
  CONST UID '0E5003440F0B'
  CONST GUID '69581B33-5C00-46C8-8723-A5DE81DDD577'
@@ -1666,10 +1620,10 @@ ref; // ME_2D9CA97CB2A6 StartupTipsIDs
  CONST Abstraction at_regular
  : Parent ME_4AB9DA410090 // StartupTips
  ;
- : Constants
-   Seq: ( ME_2D9CA97CB2A6 // StartupTipsIDs
+ : Implementors
+   Seq: ( ME_4AB9DA410090 // StartupTips
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'StartupTipsFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

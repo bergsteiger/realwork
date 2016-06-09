@@ -5662,52 +5662,6 @@ FORWARD ME_4AB7A34401D0
 
 ref; // ME_9CF9D22D891B ut_BaseSearchCard
 
-FORWARD ME_AEB1E91EE813
-
-FORWARD ME_027EB0D94533
-
-: ME_E404B6DAC348
- CONST UID 'E404B6DAC348'
- CONST Name 'fm_en_BaseSearchCard'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы Ten_BaseSearchCard' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_027EB0D94533 // BaseSearchCardIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''en_BaseSearchCard''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''en_BaseSearchCard''; rID : 0); rFactory : nil)'
-
-ref; // ME_E404B6DAC348 fm_en_BaseSearchCard
-
-: ME_027EB0D94533
- CONST UID '027EB0D94533'
- CONST Name 'BaseSearchCardIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_AEB1E91EE813 // BaseSearchCard$Def
- ;
- : Attributes
-   Seq: ( ME_E404B6DAC348 // fm_en_BaseSearchCard
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_027EB0D94533 BaseSearchCardIDs
-
 : ME_AEB1E91EE813
  CONST UID 'AEB1E91EE813'
  CONST GUID '8B9F39A3-2E36-4686-82DA-8C441DE365A3'
@@ -5721,10 +5675,10 @@ ref; // ME_027EB0D94533 BaseSearchCardIDs
  CONST Abstraction at_regular
  : Parent ME_4AB7A34401D0 // BaseSearchCard
  ;
- : Constants
-   Seq: ( ME_027EB0D94533 // BaseSearchCardIDs
+ : Implementors
+   Seq: ( ME_4AB7A34401D0 // BaseSearchCard
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'BaseSearchCardFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 

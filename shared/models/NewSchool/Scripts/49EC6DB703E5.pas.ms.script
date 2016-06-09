@@ -21,39 +21,6 @@ FORWARD ME_49ECA984005F
 
 ref; // ME_49EDE4C30059 InitDataType
 
-: ME_503DF0BD93FC
- CONST UID '503DF0BD93FC'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsInternetAgent' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_49ECA984005F // TsdsInternetAgent
- ;
- : Target WL 'ME_49EC6E2B0118' '49EC6D9000EE.pas.ms.script' // IsdsInternetAgent
- ;
-
-ref; // ME_503DF0BD93FC SetType
-
-: ME_984DB1509F4C
- CONST UID '984DB1509F4C'
- CONST Name 'f_MainViewArea'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода MainViewArea' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_49ECA984005F // TsdsInternetAgent
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_984DB1509F4C f_MainViewArea
-
 FORWARD ME_49ECA9AA0000
 
 : ME_49ECA9CC01EF
@@ -72,12 +39,6 @@ ref; // ME_49ECA9CC01EF
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4A37A70E01DE_ME_49ECA984005F MainViewArea
-
-: ME_4938F7E702B7_ME_49ECA984005F
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_49ECA984005F ClearAreas
 
 : ME_49ECA984005F
  CONST UID '49ECA984005F'
@@ -100,18 +61,12 @@ ref; // ME_4938F7E702B7_ME_49ECA984005F ClearAreas
  ; // Implements
  : Attributes
    Seq: ( ME_49EDE4C30059 // InitDataType
- ME_503DF0BD93FC // SetType
- ME_984DB1509F4C // f_MainViewArea
  )
  ; // Attributes
  : Implemented
    Seq: ( ME_4A37A70E01DE_ME_49ECA984005F // MainViewArea
  )
  ; // Implemented
- : Overridden
-   Seq: ( ME_4938F7E702B7_ME_49ECA984005F // ClearAreas
- )
- ; // Overridden
  : Dependencies
    Seq: ( ME_49ECA9CC01EF // TdsInternetAgent
  )
@@ -213,7 +168,6 @@ ref; // ME_49ECA9AA0000 TdsInternetAgent
  WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
- WL 'ME_4982BE090383' '4982BE090383.pas.ms.script' // vcmControllers
  WL 'ME_49EC6D9000EE' '49EC6D9000EE.pas.ms.script' // InternetAgentInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )

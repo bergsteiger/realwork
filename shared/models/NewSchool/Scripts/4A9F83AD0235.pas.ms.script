@@ -78,70 +78,6 @@ ref; // ME_494166DF0122 SetDataType
 
 ref; // ME_4947AC9D028A InitDataType
 
-: ME_B36E68E54E74
- CONST UID 'B36E68E54E74'
- CONST Name 'f_dsBaloonWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsBaloonWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493E5C580280 // sdsDocument
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_B36E68E54E74 f_dsBaloonWarning
-
-: ME_6E1F46E90026
- CONST UID '6E1F46E90026'
- CONST Name 'f_dsTimeMachineWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsTimeMachineWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493E5C580280 // sdsDocument
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_6E1F46E90026 f_dsTimeMachineWarning
-
-: ME_4F9DD649BD4B
- CONST UID '4F9DD649BD4B'
- CONST Name 'f_dsTranslationWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsTranslationWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493E5C580280 // sdsDocument
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_4F9DD649BD4B f_dsTranslationWarning
-
-: ME_D2E38EAD6BD0
- CONST UID 'D2E38EAD6BD0'
- CONST Name 'f_dsCRBaloonWarning'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsCRBaloonWarning' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_493E5C580280 // sdsDocument
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_D2E38EAD6BD0 f_dsCRBaloonWarning
-
 : ME_493E68B2008A
  CONST Name 'aDocInfo'
  CONST Class class_Parameter
@@ -932,12 +868,6 @@ ref; // ME_4925B7F00156_ME_493E5C580280 ClearAllDS
  CONST OpKind opkind_Overridden
 ref; // ME_4925B9370022_ME_493E5C580280 DoChangeDocument
 
-: ME_4938F7E702B7_ME_493E5C580280
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_493E5C580280 ClearAreas
-
 : ME_493D51ED0329_ME_493E5C580280
  : Original WL 'ME_493D51ED0329' '47EA50050263.pas.ms.script' // FillState
  ;
@@ -997,10 +927,6 @@ ref; // ME_55C1DD070354_ME_493E5C580280 GetDataForClone
  ME_574FCD5A01AA // f_ChangeRedactionPos
  ME_494166DF0122 // SetDataType
  ME_4947AC9D028A // InitDataType
- ME_B36E68E54E74 // f_dsBaloonWarning
- ME_6E1F46E90026 // f_dsTimeMachineWarning
- ME_4F9DD649BD4B // f_dsTranslationWarning
- ME_D2E38EAD6BD0 // f_dsCRBaloonWarning
  )
  ; // Attributes
  : Operations
@@ -1047,7 +973,6 @@ ref; // ME_55C1DD070354_ME_493E5C580280 GetDataForClone
  ME_491B06F000BB_ME_493E5C580280 // DoPushFromHistory
  ME_4925B7F00156_ME_493E5C580280 // ClearAllDS
  ME_4925B9370022_ME_493E5C580280 // DoChangeDocument
- ME_4938F7E702B7_ME_493E5C580280 // ClearAreas
  ME_493D51ED0329_ME_493E5C580280 // FillState
  ME_493D6B5B02DE_ME_493E5C580280 // DoChangeCRType
  ME_53B3BF9C00EF_ME_493E5C580280 // DoGetFormSetImageIndex
@@ -1107,23 +1032,6 @@ ref; // ME_493E5C580280 sdsDocument
 
 FORWARD ME_493E754301C8
 
-: ME_200F4A1B4B1E
- CONST UID '200F4A1B4B1E'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDocumentWithFlash' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_493E754301C8 // TsdsDocumentWithFlash
- ;
- : Target WL 'ME_4937DA84024B' '4D1B548F00EE.pas.ms.script' // IsdsDocumentWithFlash
- ;
-
-ref; // ME_200F4A1B4B1E SetType
-
 : ME_496F437400A6_ME_493E754301C8
  : Original ME_496F437400A6 // DoCanRunBaseSearch
  ;
@@ -1149,10 +1057,6 @@ ref; // ME_496F437400A6_ME_493E754301C8 DoCanRunBaseSearch
    Seq: ( WL 'ME_4937DA84024B' '4D1B548F00EE.pas.ms.script' // IsdsDocumentWithFlash
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_200F4A1B4B1E // SetType
- )
- ; // Attributes
  : Overridden
    Seq: ( ME_496F437400A6_ME_493E754301C8 // DoCanRunBaseSearch
  )
@@ -1787,25 +1691,6 @@ ref; // ME_4EF4849D01C9_ME_4EF485030376 DoGenerateWarning
 
 ref; // ME_4EF485030376 TdsCRWarning
 
-FORWARD ME_5010180C0356
-
-: ME_91CFDFB52613
- CONST UID '91CFDFB52613'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsDocument' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_5010180C0356 // TsdsDocument
- ;
- : Target WL 'ME_491D6701006E' '4D1B548F00EE.pas.ms.script' // IsdsDocument
- ;
-
-ref; // ME_91CFDFB52613 SetType
-
 : ME_5010180C0356
  CONST UID '5010180C0356'
  CONST Name 'TsdsDocument'
@@ -1825,10 +1710,6 @@ ref; // ME_91CFDFB52613 SetType
    Seq: ( WL 'ME_48490152021B' '484900780017.pas.ms.script' // Просмотр документа
  )
  ; // Implements
- : Attributes
-   Seq: ( ME_91CFDFB52613 // SetType
- )
- ; // Attributes
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.pas'
  CONST extprop:rc:SelfName 'sdsDocument'
  CONST extprop:rc:isAcceptableForScripts true

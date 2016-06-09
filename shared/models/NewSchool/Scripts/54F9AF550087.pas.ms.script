@@ -1887,6 +1887,16 @@ FORWARD ME_55530BB9007A
 
 ref; // ME_574C39BE02BD 
 
+: ME_57554D100337
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_554C7FE80228 // ThtTableQueryFactory
+ ;
+ : Target WL 'ME_5755430A006F' '54F85B2500FB.pas.ms.script' // TdaAggregateField
+ ;
+
+ref; // ME_57554D100337 
+
 : ME_5549C65D038D_ME_554C7FE80228
  : Original WL 'ME_5549C65D038D' '5432518A0316.pas.ms.script' // MakeTabledQuery
  ;
@@ -1948,6 +1958,12 @@ ref; // ME_574BF2B20123_ME_554C7FE80228 MakeJoinCondition
  CONST OpKind opkind_Implemented
 ref; // ME_574C32760314_ME_554C7FE80228 MakeSimpleFromClause
 
+: ME_5755313E0083_ME_554C7FE80228
+ : Original WL 'ME_5755313E0083' '5432518A0316.pas.ms.script' // MakeAggregateField
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5755313E0083_ME_554C7FE80228 MakeAggregateField
+
 : ME_479731C50290_ME_554C7FE80228
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -1993,6 +2009,7 @@ ref; // ME_479731C50290_ME_554C7FE80228 Cleanup
  ME_574584D802F6_ME_554C7FE80228 // MakeJoin
  ME_574BF2B20123_ME_554C7FE80228 // MakeJoinCondition
  ME_574C32760314_ME_554C7FE80228 // MakeSimpleFromClause
+ ME_5755313E0083_ME_554C7FE80228 // MakeAggregateField
  )
  ; // Implemented
  : Overridden
@@ -2010,6 +2027,7 @@ ref; // ME_479731C50290_ME_554C7FE80228 Cleanup
  ME_574587370246 // TdaJoin
  ME_574BFB1D004C // TdaJoinCondition
  ME_574C39BE02BD // ThtFromTable
+ ME_57554D100337 // TdaAggregateField
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\HT\htTableQueryFactory.pas'
@@ -3640,6 +3658,16 @@ FORWARD ME_575008E903D1
 
 ref; // ME_5750093803C1 
 
+: ME_5757F70D034C
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5629E343023B // ThtUserManager
+ ;
+ : Target WL 'ME_469FA03900D4' '4678193C009C.pas.ms.script' // Tl3IteratorAction
+ ;
+
+ref; // ME_5757F70D034C 
+
 : ME_5628D14D0151_ME_5629E343023B
  : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
  ;
@@ -3772,6 +3800,14 @@ ref; // ME_573AEE9902DF_ME_5629E343023B GetUserInfo
  CONST "pm" false
 ref; // ME_575020410175_ME_5629E343023B PriorityCalculator
 
+: ME_5757D9BB0116_ME_5629E343023B
+ : Original WL 'ME_5757D9BB0116' '5432518A0316.pas.ms.script' // IterateUserGroupsF
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "needs index" true
+ CONST "needs result" false
+ref; // ME_5757D9BB0116_ME_5629E343023B IterateUserGroupsF
+
 : ME_479731C50290_ME_5629E343023B
  : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
  ;
@@ -3828,6 +3864,7 @@ ref; // ME_479731C50290_ME_5629E343023B Cleanup
  ME_573AC17202BF_ME_5629E343023B // CSCheckPassword
  ME_573AEE9902DF_ME_5629E343023B // GetUserInfo
  ME_575020410175_ME_5629E343023B // PriorityCalculator
+ ME_5757D9BB0116_ME_5629E343023B // IterateUserGroupsF
  )
  ; // Implemented
  : Overridden
@@ -3839,6 +3876,7 @@ ref; // ME_479731C50290_ME_5629E343023B Cleanup
  ME_57175A7D00E3 // dt_Serv
  ME_57399C430076 // FreeAndNil
  ME_5750093803C1 // ThtPriorityCalculator
+ ME_5757F70D034C // Tl3IteratorAction
  )
  ; // Dependencies
  CONST intf.pas:Path 'common\components\rtl\Garant\HT\htUserManager.pas'

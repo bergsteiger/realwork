@@ -222,84 +222,6 @@ ref; // ME_4E0B2A04033B ContactInfo
 
 ref; // ME_4E08B77F03B5 Local
 
-FORWARD ME_F19FF79AA68F
-
-: ME_3D7393E8CE21
- CONST UID '3D7393E8CE21'
- CONST Name 'DocumentMissing_Choice_First'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_First''; rValue : ''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_First''; rValue : ''Запросить отсутствующий документ у специалиста Правовой поддержки онлайн'')'
- : Speller ME_4E09CDBF02B6 // First
- ;
-
-ref; // ME_3D7393E8CE21 DocumentMissing_Choice_First
-
-: ME_968A84F1D374
- CONST UID '968A84F1D374'
- CONST Name 'DocumentMissing_Choice_Second'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY '''Вернуться в открытый документ''' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_Second''; rValue : ''Вернуться в открытый документ'')'
- : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''DocumentMissing_Choice_Second''; rValue : ''Вернуться в открытый документ'')'
- : Speller ME_4E09CDD80287 // Second
- ;
-
-ref; // ME_968A84F1D374 DocumentMissing_Choice_Second
-
-: ME_F19FF79AA68F
- CONST UID 'F19FF79AA68F'
- CONST Name 'LCImpl_DocumentMissing_Choices'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Варианты выбора для диалога DocumentMissing' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Attributes
-   Seq: ( ME_3D7393E8CE21 // DocumentMissing_Choice_First
- ME_968A84F1D374 // DocumentMissing_Choice_Second
- )
- ; // Attributes
- CONST "elements prefix" 'str'
- CONST "spell names" false
- CONST extprop:pas:ElementPrefixBase 'str'
- CONST extprop:pas:ElementPrefix 'str_'
- : Speller ME_4E09AFC40022 // Choices
- ;
-
-ref; // ME_F19FF79AA68F LCImpl_DocumentMissing_Choices
-
 FORWARD ME_4E085B3F01F5
 
 : ME_4E085B7C018A
@@ -531,28 +453,6 @@ ref; // ME_4E14687502F8
 
 ref; // ME_4E085B3F01F5 Show
 
-: ME_97BBC58D07C4
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
- ;
-
-ref; // ME_97BBC58D07C4 
-
-: ME_19262FEB7460
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4E085B110285 // TbsDocumentMissingMessage
- ;
- : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
- ;
-
-ref; // ME_19262FEB7460 
-
 : ME_4E085B110285
  CONST UID '4E085B110285'
  CONST Name 'TbsDocumentMissingMessage'
@@ -570,14 +470,8 @@ ref; // ME_19262FEB7460
  ; // Operations
  : Constants
    Seq: ( ME_4E08B77F03B5 // Local
- ME_F19FF79AA68F // LCImpl_DocumentMissing_Choices
  )
  ; // Constants
- : Dependencies
-   Seq: ( ME_97BBC58D07C4 // Tl3StringIDEx
- ME_19262FEB7460 // Tl3MessageID
- )
- ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '27.06.2011 14:27'

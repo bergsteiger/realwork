@@ -4,52 +4,6 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_4FFC670F012B
 
-FORWARD ME_4FFC67440230
-
-FORWARD ME_2106CD2CE5C2
-
-: ME_7BAD83DB1D2E
- CONST UID '7BAD83DB1D2E'
- CONST Name 'fm_LeftEditionForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TLeftEditionForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_2106CD2CE5C2 // LeftEditionIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''LeftEditionForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''LeftEditionForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_7BAD83DB1D2E fm_LeftEditionForm
-
-: ME_2106CD2CE5C2
- CONST UID '2106CD2CE5C2'
- CONST Name 'LeftEditionIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFC67440230 // LeftEdition
- ;
- : Attributes
-   Seq: ( ME_7BAD83DB1D2E // fm_LeftEditionForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_2106CD2CE5C2 LeftEditionIDs
-
 : ME_4FFC67440230
  CONST UID '4FFC67440230'
  CONST GUID 'A9A78553-D6D6-41FE-8759-46E9B97592B8'
@@ -61,60 +15,14 @@ ref; // ME_2106CD2CE5C2 LeftEditionIDs
  CONST Abstraction at_regular
  : Parent ME_4FFC670F012B // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_2106CD2CE5C2 // LeftEditionIDs
+ : Implementors
+   Seq: ( WL 'ME_4A6EC02E00EA' '4A6D5A220389.pas.ms.script' // LeftEdition
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'LeftEditionFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFC67440230 LeftEdition
-
-FORWARD ME_4FFC674F004A
-
-FORWARD ME_67A0AEB914AF
-
-: ME_DAEDA01815C1
- CONST UID 'DAEDA01815C1'
- CONST Name 'fm_RightEditionForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TRightEditionForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_67A0AEB914AF // RightEditionIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''RightEditionForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''RightEditionForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_DAEDA01815C1 fm_RightEditionForm
-
-: ME_67A0AEB914AF
- CONST UID '67A0AEB914AF'
- CONST Name 'RightEditionIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFC674F004A // RightEdition
- ;
- : Attributes
-   Seq: ( ME_DAEDA01815C1 // fm_RightEditionForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_67A0AEB914AF RightEditionIDs
 
 : ME_4FFC674F004A
  CONST UID '4FFC674F004A'
@@ -127,60 +35,14 @@ ref; // ME_67A0AEB914AF RightEditionIDs
  CONST Abstraction at_regular
  : Parent ME_4FFC670F012B // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_67A0AEB914AF // RightEditionIDs
+ : Implementors
+   Seq: ( WL 'ME_4A6EC062005F' '4A6D5A220389.pas.ms.script' // RightEdition
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'RightEditionFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFC674F004A RightEdition
-
-FORWARD ME_4FFC675B03C3
-
-FORWARD ME_CAF8EED61902
-
-: ME_F3C4E41F339F
- CONST UID 'F3C4E41F339F'
- CONST Name 'fm_EditionsContainerForm'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Идентификатор формы TEditionsContainerForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_CAF8EED61902 // EditionsContainerIDs
- ;
- : Target WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST Value '(rFormID : (rName : ''EditionsContainerForm''; rID : 0); rFactory : nil)'
- : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(rFormID : (rName : ''EditionsContainerForm''; rID : 0); rFactory : nil)'
-
-ref; // ME_F3C4E41F339F fm_EditionsContainerForm
-
-: ME_CAF8EED61902
- CONST UID 'CAF8EED61902'
- CONST Name 'EditionsContainerIDs'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_4FFC675B03C3 // EditionsContainer
- ;
- : Attributes
-   Seq: ( ME_F3C4E41F339F // fm_EditionsContainerForm
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_CAF8EED61902 EditionsContainerIDs
 
 : ME_4FFC675B03C3
  CONST UID '4FFC675B03C3'
@@ -193,125 +55,14 @@ ref; // ME_CAF8EED61902 EditionsContainerIDs
  CONST Abstraction at_regular
  : Parent ME_4FFC670F012B // FormDefinitions
  ;
- : Constants
-   Seq: ( ME_CAF8EED61902 // EditionsContainerIDs
+ : Implementors
+   Seq: ( WL 'ME_4A6EC095039C' '4A6D5A220389.pas.ms.script' // EditionsContainer
  )
- ; // Constants
+ ; // Implementors
  CONST extprop:pas:TypeName 'EditionsContainerFormDef'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4FFC675B03C3 EditionsContainer
-
-FORWARD ME_BB00F0241328
-
-: ME_4DDFD2EA0116_ME_BB00F0241328
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_BB00F0241328 GetString
-
-: ME_BB00F0241328
- CONST UID 'BB00F0241328'
- CONST Name 'Tkw_Form_LeftEdition_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы LeftEdition'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::LeftEdition TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFC670F012B // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_BB00F0241328 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::LeftEdition'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_LeftEdition_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4A6EC02E00EA' '4A6D5A220389.pas.ms.script' // LeftEdition
- ;
-
-ref; // ME_BB00F0241328 Tkw_Form_LeftEdition_ID
-
-FORWARD ME_41833232BDCF
-
-: ME_4DDFD2EA0116_ME_41833232BDCF
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_41833232BDCF GetString
-
-: ME_41833232BDCF
- CONST UID '41833232BDCF'
- CONST Name 'Tkw_Form_RightEdition_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы RightEdition'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::RightEdition TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFC670F012B // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_41833232BDCF // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::RightEdition'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_RightEdition_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4A6EC062005F' '4A6D5A220389.pas.ms.script' // RightEdition
- ;
-
-ref; // ME_41833232BDCF Tkw_Form_RightEdition_ID
-
-FORWARD ME_F5E275A94BC4
-
-: ME_4DDFD2EA0116_ME_F5E275A94BC4
- : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DDFD2EA0116_ME_F5E275A94BC4 GetString
-
-: ME_F5E275A94BC4
- CONST UID 'F5E275A94BC4'
- CONST Name 'Tkw_Form_EditionsContainer_ID'
- CONST IsSummoned true
- CONST Class class_Class
- : Stereotype st_ScriptKeyword ;
- CONST Kind kind_NormalClass
- %SUMMARY 'Слово словаря для идентификатора формы EditionsContainer'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::EditionsContainer TryFocus ASSERT'#13#10'{code}' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_4FFC670F012B // FormDefinitions
- ;
- : Inherits
-   Seq: ( WL 'ME_4DDFD1430390' '4F3E3F5F0160.pas.ms.script' // TtfwString
- )
- ; // Inherits
- : Overridden
-   Seq: ( ME_4DDFD2EA0116_ME_F5E275A94BC4 // GetString
- )
- ; // Overridden
- CONST "NameForScript" 'форма::EditionsContainer'
- CONST "ifndef" 'NoScripts'
- CONST extprop:rc:SelfName '_Form_EditionsContainer_ID'
- CONST extprop:rc:isAcceptableForScripts true
- : SpelledFor WL 'ME_4A6EC095039C' '4A6D5A220389.pas.ms.script' // EditionsContainer
- ;
-
-ref; // ME_F5E275A94BC4 Tkw_Form_EditionsContainer_ID
 
 : ME_4FFC670F012B
  CONST UID '4FFC670F012B'
@@ -326,16 +77,8 @@ ref; // ME_F5E275A94BC4 Tkw_Form_EditionsContainer_ID
    Seq: ( ME_4FFC67440230 // LeftEdition
  ME_4FFC674F004A // RightEdition
  ME_4FFC675B03C3 // EditionsContainer
- ME_BB00F0241328 // Tkw_Form_LeftEdition_ID
- ME_41833232BDCF // Tkw_Form_RightEdition_ID
- ME_F5E275A94BC4 // Tkw_Form_EditionsContainer_ID
  )
  ; // Children
- : Depends
-   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
- WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
- )
- ; // Depends
  CONST "UseNewGen" true
  CONST "is namespace" true
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_FormDefinitions_Controls.pas'

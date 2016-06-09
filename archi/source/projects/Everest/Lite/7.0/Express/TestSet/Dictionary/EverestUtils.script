@@ -105,10 +105,6 @@ PROCEDURE "Сравнить текст с эталоном"
  l_File '%' tests:CheckEtalon
 ;
 
-PROCEDURE "Разбивка на блоки действие"
- 'acBuildDocumentStructure' 'theActions' push:MainForm pop:form:ExecuteAction
-;
-
 PROCEDURE "Предварительный просмотр"
  'acPrintPreview' 'theActions' push:MainForm pop:form:ExecuteAction
 ;
@@ -127,8 +123,21 @@ PROCEDURE "Нажимаем предварительный просмотр"
  END 
 ;
 
+
+PROCEDURE "Разбивка на блоки действие"
+ 'acBuildDocumentStructure' 'theActions' push:MainForm pop:form:ExecuteAction
+;
+
+PROCEDURE "Разбивка на блоки без диалога 'Создание структуры блоков'"
+	@ ( "Разбивка на блоки действие" ) MODAL ( "Контрол по имени {('BitBtn1')}" pop:Control:Click ) 	 
+;
+
+PROCEDURE "Работа с диалогом 'Создание структуры блоков'"
+  "Контрол по имени {('BitBtn1')}" pop:Control:Click
+;
+
 PROCEDURE "Разбивка на блоки"
- @ ( "Разбивка на блоки действие" ) MODAL ( "Контрол по имени {('BitBtn1')}- в стек" pop:Control:Click ) 	 
+	@ ( "Разбивка на блоки без диалога 'Создание структуры блоков'" ) MODAL ( "Работа с диалогом 'Создание структуры блоков'" ) 	 
 ;
 
 PROCEDURE "Разбивка на блоки с ожиданием запроса"

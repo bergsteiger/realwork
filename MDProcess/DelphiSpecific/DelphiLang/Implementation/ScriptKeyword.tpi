@@ -48,55 +48,6 @@ p is immediate:tribool=undefined ? ќпредел€ет - €вл€етс€ ли слово исполн€емым во
 // ”наследованна€ реализаци€
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
-%f _DoSpell
-//#UC START# *4B2A19E3038Bfor4F2C0D86003E*
-	%S%[inherited]\
-
-	[{%S#f_UseNewGenRec()!=true}{\
-	%f_set_var(WasRegisterInEngine,"true")\
-	}\
-	[{%Gx!=true}\
-	[{"%{TtfwRegisterableWord}N"=""}%f_find_element(53EDC0E701BC,TtfwRegisterableWord)]\
-	%S%f_make_accessable(%{TtfwRegisterableWord}U)\
-	%f_addG(%S,%{TtfwRegisterableWord})\
-	]\
-
-	[{%S%f_IsMixIn()!=true}\
-	[{%Sa!=abstract}\
-
-	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
-	%S%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
-	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_var,\
-	 {-}\
-	)\
-	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%S)_impl,\
-	 Result := \
-	[{"%S{NameForScript}"=""}{\
-	'%S{NameForScript}'\
-	}\
-	'[%P#f_pas_ElementPrefixBase():]%f_str_replace(%f_N(%S),_,:)'\
-	]\
-	;\
-	)\
-	]\
-
-	%f_SpellRegisterInEngine(%S)\
-	]\
-
-	[{"%S{is immediate}"!="undefined"&"%S{is immediate}"!=""}\
-	[{"%{TtfwWord.IsImmediate}N"=""}%f_find_element(4DB6D7F70155,TtfwWord.IsImmediate)]\
-	%S%f_add_override(4DB6D7F70155)\
-	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_var,\
-	 {-}\
-	)\
-	%{TtfwWord.IsImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.IsImmediate},%S)_impl,\
-	 Result := %S{is immediate};\
-	)\
-	]\
-	]
-//#UC END# *4B2A19E3038Bfor4F2C0D86003E*
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализаци€::MDAGenerator
 // явл€етс€ ли примесью
 %f _IsMixIn
 //#UC START# *4947E5D40127for4F2C0D86003E*

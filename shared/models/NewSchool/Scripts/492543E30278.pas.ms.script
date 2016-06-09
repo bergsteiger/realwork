@@ -347,38 +347,6 @@ FORWARD ME_4936B666032A
 
 ref; // ME_4947AD90005D InitDataType
 
-: ME_D838130E671C
- CONST UID 'D838130E671C'
- CONST Name 'f_dsSaveLoad'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsSaveLoad' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4936B666032A // sdsCommonDiction
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_D838130E671C f_dsSaveLoad
-
-: ME_8C313831D36C
- CONST UID '8C313831D36C'
- CONST Name 'f_dsChild'
- CONST IsSummoned true
- CONST Class class_Attribute
- %SUMMARY 'Поле для области вывода dsChild' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_ref
- : Parent ME_4936B666032A // sdsCommonDiction
- ;
- : Target WL 'ME_4982B4D00032' '4982BE090383.pas.ms.script' // IvcmViewAreaControllerRef
- ;
-
-ref; // ME_8C313831D36C f_dsChild
-
 : ME_4936B8AC00A7
  CONST Name 'aSource'
  CONST Class class_Parameter
@@ -615,12 +583,6 @@ ref; // ME_4925B9370022_ME_4936B666032A DoChangeDocument
  CONST OpKind opkind_Overridden
 ref; // ME_49352CEF0222_ME_4936B666032A GetHasAttributes
 
-: ME_4938F7E702B7_ME_4936B666032A
- : Original WL 'ME_4938F7E702B7' '47D0E1500033.pas.ms.script' // ClearAreas
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4938F7E702B7_ME_4936B666032A ClearAreas
-
 : ME_4A60B23E00C3_ME_4936B666032A
  : Original WL 'ME_4A60B23E00C3' '47BB24D30205.pas.ms.script' // COMQueryInterface
  ;
@@ -654,8 +616,6 @@ ref; // ME_55C1DD070354_ME_4936B666032A GetDataForClone
  ; // Implements
  : Attributes
    Seq: ( ME_4947AD90005D // InitDataType
- ME_D838130E671C // f_dsSaveLoad
- ME_8C313831D36C // f_dsChild
  )
  ; // Attributes
  : Operations
@@ -677,7 +637,6 @@ ref; // ME_55C1DD070354_ME_4936B666032A GetDataForClone
    Seq: ( ME_47F37DF001FE_ME_4936B666032A // DataExchange
  ME_4925B9370022_ME_4936B666032A // DoChangeDocument
  ME_49352CEF0222_ME_4936B666032A // GetHasAttributes
- ME_4938F7E702B7_ME_4936B666032A // ClearAreas
  ME_4A60B23E00C3_ME_4936B666032A // COMQueryInterface
  ME_55C1DD070354_ME_4936B666032A // GetDataForClone
  )
@@ -721,23 +680,6 @@ FORWARD ME_4941654603E7
 
 ref; // ME_4941657B03CE SetDataType
 
-: ME_420C7FDB61F7
- CONST UID '420C7FDB61F7'
- CONST Name 'SetType'
- CONST IsSummoned true
- CONST Class class_Attribute
- : Stereotype st_impurity_value::Attribute ;
- %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsCommonDiction' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_abstract
- CONST LinkType lt_lnk
- : Parent ME_4941654603E7 // TsdsCommonDiction
- ;
- : Target WL 'ME_4936823400AE' '492540AF02CD.pas.ms.script' // IsdsCommonDiction
- ;
-
-ref; // ME_420C7FDB61F7 SetType
-
 : ME_4D81DFB400BD
  CONST Class class_Dependency
  : Stereotype st_uses::Dependency ;
@@ -771,7 +713,6 @@ ref; // ME_47F3778403D9_ME_4941654603E7 MakeData
  ; // Inherits
  : Attributes
    Seq: ( ME_4941657B03CE // SetDataType
- ME_420C7FDB61F7 // SetType
  )
  ; // Attributes
  : Implemented
