@@ -168,11 +168,11 @@ vcm_opCaption      AnsiString     «аголовок пункта меню
    function OwnerUserType: TvcmEffectiveUserType;
     {* ¬озвращает пользовательский тип "формы" на которой определена операци€ }
    function OperationTypeStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство OperationType сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство OperationType сохран€етс€ }
    function IsDefaultStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство IsDefault сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство IsDefault сохран€етс€ }
    function GroupIDStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство GroupID сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство GroupID сохран€етс€ }
    procedure Cleanup; override;
     {* ‘ункци€ очистки полей объекта. }
    procedure BeforeAddToCache; override;
@@ -920,33 +920,33 @@ begin
 end;//TvcmBaseOperationsCollectionItemPrim.PublishOp
 
 function TvcmBaseOperationsCollectionItemPrim.OperationTypeStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство OperationType сохран€етс€" }
-//#UC START# *7C0E36AF141A_5620CFFC0045_var*
-//#UC END# *7C0E36AF141A_5620CFFC0045_var*
+ {* ‘ункци€ определ€юща€, что свойство OperationType сохран€етс€ }
+//#UC START# *5620CEB201FBStored_5620CFFC0045_var*
+//#UC END# *5620CEB201FBStored_5620CFFC0045_var*
 begin
-//#UC START# *7C0E36AF141A_5620CFFC0045_impl*
+//#UC START# *5620CEB201FBStored_5620CFFC0045_impl*
  Result := GetOperationTypeStored;
-//#UC END# *7C0E36AF141A_5620CFFC0045_impl*
+//#UC END# *5620CEB201FBStored_5620CFFC0045_impl*
 end;//TvcmBaseOperationsCollectionItemPrim.OperationTypeStored
 
 function TvcmBaseOperationsCollectionItemPrim.IsDefaultStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство IsDefault сохран€етс€" }
-//#UC START# *EBDB5C8A01C4_5620CFFC0045_var*
-//#UC END# *EBDB5C8A01C4_5620CFFC0045_var*
+ {* ‘ункци€ определ€юща€, что свойство IsDefault сохран€етс€ }
+//#UC START# *5620D7470392Stored_5620CFFC0045_var*
+//#UC END# *5620D7470392Stored_5620CFFC0045_var*
 begin
-//#UC START# *EBDB5C8A01C4_5620CFFC0045_impl*
+//#UC START# *5620D7470392Stored_5620CFFC0045_impl*
  Result := GetIsDefaultStored;
-//#UC END# *EBDB5C8A01C4_5620CFFC0045_impl*
+//#UC END# *5620D7470392Stored_5620CFFC0045_impl*
 end;//TvcmBaseOperationsCollectionItemPrim.IsDefaultStored
 
 function TvcmBaseOperationsCollectionItemPrim.GroupIDStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство GroupID сохран€етс€" }
-//#UC START# *C79988A52B31_5620CFFC0045_var*
-//#UC END# *C79988A52B31_5620CFFC0045_var*
+ {* ‘ункци€ определ€юща€, что свойство GroupID сохран€етс€ }
+//#UC START# *5620E28E0284Stored_5620CFFC0045_var*
+//#UC END# *5620E28E0284Stored_5620CFFC0045_var*
 begin
-//#UC START# *C79988A52B31_5620CFFC0045_impl*
+//#UC START# *5620E28E0284Stored_5620CFFC0045_impl*
  Result := GetGroupIDStored;
-//#UC END# *C79988A52B31_5620CFFC0045_impl*
+//#UC END# *5620E28E0284Stored_5620CFFC0045_impl*
 end;//TvcmBaseOperationsCollectionItemPrim.GroupIDStored
 
 procedure TvcmBaseOperationsCollectionItemPrim.Assign(Source: TPersistent);

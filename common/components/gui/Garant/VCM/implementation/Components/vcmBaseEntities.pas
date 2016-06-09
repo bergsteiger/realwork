@@ -32,7 +32,7 @@ type
    function pm_GetEntities: TvcmBaseEntitiesCollection;
    procedure pm_SetEntities(aValue: TvcmBaseEntitiesCollection);
    function EntitiesStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Entities сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Entities сохран€етс€ }
    procedure Cleanup; override;
     {* ‘ункци€ очистки полей объекта. }
    procedure Notification(AComponent: TComponent;
@@ -189,13 +189,13 @@ begin
 end;//TvcmBaseEntities.MakeSupportedByControl
 
 function TvcmBaseEntities.EntitiesStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Entities сохран€етс€" }
-//#UC START# *56A6B7F8E5B9_52A1EA2A0184_var*
-//#UC END# *56A6B7F8E5B9_52A1EA2A0184_var*
+ {* ‘ункци€ определ€юща€, что свойство Entities сохран€етс€ }
+//#UC START# *560815340395Stored_52A1EA2A0184_var*
+//#UC END# *560815340395Stored_52A1EA2A0184_var*
 begin
-//#UC START# *56A6B7F8E5B9_52A1EA2A0184_impl*
+//#UC START# *560815340395Stored_52A1EA2A0184_impl*
  Result := (f_Entities <> nil) and (f_Entities.Count > 0);
-//#UC END# *56A6B7F8E5B9_52A1EA2A0184_impl*
+//#UC END# *560815340395Stored_52A1EA2A0184_impl*
 end;//TvcmBaseEntities.EntitiesStored
 
 procedure TvcmBaseEntities.Cleanup;

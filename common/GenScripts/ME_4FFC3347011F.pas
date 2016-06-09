@@ -37,7 +37,7 @@ type
    procedure CaptionChanged; virtual;
    function GetCaptionStored: Boolean; virtual;
    function CaptionStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Caption сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Caption сохран€етс€ }
    procedure BeforeAddToCache; override;
     {* функци€, вызываема€ перед добавлением объекта в кэш повторного использовани€. }
    function GetDisplayName: String; override;
@@ -217,13 +217,13 @@ begin
 end;//TvcmBaseCollectionItemPrim.GetCaptionStored
 
 function TvcmBaseCollectionItemPrim.CaptionStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Caption сохран€етс€" }
-//#UC START# *BFBB04A0E452_55D076150061_var*
-//#UC END# *BFBB04A0E452_55D076150061_var*
+ {* ‘ункци€ определ€юща€, что свойство Caption сохран€етс€ }
+//#UC START# *55CCB95D0197Stored_55D076150061_var*
+//#UC END# *55CCB95D0197Stored_55D076150061_var*
 begin
-//#UC START# *BFBB04A0E452_55D076150061_impl*
+//#UC START# *55CCB95D0197Stored_55D076150061_impl*
  Result := GetCaptionStored;
-//#UC END# *BFBB04A0E452_55D076150061_impl*
+//#UC END# *55CCB95D0197Stored_55D076150061_impl*
 end;//TvcmBaseCollectionItemPrim.CaptionStored
 
 procedure TvcmBaseCollectionItemPrim.Assign(Source: TPersistent);

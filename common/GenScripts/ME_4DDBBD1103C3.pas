@@ -54,9 +54,9 @@ type
    function IDRep: TvcmRep; virtual;
    class function GetOperationsCollectionClass: RvcmBaseCollection; virtual;
    function OperationsStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Operations сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Operations сохран€етс€ }
    function ControlsStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Controls сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Controls сохран€етс€ }
    procedure Cleanup; override;
     {* ‘ункци€ очистки полей объекта. }
    procedure BeforeAddToCache; override;
@@ -472,23 +472,23 @@ begin
 end;//TvcmBaseEntitiesCollectionItemPrim.IsItemCaptionUnique
 
 function TvcmBaseEntitiesCollectionItemPrim.OperationsStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Operations сохран€етс€" }
-//#UC START# *78B8116FEB76_55D30D410267_var*
-//#UC END# *78B8116FEB76_55D30D410267_var*
+ {* ‘ункци€ определ€юща€, что свойство Operations сохран€етс€ }
+//#UC START# *55D30E8A0376Stored_55D30D410267_var*
+//#UC END# *55D30E8A0376Stored_55D30D410267_var*
 begin
-//#UC START# *78B8116FEB76_55D30D410267_impl*
+//#UC START# *55D30E8A0376Stored_55D30D410267_impl*
  Result := GetOperationsStored;
-//#UC END# *78B8116FEB76_55D30D410267_impl*
+//#UC END# *55D30E8A0376Stored_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.OperationsStored
 
 function TvcmBaseEntitiesCollectionItemPrim.ControlsStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Controls сохран€етс€" }
-//#UC START# *EC3EC97ADA92_55D30D410267_var*
-//#UC END# *EC3EC97ADA92_55D30D410267_var*
+ {* ‘ункци€ определ€юща€, что свойство Controls сохран€етс€ }
+//#UC START# *55D30FB2030AStored_55D30D410267_var*
+//#UC END# *55D30FB2030AStored_55D30D410267_var*
 begin
-//#UC START# *EC3EC97ADA92_55D30D410267_impl*
+//#UC START# *55D30FB2030AStored_55D30D410267_impl*
  Result := (f_Controls <> nil) and (f_Controls.Count > 0);
-//#UC END# *EC3EC97ADA92_55D30D410267_impl*
+//#UC END# *55D30FB2030AStored_55D30D410267_impl*
 end;//TvcmBaseEntitiesCollectionItemPrim.ControlsStored
 
 procedure TvcmBaseEntitiesCollectionItemPrim.Assign(Source: TPersistent);
