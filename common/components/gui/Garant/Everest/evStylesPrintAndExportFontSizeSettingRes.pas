@@ -18,6 +18,9 @@ uses
 ;
 
 const
+ {* Локализуемые строки PrintAndExportFontSizeName }
+ str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
+  {* Использовать для экспорта и печати следующий размер шрифта }
  pi_evStyles_PrintAndExportFontSize = 'Стили/Использовать для экспорта и печати следующий размер шрифта';
   {* Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта" }
  dv_evStyles_PrintAndExportFontSize = 0;
@@ -37,9 +40,6 @@ const
   {* 14 }
  str_PrintAndExportFontSize_pef16: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef16'; rValue : '16');
   {* 16 }
- {* Локализуемые строки PrintAndExportFontSizeName }
- str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
-  {* Использовать для экспорта и печати следующий размер шрифта }
 
 type
  PrintAndExportFontSizeEnum = (
@@ -95,7 +95,8 @@ type
 
 const
  {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
- PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (@str_PrintAndExportFontSize_pef8
+ PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (
+ @str_PrintAndExportFontSize_pef8
  , @str_PrintAndExportFontSize_pef9
  , @str_PrintAndExportFontSize_pef10
  , @str_PrintAndExportFontSize_pef11
@@ -125,22 +126,26 @@ end;//TPrintAndExportFontSizeValuesMapImplFree
 
 class procedure PrintAndExportFontSizeValuesMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
-//#UC START# *1884DBA9EBBD_2F2551498AA7_var*
-//#UC END# *1884DBA9EBBD_2F2551498AA7_var*
+var
+ l_Index: PrintAndExportFontSizeEnum;
 begin
-//#UC START# *1884DBA9EBBD_2F2551498AA7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1884DBA9EBBD_2F2551498AA7_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(PrintAndExportFontSizeValuesMap[l_Index].AsCStr);
 end;//PrintAndExportFontSizeValuesMapHelper.FillStrings
 
 class function PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): PrintAndExportFontSizeEnum;
  {* Преобразование строкового значения к порядковому }
-//#UC START# *401032D7711F_2F2551498AA7_var*
-//#UC END# *401032D7711F_2F2551498AA7_var*
+var
+ l_Index: PrintAndExportFontSizeEnum;
 begin
-//#UC START# *401032D7711F_2F2551498AA7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *401032D7711F_2F2551498AA7_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, PrintAndExportFontSizeValuesMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "PrintAndExportFontSizeValuesMap"', [l3Str(aDisplayName)]);
 end;//PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue
 
 class function TPrintAndExportFontSizeValuesMapImplPrim.Make: Il3IntegerValueMap;
@@ -157,50 +162,33 @@ begin
 end;//TPrintAndExportFontSizeValuesMapImplPrim.Make
 
 function TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID: Tl3ValueMapID;
-//#UC START# *46A5EFE602DE_E7E820B69587get_var*
-//#UC END# *46A5EFE602DE_E7E820B69587get_var*
 begin
-//#UC START# *46A5EFE602DE_E7E820B69587get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5EFE602DE_E7E820B69587get_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Assert(false);
 end;//TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID
 
 procedure TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
  {* заполняет список значениями "UI-строка" }
-//#UC START# *46A5F0130365_E7E820B69587_var*
-//#UC END# *46A5F0130365_E7E820B69587_var*
 begin
-//#UC START# *46A5F0130365_E7E820B69587_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F0130365_E7E820B69587_impl*
+ PrintAndExportFontSizeValuesMapHelper.FillStrings(aList);
 end;//TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames
 
 function TPrintAndExportFontSizeValuesMapImplPrim.MapSize: Integer;
  {* количество элементов в мапе. }
-//#UC START# *46A5F03800A2_E7E820B69587_var*
-//#UC END# *46A5F03800A2_E7E820B69587_var*
 begin
-//#UC START# *46A5F03800A2_E7E820B69587_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F03800A2_E7E820B69587_impl*
+ Result := Ord(High(PrintAndExportFontSizeEnum)) - Ord(Low(PrintAndExportFontSizeEnum));
 end;//TPrintAndExportFontSizeValuesMapImplPrim.MapSize
 
 function TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-//#UC START# *46A5FCF900E0_E7E820B69587_var*
-//#UC END# *46A5FCF900E0_E7E820B69587_var*
 begin
-//#UC START# *46A5FCF900E0_E7E820B69587_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FCF900E0_E7E820B69587_impl*
+ Result := Ord(PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue(aDisplayName));
 end;//TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue
 
 function TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
-//#UC START# *46A5FD1B000D_E7E820B69587_var*
-//#UC END# *46A5FD1B000D_E7E820B69587_var*
 begin
-//#UC START# *46A5FD1B000D_E7E820B69587_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FD1B000D_E7E820B69587_impl*
+ Assert(aValue >= Ord(Low(PrintAndExportFontSizeEnum)));
+ Assert(aValue <= Ord(High(PrintAndExportFontSizeEnum)));
+ Result := PrintAndExportFontSizeValuesMap[PrintAndExportFontSizeEnum(aValue)].AsCStr;
 end;//TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName
 
 class function TPrintAndExportFontSizeValuesMapImpl.Make: Il3IntegerValueMap;
@@ -221,6 +209,8 @@ begin
 end;//TPrintAndExportFontSizeValuesMapImpl.Exists
 
 initialization
+ str_PrintAndExportFontSize.Init;
+ {* Инициализация str_PrintAndExportFontSize }
  str_PrintAndExportFontSize_pef8.Init;
  {* Инициализация str_PrintAndExportFontSize_pef8 }
  str_PrintAndExportFontSize_pef9.Init;
@@ -235,7 +225,5 @@ initialization
  {* Инициализация str_PrintAndExportFontSize_pef14 }
  str_PrintAndExportFontSize_pef16.Init;
  {* Инициализация str_PrintAndExportFontSize_pef16 }
- str_PrintAndExportFontSize.Init;
- {* Инициализация str_PrintAndExportFontSize }
 
 end.
