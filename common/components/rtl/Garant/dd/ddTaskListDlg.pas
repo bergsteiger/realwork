@@ -11,7 +11,7 @@ uses
   l3ObjectRefList, dt_Types, csProcessTask,
 
   ddTaskItemList,
-  ArchiUserList
+  daArchiUserList
   ;
 
 type
@@ -60,7 +60,7 @@ type
     f_Changing: Boolean;
     { Private declarations }
     f_TaskList : TddTaskItemList;
-    f_UserList: TArchiUserList;
+    f_UserList: TdaArchiUserList;
     f_ShowOnlyMyTasks: Boolean;
     f_MyUserID: TUserID;
     f_CompareKind: TcsTaskCompareKind;
@@ -79,7 +79,7 @@ type
    property TaskLst: TddTaskItemList
     read f_TaskList
     write SetTaskList;
-   property UserList: TArchiUserList read f_UserList write f_UserList;
+   property UserList: TdaArchiUserList read f_UserList write f_UserList;
    property ShowOnlyMyTasks: Boolean read f_ShowOnlyMyTasks write SetShowOnlyMyTasks;
    property MyUserID: TUserID read f_MyUserID write f_MyUserID;
    property CompareKind: TcsTaskCompareKind read f_CompareKind write pm_SetCompareKind;
@@ -95,7 +95,6 @@ implementation
 
 Uses
  ArchiUserRequestManager, ddServerTask,
- dt_UserTypes,
  DateUtils, Math, csTaskTypes;
 
 const
@@ -196,6 +195,7 @@ procedure TTaskListDialog.UpdateListView;
        //l_st:= 'отложено';
        aItem.SubItemImages[itmStatus] := 13;
       end;
+     cs_tsAborting,
      cs_tsError,
      cs_tsAsyncError:
       begin

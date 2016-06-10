@@ -1,7 +1,19 @@
 unit csUserRequestManager;
-{ $Id: csUserRequestManager.pas,v 1.8 2015/11/25 14:01:43 lukyanets Exp $ }
+{ $Id: csUserRequestManager.pas,v 1.11 2016/05/24 08:25:40 lukyanets Exp $ }
 
 // $Log: csUserRequestManager.pas,v $
+// Revision 1.11  2016/05/24 08:25:40  lukyanets
+// Cleanup
+//
+// Revision 1.10  2016/05/11 10:18:07  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.9  2016/04/01 08:17:11  lukyanets
+// Корректней отдаем дату следующей версии
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.8  2015/11/25 14:01:43  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -293,7 +305,7 @@ uses
   SysUtils, Windows, Messages, Classes, Graphics, Controls,
   Forms, Dialogs,
   l3Base,
-  dt_Types, dt_UserTypes,
+  dt_Types, 
   CSClient, CSNotification, CsQueryTypes,
   csProcessTask, CsDataPipe, l3Types,
   l3ObjectRefList, ddCalendarEvents,
@@ -403,11 +415,9 @@ Uses
  csServerStatusRequest, csRequestTask,
  l3FileUtils,
  csCommandsManager, l3Stream,
- {$IFDEF csSendTaskAsEVD}
  ncsCompatibilityClientTransporter, ncsTaskSendReg, ncsMessageInterfaces, ncsSendTask,
  ncsSendTaskReply, ncsMessage, ncsTaskSendExecutorFactory, ncsMessageExecutorFactory,
  ncsSynchroCompatibilityClientTransporter,
- {$ENDIF csSendTaskAsEVD}
  csClientMessageRequest,
  csMessageRecepient,
  ddClientMessageSortableList
@@ -455,9 +465,7 @@ begin
  if NeedExecuteInMainThreadService then
   Tl3ExecuteInMainThread.Instance.Init;
 
- {$IFDEF csSendTaskAsEVD}
  ncsTaskSendReg.ncsClientRegister;
- {$ENDIF csSendTaskAsEVD}
 end;
 
 procedure TcsUserRequestManager.Cleanup;
@@ -641,7 +649,7 @@ end;
 procedure TcsUserRequestManager.ProcessCalendarNotify(aTaskType: TddCalendarTaskType);
 begin
  case aTaskType of
-  ctVersion: RequestNextVersionDate;
+  ctVersion, ctCompilation: RequestNextVersionDate;
  end;
 end;
 
@@ -853,18 +861,15 @@ begin
 end;
 
 function TcsUserRequestManager.SendTask(aTask: TddProcessTask): Boolean;
- {$IFDEF csSendTaskAsEVD}
 var
  l_Transporter: IncsClientTransporter;
  l_Message: TncsSendTask;
  l_Reply: TncsMessage;
  l_Stream: TStream;
  l_ExecutorFactory: IncsMessageExecutorFactory;
- {$ENDIF csSendTaskAsEVD}
 begin
  // Чтобы сгенерить и послать правильный TaskID на сервер
  aTask.TaskID := aTask.TaskID;
- {$IFDEF csSendTaskAsEVD}
  Result := false;
  if not CSClient.IsStarted then
   Exit;
@@ -921,15 +926,6 @@ begin
  finally
   l_Transporter := nil;
  end;
- {$ELSE csSendTaskAsEVD}
- Result := false;
- if CSClient <> nil then
- begin
-  if CSClient.Exec(qtTask, aTask.SaveTaskToPipe) then
-   Result := true{aTask.TaskIndex};
-  AfterTaskSended(aTask);
- end; // f_CSClient <> nil
- {$ENDIF csSendTaskAsEVD}
 end;
 
 procedure TcsUserRequestManager.AfterTaskSended(aTask: TddProcessTask);
@@ -939,11 +935,7 @@ end;
 
 function TcsUserRequestManager.NeedExecuteInMainThreadService: Boolean;
 begin
- {$If Defined(csSendTaskAsEVD)}
  Result := True;
- {$Else Defined(csSendTaskAsEVD)}
- Result := False;
- {$IfEnd Defined(csSendTaskAsEVD)}
 end;
 
 initialization

@@ -1,8 +1,11 @@
 unit l3ImageUtils;
 
-{ $Id: l3ImageUtils.pas,v 1.17 2015/12/10 10:09:22 dinishev Exp $ }
+{ $Id: l3ImageUtils.pas,v 1.18 2016/06/10 08:16:45 dinishev Exp $ }
 
 // $Log: l3ImageUtils.pas,v $
+// Revision 1.18  2016/06/10 08:16:45  dinishev
+// Возможность сохранять эталоны в PNG
+//
 // Revision 1.17  2015/12/10 10:09:22  dinishev
 // Выделяем ситуацию, когда не удалось запустить ImageMagic.
 //
@@ -73,6 +76,7 @@ function l3IsImageEqual(const aFirst: AnsiString; const aSecond: AnsiString; con
 {$EndIf  DesignTimeLibrary}
 procedure l3ShowDiffImage(const aDiff: AnsiString);
 procedure l3MakeScreenShot(aBitmap: TBitmap; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
+procedure l3SaveScreenShot2File(aFileName: AnsiString; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
 procedure l3BuildComparisonImage(const aEtalonFN, aTestFN, aResultFN: string);
 procedure l3SetFuzzValueInPercent(aValue: Integer);
 
@@ -313,6 +317,39 @@ begin
   BitBlt(aBitmap.Canvas.Handle, 0, 0, aWidth, aHeight, l_WinDC, aLeft, aTop, SRCCOPY);
  finally
   ReleaseDC(aHandle, l_WinDC);        // finally, relase the DC of the window
+ end;
+end;
+
+procedure l3SaveScreenShot2File(aFileName: AnsiString; aLeft, aTop, aWidth, aHeight: Integer; aHandle: THandle);
+var
+ l_IO    : TImageEnIO;
+ l_Bitmap: TBitmap;
+ l_Stream: Tl3MemoryStream;
+begin
+ l_Bitmap := TBitmap.Create;
+ try
+  l3MakeScreenShot(l_Bitmap, aLeft, aTop, aWidth, aHeight, aHandle);
+  if ExtractFileExt(aFileName) = '.png' then
+  begin
+   l_Stream := Tl3MemoryStream.Create;
+   try
+    l_Bitmap.SaveToStream(l_Stream);
+    l_Stream.Seek(0, 0);
+    l_IO := TImageEnIO.Create(nil);
+    try
+     l_IO.LoadFromStreamBMP(l_Stream);
+     l_IO.SaveToFilePNG(aFileName);
+    finally
+     FreeAndNil(l_IO);
+    end;
+  finally
+   FreeAndNil(l_Stream);
+  end;//try..finally
+  end // if ExtractFileExt(l_FileName) = '.png' then
+  else
+   l_Bitmap.SaveToFile(aFileName);
+ finally
+  FreeAndNil(l_Bitmap);
  end;
 end;
 

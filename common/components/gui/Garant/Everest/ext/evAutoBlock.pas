@@ -2,9 +2,27 @@
 Unit evAutoBlock;
 {* Автоматическая расстановка блоков в документе }
 
-// $Id: evAutoBlock.pas,v 1.88 2016/02/03 09:13:31 dinishev Exp $
+// $Id: evAutoBlock.pas,v 1.96 2016/06/10 14:23:41 dinishev Exp $
 
 // $Log: evAutoBlock.pas,v $
+// Revision 1.96  2016/06/10 14:23:41  dinishev
+// Заточил для DailyTest
+//
+// Revision 1.95  2016/06/06 09:39:42  dinishev
+// Доточил работу с диалогом "Создание структуры блоков" для тестов.
+//
+// Revision 1.94  2016/06/06 08:38:46  dinishev
+// Чистка кода.
+//
+// Revision 1.92  2016/06/06 07:11:20  dinishev
+// Bug fix: не компилировался DailyTest
+//
+// Revision 1.91  2016/06/06 06:50:50  dinishev
+// Выкинул запилы для тестов.
+//
+// Revision 1.90  2016/06/06 06:11:34  dinishev
+// Чистка кода.
+//
 // Revision 1.88  2016/02/03 09:13:31  dinishev
 // {Requestlink:617055158}
 //
@@ -1070,7 +1088,8 @@ const
 procedure CreateBlockStructure(DocEditor: TevCustomEditor
                                {$IFNDEF evNotArchi};
                                aFamily: TFamilyID; aDocID: TDocID
-                               {$EndIF  evNotArchi});
+                               {$EndIF  evNotArchi};
+                               aWithoutDialogs: Boolean = False);
 
 implementation
 
@@ -1128,7 +1147,13 @@ uses
  Document_Const,
  TextPara_Const,
  SBS_Const,
- Table_Const;
+ Table_Const
+ {$IFDEF InsiderTest}
+ ,
+ l3BatchService,
+ l3ModalService
+ {$ENDIF InsiderTest}
+ ;
 
 const
  csListSeparator = [cc_Dot, cc_RightBracket];
@@ -1139,7 +1164,21 @@ const
 procedure CreateBlockStructure(DocEditor: TevCustomEditor
                                {$IFNDEF evNotArchi};
                                aFamily: TFamilyID; aDocID: TDocID
-                               {$EndIF  evNotArchi});
+                               {$EndIF  evNotArchi};
+                               aWithoutDialogs: Boolean = False);
+
+  function lp_ShowDialog(aDialog: TForm): Boolean;
+  begin
+   with aDialog do
+    if aWithoutDialogs then
+    begin
+     Result := True;
+     Show;
+    end // if aWithoutDialogs then
+    else
+     Result := ShowModal = mrOk
+  end;
+
 var
  Searcher: TddBlockStructureSearcher;
  Replacer: TddBlockStructureReplacer;
@@ -1149,23 +1188,27 @@ var
  l_Footnotes: Boolean;
  l_TuneBlocks: Boolean;
  l_InBlock: Boolean;
+ l_BlockDialog: TddBlockDeepLevelDialog;
 begin
  if DocEditor.ReadOnly then
   Exit;
 
- with TddBlockDeepLevelDialog.Create(Application) do
+ l_BlockDialog := TddBlockDeepLevelDialog.Create(Application);
  try
-  if ShowModal = mrOk then
+  if lp_ShowDialog(l_BlockDialog) then
   begin
-   l_DeepLevel:= comboDeepLevel.ItemIndex;
-   l_Confirm:= checkConfirmJoin.Checked;
-   l_Footnotes:= cbUseFootnotes.Checked;
-   l_TuneBlocks:= cbTuneStructure.Checked;
+   l_DeepLevel:= l_BlockDialog.comboDeepLevel.ItemIndex;
+   l_Confirm:= l_BlockDialog.checkConfirmJoin.Checked;
+   l_Footnotes:= l_BlockDialog.cbUseFootnotes.Checked;
+   if aWithoutDialogs then
+    l_TuneBlocks:= False
+   else
+    l_TuneBlocks:= l_BlockDialog.cbTuneStructure.Checked;
   end//ShowModal = mrOk
   else
    l_DeepLevel:= 255;
  finally
-  Free;
+  l_BlockDialog.Free;
  end;//try..finally
  if l_DeepLevel <> 255 then
  begin
@@ -1214,13 +1257,18 @@ begin
        begin
         Replacer.TuneBLockStructure;
         while not Replacer.AllDone do
+        begin
+         {$IFDEF InsiderTest}
+          Tl3BatchService.Instance.ExecuteCurrentModalWorker;
+         {$ENDIF InsiderTest}
          afw.ProcessMessages;
+        end // while not Replacer.AllDone do
        end
        else
-        {$IfNDef nsTest}
-        MessageDlg('Структура блоков в документе не найдена', mtInformation, [mbOk], 0)
-        {$EndIf  nsTest}
+ {$IfNDef Nemesis}
+        vtMessageDlg(l3CStr('Структура блоков в документе не найдена'), mtInformation, [mbOk], 0)
         ;
+ {$ENDIF Nemesis}
       except
        {$IfDef nsTest}
        on EevSearchFailed do
@@ -1229,9 +1277,9 @@ begin
         raise;
        {$Else  nsTest}
        on EevSearchFailed do
-        MessageDlg('Структура блоков в документе не найдена', mtInformation, [mbOk], 0);
+        vtMessageDlg(l3CStr('Структура блоков в документе не найдена'), mtInformation, [mbOk], 0);
        else
-        MessageDlg('Возникла непредвиденная ошибка при расстановке блоков!', mtError, [mbOk], 0);
+        vtMessageDlg(l3CStr('Возникла непредвиденная ошибка при расстановке блоков!'), mtError, [mbOk], 0);
        {$EndIf nsTest}
       end;//try..ecxept
       InevSelection(Selection).SelectPoint(l_Cursor, false);
@@ -1312,20 +1360,6 @@ begin
  else
   Result:= True;
 end;
-
-(*function IsAtomInBlock(Atom: Tl3Tag): Boolean;
-var
- R: Tl3Variant;
-begin
- R:= Atom.Owner;
- while (R.IsValid) and not (R.IsKindOf(k2_typBlock) or R.IsKindOf(k2_typDocument)) do
-  R:= R.Owner;
-
- if not (R.IsValid) or R.IsKindOf(k2_typDocument) then
-  Result:= False
- else
-  Result:= True;
-end;*)
 
 function IsAtomInTable(Atom: Tl3Variant): Boolean;
 var
@@ -2298,7 +2332,6 @@ end;
 constructor TddBlockStructureReplacer.Create(aOwner: TevSearchToolOwner);
 begin
  inherited;
-// f_BlockStack:= Tl3VList.MakePersistent;
  fDeepLevel:= 0;                                                         
  OnReplaceConfirm:= _ReplaceConfirm;
  f_BlockRoot:= TddBlockInfo.Create(nil);
@@ -2343,14 +2376,12 @@ begin
    else
    if f_ConfirmJoinRes = mrNoToAll then
     Result := mrNo
-   else
+   else                       
    begin
-    Result :={$IFDEF InsiderTest}
-                vtMessageDlg(l3CStr('Является ли данный заголовок началом блока?'),
-                             mtConfirmation, mbYesAllNoAllCancel, 0)
-              {$ELSE}
-              mrYes
-              {$ENDIF};
+ {$IfNDef Nemesis}
+    Result :=vtMessageDlg(l3CStr('Является ли данный заголовок началом блока?'),
+                             mtConfirmation, mbYesAllNoAllCancel, 0);
+ {$ENDIF Nemesis}                              
     f_ConfirmJoinRes := Result;
     if f_ConfirmJoinRes = mrYesToAll then
      Result := mrOk;
@@ -2366,12 +2397,10 @@ begin
     Result:= mrNo
    else
    begin
-    Result:= {$IFDEF InsiderTest}
-               vtMessageDlg(l3CStr('Является ли данный текст подписью?'),
-                            mtConfirmation, mbYesAllNoAllCancel, 0)
-              {$ELSE}
-               mrYes
-              {$ENDIF};
+{$IfNDef Nemesis}
+    Result:= vtMessageDlg(l3CStr('Является ли данный текст подписью?'),
+                            mtConfirmation, mbYesAllNoAllCancel, 0);
+{$ENDIF Nemesis}
     if Result in [mrYes, mrYesToAll] then
      f_Searcher.BlockType:= dd_btSBS;
     f_ConfirmSBSRes := Result;
@@ -2547,7 +2576,7 @@ begin
   DeepLevel:= 1;
   if Supports(f_Current, IddBlockInfo, l_Current) then
   try
-   l_TmpBlockType:= l_Current.BlockType;//LastBlock.BlockType;
+   l_TmpBlockType:= l_Current.BlockType;
    if l_TmpBlockType = dd_btFootnoteBody then
    begin
     if f_FirstLevel = dd_btNone then // Преамбула
@@ -2569,8 +2598,7 @@ begin
    DeepLevel:= f_Current.GetLevelFor(f_BlockRoot);
   end
   else
-  if not (l_TmpBlockType in dd_btParagraphs) and (aBlockType in dd_btParagraphs)
-     {and (aBlockType <> l_TmpBlockType)} then
+  if not (l_TmpBlockType in dd_btParagraphs) and (aBlockType in dd_btParagraphs) then
   begin
    Result:= False;
   end
@@ -2586,8 +2614,7 @@ begin
     if (f_FirstLevel <> dd_btNone) then
      l_NewBlockType:= f_FirstLevel
     else
-     l_NewBlockType:= aBlockType;//l_TmpBlockType;
-    //DeepLevel:= 0;
+     l_NewBlockType:= aBlockType;
    end
    else
     l_NewBlockType:= aBlockType;
@@ -2597,7 +2624,7 @@ begin
     if Supports(l_Cur, IddBlockInfo, l_Current) then
     begin
      l_TmpBlockType:= l_Current.BlockType;
-     if not (l_TmpBlockType in [l_NewBlockType]) {or (l_TmpBlockType <> dd_btFootnoteBody)} then
+     if not (l_TmpBlockType in [l_NewBlockType]) then
      begin
       l_Cur:= l_Cur.ParentNode;
       Inc(DeepLevel);
@@ -2773,21 +2800,7 @@ end;
 function TddBlockStructureReplacer.MakeBlockNumber(const aBlockInfo:
     IddBlockInfo): Longint;
 begin
-(* if (aBlockInfo.Visible) then
- begin*)
-  Result := aBlockInfo.Number;
-(*  if Result = -1 then
-  begin
-   Result:= f_UniqueNumber;
-   Inc(f_UniqueNumber);
-  end; //result = -1
-  {$IFDEF Write2Log}
-  l3System.Msg2Log('Имя блока - '+ aBlockInfo.BlockName);
-  l3System.Msg2Log('Номер блока - '+ IntToStr(Result));
-  {$ENDIF}
- end
- else
-  Result:= -1;*)
+ Result := aBlockInfo.Number;
 end;
 
 procedure TddBlockStructureReplacer.InsertBlockInDocument(const aView : InevView;
@@ -2989,28 +3002,6 @@ begin
 end;
 
 function TddBlockStructureReplacer.TuneBlockStructure: Boolean;
-{$IFDEF ShowBlockInfo}
-procedure ChangeText(const aNode: Il3Node);
-var
- l_BI: IddBlockInfo;
- l_S, l_F: Integer;
- l_Level: Integer;
-begin
- if aNode.QueryInterface(IddBlockInfo, l_BI) = 0 then
- begin
-  if l_BI.Start <> nil then
-   l_S:= l_BI.Start.Position
-  else
-   l_S:= 0;
-  if l_BI.Finish <> nil then
-   l_F:= l_BI.Finish.Position
-  else
-   l_F:= 0;
-  l_Level:= aNode.GetLevelFor(f_BlockRoot);
-  aNode.Text:= PAnsiChar(Format('(Start:%d-Finish:%d) Level:%d', [l_S, l_F, l_Level]))
- end;//aNode.QueryInterface(IddBlockInfo, l_BI) = 0
-end;
-{$ENDIF ShowBlockInfo}
 var
  l_TmpBlock: TddBlockInfo;
  l_Ok: Boolean;
@@ -3024,9 +3015,6 @@ begin
     Editor.ReadOnly:= True;
     with f_Dialog do
     begin
-     {$IFDEF ShowBlockInfo}
-     f_BlockRoot.IterateF(l3L2NA(@ChangeText));
-     {$ENDIF ShowBlockInfo}
      BlockTree.TreeStruct.RootNode:= f_BlockRoot;
      BlockTree.TreeStruct.ExpandSubDir(f_BlockRoot, True, DeepLevel);
      Show;
@@ -3185,7 +3173,6 @@ end;
 procedure TddBlockStructureReplacer.CloseOpenBlocks(const aView : InevView;const aStart, aFinish: InevBasePoint; 
     ForDeepLevel: Integer);
 var
- //l_MoveCursorNext: Boolean;
  l_Pos: InevBasePoint;
  l_BI: IddBlockInfo;
 begin
@@ -3215,7 +3202,6 @@ begin
      f_RemarkInBlock:= dd_btNone;
     if l_BI.RealType <> dd_cbBlock then
      l_BI.Finish:= l_Pos;
-    //l_MoveCursorNext:= False;
     if (f_CommentStart <> nil) and
        (Pred(l_BI.Finish.Position) > f_CommentStart.Position) then
     begin
@@ -3235,9 +3221,6 @@ begin
     else
      StartBlock(aView,aStart)
    end//not (f_Searcher.BlockType in [dd_btSBS, dd_btComment, dd_btContentTable])
-   //else
-   //if l_MoveCursorNext then
-   // ddMovePBC(aView,aFinish, ev_ocNextParaTopLeft);
   finally
    l_Pos := nil;
   end;//try..finally

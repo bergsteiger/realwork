@@ -5,11 +5,14 @@ unit l3Stream;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Stream - описание стандартных потоков }
 { Начат: 28.01.1999 18:24             }
-{ $Id: l3Stream.pas,v 1.97 2014/02/21 18:08:45 lulin Exp $ }
+{ $Id: l3Stream.pas,v 1.98 2016/04/06 20:24:12 lulin Exp $ }
 { Комментарии: Часть кода взята из примеров к книге Рэя Лишнера }
 {               "Секреты Delphi 2"                              }
 
 // $Log: l3Stream.pas,v $
+// Revision 1.98  2016/04/06 20:24:12  lulin
+// - обрабатываем ошибки открытия файла с логом.
+//
 // Revision 1.97  2014/02/21 18:08:45  lulin
 // - избавляемся от обёрток над тегами.
 //
@@ -1451,6 +1454,11 @@ begin
 
     l3_fmFullShareReadWrite :
      FHandle := Windows.CreateFile(PChar(l_FileName), GENERIC_READ OR GENERIC_WRITE,
+                                   FILE_SHARE_READ or FILE_SHARE_WRITE, nil,
+                                   OPEN_ALWAYS,
+                                   FILE_FLAG_WRITE_THROUGH, 0);
+    l3_fmFullShareRead :
+     FHandle := Windows.CreateFile(PChar(l_FileName), GENERIC_READ{ OR GENERIC_WRITE},
                                    FILE_SHARE_READ or FILE_SHARE_WRITE, nil,
                                    OPEN_ALWAYS,
                                    FILE_FLAG_WRITE_THROUGH, 0);

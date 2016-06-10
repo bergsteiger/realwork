@@ -1,9 +1,33 @@
 Unit Dt_Serv;
 {$DEFINE UseCommServer}
 
-{ $Id: Dt_Serv.pas,v 1.332 2016/03/18 10:28:40 lukyanets Exp $ }
+{ $Id: Dt_Serv.pas,v 1.337 2016/06/07 13:41:37 fireton Exp $ }
 
 // $Log: Dt_Serv.pas,v $
+// Revision 1.337  2016/06/07 13:41:37  fireton
+// - кеширование образов документов
+//
+// Revision 1.336  2016/05/17 11:59:35  voba
+// -k:623081921
+//
+// Revision 1.335  2016/04/19 07:20:09  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.334  2016/04/18 08:39:58  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.333  2016/04/14 11:14:28  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.332  2016/03/18 10:28:40  lukyanets
 // Не создаем лишнего при проверке пароля
 //
@@ -1242,12 +1266,6 @@ type
 { Указатель на объект сервера баз данных }
   GlobalHtServer : THTServer = Nil;
 
-//  YieldProc  : TFarProc = Nil;
-//  cTestError : TFarProc = Nil;
-
-// Var
-//  StationJornal : TNetUsersJournal;
-
 function dtGetDB(aFamily    : TFamilyID;
                  aOnYield   : TNotifyEvent = nil;
                  aFileMeter : Tl3ProgressProc = nil;
@@ -1422,7 +1440,7 @@ Begin
    AccessServer := TAccessServer.Create;
   end;
   UserManager := TUserManager.Create;
-  SetDocImagePath(aRPath.DocImgPath);
+  SetDocImagePath(aRPath.DocImgPath, aRPath.DocImgCachePath);
  except
   on E: Exception do
   begin
@@ -1438,7 +1456,7 @@ Procedure DestroyHt;
 Begin
  if GlobalHtServer <> nil then
   GlobalHtServer.GoingToDie;
- SetDocImagePath('');
+ SetDocImagePath('', '');
  FreeLinkServer;
  l3Free(LockServer);
  FreeDictServer;
@@ -1622,9 +1640,9 @@ begin
   begin
    UserManager.GetUserGroup(fUserID);
    f_CurHomePath:=xxxGetHomePath(fUserID);
-   AccessServer.ReLoadMasks(MainTblsFamily);
+   AccessServer.ReLoadMaskArr(MainTblsFamily);
   end;
-  f_HasAdminRights := UserManager.IsUserAdmin(fUserID);
+  f_HasAdminRights := UserManager.xxxIsUserAdmin(fUserID);
  end;
 end;
 
@@ -2261,11 +2279,11 @@ begin
  if UserManager = nil then Exit; // Мог выскочить exception при инициализаци базы...
  if (AnsiLowerCase(aShortName) = c_SupervisorUserName) and not RequireAdminRights then
   Exit;
- if UserManager.CheckPassword(lUserID, aShortName, aPassword) then
+ if UserManager.xxxCheckPassword(lUserID, aShortName, aPassword) then
  begin
   if (lUserID <> usSupervisor) and RequireAdminRights then
   begin
-   if not UserManager.IsUserAdmin(lUserID) then
+   if not UserManager.xxxIsUserAdmin(lUserID) then
     Exit;
   end;
   Result:= True;
@@ -2604,11 +2622,6 @@ Begin
   if aFamily = 0 then
   begin
    Assert(false, 'GetTblObjectEx');
-   {l_MTbl := TMainTbls(aTable);
-   case l_MTbl of
-    mtGUDt  : Result := UserManager.UsGrDt;  // GUDT
-    mtUsers : Result := UserManager.UserTbl; // USERS
-   end;}
   end
   else
   begin

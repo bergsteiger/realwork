@@ -95,7 +95,7 @@ constructor TevCellsOffsetsPair.Create;
 begin
 //#UC START# *4F2F7030001E_4F2F6F750263_impl*
  inherited Create;
- f_RowType := ed_Null;
+ f_RowType := ed_rtNull;
  f_OldOffset := TevCellsCharOffsets.Create;
  f_NewOffset := TevCellsCharOffsets.Create;
 //#UC END# *4F2F7030001E_4F2F6F750263_impl*
@@ -297,7 +297,7 @@ begin
  if FindUpper(aList, l_Delta) then
  begin
   if (l_Delta > 0) then
-   if (aList.RowType = ed_ChessTableRow) and (aCelPosl = ed_cpLast) then
+   if (aList.RowType = ed_rtChessTableRow) and (aCelPosl = ed_cpLast) then
     lp_CorrectUpper(False)
    else
     aList.SetWidthPair(l_Delta, anOldCellWidth)
@@ -383,19 +383,19 @@ var
 //#UC END# *52F1EFF800A6_4F2F6F750263_var*
 begin
 //#UC START# *52F1EFF800A6_4F2F6F750263_impl*
- if (aPrev <> nil) and (aPrev.RowType = ed_SimpleCells) and (RowType = ed_SimpleCells) then
+ if (aPrev <> nil) and (aPrev.RowType = ed_rtSimpleCells) and (RowType = ed_rtSimpleCells) then
  begin
   l_Index := 0;
   while l_Index < f_OldOffset.GetCount do
   begin
-   if f_CellsType[l_Index] <> ed_EmptyAndNotFramed then
+   if f_CellsType[l_Index] <> ed_ctEmptyAndNotFramed then
    begin
     aPrev.f_OldOffset.FindOffset(f_OldOffset.GetOffsetByIndex(l_Index), l_PrevIndex);
     if (l_PrevIndex > -1) then
     begin
      l_PrevOffset := aPrev.f_NewOffset.GetOffsetByIndex(l_PrevIndex);
      if (aPrev.f_OldOffset.GetOffsetByIndex(l_PrevIndex) = f_OldOffset.GetOffsetByIndex(l_Index)) and
-        (aPrev.CellsType[l_PrevIndex] <> ed_EmptyAndNotFramed) and
+        (aPrev.CellsType[l_PrevIndex] <> ed_ctEmptyAndNotFramed) and
         (l_PrevOffset <> f_NewOffset.GetOffsetByIndex(l_Index)) then
      begin
       f_NewOffset.AlignByOffset(l_PrevOffset, l_Index, f_CellsType);
@@ -423,7 +423,7 @@ begin
  if f_CellsType <> nil then
   f_CellsType.Clear;
  FreeAndNil(f_CellsType);
- f_RowType := ed_Null;
+ f_RowType := ed_rtNull;
  inherited;
 //#UC END# *479731C50290_4F2F6F750263_impl*
 end;//TevCellsOffsetsPair.Cleanup

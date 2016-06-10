@@ -118,32 +118,10 @@ implementation @ <<Interfaces>>
 //	]
  end // if
 
-//%f _pas_BeforeUnitImplementation
-; // wiki_up_print
-
-: pas_BeforeUnitImplementation OBJECT IN %S
-//#UC START# *4A82C8F9037Cfor4704865603A9*
-//	[{%S{need UC}=true}\
- if ( ( %S get_up ( 'need UC' ) ) %==  true ) then
- begin
-//	\n\
-  #13#10
-//	%U[{unit_intf}\n]\n\
-  %Usersection (
-   'unit_intf' 
-  )
-  (
-   #13#10 
-  ) // Usersection
-   #13#10
-//	]
- end // if
-//#UC END# *4A82C8F9037Cfor4704865603A9*
-; // pas_BeforeUnitImplementation
-
-
 // ѕредназначена дл€ перекрыти€ в потомках, чтоб иметь возможность сгенерить дополнительные инклуды.
 //%f _additional_includes
+; // wiki_up_print
+
 : additional_includes OBJECT IN %S
 //#UC START# *4B4C82AB0199for4704865603A9*
 //#UC END# *4B4C82AB0199for4704865603A9*
@@ -1291,8 +1269,6 @@ implementation @ <<Interfaces>>
   NOP
 //	]\
  end // if
-//	%S%f_pas_BeforeUnitImplementation()\
- %S %f pas_BeforeUnitImplementation %( )% 
 
 //	%f_pas_OpenUnitImplementation(%S)\
  [%f] pas_OpenUnitImplementation %( %S )% 
@@ -1869,17 +1845,40 @@ implementation @ <<Interfaces>>
 //	[{%S#f_NoSpellRec()!=true}\
  if ( ( %S %?f NoSpellRec %( )% ) %!=  true ) then
  begin
-//	<%CX>\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
+
+//	[{%SS=ControllerInterfaces|%SN=vcmControllers}{\
+//	[{%SS=ControllerInterfaces}{\
+  if ( ( %S |S ) %== 'ControllerInterfaces' ) then
   begin
-   OBJECT IN %C
-   if true then
+//	<%CX>\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
    begin
-    %C |X 
-    ++! l_Counter
-   end // if
-  end // for C
+    OBJECT IN %C
+    if true then
+    begin
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+//	]\
+  end // if
+  else
+  begin
+//	<{}{%CS=Constants&%C{spell names}=true}%CX>\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %== 'Constants' AND 
+     ( ( %C get_up ( 'spell names' ) ) %==  true  ) ) then
+    begin
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+//	}\
+  end // else
 //	]
  end // if
 //#UC END# *4A41A13D03D5for4704865603A9*

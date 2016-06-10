@@ -3,9 +3,132 @@ unit ddHTMLWriter;
 {* Конвертация формата Эверест в HTML }
 
 
-//$Id: ddHTMLWriter.pas,v 1.154 2016/03/09 13:32:37 dinishev Exp $
+//$Id: ddHTMLWriter.pas,v 1.201 2016/06/06 08:04:33 dinishev Exp $
 
 // $Log: ddHTMLWriter.pas,v $
+// Revision 1.201  2016/06/06 08:04:33  dinishev
+// Bug fix: ошметки проблемы с лишним разбиением таблиц.
+//
+// Revision 1.200  2016/06/02 10:46:32  dinishev
+// {Requestlink:624078036}
+//
+// Revision 1.199  2016/06/01 09:42:49  dinishev
+// Выделил открытие/закрытие span
+//
+// Revision 1.197  2016/06/01 09:08:21  dinishev
+// {Requestlink:623486769}. Обобщил выливку Sub и Super в стилях и в span
+//
+// Revision 1.196  2016/06/01 09:02:20  dinishev
+// {Requestlink:623486769}. Вычистил THTMLTag, AddTag, GetFormat.
+//
+// Revision 1.195  2016/06/01 08:57:30  dinishev
+// {Requestlink:623486769}. Используем стили вместо тегов.
+//
+// Revision 1.194  2016/05/31 14:31:35  dinishev
+// Чистка кода.
+//
+// Revision 1.193  2016/05/31 14:29:24  dinishev
+// {Requestlink:623486769}. PAP2HTML. без THTMLTag.
+//
+// Revision 1.191  2016/05/31 12:30:06  dinishev
+// {Requestlink:623486769}. TagName -> ParaTag
+//
+// Revision 1.190  2016/05/31 12:08:53  dinishev
+// {Requestlink:623486769}. Избавился от AddStyleProperty
+//
+// Revision 1.188  2016/05/31 11:08:22  dinishev
+// Убрал параметр.
+//
+// Revision 1.186  2016/05/31 10:45:11  dinishev
+// {Requestlink:623486769}. Выкинул параметр.
+//
+// Revision 1.185  2016/05/31 10:38:10  dinishev
+// {Requestlink:623486769}. Распилил функцию StyleName на TagName и StyleName
+//
+// Revision 1.184  2016/05/31 09:54:16  dinishev
+// {Requestlink:623486769}. Выкинул StyleName
+//
+// Revision 1.183  2016/05/31 09:30:32  dinishev
+// {Requestlink:623486769}. Выкинул дублирующий код.
+//
+// Revision 1.181  2016/05/31 08:23:23  dinishev
+// {Requestlink:623486769}. При выливке таблиц обходимся без THTMLTag
+//
+// Revision 1.180  2016/05/30 11:37:58  dinishev
+// Reformat
+//
+// Revision 1.179  2016/05/30 05:27:37  dinishev
+// Добавил поддержку пары стилей. Поправил выливку выравнивания в стиле.
+//
+// Revision 1.178  2016/05/27 09:49:47  dinishev
+// Чистка кода.
+//
+// Revision 1.177  2016/05/27 09:47:08  dinishev
+// Чистка кода.
+//
+// Revision 1.176  2016/05/26 12:30:44  dinishev
+// Поправил выливку буллетов.
+//
+// Revision 1.175  2016/05/26 10:44:21  dinishev
+// Красный болд теперь тоже можно выливать. :-)
+//
+// Revision 1.174  2016/05/25 12:39:26  dinishev
+// Выделил выливку тега ячейки.
+//
+// Revision 1.173  2016/05/25 11:42:43  dinishev
+// Выделил выливку тега строки в отдельный метод.
+//
+// Revision 1.171  2016/05/25 09:31:24  dinishev
+// Чистка кода.
+//
+// Revision 1.170  2016/05/25 09:16:01  dinishev
+// Чистка кода.
+//
+// Revision 1.169  2016/05/24 12:22:57  dinishev
+// Рамки во вложенных таблицах неправильно определялись.
+//
+// Revision 1.168  2016/05/24 11:48:33  dinishev
+// Bug fix: фон у ААС отъехал.
+//
+// Revision 1.167  2016/05/23 10:50:33  dinishev
+// Переформатирование.
+//
+// Revision 1.166  2016/05/23 09:27:37  dinishev
+// Тесты отъехали.
+//
+// Revision 1.165  2016/05/23 08:50:42  dinishev
+// Формируем строку с цветом в одной функции.                                                
+//
+// Revision 1.164  2016/05/23 07:09:10  dinishev
+// Формируем строку с цветом в одной функции.
+//
+// Revision 1.163  2016/05/23 06:50:12  dinishev
+// выводим все в нижнем регистре.
+//
+// Revision 1.162  2016/05/20 11:20:54  dinishev
+// Не выливаем рамки для таблиц без рамок.
+//
+// Revision 1.161  2016/05/20 08:42:59  dinishev
+// Переименовал TddRowType в TddTableType.
+//
+// Revision 1.160  2016/05/20 06:57:58  dinishev
+// Вычистил кучу неиспользуемого кода.
+//
+// Revision 1.159  2016/05/13 11:58:31  dinishev
+// {Requestlink:623067981}
+//
+// Revision 1.158  2016/05/13 10:48:22  dinishev
+// Заголовок теперь проходит валидацию w3c
+//
+// Revision 1.157  2016/05/13 09:46:08  dinishev
+// {Requestlink:623067981}
+//                                                                                                                    
+// Revision 1.156  2016/05/12 09:20:28  dinishev
+// Reformat
+//
+// Revision 1.155  2016/05/11 14:11:10  dinishev
+// Reformat
+//
 // Revision 1.154  2016/03/09 13:32:37  dinishev
 // Незакоммител.
 //
@@ -459,104 +582,138 @@ interface
 
 Uses
  Classes,
- ddDocument, ddBase, ddRTFProperties,
- l3Base, l3Types,
- k2Prim,
- k2TagGen,
- l3LongintList,
- l3ObjectRefList
- , l3VCLStrings, ddCharacterProperty, ddParagraphProperty, ddTextParagraph, ddTypes,
- ddTable, ddTableRow, ddDocumentAtom, ddBreak, ddPicture, ddTextSegment,
+ 
+ ddBase,
+ ddTypes,
+ ddBreak,
+ ddTable,
+ ddPicture,
+ ddDocument,
+ ddTableRow,
+ ddTextSegment,
+ ddCellProperty,
+ ddDocumentAtom,
+ ddTextParagraph,
+ ddRTFProperties,
+ ddParagraphProperty,
+ ddCharacterProperty,
 
- l3Variant
+ l3Base,
+ l3Types,
+ l3Variant,
+ l3VCLStrings,
+ l3LongintList,
+ l3ProtoObject,
+ l3ObjectRefList,
+
+ k2Prim,
+ k2TagGen
  ;
 
 type
+  TddHTMLColor = (dd_hcColor, dd_hcWithSemiColon, dd_hcBackColor, dd_hcFontColor);
+
+  TddHTMLWriterOption = (dd_hwoIsPrime,
+                         dd_hwoWriteFirstLink,
+                         dd_hwoWriteStyleSheet,
+                         dd_hwoWriteGarantCSSLink);
+
+  TddHTMLWriterOptions = set of TddHTMLWriterOption;
+
+  TddParaTag = (dd_ptNone, dd_ptP, dd_ptH1, dd_ptH2, dd_ptH3, dd_ptH4, dd_ptA, dd_ptPre);
+
   TddHTMLGenerator = class(TddDocumentGenerator)
   private
-    f_AACBackColor: AnsiString;
-    FNeedStyleSheet: Boolean;
-    f_DivPreOpened: Boolean;
-    f_IsAnno: Boolean;
-    f_IsComplexTable: Boolean;
-    f_IsEtalonRow: Boolean;
-    f_isFirstHeader: Boolean;
-    f_IsPrime: Boolean;
-    f_Link: AnsiString;
-    f_LinkStart: Boolean;
-    f_LinkStop: Boolean;
-    f_ListLevel: Integer;
-    f_PictureNumber: Integer;
-    f_ListIndents: Tl3LongintList;
-    f_WriteFirstHyperlink: Boolean;
+   f_HTMLOptions: TddHTMLWriterOptions;
+   f_AACBackColor: AnsiString;
+   f_DivPreOpened: Boolean;
+   f_IsAnno: Boolean;
+   f_IsFirstHeader: Boolean;
+   f_Link: AnsiString;
+   f_LinkStart: Boolean;
+   f_LinkStop: Boolean;
+   f_ListLevel: Integer;
+   f_PictureNumber: Integer;
+   f_ListIndents: Tl3LongintList;
   private
-    procedure CheckBullet(const aPara: TddTextParagraph);
-    procedure CheckDiv(const aPara: TddTextParagraph);
-    procedure CheckCloseDiv(const aPara: TddTextParagraph);
-    procedure CheckSubsList(const aPara: TddTextParagraph);
-    procedure CheckTopBorder(const aPara: TddTextParagraph);
-    function EmtpyPara(const aPara: TddTextParagraph): Boolean;
-    procedure CheckPre(const aPara: TddTextParagraph);
-    procedure CheckStartStyleSegment(const aPara: TddTextParagraph; anIndex: Integer);
-    procedure CheckStartHyperlink(const aPara: TddTextParagraph; anIndex: Integer; const aText: Tl3String; aStartIndex: Integer);
-    function CheckObjectSegment(const aPara: TddTextParagraph; anIndex: Integer): Boolean;
-    procedure WriteChar(const aPara: TddTextParagraph; anIndex: Integer; const aText: Tl3String);
-    procedure CheckStopHyperlink(const aPara: TddTextParagraph; anIndex: Integer; aTextLen: Integer; aStopIndex: Integer);
-    procedure CheckStopStyleSegment(const aPara: TddTextParagraph; anIndex: Integer);
-    procedure CheckLinkContinue;
-    procedure CheckBottomBorder(const aPara: TddTextParagraph);
-    procedure CheckFirstHeader(const aPara: TddTextParagraph);
-    procedure AddStyleProperty(PropertyList: Tl3ObjectRefList; const aProperty, aParam,
-            aFlag: AnsiString);
-    function CHP2HTML(aCHP: TddCHaracterProperty; StopTag: Boolean; const
-            aList: Tl3ObjectRefList = nil): AnsiString;
-    procedure pm_SetWriteFirstHyperlink(const Value: Boolean);
-    procedure CloseDivPre;
-    procedure CloseList(AllLevels: Boolean);
-    function InchStr(aInch: Integer): AnsiString;
-    function MakePictureName: AnsiString;
-    procedure OpenDivPre;
-    procedure OpenList(aLeftIndent: Integer);
-    function pm_GetListLeftIndent: Integer;
-    function pm_GetListOpened: Boolean;
-    procedure pm_SetIsPrime(const Value: Boolean);
-    procedure pm_SetListLeftIndent(const Value: Integer);
-    function Style2HTML(aStyle: TddStyleEntry; const aList: Tl3ObjectRefList = nil):
-            AnsiString;
-    function AddAACStyleBackColor(aStyleID: Integer): AnsiString;
+   function pm_GetIsPrime: Boolean;
+   procedure pm_SetIsPrime(const Value: Boolean);
+   function GetRGBColor(aNumber: Integer; aSeparator: TddHTMLColor): AnsiString;
+   function OpenTableTag(const aTable: TddTable): TddTableType;
+   procedure CloseTableTag;
+   procedure OpenTableRowTag;
+   procedure CloseTableRowTag;
+   procedure OpenTableCellTag(aHeader: Boolean;
+                              const aParams: Tl3String);
+   procedure CloseTableCellTag(aHeader: Boolean);
+   procedure CheckBullet(const aPara: TddTextParagraph);
+   procedure CheckDiv(const aPara: TddTextParagraph);
+   procedure CheckCloseDiv(const aPara: TddTextParagraph; aParaTag: TddParaTag);
+   procedure CheckSubsList(const aPara: TddTextParagraph);
+   procedure CheckTopBorder(const aPara: TddTextParagraph);
+   function EmtpyPara(const aPara: TddTextParagraph): Boolean;
+   procedure CheckPre(const aPara: TddTextParagraph; var aParaTag: TddParaTag);
+   procedure CheckStartStyleSegment(const aPara: TddTextParagraph; anIndex: Integer; var aCloseDecor: Boolean);
+   procedure CheckStartHyperlink(const aPara: TddTextParagraph; anIndex: Integer; const aText: Tl3String; aStartIndex: Integer);
+   function CheckObjectSegment(const aPara: TddTextParagraph; anIndex: Integer): Boolean;
+   procedure WriteChar(const aPara: TddTextParagraph; anIndex: Integer; const aText: Tl3String);
+   procedure CheckStopHyperlink(const aPara: TddTextParagraph; anIndex: Integer; aTextLen: Integer; aStopIndex: Integer);
+   procedure CheckStopStyleSegment(const aPara: TddTextParagraph; anIndex: Integer; var aCloseDecor: Boolean);
+   procedure CheckLinkContinue;
+   procedure CheckBottomBorder(const aPara: TddTextParagraph);
+   procedure CheckFirstHeader(const aPara: TddTextParagraph);
+   procedure CHP2HTML(aCHP: TddCHaracterProperty; var aCloseDecor: Boolean);
+   procedure CloseDivPre;
+   procedure CheckList;
+   procedure CloseList(AllLevels: Boolean);
+   function InchStr(aInch: Integer): AnsiString;
+   function MakePictureName: AnsiString;
+   procedure OpenDivPre;
+   procedure OpenList(aLeftIndent: Integer);
+   function pm_GetListLeftIndent: Integer;
+   function pm_GetListOpened: Boolean;
+   procedure pm_SetListLeftIndent(const Value: Integer);
+   function Style2HTML(aStyle: TddStyleEntry): AnsiString;
+   function AddAACStyleBackColor(aStyleID: Integer): AnsiString;
+   procedure WriteGarantCSSLink;
+   procedure pm_SetHTMLOptions(const Value: TddHTMLWriterOptions);
+   procedure WriteHTMLStyleTable;
+   function Inch2Pixels(aValue: Integer): Integer;
+   procedure WriteAtom(const anAtom: TddDocumentAtom);
+   function NeedParaPAP(aEVDStyle: Integer; aPAP: TddParagraphProperty): Boolean;
+   procedure OpenParaTag(aParaTag: TddParaTag; const aParam: AnsiString; aNeedLI: Boolean);
+   procedure CloseParaTag(aParaTag: TddParaTag);
+   procedure OpenSpan(const aParam: AnsiString; var aCloseDecor: Boolean);
+   procedure CloseSpan(var aCloseDecor: Boolean);
   protected
-    procedure AddTag(TagList: Tl3ObjectRefList; const aTag, aParam: AnsiString);
-    procedure Cleanup; override;
-    function GetFormat(TagList: Tl3ObjectRefList; StopTag: Boolean): AnsiString;
-    function PAP2HTML(aPAP: TddPAragraphProperty; StopTag: Boolean; const aList:
-        Tl3ObjectRefList = nil): AnsiString; virtual;
-    function StyleName(StyleID: Integer; var IsSpecial: Boolean): AnsiString; virtual;
-    procedure WriteBreak(const aBreak: TddBreak); override;
-    procedure WriteColorTable(aDefault: Boolean = False); override;
-    procedure WriteDocumentBody; override;
-    procedure WriteDocumentEnd; override;
-    procedure WriteDocumentHeader; override;
-    procedure WriteDocumentStart; override;
-    procedure WriteFontTable(aDefault: Boolean = False); override;
-    procedure WriteHeader(aDefault: Boolean = False); override;
-    procedure WritePicture(const Picture: TddPicture; aWholePar: Boolean); override;
-    procedure WriteStyleTable(aDefault: Boolean = False); override;
-    procedure WriteTable(const Table: TddTable; aPart: Boolean); override;
-    procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aRowType: TddRowType = dd_rtNone; aRowPos: TddRowPosition = dd_rpNone); override;
-    procedure WriteTextParagraph(const Para: TddTextParagraph; anOutEOL: Boolean = False); override;
+   procedure Cleanup; override;
+   function PAP2HTML(aPAP: TddPAragraphProperty; var aParaTag: TddParaTag; var aNeedLI: Boolean): AnsiString;
+   function StyleName(StyleID: Integer): AnsiString;
+   function ParaTag(StyleID: Integer): TddParaTag;
+   procedure WriteBreak(const aBreak: TddBreak); override;
+   procedure WriteColorTable(aDefault: Boolean = False); override;
+   procedure WriteDocumentBody; override;
+   procedure WriteDocumentEnd; override;
+   procedure WriteDocumentHeader; override;
+   procedure WriteDocumentStart; override;
+   procedure WriteFontTable(aDefault: Boolean = False); override;
+   procedure WriteHeader(aDefault: Boolean = False); override;
+   procedure WritePicture(const Picture: TddPicture; aWholePar: Boolean); override;
+   procedure WriteTable(const aTable: TddTable; aPart: Boolean); override;
+   procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aTableType: TddTableType = dd_ttNone; aRowPos: TddRowPosition = dd_rpNone); override;
+   procedure WriteTextParagraph(const Para: TddTextParagraph; anOutEOL: Boolean = False); override;
   public
-    constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
-    procedure StartChild(TypeID: Tl3VariantDef); override;
-    property IsPrime: Boolean read f_IsPrime write pm_SetIsPrime;
-    property ListLeftIndent: Integer read pm_GetListLeftIndent write
-        pm_SetListLeftIndent;
-    property NeedStyleSheet: Boolean read FNeedStyleSheet write FNeedStyleSheet;
-    property ListOpened: Boolean read pm_GetListOpened;
-    property WriteFirstHyperlink: Boolean read f_WriteFirstHyperlink write pm_SetWriteFirstHyperlink;
+   constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
+   property IsPrime: Boolean read pm_GetIsPrime write pm_SetIsPrime;
+   procedure StartChild(TypeID: Tl3VariantDef); override;
+   property ListLeftIndent: Integer read pm_GetListLeftIndent write pm_SetListLeftIndent;
+   property ListOpened: Boolean read pm_GetListOpened;
+   property HTMLOptions: TddHTMLWriterOptions read f_HTMLOptions write pm_SetHTMLOptions;
   end;
 
 implementation
-Uses
+
+uses
  RTFTypes,
  {$IFDEF Envision}
  ddPictDetector,
@@ -579,8 +736,7 @@ Uses
  l3Filer,
  l3Const,
  l3String,
-// l3BitmapContainer,
-// l3MetafileContainer,
+ l3Interfaces, 
  l3InternalInterfaces,
 
  evdStyles,
@@ -598,7 +754,6 @@ Uses
 
  ddUtils,
  ddTableCell,
- ddCellProperty,
  ddObjectSegment,
  ddPictureSegment,
  ddFormulaSegment,
@@ -607,194 +762,94 @@ Uses
 
  evdTypes;
 
-type
-  THTMLTag = class(Tl3Base)
-  private
-    Param: AnsiString;
-    Tag: AnsiString;
-  public
-    constructor Create(const aTag, aParam: AnsiString);
-    reintroduce;
-  end;
-  
-{
-*********************************** THTMLTag ***********************************
-}
-constructor THTMLTag.Create(const aTag, aParam: AnsiString);
-begin
-  inherited Create;
-  Tag:= aTag;
-  Param:= aParam;
-end;
-
+const
+ csTagType2String: array [TddParaTag] of AnsiString = ('', 'p', 'h1', 'h2', 'h3', 'h4', 'a', 'pre');
+ csStartCloseTag = '</';
+ csFinishTag = '>';
+ csStartTag = '<';
+ csStyleParam = 'style = "';
+ csFinishParam = '"';
 
 {
 ******************************* TddHTMLGenerator *******************************
 }
 constructor TddHTMLGenerator.Create(anOwner: Tk2TagGeneratorOwner = nil);
 begin
-  inherited;
-  f_ListIndents := Tl3LongintList.Make;
-  FNeedStyleSheet := True;
-  UseExternalLinks := false;
-  f_WriteFirstHyperlink := False;
+ inherited;
+ f_ListIndents := Tl3LongintList.Make;
+ f_HTMLOptions := [dd_hwoWriteStyleSheet];
+ UseExternalLinks := false;
 end;
 
-procedure TddHTMLGenerator.AddStyleProperty(PropertyList: Tl3ObjectRefList; const
-        aProperty, aParam, aFlag: AnsiString);
-var
- i     : Integer;
- l_Tag : THTMLTag;
-begin
- l_Tag := nil;
- if aProperty <> '' then
- begin
-  for i:= 0 to PropertyList.Hi do
-   if UpperCase(THTMLTag(PropertyList.Items[i]).Tag) = UpperCase(aProperty) then
-   begin
-    l_Tag := THTMLTag(PropertyList.Items[i]);
-    Break;
-   end; // if l_Text.Empty then
-   if aFlag = '' then
-   begin
-    if l_Tag = nil then
-    begin
-     l_Tag := THTMLTag.Create(aProperty, aParam);
-     try
-      PropertyList.Add(l_Tag);
-     finally
-      l3Free(l_Tag);
-     end;
-    end // if l_Tag = nil then
-    else
-     l_Tag.Tag := aProperty;
-   end // if aFlag = '' then
-   else
-   if l_Tag <> nil then
-    PropertyList.Delete(PropertyList.IndexOf(l_Tag));
- end; // aTag <> ''
-end;
+procedure TddHTMLGenerator.CHP2HTML(aCHP: TddCHaracterProperty; var aCloseDecor: Boolean);
 
-procedure TddHTMLGenerator.AddTag(TagList: Tl3ObjectRefList; const aTag, aParam: AnsiString);
-var
- i     : Integer;
- l_Tag : THTMLTag;
-begin
- l_Tag := nil;
- if aTag <> '' then
- begin
-  for i := 0 to TagList.Hi do
-   if UpperCase(THTMLTag(TagList.Items[i]).Tag) = UpperCase(aTag) then
-   begin
-    l_Tag := THTMLTag(TagList.Items[i]);
-    Break;
-   end; // if UpperCase(THTMLTag(TagList.Items[i]).Tag) = UpperCase(aTag) then
-   if l_Tag = nil then
-   begin
-    l_Tag := THTMLTag.Create(aTag, aParam);
-    try
-     TagList.Add(l_Tag);
-    finally
-     l3Free(l_Tag);
-    end;
-   end // if l_Tag = nil then
-   else
-   if Pos(UpperCase(aParam), UpperCase(THTMLTag(TagList.Items[i]).Param)) = 0 then
-   begin
-    if l_Tag.Param <> '' then
-     l_Tag.Param := l_Tag.Param + ' ';
-    l_Tag.Param := l_Tag.Param + aParam;
-   end;
- end; // aTag <> ''
-end;
+ function lp_CHP2HTML(CHP: TddCharacterProperty): AnsiString;
+ const
+  csSubStyle = 'vertical-align: sub; font-size: smaller;';
+  csSupStyle = 'vertical-align: super; font-size: smaller;';
+  csBoldStyle = 'font-weight: bold;';
+  csItalicStyle = 'font-style: italic;';
+  csUnderlineStyle = 'text-decoration: underline;';
+  csStrikeStyle = 'text-decoration: line-through;';
+ var
+  l_Separator: Boolean;
 
-function TddHTMLGenerator.CHP2HTML(aCHP: TddCHaracterProperty; StopTag: Boolean;
-        const aList: Tl3ObjectRefList = nil): AnsiString;
-var
-  l_S, l_StyleName: AnsiString;
-  l_IsSpecial: Boolean;
-  l_List: Tl3ObjectRefList;
-
-  procedure _CHP2HTML(CHP: TddCHaracterProperty);
+  procedure lp_AddStyle(const aParam: AnsiString);
   begin
-   with CHP do
-   begin
-    case Pos of
-     cpSubScript  : l_S:= 'sub';
-     cpSuperScript: l_S:= 'sup';
-    else
-      l_S:= '';
-    end; // Case Pos
-    AddTag(l_List, l_s, '');
-    if FColor <> propUndefined then
-     with Document.ColorTable[Pred(FColor)] do
-     AddTag(l_List, 'font', 'color=#'+IntToHex(Red, 2)+IntToHex(Green, 2)+IntToHex(Blue, 2));
-    if Bold then
-     AddTag(l_List, 'b', '');
-    if Italic then
-     AddTag(l_List, 'i', '');
-    if not (Underline in [utNone, utNotDefined]) then
-     AddTag(l_List, 'u', '');
-    if Strikeout then
-     AddTag(l_List, 'strike', '');
-   end; // with CHP
+   if l_Separator then
+    Result := Result + cc_HardSpace;
+   Result := Result + aParam;
+   l_Separator := True;
   end;
 
-begin
-  Result := '';
-  if aList = nil then
-   l_List:= Tl3ObjectRefList.Make
-  else
-   l_List:= aList;
-  try
-   with aCHP do
-   begin
-    if Style <> 0 then
-    begin
-     l_StyleName:= StyleName(Style, l_IsSpecial);
-     if not l_IsSpecial and (l_StyleName <> '') then
-      AddTag(l_List, 'font', 'class="'+l_StyleName+'"')
-     else
-     if l_IsSpecial then
-      _CHP2HTML(Document.StyleTable[Style].CHP)
-    end
-    else
-     _CHP2HTML(aCHP);
-   end; // Style = 0
-   Result:= GetFormat(l_List, StopTag);
-  finally
-   if aList = nil then
-    l3Free(l_List);
-  end; // try..finally
-end;
-
-function TddHTMLGenerator.GetFormat(TagList: Tl3ObjectRefList; StopTag: Boolean): AnsiString;
-var
- i: LongInt;
- l_Tag: THTMLTag;
-begin
- Result := '';
- for i := 0 to TagList.Hi do
  begin
-  l_Tag := THTMLTag(TagList.Items[i]);
-  if l_Tag.Tag <> '' then
+  l_Separator := False;
+  Result := '';
+  with CHP do
   begin
-   if StopTag then
-    Result := '</'+l_Tag.Tag + '>' + Result
+   case Pos of
+    cpSubScript  : lp_AddStyle(csSubStyle);
+    cpSuperScript: lp_AddStyle(csSupStyle);
+   end; // Case Pos
+   if FColor <> propUndefined then
+    lp_AddStyle(GetRGBColor(FColor - 1, dd_hcFontColor));
+   if Bold then
+    lp_AddStyle(csBoldStyle);
+   if Italic then
+    lp_AddStyle(csItalicStyle);
+   if not (Underline in [utNone, utNotDefined]) then
+    lp_AddStyle(csUnderlineStyle)
+   else
+    if Strikeout then
+     lp_AddStyle(csStrikeStyle);
+  end; // with CHP
+  if Result <> '' then
+   Result := csStyleParam + Result + csFinishParam;
+ end;
+
+var
+ l_Params   : AnsiString;
+ l_ParaTag  : TddParaTag;
+ l_StyleName: AnsiString;
+begin
+ with aCHP do
+ begin
+  if (Style <> 0) and (Style <> propUndefined) then
+  begin
+   l_ParaTag := ParaTag(Style);
+   if l_ParaTag <> dd_ptNone then
+    l_Params := lp_CHP2HTML(Document.StyleTable[Style].CHP)
    else
    begin
-    Result := Result + '<' + l_Tag.Tag;
-    if l_Tag.Param <> '' then
-    begin
-     if not AnsiEndsStr(' ', Result) then
-      Result := Result + ' ';
-     Result := Result + l_Tag.Param
-    end; // l_Tag.Param <> ''
-   end; // if StopTag
-   if not StopTag then
-    Result := Result + '>';
-  end; // l_Tag.Tag <> ''
- end; // for i
+    l_StyleName := StyleName(Style);
+    if (l_StyleName <> '') then
+     l_Params := 'class="' + l_StyleName + '"';
+   end;
+  end // if (Style <> 0) and (Style <> propUndefined) then
+  else
+   l_Params := lp_CHP2HTML(aCHP);
+ end; // Style = 0
+ OpenSpan(l_Params, aCloseDecor);
 end;
 
 function TddHTMLGenerator.MakePictureName: AnsiString;
@@ -810,95 +865,83 @@ begin
  Inc(f_PictureNumber);
 end;
 
-function TddHTMLGenerator.PAP2HTML(aPAP: TddPAragraphProperty; StopTag:
-    Boolean; const aList: Tl3ObjectRefList = nil): AnsiString;
+function TddHTMLGenerator.PAP2HTML(aPAP: TddPAragraphProperty; var aParaTag: TddParaTag; var aNeedLI: Boolean): AnsiString;
+
+ procedure lp_CheckAlignment(aJust: TJust; var aStyleText: AnsiString);
+ begin
+  case aJust of
+   justL: aStyleText := aStyleText + 'text-align: left;';
+   justR: aStyleText := aStyleText + 'text-align: right;';
+   justC: aStyleText := aStyleText + 'text-align: center;';
+   justF: aStyleText := aStyleText + 'text-align: justify;';
+  end; //case JUST
+ end;
+
 var
  l_Left      : Integer;
- l_List      : Tl3ObjectRefList;
  l_StyleName : AnsiString;
- l_IsSpecial : Boolean;
 begin
-  Result := '';
-  if aList <> nil then
-   l_List := aList
-  else
-   l_List := Tl3ObjectRefList.Make;
-  try
-   with aPAP do
+ Result := '';
+ with aPAP do
+ begin
+  if (Style <> 0) and (Style <> propUndefined) then
+  begin
+   if IsPrime and (Style = ev_saNormalTable) then
+    l_StyleName := ''
+   else
+    aParaTag := ParaTag(Style);
+   if aParaTag = dd_ptNone then
+    l_StyleName := StyleName(aPAP.Style);
+   if (l_StyleName <> '') or (aParaTag <> dd_ptNone) then
    begin
-    if (Style <> 0) and (Style <> propUndefined) then
+    if (aParaTag = dd_ptNone) then
     begin
-     if IsPrime and (Style = ev_saNormalTable) then
-      l_StyleName := ''
+     if (Just = justP) and not IsPrime then
+      aParaTag := dd_ptPre
      else
-      l_StyleName := StyleName(aPAP.Style, l_IsSpecial);
-
-     if l_StyleName <> '' then
-     begin
-      if l_IsSpecial then
-       AddTag(l_List, Format('%s', [l_StyleName]), '')
-      else
-      begin
-       if (Just = justP) and not IsPrime then
-        AddTag(l_List, 'pre', ''{'WIDTH=80'})
-       else
-       if Bullet = propUndefined then
-        AddTag(l_List, 'p', Format('class="%s"', [l_StyleName]))
-       else
-        AddTag(l_List, 'li', '');
-      end;
-     end
-     else
-      AddTag(l_List, 'p', '');
-    end //Style <> 0
-    else
-    begin
      if Bullet = propUndefined then
-      AddTag(l_List, 'p', '')
+     begin
+      aParaTag := dd_ptP;
+      Result := Format('class="%s"', [l_StyleName]);
+     end // if Bullet = propUndefined then
      else
-     if (Bullet <> propUndefined) then
-     begin
-      if StopTag then
-       AddTag(l_List, '', '')
-      else
-       AddTag(l_List, 'li', '');
-     end;
-     if not IsPrime then
-     begin
-      Result := '' ;
-      if (xaLeft <> propUndefined) and (xaLeft <> 0) then
-       Result := Result + Format('margin-left : %s', [InchStr(xaLeft)]);
-      if (xaRight <> propUndefined) and (xaRight <> 0) then
-       Result := Result + Format('margin-right : %s', [InchStr(xaRight)]);
-      { TODO -oДудко Дмитрий -cРазвитие : перерасчет отступа красной строки }
-      if xaLeft <> propUndefined then
-       l_Left := xaLeft
-      else
-       l_Left := 0;
-      if (xaFirst <> propUndefined){ and (xaFirst <> 0) Зачем эта проверка ?} then
-        Result := Result + Format('text-indent : %s', [InchStr(xaFirst)]);
-      case JUST of
-       justL: Result := Result + 'text-align=left;';
-       justR: Result := Result + 'text-align=right;';
-       justC: Result := Result + 'text-align=center;';
-       justF: Result := Result + 'text-align=justify;';
-      end; //case JUST
-      if (Before <> propUndefined) and (Before <> 0) then
-       Result := Result + Format('margin-top : %s', [InchStr(Before)]);
-      if (After <> propUndefined) and (After <> 0) then
-       Result := Result + Format('margin-bottom : %s', [InchStr(After)]);
-      if Result <> '' then
-       AddTag(l_List, 'p', 'style = "{' + Result + '}"')
-      else
-       AddTag(l_List, 'p', '');
-     end;
+      aNeedLI := True;
     end;
-   end; // with aPAP
-   Result := GetFormat(l_List, StopTag);
-  finally
-   if aList = nil then
-    l3Free(l_List);
-  end; // try..finally
+   end // if l_StyleName <> '' then
+   else
+    aParaTag := dd_ptP
+  end //Style <> 0
+  else
+  begin
+   if Bullet = propUndefined then
+    aParaTag := dd_ptP
+   else
+   if (Bullet <> propUndefined) then
+    aNeedLI := True;
+   if not IsPrime then
+   begin
+    if (xaLeft <> propUndefined) and (xaLeft <> 0) then
+     Result := Result + Format('margin-left : %s', [InchStr(xaLeft)]);
+    if (xaRight <> propUndefined) and (xaRight <> 0) then
+     Result := Result + Format('margin-right : %s', [InchStr(xaRight)]);
+    { TODO -oДудко Дмитрий -cРазвитие : перерасчет отступа красной строки }
+    if xaLeft <> propUndefined then
+     l_Left := xaLeft
+    else
+     l_Left := 0;
+    if (xaFirst <> propUndefined){ and (xaFirst <> 0) Зачем эта проверка ?} then
+      Result := Result + Format('text-indent : %s', [InchStr(xaFirst)]);
+    lp_CheckAlignment(Just, Result);
+    if (Before <> propUndefined) and (Before <> 0) then
+     Result := Result + Format('margin-top : %s', [InchStr(Before)]);
+    if (After <> propUndefined) and (After <> 0) then
+     Result := Result + Format('margin-bottom : %s', [InchStr(After)]);
+    aParaTag := dd_ptP;
+    if Result <> '' then
+     Result := csStyleParam + Result + csFinishParam;
+   end; // if not IsPrime then
+  end;
+ end; // with aPAP
 end;
 
 procedure TddHTMLGenerator.Cleanup;
@@ -938,6 +981,7 @@ procedure TddHTMLGenerator.OpenDivPre;
 begin
  if not f_DivPreOpened and IsPrime then
  begin
+  CheckList;
   f_DivPreOpened := True;
   OutStringLn('<pre>'); // условно
  end;
@@ -972,18 +1016,6 @@ begin
  Result := f_ListLevel > 0;
 end;
 
-procedure TddHTMLGenerator.pm_SetIsPrime(const Value: Boolean);
-begin
- if f_IsPrime <> Value then
- begin
-  f_IsPrime := Value;
-  if IsPrime then
-  begin
-   NeedStyleSheet := False;
-  end;
- end;
-end;
-
 procedure TddHTMLGenerator.pm_SetListLeftIndent(const Value: Integer);
 begin
  f_ListIndents.Add(Value);
@@ -995,7 +1027,7 @@ var
 begin
  inherited;
  l_TT := CurrentType;
- if l_TT.IsKindOf(k2_typAnnoTopic) and f_IsPrime then
+ if l_TT.IsKindOf(k2_typAnnoTopic) and IsPrime then
   f_IsAnno := True
  else
  if l_TT.IsKindOf(k2_typDocument) then
@@ -1009,16 +1041,41 @@ begin
  end // if l_TT.IsKindOf(k2_typDocument) then
 end;
 
-function TddHTMLGenerator.Style2HTML(aStyle: TddStyleEntry; const aList:
-        Tl3ObjectRefList = nil): AnsiString;
+function TddHTMLGenerator.Style2HTML(aStyle: TddStyleEntry): AnsiString;
 var
- l_List: Tl3ObjectRefList;
+ l_NeedSplit : Boolean;
+
+ procedure lp_OutSoftEnter;
+ begin
+  if l_NeedSplit then
+  begin
+   OutString(cc_SoftEnter);
+   l_NeedSplit := False;
+  end; // if l_NeedSplit then
+ end;
+
+ procedure lp_OutSeparator;
+ begin
+  OutString(cc_HardSpace);
+ end;
+
+ procedure lp_OutStyleProp(aName, aValue: AnsiString);
+ begin
+  lp_OutSoftEnter;
+  OutString(aName);
+  lp_OutSeparator;
+  OutString(aValue);
+  l_NeedSplit := True;
+ end;
+
+var
  i: Integer;
  l_Left: Integer;
  l_PAP, l_DiffPAP: TddParagraphProperty;
  l_CHP, l_DiffCHP: TddCharacterProperty;
 begin
  // Нужно раскручивать всю цепочку до первого предка, иначе теряется унаследованное оформление
+ l_NeedSplit := False;
  l_PAP := TddParagraphProperty.Create;
  try
   l_CHP := TddCharacterProperty.Create;
@@ -1028,111 +1085,63 @@ begin
    try
     l_DiffPAP.JoinWith(l_PAP);
     l_DiffCHP := aStyle.CHP.Clone;
-     try
-      l_DiffCHP.JoinWith(l_CHP);
-      if aList = nil then
-       l_List := Tl3ObjectRefList.Make
+    try
+     l_DiffCHP.JoinWith(l_CHP);
+     with l_DiffCHP do
+     begin
+      if Bold then
+       lp_OutStyleProp('font-weight:', 'Bold;');
+      if not (Underline in [utNone, utNotDefined]) then
+       lp_OutStyleProp('text-decoration:', 'underline;');
+      if Italic then
+       lp_OutStyleProp('font-style:', 'Italic;');
+      if Hidden then
+       lp_OutStyleProp('background-color:', GetRGBColor(Document.AddColor(clGray), dd_hcWithSemiColon))
       else
-       l_List := aList;
-      try
-       with l_DiffCHP do
-       begin
-        if Bold then
-         AddStyleProperty(l_List, 'font-weight:','Bold;', '');
-        if not (Underline in [utNone, utNotDefined]) then
-         AddStyleProperty(l_List, 'text-decoration:', 'underline;', '');
-        if Italic then
-         AddStyleProperty(l_List, 'font-style:', 'Italic;', '')
-        else
-         AddStyleProperty(l_List, 'font-style:', 'Italic;', '1');
-         //case Caps of
-         // ccAllCaps
-         // ccSmallCapstext-transform:  property Caps: TCharCapsType
-        if Hidden then
-        with Document.ColorTable[Document.AddColor(clGray)] do
-          AddStyleProperty(l_List, 'background-color:',
-                           Format( '#%s%s%s;', [IntToHex(Red, 2),
-                                                IntToHex(Green, 2),
-                                                IntToHex(Blue, 2)]), '');
+       if (Abs(Highlight) <> propUndefined) then
+        lp_OutStyleProp('background-color:', GetRGBColor(Highlight - 1, dd_hcWithSemiColon))
+       else
+        if (Abs(BColor) <> propUndefined) then
+         lp_OutStyleProp('background-color:', GetRGBColor(BColor - 1, dd_hcWithSemiColon));
+      if (Abs(FontNumber) <> propUndefined) then
+       lp_OutStyleProp('font-family: ', Document.FontTable[FontNumber].AsString + ';');
+      if Abs(FontSize) <> propUndefined then
+       lp_OutStyleProp('font-size:', Format('%dpt;',[FontSize div 2]));
+      if Abs(FColor) <> propUndefined then
+       lp_OutStyleProp('color:', GetRGBColor(FColor - 1, dd_hcWithSemiColon));
+      case Pos of
+       cpSuperscript: lp_OutStyleProp('vertical-align:', 'super; font-size: smaller;');
+       cpSubScript: lp_OutStyleProp('vertical-align:', 'sub; font-size: smaller;');
+      end; // case Pos
+      if Strikeout then
+       lp_OutStyleProp('text-decoration:', 'line-through;');
+     end; //with aStyle.CHP
 
-        if Abs(Highlight) <> propUndefined then
-        with Document.ColorTable[Pred(Highlight)] do
-          AddStyleProperty(l_List, 'background-color:',
-                           Format( '#%s%s%s;', [IntToHex(Red, 2),
-                                                IntToHex(Green, 2),
-                                                IntToHex(Blue, 2)]), '');
+     if aStyle.StyleDef = sdParagraph then
+      with l_DiffPAP do
+      begin
+       lp_OutStyleProp('margin:', '0;');
+       if (xaLeft <> propUndefined) and (xaLeft <> 0) then
+        lp_OutStyleProp('margin-left:', InchStr(xaLeft));
+       if (xaRight <> propUndefined) and (xaRight <> 0) then
+        lp_OutStyleProp('margin-right:', InchStr(xaRight));
+       if xaLeft <> propUndefined then
+        l_Left := xaLeft
+       else
+        l_Left := 0;
+       if (xaFirst <> propUndefined) then
+        lp_OutStyleProp('text-indent :', InchStr(xaFirst));
 
-         //  property Deleted: Bool
-         //  property CharScale: Longint
-         //  property Subpos: Longint
-         //  property Contour: TContourType
-        if (Abs(FontNumber) <> propUndefined){ and (FontNumber <> 0)}then
-         AddStyleProperty(l_List, 'font-family: ', Document.FontTable[FontNumber].AsString + ';', '');
-        if Abs(FontSize) <> propUndefined then
-         AddStyleProperty(l_List, 'font-size:', Format('%dpt;',[FontSize div 2]), '');
-         //  property Language: Longint
-        if Abs(FColor) <> propUndefined then
-         with Document.ColorTable[Pred(FColor)] do
-          AddStyleProperty(l_List, 'color:', Format('#%s%s%s;',
-                                                    [IntToHex(Red, 2),
-                                                     IntToHex(Green, 2),
-                                                     IntToHex(Blue, 2)]), '');
-        if Abs(BColor) <> propUndefined then
-         with Document.ColorTable[Pred(BColor)] do
-          AddStyleProperty(l_List, 'background-color:', Format('#%s%s%s;',
-                                                               [IntToHex(Red, 2),
-                                                                IntToHex(Green, 2),
-                                                                IntToHex(Blue, 2)]), '');
-        case Pos of
-         cpSuperscript: AddStyleProperty(l_List, 'vertical-align:', 'sup;', '');
-         cpSubScript:   AddStyleProperty(l_List, 'vertical-align:', 'sub;', '');
-        end; // case Pos
-        if Strikeout then
-         AddStyleProperty(l_List, 'text-decoration:', 'line-through;', '');
-       end; //with aStyle.CHP
-
-       if aStyle.StyleDef = sdParagraph then
-        with l_DiffPAP do
-        begin
-         AddStyleProperty(l_List, 'margin:', '0 in;', '');
-          if (xaLeft <> propUndefined) and (xaLeft <> 0) then
-           AddStyleProperty(l_List, 'margin-left:', InchStr(xaLeft), '');
-          if (xaRight <> propUndefined) and (xaRight <> 0) then
-           AddStyleProperty(l_List, 'margin-right:', InchStr(xaRight), '');
-          if xaLeft <> propUndefined then
-           l_Left := xaLeft
-          else
-           l_Left := 0;
-          if (xaFirst <> propUndefined){ and (xaFirst <> 0) Зачем эта проверка ?} then
-            AddStyleProperty(l_List, 'text-indent :', InchStr(xaFirst{+l_Left}), '');
-
-         case Just of
-          justL : AddStyleProperty(l_List, 'text-align:', 'left;', '');
-          justR : AddStyleProperty(l_List, 'text-align:', 'right;', '');
-          justC : AddStyleProperty(l_List, 'text-align:', 'center;', '');
-          justF : AddStyleProperty(l_List, 'text-align:', 'justify;', '');
-         end; // case Just
-          //margin-top: Before: Integer
-          //margin-bottom:  After : Integer
-          //  property Border : TddBorder
-        end; //with aStyle.PAP
-       if aList = nil then
-       begin
-        Result:= '';
-        for i:= 0 to l_List.Hi do
-        begin
-         Result:= Result + ThTMLTag(l_List.Items[i]).Tag + ' '+ ThTMLTag(l_List.Items[i]).Param;
-         if i <> l_List.Hi then
-          Result:= Result + #10;
-        end;
-       end; // aList = nil
-      finally
-       if aList = nil then
-        l3Free(l_List);
-      end; // l_List
-     finally
-      FreeAndNil(l_DiffCHP);
-     end;
+       case Just of
+        justL : lp_OutStyleProp('text-align:', 'left;');
+        justR : lp_OutStyleProp('text-align:', 'right;');
+        justC : lp_OutStyleProp('text-align:', 'center;');
+        justF : lp_OutStyleProp('text-align:', 'justify;');
+       end; // case Just
+      end; //with aStyle.PAP
+    finally
+     FreeAndNil(l_DiffCHP);
+    end;
    finally
     FreeAndNil(l_DiffPAP);
    end;
@@ -1144,74 +1153,21 @@ begin
  end;
 end;
 
-function TddHTMLGenerator.StyleName(StyleID: Integer; var IsSpecial: Boolean): AnsiString;
+function TddHTMLGenerator.StyleName(StyleID: Integer): AnsiString;
 begin
-  IsSpecial:= False;
+ Result:= '';
  if IsPrime then
   case StyleID of
-   ev_saTxtNormalANSI   :
-    begin
-     Result:= 'p'; {* - Нормальный. }
-     IsSpecial:= True;
-    end;
-   ev_saTxtHeader1      :
-    begin
-     if IsPrime then
-     begin
-      if f_isFirstHeader then
-       Result := 'h2'
-      else
-       Result := 'h3';
-     end;
-     IsSpecial:= True;
-    end;
-   ev_saHyperLink       :
-    begin
-     Result:= 'a'; {* - Гипертекстовая ссылка. }
-     IsSpecial:= True;
-    end;
    ev_saToLeft          : Result:= 'ToLeft'; {* - Прижатый влево. }
    ev_saNormalSBSLeft   : Result:= 'ToLeft'; {* - Нормальный для левых частей SBS. }
    ev_saNormalSBSRight  : Result:= 'ToRight'; {* - Нормальный для правых частей SBS. }
    ev_saHFLeft          : Result:= 'ToLeft';   {* - колонтитул (левый). }
    ev_saHFRight         : Result:= 'ToRight'   {* - колонтитул (правый). }
-  else
-   Result:= '';
   end // case StyleID
  else
   case StyleID of
-   ev_saTxtNormalANSI   :
-    begin
-     Result:= 'p'; {* - Нормальный. }
-     IsSpecial:= True;
-    end;
-   ev_saTxtNormalOEM    : Result:= 'NormalOEM'; {* - Нормальный (OEM). }
-   ev_saTxtHeader1      :
-    begin
-     Result:= 'h1'; {* - Заголовок 1. }
-     IsSpecial:= True;
-    end;
-   ev_saTxtHeader2      :
-    begin
-     Result:= 'h2'; {* - Заголовок 2. }
-     IsSpecial:= True;
-    end;
-   ev_saTxtHeader3      :
-    begin
-     Result:= 'h3'; {* - Заголовок 3. }
-     IsSpecial:= True;
-    end;
-   ev_saTxtHeader4      :
-    begin
-     Result:= 'h4'; {* - Заголовок 4. }
-     IsSpecial:= True;
-    end;
+   ev_saTxtNormalOEM    : Result:= 'NormalOEM'; {* - Нормальный (OEM). }  
    ev_saTxtOutOfDate    : Result:= 'TxtOutOfDate'; {* - Утратил силу. }
-   ev_saHyperLink       :
-    begin
-     Result:= 'a'; {* - Гипертекстовая ссылка. }
-     IsSpecial:= True;
-    end;
    ev_saTxtComment      : Result:= 'TxtComment'; {* - Комментарий. }
    ev_saColorSelection  : Result:= 'ColorSelection'; {* - Цветовое выделение. }
    ev_saHyperLinkCont   : Result:= 'HyperLinkCont'; {* - Продолжение ссылки. }
@@ -1231,7 +1187,9 @@ begin
    ev_saNotApplied      : Result:= 'NotApplied'; {* - не вступил в силу. }
    ev_saDictEntry       : Result:= 'DictEntry'; {* - Словарная статья. }
    ev_saHFLeft          : Result:= 'HFLeft';   {* - колонтитул (левый). }
-   ev_saHFRight         : Result:= 'HFRight'   {* - колонтитул (правый). }
+   ev_saHFRight         : Result:= 'HFRight';   {* - колонтитул (правый). }
+   ev_saCenteredTable   : Result:= 'CenterTable';
+   ev_saBoldSelection   : Result:= 'BoldSelection';
   else
    Result:= '';
   end; // case StyleID
@@ -1251,6 +1209,7 @@ begin
  begin
   OutStringLn('<body>');
   inherited WriteDocumentBody;
+  CheckList;
   OutStringLn('</body>');
  end;
 end;
@@ -1263,6 +1222,7 @@ begin
    OutStringLn('</div>')
   else
   begin
+   CheckList;
    OutStringLn('</body>');
    OutStringLn('</html>');
   end;
@@ -1287,7 +1247,10 @@ begin
   if IsPrime then
    OutStringLn('<div id="primeDocs">')
   else
+  begin
+   OutStringLn('<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">');
    OutStringLn('<html>');
+  end;
  end;
 end;
 
@@ -1299,23 +1262,23 @@ procedure TddHTMLGenerator.WriteHeader(aDefault: Boolean = False);
 begin
  if not IsPrime then
  begin
-  OutStringLn('<!doctype html public "-//w3c//dtd html 4.0 transitional//en">');
-  OutStringLn('<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-'+IntToStr(CP_RussianWin)+'">');
+  OutStringLn('<head>');
+  OutStringLn('<meta http-equiv="content-type" content="text/html; charset=windows-' + IntToStr(CP_RussianWin) + '">');
   {$IFNDEF InsiderTest}
-  OutStringLn('<META NAME="Generator" CONTENT="'+l3System.AppTitle+'">');
+  OutStringLn('<meta name="generator" content="' + l3System.AppTitle + '">');
   {$ENDIF InsiderTest}
-  OutStringLn('<HEAD>');
-  OutString('<TITLE>');
+  OutString('<title>');
   OutString(Document.Info.Title);
-  OutStringLn('</TITLE>');
-  OutStringLn('</HEAD>');
+  OutStringLn('</title>');
+  WriteHTMLStyleTable;
+  OutStringLn('</head>');
  end; // not IsPrime
 end;
 
 procedure TddHTMLGenerator.WritePicture(const Picture: TddPicture; aWholePar:
     Boolean);
 var
-  l_FileName, PS: ShortString;
+  l_FileName, PS: AnsiString;
   l_Stream: Tl3FileStream;
   l_Width: Integer;
 begin
@@ -1374,15 +1337,15 @@ begin
    OutStringLn('</img>');
 end;
 
-procedure TddHTMLGenerator.WriteStyleTable(aDefault: Boolean = False);
+procedure TddHTMLGenerator.WriteHTMLStyleTable;
 var
-  i: Integer;
-  l_Style: TddStyleEntry;
-  l_StyleName: AnsiString;
-  l_IsSpecial,
-  l_NeedP: Boolean;
+ i: Integer;
+ l_Style: TddStyleEntry;
+ l_ParaTag  : TddParaTag;
+ l_StyleName: AnsiString;
+ l_NeedP: Boolean;
 begin
- if NeedStyleSheet then
+ if dd_hwoWriteStyleSheet in f_HTMLOptions then
  begin
   OutStringLn('<style type="text/css">');
   OutStringLn('body {');
@@ -1400,7 +1363,7 @@ begin
   end;
   OutStringLn('}');
   OutStringLn('pre {');
-  OutStringLn('margin: 0; margin-left: 0 in;text-indent : 0 in;text-align: left;');
+  OutStringLn('margin: 0; margin-left: 0 in; text-indent : 0 in; text-align: left;');
   OutStringLn('}');
   l_Style:= Document.StyleTable[ev_saNormalTable];
   if l_Style <> nil then
@@ -1416,11 +1379,13 @@ begin
    l_Style:= Document.StyleSheet[i];
    if l_NeedP then
     l_NeedP := l_Style.Number <> ev_saTxtNormalANSI;
-   l_StyleName:= StyleName(l_Style.Number, l_IsSpecial);
-   if l_StyleName <> '' then
+   l_ParaTag := ParaTag(l_Style.Number);
+   if l_ParaTag = dd_ptNone then
+    l_StyleName := StyleName(l_Style.Number);
+   if (l_StyleName <> '') or (l_ParaTag <> dd_ptNone) then
    begin
-    if l_IsSpecial then
-     OutStringLn(Format('%s {', [l_StyleName]))
+    if (l_ParaTag <> dd_ptNone) then
+     OutStringLn(Format('%s {', [csTagType2String[l_ParaTag]]))
     else
      OutStringLn(Format('.%s {', [l_StyleName]));
     OutStringLn(Style2HTML(l_Style));
@@ -1433,7 +1398,7 @@ begin
    OutStringLn('text-indent : 0.5 in; margin: 0;');
    OutStringLn('text-align:justify; font-family : Arial; font-size: 10pt');
    OutStringLn('}');
-  end;
+  end; // if l_NeedP then
   // Ссылка
   (*
   OutStringLn('A:link { color : #008000; text-decoration: none}');
@@ -1441,28 +1406,20 @@ begin
   OutStringLn('A:hover { color : #008000; text-decoration: none}');
   *)
   OutStringLn('</style>');
- end;
+ end
+ else
+  if dd_hwoWriteGarantCSSLink in f_HTMLOptions then
+   WriteGarantCSSLink;
 end;
 
-procedure TddHTMLGenerator.WriteTable(const Table: TddTable; aPart: Boolean);
-
- function lp_InitRowType: TddRowType;
- begin
-  Result := TddRowType(Table.IsSBS);
-  if (Result = dd_rtNone) and evAACStyle(Table.Style) then
-  begin
-   Result := dd_rtAAC;
-   f_AACBackColor := AddAACStyleBackColor(Table.Style);
-  end; // if (Result = dd_rtNone) and evAACStyle(Table.Style) then
- end;
-
+procedure TddHTMLGenerator.WriteTable(const aTable: TddTable; aPart: Boolean);
 var
  i       : Integer;
  l_Count : Integer;
 
  function lp_Index2RowPos: TddRowPosition;
  begin
-  if i = 0 then
+  if (i = 0) and (aTable.StartRow = 0) then
    Result := dd_rpFirst
   else
    if i = l_Count then
@@ -1472,130 +1429,128 @@ var
  end;
 
 var
- j                : Integer;
- l_Row            : TddTableRow;
- l_RowType        : TddRowType;
- l_MaxCellCount   : Integer;
- l_EtalonRowIndex : Integer;
+ l_Row      : TddTableRow;
+ l_TableType: TddTableType;
 begin
- l_RowType := lp_InitRowType;
- if not Table.IsSBS then
- begin
-  if (l_RowType = dd_rtAAC) then
-   OutStringLn('<table cellspacing = "0">')
-  else
-   if IsPrime then
-    OutStringLn('<table class="primeTab">')
-   else
-    OutStringLn('<table border="1">')
- end // if not Table.IsSBS then
- else
-  OutStringLn('<table>');
-
- l_EtalonRowIndex := -1;
- l_MaxCellCount := 0;
- f_IsComplexTable := False;
- l_Count := Table.RowCount - 1;
+ CheckList;
+ if aTable.StartRow = 0 then
+  l_TableType := OpenTableTag(aTable);
+ l_Count := aTable.RowCount - 1;
  for i := 0 to l_Count do
- begin
-  l_Row:= Table.Rows[i];
-  if l_Row.CellCount > l_MaxCellCount then
-  begin
-   l_EtalonRowIndex:= i;
-   l_MaxCellCount:= l_Row.CellCount;
-  end; // l_Row.CellCount > l_MaxCellCount
-  if not f_IsComplexTable then
-   for j := 0 to Pred(l_Row.CellCount) do
-    if l_Row.Cells[j].Props.VMerged or l_Row.Cells[j].Props.Merged or
-       l_Row.Cells[j].Props.MergeFirst or l_Row.Cells[j].Props.VMergeFirst then
-    begin
-     f_IsComplexTable := True;
-     Break;
-    end;
- end; // for i
- f_IsComplexTable := f_IsComplexTable and (l_EtalonRowIndex > 0);
- for i := 0 to l_Count do
- begin
-  f_IsEtalonRow := i = l_EtalonRowIndex;
-  WriteTableRow(Table.Rows[i], i, l_RowType, lp_Index2RowPos);
- end;
- OutStringLn('</table>')
+  WriteTableRow(aTable.Rows[i], i, l_TableType, lp_Index2RowPos);
+ if not aPart then
+  CloseTableTag;
 end;
 
-procedure TddHTMLGenerator.WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aRowType: TddRowType = dd_rtNone;
+procedure TddHTMLGenerator.WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aTableType: TddTableType = dd_ttNone;
     aRowPos: TddRowPosition = dd_rpNone);
+
+ function lp_HeaderCell: Boolean;
+ begin
+  Result := (aRowPos = dd_rpFirst) and (aTableType <> dd_ttAAC) and (aTableType <> dd_ttSBS); 
+ end;
+
+ procedure lp_FillParams(const aParam: Tl3String; aCellProp : TddCellProperty);
+ const
+  csPrimeSBSParam: array [Boolean] of Tl3PCharLenPrim = (
+                                         (S         : 'width="400"';
+                                          SLen      : 11;
+                                          SCodePage : CP_ANSI
+                                          ),
+                                         (S         : 'width="50%"';
+                                          SLen      : 11;
+                                          SCodePage : CP_ANSI
+                                          ));
+  csVAlingTop: Tl3PCharLenPrim = (S         : 'valign="top"';
+                                  SLen      : 12;
+                                  SCodePage : CP_ANSI);
+  csAlignLeft: Tl3PCharLenPrim = (S         : 'align="left"';
+                                  SLen      : 12;
+                                  SCodePage : CP_ANSI);
+  csWidthTemplate = 'width="%d"';
+  csRowSpanTemplate = 'rowspan="%d"';
+  csColSpanTemplate = 'colspan="%d"';
+
+  procedure lp_AddSeparator;
+  begin
+   aParam.Append(cc_HardSpace);
+  end;
+
+ var
+  l_FillType: TddFillAAC;
+ begin
+  if aTableType = dd_ttSBS then
+  begin
+   lp_AddSeparator;
+   aParam.Append(csPrimeSBSParam[IsPrime]);
+  end // if aTableType = dd_ttSBS then
+  else
+  begin
+   lp_AddSeparator;
+   aParam.Append(csVAlingTop);
+   if not IsPrime then
+   // Почему абсолютные величины, а не проценты?
+   begin
+    lp_AddSeparator;
+    aParam.Append(l3PCharLen(Format(csWidthTemplate, [Inch2Pixels(aCellProp.CellOffset)])));
+   end; // if not IsPrime then
+   if aCellProp.RowSpan > 1 then
+   begin
+    lp_AddSeparator;
+    aParam.Append(l3PCharLen(Format(csRowSpanTemplate, [aCellProp.RowSpan])));
+   end; // if aCellProp.RowSpan > 1 then
+   if aCellProp.CellSpan > 1 then
+   begin
+    lp_AddSeparator;
+    aParam.Append(l3PCharLen(Format(csColSpanTemplate, [aCellProp.CellSpan])));
+   end; // if aCellProp.RowSpan > 1 then
+   if aTableType = dd_ttAAC then
+   begin
+    l_FillType := NeedFillCell(aRow, aTableType, aRowPos);
+    if (l_FillType = dd_faacDefColor) or (l_FillType = dd_faacDefColorWithoutLine) then
+    begin
+     lp_AddSeparator;
+     aParam.Append(l3PCharLen(f_AACBackColor));
+    end; // if (l_FillType = dd_faacDefColor) or (l_FillType = dd_faacDefColorWithoutLine) then
+    lp_AddSeparator;
+    aParam.Append(csAlignLeft);
+   end // if aTableType = dd_ttAAC then
+   else
+    if aCellProp.PatternBackColor <> propUndefined then
+    begin
+     lp_AddSeparator;
+     aParam.Append(l3PCharLen(GetRGBColor(aCellProp.PatternBackColor - 1, dd_hcBackColor)));
+    end; // if (l_FillType = dd_faacDefColor) or (l_FillType = dd_faacDefColorWithoutLine) then
+  end // if aTableType = dd_ttSBS then
+ end;
+
 var
- i, j: Integer;
- l_FillType: TddFillAAC;
- l_Cell: TddTableCell;
+ i, j      : Integer;
+ l_Cell    : TddTableCell;
+ l_Params  : Tl3String;
  l_CellProp: TddCellProperty;
- l_List: Tl3ObjectRefList;
- l_S: AnsiString;
- l_Atom : TddDocumentAtom;
 begin
- l_List := Tl3ObjectRefList.Make;
+ OpenTableRowTag;
+ l_Params := Tl3String.Create;
  try
-  OutStringLn(' <tr>');
   for i := 0 to Pred(aRow.CellCount) do
   begin
-   l_List.Clear;
-   l_CellProp:= aRow.Cells[i].Props;
+   l_CellProp := aRow.Cells[i].Props;
    if not l_CellProp.VMerged then
    begin
-    if aRowType = dd_rtSBS then
-     if IsPrime then
-      AddTag(l_List, 'td', 'width="50%"')
-     else
-      AddTag(l_List, 'td', 'width="400"')
-    else
-    if (aRowPos = dd_rpFirst) and (aRowType <> dd_rtAAC) then
-     l_S := 'th'
-    else
-     l_S := 'td';
-    AddTag(l_List, l_S, '');
-    AddTag(l_List, l_S, 'VALIGN="TOP"');
-
-    if not IsPrime {and (f_IsEtalonRow or f_IsComplexTable)} then
-    // Почему абсолютные величины, а не проценты?
-     AddTag(l_List, l_S, Format('width="%d"', [Round(l_CellProp.CellOffset / l3Inch * 96)]));
-
-    if l_CellProp.RowSpan > 1 then
-     AddTag(l_List, l_S, Format('rowspan="%d"', [l_CellProp.RowSpan]));
-    if l_CellProp.CellSpan > 1 then
-     AddTag(l_List, l_S, Format('colspan="%d"', [l_CellProp.CellSpan]));
-    if aRowType = dd_rtAAC then
-    begin
-     l_FillType := NeedFillCell(aRow, aRowType, aRowPos);
-     if (l_FillType = dd_faacDefColor) or (l_FillType = dd_faacDefColorWithoutLine) then
-      AddTag(l_List, l_S, f_AACBackColor);
-     AddTag(l_List, l_S, 'align="left"');
-    end // if aRowType = dd_rtAAC then
-    else
-     if l_CellProp.PatternBackColor <> propUndefined then
-      with Document.ColorTable[Pred(l_CellProp.PatternBackColor)] do
-       AddTag(l_List, l_S, Format('bgcolor="#%s%s%s"', [IntToHex(Red, 2), IntToHex(Green, 2), IntToHex(Blue, 2)]));
-    OutStringLn(GetFormat(l_List, False));
-
+    lp_FillParams(l_Params, l_CellProp);
+    OpenTableCellTag(lp_HeaderCell, l_Params);
     l_Cell := aRow.Cells[i];
     for j := 0 to Pred(l_Cell.Count) do
-    begin
-     l_Atom := l_Cell.Items[j];
-     if l_Atom.IsTextPara then
-      WriteTextParagraph(TddTextParagraph(l_Atom))
-     else
-      if l_Atom.IsPicture then
-       WritePicture(TddPicture(l_Atom), True)
-      else
-       if l_Atom.IsTable then
-        WriteTable(TddTable(l_Atom), False);
-    end;
-    OutStringLn(GetFormat(l_List, True));
+     WriteAtom(l_Cell.Items[j]);
+    CloseTableCellTag(lp_HeaderCell);
    end; // if not l_CellProps.VMerged
+   l_Params.Clear;
   end; // for i
-  OutStringLn('</tr>');
  finally
-  l3Free(l_List);
- end; // l_List
+  l3Free(l_Params);
+ end;
+ CloseTableRowTag;
 end;
 
 procedure TddHTMLGenerator.WriteTextParagraph(const Para: TddTextParagraph; anOutEOL: Boolean = False);
@@ -1627,6 +1582,8 @@ var
 
 var
  i          : LongInt;
+ l_ParaTag  : TddParaTag;
+ l_CloseDecor: Boolean;
  l_WasObject: Boolean;
 begin
  if not f_IsAnno then
@@ -1638,12 +1595,14 @@ begin
   CheckSubsList(Para);
   CheckTopBorder(Para);
   if EmtpyPara(Para) then Exit;
-  CheckPre(Para);
+  l_ParaTag := dd_ptNone;
+  CheckPre(Para, l_ParaTag);
   lp_InitTextParams;
+  l_CloseDecor := False;
   for i := 0 to l_TextLen do
   begin
    l_WasObject := False;
-   CheckStartStyleSegment(Para, i);
+   CheckStartStyleSegment(Para, i, l_CloseDecor);
     // открываем ссылку
    CheckStartHyperlink(Para, i, l_Text, l_StartIndex);
    l_WasObject := CheckObjectSegment(Para, i);
@@ -1652,9 +1611,9 @@ begin
     // Закрываем ссылку
    CheckStopHyperlink(Para, i, l_TextLen, l_StopIndex);
    // закрываем сегмент
-   CheckStopStyleSegment(Para, i);
+   CheckStopStyleSegment(Para, i, l_CloseDecor);
   end;//for i       
-  CheckCloseDiv(Para);
+  CheckCloseDiv(Para, l_ParaTag);
   OutEOL;
   CheckLinkContinue;
   CheckBottomBorder(Para);
@@ -1681,8 +1640,7 @@ begin
     l_DiffCHP.JoinWith(l_CHP);
     with l_DiffCHP do
      if Abs(Highlight) <> propUndefined then
-      with Document.ColorTable[Pred(Highlight)] do
-       Result := Format('bgcolor = "#%s%s%s"', [IntToHex(Red, 2), IntToHex(Green, 2), IntToHex(Blue, 2)]);
+      Result := GetRGBColor(Highlight - 1, dd_hcBackColor);
    finally
     FreeAndNil(l_DiffCHP);
    end;
@@ -1736,37 +1694,42 @@ begin
  end;
 end;
 
-procedure TddHTMLGenerator.CheckPre(const aPara: TddTextParagraph);
+procedure TddHTMLGenerator.CheckPre(const aPara: TddTextParagraph; var aParaTag: TddParaTag);
+const
+ csID = 'id="%d"';
 var
- l_List    : Tl3ObjectRefList;
+ l_Param   : AnsiString;
  l_Style   : TddStyleEntry;
+ l_NeedLI  : Boolean;
  l_EvdStyle: Integer;
 begin
  if not f_DivPreOpened and not (IsPrime and aPara.PAP.InTable) then
  begin
-  l_List := Tl3ObjectRefList.Make;
-  try
-   if aPara.Empty then
-    AddTag(l_List, 'pre', '')
-   else
+  l_NeedLI := False;
+  if aPara.Empty then
+   aParaTag := dd_ptPre
+  else
+  begin
+   l_EvdStyle := Min(aPara.PAP.Style, aPara.CHP.Style);
+   l_Style := Document.StyleTable[l_EvdStyle];
+   if (l_Style <> nil) and not NeedParaPAP(l_EvdStyle, aPara.PAP) then
    begin
-    l_EvdStyle := Min(aPara.PAP.Style, aPara.Chp.Style);
-    l_Style := Document.StyleTable[l_EvdStyle];
-    if l_Style <> nil then
-    begin
-     // Оформление абзаца
-     l_Style.PAP.Style := l_EvdStyle;
-     PAP2HTML(l_Style.PAP, False, l_List);
-    end; // if l_Style <> nil then
-   end;
-   {$IFNDEF InsiderTest}
-   if aPara.SubList.Count = 1 then
-    AddTag(l_List, THTMLTag(l_List.Items[0]).Tag, Format('id="%d"', [aPara.SubList[0].ID]));
-   {$ENDIF InsiderTest}
-   OutString(GetFormat(l_List, False));
-  finally
-   l3Free(l_List);
+    // Оформление абзаца
+    l_Style.PAP.Style := l_EvdStyle;
+    l_Param := PAP2HTML(l_Style.PAP, aParaTag, l_NeedLI);
+   end // if l_Style <> nil then
+   else
+    l_Param := PAP2HTML(aPara.PAP, aParaTag, l_NeedLI);
   end;
+  {$IFNDEF InsiderTest}
+  if aPara.SubList.Count = 1 then
+  begin
+   if l_Param <> '' then
+    l_Param := l_Param + cc_HardSpace;
+   l_Param := l_Param + Format(csID, [aPara.SubList[0].ID]);
+  end; // if aPara.SubList.Count = 1 then
+  {$ENDIF InsiderTest}
+  OpenParaTag(aParaTag, l_Param, l_NeedLI);
  end; // not f_DivPreOpened
 end;
 
@@ -1782,7 +1745,7 @@ begin
 end;
 
 procedure TddHTMLGenerator.CheckStartStyleSegment(
-  const aPara: TddTextParagraph; anIndex: Integer);
+  const aPara: TddTextParagraph; anIndex: Integer; var aCloseDecor: Boolean);
 var
  l_Segment: TddTextSegment;
 begin
@@ -1792,7 +1755,7 @@ begin
  begin
   { Выводим начало оформления }
   if not ((l_Segment.CHP.Style = ev_saHyperLinkCont) and (f_Link = '')) then
-   OutString(CHP2HTML(l_Segment.CHP, False));
+   CHP2HTML(l_Segment.CHP, aCloseDecor);
   if (l_Segment.CHP.Style = ev_saHyperLinkCont) and (f_Link <> '') then
    OutString(f_Link);
  end; // (l_Segment <> nil) and (l_Segment.Start = anIndex)
@@ -1821,7 +1784,7 @@ begin
    l_HyperlinkText := Format(csURLRef, [l_LinkSegment.URL.AsString])
   else
   begin
-   if not f_WriteFirstHyperlink and (l_LinkSegment.TargetList.Count > 1) then Exit;
+   if not (dd_hwoWriteFirstLink in f_HTMLOptions) and (l_LinkSegment.TargetList.Count > 1) then Exit;
    l_TypeID := l_LinkSegment.TargetList.First.TypeID;
    if (l_TypeID <> CI_REF) then
    begin
@@ -1855,7 +1818,10 @@ begin
   if l_ObjectSegment.IsObjectSegment then
   begin
    if l_ObjectSegment is TddPictureSegment then
-    WritePicture(l_ObjectSegment.Data as TddPicture, False)
+   begin
+    if l_ObjectSegment.Data <> nil then
+     WritePicture(l_ObjectSegment.Data as TddPicture, False)
+   end // if l_ObjectSegment is TddPictureSegment then
    else
     if l_ObjectSegment is TddFormulaSegment then
      WriteFormula(l_ObjectSegment, l_ObjectSegment.CHP, False);
@@ -1920,7 +1886,7 @@ begin
 end;
 
 procedure TddHTMLGenerator.CheckStopStyleSegment(
-  const aPara: TddTextParagraph; anIndex: Integer);
+  const aPara: TddTextParagraph; anIndex: Integer; var aCloseDecor: Boolean);
 var
  l_StyleSegment: TddTextSegment;
 begin
@@ -1932,13 +1898,13 @@ begin
     { Закрываем оформление }
    if l_StyleSegment.CHP.Style = ev_saHyperLinkCont then
     OutString('</a>');
-   OutString(CHP2HTML(l_StyleSegment.CHP, True));
+   CloseSpan(aCloseDecor);
    l_StyleSegment := aPara.SegmentByCharIndex(anIndex, False, Pred(l_StyleSegment.Index));
    if (l_StyleSegment <> nil) and (l_StyleSegment.Start <> l_StyleSegment.Stop) then
    begin
     { Выводим начало оформления }
     if not ((l_StyleSegment.CHP.Style = ev_saHyperLinkCont) and (f_Link = '')) then
-     OutString(CHP2HTML(l_StyleSegment.CHP, False));
+     CHP2HTML(l_StyleSegment.CHP, aCloseDecor);
     if (l_StyleSegment.CHP.Style = ev_saHyperLinkCont) and (f_Link <> '') then
      OutString(f_Link);
    end; // if (l_StyleSegment <> nil) and (l_StyleSegment.Start <> l_StyleSegment.Stop) then
@@ -1948,7 +1914,7 @@ begin
  end;//while (l_StyleSegment <> nil)
 end;
 
-procedure TddHTMLGenerator.CheckCloseDiv(const aPara: TddTextParagraph);
+procedure TddHTMLGenerator.CheckCloseDiv(const aPara: TddTextParagraph; aParaTag: TddParaTag);
 var
  l_Style    : TddStyleEntry;
  l_EvdStyle : Integer;
@@ -1958,18 +1924,7 @@ begin
   if IsPrime and aPara.PAP.InTable then
    OutString(' ')
   else
-  if aPara.Empty then
-   OutString('</pre>')
-  else
-  begin
-   l_EvdStyle := Min(aPara.PAP.Style, aPara.Chp.Style);
-   l_Style := Document.StyleTable[l_EvdStyle];
-   if l_Style <> nil then
-   // Оформление абзаца
-    OutString(PAP2HTML(l_Style.PAP, True))
-   else
-    OutString(PAP2HTML(aPara.PAP, True));
-  end;
+   CloseParaTag(aParaTag);
  end; // if not f_DivPreOpened then
 end;
 
@@ -1997,9 +1952,238 @@ begin
   f_IsFirstHeader := False;
 end;
 
-procedure TddHTMLGenerator.pm_SetWriteFirstHyperlink(const Value: Boolean);
+procedure TddHTMLGenerator.pm_SetHTMLOptions(
+  const Value: TddHTMLWriterOptions);
 begin
- f_WriteFirstHyperlink := Value;
+ f_HTMLOptions := Value;
+ if (dd_hwoIsPrime in f_HTMLOptions) or (dd_hwoWriteGarantCSSLink in f_HTMLOptions) then
+  f_HTMLOptions := f_HTMLOptions - [dd_hwoWriteStyleSheet];
+end;
+
+function TddHTMLGenerator.pm_GetIsPrime: Boolean;
+begin
+ Result := (dd_hwoIsPrime in f_HTMLOptions);
+end;
+
+procedure TddHTMLGenerator.WriteGarantCSSLink;
+const
+ csGarantCSSLink = '<link rel="stylesheet" type="text/css" href="garantdoc.css">';
+begin
+ OutStringLn(csGarantCSSLink);
+end;
+
+function TddHTMLGenerator.OpenTableTag(const aTable: TddTable): TddTableType;
+
+ function lp_InitRowType: TddTableType;
+ begin
+  Result := TddTableType(aTable.IsSBS);
+  if (Result = dd_ttNone) and evAACStyle(aTable.Style) then
+  begin
+   Result := dd_ttAAC;
+   f_AACBackColor := AddAACStyleBackColor(aTable.Style);
+  end; // if (Result = dd_ttNone) and evAACStyle(aTable.Style) then
+ end;
+
+ function lp_TableHasBorder: Boolean;
+ var
+  i    : Integer;
+  l_Row: TddTableRow;
+ begin
+  Result := False;
+  l_Row := aTable.Rows[0];
+  for i := 0 to l_Row.CellCount - 1 do
+   if l_Row.Cells[i].Props.Border.IsFramed then
+   begin
+    Result := True;
+    Break;
+   end; // if l_Row.Cells[i].Props.Border.IsFramed then
+ end;
+
+begin
+ Result := lp_InitRowType;
+ if not aTable.IsSBS then
+ begin
+  if (Result = dd_ttAAC) then
+   OutStringLn('<table cellspacing = "0">')
+  else
+   if IsPrime then
+    OutStringLn('<table class="primeTab">')
+   else
+   if lp_TableHasBorder then
+    OutStringLn('<table border="1">')
+   else
+    OutStringLn('<table>');
+ end // if not Table.IsSBS then
+ else
+  OutStringLn('<table>');
+end;
+
+function TddHTMLGenerator.GetRGBColor(aNumber: Integer; aSeparator: TddHTMLColor): AnsiString;
+const
+ cnBColor: array [TddHTMLColor] of String = ('color=#%s%s%s', '#%s%s%s;', 'bgcolor="#%s%s%s"', 'color: #%s%s%s;');
+begin
+ with Document.ColorTable[aNumber] do
+  Result := Format(cnBColor[aSeparator], [IntToHex(Red, 2), IntToHex(Green, 2), IntToHex(Blue, 2)]);
+end;
+
+procedure TddHTMLGenerator.OpenTableRowTag;
+begin
+ OutStringLn(' <tr>')
+end;
+
+procedure TddHTMLGenerator.CloseTableRowTag;
+begin
+ OutStringLn('</tr>');
+end;
+
+procedure TddHTMLGenerator.OpenTableCellTag(aHeader   : Boolean;
+                                            const aParams: Tl3String);
+const
+ csOpenTag: array [Boolean] of AnsiString = ('<td', '<th');
+begin
+ OutString(csOpenTag[aHeader]);
+ if aParams.Len > 0 then
+  OutString(aParams);
+ OutStringLn(csFinishTag);
+end;
+
+function TddHTMLGenerator.Inch2Pixels(aValue: Integer): Integer;
+begin
+ Result := Round(aValue / l3Inch * 96);
+end;
+
+procedure TddHTMLGenerator.WriteAtom(const anAtom: TddDocumentAtom);
+begin
+ if anAtom.IsTextPara then
+  WriteTextParagraph(TddTextParagraph(anAtom))
+ else
+  if anAtom.IsPicture then
+   WritePicture(TddPicture(anAtom), True)
+  else
+   if anAtom.IsTable then
+    WriteTable(TddTable(anAtom), False);
+end;
+
+procedure TddHTMLGenerator.CheckList;
+begin
+ if ListOpened then
+  CloseList(True);
+end;
+
+function TddHTMLGenerator.NeedParaPAP(aEVDStyle: Integer;
+  aPAP: TddParagraphProperty): Boolean;
+begin
+ Result := ((aEVDStyle = 0) or (aEVDStyle = ev_saTxtNormalANSI)) and
+           ((aPAP.Bullet <> propUndefined) or ((aPAP.JUST > justL) and (aPAP.JUST < justNotDefined)));
+end;
+
+procedure TddHTMLGenerator.CloseTableCellTag(aHeader: Boolean);
+begin
+ if aHeader then
+  OutStringLn('</th>')
+ else
+  OutStringLn('</td>');
+end;
+
+procedure TddHTMLGenerator.CloseTableTag;
+begin
+ OutStringLn('</table>')
+end;
+
+procedure TddHTMLGenerator.pm_SetIsPrime(const Value: Boolean);
+begin
+ if Value then
+  HTMLOptions := HTMLOptions + [dd_hwoIsPrime]
+ else
+  HTMLOptions := HTMLOptions - [dd_hwoIsPrime];
+end;
+
+function TddHTMLGenerator.ParaTag(StyleID: Integer): TddParaTag;
+begin
+ Result := dd_ptNone;
+ if IsPrime then
+  case StyleID of
+   ev_saTxtNormalANSI   :
+     Result := dd_ptP; {* - Нормальный. }
+   ev_saTxtHeader1      :
+     begin
+      if f_IsFirstHeader then
+       Result := dd_ptH2
+      else
+       Result := dd_ptH3;
+     end;
+   ev_saHyperLink       :
+     Result := dd_ptA; {* - Гипертекстовая ссылка. }
+  end // case StyleID
+ else
+  case StyleID of
+   ev_saTxtNormalANSI   :
+     Result := dd_ptP; {* - Нормальный. }
+   ev_saTxtHeader1      :
+     Result := dd_ptH1; {* - Заголовок 1. }
+   ev_saTxtHeader2      :
+     Result := dd_ptH2; {* - Заголовок 2. }
+   ev_saTxtHeader3      :
+     Result := dd_ptH3; {* - Заголовок 3. }
+   ev_saTxtHeader4      :
+     Result := dd_ptH4; {* - Заголовок 4. }
+   ev_saHyperLink       :
+     Result := dd_ptA; {* - Гипертекстовая ссылка. }
+  end; // case StyleID
+end;
+
+procedure TddHTMLGenerator.CloseParaTag(aParaTag: TddParaTag);
+begin
+ if aParaTag <> dd_ptNone then
+ begin
+  OutString(csStartCloseTag);
+  OutString(csTagType2String[aParaTag]);
+  OutString(csFinishTag);
+ end; // if aParaTag <> dd_ptNone then
+end;
+
+procedure TddHTMLGenerator.OpenParaTag(aParaTag: TddParaTag;
+  const aParam: AnsiString; aNeedLI: Boolean);
+const
+ csLITag = '<li>';
+begin
+ if aParaTag <> dd_ptNone then
+ begin
+  if aNeedLI then
+   OutString(csLITag);
+  OutString(csStartTag);
+  OutString(csTagType2String[aParaTag]);
+  if aParam <> '' then
+  begin
+   OutString(cc_HardSpace);
+   OutString(aParam);
+  end; // if l_Param <> '' then
+  OutString(csFinishTag);
+ end; // if aParaTag <> dd_ptNone then
+end;
+
+procedure TddHTMLGenerator.CloseSpan(var aCloseDecor: Boolean);
+const
+ csSpanClosed = '</span>';  
+begin
+ if aCloseDecor then
+ begin
+  OutString(csSpanClosed);
+  aCloseDecor := False;
+ end; // if aCloseDecor then
+end;
+
+procedure TddHTMLGenerator.OpenSpan(const aParam: AnsiString; var aCloseDecor: Boolean);
+const
+ csSpan = '<span ';
+begin
+ if aParam <> '' then
+ begin
+  OutString(csSpan);
+  OutString(aParam);
+  OutString(csFinishTag);
+  aCloseDecor := True;
+ end; // if l_Params <> '' then
 end;
 
 end.

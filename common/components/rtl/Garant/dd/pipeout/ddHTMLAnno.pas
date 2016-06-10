@@ -1,7 +1,10 @@
 Unit ddHTMLAnno;
-{ $Id: ddHTMLAnno.pas,v 1.35 2015/11/19 14:57:55 fireton Exp $ }
+{ $Id: ddHTMLAnno.pas,v 1.36 2016/05/13 10:47:24 dinishev Exp $ }
 
 // $Log: ddHTMLAnno.pas,v $
+// Revision 1.36  2016/05/13 10:47:24  dinishev
+// {Requestlink:623067981}
+//
 // Revision 1.35  2015/11/19 14:57:55  fireton
 // - выкинул ненужные модули из implementation
 //
@@ -515,6 +518,8 @@ begin
 end;
 
 constructor TddHTMLAnnotationPipe.Create(DocListFileName: AnsiString);
+var
+ l_HTMLGen: TddHTMLGenerator;
 begin
   inherited Create;
   FPipe := TSewerPipe.Create;
@@ -529,8 +534,9 @@ begin
   f_XMLGen:= TddXMLAnnoWriter.Create;
   TddXMLAnnoWriter(f_XMLGen).Filer:= f_XMLFiler;
   FG := TddHTMLGenerator.Create;
-  TddHTMLGenerator(FG).Filer := FFiler;
-  TddHTMLGenerator(FG).IsPrime := True;
+  l_HTMLGen := TddHTMLGenerator(FG);
+  l_HTMLGen.Filer := FFiler;
+  l_HTMLGen.HTMLOptions := l_HTMLGen.HTMLOptions + [dd_hwoIsPrime];
   Tk2ForkGenerator.SetTo(FG, f_XMLGen);
   f_XMLGen := Tk2ForkGenerator(FG).Generator2;
   TddHTMLAnnotationFilter.SetTo(FG);

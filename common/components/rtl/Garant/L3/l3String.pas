@@ -5,9 +5,24 @@ unit l3String;
 { Автор: Люлин А.В. ©                 }
 { Модуль: evString - методы для работы со строками}
 { Начат: 12.12.1996                   }
-{ $Id: l3String.pas,v 1.334 2016/02/08 11:46:46 fireton Exp $ }
+{ $Id: l3String.pas,v 1.340 2016/04/21 17:01:47 lulin Exp $ }
 
 // $Log: l3String.pas,v $
+// Revision 1.340  2016/04/21 17:01:47  lulin
+// - оказалось, что это ОЧЕНЬ ВРЕДНАЯ правка, она как-то плохо на сравнение хранилищ влияет, возможно корёжит их.
+//
+// Revision 1.339  2016/04/21 13:59:07  lulin
+// - правим кодировку.
+//
+// Revision 1.337  2016/04/20 10:24:48  lulin
+// - перегенерация.
+//
+// Revision 1.336  2016/04/08 06:09:17  dinishev
+// Обработка отрицательных чисел.
+//
+// Revision 1.335  2016/04/01 09:47:22  dinishev
+// {Requestlink:620674333}
+//
 // Revision 1.334  2016/02/08 11:46:46  fireton
 // - l3StrLength для Il3CString
 //
@@ -4029,6 +4044,8 @@ var
  l_CodePage: Long;
 begin
  Result := '';
+(* if (aCodePage = CP_ANSI) then
+  aCodePage := CP_RussianWin;*)
  l_CodePage := aCodePage;
  if not l3IsNil(aString) then
  begin
@@ -4057,16 +4074,25 @@ end;
 
 function l3StrToInt(const aString : Tl3WString) : Integer;
 var
- I : Integer;
+ I         : Integer;
+ l_Negative: Boolean;
 begin
  Result := 0;
+ l_Negative := False;
  for I := 0 to Pred(aString.SLen) do
   if aString.S[I] in cc_Digits then
    Result := 10 * Result + Ord(aString.S[I]) - Ord('0')
-
-  // обработку отрицательных, шестнадцатеричных и написанных от руки доделывайте кому понадобится
   else
-   raise EConvertError.Create('function l3StrToInt: недопустимый символ');
+   if aString.S[I] = cc_Minus then
+   begin
+    Assert(not l_Negative);
+    l_Negative := True;
+   end // if aString.S[I] in cc_Minus then
+   // обработку шестнадцатеричных и написанных от руки доделывайте кому понадобится
+   else
+    raise EConvertError.Create('function l3StrToInt: недопустимый символ');
+ if l_Negative then
+  Result := -Result;   
 end;
 
 function l3StrToIntDef(const aString : Tl3WString; aDefault: Integer = 0) : Integer;
@@ -4076,13 +4102,15 @@ begin
  except
   on EConvertError do
    Result := aDefault;
+  on EIntOverflow do
+   Result := aDefault;
  end;
 end;
 
 function l3Str(const aString : Tl3DString): AnsiString;
   //overload;
 begin
- Result := aString;
+ Result := l3PCharLen2String(l3PCharLen(aString));
 end;
 
 function l3Str(const aString : Tl3PCharLenPrim;
@@ -6259,7 +6287,9 @@ end;
 function l3WideToChar(aChar: WideChar): AnsiChar;
   {-}
 begin
- Result := AnsiString(aChar)[1];
+ Result := #0;
+ l3WideCharToMultiByte(CP_RussianWin, @aChar, 1, @Result, 1);
+ //Result := AnsiString(aChar)[1];
 end;
 
 const

@@ -1,8 +1,14 @@
 unit Dt_TblCache;
 
-{ $Id: Dt_TblCache.pas,v 1.100 2015/09/10 15:03:23 voba Exp $ }
+{ $Id: Dt_TblCache.pas,v 1.102 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: Dt_TblCache.pas,v $
+// Revision 1.102  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.101  2016/04/01 13:31:56  lulin
+// - перегенерация.
+//
 // Revision 1.100  2015/09/10 15:03:23  voba
 // no message
 //
@@ -40,7 +46,7 @@ unit Dt_TblCache;
 // - выпрямляем зависимости.
 //
 // Revision 1.88  2014/04/22 13:20:25  voba
-// - поддержка Tk2Tag
+// - поддержка _Tk2Tag
 //
 // Revision 1.87  2014/04/17 13:04:32  voba
 // - перенес ISab из DT_Sab в dtIntf
@@ -1547,8 +1553,9 @@ begin
   if (lOldItemsIter = nil) or lOldItemsIter.IsLast(aDocID) then
   //сливаем остатки новых на добавление
   begin
-   for I := lCurIndex to aHiIndex do
-    lAddRecForInsert(I);
+   if (fCachingMode <> cmDelete) then
+    for I := lCurIndex to aHiIndex do
+     lAddRecForInsert(I);
    Break;
   end;
 

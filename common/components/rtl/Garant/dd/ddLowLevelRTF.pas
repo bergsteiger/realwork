@@ -1,8 +1,11 @@
 unit ddLowLevelRTF;
 
-{ $Id: ddLowLevelRTF.pas,v 1.85 2015/10/15 11:13:12 dinishev Exp $ }
+{ $Id: ddLowLevelRTF.pas,v 1.86 2016/05/19 09:54:17 dinishev Exp $ }
 
 // $Log: ddLowLevelRTF.pas,v $
+// Revision 1.86  2016/05/19 09:54:17  dinishev
+// {Requestlink:530818794}
+//
 // Revision 1.85  2015/10/15 11:13:12  dinishev
 // {Requestlink:609602166}
 //
@@ -244,10 +247,7 @@ uses
 
   RTFTypes,
 
-  ddRTFKeywords,
-  ddRTFObjects,
-
-  l3ProtoObjectRefList
+  ddRTFKeywords
   ;
 
 const
@@ -263,8 +263,6 @@ type
      f_Text       : Tl3String;
      f_HasParam   : Boolean;
      f_SkipChars  : Integer;
-     f_Content    : TddRTFAtom;
-     f_Stack      : Tl3ProtoObjectRefList;
      f_Hex        : Boolean;
      f_SkipUnknown: Boolean;
      f_LongParam  : Longint;
@@ -272,15 +270,12 @@ type
      f_SkipHexData: Boolean;
      f_ReadHexData: Boolean;
     private
-     function GetCurGroup: TddRTFAtom;
      procedure SetLiteVersion(Value: Boolean);
      procedure pm_SetStatus(const Value: TRTFErrorCode);
      procedure SetParam(aParam: Tl3String);
     private
      function GetLongParam: Long;
 
-     property CurGroup : TddRTFAtom
-       read GetCurGroup;
      property Param: Tl3String
        read f_Param write SetParam;
     protected
@@ -313,8 +308,6 @@ type
         read f_LiteVersion write SetLiteVersion;
       property Status : TRTFErrorCode
         read f_Status write pm_SetStatus;
-      property Content: TddRTFAtom
-        read f_Content write f_Content;
       property SkipHexData: Boolean
         read f_SkipHexData write f_SkipHexData;
       property SkipUnknown: Boolean
@@ -329,9 +322,6 @@ implementation
 uses
   l3String,
   ddRTFConst
-  {$IfNDef l3ConsoleApp}
-  , Dialogs
-  {$ENDIF}
   , l3Memory;
 
 const
@@ -361,7 +351,6 @@ begin
  f_LiteVersion := False;
  f_Param := Tl3String.Create;
  f_Text := Tl3String.Create;
- f_Stack := Tl3ProtoObjectRefList.Make;
  f_SkipUnknown := True;
 end;
 
@@ -382,8 +371,6 @@ end;
 
 procedure TddRTFParser.Cleanup;
 begin
-  l3Free(f_Stack);
-  l3Free(f_Content);
   l3Free(f_Param);
   l3Free(f_Text);
   inherited;
@@ -585,32 +572,23 @@ end;
 
 procedure TddRTFParser.PushState;
 begin
- if f_Content = nil then
- begin
-  f_Content := TddRTFAtom.MakeGroup;
-  f_Stack.Add(f_Content);
- end
- else
- begin
-  CurGroup.PushState;
-  f_Stack.Add(CurGroup.Content.Items[Pred(CurGroup.Content.Count)]);
- end;
+
 end;
 
 procedure TddRTFParser.AddKeyword(aKeyword: TSYM; aHasParam: Boolean; aParam: Long; aText:
     Tl3String = nil);
 begin
- CurGroup.AddKeyword(aKeyword, aHasParam, aParam, aText);
+
 end;
 
 procedure TddRTFParser.AddText(aText: Tl3String);
 begin
- CurGroup.AddText(aText);
+
 end;
 
 procedure TddRTFParser.AddText(aText: AnsiChar);
 begin
- CurGroup.AddText(aText);
+
 end;
 
 procedure TddRTFParser.AddText(aText: Word);
@@ -619,12 +597,7 @@ end;
 
 procedure TddRTFParser.PopState;
 begin
- f_Stack.DeleteLast;
-end;
 
-function TddRTFParser.GetCurGroup: TddRTFAtom;
-begin
- Result := TddRTFAtom(f_Stack.Items[Pred(f_Stack.Count)]);
 end;
 
 procedure TddRTFParser.DoReadData;

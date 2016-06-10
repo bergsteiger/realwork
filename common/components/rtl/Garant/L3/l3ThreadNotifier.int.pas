@@ -4,9 +4,12 @@
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3ThreadNotifier.int -      }
 { Начат: 21.11.2005 16:56             }
-{ $Id: l3ThreadNotifier.int.pas,v 1.5 2008/10/21 10:42:30 lulin Exp $ }
+{ $Id: l3ThreadNotifier.int.pas,v 1.6 2016/03/31 11:53:49 lulin Exp $ }
 
 // $Log: l3ThreadNotifier.int.pas,v $
+// Revision 1.6  2016/03/31 11:53:49  lulin
+// - перегенерация.
+//
 // Revision 1.5  2008/10/21 10:42:30  lulin
 // - <K>: 121156801.
 //
@@ -52,7 +55,7 @@
  {$Define _Thread_Notifier_Declared}
 
 type
-  Tl3DataHolder = class(Tl3CacheableBase)
+  Tl3DataHolder = class(Tl3CProtoObject)
     protected
     // internal fields
       f_Data : Pointer;

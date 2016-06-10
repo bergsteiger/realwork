@@ -1,9 +1,18 @@
 //..........................................................................................................................................................................................................................................................
 unit ddClientBaseEngine;
 
-// $Id: ddClientBaseEngine.pas,v 1.40 2016/03/16 12:40:59 lukyanets Exp $
+// $Id: ddClientBaseEngine.pas,v 1.42 2016/05/16 12:54:36 lukyanets Exp $
 
 // $Log: ddClientBaseEngine.pas,v $
+// Revision 1.42  2016/05/16 12:54:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.41  2016/04/29 10:27:22  lukyanets
+// Убираем зависимость от cs
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.40  2016/03/16 12:40:59  lukyanets
 // Отлаживаем вилку
 //
@@ -565,7 +574,7 @@ interface
 Uses
   l3Base, l3IniFile,
   daTypes,
-  CSClient, CsDataPipe, csCommon,
+  CSClient, CsDataPipe, csCommon, csNotification,
   ddBaseEngine, daDataProviderParams,
   ddAppConfig,
   Forms, Classes, SysUtils,
@@ -599,6 +608,7 @@ type
   function CalcConnectKind: TcsUserConnectKind;
   function Get_IsDeveloper: Boolean;
     procedure Set_IsRequireAdminRights(const Value: Boolean);
+  function csUsenManagerNotifyProc(aNotificationType: TCsNotificationType; aNumber: Integer; const aText: AnsiString): Boolean;
  protected
   procedure Cleanup; override;
   procedure CreateCommunications; override;
@@ -611,6 +621,7 @@ type
  public
   constructor Make(const aDataParams: TdaDataProviderParams; const aServiceParams: TncsServiceProviderParams; aQuietMode: boolean = False; AllowClearLocks: Boolean = False); overload;
   function IsBaseLocked(var aMsg: AnsiString): Boolean; overload; override;
+  procedure SetCurrentActiveUsers;
   property AutoSave: Boolean read f_AutoSave write f_AutoSave;
   property CSClient: TCSClient read f_CSClient;
   property IsDeveloper: Boolean read Get_IsDeveloper;
@@ -640,11 +651,13 @@ Uses
  l3FileUtils,
  l3Base64,
  l3Utils,
+ l3Memory,
 
  ddClosingWin,
 
  daDataProviderSuperFactory,
  daSchemeConsts,
+ daDataProvider,
 
  htDataProviderParams,
 
@@ -662,6 +675,7 @@ Uses
  dt_Const,
  dt_Dict,
  DT_DocImages,
+ dtUserIDList,
 
  afwFacade,
 
@@ -670,6 +684,19 @@ Uses
 
  m3StgMgr
  ;
+
+type
+ TActiveUsersQuery = class(Tl3Base)
+ private
+  f_Users: TdtUserIDList;
+ protected
+  procedure Cleanup; override;
+ public
+  constructor Create;
+  procedure Write2Pipe(aPipe: TCsDataPipe);
+  property Users: TdtUserIDList
+   read f_Users;
+ end;
 
 const
  c_MaxLoginAttempts = 3;
@@ -986,7 +1013,8 @@ begin
    //инициализируем среду
    CreateDataProvider;
    InitBaseConfig(CurrentFamily);
-   UserManager.CSClient := CSClient;
+   CSClient.AddNotifyProc(csUsenManagerNotifyProc);
+//   UserManager.CSCLient := CSClient;
    DictServer(CurrentFamily).CSClient := CSClient;
    DocumentServer(CurrentFamily).CSClient:= CSClient;
    MailServer.CSClient := CSClient;
@@ -1143,6 +1171,69 @@ end;
 procedure TClientBaseEngine.Set_IsRequireAdminRights(const Value: Boolean);
 begin
   f_IsRequireAdminRights := Value;
+end;
+
+function TClientBaseEngine.csUsenManagerNotifyProc(
+  aNotificationType: TCsNotificationType; aNumber: Integer;
+  const aText: AnsiString): Boolean;
+begin
+ Result := True;
+ case aNotificationType of
+  ntUserLogin: GlobalDataProvider.UserManager.NotifyUserActiveChanged(TdaUserID(aNumber), True);
+  ntUserLogout: GlobalDataProvider.UserManager.NotifyUserActiveChanged(TdaUserID(aNumber), False);
+ else
+  Result := False;
+ end
+end;
+
+procedure TClientBaseEngine.SetCurrentActiveUsers;
+var
+ l_Query: TActiveUsersQuery;
+ i: Integer;
+begin
+ l_Query:= TActiveUsersQuery.Create;
+ try
+  if CSClient <> nil then
+  begin
+   if CSClient.Exec(qtGetActiveUsersList, l_Query.Write2Pipe) then
+    for i:= 0 to l_Query.users.Hi do
+     GlobalDataProvider.UserManager.NotifyUserActiveChanged(l_Query.Users.Items[i], True);
+  end;
+ finally
+  l3Free(l_Query);
+ end;
+end;
+
+{ TActiveUsersQuery }
+
+procedure TActiveUsersQuery.Cleanup;
+begin
+ l3Free(f_Users);
+ inherited;
+end;
+
+constructor TActiveUsersQuery.Create;
+begin
+ inherited;
+ f_Users:= TdtUserIDList.Make;
+end;
+
+procedure TActiveUsersQuery.Write2Pipe(aPipe: TCsDataPipe);
+var
+ l_Stream: TStream;
+begin
+ f_Users.Clear;
+ //with aPipe do
+ begin
+  l_Stream := Tl3MemoryStream.Create;
+  try
+   aPipe.ReadStream(l_Stream);
+   l_Stream.Seek(0, 0);
+   f_Users.Load(l_Stream);
+  finally
+   l3Free(l_Stream);
+  end;
+ end;
 end;
 
 end.

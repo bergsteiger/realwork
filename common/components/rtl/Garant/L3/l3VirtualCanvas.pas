@@ -1,36 +1,53 @@
 unit l3VirtualCanvas;
- {* Виртуальная канва. Для отрисовки "в пустоту". }
 
-// Модуль: "w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "Tl3VirtualCanvas" MUID: (473C4F1E01A1)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "L3"
+// Автор: Люлин А.В.
+// Модуль: "w:/common/components/rtl/Garant/L3/l3VirtualCanvas.pas"
+// Начат: 21.11.2005 08:38
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Canvas::Tl3VirtualCanvas
+//
+// Виртуальная канва. Для отрисовки "в пустоту".
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\L3\l3Define.inc}
 
 interface
 
 uses
- l3IntfUses
- , l3Canvas
- , l3Units
- , l3Interfaces
- , l3InternalInterfaces
- , l3Core
- , Graphics
-;
+  l3Interfaces,
+  l3InternalInterfaces,
+  l3Units,
+  l3Canvas,
+  l3Types,
+  l3Core,
+  l3PrinterInterfaces,
+  l3CanvasPrim,
+  Graphics
+  ;
 
 type
  Tl3VirtualCanvas = class(Tl3Canvas)
   {* Виртуальная канва. Для отрисовки "в пустоту". }
-  private
-   f_Extent: Tl3Point;
-  protected
+ private
+ // private fields
+   f_Extent : Tl3Point;
+ protected
+ // overridden protected methods
    procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
-   {$If NOT Defined(DesignTimeLibrary)}
+     {* Функция очистки полей объекта. }
+   {$If not defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} //not DesignTimeLibrary
    procedure FillRectPrim(const R: TRect); override;
    function DoGetPageSetupWidth: Tl3Inch; override;
    function DoGetPageSetupHeight: Tl3Inch; override;
@@ -44,18 +61,20 @@ type
    procedure AddRgn(const aRgn: Il3Region); override;
    function KerningTextExtent(const S: Tl3PCharLenPrim): Tl3Point; override;
    function DoGetClientRect: Tl3Rect; override;
-  public
+ public
+ // overridden public methods
+   procedure SetCanvas(aValue: TCanvas;
+     anAlien: Boolean); override;
+ public
+ // public methods
    constructor Create(const anExtent: Tl3_Point); reintroduce; virtual;
    class function Make(const anExtent: Tl3_Point): Il3Canvas; reintroduce;
-   procedure SetCanvas(aValue: TCanvas;
-    anAlien: Boolean); override;
+     {* Сигнатура фабрики Tl3VirtualCanvas.Make }
  end;//Tl3VirtualCanvas
 
 implementation
 
-uses
- l3ImplUses
-;
+// start class Tl3VirtualCanvas
 
 constructor Tl3VirtualCanvas.Create(const anExtent: Tl3_Point);
 //#UC START# *56B9C037031F_473C4F1E01A1_var*
@@ -81,10 +100,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;//Tl3VirtualCanvas.Make
+end;
 
 procedure Tl3VirtualCanvas.Cleanup;
- {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_473C4F1E01A1_var*
 //#UC END# *479731C50290_473C4F1E01A1_var*
 begin
@@ -94,9 +112,8 @@ begin
 //#UC END# *479731C50290_473C4F1E01A1_impl*
 end;//Tl3VirtualCanvas.Cleanup
 
-{$If NOT Defined(DesignTimeLibrary)}
+{$If not defined(DesignTimeLibrary)}
 class function Tl3VirtualCanvas.IsCacheable: Boolean;
- {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_473C4F1E01A1_var*
 //#UC END# *47A6FEE600FC_473C4F1E01A1_var*
 begin
@@ -104,7 +121,7 @@ begin
  Result := True;
 //#UC END# *47A6FEE600FC_473C4F1E01A1_impl*
 end;//Tl3VirtualCanvas.IsCacheable
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
+{$IfEnd} //not DesignTimeLibrary
 
 procedure Tl3VirtualCanvas.FillRectPrim(const R: TRect);
 //#UC START# *47DFCAAF0249_473C4F1E01A1_var*
@@ -160,7 +177,7 @@ begin
 end;//Tl3VirtualCanvas.GetIsVirtual
 
 procedure Tl3VirtualCanvas.SetCanvas(aValue: TCanvas;
- anAlien: Boolean);
+  anAlien: Boolean);
 //#UC START# *56B0AE550267_473C4F1E01A1_var*
 //#UC END# *56B0AE550267_473C4F1E01A1_var*
 begin

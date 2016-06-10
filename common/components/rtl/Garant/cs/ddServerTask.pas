@@ -1,9 +1,21 @@
 unit ddServerTask;
 { Задачи, которыми обменивается клиент с сервером }
 
-{ $Id: ddServerTask.pas,v 1.90 2015/10/22 12:07:18 lukyanets Exp $ }
+{ $Id: ddServerTask.pas,v 1.93 2016/05/20 09:50:09 lukyanets Exp $ }
 
 // $Log: ddServerTask.pas,v $
+// Revision 1.93  2016/05/20 09:50:09  lukyanets
+// Вводим состояние "задача прерывается"
+//
+// Revision 1.92  2016/05/04 09:38:08  lukyanets
+// Уточняем логи
+//
+// Revision 1.91  2016/04/25 11:23:53  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.90  2015/10/22 12:07:18  lukyanets
 // Новый приоритет
 //
@@ -441,7 +453,7 @@ interface
 uses
   Classes,
   l3Base, l3Types,
-  dt_Types,
+  daTypes,
   csClient, CsDataPipe, csNotification, csTaskTypes
 
   ,
@@ -476,10 +488,10 @@ type
     procedure DoLoadFrom(aStream: TStream; aIsPipe: Boolean); virtual;
   private
     property DateW: TDateTime write pm_SetDate;
-    property UserIDW: TUserID write pm_SetUser;
+    property UserIDW: TdaUserID write pm_SetUser;
   public
-    constructor Create(aUserID: TUserID); reintroduce; overload; virtual;
-    constructor Create(aUserID: TUserID; aDate: TDateTime); reintroduce; overload;
+    constructor Create(aUserID: TdaUserID); reintroduce; overload; virtual;
+    constructor Create(aUserID: TdaUserID; aDate: TDateTime); reintroduce; overload;
     class function MakeFrom(aStream: TStream; const aTaskFolder: AnsiString; aIsPipe: Boolean): TddTaskItem;
     class function MakeFromEVD(aStream: TStream; const aTaskFolder: AnsiString; aIsPipe: Boolean): TddTaskItem;
     class function MakeFromEVDSafe(aStream: TStream; const aTaskFolder: AnsiString; aIsPipe: Boolean): TddTaskItem;
@@ -495,7 +507,7 @@ type
 (*    property Priority: Integer read pm_GetPriority write pm_SetPriority;*)
     property TaskFolder: AnsiString read pm_GetTaskFolder write pm_SetTaskFolder;
 (*    property TaskID: AnsiString read pm_GetTaskID;*)
-    property UserID: TUserID read pm_GetUser;
+    property UserID: TdaUserID read pm_GetUser;
   end;//TddTaskItem
 
  TddTaskClass = class of TddTaskItem;
@@ -513,7 +525,7 @@ const
  dd_tpAutoClass    = dd_tpLowest;//Pred(dd_tpDead);
  dd_tpAutoClassRun = Pred(dd_tpAutoClass);
 
- CorrectPriorities : array[TPriority] of Integer =
+ CorrectPriorities : array[TdaPriority] of Integer =
      (dd_tpLowest, dd_tpLow, dd_tpNormal, dd_tpHigh, dd_tpHighest);
 
 
@@ -530,7 +542,8 @@ const
                   'задание отложено',
                   'доставляются результаты',
                   'асинхронное выполнение',
-                  'асинхронное выполнение привело к ошибке'
+                  'асинхронное выполнение привело к ошибке',
+                  'прерывание'
                   );
 
 implementation
@@ -563,7 +576,7 @@ end;
 ********************************* TddTaskItem **********************************
 }
 
-constructor TddTaskItem.Create(aUserID: TUserID);
+constructor TddTaskItem.Create(aUserID: TdaUserID);
 begin
  inherited Create;
  if Tk2Type(TaggedData.TagType).Prop[k2_attrUser].ReadOnly then
@@ -574,11 +587,9 @@ begin
  end//Tk2Type(TaggedData.TagType).Prop[k2_attrUser].ReadOnly
  else
   Self.UserIDW := aUserID;
- if (UserID < 1) then
-  l3System.Stack2Log('UserID < 1');
 end;
 
-constructor TddTaskItem.Create(aUserID: TUserID; aDate: TDateTime);
+constructor TddTaskItem.Create(aUserID: TdaUserID; aDate: TDateTime);
 begin
  Create(aUserID);
  DateW := aDate;
@@ -656,7 +667,7 @@ end;
 
 procedure TddTaskItem.DoLoadFrom(aStream: TStream; aIsPipe: Boolean);
 var
- l_User : TUserID;
+ l_User : TdaUserID;
 begin
  Self.VersionW := ReadInteger(aStream);
  l_User := ReadCardinal(aStream);

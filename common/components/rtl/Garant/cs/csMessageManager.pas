@@ -1,8 +1,14 @@
 unit csMessageManager;
 
-{ $Id: csMessageManager.pas,v 1.60 2016/03/21 09:07:03 lukyanets Exp $ }
+{ $Id: csMessageManager.pas,v 1.62 2016/05/16 12:54:36 lukyanets Exp $ }
 
 // $Log: csMessageManager.pas,v $
+// Revision 1.62  2016/05/16 12:54:36  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.61  2016/03/28 11:46:16  lukyanets
+// Ловим странного нулевого клиента
+//
 // Revision 1.60  2016/03/21 09:07:03  lukyanets
 // Логи для странных ситуаций
 //
@@ -248,10 +254,12 @@ uses
  csQueryTypes, CsNotifier,
  l3Stream, l3Memory,
  daInterfaces,
- dt_UserConst, dt_user,
+ daDataProvider,
+ dt_UserConst, 
  SysUtils,
- dtUserIDList
- , TypInfo;
+ dtUserIDList,
+ CsClientInfo,
+ TypInfo;
 
 constructor TcsMessageManager.Create(const aFileName: AnsiString);
 begin
@@ -312,12 +320,20 @@ end;
 function TcsMessageManager.GetRecepient(aClientID: TCsClientId): TcsMessageRecepient;
 var
  l_MR: TcsMessageRecepient;
+ l_Info: TCsClientInfo;
 begin
  Result := FindRecipient(aClientID);
  if Result = nil then
  begin
   if (aClientID > usAdminReservedHard) or (aClientID < 1) then
+  begin
+   l_Info := CSServer.ActiveClients.ClientInfoOf(aClientID);
+   if Assigned(l_Info) then
+    l3System.Msg2Log('Strange client = %x, %s, %s', [l_Info.ClientId, l_Info.LoginName, l_Info.ListenIp])
+   else
+    l3System.Msg2Log('Strange client not found');
    l3System.Stack2Log(Format('Strange user = %x',[aClientID]));
+  end;
   l_MR:= TcsMessageRecepient.make(aClientID);
   try
    Result := f_NotifyList.Add(l_MR);
@@ -524,8 +540,8 @@ procedure TcsMessageManager.PackMessages(CheckUserExistence: Boolean);
    anItem.ClearMessages;
   if CheckUserExistence then
   begin
-   Assert(Assigned(UserManager));
-   if not UserManager.IsUserExists(anItem.ClientID) then
+   Assert(GlobalDataProvider <> nil);
+   if not GlobalDataProvider.UserManager.IsUserExists(anItem.ClientID) then
     anItem.ClearMessages;
   end;
   anItem.PackMessages;

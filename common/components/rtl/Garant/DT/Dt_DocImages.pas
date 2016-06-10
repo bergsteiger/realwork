@@ -1,7 +1,16 @@
 unit Dt_DocImages;
 
-{ $Id: Dt_DocImages.pas,v 1.49 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_DocImages.pas,v 1.52 2016/06/10 12:35:17 fireton Exp $ }
 // $Log: Dt_DocImages.pas,v $
+// Revision 1.52  2016/06/10 12:35:17  fireton
+// - кеширование образов документов
+//
+// Revision 1.51  2016/06/09 15:14:58  fireton
+// - кеширование образов документов
+//
+// Revision 1.50  2016/06/07 13:41:37  fireton
+// - кеширование образов документов
+//
 // Revision 1.49  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -162,6 +171,7 @@ uses SysUtils,
      HT_Const, 
      l3Base,
      l3Date,
+     l3Types,
 
      Dt_Types,
      Dt_Const,
@@ -174,11 +184,13 @@ uses SysUtils,
 type
  EDocImageError = class(Exception);
 
- TImgFileType = (iftAutoDetect, iftTIFF, iftContainer);
+ TImgFileType   = (iftAutoDetect, iftTIFF, iftContainer);
+ TImgSourceType = (istAutoDetect, istStorage, istCache, istNoSource);
 
  TDocImageServer = class(Tl3Base)
  private
   f_ImageStoragePath: AnsiString;
+  f_ImageCachePath: AnsiString;
   f_LastSource: TPublishedUniqueKeyRec;
   f_LastSourceId : LongWord;
   f_MemorizedIgnoreDuplicated: Boolean;
@@ -187,7 +199,7 @@ type
  protected
   function ExistsFor(aDocId: TDocId; aSourceId: TDictId): Boolean;
  public
-  constructor Create(aImageStoragePath: AnsiString);
+  constructor Create(const aImageStoragePath, aImageCachePath: AnsiString);
   procedure Add(aDocId: TDocId;
                 const aImageFile: AnsiString;
                 aSourceIds : array of TDictId; // DT#B.ID, если = c_GotByMail, и DT#A.ID=DT#B.Source в противном случае
@@ -205,26 +217,31 @@ type
                          aDocID : TDocID = -1;
                          aAsCopy: Boolean = True); overload;
   procedure AddImageFile(const aImageFile: AnsiString; const aPubRec: PPublishDataRec; aAsCopy: Boolean = True); overload;
-  function GetImageFileName(aDocId: TDocId; aDocSourceId: TDictId; aImageFileType: TImgFileType = iftAutoDetect): AnsiString;
-      overload;
-  function GetImageFileName(const aRec : PPublishDataRec; aImageFileType: TImgFileType = iftAutoDetect): AnsiString; overload;
+  function CommitImageCache(const aProgressProc: Tl3ProgressProc = nil): Boolean;
+  procedure DeleteImages(aSrcID : TDictID; aSDate, aEDate : TStDate; const aNumber : AnsiString; aNonPeriodic : Boolean);
+  function GetImageFileName(aDocId: TDocId; aDocSourceId: TDictId; aImageFileType: TImgFileType = iftAutoDetect;
+   aImgSource: TImgSourceType = istAutoDetect): AnsiString; overload;
+  function GetImageFileName(const aRec : PPublishDataRec; aImageFileType: TImgFileType = iftAutoDetect; aImgSource:
+   TImgSourceType = istAutoDetect): AnsiString; overload;
   function GetImageFileName(aSrcID : TDictID;
                            aSDate, aEDate : TStDate;
                            const aNumber : AnsiString;
                            aNonPeriodic : Boolean;
                            aDocID : TDocID = -1;
-                           aImageFileType: TImgFileType = iftAutoDetect): AnsiString; overload;
+                           aImageFileType: TImgFileType = iftAutoDetect;
+                           aImgSource: TImgSourceType = istAutoDetect): AnsiString; overload;
   procedure StartBatch;
   procedure StopBatch;
   function IsImageExists(const aRec : PPublishDataRec) : boolean; overload;
   function IsImageExists(aSrcID : TDictID; aSDate, aEDate : TStDate; const aNumber : AnsiString; aNonPeriodic : Boolean; aDocID : TDocID = -1): boolean; overload;
   property ImageStoragePath: AnsiString read f_ImageStoragePath;
+  property ImageCachePath: AnsiString read f_ImageCachePath;
  end;
 
 function IsTIFF(aFileName: AnsiString): Boolean;
 
 
-procedure SetDocImagePath(const aPath: AnsiString);
+procedure SetDocImagePath(const aPath, aCachePath: AnsiString);
 function DocImageServer: TDocImageServer;
 
 implementation
@@ -246,6 +263,7 @@ uses
 
  DateUtils, dt_DictConst,
 
+ ddFileIterator,
  ddUtils, vtDebug;
 
 const
@@ -254,15 +272,33 @@ const
 
 const
  gDocImageServer: TDocImageServer = nil;
- gDocImagePath: AnsiString = '';
+ gDocImagePath     : AnsiString = '';
+ gDocImageCachePath: AnsiString = '';
 
 { TDocImages }
 
-procedure SetDocImagePath(const aPath: AnsiString);
+procedure SetDocImagePath(const aPath, aCachePath: AnsiString);
+var
+ l_Changed: Boolean;
+ l_NewCachePath: AnsiString;
 begin
+ l_Changed := False;
  if gDocImagePath <> aPath then
  begin
   gDocImagePath := aPath;
+  l_Changed := True;
+ end;
+ if UpperCase(ExcludeTrailingPathDelimiter(aCachePath)) = UpperCase(ExcludeTrailingPathDelimiter(aPath)) then
+  l_NewCachePath := ''
+ else
+  l_NewCachePath := aCachePath;
+ if gDocImageCachePath <> l_NewCachePath then
+ begin
+  gDocImageCachePath := l_NewCachePath;
+  l_Changed := True;
+ end;
+ if l_Changed then
+ begin
   FreeAndNil(gDocImageServer);
  end;
 end;
@@ -271,10 +307,11 @@ function DocImageServer: TDocImageServer;
 begin
  if gDocImageServer = nil then
  begin
-  if SysUtils.DirectoryExists(gDocImagePath) then
-   gDocImageServer := TDocImageServer.Create(gDocImagePath)
-  else
+  if not SysUtils.DirectoryExists(gDocImagePath) then
    raise EDocImageError.CreateFmt('Неверный путь к файлам образов документов ("%s")!. Обратитесь к администратору', [gDocImagePath]);
+  if (gDocImageCachePath <> '') and (not SysUtils.DirectoryExists(gDocImageCachePath)) then
+   raise EDocImageError.CreateFmt('Неверный путь к кэшу образов документов ("%s")!. Обратитесь к администратору', [gDocImageCachePath]);
+  gDocImageServer := TDocImageServer.Create(gDocImagePath, gDocImageCachePath);
  end;
  Result := gDocImageServer;
 end;
@@ -393,10 +430,11 @@ begin
 
 end;
 
-constructor TDocImageServer.Create(aImageStoragePath: AnsiString);
+constructor TDocImageServer.Create(const aImageStoragePath, aImageCachePath: AnsiString);
 begin
  inherited Create;
  f_ImageStoragePath := NormalizedPath(aImageStoragePath);
+ f_ImageCachePath := NormalizedPath(aImageCachePath);
 
  {if not DirectoryExists(f_ImageStoragePath) then
   raise EDocImage.Create(SysUtils.Format('Задан неверный ImageStoragePath: %s',
@@ -420,8 +458,14 @@ var
  l_ImgContainer: TdtImgContainerFile;
 
  procedure GenerateImgFileName(aImageType: TImgFileType);
+ var
+  l_Src: TImgSourceType;
  begin
-  l_FullFileName := GetImageFileName(aSrcID, aSDate, aEDate, aNumber, aNonPeriodic, aDocID, aImageType);
+  if f_ImageCachePath <> '' then
+   l_Src := istCache
+  else
+   l_Src := istStorage;
+  l_FullFileName := GetImageFileName(aSrcID, aSDate, aEDate, aNumber, aNonPeriodic, aDocID, aImageType, l_Src);
   if l_FullFileName = '' then
    raise EDocImageError.CreateFmt('Не удалось вычислить местоположение образа (документ Id=%d, источник Id=%d).',
                                          [aDocID, aSrcID]);
@@ -488,6 +532,83 @@ begin
    AddImageFile(aImageFile, SourID, SDate, EDate, l3ArrayToString(Num, SizeOf(Num)), (IsNonperiodic = 1), DocId, aAsCopy);
 end;
 
+function TDocImageServer.CommitImageCache(const aProgressProc: Tl3ProgressProc = nil): Boolean;
+var
+ l_FI: TddFileIterator;
+ l_IterFunc: TddIterateProc;
+ l_Success : Boolean;
+ l_Time: Int64;
+ l_Elapsed: Double;
+ l_Str: AnsiString;
+
+ function MoveOne(const aFileName: AnsiString): Boolean;
+ var
+  l_DestFN: AnsiString;
+ begin
+  Result := True;
+  try
+   l_DestFN := ConcatDirName(f_ImageStoragePath, ExtractRelativePath(IncludeTrailingBackslash(f_ImageCachePath), aFileName));
+   DeleteFilesByMask('', ChangeFileExt(l_DestFN, '.*')); // чтобы удалить те образы, которые уже есть в хранилище
+   CopyFile(aFileName, l_DestFN, cmWriteOver + cmNoBakCopy + cmDeleteSource);
+  except
+   on E: Exception do
+   begin
+    l3System.Msg2Log('Ошибка копирования файла %s (%s)', [aFileName, E.Message]);
+    l_Success := False;
+    Result := False;
+   end;
+  end;
+ end;
+begin
+ // переливаем содержимое кэша в основное хранилище
+ l_FI := TddFileIterator.Make(f_ImageCachePath, '*.*', aProgressProc, True);
+ try
+  if l_FI.Count > 0 then
+  begin
+   l3System.Msg2Log('Найдено: %s общим объёмом %s. Начало копирования.',
+    [NumSuffix(l_FI.Count, 'документ', 'документа', 'документов'),
+    Bytes2Str(l_FI.TotalSize)]);
+   l_IterFunc := L2IterateFilesProc(@MoveOne);
+   try
+    l_Success := True;
+    l_Time := dbgStartTimeCounter;
+    l_FI.IterateFiles(l_IterFunc);
+    if l_Success then
+    begin
+     l_Time := dbgGetElapsed(l_Time);
+     l_Elapsed :=  l_Time / 1000; // прошедшее время в секундах
+     if l_Elapsed > 0 then
+      l_Str := Bytes2Str(Trunc(l_FI.TotalSize / l_Elapsed))
+     else
+      l_Str := 'бесконечность';
+     l3System.Msg2Log('Обработка завершена, файлы скопированы со скоростью %s/сек.', [l_Str], 1);
+     PureDir(f_ImageCachePath);
+    end;
+    Result := l_Success;
+   finally
+    FreeIterateFilesProc(l_IterFunc);
+   end;
+  end
+  else
+  begin
+   l3System.Msg2Log('Кэш образов пуст, обработка не требуется.');
+   Result := True;
+  end;
+ finally
+  FreeAndNil(l_FI);
+ end;
+end;
+
+procedure TDocImageServer.DeleteImages(aSrcID : TDictID; aSDate, aEDate : TStDate; const aNumber : AnsiString;
+ aNonPeriodic : Boolean);
+var
+ l_Mask: AnsiString;
+begin
+ l_Mask := ChangeFileExt(GetImageFileName(aSrcID, aSDate, aEDate, aNumber, aNonPeriodic, -1, iftTIFF, istNoSource), '.*');
+ DeleteFilesByMask(f_ImageCachePath, l_Mask);
+ DeleteFilesByMask(f_ImageStoragePath, l_Mask);
+end;
+
 function TDocImageServer.ExistsFor(aDocId: TDocId; aSourceId: TDictId): Boolean;
 type
  TLinkRec = packed record
@@ -515,20 +636,20 @@ begin
 end;
 
 function TDocImageServer.GetImageFileName(aDocId: TDocId; aDocSourceId: TDictId; aImageFileType: TImgFileType =
-    iftAutoDetect): AnsiString;
+    iftAutoDetect; aImgSource: TImgSourceType = istAutoDetect): AnsiString;
 var
  l_PublishDataRec: TPublishDataRec;
 begin
  Result := '';
  if GetPublishDataRec(aDocId, aDocSourceId, l_PublishDataRec) then
-  Result := GetImageFileName(@l_PublishDataRec, aImageFileType);
+  Result := GetImageFileName(@l_PublishDataRec, aImageFileType, aImgSource);
 end;
 
-function TDocImageServer.GetImageFileName(const aRec : PPublishDataRec; aImageFileType: TImgFileType = iftAutoDetect):
-    AnsiString;
+function TDocImageServer.GetImageFileName(const aRec : PPublishDataRec; aImageFileType: TImgFileType = iftAutoDetect;
+                                          aImgSource: TImgSourceType = istAutoDetect):AnsiString;
 begin
  with aRec^ do
-  Result := GetImageFileName(SourID, SDate, EDate, l3ArrayToString(Num, SizeOf(Num)), (IsNonperiodic = 1), DocId, aImageFileType)
+  Result := GetImageFileName(SourID, SDate, EDate, l3ArrayToString(Num, SizeOf(Num)), (IsNonperiodic = 1), DocId, aImageFileType, aImgSource)
 end;
 
 function TDocImageServer.ImagesFolder(aDocId: TDocId): AnsiString;
@@ -555,10 +676,14 @@ function TDocImageServer.GetImageFileName(aSrcID : TDictID;
                           const aNumber : AnsiString;
                           aNonPeriodic : Boolean;
                           aDocID : TDocID = -1;
-                          aImageFileType: TImgFileType = iftAutoDetect): AnsiString;
+                          aImageFileType: TImgFileType = iftAutoDetect;
+                          aImgSource: TImgSourceType = istAutoDetect): AnsiString;
 var
  D1, M1, Y1,
  D2, M2, Y2 : Integer;
+ l_TempName: AnsiString;
+ l_TempNameCache: AnsiString;
+ l_TempNameStorage: AnsiString;
 
  function GetDocIDStr : AnsiString;
  begin
@@ -601,20 +726,33 @@ begin
  if Length(aNumber) > 0 then Result := Result + Format(' #%S', [aNumber]);
 
 
- Result := ConcatDirName(f_ImageStoragePath, Result);
- case aImageFileType of
-  iftAutoDetect:
-   begin
-    Result := Result + cTIFFImageExt;
-    if not FileExists(Result) then
-     Result := ChangeFileExt(Result, cImageContainerExt);
-    //Result := Result + cTIFFImageExt;
-   end;
-  iftTIFF     : Result := Result + cTIFFImageExt;
-  iftContainer: Result := Result + cImageContainerExt;
+ l_TempNameCache   := ConcatDirName(f_ImageCachePath, Result);
+ l_TempNameStorage := ConcatDirName(f_ImageStoragePath, Result);
+
+ case aImgSource of
+  istAutoDetect, istCache : l_TempName := l_TempNameCache;
+  istStorage              : l_TempName := l_TempNameStorage;
+  istNoSource             : l_TempName := Result; // для внутреннего употребления
  end;
 
-//MakeFile(Result);
+ while True do
+ begin
+  case aImageFileType of
+   iftAutoDetect:
+    begin
+     Assert(aImgSource <> istNoSource);
+     Result := l_TempName + cTIFFImageExt;
+     if not FileExists(Result) then
+      Result := ChangeFileExt(Result, cImageContainerExt);
+    end;
+   iftTIFF     : Result := l_TempName + cTIFFImageExt;
+   iftContainer: Result := l_TempName + cImageContainerExt;
+  end;
+  if (not FileExists(Result)) and (aImgSource = istAutoDetect) and (l_TempName = l_TempNameCache) then
+   l_TempName := l_TempNameStorage
+  else
+   Break;
+ end; // while
 end;
 
 function TDocImageServer.GetPublishDataRec(aDocId: TDocId; aDocSourceId: TDictId; var theRec: TPublishDataRec): Boolean;

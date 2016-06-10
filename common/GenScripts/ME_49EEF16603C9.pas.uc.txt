@@ -175,7 +175,8 @@ const
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=580688988
 //#UC END# *523ADD1803CC_49EEF16603C9_var*
 //#UC START# *523FE5580232_49EEF16603C9_impl*
- Result := not nsNeedOpenLinkInInternalBrowser(anURL);
+ Result := (not nsNeedOpenLinkInInternalBrowser(anURL))
+  or nsIsFileFromMobileGarant(anURL);
 //#UC END# *523FE5580232_49EEF16603C9_impl*
 //#UC START# *523FE5580232_49EEF16603C9_var*
 //#UC END# *523FE5580232_49EEF16603C9_var*

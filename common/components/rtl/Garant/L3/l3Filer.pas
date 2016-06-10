@@ -5,9 +5,12 @@ unit l3Filer;
 { Автор: Люлин А.В. c                 }
 { Модуль: l3Filer - функции виртуальной файловой системы}
 { Начат: 08.04.1997 18:33             }
-{ $Id: l3Filer.pas,v 1.205 2016/01/26 12:02:20 fireton Exp $ }
+{ $Id: l3Filer.pas,v 1.206 2016/04/06 21:08:11 lulin Exp $ }
 
 // $Log: l3Filer.pas,v $
+// Revision 1.206  2016/04/06 21:08:11  lulin
+// - обрабатываем ошибки.
+//
 // Revision 1.205  2016/01/26 12:02:20  fireton
 // - корректируем f_StreamPos при Readln (чтобы работал Seek c soCurrent
 //   в случае если он происходит назад через границу буфера [UngetChars])
@@ -1008,10 +1011,16 @@ begin
   Result := aStream.Position;
 end;
 
+function IsReadMode(aMode: Tl3FileMode): Boolean;
+begin
+ Result := (aMode = l3_fmRead) OR (aMode = l3_fmFullShareRead);
+end;
+
 function l3FileMode2SysUtilsFileMode(l3FileMode: Tl3FileMode): Cardinal;
 begin
  Case l3FileMode of
-  l3_fmRead      : Result := fmOpenRead;
+  l3_fmRead,
+  l3_fmFullShareRead: Result := fmOpenRead;
   l3_fmWrite,
   l3_fmExclusiveWrite  : Result := fmOpenWrite;
   l3_fmAppend,
@@ -1157,7 +1166,7 @@ begin
        raise;
     end;//try..except
    end;//if IsWriteMode(Mode)
-   if (Mode = l3_fmRead) OR (Mode = l3_fmExclusiveReadWrite) then
+   if IsReadMode(Mode) OR (Mode = l3_fmExclusiveReadWrite) then
    begin
     StartIndicator;
     LoadBuffer;
@@ -1239,14 +1248,18 @@ function Tl3CustomFiler.InternalOpen(aMode: Tl3FileMode): Boolean;
   {-}
 begin
  Result := DoOpen;
- if Opened then begin
+ if Opened then
+ begin
   Case aMode of
    l3_fmRead,
+   l3_fmFullShareRead,
    l3_fmExclusiveReadWrite:
-    //if Result then
      LoadBuffer;
    l3_fmAppend :
     f_StreamPos := Stream.Seek(0, soEnd);
+   else
+    if IsReadMode(aMode) then
+     LoadBuffer;
   end;{Case aMode}
  end;{Opened}
 end;
@@ -1828,7 +1841,7 @@ begin
    else
     raise;
  end;//try..except
- if ((Mode = l3_fmRead) OR (Mode = l3_fmExclusiveReadWrite)) AND (l3IsNil(f_BufS) OR (f_BufferOffset >= f_BufS.SLen)) then
+ if (IsReadMode(Mode) OR (Mode = l3_fmExclusiveReadWrite)) AND (l3IsNil(f_BufS) OR (f_BufferOffset >= f_BufS.SLen)) then
   LoadBuffer
   {-на самом деле это сделано для правильного выставления EOF}
  else
@@ -2495,7 +2508,8 @@ begin
  Create;
  FileName := aFileName;
  TimeOut := aTimeOut;
- if (anOpenMode in [l3_fmRead, l3_fmReadWrite]) AND NeedAnalizeCodePage then AnalizeCodePage;
+ if (anOpenMode in [l3_fmRead, l3_fmReadWrite]) AND NeedAnalizeCodePage then
+  AnalizeCodePage;
  Mode := anOpenMode;
 end;
 
@@ -2520,7 +2534,7 @@ end;
 function Tl3CustomDOSFiler.DoOpen: Boolean;
 begin
  Result := true;
- if (Mode = l3_fmRead) then
+ if IsReadMode(Mode) then
   f_Stream := Tl3NamedFileStream.Create(f_FileName, Mode, TimeOut)
  else
   f_Stream := Tl3NamedTextStream.Create(f_FileName, Mode, TimeOut);

@@ -3,9 +3,12 @@ unit CustomizeTools_Form;
 { Библиотека "vcm"        }
 { Модуль: vcmCustomizeTools - }
 { Начат: 23.07.2003 21:04 }
-{ $Id: CustomizeTools_Form.pas,v 1.32 2015/07/09 09:54:17 kostitsin Exp $ }
+{ $Id: CustomizeTools_Form.pas,v 1.33 2016/05/25 11:44:16 lulin Exp $ }
 
 // $Log: CustomizeTools_Form.pas,v $
+// Revision 1.33  2016/05/25 11:44:16  lulin
+// - перегенерация.
+//
 // Revision 1.32  2015/07/09 09:54:17  kostitsin
 // чтобы не мешалось.
 //
@@ -800,6 +803,8 @@ type
       read GetOldSecShortcuts;
       {-}
   end;
+
+  TvcmEntityFormRef = TPrimCustomizeToolsForm;
 
   TCustomizeToolsForm = class(TvcmEntityFormRef)
     MultipleTopPanel: TPanel;

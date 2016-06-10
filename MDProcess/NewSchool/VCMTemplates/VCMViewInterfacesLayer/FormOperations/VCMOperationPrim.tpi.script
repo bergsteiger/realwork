@@ -119,13 +119,6 @@ implementation @ <<VCMOperationPrim>>
 ; // IsInternalVCMOperation
 
 
-//%f _Spell
-: Spell OBJECT IN %S
-//#UC START# *4AE58E3801A3for494F818000E6*
-//#UC END# *4AE58E3801A3for494F818000E6*
-; // Spell
-
-
 // Нужен ли код операции
 //%f _NeedsOpCode
 : NeedsOpCode OBJECT IN %S
@@ -775,78 +768,6 @@ implementation @ <<VCMOperationPrim>>
 <<generator>> intf.pas OBJECT IN %S
 //R  
 //#UC START# *470F1571031Cfor494F818000E6*
-//	   \
- '   '
-//	[{%S{is FormActivate}!=true}{\
- if ( ( %S get_up ( 'is FormActivate' ) ) %!=  true ) then
- begin
-//	[{%S{is query}!=true}{\
-  if ( ( %S get_up ( 'is query' ) ) %!=  true ) then
-  begin
-//	operation\
-   'operation'
-//	]\
-  end // if
-  else
-  begin
-//	query}\
-   'query' 
-  end // else
-//	]\
- end // if
- else
- begin
-//	FormActivate}\
-  'FormActivate' 
- end // else
-//	 %f_N(%S)\
- ' '
- [%f] N %( %S )% 
-//	[(%S%f_pas_Params(""))][: %S%f_pas_ResultTypeName()]\
- if NOT-EMPTY
- begin
-  '('
-  %S %f pas_Params %( '' )% ')' 
- end // if
- NOP
- if NOT-EMPTY
- begin
-  ': '
-  %S %f pas_ResultTypeName %( )% 
- end // if
- NOP
-//	;\
- ';'
-//	[{%S{has states}=true} has states;\
- if ( ( %S get_up ( 'has states' ) ) %==  true ) then
- begin
-  ' has states;'
-//	]\
- end // if
-//	[\n     \{* %SD \}]\
- if NOT-EMPTY
- begin
-  #13#10'     {* '
-  %S |D ' }' 
- end // if
- NOP
-//	<[\n%CX]>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   if NOT-EMPTY
-   begin
-    #13#10
-    %C |X 
-   end // if
-   NOP
-
-   ++! l_Counter
-  end // if
- end // for C
 //#UC END# *470F1571031Cfor494F818000E6*
 ; // intf.pas
 
@@ -866,8 +787,6 @@ implementation @ <<VCMOperationPrim>>
 //+ spell
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for494F818000E6*
-//	%S%f_Spell()
- %S %f Spell %( )% 
 //#UC END# *4A41A13D03D5for494F818000E6*
 ; // spell
 

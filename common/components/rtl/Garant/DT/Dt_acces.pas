@@ -1,8 +1,23 @@
 Unit Dt_Acces;
 
-{ $Id: Dt_acces.pas,v 1.43 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_acces.pas,v 1.47 2016/05/30 10:07:01 voba Exp $ }
 
 // $Log: Dt_acces.pas,v $
+// Revision 1.47  2016/05/30 10:07:01  voba
+// -k:623913569
+//
+// Revision 1.46  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.45  2016/05/17 11:59:35  voba
+// -k:623081921
+//
+// Revision 1.44  2016/04/15 11:57:05  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.43  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -128,6 +143,8 @@ Uses
  Dt_ATbl,
  Dt_Types,
  l3Base,
+ l3LongintList,
+ l3IDList,
  csClient;
 
 const
@@ -164,7 +181,7 @@ Type
    f_CSClient: TcsClient;
    f_NonEditableDicts: LongInt;
    procedure GetNonEditableDicts;
-   function    GetMask(aFamily : TFamilyID;aDocGr : TDictID) : TTblMask;
+   function    GetMaskArr(aFamily : TFamilyID; aDocGr : TDictID) : TTblMask;
    procedure pm_SetCSClient(const Value: TcsClient);
   protected
    fFamilyMasks : PFamilyMasks;
@@ -174,10 +191,17 @@ Type
    function    GetRightMask(aFamily : TFamilyID; aDocID : TDocID) : TTblMask; overload;
    function    GetRightMask(aFamily : TFamilyID; aAccGr : TDictID; aIsIncluded : boolean) : TTblMask; overload;
    function    TestRightsMaskForDocGroup(aFamily : TFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
-   procedure   ReLoadMasks(aFamily : TFamilyID);
+   procedure   ReLoadMaskArr(aFamily : TFamilyID);
+
+   function    GetSelfMask(aFamily : TFamilyID{ = CurrentFamily}) : Word;
+   function    GetMask(aFamily : TFamilyID; aDoc : TDocID) : LongInt;
+
+   procedure   CanBeLocked(aFamily : TFamilyID; var aDocList : Il3IDList;
+                                     aRightsNeeded: Longint; var aRejectedDocs : Il3IDList);
+   // проверяет права на редактирование для пачки доков
 
    property    CSClient: TcsClient read f_CSClient write pm_SetCSClient;
-   property    Mask[Family : TFamilyID;DocGr : TDictID] : TTblMask read GetMask; default;
+   property    Mask[Family : TFamilyID; DocGr : TDictID] : TTblMask read GetMaskArr; default;
    property    NonEditableDicts: LongInt read f_NonEditableDicts;
  end;
 
@@ -215,7 +239,7 @@ Uses
  dtIntf,
  dt_Sab,
  Dt_LinkServ, Dt_Link,
- Dt_Dict,
+ Dt_Dict, DT_Log,
  DT_Userconst,
  HT_Dll,
  SysUtils,
@@ -404,7 +428,7 @@ begin
  {$ENDIF}
 end;
 
-procedure TAccessServer.ReLoadMasks(aFamily : TFamilyID);
+procedure TAccessServer.ReLoadMaskArr(aFamily : TFamilyID);
 var
  MaxItem : TDictID;
 begin
@@ -419,17 +443,16 @@ begin
  fFamilyMasks^[aFamily] := l3StrAlloc(MaxItem*SizeOf(TTblMask));
  l3FillChar(fFamilyMasks^[aFamily]^,MaxItem*SizeOf(TTblMask));
  fMaskTbl.GetFamilyMasks(aFamily,fFamilyMasks^[aFamily],MaxItem);
- GetNonEditableDicts;
 end;
 
-function TAccessServer.GetMask(aFamily : TFamilyID;aDocGr : TDictID) : TTblMask;
+function TAccessServer.GetMaskArr(aFamily : TFamilyID;aDocGr : TDictID) : TTblMask;
 begin
  if GlobalDataProvider.CurUserIsServer then
   Result := TTblMask(cMaxRightsMask)
  else
  begin
   if fFamilyMasks^[aFamily] = nil then
-   ReLoadMasks(aFamily);
+   ReLoadMaskArr(aFamily);
   Result:=PMaskArr(fFamilyMasks^[aFamily])^[aDocGr];
  end;
 end;
@@ -439,13 +462,12 @@ begin
  if f_CSClient <> Value then
  begin
   f_CSClient := Value;
-  GetNonEditableDicts;
  end; // f_CSClient <> Value
 end;
 
 function TAccessServer.TestRightsMaskForDocGroup(aFamily : TFamilyID; aDocGr : TDictID; aRightMask : integer) : Boolean;
 begin
- with TTblMaskRec(GetMask(aFamily, aDocGr)) do
+ with TTblMaskRec(Mask[aFamily, aDocGr]) do
   Result := l3TestMask((AllowMask and not DenyMask), aRightMask);
 end;
 
@@ -501,6 +523,215 @@ begin
  lIsIncluded := LinkServer(aFamily).LogBook.IsDocHadAction(aDocID, acIncluded);
 
  Result := GetRightMask(aFamily, lAccGr, lIsIncluded);
+end;
+
+function TAccessServer.GetSelfMask(aFamily : TFamilyID {= CurrentFamily}) : Word;
+var
+ lMask  : TTblMaskRec;
+begin
+ lMask := TTblMaskRec(AccessServer[MainTblsFamily, aFamily]);
+
+ Result := lMask.AllowMask and not lMask.DenyMask;
+end;
+
+function TAccessServer.GetMask(aFamily : TFamilyID; aDoc : TDocID) : LongInt;
+var
+ Bodies  : Sab;
+ lGroup  : TDictID;
+ lGrMask : TTblMask;
+begin
+ Result := 0;
+ lGrMask := Mask[MainTblsFamily, aFamily];
+ TLongWord(Result).HiWord := TTblMaskRec(lGrMask).AllowMask and not TTblMaskRec(lGrMask).DenyMask;
+
+ lGrMask := 0;
+ LinkServer(aFamily).Links[da_dlAccGroups].GetNodes(aDoc, Bodies);
+  if Bodies.gFoundCnt<>0 then
+  begin
+   Ht(htOpenResults(Bodies, ROPEN_READ, nil, 0));
+   try
+    while htReadResults(Bodies ,@lGroup, SizeOf(TDictID))<>0 do
+     lGrMask := lGrMask or Mask[aFamily, lGroup];
+   finally
+    htCloseResults(Bodies);
+   end;
+  end
+ else
+  lGrMask := Mask[aFamily, 0];
+
+ if LinkServer(aFamily).LogBook.IsDocHadAction(aDoc, acIncluded) then
+  lGrMask := lGrMask or Mask[aFamily, agIncludedGroup]
+ else
+  lGrMask := lGrMask or Mask[aFamily, agNotIncludedGroup];
+
+ TLongWord(Result).LoWord := TTblMaskRec(lGrMask).AllowMask and
+                           not TTblMaskRec(lGrMask).DenyMask;
+end;
+
+
+procedure TAccessServer.CanBeLocked(aFamily : TFamilyID; var aDocList : Il3IDList;
+                                    aRightsNeeded: Longint; var aRejectedDocs : Il3IDList);
+
+
+ procedure CheckByAccGroup(var aIDList : Il3IDList; aInclMask : TTblMask);
+ var
+  lListSab         : ISab;
+  lAccGrSab        : ISab;
+  lIntList         : Il3IDList;
+  I                : Integer;
+  lMask            : TTblMaskRec;
+ begin
+  if aDocList.Count <= 0 then Exit;
+
+  // так нельзя, запрет в AccGr не отработаем
+  //lMask := TTblMaskRec(aInclMask);
+  //if l3TestMask((lMask.AllowMask and not lMask.DenyMask), aRightsNeeded) then
+  // exit; // если разрешено по aInclMask, то значит всем разрешено б
+
+
+  lAccGrSab := MakeValueSet(LinkServer(aFamily).Links[da_dlAccGroups], lnkDocIDFld, aIDList);
+  lAccGrSab.RecordsByKey;
+
+  //проверяем маску для доков без AccGroups
+  lMask := TTblMaskRec(Mask[aFamily, 0] or aInclMask);
+  if not l3TestMask((lMask.AllowMask and not lMask.DenyMask), aRightsNeeded) then
+    //ищем доки без AccGroups и выкидываем в Rejected
+   begin
+    lListSab := MakeSabCopy(lAccGrSab);
+    lListSab.ValuesOfKey(lnkDocIDFld);
+
+    lIntList := l3MakeIDList;
+    try
+     dtCopyValuesSabToList(lListSab, lIntList);
+
+     lIntList.InvertList(aIDList);
+     aRejectedDocs.MergeList(lIntList);
+     aDocList.SubtractList(lIntList);
+    finally
+     lIntList := nil;
+    end;
+   end;
+
+  //ищем все AccGroups присутствующие в aIDList
+  if lAccGrSab.Count > 0 then
+  begin
+   lIntList := l3MakeIDList;
+   try
+    lAccGrSab.ValuesOfKey(lnkDictIDFld);
+    dtCopyValuesSabToList(lAccGrSab, lIntList);
+
+    // цикл по найденным AccGroups
+    for I := Pred(lIntList.Count) downto 0 do
+    begin // проверка маски для конкретной группы
+     lMask := TTblMaskRec(Mask[aFamily, lIntList[I]] or aInclMask);
+     if l3TestMask((lMask.AllowMask and not lMask.DenyMask), aRightsNeeded) then
+      lIntList.Delete(I);
+    end;
+
+    if lIntList.count <= 0 then Exit;
+
+    //для оставшихся ищем доки с ними и и выкидываем в Rejected
+    lAccGrSab := MakeValueSet(LinkServer(aFamily).Links[da_dlAccGroups], lnkDictIDFld, lIntList);
+    lAccGrSab.RecordsByKey;
+    lAccGrSab.ValuesOfKey(lnkDocIDFld);
+    lListSab := MakeValueSet(LinkServer(aFamily).Links[da_dlAccGroups], lnkDocIDFld, aIDList);
+    lAccGrSab.AndSab(lListSab);
+
+    lIntList.Clear;
+    dtCopyValuesSabToList(lAccGrSab, lIntList);
+
+    aRejectedDocs.MergeList(lIntList);
+    aDocList.SubtractList(lIntList);
+   finally
+    lIntList := nil;
+   end;
+  end;
+ end;
+
+var
+ lInclMask        : TTblMask;
+ lNInclMask       : TTblMask;
+ lIsInclRejected  : boolean;
+ lIsNInclRejected : boolean;
+ lListSab         : ISab;
+ lInclList        : Il3IDList;
+ lAction          : TLogActionType;
+
+begin
+ if TLongWord(aRightsNeeded).HiWord > 0 then
+ begin
+  if not l3TestMask(GetSelfMask(aFamily), TLongWord(aRightsNeeded).HiWord) then // просили собственные права редактировать (AccGr), а нельзя
+  begin
+   l3Free(aRejectedDocs);
+   aRejectedDocs := aDocList; // весь список в Rejected
+   aDocList := l3MakeIDList; // пустой
+   Exit;
+  end;
+  aRightsNeeded := aRightsNeeded and $FFFF; //  в дальнейших вычислениях self права не нужны
+ end;
+
+ if aRightsNeeded = 0 then // вычислять нечего (можно все)
+  Exit;
+
+ lInclMask := Mask[aFamily, agIncludedGroup];
+ lIsInclRejected  := l3TestPartMask(TTblMaskRec(lInclMask).DenyMask, aRightsNeeded); //если явный запрет, то дальше можно не считать
+
+ lNInclMask := Mask[aFamily, agNotIncludedGroup];
+ lIsNInclRejected  := l3TestPartMask(TTblMaskRec(lNInclMask).DenyMask, aRightsNeeded); //если явный запрет, то дальше можно не считать
+
+ // если нельзя редактировать подключенные и неподключенные, то нельзя ничего
+ if lIsInclRejected and lIsNInclRejected then
+ begin
+  l3Free(aRejectedDocs);
+  aRejectedDocs := aDocList; // весь список в Rejected
+  aDocList := l3MakeIDList; // пустой
+  Exit;
+ end;
+
+ // ищем подключенные
+ lListSab := MakeValueSet(LinkServer(aFamily).LogBook, lgDocID_Key, aDocList);
+ try
+  lListSab.RecordsByKey;
+  lAction := acIncluded;
+  lListSab.SubSelect(lgAction_key, lAction);
+  lListSab.ValuesOfKey(lgDocID_Key);
+  lInclList := l3MakeIDList;
+  dtCopyValuesSabToList(lListSab, lInclList);
+ finally
+  lListSab := nil;
+ end;
+
+ if lInclList.Count > 0 then
+ begin
+  if lIsInclRejected then //запрещены подк
+  begin
+   aDocList.SubtractList(lInclList); //aDocList := aDocList - lIntList;
+   aRejectedDocs.MergeList(lInclList); // aRejectedDocs := aRejectedDocs + lIntList;
+  end
+  else
+  begin
+   // подключенные явно не запрещены, но могут быть и не разрешены
+   // обрабатываем по группам доступа с учетом lInclMask
+   CheckByAccGroup(lInclList, lInclMask);
+  end;
+ end;
+
+ lInclList.InvertList(aDocList);
+ if lInclList.Count > 0 then
+ begin
+  if lIsNInclRejected then //запрещены НЕподк
+  begin
+   aDocList.SubtractList(lInclList); //aDocList := aDocList - lIntList;
+   aRejectedDocs.MergeList(lInclList); // aRejectedDocs := aRejectedDocs + lIntList;
+  end
+  else
+  begin
+   // подключенные явно не запрещены, но могут быть и не разрешены
+   // обрабатываем по группам доступа с учетом lInclMask
+   CheckByAccGroup(lInclList, lNInclMask);
+  end;
+ end;
+
 end;
 
 end.

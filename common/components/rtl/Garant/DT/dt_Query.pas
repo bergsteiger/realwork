@@ -1,8 +1,17 @@
 unit dt_Query;
 
-{ $Id: dt_Query.pas,v 1.31 2016/03/15 10:02:13 lukyanets Exp $ }
+{ $Id: dt_Query.pas,v 1.33 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: dt_Query.pas,v $
+// Revision 1.33  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.32  2016/04/18 11:48:05  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.31  2016/03/15 10:02:13  lukyanets
 // Не учитывали все пути итерации
 //
@@ -1334,7 +1343,7 @@ begin
  if lValue.Count = 0 then Exit;
  lValue.ValuesOfKey(lnkSubIDFld);
 
- aDSList := dtMakeSortedIDListBySab(lValue);
+ aDSList := dtMakeSortedLongListBySab(lValue);
 end;
 
 {TdtUnitorCustomQuery}
@@ -1519,7 +1528,7 @@ begin
  Create(aPhoto);
  if (aDocIDList <> nil) and (aDocIDList.Count > 0) then
  begin
-  fIDList := dtMakeSortedIDListBySab(aDocIDList);
+  fIDList := dtMakeSortedLongListBySab(aDocIDList);
   fSab := MakeSabCopy(aDocIDList);
   fSab.TransferToPhoto(fID_Fld, MainTblPhoto);
   fSab.RecordsByKey;
@@ -1559,7 +1568,7 @@ begin
  begin
   lSab := MakeSabCopy(aQuery.FoundList);
   lSab.ValuesOfKey(fID_Fld);
-  lList := dtMakeSortedIDListBySab(lSab);
+  lList := dtMakeSortedLongListBySab(lSab);
  end;
  try
   Case aMergeMode of
@@ -2103,8 +2112,6 @@ begin
  l3Free(fAddresses);
  lIDList := m4SearchByFormula(GetTextIndexPath(CurrentFamily, fIndexType), l3PCharLen(fFormula), @fAddresses);
  try
-  if (lIDList <> nil) then
-  l3System.Msg2Log('Found: ' + IntToStr(lIDList.Count));
   fSab := MakeValueSet(MainTblPhoto.Table, fID_Fld, lIDList);
   fSab.RecordsByKey;
  finally
@@ -3089,7 +3096,7 @@ begin
  if fUserID <> 0 then
   if fUserGr then
   begin
-   lUserSab := UserManager.MakeUserIDSabOnGroup(fUserID);
+   lUserSab := UserManager.xxxMakeUserIDSabOnGroup(fUserID);
    lUserSab.TransferToPhoto(lgAuthor_Key, fSab);
    lUserSab.RecordsByKey;
    fSab.AndSab(lUserSab);

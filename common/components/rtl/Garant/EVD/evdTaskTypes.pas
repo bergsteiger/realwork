@@ -29,7 +29,8 @@ type
                   cs_tsDelayed,     { выполнение отложено до ЕО }
                   cs_tsDelivering,  { выполняется доставка результатов }
                   cs_tsAsyncRun,    { Исполнение в отцепленном процессе }
-                  cs_tsAsyncError   { выполнение в отцепленном процессе привело к ошибке }
+                  cs_tsAsyncError,  { выполнение в отцепленном процессе привело к ошибке }
+                  cs_tsAborting     { выполнение прерывается }
                   );
 const
   cs_tsReadyToDelivery = cs_tsDelivery;
@@ -38,6 +39,7 @@ const
   cs_tsKeepProcessingStatuses = [cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted, cs_tsReadyToDelivery, cs_tsDelivering, cs_tsAsyncRun, cs_tsQuery];
   cs_tsStatusesWithProgress = cs_tsRunningStatuses + [cs_tsDelivering];
   cs_tsCanDeleteStatuses = [cs_tsRun, cs_tsAsyncRun, cs_tsQuery, cs_tsFrozen, cs_tsReadyToDelivery];
+  cs_tsFinishedStatuses = [cs_tsDone, cs_tsDeleted] + cs_tsErrorStatuses;
 
 type
  TcsTaskType = (cs_ttImport,        // Импорт
@@ -56,7 +58,7 @@ type
                 cs_ttCommonData,
                 cs_ttAExportDoc,
                 cs_ttAExportAnno,
-                cs_ttRemoteDictEdit,
+                cs_tt_Deprecated_RemoteDictEdit,
                 cs_ttRegionAutoExport,
                 cs_ttRunCommand,
                 cs_ttDossierMake,
@@ -80,7 +82,11 @@ type
                 cs_ttHavanskyExport,
                 cs_ttRegionImport,
                 cs_ttMdpSyncDicts,
-                cs_ttMdpImportDocs
+                cs_ttMdpImportDocs,
+                cs_ttContainer,
+                cs_ttSchedulerProxy,
+                cs_ttMdpSyncStages,
+                cs_ttMdpSyncImport
                 );
 
  TCsNotificationType = (ntEmpty,

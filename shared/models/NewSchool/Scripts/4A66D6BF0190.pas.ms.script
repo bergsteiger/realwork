@@ -3636,29 +3636,6 @@ ref; // ME_4A6971B802A6 BaseChat
 
 ref; // ME_519A11280120 ChatRes
 
-: ME_75F43495426D
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_D4640548703B // Tkw_Chat_opOpenContactList
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_75F43495426D 
-
-: ME_4DB0614603C8_ME_D4640548703B
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_D4640548703B GetWordNameForRegister
-
-: ME_4DB079E00084_ME_D4640548703B
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_D4640548703B GetModuleOperationCode
-
 : ME_D4640548703B
  CONST UID 'D4640548703B'
  CONST Name 'Tkw_Chat_opOpenContactList'
@@ -3675,15 +3652,6 @@ ref; // ME_4DB079E00084_ME_D4640548703B GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_D4640548703B // GetWordNameForRegister
- ME_4DB079E00084_ME_D4640548703B // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_75F43495426D // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::„ат_OpenContactList'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\kw_Chat_opOpenContactList.pas'

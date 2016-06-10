@@ -60,7 +60,10 @@ type
     procedure WriteSegments(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
     procedure WriteTabStops(const Generator: Ik2TagGenerator; aLiteVersion: TddLiteVersion);
     procedure AddStyleSegment(aCHP: TddCharacterProperty);
-    procedure CheckPrevSegment(aHyperlink: TddHyperlink);    
+    procedure CheckPrevSegment(aHyperlink: TddHyperlink);
+    procedure CheckUpperOrLower;
+    procedure AddSegmenFromListIndex(aCHP: TddCharacterProperty; aTextLen: Integer);
+    function AddListItemText(aText: AnsiString): Integer;    
   protected
     function CheckSegments: Boolean;
     function GetEmpty: Boolean; override;
@@ -186,10 +189,10 @@ uses
 constructor TddTextParagraph.Create(aDetination: TddCustomDestination);
 begin
  inherited Create(aDetination);
- f_CHP:= TddCharacterProperty.Create;
- f_PAP:= TddParagraphProperty.Create;
- f_Segments:= TddTextSegmentsList.Make;
- f_SubList:= TddSubsList.Make;
+ f_CHP := TddCharacterProperty.Create;
+ f_PAP := TddParagraphProperty.Create;
+ f_Segments := TddTextSegmentsList.Make;
+ f_SubList := TddSubsList.Make;
  f_Text := TddTextParaString.Create(Self);
  f_Inc := 0;
  f_Offset := 0;
@@ -253,6 +256,19 @@ var
  l_ListLevel: TrtfListLevel;
 
  function lp_GetLevelText: AnsiString;
+
+  procedure lp_AddSeparator;
+  const
+   cnTabSymb = 0;
+  begin
+   if Result <> '' then
+   begin
+    Result := Result + cc_SoftSpace; // http://mdp.garant.ru/pages/viewpage.action?pageId=623066444
+    if (aList.Levels[l_iLvl].Follow = cnTabSymb) and (PAP.TabList.Count > 0) then
+     PAP.TabList.Clear;
+   end; // if Result <> '' then
+  end;
+
  var
   i              : Integer;
   l_Index        : Integer;
@@ -404,18 +420,10 @@ var
     Result := l_LevelIndexStr[8];
   end;
 
-  if aLite then
-   Result := Result + cc_HardSpace
-  else
-   case aList.Levels[l_iLvl].Follow of
-    0: Result := Result + cc_Tab;
-    1: Result := Result + cc_HardSpace;
-   end;
+  lp_AddSeparator;
  end;
 
 var
- i              : Integer;
- l_Seg          : TddTextSegment;
  l_HasText      : Boolean;
  l_LevelText    : AnsiString;
  l_TextLength   : Integer;
@@ -431,7 +439,7 @@ begin
   l_LevelText := '';
   if aWasRestarted and (l_iLvl > 0) and (l_ListLevel.levelnfc > 0) then // http://mdp.garant.ru/pages/viewpage.action?pageId=602001112
  	 l_ListLevel.Restart;
-  if (l_ListLevel.UnicodeText.Len > 0) then // Здесь идет обработка Unicode-строк. Пока отдельно, т.к. объединение с Ansi-ыерсией без переделок нереально.
+  if (l_ListLevel.UnicodeText.Len > 0) then // Здесь идет обработка Unicode-строк. Пока отдельно, т.к. объединение с Ansi-версией без переделок нереально.
   begin
    case l_ListLevel.LevelNFC of  
     cnBulletID: ; // http://mdp.garant.ru/pages/viewpage.action?pageId=590757091
@@ -440,37 +448,14 @@ begin
   end // if (l_ListLevel.UnicodeBuffer.Size > 0) then
   else
    l_LevelText := lp_GetLevelText;
+  l_TextLength := AddListItemText(l_LevelText);
   if l_ListLevel.UnicodeText.Len > 0 then
   begin
-   if l_LevelText <> '' then
-    Text.Insert(l3PCharLen(l_LevelText), 0);
    Text.Insert(l_ListLevel.UnicodeText, 0);
-   l_TextLength := l_ListLevel.UnicodeText.Len + Length(l_LevelText);
-  end // if l_Str.SLen > 0 then
-  else
-  begin
-   l_TextLength := Length(l_LevelText);
-   Text.Insert(l3PCharLen(l_LevelText), 0);
-  end;
-  if f_CHP.Caps = ccAllCaps then
-   Text.MakeUpper
-  else
-   if f_CHP.Caps = ccSmallCaps then
-    Text.MakeLower;
-  l_Seg := TddStyleSegment.Create;
-  try
-   l_Seg.CHP.AssignFrom(aList.Levels[l_iLvl].CHP);
-   l_Seg.Start := 1;
-   l_Seg.Stop := l_TextLength;
-   f_Segments.Insert(0, l_Seg);
-   for i := 1 to f_Segments.Hi do
-   begin
-    Segments[i].Start := Segments[i].Start + l_Seg.Stop;
-    Segments[i].Stop := Segments[i].Stop + l_Seg.Stop;
-   end; // for i
-  finally
-   FreeAndNil(l_Seg);
-  end;
+   Inc(l_TextLength, l_ListLevel.UnicodeText.Len);
+  end; // if l_Str.SLen > 0 then
+  CheckUpperOrLower;
+  AddSegmenFromListIndex(aList.Levels[l_iLvl].CHP, l_TextLength);
  end // List <> nil;
  else
   AddOldListItem;
@@ -921,7 +906,19 @@ var
   Result := l_Seg.CHP.IsDefault;
   if Result then
    Result := l_Seg.Style = propUndefined;
- end;       
+ end;
+
+ function lp_CheckSingleSegment(aList: TddTextSegmentsList): Boolean;
+ var
+  l_First: TddTextsegment;
+ begin
+  Result := aList.Count > 0;
+  if not Result then Exit;
+  l_First := aList.First;
+  Result := (aList.Count = 1) and (l_First.Start = 1) and (l_First.Stop = Text.Len);
+  if Result then
+   Result := ((CHP.Style = propUndefined) or (CHP.Style = 0) or (CHP.Style = l_First.Style));
+ end;
 
 var
  i      : LongInt;
@@ -954,7 +951,7 @@ begin
      l_List.Add(l_Seg);
    end;// for i
    ClearSegments;
-   if (l_List.Count = 1) and (l_List.First.Start = 1) and (l_List.First.Stop = Text.Len) then
+   if lp_CheckSingleSegment(l_List) then
     CHP.AssignFrom(l_List.First.CHP)
    else
     f_Segments.JoinWith(l_List);
@@ -1092,7 +1089,7 @@ var
  l_Styled     : Boolean;
  l_NewStyle   : Integer;
  l_IgnoreStyle: Boolean;
-begin
+begin                                               
  l_NewStyle := 0;
  if f_Destination <> nil then
   f_Destination.BeforeCloseParagraph(Self, l_NewStyle);
@@ -1337,7 +1334,7 @@ begin
    try
     for i := 0 to TabList.Count - 1 do
     begin
-     l_Tab := TddTab(Tablist.Items[i]);
+     l_Tab := Tablist.Items[i];
      l_Tab.Write2Generator(Generator, aLiteVersion);
     end; // for i := 0 to TabList.Count - 1 do
    finally
@@ -1717,18 +1714,21 @@ var
  l_Indent: Integer;
  l_TabPos: Integer;
 begin
+ // Здесь будут накапливаться правила преобразования отступов по табуляции, которые тоже используются для выравания:
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=622418668
  with PAP do
  begin
-  if not GetEmpty and (TabList.Count = 1) and (TddTab(TabList[0]).Kind = tkLeft) then
+  if not GetEmpty and (TabList.Count = 1) and (TabList[0].Kind = tkLeft) then
   begin
    l_TabPos := ev_lpCharIndex(cc_Tab, f_Text.AsWStr);
-   l_Indent := TddTab(TabList[0]).TabPos;
+   l_Indent := TabList[0].TabPos;
    if (l_TabPos > l3NotFound) and (l_TabPos <= cnLeftTabPos) and (l_Indent > cnCenterAlign) then
    begin
-    xaLeft := l_Indent;
+    if JUST <> JustC then
+     xaLeft := l_Indent;
     TabList.DeleteLast;
    end; // if l_Indent > cnRightAlign then
-  end; // if (TabList.Count = 1) and (TddTab(TabList[0]).Kind = 0) then
+  end; // if (TabList.Count = 1) and (TabList[0].Kind = 0) then
  end; // with PAP do
 end;
 
@@ -1766,6 +1766,8 @@ begin
   l_Seg.Start := aStart;
   l_Seg.Stop := Text.Len;
   l_Seg.URL.AsString := aURL;
+  CHP.ClearProp(ddUnderline);
+  CHP.ClearProp(ddFColor);
   CheckPrevSegment(l_Seg);
   AddSegment(l_Seg);
  finally
@@ -1801,6 +1803,48 @@ begin
   if (l_Seg.Start = aHyperlink.Start) and (l_Seg.Stop = aHyperlink.Stop) then
    f_Segments.Delete(i);
  end; // for i := f_Segments.Hi downto 0 do
+end;
+
+procedure TddTextParagraph.CheckUpperOrLower;
+begin
+ if f_CHP.Caps = ccAllCaps then
+  Text.MakeUpper
+ else
+  if f_CHP.Caps = ccSmallCaps then
+   Text.MakeLower;
+end;
+
+procedure TddTextParagraph.AddSegmenFromListIndex(
+  aCHP: TddCharacterProperty; aTextLen: Integer);
+var
+ i    : Integer;
+ l_Seg: TddTextSegment;
+begin
+ l_Seg := TddStyleSegment.Create;
+ try
+  l_Seg.CHP.AssignFrom(aCHP);
+  l_Seg.Start := 1;
+  l_Seg.Stop := aTextLen;
+  f_Segments.Insert(0, l_Seg);
+  for i := 1 to f_Segments.Hi do
+  begin
+   Segments[i].Start := Segments[i].Start + l_Seg.Stop;
+   Segments[i].Stop := Segments[i].Stop + l_Seg.Stop;
+  end; // for i
+ finally
+  FreeAndNil(l_Seg);
+ end;
+end;
+
+function TddTextParagraph.AddListItemText(aText: AnsiString): Integer;
+begin  
+ Result := Length(aText);
+ if (aText <> '') then
+ begin
+  if (aText[Result] in cc_WhiteSpaceExt) and (Text.Len > 0)  then
+   Text.LTrim;
+  Text.Insert(l3PCharLen(aText), 0);
+ end; // if aText <> '' then
 end;
 
 end.

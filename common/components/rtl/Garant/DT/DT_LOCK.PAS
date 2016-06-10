@@ -1,8 +1,14 @@
 Unit Dt_Lock;
 
-{ $Id: DT_LOCK.PAS,v 1.52 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_LOCK.PAS,v 1.54 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: DT_LOCK.PAS,v $
+// Revision 1.54  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.53  2016/05/17 11:59:35  voba
+// -k:623081921
+//
 // Revision 1.52  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -68,7 +74,7 @@ Unit Dt_Lock;
 // - упорядочиваем примеси.
 //
 // Revision 1.31  2008/02/07 14:44:41  lulin
-// - класс _Tl3LongintList переехал в собственный модуль.
+// - класс _Tl3IDList переехал в собственный модуль.
 //
 // Revision 1.30  2007/12/18 08:42:54  fireton
 // - пакетный захват (и отпускание) документов
@@ -151,7 +157,7 @@ Interface
 uses
   l3Base,
   l3String,
-  l3LongintList,
+  l3IDList,
 
   Dt_Types,
   Dt_Jour, //Dt_Jour2,
@@ -171,21 +177,22 @@ Type
   protected
    Locks    : PFamilyLocks;
 
-   function  CompareSysData(Var OldSysData,NewSysData) : Boolean;
+   function  CompareSysData(Var OldSysData, NewSysData) : Boolean;
    procedure OpenJournal(aFamily : TFamilyID);
    procedure Cleanup; override;
   public
-   Constructor Create(anAllowClearLocks: Boolean); {$IfDef Win32} Reintroduce; {$endIf Win32}
+   constructor Create(anAllowClearLocks: Boolean); {$IfDef Win32} Reintroduce; {$endIf Win32}
 
-   procedure BatchLockDoc(aFamily: TFamilyID; aDocList: ISab; aRightsNeeded: Longint; var theLockHandles: Tl3LongintList;
-                          var theAcceptedDocs, theRejectedDocs: ISab);
+   procedure BatchLockDoc(aFamily: TFamilyID; aDocList: ISab; aRightsNeeded: Longint; var theLockHandles: Il3IDList;
+                          var theAcceptedDocs, theRejectedDocs: Il3IDList);
     overload;
 
-   procedure BatchLockDoc(aFamily : TFamilyID; var aDocList : Tl3LongintList; aRightsNeeded: Longint;
-                                   var theLockHandles : Tl3LongintList; var theRejectedDocs : Tl3LongintList);
+   procedure BatchLockDoc(aFamily : TFamilyID; var aDocList : Il3IDList; aRightsNeeded: Longint;
+                                   var theLockHandles : Il3IDList; var theRejectedDocs : Il3IDList);
     overload;
 
-   procedure BatchUnlockDoc(aFamily: TFamilyID; aLockHandles: Tl3LongintList);
+
+   procedure BatchUnlockDoc(aFamily: TFamilyID; aLockHandles: Il3IDList);
    procedure OptimizeMem;
    procedure ReallocLocks(NewMaxFamId : TFamilyID);
    procedure DelFamilyLocks(aFamily : TFamilyID);
@@ -216,7 +223,7 @@ Type
                         aIgnoredLockHandle : TJLHandle = -1);
 
    function HasMyLock(aFamily : TFamilyID; aDocID  : TDocID) : boolean;
-   procedure CheckMyLock(aFamily : TFamilyID; lHasInSaveDir, lNeedOpen : Tl3LongintList);
+   procedure CheckMyLock(aFamily : TFamilyID; lHasInSaveDir, lNeedOpen : Il3IDList);
  end;
 
 const
@@ -233,6 +240,7 @@ uses
   HT_Const,
   l3Bits,
   l3RecList,
+  Dt_Acces,
   Dt_Const,
   Dt_Doc,
   Dt_Serv,
@@ -252,30 +260,37 @@ Begin
  f_AllowClearLocks := anAllowClearLocks;
 end;
 
-procedure TLockServer.BatchLockDoc(aFamily : TFamilyID; var aDocList : Tl3LongintList; aRightsNeeded: Longint;
-                                   var theLockHandles : Tl3LongintList; var theRejectedDocs : Tl3LongintList);
+procedure TLockServer.BatchLockDoc(aFamily : TFamilyID; var aDocList : Il3IDList; aRightsNeeded: Longint;
+                                   var theLockHandles : Il3IDList; var theRejectedDocs : Il3IDList);
 
- procedure AddToRejected(aID: TDocID);
+ {procedure AddToRejected(aID: TDocID);
  begin
   if theRejectedDocs = nil then
-   theRejectedDocs := Tl3LongintList.Create;
+   theRejectedDocs := Tl3IDList.Create;
   theRejectedDocs.Add(aID);
  end;
+ }
 
-var
-  l_DocID               : TDocID;
-  l_LockHandle          : TJLHandle;
-  l_LockMask            : LongInt;
-  I                     : Integer;
-  lCnt                  : Integer;
+//var
+//  l_DocID               : TDocID;
+//  l_LockHandle          : TJLHandle;
+//  l_LockMask            : LongInt;
+//  I                     : Integer;
+//  lCnt                  : Integer;
 
 begin
  if theLockHandles = nil then
-  theLockHandles := Tl3LongintList.Create
+  theLockHandles := l3MakeIDList
  else
   theLockHandles.Clear;
 
- I := 0;
+ //VV
+ AccessServer.CanBeLocked(aFamily, aDocList, aRightsNeeded, theRejectedDocs);
+
+ Locks^[aFamily].Journal.BatchLock(aDocList, aRightsNeeded, theRejectedDocs, theLockHandles);
+ Inc(Locks^[aFamily].Count, theLockHandles.Count);
+
+ {I := 0;
  lCnt := aDocList.Count;
 
  while I < lCnt do
@@ -296,12 +311,17 @@ begin
    Dec(lCnt);
   end;
  end; // while
+ }
 end;
 
-procedure TLockServer.BatchLockDoc(aFamily: TFamilyID; aDocList: ISab; aRightsNeeded: Longint; var theLockHandles:
-    Tl3LongintList; var theAcceptedDocs, theRejectedDocs: ISab);
+procedure TLockServer.BatchLockDoc(aFamily: TFamilyID; aDocList: ISab; aRightsNeeded: Longint; var theLockHandles: Il3IDList;
+                                   var theAcceptedDocs, theRejectedDocs: Il3IDList);
+begin
+ theAcceptedDocs := dtMakeSortedIDListBySab(aDocList);
+ BatchLockDoc(aFamily, theAcceptedDocs, aRightsNeeded, theLockHandles, theRejectedDocs);
+end;
 
- var
+(* var
   l_RejCursor: ISabCursor;
   l_AccCursor: ISabCursor;
 
@@ -374,18 +394,14 @@ begin
   FreeRecAccessProc(l_Proc);
  end;
 end;
+*)
 
-procedure TLockServer.BatchUnlockDoc(aFamily: TFamilyID; aLockHandles: Tl3LongintList);
-
- function l_Iterator(Data: Pointer; Index: Longint): Boolean; register;
- begin
-  UnLockDoc(aFamily, TJLHandle(Data^));
-  Result := True;
- end;
-
+procedure TLockServer.BatchUnlockDoc(aFamily: TFamilyID; aLockHandles: Il3IDList);
 begin
- if not aLockHandles.Empty then
-  aLockHandles.IterateAllF(l3L2IA(@l_Iterator));
+ if aLockHandles.Count = 0 then Exit;
+ Locks^[aFamily].Journal.BatchUnLock(aLockHandles);
+ Dec(Locks^[aFamily].Count, aLockHandles.Count);
+ aLockHandles.Clear;
 end;
 
 procedure TLockServer.Cleanup;
@@ -403,17 +419,17 @@ Begin
  Inherited;
 end;
 
-function TLockServer.CompareSysData(Var OldSysData,NewSysData) : Boolean;
+function TLockServer.CompareSysData(Var OldSysData, NewSysData) : Boolean;
 Begin
- If LongInt(OldSysData) = acFullBlock
-  then
-   Begin
-    Result:=True;
-    LongInt(NewSysData):=0;
-    exit;
-   end;
- LongInt(NewSysData):=Not LongInt(OldSysData) and LongInt(NewSysData);
- Result:=(LongInt(NewSysData)=0);
+ if LongInt(OldSysData) = acFullBlock then
+ begin
+  Result := True;
+  LongInt(NewSysData) := 0;
+  exit;
+ end;
+
+ LongInt(NewSysData) := not LongInt(OldSysData) and LongInt(NewSysData);
+ Result := (LongInt(NewSysData) = 0);
 end;
 
 procedure TLockServer.OptimizeMem;
@@ -437,7 +453,7 @@ Begin
  If Assigned(Locks^[aFamily].Journal)
   then
    l3Free(Locks^[aFamily].Journal);
- Locks^[aFamily].Count:=0
+ Locks^[aFamily].Count:=0             
 end;
 
 function GetLockJournalName(const aFamily: TFamilyID): string;
@@ -469,7 +485,7 @@ function TLockServer.LockDoc(aFamily : TFamilyID;aDocID : TDocID;
                              var MaxMask,LockMask : LongInt) : TJLHandle;
 begin
  (* Получение максимальной маски прав для данного aDocID *)
- MaxMask := LinkServer(aFamily).GetMask(aDocID);
+ MaxMask := AccessServer.GetMask(aFamily, aDocID);
  Result := LockDocByMask(aFamily, aDocID, MaxMask, LockMask);
 end;
 
@@ -527,11 +543,11 @@ begin
  if Locks^[aFamily].Journal=nil then
   OpenJournal(aFamily);
 
- CurMask:=LinkServer(aFamily).GetSelfMask;
+ //CurMask := AccessServer.GetSelfMask;
 
- CurMask:=acFullBlock;
+ CurMask := acFullBlock;
  try
-  Result:=Locks^[aFamily].Journal.Lock(aDocID,CurMask,dtlExclusive);
+  Result:=Locks^[aFamily].Journal.Lock(aDocID, CurMask, dtlExclusive);
   if Result<>-1 then Inc(Locks^[aFamily].Count);
  except
   Result:=-1;
@@ -636,7 +652,7 @@ begin
  Result := Locks^[aFamily].Journal.CheckLock(aDocID) <= 0;
 end;
 
-procedure TLockServer.CheckMyLock(aFamily : TFamilyID; lHasInSaveDir, lNeedOpen : Tl3LongintList);
+procedure TLockServer.CheckMyLock(aFamily : TFamilyID; lHasInSaveDir, lNeedOpen : Il3IDList);
 var
  lStName : Int64;
 

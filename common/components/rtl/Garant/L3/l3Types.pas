@@ -5,9 +5,12 @@ unit l3Types;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Types -                   }
 { Начат: 14.04.1998 11:40             }
-{ $Id: l3Types.pas,v 1.141 2016/03/14 11:35:30 lulin Exp $ }
+{ $Id: l3Types.pas,v 1.142 2016/04/06 20:24:12 lulin Exp $ }
 
 // $Log: l3Types.pas,v $
+// Revision 1.142  2016/04/06 20:24:12  lulin
+// - обрабатываем ошибки открытия файла с логом.
+//
 // Revision 1.141  2016/03/14 11:35:30  lulin
 // - перегенерация.
 //
@@ -571,7 +574,8 @@ type
   Tl3FileMode = (l3_fmRead, l3_fmWrite, l3_fmReadWrite, l3_fmAppend,
                  l3_fmExclusiveReadWrite, l3_fmExclusiveWrite, l3_fmExclusiveAppend,
                  l3_fmCreateReadWrite,
-                 l3_fmFullShareReadWrite, l3_fmFullShareCreateReadWrite);
+                 l3_fmFullShareReadWrite, l3_fmFullShareCreateReadWrite,
+                 l3_fmFullShareRead);
    {* Режим работы с файлами:
       |<br>
       |<ul>

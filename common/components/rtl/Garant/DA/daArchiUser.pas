@@ -76,9 +76,9 @@ constructor TdaArchiUser.Create(const aPriorityCalculator: IdaPriorityCalculator
 begin
 //#UC START# *572B1324003C_52FBA57600AB_impl*
  inherited Create;
- f_CalcPriorityCallBack := aCalcPriorityCallback;
  f_ExportPriority := cPriorityNeedCalc;
  f_ImportPriority := cPriorityNeedCalc;
+ f_PriorityCalculator := aPriorityCalculator;
 //#UC END# *572B1324003C_52FBA57600AB_impl*
 end;//TdaArchiUser.Create
 
@@ -191,8 +191,8 @@ begin
 //#UC START# *572B12420088_52FBA57600ABget_impl*
  if f_ExportPriority = cPriorityNeedCalc then
  begin
-  Assert(Assigned(f_CalcPriorityCallBack));
-  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+  Assert(Assigned(f_PriorityCalculator));
+  f_PriorityCalculator.Calc(f_ID, f_ExportPriority, f_ImportPriority);
  end;
 
  Result := f_ExportPriority;
@@ -215,8 +215,8 @@ begin
 //#UC START# *572B125E006C_52FBA57600ABget_impl*
  if f_ImportPriority = cPriorityNeedCalc then
  begin
-  Assert(Assigned(f_CalcPriorityCallBack));
-  f_CalcPriorityCallBack(f_ID, f_ExportPriority, f_ImportPriority);
+  Assert(Assigned(f_PriorityCalculator));
+  f_PriorityCalculator.Calc(f_ID, f_ExportPriority, f_ImportPriority);
  end;
 
  Result := f_ImportPriority;
@@ -328,7 +328,8 @@ procedure TdaArchiUser.Cleanup;
 //#UC END# *479731C50290_52FBA57600AB_var*
 begin
 //#UC START# *479731C50290_52FBA57600AB_impl*
- !!! Needs to be implemented !!!
+ f_PriorityCalculator := nil;
+ inherited;
 //#UC END# *479731C50290_52FBA57600AB_impl*
 end;//TdaArchiUser.Cleanup
 

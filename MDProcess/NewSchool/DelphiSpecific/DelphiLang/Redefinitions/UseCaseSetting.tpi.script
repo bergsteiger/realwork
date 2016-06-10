@@ -125,6 +125,8 @@ implementation @ <<UseCaseSetting>>
 ; // DoSpell
 
 : SpellToMod OBJECT IN %S
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
 //	%{SELF}%f_set_var(HasNestedSettings,"false")\
  ( get_global_var ( 'SELF' ) %f set_var %( 'HasNestedSettings' %, false )% ) 
 

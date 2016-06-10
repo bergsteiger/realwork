@@ -1042,18 +1042,21 @@ implementation @ <<UtilityPack>>
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for4713540402CE*
 //	<%CX>\
+//	%S#f_DoSpell()
+//	<{}{%C#f_IsSimpleClass()=true|%CS=Constants|%CS=LocalConst|%CS=ConstantArray}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if true then
+  if ( ( %C %?f IsSimpleClass %( )% ) %==  true OR 
+   ( ( %C |S ) %== 'Constants'  ) OR 
+   ( ( %C |S ) %== 'LocalConst'  ) OR 
+   ( ( %C |S ) %== 'ConstantArray'  ) ) then
   begin
    %C |X 
    ++! l_Counter
   end // if
  end // for C
-//	%S%f_DoSpell()
- %S %f DoSpell %( )% 
 //#UC END# *4A41A13D03D5for4713540402CE*
 ; // spell
 

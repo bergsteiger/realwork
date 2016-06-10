@@ -7505,29 +7505,6 @@ ref; // ME_559F8C960133 ItemType
 
 ref; // ME_559F8C7A0213 TvcmCustOpsRepGroupList
 
-: ME_0C1CDB25E91C
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_13B3667E1781 // Tkw_TasksPanelMenu_opCustomize
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_0C1CDB25E91C 
-
-: ME_4DB0614603C8_ME_13B3667E1781
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_13B3667E1781 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_13B3667E1781
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_13B3667E1781 GetModuleOperationCode
-
 : ME_13B3667E1781
  CONST UID '13B3667E1781'
  CONST Name 'Tkw_TasksPanelMenu_opCustomize'
@@ -7544,15 +7521,6 @@ ref; // ME_4DB079E00084_ME_13B3667E1781 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_13B3667E1781 // GetWordNameForRegister
- ME_4DB079E00084_ME_13B3667E1781 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_0C1CDB25E91C // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Настройка_панели_задач_Настройка...'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\kw_TasksPanelMenu_opCustomize.pas'

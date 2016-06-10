@@ -49,6 +49,7 @@ constructor TpgPriorityCalculator.Create(const aFactory: IdaTableQueryFactory);
 begin
 //#UC START# *575137CF01E2_5751377C006E_impl*
  inherited Create;
+ f_Factory := aFactory;
 //#UC END# *575137CF01E2_5751377C006E_impl*
 end;//TpgPriorityCalculator.Create
 
@@ -69,9 +70,21 @@ function TpgPriorityCalculator.PriorityQuery: IdaTabledQuery;
 //#UC END# *57513C4C02C0_5751377C006E_var*
 begin
 //#UC START# *57513C4C02C0_5751377C006E_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ if f_PriorityQuery = nil then
+ begin
+  f_PriorityQuery := f_Factory.MakeTabledQuery(
+   f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers), 'ugm').Join(
+    f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroups), 'ug'),
+    da_jkInner).SetCondition(f_Factory.MakeLogicCondition(
+      f_Factory.MakeParamsCondition('ugm', TdaScheme.Instance.Table(da_mtGroupMembers)['user_id'], da_copEqual, 'p_userID'),
+      da_loAnd,
+      f_Factory.MakeJoinCondition('ugm', TdaScheme.Instance.Table(da_mtGroupMembers)['group_id'], 'ug', TdaScheme.Instance.Table(da_mtGroups)['id'])))
+  );
+  f_PriorityQuery.AddSelectField(f_Factory.MakeAggregateField(da_aopMax, f_Factory.MakeSelectField('ug', TdaScheme.Instance.Table(da_mtGroups)['import_priority']), 'max_import_priority'));
+  f_PriorityQuery.AddSelectField(f_Factory.MakeAggregateField(da_aopMax, f_Factory.MakeSelectField('ug', TdaScheme.Instance.Table(da_mtGroups)['export_priority']), 'max_export_priority'));
+  f_PriorityQuery.Prepare;
+ end;
+ Result := f_PriorityQuery;
 //#UC END# *57513C4C02C0_5751377C006E_impl*
 end;//TpgPriorityCalculator.PriorityQuery
 
@@ -90,8 +103,8 @@ begin
   Result := not l_ResultSet.IsEmpty;
   if Result then
   begin
-   aImportPriority := TdaPriority(l_ResultSet.Field['import_priority'].AsInteger);
-   aExportPriority := TdaPriority(l_ResultSet.Field['export_priority'].AsInteger);
+   aImportPriority := TdaPriority(l_ResultSet.Field['max_import_priority'].AsInteger);
+   aExportPriority := TdaPriority(l_ResultSet.Field['max_export_priority'].AsInteger);
   end;
  finally
   l_ResultSet := nil;

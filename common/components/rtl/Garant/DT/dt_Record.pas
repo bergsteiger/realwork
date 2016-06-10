@@ -1,8 +1,11 @@
 Unit dt_Record;
 
-{ $Id: dt_Record.pas,v 1.22 2015/03/19 10:32:14 fireton Exp $ }
+{ $Id: dt_Record.pas,v 1.23 2016/04/01 13:32:22 lulin Exp $ }
 
 // $Log: dt_Record.pas,v $
+// Revision 1.23  2016/04/01 13:32:22  lulin
+// - перегенерация.
+//
 // Revision 1.22  2015/03/19 10:32:14  fireton
 // - доработки
 //
@@ -34,7 +37,7 @@ Unit dt_Record;
 // - выпрямляем зависимости.
 //
 // Revision 1.12  2014/04/22 13:20:25  voba
-// - поддержка Tk2Tag
+// - поддержка _Tk2Tag
 //
 // Revision 1.11  2014/03/06 17:23:23  lulin
 // - избавляемся от теговых обёрток.

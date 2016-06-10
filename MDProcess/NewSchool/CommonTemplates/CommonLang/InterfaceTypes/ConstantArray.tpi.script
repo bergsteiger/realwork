@@ -133,27 +133,32 @@ implementation @ <<ConstantArray>>
    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	[{%f_UseNewGenRecG(%S)!=true}\
+   if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
+   begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
 //	var
-   'var'
+    'var'
 //	 l_Index: %f_pas_TypeName(%R);\
-   ' l_Index: '
-   [%f] pas_TypeName %( %R )% ';'
+    ' l_Index: '
+    [%f] pas_TypeName %( %R )% ';'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
 //	 aStrings.Clear;
-   ' aStrings.Clear;'
+    ' aStrings.Clear;'
 //	 for l_Index := Low(l_Index) to High(l_Index) do
-   ' for l_Index := Low(l_Index) to High(l_Index) do'
+    ' for l_Index := Low(l_Index) to High(l_Index) do'
 //	  aStrings.Add(%SN\[l_Index\].AsCStr);\
-   '  aStrings.Add('
-   %S |N '[l_Index].AsCStr);'
+    '  aStrings.Add('
+    %S |N '[l_Index].AsCStr);'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	[{"%{Il3CString}N"=""}%f_find_element(46780DA40383,Il3CString)]\
    if ( ( ( get_global_var ( 'Il3CString' ) |N ) ) %== '' ) then
@@ -193,36 +198,41 @@ implementation @ <<ConstantArray>>
    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	[{%f_UseNewGenRecG(%S)!=true}\
+   if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
+   begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_var' %, 
 //	var
-   'var'
+    'var'
 //	 l_Index: %f_pas_TypeName(%R);\
-   ' l_Index: '
-   [%f] pas_TypeName %( %R )% ';'
+    ' l_Index: '
+    [%f] pas_TypeName %( %R )% ';'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Helper_Inst' ) ) )% '_impl' %, 
 //	 for l_Index := Low(l_Index) to High(l_Index) do
-   ' for l_Index := Low(l_Index) to High(l_Index) do'
+    ' for l_Index := Low(l_Index) to High(l_Index) do'
 //	  if l3Same(aDisplayName, %SN\[l_Index\].AsCStr) then
-   '  if l3Same(aDisplayName' %, ' '
-   %S |N '[l_Index].AsCStr) then'
+    '  if l3Same(aDisplayName' %, ' '
+    %S |N '[l_Index].AsCStr) then'
 //	  begin
-   '  begin'
+    '  begin'
 //	   Result := l_Index;
-   '   Result := l_Index;'
+    '   Result := l_Index;'
 //	   Exit;
-   '   Exit;'
+    '   Exit;'
 //	  end;//l3Same..
-   '  end;//l3Same..'
+    '  end;//l3Same..'
 //	 raise Exception.CreateFmt('Display name "\%s" not found in map "%SN"', \[l3Str(aDisplayName)\]);\
-   ' raise Exception.CreateFmt(''Display name "%s" not found in map "'
-   %S |N '''' %, ' [l3Str(aDisplayName)]);'
+    ' raise Exception.CreateFmt(''Display name "%s" not found in map "'
+    %S |N '''' %, ' [l3Str(aDisplayName)]);'
 //	)\
 )% ) //	]\
+   end // if
+//	]\
   end // if
 
 
@@ -292,109 +302,114 @@ implementation @ <<ConstantArray>>
 //	%f_addCDep(%P,%{l3FillChar})\
    [%f] addCDep %( %P %, ( get_global_var ( 'l3FillChar' ) ) )% 
 
+//	[{%f_UseNewGenRecG(%S)!=true}\
+   if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
+   begin
 
 // MapID
 //	%f_find_element(46A5EFE602DE,Op_Instance)\
-   [%f] find_element %( '46A5EFE602DE' %, 'Op_Instance' )% 
+    [%f] find_element %( '46A5EFE602DE' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})get_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})get_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% 'get_impl' %, 
 //	 l3FillChar(Result, SizeOf(Result));
-   ' l3FillChar(Result' %, ' SizeOf(Result));'
+    ' l3FillChar(Result' %, ' SizeOf(Result));'
 //	 Assert(false);\
-   ' Assert(false);'
+    ' Assert(false);'
 //	)\
 )% ) 
 
 
 // GetDisplayNames
 //	%f_find_element(46A5F0130365,Op_Instance)\
-   [%f] find_element %( '46A5F0130365' %, 'Op_Instance' )% 
+    [%f] find_element %( '46A5F0130365' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
 //	 %f_pas_TypeName(%{Helper_Inst}).FillStrings(aList);\
-   ' '
-   [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.FillStrings(aList);'
+    ' '
+    [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.FillStrings(aList);'
 //	)\
 )% ) 
 
 
 // MapSize
 //	%f_find_element(46A5F03800A2,Op_Instance)\
-   [%f] find_element %( '46A5F03800A2' %, 'Op_Instance' )% 
+    [%f] find_element %( '46A5F03800A2' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
 //	 Result := Ord(High(%f_pas_TypeName(%R))) - Ord(Low(%f_pas_TypeName(%R)));\
-   ' Result := Ord(High('
-   [%f] pas_TypeName %( %R )% ')) - Ord(Low('
-   [%f] pas_TypeName %( %R )% '));'
+    ' Result := Ord(High('
+    [%f] pas_TypeName %( %R )% ')) - Ord(Low('
+    [%f] pas_TypeName %( %R )% '));'
 //	)\
 )% ) 
 
 
 // DisplayNameToValue
 //	%f_find_element(46A5FCF900E0,Op_Instance)\
-   [%f] find_element %( '46A5FCF900E0' %, 'Op_Instance' )% 
+    [%f] find_element %( '46A5FCF900E0' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
 //	 Result := Ord(%f_pas_TypeName(%{Helper_Inst}).DisplayNameToValue(aDisplayName));\
-   ' Result := Ord('
-   [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.DisplayNameToValue(aDisplayName));'
+    ' Result := Ord('
+    [%f] pas_TypeName %( ( get_global_var ( 'Helper_Inst' ) ) )% '.DisplayNameToValue(aDisplayName));'
 //	)\
 )% ) 
 
 
 // ValueToDisplayName
 //	%f_find_element(46A5FD1B000D,Op_Instance)\
-   [%f] find_element %( '46A5FD1B000D' %, 'Op_Instance' )% 
+    [%f] find_element %( '46A5FD1B000D' %, 'Op_Instance' )% 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_var,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_var' %, 
 //	 {-}\
-   ' {-}'
+    ' {-}'
 //	)\
 )% ) //	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})_impl,\
-   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
-   [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
+    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '_'
+    [%f] pas_MethodOwnerID %( ( get_global_var ( 'Op_Instance' ) ) %, ( get_global_var ( 'Map_ImplPrim' ) ) )% '_impl' %, 
 //	 Assert(aValue \>= Ord(Low(%f_pas_TypeName(%R))));
-   ' Assert(aValue >= Ord(Low('
-   [%f] pas_TypeName %( %R )% ')));'
+    ' Assert(aValue >= Ord(Low('
+    [%f] pas_TypeName %( %R )% ')));'
 //	 Assert(aValue \<= Ord(High(%f_pas_TypeName(%R))));
-   ' Assert(aValue <= Ord(High('
-   [%f] pas_TypeName %( %R )% ')));'
+    ' Assert(aValue <= Ord(High('
+    [%f] pas_TypeName %( %R )% ')));'
 //	 Result := %SN\[%f_pas_TypeName(%R)(aValue)\].AsCStr;\
-   ' Result := '
-   %S |N '['
-   [%f] pas_TypeName %( %R )% '(aValue)].AsCStr;'
+    ' Result := '
+    %S |N '['
+    [%f] pas_TypeName %( %R )% '(aValue)].AsCStr;'
 //	)\
-)% ) 
+)% ) //	]\
+   end // if
+
 
 //	%P%f_add_class(%SU_MapImpl,SimpleClass,T%SNImpl,Map_Impl)\
    %P %f add_class %( %S |U '_MapImpl' %, 'SimpleClass' %, 'T'

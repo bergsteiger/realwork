@@ -9,8 +9,14 @@ unit vtSaveDialog;
 {               Filters.                                                       }
 {------------------------------------------------------------------------------}
 
-// $Id: vtSaveDialog.pas,v 1.13 2013/04/24 09:35:37 lulin Exp $
+// $Id: vtSaveDialog.pas,v 1.15 2016/04/21 08:19:40 morozov Exp $
 // $Log: vtSaveDialog.pas,v $
+// Revision 1.15  2016/04/21 08:19:40  morozov
+// {RequestLink: 621277863}
+//
+// Revision 1.14  2016/04/19 08:47:20  morozov
+// {RequestLink: 621277863}
+//
 // Revision 1.13  2013/04/24 09:35:37  lulin
 // - портируем.
 //
@@ -68,9 +74,9 @@ type
   {* Диалог сохранения. }
   private
   // internal fields
-    f_CurrentFilter : String;
-    f_Filters       : Tl3Strings;
-    f_Init          : Boolean;
+    f_CurrentFilter      : String;
+    f_Filters            : Tl3Strings;
+    f_NeedSkipSelChanged : Boolean;
   private
   // internal methods
     function DefineCurrentFilter: String;
@@ -208,10 +214,37 @@ begin
 end;
 
 function TvtSaveDialog.DefineCurrentFilter: String;
+const
+ cFilterSeparator = '|';
+ cAsterisk = '*';
+var
+ l_Pos: Integer;
+
+  function lp_GetToken(const aStr: String; out aToken: String): Boolean;
+  var
+   l_Begin: Integer;
+   l_End: Integer;
+  begin
+   Result := False;
+   l_Begin := l_Pos;
+   while (l_Pos <= Length(aStr)) do
+   begin
+    Result := True;
+    if (aStr[l_Pos] = cFilterSeparator) or (l_Pos > Length(aStr)) then
+    begin
+     l_End := l_Pos;
+     Inc(l_Pos);
+     Break;
+    end
+    else
+     Inc(l_Pos);
+   end;
+   aToken := Copy(aStr, l_Begin, l_End - l_Begin);
+  end;
 
   procedure DoAdd(const aStr: String);
   begin
-   f_Filters.Add(AnsiReplaceStr(aStr, '*', ''))
+   f_Filters.Add(AnsiReplaceStr(aStr, cAsterisk, ''))
   end;
 
 var
@@ -222,25 +255,21 @@ begin
  Result := DefaultExt;
  if (Filter <> '') and (Filters.Count = 0) then
  begin
-  l_Temp := Filter;
+  l_Pos := 1;
   l_DisplayName := True;
-  while (l_Temp <> '') do
+  while lp_GetToken(Filter, l_Temp) do
   begin
-   l_Index := Pos('|', l_Temp);
-   if not l_DisplayName then
-    if (l_Index = 0) then
-     DoAdd(l_Temp)
-    else
-     DoAdd(Copy(l_Temp, 1, Pred(l_Index)));
-   if (l_Index = 0) then
-    l_Temp := ''
-   else
-    l_Temp := Copy(l_Temp, Succ(l_Index), Length(l_Temp));
+   if (not l_DisplayName) then
+    DoAdd(l_Temp);
+   // DisplayName - первый блок, сам фильтр - второй и т.д.
    l_DisplayName := not l_DisplayName;
-  end;//l_Temp <> ''
+  end;
  end;//if Filter <> '' then
- if (FilterIndex <= Filters.Count) then
-  Result := Filters[Pred(FilterIndex)].AsString;
+ if (FilterIndex < Filters.Count) then
+  Result := Filters[Pred(FilterIndex)].AsString
+ else
+  Result := '';
+ // - последним в списке идёт фильтр "Все файлы"
 end;//DefineCurrentFilter
 
 destructor TvtSaveDialog.Destroy;
@@ -255,7 +284,7 @@ procedure TvtSaveDialog.DoShow;
   // override;
   {-}
 begin
- f_Init := False;
+ f_NeedSkipSelChanged := True;
  inherited;
 end;
 
@@ -265,11 +294,9 @@ procedure TvtSaveDialog.DoSelectionChange;
 begin
  // Зададим расширение в имени, если у пользователя стоит режим показывать
  // расширения для известных файлов:
- if not f_Init then
- begin                       
+ if not f_NeedSkipSelChanged then
   FirstCorrectFileName;
-  f_Init := True;
- end;
+ f_NeedSkipSelChanged := False;
  inherited;
 end;
 
@@ -280,8 +307,19 @@ var
 
  function lp_IsValidExtension: Boolean;
    {-}
+ var
+  l_FileExt: String;
+  l_Index: Integer;
  begin//lp_IsValidExtension
-  Result := (f_Filters.IndexOf(ExtractFileExt(l_FileName)) >= 0);
+  Result := False;
+  l_FileExt := ExtractFileExt(l_FileName);
+  for l_Index := 0 to Pred(f_Filters.Count) do
+  begin
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=621277863
+   Result := AnsiSameText(f_Filters[l_Index].AsString, l_FileExt);
+   if Result then
+    Exit;
+  end;
  end;//lp_IsValidExtension
 
 var

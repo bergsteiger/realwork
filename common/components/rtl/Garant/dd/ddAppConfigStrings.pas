@@ -547,7 +547,7 @@ procedure TddFolderNameConfigItem.Validate;
 begin
 //#UC START# *5446141E00FA_523038DB01A5_impl*
  if not AllowProcessDir and l3IsProcessFolder((Control as TEdit).Text) then
-  raise EddInvalidValue.CreateFmt('—сылатьс€ на каталог с программой запрещено', [], Self);
+  raise EddInvalidValue.CreateFmt('—сылатьс€ на каталог с программой (%s) запрещено', [ParamStr(0)], Self);
 //#UC END# *5446141E00FA_523038DB01A5_impl*
 end;//TddFolderNameConfigItem.Validate
 

@@ -1,8 +1,23 @@
 Unit Dt_Log;
 
-{ $Id: DT_LOG.PAS,v 1.89 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_LOG.PAS,v 1.92 2016/05/13 12:55:08 lukyanets Exp $ }
 
 // $Log: DT_LOG.PAS,v $
+// Revision 1.92  2016/05/13 12:55:08  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.91  2016/04/18 11:48:05  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.90  2016/04/14 11:14:28  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.89  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -308,13 +323,10 @@ Type
 
  TLogBookTbl = Class(TDocAttrTbl)
   private
-   //fSaveInt : Byte;
-
    function GetDocHistory(aDocID : LongInt;
                           aFlag : TLogActionFlags;
                           WithSort : Boolean) : Sab;
 
-   //function MakeSabOfActions(aActions: TLogActionSet) : ISab;
   public
    Constructor Create(aFamID : TFamilyID); Reintroduce;
    procedure   PutDateLogRec(aDocID : LongInt;
@@ -326,48 +338,21 @@ Type
    Procedure   PutLogRec(aDocID : LongInt;aAction : TLogActionType;aUser : TUserID = 0);
    Procedure   PutLogRecSet(aDocID : LongInt; aActSet : TLogActionSet);
    Procedure   PutLogRecToDocs(aDocIDs : ISAB; aAction : TLogActionType; aUser : TUserID = 0; aDate : TStDate = 0);
-   Procedure   ClearLogBook;
 
-   //Function    LastModified(aDocID : LongInt; LogRecType : TLogActionFlags = acfNone) : TStDateTimeRec;
    function IsDocHadAction(aDocID : LongInt;aAction : TLogActionType; aDate : TStDate = 0): Boolean;
    Function    IsDocModified(aDocID : LongInt) : Boolean;
-   //Function    GetMaxDateOnAction(aDocID : LongInt;aAction : TLogActionType) : TStDate;
-   //Function    GetDatesOnAction(aDocID : LongInt;aAction : TLogActionType;
-   //                             Var Dates : PStDate) : Word;
-
    Function    GetDocsOnAction(aAction : TLogActionType;UserID : TUserID = 0;
                                UserGr : Boolean = False) : Sab;
-
-   //function    MakeDocIdsSabBy(aActions: TLogActionSet;
-   //                            aFromDate, aToDate: TStDate;
-   //                            aUserID : TUserID = 0;
-   //                            aUserGr : Boolean = False): ISab;
-
    Procedure   GetLogDataList(aDocID : LongInt;aFlag : TLogActionFlags;
                               aDataList : Tl3DataList;InternalFormat : Boolean = False);
 
    Function    GetDocsHistory(aDocSab : Sab;aFlag : TLogActionFlags) : Sab;
 
-   //procedure   DelLogOnDocID(aID : LongInt); overload;
-   //Procedure   DelAllLogOnDocsID(aIDs : ISab);
-   //Procedure   DelUrLogOnDocsID(aIDs : Sab);
-   //Procedure   DelIncludedLogOnDocsID(aIDs : ISab);
-    //{Стирает VIncluded у пачки}
-
    procedure   CopyRecords(aSrcDocId, aDstDocId: Longint);
     // делает копии всех записей от документа aSrcDocId для документа aDstDocId
-   //function    DeleteRecords(aUserId: TUserID; aFromDate, aToDate: TStDate): Integer; overload;
-    // Удаление записей из журнала по номеру юзера и во заданному интервалу дат.
-    // Возвращает кол-то удаленных записей.
-   //function    DeleteRecords(aDocID: TDocID;
-   //                          aAction: TLogActionType;
-   //                          aDate: TStDate): Integer; overload; // Возвращает кол-то удаленных записей.
-
    Procedure   DelSingleLogRec(aDocID : TDocID;aAction : TLogActionType;
                                aDate : TStDate;aTime : TStTime);
    function IsDocHadActions(aDocID : LongInt; aActions: array of TLogActionType; aDate : TStDate = 0): Boolean;
-
-   //Property    SaveInterval : Byte read fSaveInt write fSaveInt;
  end;
 
 Implementation
@@ -594,56 +579,6 @@ begin
  end;
 end;
 
-Procedure TLogBookTbl.ClearLogBook;
-Var
- TmpSab  : SAB;
- DelDate : Word;
-Begin
-
-(* Вычищать не все записи, а только неюридические и Annoced *)
-
-{ l3FillChar(TmpSab,SizeOf(SAB));
- RefreshSrchList;
- DelDate:=GlobalHtServer.CurDate-fSaveInt;
- htSearch(@fSrchList,TmpSab,Table.Handle,lgDate_Key,Less,@DelDate,Nil);
- Try
-  If (TmpSab.gFoundCnt<>0) then
-   if StartTA then
-    try
-     Ht(htDeleteRecords(TmpSab));
-     SuccessTA;
-    except
-     RollBackTA;
-     raise;
-    end;
-
- finally
-  htClearResults(TmpSab);
- end;}
-end;
-
-(*Function TLogBookTbl.LastModified(aDocID : LongInt; LogRecType : TLogActionFlags = acfNone) : TStDateTimeRec;
-Var
- DocHistory : Sab;
-Begin
- l3FillChar(Result,SizeOf(TStDateTimeRec));
- DocHistory:=GetDocHistory(aDocID,{acfNone}LogRecType,True);
- Try
-  If DocHistory.gFoundCnt<>0
-   then
-    Begin
-     htOpenResults(DocHistory,ROPEN_READ,@DateTimeArr,2);
-     Try
-      htReadResults(DocHistory,@Result,SizeOf(TStDateTimeRec));
-     finally
-      htCloseResults(DocHistory);
-     end;
-    end;
- finally
-  htClearResults(DocHistory);
- end;
-end;*)
-
 function TLogBookTbl.IsDocHadAction(aDocID : LongInt;aAction : TLogActionType; aDate : TStDate = 0): Boolean;
 var
  lSab : ISab;
@@ -673,100 +608,13 @@ Begin
   htClearResults(TmpSab);
  end;
 end;
-(*
-Function TLogBookTbl.GetMaxDateOnAction(aDocID : LongInt;aAction : TLogActionType) : TStDate;
-Var
- TmpSab1,
- TmpSab2,
- TmpSab3   : Sab;
-Begin
- Result:=0;
- TmpSab1:=GetDocHistory(aDocID,acfNone,False);
- Try
-  If TmpSab1.gFoundCnt<>0
-   then
-    Begin
-     htSearch(@TmpSab1,TmpSab2,Table.Handle,lgAction_key,Equal,@aAction,Nil);
-     Try
-      htAndResults(TmpSab3,TmpSab1,TmpSab2);
-     finally
-      htClearResults(TmpSab2);
-     end;
 
-     If TmpSab3.gFoundCnt<>0
-      then
-       htKeyMaximum(TmpSab3,lgDate_key,@Result);
-     htClearResults(TmpSab3);
-    end;
- finally
-  htClearResults(TmpSab1);
- end;
-end;
-
-Function TLogBookTbl.GetDatesOnAction(aDocID : LongInt;aAction : TLogActionType;
-                                      Var Dates : PStDate) : Word;
-Var
- TmpSab1,
- TmpSab2,
- TmpSab3   : Sab;
- I,
- TmpDate   : TStDate;
- TmpFld    : SmallInt;
-Begin
- Result:=0;
- Dates:=Nil;
- TmpSab1:=GetDocHistory(aDocID,acfNone,False);
- Try
-  If TmpSab1.gFoundCnt<>0
-   then
-    Begin
-     htSearch(@TmpSab1,TmpSab2,Table.Handle,lgAction_key,Equal,@aAction,Nil);
-     Try
-      htAndResults(TmpSab3,TmpSab1,TmpSab2);
-      Try
-       Result:=TmpSab3.gFoundCnt;
-       If Result<>0
-        then
-         Begin
-          l3System.GetLocalMem(Dates,SizeOf(TStDate)*Result);
-          TmpFld:=lgDate_key;
-          Ht(htOpenResults(TmpSab3,ROPEN_READ,@TmpFld,1));
-          Try
-           TmpDate:=0;
-           I:=1;
-           While htReadResults(TmpSab3,@TmpDate,SizeOf(TmpDate))<>0 do
-            Begin
-             PDatesArr(Dates)^[I]:=TmpDate;
-             Inc(I);
-             TmpDate:=0;
-            end;
-          finally
-           htCloseResults(TmpSab3);
-          end;
-         end
-        else
-         Dates:=Nil;
-      finally
-       htClearResults(TmpSab3);
-      end;
-     finally
-      htClearResults(TmpSab2);
-     end;
-    end
-   else
-    Begin
-     Result:=0;
-     Dates:=Nil;
-    end;
- finally
-  htClearResults(TmpSab1);
- end;
-end;  *)
 Function TLogBookTbl.GetDocsOnAction(aAction : TLogActionType;UserID : TUserID;UserGr : Boolean) : Sab;
 Var
  TmpSab  : Sab;
  TmpSab1,
  TmpSab2 : Sab;
+ l_Sab: ISab;
 Begin
  with fTable do
  begin
@@ -775,7 +623,12 @@ Begin
   If UserID<>0 then
    If UserGr then
     begin
-     TmpSab2:=UserManager.GetUserIDSabOnGroup(UserID);
+     l_Sab := UserManager.xxxMakeUserIDSabOnGroup(UserID);
+     try
+      TmpSab2 := l_Sab.ExtractHTSab;
+     finally
+      l_Sab := nil;
+     end;
      Try
       htTransferToPhoto(TmpSab2,TmpSab,lgAuthor_Key);
       htRecordsByKey(TmpSab1,TmpSab2);
@@ -837,7 +690,7 @@ begin
         DisplayRec.Action:=Action;
         DisplayRec.Date:=Date;
         DisplayRec.Time:=Time;
-        DisplayRec.Author:=UserManager.GetUserDisplayName(Author);
+        DisplayRec.Author := GlobalDataProvider.UserManager.GetUserDisplayName(Author);
         aDataList.Add(@DisplayRec);
        end
       else
@@ -853,85 +706,6 @@ begin
   htClearResults(DocHistory);
  end;
 end;
-
-{Procedure TLogBookTbl.DelLogOnDocID(aID : Longint);
-Var
- TmpSab : Sab;
-Begin
- TmpSab:=GetDocHistory(aID,acfNone,False);
- Try
-  If (TmpSab.gFoundCnt<>0) then
-   if StartTA then
-    try
-     Ht(htDeleteRecords(TmpSab));
-     SuccessTA;
-    except
-     RollBackTA;
-     raise;
-    end;
-
- finally
-  htClearResults(TmpSab);
- end;
-end; }
-
-{procedure TLogBookTbl.DelAllLogOnDocsID(aIDs : ISab);
-begin
- DeleteRecsByKeys(aIDs,lgDocID_Key);
-end;}
-{
-Procedure TLogBookTbl.DelUrLogOnDocsID(aIDs : Sab);
-Var
- TmpSab1,
- TmpSab2,
- TmpSab3  : SAB;
- TmpFlag  : TLogActionFlags;
-Begin
- RefreshSrchList;
-
- htTransferToPhoto(aIDs,fSrchList,lgDocID_Key);
- If aIDs.nRetCode = 0 then
-  Begin
-   htRecordsByKey(TmpSab1,aIDs);
-   Try
-    TmpFlag:=acfJuror;
-    htSearch(@fSrchList,TmpSab2,Table.Handle,lgActionFlag_Key,Equal,@TmpFlag,Nil);
-    Try
-     htAndResults(TmpSab3,TmpSab1,TmpSab2);
-     Try
-      If (TmpSab3.gFoundCnt<>0) then
-       if StartTA then
-        try
-         htDeleteRecords(TmpSab3);
-         SuccessTA;
-        except
-         RollBackTA;
-         raise;
-        end;
-
-     finally
-      htClearResults(TmpSab3);
-     end;
-    finally
-     htClearResults(TmpSab2);
-    end;
-   finally
-    htClearResults(TmpSab1);
-   end;
-  end;
-end;
-}
-(*Procedure TLogBookTbl.DelIncludedLogOnDocsID(aIDs : ISab);
-{Стирает VIncluded у пачки}
-var
- lAction : TLogActionType;
-begin
- aIDs.TransferToPhoto(lgDocID_Key, Self);
- aIDs.RecordsByKey;
- lAction := acIncluded;
- aIDs.SubSelect(lgAction_Key, lAction);
- aIDs.DeleteFromTable;
-end;*)
 
 Procedure TLogBookTbl.DelSingleLogRec(aDocID : TDocID;aAction : TLogActionType;
                                       aDate : TStDate;aTime : TStTime);
@@ -956,58 +730,6 @@ begin
  {$EndIf}
  end;
 end;
-
-{function TLogBookTbl.DeleteRecords(aUserId: TUserID;
-                                   aFromDate, aToDate: TStDate): Integer;
-Var
- l_RecordsOfAuthor,
- l_FilteredRecords: SAB;
-Begin
- Result := 0;
- if StartTA then
- try
-  RefreshSrchList;
-  // фильтрация по Auther'у
-  htSearch(@fSrchList,
-           l_RecordsOfAuthor,
-           Handle,
-           lgAuthor_Key,
-           EQUAL,
-           @aUserId,
-           nil);
-  Ht(l_RecordsOfAuthor.nRetCode);
-  try
-   if (l_RecordsOfAuthor.gFoundCnt > 0) then
-   begin
-    // фильтрация по интервалу дат
-    htSubSearch(l_RecordsOfAuthor,
-                l_FilteredRecords,
-                Handle,
-                lgDate_Key,
-                IN_RANGE,
-                @aFromDate,
-                @aToDate);
-    Ht(l_FilteredRecords.nRetCode);
-    try
-     if l_FilteredRecords.gFoundCnt > 0 then
-     begin
-      // удаление
-      Result := Ht(htDeleteRecords(l_FilteredRecords));
-     end;
-    finally
-     htClearResults(l_FilteredRecords);
-    end;
-   end; // if
-  finally
-   htClearResults(l_RecordsOfAuthor);
-  end;
-  SuccessTA;
- except
-  RollBackTA;
-  raise;
- end; // if
-end;
-}
 
 procedure TLogBookTbl.CopyRecords(aSrcDocId, aDstDocId: Longint);
 
@@ -1061,178 +783,4 @@ Begin
  end;
 end;
 
-{function TLogBookTbl.MakeSabOfActions(aActions: TLogActionSet) : ISab;
-var
- l_Action: TLogActionType;
- l_ActionFieldLength: Word;
- l_SabIsBuilt: Boolean;
-
- function lFillBufferProc(aBuffer: Pointer; aBufSize: Longint): Longint; register;
- var
-  l_WrittenAmount: Longint;
- begin
-  l_WrittenAmount := 0;
-  while not l_SabIsBuilt
-    and (l_Action <= High(TLogActionType))
-    and (l_WrittenAmount < aBufSize div l_ActionFieldLength) do
-  begin
-   if l_Action in aActions then
-   begin
-    PLogActionType(PChar(aBuffer) + l_WrittenAmount * l_ActionFieldLength)^ := l_Action;
-    Inc(l_WrittenAmount);
-   end;
-
-   if l_Action < High(TLogActionType) then
-    Inc(l_Action)
-   else
-    l_SabIsBuilt := True;
-  end;
-
-  Result := l_WrittenAmount * l_ActionFieldLength;
- end;
-
-var
- lSab : TSab;
- lFillBufferProcStub : TFillBufferProc;
-begin
- l_SabIsBuilt := False;
- l_Action := Low(TLogActionType);
- l_ActionFieldLength := Self.fldLength[lgAction_Key];
- lFillBufferProcStub := L2FillBufferProc(@lFillBufferProc);
- try
-  lSab := TSab.MakeValueSet(Self, lgAction_Key, lFillBufferProcStub);
- finally
-  FreeFillBufferProc(lFillBufferProcStub);
- end;
-
- Result := lSab;
- l3Free(lSab);
-end;
-
-function TLogBookTbl.MakeDocIdsSabBy(aActions: TLogActionSet;
-                                     aFromDate, aToDate: TStDate;
-                                     aUserId: TUserID = 0;
-                                     aUserGr: Boolean = False): ISab;
-var
- lUsersSab : ISab;
- lTime : TStTime;
-begin
- //Ищем по Actions
- Result := MakeSabOfActions(aActions);
- Result.RecordsByKey;
- // фильтруем по датам
- Result.SubSelect(lgDate_Key, aFromDate, aToDate);
- //lTime  := HMStoStTime(11, 00, 00);
- //Result.SubSelect(lgTime_Key, lTime, LESS_EQUAL);
-
- if (aUserId > 0) then
- begin
-  if aUserGr then
-  begin  //фильтруем по группе
-   lUsersSab := UserManager.MakeUserIdSabOnGroup(aUserId);
-   lUsersSab.TransferToPhoto(lgAuthor_Key, Result);
-   lUsersSab.RecordsByKey;
-   Result.AndSab(lUsersSab);
-  end
-  else //фильтруем по юзеру
-   Result.SubSelect(lgAuthor_Key, aUserId);
- end;
-
- Result.ValuesOfKey(lgDocID_Key);
-end;
-
-function TLogBookTbl.DeleteRecords(aDocID: TDocID;
-                                   aAction: TLogActionType;
-                                   aDate: TStDate): Integer;
-var
- l_RecordsByDocId,
- l_RecordsByAction,
- l_RecordsByDate,
- l_RecordsByDocIdAndAction,
- l_FilteredRecords: SAB;
-begin
- Result := 0;
- if StartTA then
- try
-  RefreshSrchList;
-  // фильтрация по aDocID
-  htSearch(@fSrchList,
-           l_RecordsByDocId,
-           Handle,
-           lgDocID_Key,
-           EQUAL,
-           @aDocID,
-           nil);
-  Ht(l_RecordsByDocId.nRetCode);
-  try
-   if (l_RecordsByDocId.gFoundCnt > 0) then
-   begin
-    // фильтрация по aAction
-    htSearch(@fSrchList,
-             l_RecordsByAction,
-             Handle,
-             lgAction_Key,
-             EQUAL,
-             @aAction,
-             nil);
-    Ht(l_RecordsByAction.nRetCode);
-    try
-     if (l_RecordsByAction.gFoundCnt > 0) then
-     begin
-      // фильтрация по aDate
-      htSearch(@fSrchList,
-               l_RecordsByDate,
-               Handle,
-               lgDate_Key,
-               EQUAL,
-               @aDate,
-               nil);
-      Ht(l_RecordsByDate.nRetCode);
-      try
-       if (l_RecordsByDate.gFoundCnt > 0) then
-       begin
-        htAndResults(l_RecordsByDocIdAndAction,
-                     l_RecordsByDocId,
-                     l_RecordsByAction);
-        Ht(l_RecordsByDocIdAndAction.nRetCode);
-        try
-         if (l_RecordsByDocIdAndAction.gFoundCnt > 0) then
-         begin
-          htAndResults(l_FilteredRecords,
-                       l_RecordsByDocIdAndAction,
-                       l_RecordsByDate);
-          Ht(l_FilteredRecords.nRetCode);
-          try
-           if (l_FilteredRecords.gFoundCnt > 0) then
-           begin
-            // собственно удаление
-            if l_FilteredRecords.gFoundCnt > 0 then
-             Result := Ht(htDeleteRecords(l_FilteredRecords));
-           end; // if
-          finally
-           htClearResults(l_FilteredRecords);
-          end;
-         end; // if
-        finally
-         htClearResults(l_RecordsByDocIdAndAction);
-        end;
-       end; // if
-      finally
-       htClearResults(l_RecordsByDate);
-      end;
-     end; // if
-    finally
-     htClearResults(l_RecordsByAction);
-    end;
-   end; // if
-  finally
-   htClearResults(l_RecordsByDocId);
-  end;
-  SuccessTA;
- except
-  RollBackTA;
-  raise;
- end; // if
-end;
-}
 end.

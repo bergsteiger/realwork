@@ -89,7 +89,8 @@ constructor TdaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
 begin
 //#UC START# *5600FB3903DE_5600FA2301B9_impl*
  inherited Create(aDataConverter);
- f_Table := MakeFromTable(aTable, anAlias);
+ f_Factory := aFactory;
+ f_FromClause := aFromClause;
  UnPrepare;
  f_SelectFields := TdaSelectFieldList.Make;
  f_OrderBy := TdaSortFieldList.Create;
@@ -101,7 +102,7 @@ function TdaTabledQuery.BuildFromClause(const aHelper: IdaParamListHelper): Ansi
 //#UC END# *56050F450363_5600FA2301B9_var*
 begin
 //#UC START# *56050F450363_5600FA2301B9_impl*
- Result := '  from '#13#10'       ' + Table.BuildSQLValue;
+ Result := '  from '#13#10'       ' + FromClause.BuildSQLValue(aHelper);
 //#UC END# *56050F450363_5600FA2301B9_impl*
 end;//TdaTabledQuery.BuildFromClause
 
@@ -149,9 +150,11 @@ begin
  begin
   Result := #13#10' order by ';
   for l_IDX := 0 to OrderBy.Count - 1 do
+  begin
    if l_IDX <> 0 then
     Result := Result + ', ';
-   Result := Format('%s %d %s', [Result, IntToStr(SelectFields.IndexOf(OrderBy[l_IDX].SelectField) + 1), cMap[OrderBy[l_IDX].SortOrder]]);
+   Result := Format('%s %s %s', [Result, IntToStr(SelectFields.IndexOf(OrderBy[l_IDX].SelectField) + 1), cMap[OrderBy[l_IDX].SortOrder]]);
+  end; 
  end
  else
   Result := '';
@@ -192,17 +195,46 @@ var
  begin
   Result := True;
   if Supports(anItem, IdaFieldFromTable, l_Field) then
-   Assert(l_Field.Field.Table = f_Table.Table);
+   Assert(FromClause.HasTable(l_Field.Field.Table));
   if Supports(anItem, IdaParamDescription, l_ParamDescription) then
    AddParam(l_ParamDescription);
  end;
+
+ function lp_ProcessRelation(const anItem: IdaCondition): Boolean;
+ var
+  l_ParamDescription: IdaParamDescription;
+  l_Join: IdaJoinCondition;
+
+  procedure lp_CheckJoin(const aPart: IdaFieldFromTable);
+  begin
+   Assert(FromClause.FindTable(aPart.TableAlias).Table = aPart.Field.Table);
+  end;
+
+ begin
+  Result := True;
+  lp_ProcessCondition(anItem);
+  if Supports(anItem, IdaJoinCondition, l_Join) then
+  begin
+   lp_CheckJoin(l_Join.Left);
+   lp_CheckJoin(l_Join.Right);
+  end;
+ end;
+
+ function CheckTable(const anItem: IdaTableDescription): Boolean;
+ begin
+  Result := True;
+  Assert(FromClause.HasTable(anItem));
+ end;
+
 //#UC END# *56010AB70258_5600FA2301B9_var*
 begin
 //#UC START# *56010AB70258_5600FA2301B9_impl*
  Assert(f_SelectFields.Count > 0);
  for l_IDX := 0 to f_SelectFields.Count - 1 do
-  if Supports(f_SelectFields[l_IDX], IdaFieldFromTable, l_Field) then
-   Assert(l_Field.Field.Table = f_Table.Table);
+  f_SelectFields[l_IDX].IterateTables(L2daSelectFieldIteratorIterateTablesAction(@CheckTable));
+ Assert(Assigned(FromClause));
+ Assert(FromClause.IsRelationsConditionsValid);
+ FromClause.IterateRelationConditionsF(L2daFromClauseIteratorIterateRelationConditionsFAction(@lp_ProcessRelation));
  if Assigned(f_WhereCondition) then
   f_WhereCondition.IterateF(L2DaConditionIteratorIterateAction(@lp_ProcessCondition));
  for l_IDX := 0 to f_OrderBy.Count - 1 do
@@ -243,7 +275,7 @@ function TdaTabledQuery.DoBuildSQLValue(const aHelper: IdaParamListHelper): Ansi
 //#UC END# *566A850001E5_5600FA2301B9_var*
 begin
 //#UC START# *566A850001E5_5600FA2301B9_impl*
- Result := Format('%s'#13#10+'  %s%s%s', [BuildSelectClause, BuildFromClause, BuildWhereClause(aHelper), BuildOrderByClause]);
+ Result := Format('%s'#13#10+'  %s%s%s', [BuildSelectClause, BuildFromClause(aHelper), BuildWhereClause(aHelper), BuildOrderByClause]);
 //#UC END# *566A850001E5_5600FA2301B9_impl*
 end;//TdaTabledQuery.DoBuildSQLValue
 
@@ -276,10 +308,11 @@ procedure TdaTabledQuery.Cleanup;
 //#UC END# *479731C50290_5600FA2301B9_var*
 begin
 //#UC START# *479731C50290_5600FA2301B9_impl*
- f_Table := nil;
+ f_FromClause := nil;
  f_WhereCondition := nil;
  FreeAndNil(f_SelectFields);
  FreeAndNil(f_OrderBy);
+ f_Factory := nil;
  inherited;
 //#UC END# *479731C50290_5600FA2301B9_impl*
 end;//TdaTabledQuery.Cleanup

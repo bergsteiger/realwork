@@ -5329,29 +5329,6 @@ ref; // ME_50055BE8028C TnsDictRes
 
 ref; // ME_50055BD201E1 DictionRes
 
-: ME_888F5E0F8FB3
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_BEB9AA7B4638 // Tkw_Diction_opOpenDict
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_888F5E0F8FB3 
-
-: ME_4DB0614603C8_ME_BEB9AA7B4638
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_BEB9AA7B4638 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_BEB9AA7B4638
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_BEB9AA7B4638 GetModuleOperationCode
-
 : ME_BEB9AA7B4638
  CONST UID 'BEB9AA7B4638'
  CONST Name 'Tkw_Diction_opOpenDict'
@@ -5368,15 +5345,6 @@ ref; // ME_4DB079E00084_ME_BEB9AA7B4638 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_BEB9AA7B4638 // GetWordNameForRegister
- ME_4DB079E00084_ME_BEB9AA7B4638 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_888F5E0F8FB3 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Толковый_словарь_Толковый_словарь'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\kw_Diction_opOpenDict.pas'

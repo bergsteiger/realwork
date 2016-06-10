@@ -64,11 +64,12 @@ p ShortCut:s ?
 	%f_addG(%{Word_Inst},%{TtfwModuleOperationWord})\
 	%f_addCDep(%P,%{Word_Inst})\
 	%{Word_Inst}%f_set_documentation(Слово словаря для вызова операции модуля %P%f_FinalName().%SN[ (%P%f_FinalDoc()[ %SD])])\
-//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	%{Word_Inst}%f_set_up(NameForScript,моп::%f_str_replace(%P%f_FinalDoc()_[{}{%f_N(%S)}%SD], ,_))\
+	%{Word_Inst}%f_set_abstraction_type(final)\
 
-//	[{<{}{%PN=VCMCustomization&%PS=VCMSubsystem}{C}>=0}\
+	[{%f_UseNewGenRecG(%{Word_Inst})!=true}\
 	[{"%{StdRes}N"=""}%f_find_element(47F260EC02C7,StdRes)]\
-//	[{"%{StdResPrim}N"=""}%f_find_element(4DB69A1F02D4,StdResPrim)]\
 	%{Word_Inst}%f_make_accessable(%{StdRes}U)\
 	%f_addCDep(%{Word_Inst},%{StdRes})\
 
@@ -79,13 +80,8 @@ p ShortCut:s ?
 	)\
 	%{TtfwModuleOperationWord.GetModuleOperationCode}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwModuleOperationWord.GetModuleOperationCode},%{Word_Inst})_impl,\
 	 Result := TdmStdRes.mod_opcode_%P%f_FinalName()_%f_N(%S);\
-	)
+	)\
 
-//	]\
-
-	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
-	%{Word_Inst}%f_set_up(NameForScript,моп::%f_str_replace(%P%f_FinalDoc()_[{}{%f_N(%S)}%SD], ,_))\
-	%{Word_Inst}%f_set_abstraction_type(final)\
 	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
 	%{Word_Inst}%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
 	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%{Word_Inst})_var,\
@@ -93,7 +89,8 @@ p ShortCut:s ?
 	)\
 	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%{Word_Inst})_impl,\
 	 Result := '%f_loc_GetNameForScript(%{Word_Inst})';\
-	)
+	)\
+	]
 //#UC END# *4DB06A78001Ffor4A9D2DEA0027*
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

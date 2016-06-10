@@ -6,9 +6,12 @@ unit vcmEntityForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmEntityForm - }
 { Начат: 24.02.2003 14:07 }
-{ $Id: vcmEntityForm.pas,v 1.619 2015/10/26 13:41:44 kostitsin Exp $ }
+{ $Id: vcmEntityForm.pas,v 1.620 2016/05/18 08:58:21 morozov Exp $ }
 
 // $Log: vcmEntityForm.pas,v $
+// Revision 1.620  2016/05/18 08:58:21  morozov
+// {RequestLink: 612733136}
+//
 // Revision 1.619  2015/10/26 13:41:44  kostitsin
 // {requestlink: 601992498 }
 //
@@ -2545,6 +2548,15 @@ type
       function DoGetNeedSaveToTabHistory: Boolean; virtual;
       {-}
       function NeedSaveToTabHistory: Boolean;
+      {-}
+      class function GetExistingInstance(const aContainer: IvcmContainer;
+                                         const aParams: IvcmMakeParams;
+                                         aZoneType: TvcmZoneType = vcm_ztAny;
+                                         aUserType: TvcmUserType = 0;
+                                         aGUID: PGUID = nil;
+                                         const aDataSource: IvcmFormDataSource = nil;
+                                         aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
+        virtual;
     protected
     // internal properties
       property Entity: IvcmEntity
@@ -3423,6 +3435,23 @@ begin
  Result := DoGetNeedSaveToTabHistory;
 end;
 
+class function TvcmEntityForm.GetExistingInstance(const aContainer: IvcmContainer;
+                                                  const aParams: IvcmMakeParams;
+                                                  aZoneType: TvcmZoneType = vcm_ztAny;
+                                                  aUserType: TvcmUserType = 0;
+                                                  aGUID: PGUID = nil;
+                                                  const aDataSource: IvcmFormDataSource = nil;
+                                                  aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
+begin
+ if aContainer.HasForm(Self.cFormID, aZoneType, true, @Result, aUserType, aGUID,
+   aSubUserType) then
+ begin
+  Assert(not Result.VCMClosing);
+  // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
+  Result.DataSource := aDataSource;
+ end//aCont.HasForm(Self.cFormID, aZoneType, true, @Result, aUserType, aGUID
+end;
+
 
 class function TvcmEntityForm.Make(const aParams     : IvcmMakeParams;
                                    aZoneType         : TvcmZoneType = vcm_ztAny;
@@ -3612,15 +3641,11 @@ class function TvcmEntityForm.MakeSingleChild(const aCont       : IvcmContainer;
                                         aAfterCreate      : TvcmInitProc = nil): IvcmEntityForm;
   {* - создает форму сущности если таковой не было и вставляет ее в контейнер. }
 begin
+ Result := nil;
  Assert(aCont <> nil);
- if aCont.HasForm(Self.cFormID, aZoneType, true, @Result, aUserType, aGUID,
-   aSubUserType) then
- begin
-  Assert(not Result.VCMClosing);
-  // - если форма УЖЕ закрывается, то её наверное повторно использовать НЕЛЬЗЯ
-  Result.DataSource := aDataSource;
- end//aCont.HasForm(Self.cFormID, aZoneType, true, @Result, aUserType, aGUID
- else
+ Result := {TvcmEntityForm.}GetExistingInstance(aCont, aParams, aZoneType, aUserType, aGUID,
+   aDataSource, aSubUserType);
+ if (Result = nil) then
   Result := Self.Make(vcmMakeParams(aParams.Aggregate, aCont, aParams.Owner),
                       aZoneType,
                       aUserType,

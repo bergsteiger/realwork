@@ -5,10 +5,13 @@ unit nscInterfaces;
 // Начат      : 16.02.2005 14.44;                                               }
 // Модуль     : nscInterfaces;                                                  }
 // Описание   : Бизнес объект формы "fcSynchroView";                            }
-// Версия     : $Id: nscInterfaces.pas,v 1.42 2012/10/26 14:57:56 lulin Exp $                                                            }
+// Версия     : $Id: nscInterfaces.pas,v 1.43 2016/03/29 09:16:01 kostitsin Exp $                                                            }
 
 (*-------------------------------------------------------------------------------
   $Log: nscInterfaces.pas,v $
+  Revision 1.43  2016/03/29 09:16:01  kostitsin
+  {requestlink: 620672440 }
+
   Revision 1.42  2012/10/26 14:57:56  lulin
   {RequestLink:406489593}
 
@@ -155,12 +158,12 @@ type
     ['{71868E30-C9ED-43C9-9ECD-63B1FE8E14FB}']
     // property methods
       function pm_GetMinWidth: Integer;
-    procedure pm_SetMinWidth(const aValue: Integer);
+      procedure pm_SetMinWidth(const aValue: Integer);
         {* - минимальная ширина, до которой можно уменьшать компонент. }
       function pm_GetFullWidth: Integer;
         {* - ширина, при которой компонент будет показан полностью. }
       function pm_GetMinHeight: Integer;
-    procedure pm_SetMinHeight(const aValue: Integer);
+      procedure pm_SetMinHeight(const aValue: Integer);
         {* - минимальная высота, до которой можно уменьшать компонент. }
       function pm_GetFullHeight: Integer;
         {* - высота, при которой компонент будет показан полностью. }

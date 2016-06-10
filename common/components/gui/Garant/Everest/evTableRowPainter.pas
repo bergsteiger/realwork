@@ -94,14 +94,14 @@ var
  l_Delta  : Integer;
  l_CellFI : TnevFormatInfoPrim;
 
- function IncDelta(const aTag: InevPara; anIndex: TnevParaIndex): Boolean;
+ function lp_IncDelta(const aTag: InevPara; anIndex: TnevParaIndex): Boolean;
  var
   l_FI : TnevFormatInfoPrim;
- begin//IncDelta
+ begin//lp_IncDelta
   l_FI := l_CellFI.InfoForChild(aTag);
   Inc(l_Delta, l_FI.Height);
   Result := True;
- end;//IncDelta
+ end;//lp_IncDelta
 
  procedure lp_InitFI;
  var
@@ -164,7 +164,7 @@ begin
      l_Leaf := l_MIPoint.AsLeaf;
      if (l_Leaf <> nil) then
      begin
-      lp_InitFI;
+      lp_InitFI;                                                   
       l_LeafFI := l_CellFI.InfoForChild(l_MIPoint.Obj^);
       l_View := Area.rView.As_InevView;
       l_BottomM := l_CellFI.Spacing.Bottom;
@@ -173,23 +173,16 @@ begin
        l_Delta := l_LeafFI.Height + l_BottomM
       else
        l_Delta := l_LeafFI.Height - l_PaintY + l_BottomM - Map.Bounds.Top;
-      l_Cell.AsList.IterateParaF(nevL2PIA(@IncDelta), l_MIPoint.Obj^.PID + 1);
+      l_Cell.AsList.IterateParaF(nevL2PIA(@lp_IncDelta), l_MIPoint.Obj^.PID + 1);
       if l_CellPoint.AtStart then
        Inc(l_Delta, l_BottomM);
       if (l_Delta > 0) then
-       l_Height := Min(l_Height, l_Delta)
-      else
-       if (TevMergeStatus(l_Cell.AsObject.IntA[k2_tiMergeStatus]) = ev_msNone) then // http://mdp.garant.ru/pages/viewpage.action?pageId=425284919
-        if (l_Delta < 0) then // http://mdp.garant.ru/pages/viewpage.action?pageId=379247543
-        begin
-         l_Height := -l_Delta + l_Height + l_BottomM - Map.Bounds.Top;
-         Map.SetDrawnTop(Map.Bounds.Top - l_Height);
-        end; // if (l_Delta < 0) and ((Map.Bounds.Bottom - Map.Bounds.Top) < 2 * evEpsilon) then
+       l_Height := Min(l_Height, l_Delta);
      end; // if (l_Leaf <> nil) then
     end // if l_MIPoint.Owner.IsSame(l_Cell) then
     else
     begin
-     // V - $370383768. Но CheckHeight был сделан для корректной прокрутки по горизонтали, а код выше её не гарантирует в случае вложенных табилц...
+     // V - $370383768. Но CheckHeight был сделан для корректной прокрутки по горизонтали, а код выше её не гарантирует в случае вложенных таблиц...
      if l_MIPoint.HasBaseLine then // Указатель на верхнюю строку дочерней таблицы
      begin
       l_ChildID := l_CellPoint.Obj.PID;
@@ -207,7 +200,7 @@ begin
         begin
          l_Delta := l_ChildMap.Bounds.Bottom;
          lp_InitFI;
-         l_Cell.AsList.IterateParaF(nevL2PIA(@IncDelta), l_ChildID + 1);
+         l_Cell.AsList.IterateParaF(nevL2PIA(@lp_IncDelta), l_ChildID + 1);
          l_Height := Min(l_Height, l_Delta);
         end; // if l_ChildMap <> nil then
        end; // if l_ChildMap <> nil) then

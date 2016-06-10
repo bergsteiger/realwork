@@ -517,29 +517,6 @@ ref; // ME_787F171BCC01
 
 ref; // ME_4DA44B2C01BB PrimDocumentListFromFile
 
-: ME_CEBAC5084303
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_FC678F27F4DB // Tkw_DocumentListFromFile_opOpenDocumentListFromFile
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_CEBAC5084303 
-
-: ME_4DB0614603C8_ME_FC678F27F4DB
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_FC678F27F4DB GetWordNameForRegister
-
-: ME_4DB079E00084_ME_FC678F27F4DB
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_FC678F27F4DB GetModuleOperationCode
-
 : ME_FC678F27F4DB
  CONST UID 'FC678F27F4DB'
  CONST Name 'Tkw_DocumentListFromFile_opOpenDocumentListFromFile'
@@ -556,15 +533,6 @@ ref; // ME_4DB079E00084_ME_FC678F27F4DB GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_FC678F27F4DB // GetWordNameForRegister
- ME_4DB079E00084_ME_FC678F27F4DB // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_CEBAC5084303 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Список_документов_из_файла_Открыть_список_документов_из_файла'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentListFromFile\kw_DocumentListFromFile_opOpenDocumentListFromFile.pas'

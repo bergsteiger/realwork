@@ -7,11 +7,26 @@ unit l3ExceptionsLog;
 //
 // Copyright (c) 1997-2000 by Archivarius Team, free for non commercial use.
 //
-// $Id: l3ExceptionsLog.pas,v 1.49 2015/12/11 21:27:40 lulin Exp $
+// $Id: l3ExceptionsLog.pas,v 1.54 2016/05/06 15:08:28 lulin Exp $
 //
 *)
 
 // $Log: l3ExceptionsLog.pas,v $
+// Revision 1.54  2016/05/06 15:08:28  lulin
+// - перегенерация.
+//
+// Revision 1.53  2016/05/06 14:48:43  lulin
+// - перегенерация.
+//
+// Revision 1.52  2016/05/06 13:40:53  lulin
+// - перегенерация.
+//
+// Revision 1.51  2016/04/06 15:23:00  lulin
+// - логируем секции инициализации.
+//
+// Revision 1.50  2016/04/05 15:40:36  lulin
+// - вычищаем, ибо глючит при терминальном доступе.
+//
 // Revision 1.49  2015/12/11 21:27:40  lulin
 // - отлаживаем для удалённой сессии.
 //
@@ -301,6 +316,7 @@ var
 {$EndIf DesignTimeLibrary}
 
 procedure OpenLog;
+procedure CheckOpenedLog;
 
 procedure Exception2Log(E: Exception);
   {* - вывести Exception в лог. }
@@ -340,6 +356,12 @@ resourcestring
 const
  CLogFileExt: AnsiString = '.log';
 
+procedure CheckOpenedLog;
+begin
+ if (Gm0EXCLibDefSrv = nil) then
+  OpenLog;
+end;
+
 procedure OpenLog;
 {$If Declared(Gm0EXCLibDefSrv)}
 var
@@ -347,6 +369,8 @@ var
 {$IfEnd}
 begin
  {$If Declared(Gm0EXCLibDefSrv)}
+ if (Gm0EXCLibDefSrv <> nil) then
+  FreeAndNil(Gm0EXCLibDefSrv);
  with TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini')) do
   try
    l_FileName := ReadString('EXE', 'LOGFILE', ChangeFileExt(ParamStr(0), '.log'));
@@ -418,6 +442,7 @@ end;
 {$IFDEF _m0USEFORMS1}
 procedure Tl3ExceptionsLog.SetOnException;
 begin
+ Assert(Application <> nil);
  FExceptionEvent := Application.OnException;
  Application.OnException := ExceptionHandler;
 end;
@@ -598,14 +623,15 @@ begin
  //if SameText(SysUtils.GetEnvironmentVariable('SESSIONNAME'), 'Console') then
   // -  подключены к консоли
   l_SessionName := SysUtils.GetEnvironmentVariable('SESSIONNAME');
-  try
+  l_ConsoleId := 0;
+(*  try
    if (l_SessionName = 'Console') OR (FCompHandle = 'LULIN-NEST') then
     l_ConsoleId := 0
    else
     l_ConsoleId := Integer(l3WTSGetActiveConsoleSessionId);
   except
    l_ConsoleId := 0;
-  end;//try..except
+  end;//try..except*)
   FCompHandle := FCompHandle + Format('.%s.%d', [l_SessionName, l_ConsoleId]);
  end; 
 
@@ -858,7 +884,10 @@ end;
 
 initialization
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\rtl\Garant\L3\l3ExceptionsLog.pas initialization enter'); {$EndIf}
- OpenLog;
+ {$If Declared(Application)}
+ if (Application <> nil) then
+ {$IfEnd}
+  OpenLog;
 
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\rtl\Garant\L3\l3ExceptionsLog.pas initialization leave'); {$EndIf}
 finalization

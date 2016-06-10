@@ -1,42 +1,58 @@
 unit stevStylesPrintAndExportFontSizeItem;
- {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-// Модуль: "w:\common\components\rtl\Garant\dd\stevStylesPrintAndExportFontSizeItem.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TstevStylesPrintAndExportFontSizeItem" MUID: (DF1A3014EEBC)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "dd$AppConfig"
+// Модуль: "w:/common/components/rtl/Garant/dd/stevStylesPrintAndExportFontSizeItem.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd$AppConfig::AppConfig::TstevStylesPrintAndExportFontSizeItem
+//
+// Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+{$Include ..\dd\ddDefine.inc}
 
 interface
 
 uses
- l3IntfUses
- , ddAppConfigTypes
-;
+  ddAppConfigTypes
+  ;
 
 type
  TstevStylesPrintAndExportFontSizeItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
-  public
+ public
+ // public methods
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
+     {* undefined }
  end;//TstevStylesPrintAndExportFontSizeItem
 
 implementation
 
 uses
- l3ImplUses
- , evStylesPrintAndExportFontSizeSettingRes
- , l3Base
- , ddAppConfigConst
-;
+  evStylesPrintAndExportFontSizeSettingRes,
+  l3Base,
+  ddAppConfigConst
+  ;
+
+// start class TstevStylesPrintAndExportFontSizeItem
 
 constructor TstevStylesPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *6F57065EDC92_DF1A3014EEBC_var*
-//#UC END# *6F57065EDC92_DF1A3014EEBC_var*
+var
+ l_Value : TddConfigValue;
 begin
-//#UC START# *6F57065EDC92_DF1A3014EEBC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6F57065EDC92_DF1A3014EEBC_impl*
+ l3FillChar(l_Value, SizeOf(l_Value));
+ l_Value.Kind := dd_vkInteger;
+ l_Value.AsInteger := dv_evStyles_PrintAndExportFontSize;
+ inherited Create(pi_evStyles_PrintAndExportFontSize,
+  str_PrintAndExportFontSize.AsStr,
+  l_Value, TPrintAndExportFontSizeValuesMapImpl.Make, aMasterItem);
 end;//TstevStylesPrintAndExportFontSizeItem.Create
 
 end.

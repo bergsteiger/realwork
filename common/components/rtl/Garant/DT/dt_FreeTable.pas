@@ -2,8 +2,11 @@ unit dt_FreeTable;
 
 // Облегченный вариант таблицы для работы с FREE
 
-{ $Id: dt_FreeTable.pas,v 1.4 2015/11/26 08:45:44 lukyanets Exp $ }
+{ $Id: dt_FreeTable.pas,v 1.5 2016/04/18 12:54:15 fireton Exp $ }
 // $Log: dt_FreeTable.pas,v $
+// Revision 1.5  2016/04/18 12:54:15  fireton
+// - переводим исправление таблицы FREE на Tl3CardinalList
+//
 // Revision 1.4  2015/11/26 08:45:44  lukyanets
 // КОнстанты переехали
 //
@@ -38,7 +41,7 @@ interface
 uses
  dt_ATbl, dt_Types, dt_Free, dt_Const,
  ht_Const,
- l3Base, l3LongintList, l3RecList;
+ l3Base, l3LongintList, l3CardinalList, l3RecList;
 
 type
 (*
@@ -69,7 +72,7 @@ type
    public
     procedure   ExcludeFreeFromTable(aName : TTblNameStr; aNum: LongWord);
     procedure   AddInterval(aName: TTblNameStr; aLowNum: LongWord = 1; aHiNum: LongWord = NO_LIMIT);
-    procedure ExcludeFreeNumsFromTable(aName : TTblNameStr; aNums: Tl3LongintList); overload;
+    procedure ExcludeFreeNumsFromTable(aName : TTblNameStr; aNums: Tl3CardinalList); overload;
      // если имеется точное значение = aNum, а не диапазон, то это значение удаляется из таблицы.
      // Иначе - если имеется диапазон, содержащий aNum, то этот диапазон (ТОЛЬКО ЭТОТ!) обрезается слева, по это самое aNum (включительно)
      // Комментарии: диапазон обрезается потому, что это гораздо проще, чем дробить его (и, соответственно, хранить, искать etc.).
@@ -293,7 +296,7 @@ begin
  end;
 end;
 
-procedure TdbFreeTable.ExcludeFreeNumsFromTable(aName: TTblNameStr; aNums: Tl3LongintList);
+procedure TdbFreeTable.ExcludeFreeNumsFromTable(aName: TTblNameStr; aNums: Tl3CardinalList);
 type
  TTableRec = packed record
                RecNo,
@@ -307,7 +310,6 @@ var
  l_AllRecs: Sab;
  l_Rec: TFreeFullRec;
  l_ArrSize: Integer;
-
  l_TableData: array of TTableRec;
 
  I,
@@ -356,7 +358,7 @@ Begin
    begin
     if l_TableData[J].Limit = c_EmptyLimit then
     begin // поиск точного совпадения
-     if (l_TableData[J].FreeNum = LongWord(aNums[I])) then
+     if (l_TableData[J].FreeNum = aNums[I]) then
      begin
       l_TableData[J].ToDelete := True;
       Break;
@@ -364,10 +366,10 @@ Begin
     end
     else
     begin // проверка на попадание в интервал
-     if   (LongWord(aNums[I]) >= l_TableData[J].NewFreeNum)
-      and (LongWord(aNums[I]) <= l_TableData[J].Limit) then
+     if   (aNums[I] >= l_TableData[J].NewFreeNum)
+      and (aNums[I] <= l_TableData[J].Limit) then
      begin
-      l_TableData[J].NewFreeNum := LongWord(aNums[I]); // обрезаем левую часть интервала
+      l_TableData[J].NewFreeNum := aNums[I]; // обрезаем левую часть интервала
       Break;
      end; // if
     end; // if-else

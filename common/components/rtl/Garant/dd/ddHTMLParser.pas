@@ -1,9 +1,12 @@
 unit ddHTMLParser;
 {* Разборщик HTML на теги }
 
-{ $Id: ddHTMLParser.pas,v 1.18 2016/01/26 15:01:22 dinishev Exp $ }
+{ $Id: ddHTMLParser.pas,v 1.19 2016/04/11 12:25:29 dinishev Exp $ }
 
 // $Log: ddHTMLParser.pas,v $
+// Revision 1.19  2016/04/11 12:25:29  dinishev
+// {Requestlink:621258431}
+//
 // Revision 1.18  2016/01/26 15:01:22  dinishev
 // Bug fix: падали с Assert'ом.
 //
@@ -240,6 +243,8 @@ var
  l_Char  : AnsiChar;
  l_Count : Integer;
 begin
+ Result := False;
+ if Filer.EOF then Exit;
  // Вычитываем весь комментарий, чтобы его ошметки при дальшейнем парсинге не мешались!
  if anOpen then
   l_Count := Length(OpenComment)

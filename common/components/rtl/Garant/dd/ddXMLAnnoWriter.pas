@@ -3,9 +3,12 @@ unit ddXMLAnnoWriter;
 {* Конвертация формата Эверест в HTML }
 
 
-//$Id: ddXMLAnnoWriter.pas,v 1.17 2014/07/11 11:01:38 dinishev Exp $
+//$Id: ddXMLAnnoWriter.pas,v 1.18 2016/05/12 10:34:20 dinishev Exp $
 
 // $Log: ddXMLAnnoWriter.pas,v $
+// Revision 1.18  2016/05/12 10:34:20  dinishev
+// Поправил комментарий.
+//
 // Revision 1.17  2014/07/11 11:01:38  dinishev
 // {Requestlink:553914086}. Правка по горячим следам - получались испорченные rtf.
 //
@@ -271,7 +274,7 @@ Uses
 
 
 {
-******************************* TddHTMLGenerator *******************************
+******************************* TddXMLAnnoWriter *******************************
 }
 constructor TddXMLAnnoWriter.Create;
 begin

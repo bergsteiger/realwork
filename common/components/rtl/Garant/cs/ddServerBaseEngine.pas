@@ -44,7 +44,7 @@ implementation
 
 Uses
  dt_Serv, l3IniFile, l3Base, ddFileIterator, ht_dll, StrUtils, SysUtils,
- DT_UserConst, dt_User, htDataProviderParams, daDataProviderSuperFactory,
+ DT_UserConst, daDataProvider, htDataProviderParams, daDataProviderSuperFactory,
  m3StgMgr
  ;
 
@@ -106,7 +106,7 @@ end;
 function TServerBaseEngine.CSCheckPassword(const aLoginName: AnsiString;
   const aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID: TCsClientID): Boolean;
 begin
- Result := UserManager.CSCheckPassword(aLoginName, aPassword, RequireAdminRights, theUserID);
+ Result := GlobalDataProvider.UserManager.CSCheckPassword(aLoginName, aPassword, RequireAdminRights, theUserID);
 end;
 
 procedure TServerBaseEngine.DoStop;

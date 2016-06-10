@@ -1,8 +1,11 @@
 unit ddRelPublish;
 
-{ $Id: ddRelPublish.pas,v 1.30 2015/11/26 08:45:43 lukyanets Exp $ }
+{ $Id: ddRelPublish.pas,v 1.31 2016/05/27 06:44:42 lukyanets Exp $ }
 
 // $Log: ddRelPublish.pas,v $
+// Revision 1.31  2016/05/27 06:44:42  lukyanets
+// Не собиралось
+//
 // Revision 1.30  2015/11/26 08:45:43  lukyanets
 // КОнстанты переехали
 //
@@ -178,7 +181,7 @@ begin
    l_Q := TdtDictQuery.Create(da_dlAccGroups, l_List);
    try
     f_RestrictedDocs:= l_Q.GetDocIdList;
-    f_RDIDList:= dtMakeSortedIDListBySab(f_RestrictedDocs);
+    f_RDIDList:= dtMakeSortedLongListBySab(f_RestrictedDocs);
     l3System.Msg2Log('Найдено %d "региональных" документов', [f_RestrictedDocs.Count]);
     //f_RestrictedDocs.ValuesOfKey(fid_fld);
     //f_RestrictedDocs.Sort;

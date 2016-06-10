@@ -1,48 +1,38 @@
 {$IfNDef vcmData_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/vcmData.imp.pas"
-// Начат: 2006/07/13 13:29:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM::Implementation::vcmData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas"
+// Стереотип: "Impurity"
+// Элемент модели: "vcmData" MUID: (4B16B85D03A1)
+// Имя типа: "_vcmData_"
 
 {$Define vcmData_imp}
-{$If not defined(NoVCM)}
- _vcmData_ = {mixin} class(Tl3ProtoObject, IvcmData)
- protected
- // realized methods
-   function Clone: IvcmData;
-     {* сделать копию }
- protected
- // protected methods
+
+{$If NOT Defined(NoVCM)}
+ // _IvcmRealData_
+
+ _vcmData_ = class(Tl3ProtoObject, IvcmData)
+  protected
    procedure AssignData(const aData: _IvcmRealData_); virtual;
- public
- // public methods
-   constructor Create(const aData: _IvcmRealData_); reintroduce; overload; 
+   function Clone: IvcmData;
+    {* сделать копию }
+  public
+   constructor Create(const aData: _IvcmRealData_); reintroduce; overload;
    class function MakeFrom(const aData: _IvcmRealData_): IvcmData; reintroduce;
-     {* Сигнатура фабрики vcmData.MakeFrom }
-   constructor Create; reintroduce; overload;  virtual;
+   constructor Create; reintroduce; overload; virtual;
  end;//_vcmData_
-{$Else}
 
- _vcmData_ = Tl3ProtoObject;
+{$Else NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoVCM
+_vcmData_ = Tl3ProtoObject;
 
+{$IfEnd} // NOT Defined(NoVCM)
 {$Else vcmData_imp}
 
-{$If not defined(NoVCM)}
+{$IfNDef vcmData_imp_impl}
 
-// start class _vcmData_
+{$Define vcmData_imp_impl}
 
+{$If NOT Defined(NoVCM)}
 constructor _vcmData_.Create(const aData: _IvcmRealData_);
 //#UC START# *4B16B95802AF_4B16B85D03A1_var*
 //#UC END# *4B16B95802AF_4B16B85D03A1_var*
@@ -63,7 +53,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_vcmData_.MakeFrom
 
 procedure _vcmData_.AssignData(const aData: _IvcmRealData_);
 //#UC START# *4B16B8CF0307_4B16B85D03A1_var*
@@ -84,6 +74,7 @@ begin
 end;//_vcmData_.Create
 
 function _vcmData_.Clone: IvcmData;
+ {* сделать копию }
 //#UC START# *4995768F007A_4B16B85D03A1_var*
 //#UC END# *4995768F007A_4B16B85D03A1_var*
 begin
@@ -91,7 +82,9 @@ begin
  Result := MakeFrom(_Instance_R_(Self));
 //#UC END# *4995768F007A_4B16B85D03A1_impl*
 end;//_vcmData_.Clone
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not NoVCM
+{$EndIf vcmData_imp_impl}
 
 {$EndIf vcmData_imp}
+

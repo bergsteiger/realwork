@@ -1,8 +1,17 @@
 Unit dt_Sab;
 
-{ $Id: dt_Sab.pas,v 1.139 2015/09/10 15:05:11 voba Exp $ }
+{ $Id: dt_Sab.pas,v 1.142 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: dt_Sab.pas,v $
+// Revision 1.142  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.141  2016/05/17 11:59:35  voba
+// -k:623081921
+//
+// Revision 1.140  2016/04/18 12:54:15  fireton
+// - переводим исправление таблицы FREE на Tl3CardinalList
+//
 // Revision 1.139  2015/09/10 15:05:11  voba
 // no message
 //
@@ -428,7 +437,9 @@ uses
  dt_Types,
  dtIntf,
  //dt_TblInfo, dt_Table,
+ l3IDList,
  l3LongintList,
+ l3CardinalList,
  l3ProtoPtrRecList,
  l3FieldSortRecList,
  k2SizedMemoryPool,
@@ -531,8 +542,8 @@ type
    procedure SubSelectByMask(aElemNum : ThtField; aMask : Integer);
 
    // ФУНКЦИЯ НЕ ТЕСТИРОВАЛАСЬ
-   procedure SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc; const aPhoto : ISab = nil);
-   procedure SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc);
+   procedure SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc; const aPhoto : ISab = nil);
+   procedure SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc);
 
    procedure SelectAll(const aPhoto : ISab = nil);
 
@@ -772,7 +783,11 @@ function MakeValueSet(const aTable : ITblInfo;
 function MakeValueSet(const aTable : ITblInfo;
                       aField : ThtField;
                       aList : Tl3LongintList) : ISab;     overload;
-                      
+
+function MakeValueSet(const aTable : ITblInfo;
+                      aField : ThtField;
+                      aList : Il3IDList) : ISab;     overload;
+
 function MakeValueSet(const aTable : ITblInfo;
                       aField : ThtField;
                       aList : DocumentIDListHelper) : ISab;     overload;
@@ -838,13 +853,16 @@ function dtXorResults(var fpDst : SAB; var fpSrc1: SAB; var fpSrc2: SAB) : LPSAB
  {* - Отрицание результата}
 
 procedure dtCopyValuesSabToList(const aValuesSab : SAB; aList : Tl3LongintList); overload;
+procedure dtCopyValuesSabToList(const aValuesSab : SAB; aList : Tl3CardinalList); overload;
 procedure dtCopyValuesSabToList(const aValuesSab : SAB; aList : DocumentIDListHelper); overload;
 
 procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : Tl3LongintList); overload;
+procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : Il3IDList); overload;
 procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : DocumentIDListHelper); overload;
  {* - копирует список значений в Tl3LongintList}
 
-function dtMakeSortedIDListBySab(const aSab : ISAB): Tl3LongintList;
+function dtMakeSortedIDListBySab(const aSab : ISAB): Il3IDList;
+function dtMakeSortedLongListBySab(const aSab : ISAB): Tl3LongintList;
 
 function dtMakeRecListBySab(const aSab : SAB;
                             const aFldArr : array of ThtField;
@@ -1027,6 +1045,13 @@ end;
 
 function MakeValueSet(const aTable : ITblInfo;
                       aField : ThtField;
+                      aList : Il3IDList) : ISab;     overload;
+begin
+ Result := MakeValueSet(aTable, aField, aList.GetSelf);
+end;
+
+function MakeValueSet(const aTable : ITblInfo;
+                      aField : ThtField;
                       aList : DocumentIDListHelper) : ISab;
 var
  l_List : Tl3LongintList;
@@ -1035,7 +1060,7 @@ begin
  l_List := Tl3LongintList.Create;
  try
   for l_Index := 0 to Pred(aList.Count) do
-   l_List.Add(aList.Items[l_Index]); 
+   l_List.Add(aList.Items[l_Index]);
   Result := MakeValueSet(aTable, aField, l_List);
  finally
   FreeAndNil(l_List);
@@ -2013,7 +2038,7 @@ begin
  end;
 end;
 
-(*procedure TSab.SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc; const  aPhoto : ISab = nil);
+(*procedure TSab.SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc; const  aPhoto : ISab = nil);
 var
  lHTStub : Pointer;
  lPhoto  : Sab;
@@ -2411,7 +2436,7 @@ begin
  end;
 end;
 
-procedure TSab.SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc; const  aPhoto : ISab = nil);
+procedure TSab.SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc; const  aPhoto : ISab = nil);
 var
  lHTStub : Pointer;
  lPhoto  : Sab;
@@ -2440,7 +2465,7 @@ begin
  end;
 end;
 
-procedure TSab.SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc);
+procedure TSab.SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc);
 var
  lHTStub : Pointer;
  lSab : Sab;
@@ -3266,7 +3291,34 @@ end;
 
 procedure dtCopyValuesSabToList(const aValuesSab : SAB; aList : Tl3LongintList);
 var
- lValue    : Longint;
+ lCnt : Integer;
+ lMaxNumRead   : Cardinal;
+ lNumTotalRead : Cardinal;
+
+begin
+ Assert(htResultsType(aValuesSab) = RES_VALUE, 'dtCopyValuesSabToList: Неверный тип SAB');
+ lCnt := aValuesSab.gFoundCnt;
+ if lCnt = 0 then Exit;
+
+ aList.Count := lCnt;
+ Ht(htOpenResults(aValuesSab, ROPEN_READ, nil, 0));
+ try
+  lNumTotalRead := 0;
+  lMaxNumRead := Min((MAX_BUF_LEN div SizeOf(Longint)), lCnt);
+  while lNumTotalRead < lCnt do
+   Inc(lNumTotalRead, htReadResults(aValuesSab, aList.ItemSlot(lNumTotalRead), lMaxNumRead * SizeOf(Longint)) div SizeOf(Longint));
+
+   //Ht(htResultsItemLen(aValuesSab, lItemSize));
+   //while htReadResults(aValuesSab, @lValue, lItemSize) <> 0 do
+   // aList.Add(lValue);
+ finally
+  htCloseResults(aValuesSab);
+ end;
+end;
+
+procedure dtCopyValuesSabToList(const aValuesSab : SAB; aList : Tl3CardinalList);
+var
+ lValue    : Cardinal;
  lItemSize : Cardinal;
 begin
  lValue := 0;
@@ -3288,6 +3340,7 @@ var
  lValue    : Longint;
  lItemSize : Cardinal;
 begin
+ Assert(htResultsType(aValuesSab) = RES_VALUE, 'dtCopyValuesSabToList: Неверный тип SAB');
  lValue := 0;
  if aValuesSab.gFoundCnt > 0 then
  begin
@@ -3355,33 +3408,42 @@ begin
  dtCopyValuesSabToList(aSab, aStream);
 end;
 
-function dtMakeSortedIDListBySab(const aSab : ISAB): Tl3LongintList;
+function dtMakeSortedLongListBySab(const aSab : ISAB): Tl3LongintList;
 var
- lItemSize     : Cardinal;
  lMaxNumRead   : Cardinal;
  lNumTotalRead : Cardinal;
  lResultsType  : SmallInt;
- lSab          : SAB;
 begin
- Result := Nil;
  aSab.Sort;
- lSab := aSab.HTSab;
  lResultsType := aSab.TypeOfSab;
  if (lResultsType = Res_NProc) then Exit;
  Assert(lResultsType = RES_VALUE, 'dtMakeIDListBySab: Неверный тип SAB');
 
- Ht(htOpenResults(lSab, ROPEN_READ, nil, 0));
- try
-  Result := Tl3LongintList.Create;
-  Result.Sorted := True;
-  Result.Count := aSab.Count;
+ Result := Tl3IDList.Create;
+ Result.Sorted := True;
+ Result.Count := aSab.Count;
 
-  lNumTotalRead := 0;
-  lMaxNumRead := Min((MAX_BUF_LEN div SizeOf(Longint)), Result.Count);
-  while lNumTotalRead < Result.Count do
-   Inc(lNumTotalRead, htReadResults(lSab, Result.ItemSlot(lNumTotalRead), lMaxNumRead * SizeOf(Longint)) div SizeOf(Longint));
+ dtCopyValuesSabToList(aSab, Result);
+end;
+
+function dtMakeSortedIDListBySab(const aSab : ISAB): Il3IDList;
+var
+ lMaxNumRead   : Cardinal;
+ lNumTotalRead : Cardinal;
+ lResultsType  : SmallInt;
+ lIDList       : Tl3IDList;
+begin
+ aSab.Sort;
+ lResultsType := aSab.TypeOfSab;
+ if (lResultsType = Res_NProc) then Exit;
+ Assert(lResultsType = RES_VALUE, 'dtMakeIDListBySab: Неверный тип SAB');
+
+ try
+  lIDList := Tl3IDList.Create;
+  dtCopyValuesSabToList(aSab, lIDList);
+  Result := lIDList;
  finally
-  htCloseResults(lSab);
+  l3Free(lIDList);
  end;
 end;
 
@@ -3480,10 +3542,16 @@ begin
  end;
 end;
 
+procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : Il3IDList); overload;
+begin
+ dtCopyValuesSabToList(aValuesSab.HTSab, aList.GetSelf);
+end;
+
 procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : Tl3LongintList); overload;
 begin
  dtCopyValuesSabToList(aValuesSab.HTSab, aList);
 end;
+
 
 procedure dtCopyValuesSabToList(const aValuesSab : ISab; aList : DocumentIDListHelper); overload;
 begin

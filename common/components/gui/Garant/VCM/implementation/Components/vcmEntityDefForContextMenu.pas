@@ -110,6 +110,7 @@ function TvcmEntityDefForContextMenu.Get_OperationsDefIterator: IvcmOperationsDe
 //#UC END# *499566FA0159_51D148890323get_var*
 begin
 //#UC START# *499566FA0159_51D148890323get_impl*
+ Assert(f_En <> nil);
  Result := TvcmOperationsDefIteratorForContextMenu.Make(f_En.OperationsDefIterator);
 //#UC END# *499566FA0159_51D148890323get_impl*
 end;//TvcmEntityDefForContextMenu.Get_OperationsDefIterator

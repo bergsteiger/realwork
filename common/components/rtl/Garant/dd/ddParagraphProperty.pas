@@ -9,7 +9,7 @@ uses
   ddBorder,
   ddPropertyObject,
 
-  l3ProtoObjectRefList,
+  ddTabList,
 
   rtfListTable,
   RTfTypes,
@@ -23,7 +23,7 @@ type
     f_Inherited: Boolean;
     f_Border: TddBorder;
     f_LongProperties: Array[TddParagraphProperties] of Longint;
-    f_TabList: Tl3ProtoObjectRefList;
+    f_TabList: TddTabList;
   private  
     function GetBooleanProperty(Index: TddParagraphProperties): Boolean;
     function GetJUST: Tjust;
@@ -82,7 +82,7 @@ type
             write SetBooleanProperty;
     property Style: Integer index dd_Style read GetLongProperty write
             SetLongProperty;
-    property TabList: Tl3ProtoObjectRefList read f_TabList write f_TabList;
+    property TabList: TddTabList read f_TabList write f_TabList;
     property TrimText: Boolean index dd_TrimText read GetBooleanProperty write SetBooleanProperty;
     property xaFirst: LongInt index dd_xaFirst read GetLongProperty write
             SetLongProperty;
@@ -116,11 +116,11 @@ const
 }
 constructor TddParagraphProperty.Create;
 begin
-  inherited Create;
-  f_Border:= TddBorder.Create;
-  f_Border.BorderOwner:= boPara;
-  f_TabList:= Tl3ProtoObjectRefList.Make;
-  Clear;
+ inherited Create;
+ f_Border := TddBorder.Create;
+ f_Border.BorderOwner := boPara;
+ f_TabList := TddTabList.Make;
+ Clear;
 end;
 
 procedure TddParagraphProperty.AssignFrom(aSource: TddPropertyObject);

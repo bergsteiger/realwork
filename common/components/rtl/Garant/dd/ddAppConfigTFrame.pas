@@ -13,15 +13,12 @@ type
   TTreeFrame = class(TFrame)
     pnlConfTree: TvtPanel;
     procedure ConfigTreeChange(Sender: TObject; aNewCurrent : Longint;  aOldCurrent : Longint);
-(*    procedure ConfigTreeStyle(Sender : TObject; aItemIndex : Integer;
-                                 const aFont    : Il3Font;
-                                 var aTextBackColor : TColor;
-                                 var aItemBackColor : TColor;
-                                 var aVJustify  : TvtVJustify);*)
   private
     fConfigTree : TvtCustomOutliner;
+    f_WorkFrame: TFrame;
+    procedure SetWorkFrame(const Value: TFrame);
   public
-    WorkFrame: TFrame;
+    property WorkFrame: TFrame read f_WorkFrame write SetWorkFrame;
     constructor Create(AOwner : TComponent);
       override;
       {-}
@@ -83,8 +80,13 @@ begin
  fConfigTree.Parent := pnlConfTree;
  fConfigTree.ReadOnly := True;
  fConfigTree.Align := alClient;
-// fConfigTree.HideSelection:= False; // <stub>
  fConfigTree.OnCurrentChanged := ConfigTreeChange;
+end;
+
+procedure TTreeFrame.SetWorkFrame(const Value: TFrame);
+begin
+ f_WorkFrame := Value;
+ ConfigTreeChange(fConfigTree, fConfigTree.Current, -1);
 end;
 
 end.

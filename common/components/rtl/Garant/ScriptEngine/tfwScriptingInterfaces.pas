@@ -1405,6 +1405,7 @@ begin
      try
       Inc(f_NestedCallsCount);
       try
+       TtfwWord(Self).RunnerAssert(f_NestedCallsCount < 3000, 'Слишком глубокая вложенность, возможно зацикливание', aCtx);
        DoDoIt(aCtx);
       finally
        Dec(f_NestedCallsCount);
@@ -2232,7 +2233,7 @@ function TtfwWord.GetRefForCompare: TtfwWord;
 //#UC END# *57500A22001C_4DAEED140007_var*
 begin
 //#UC START# *57500A22001C_4DAEED140007_impl*
- !!! Needs to be implemented !!!
+ Result := Self;
 //#UC END# *57500A22001C_4DAEED140007_impl*
 end;//TtfwWord.GetRefForCompare
 
@@ -2721,29 +2722,11 @@ begin
  if l_TI.Has(tfw_wmRedefinition) then
   Result := locCat(Result, TtfwCStringFactory.C('REDIFINITION'));
 
- if l_TI.Has(tfw_wmSummoned) then
-  Result := locCat(Result, TtfwCStringFactory.C('SUMMONED'));
-
- if l_TI.Has(tfw_wmRealize) then
-  Result := locCat(Result, TtfwCStringFactory.C('REALIZE'))
- else
- if l_TI.Has(tfw_wmOverride) then
-  Result := locCat(Result, TtfwCStringFactory.C('OVERRIDE'));
-
  if l_TI.Has(tfw_atPrivate) then
   Result := locCat(Result, TtfwCStringFactory.C('PRIVATE'))
  else
  if l_TI.Has(tfw_atProtected) then
   Result := locCat(Result, TtfwCStringFactory.C('PROTECTED'));
-
- if l_TI.Has(tfw_wmAbstract) then
-  Result := locCat(Result, TtfwCStringFactory.C('ABSTRACT'))
- else
- if l_TI.Has(tfw_wmFinal) then
-  Result := locCat(Result, TtfwCStringFactory.C('FINAL'))
- else
- if l_TI.Has(tfw_wmVirtual) then
-  Result := locCat(Result, TtfwCStringFactory.C('VIRTUAL'));
 
  if l_TI.Has(tfw_ltLink) then
   Result := locCat(Result, TtfwCStringFactory.C('LINK'))

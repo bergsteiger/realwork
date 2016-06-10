@@ -2003,8 +2003,8 @@ implementation @ :: <<ClassBase>> <<property>> ;
 ; // pas_OutField
 
 : SpellField OBJECT IN %S
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%f_UseNewGenRecG(%S)!=true}\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
 //	[{%S%f_pas_NeedsField()=true}\
   if ( ( %S %f pas_NeedsField %( )% ) %==  true ) then
@@ -2040,24 +2040,29 @@ implementation @ :: <<ClassBase>> <<property>> ;
 end. // :: <<ClassBase>> <<property>> ;
 
 : DoSpellField OBJECT IN %S
+//	[{%f_UseNewGenRecG(%S)!=true}\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
+ begin
 //	%S#f_SpellField()\
- %S %?f SpellField %( )% 
+  %S %?f SpellField %( )% 
 //	%f_warning("got %SN")\
 //	[{%S{needs stored directive}=true}\
- if ( ( %S get_up ( 'needs stored directive' ) ) %==  true ) then
- begin
+  if ( ( %S get_up ( 'needs stored directive' ) ) %==  true ) then
+  begin
 //	%P%f_add_operation(%SU_stored,,\
-  %P %f add_operation %( %S |U '_stored' %, '' %, 
+   %P %f add_operation %( %S |U '_stored' %, '' %, 
 //	%S%f_pas_AttrName()Stored (): boolean,Op_Instance\
-  %S %f pas_AttrName %( )% 'Stored (): boolean' %, 'Op_Instance'
+   %S %f pas_AttrName %( )% 'Stored (): boolean' %, 'Op_Instance'
 //	)\
 )% //	%{Op_Instance}%f_set_documentation("‘ункци€ определ€юща€, что свойство %S%f_pas_AttrName() сохран€етс€")\
-  ( get_global_var ( 'Op_Instance' ) %f set_documentation %( '‘ункци€ определ€юща€' %, ' что свойство '
-  %S %f pas_AttrName %( )% ' сохран€етс€' )% ) 
+   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( '‘ункци€ определ€юща€' %, ' что свойство '
+   %S %f pas_AttrName %( )% ' сохран€етс€' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(ProtectedAccess)\
-  ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'ProtectedAccess' )% ) 
+   ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'ProtectedAccess' )% ) 
 //	%{Op_Instance}%f_set_abstraction_type(final)\
-  ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+   ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	]\
+  end // if
 //	]
  end // if
 //#UC END# *4A797AC90346for4773ED2300A0*
@@ -2313,8 +2318,6 @@ implementation @ :: <<ClassBase>> <<property>> Attribute ;
 //+ spell
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for479EF1F303A6*
-//	%S#f_DoSpell()
- %S %?f DoSpell %( )% 
 //#UC END# *4A41A13D03D5for479EF1F303A6*
 ; // spell
 

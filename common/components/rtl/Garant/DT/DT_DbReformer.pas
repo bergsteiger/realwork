@@ -1,7 +1,10 @@
 unit DT_DbReformer;
 
-{ $Id: DT_DbReformer.pas,v 1.17 2015/11/25 07:22:13 lukyanets Exp $ }
+{ $Id: DT_DbReformer.pas,v 1.18 2016/04/18 12:54:15 fireton Exp $ }
 // $Log: DT_DbReformer.pas,v $
+// Revision 1.18  2016/04/18 12:54:15  fireton
+// - переводим исправление таблицы FREE на Tl3CardinalList
+//
 // Revision 1.17  2015/11/25 07:22:13  lukyanets
 // «аготовки дл€ выдачи номеров
 //
@@ -477,6 +480,7 @@ uses
  l3Interfaces,
  l3FileUtils,
  l3LongintList,
+ l3CardinalList,
  Math,
  Forms,
  l3Const,
@@ -2910,9 +2914,10 @@ var
  l_SAB: TSAB;
  i, l_IntervalCount: Longint;
  l_Rec: TFreeRec;
- l_List: Tl3LongintList;
+ l_List: Tl3CardinalList;
  l_From, l_To: longword;
  l_IsUsers: Boolean;
+ l_Z: Int64;
 begin
  if theFolder <> '' then
  begin
@@ -2928,7 +2933,7 @@ begin
    try
     l_SAB.SelectAll;
     l_SAB.ValuesOfKey(theIDField);
-    l_List := Tl3LongintList.makeSorted;
+    l_List := Tl3CardinalList.MakeSorted;
     try
      dtCopyValuesSabToList(l_SAB.HTSab, l_List);
 
@@ -2937,7 +2942,7 @@ begin
       l_List.Sorted := False;
       for I := 0 to Pred(l_List.Count) do
       begin
-       l_List.Items[i]:= GetRealUserID(LongWord(l_List.Items[i]), theMaxValue);
+       l_List.Items[i]:= GetRealUserID(l_List.Items[i], theMaxValue);
        Random;
       end; 
       l_List.Sorted := True;
@@ -2957,6 +2962,8 @@ begin
       l_From:= 1; l_To:= 1; l_IntervalCount:= 0;
       for i:= 0 to l_List.Hi do
       begin
+       if l_List.Items[i] = 0 then
+        Continue; // обходим ошибочные данные в таблицах
        if (l_List.Items[i] - l_To) > 1 then
        begin
         if l_IntervalCount > c_MaxIntervalPerTable then
@@ -2965,13 +2972,13 @@ begin
          break;
         end;
         theFree.ExcludeFreeNumsFromTable(l_TableName, l_From, l_To);
-        l_From:= l_List.Items[i];
-        l_To:= l_List.Items[i];
+        l_From := l_List.Items[i];
+        l_To := l_List.Items[i];
         Inc(l_IntervalCount);
         Application.ProcessMessages;
        end
        else
-        l_To:= l_List.Items[i]
+        l_To := l_List.Items[i]
       end; // for i
       if l_IntervalCount <= c_MaxIntervalPerTable then
        theFree.ExcludeFreeNumsFromTable(l_TableName, l_From, l_To);

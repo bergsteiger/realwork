@@ -5,9 +5,12 @@ unit l3Parser;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Parser -                  }
 { Начат: 05.10.1999 18:22             }
-{ $Id: l3Parser.pas,v 1.74 2015/07/10 11:46:23 lulin Exp $ }
+{ $Id: l3Parser.pas,v 1.75 2016/04/11 12:23:51 dinishev Exp $ }
 
 // $Log: l3Parser.pas,v $
+// Revision 1.75  2016/04/11 12:23:51  dinishev
+// {Requestlink:621258431}
+//
 // Revision 1.74  2015/07/10 11:46:23  lulin
 // http://mdp.garant.ru/pages/viewpage.action?pageId=599348394&focusedCommentId=603402088#comment-603402088
 //
@@ -1672,6 +1675,8 @@ end;*)
 
 function Tl3CustomParser.IsCommentBracket(anOpen: Boolean): Boolean;
 begin
+ Result := False;
+ if Filer.EOF then Exit;
  if anOpen then
   Result := (Filer.GetC.rAC = OpenComment[2])
  else

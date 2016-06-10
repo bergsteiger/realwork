@@ -684,7 +684,7 @@ class procedure TkwPopTableOldNSRC.DoSetValue(const aTable: IedTable;
 //#UC END# *55E5A70E01E7_4BBC910E0391_Word_DoSetValue_55E5A70E01E7_4BBC910E0391_Word_var*
 begin
 //#UC START# *55E5A70E01E7_4BBC910E0391_Word_DoSetValue_55E5A70E01E7_4BBC910E0391_Word_impl*
- !!! Needs to be implemented !!!
+ aTable.OldNSRC := aValue;
 //#UC END# *55E5A70E01E7_4BBC910E0391_Word_DoSetValue_55E5A70E01E7_4BBC910E0391_Word_impl*
 end;//TkwPopTableOldNSRC.DoSetValue
 
@@ -695,7 +695,7 @@ function TkwPopTableOldNSRC.OldNSRC(const aCtx: TtfwContext;
 //#UC END# *55E5A70E01E7_55E5A70E01E7_4BBC910E0391_Word_var*
 begin
 //#UC START# *55E5A70E01E7_55E5A70E01E7_4BBC910E0391_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aTable.OldNSRC;
 //#UC END# *55E5A70E01E7_55E5A70E01E7_4BBC910E0391_Word_impl*
 end;//TkwPopTableOldNSRC.OldNSRC
 

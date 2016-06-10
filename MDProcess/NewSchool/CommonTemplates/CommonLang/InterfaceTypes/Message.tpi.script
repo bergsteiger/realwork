@@ -1,0 +1,497 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Message.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Message
+//
+// Сообщение пользователю
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Message::Class
+implementation @ <<Message>>
+//? Сообщение пользователю
+//> Choices::Class
+
+//= WikiImplClass::Class
+//= MessagePrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_gui_message.gif
+//L code_gui_message
+// Параметры визуализации
+//$ C 238,142,234
+//$ l 128,0,128
+//$ f 128,0,128
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p DlgType=Warning|Error|Information|Confirmation|Custom ? 
+//p CheckCaption:s ? Настраиваемая надпись для чекбокса
+//p SettingsCaption:s ? Заголовок сообщения для диалога настроек
+//p LongHint:s ? Подсказка сообщения для диалога настроек
+//p NeedCheck:b=false ? Нужен ли Checkbox о запоминании выбора
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{DlgType}"!="%S{!DlgType}"}%f_up_prefix(%S) *DlgType* = *%S{DlgType}*
+ ?inherited
+ if ( ( %S get_up ( 'DlgType' ) ) %!= ( %S get_up_def ( 'DlgType' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *DlgType* = *'
+  %S get_up ( 'DlgType' ) '*'
+//	][{"%S{CheckCaption}"!="%S{!CheckCaption}"}%f_up_prefix(%S) *CheckCaption* = *%S{CheckCaption}* - Настраиваемая надпись для чекбокса
+ end // if
+ if ( ( %S get_up ( 'CheckCaption' ) ) %!= ( %S get_up_def ( 'CheckCaption' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CheckCaption* = *'
+  %S get_up ( 'CheckCaption' ) '* - Настраиваемая надпись для чекбокса'
+//	][{"%S{SettingsCaption}"!="%S{!SettingsCaption}"}%f_up_prefix(%S) *SettingsCaption* = *%S{SettingsCaption}* - Заголовок сообщения для диалога настроек
+ end // if
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= ( %S get_up_def ( 'SettingsCaption' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *SettingsCaption* = *'
+  %S get_up ( 'SettingsCaption' ) '* - Заголовок сообщения для диалога настроек'
+//	][{"%S{LongHint}"!="%S{!LongHint}"}%f_up_prefix(%S) *LongHint* = *%S{LongHint}* - Подсказка сообщения для диалога настроек
+ end // if
+ if ( ( %S get_up ( 'LongHint' ) ) %!= ( %S get_up_def ( 'LongHint' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *LongHint* = *'
+  %S get_up ( 'LongHint' ) '* - Подсказка сообщения для диалога настроек'
+//	][{"%S{NeedCheck}"!="%S{!NeedCheck}"}%f_up_prefix(%S) *NeedCheck* = *%S{NeedCheck}* - Нужен ли Checkbox о запоминании выбора
+ end // if
+ if ( ( %S get_up ( 'NeedCheck' ) ) %!= ( %S get_up_def ( 'NeedCheck' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *NeedCheck* = *'
+  %S get_up ( 'NeedCheck' ) '* - Нужен ли Checkbox о запоминании выбора'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4E01DC9002B0*
+//	%S%[inherited]\
+ inherited
+
+//	[{"%S{CheckCaption}"!=""}\
+ if ( ( %S get_up ( 'CheckCaption' ) ) %!= '' ) then
+ begin
+//	%P%f_add_attribute(%SU_CheckCaption,,\
+  %P %f add_attribute %( %S |U '_CheckCaption' %, '' %, 
+//	%f_N(%S)_CheckCaption = '%S{CheckCaption}',\
+  [%f] N %( %S )% '_CheckCaption = '''
+  %S get_up ( 'CheckCaption' ) '''' %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% 
+//	]\
+ end // if
+
+//	[{"%S{SettingsCaption}"!=""}\
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= '' ) then
+ begin
+//	%P%f_add_attribute(%SU_SettingsCaption,,\
+  %P %f add_attribute %( %S |U '_SettingsCaption' %, '' %, 
+//	%f_N(%S)_SettingsCaption = '%S{SettingsCaption}',\
+  [%f] N %( %S )% '_SettingsCaption = '''
+  %S get_up ( 'SettingsCaption' ) '''' %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% 
+//	]\
+ end // if
+
+//	[{"%S{LongHint}"!=""}\
+ if ( ( %S get_up ( 'LongHint' ) ) %!= '' ) then
+ begin
+//	%P%f_add_attribute(%SU_LongHint,,\
+  %P %f add_attribute %( %S |U '_LongHint' %, '' %, 
+//	%f_N(%S)_LongHint = '%S{LongHint}',\
+  [%f] N %( %S )% '_LongHint = '''
+  %S get_up ( 'LongHint' ) '''' %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% 
+//	]
+ end // if
+
+//#UC END# *4B2A19E3038Bfor4E01DC9002B0*
+; // DoSpell
+
+
+// перекрытие базового стереотипа WikiImplClass::Class
+//%f _WikiImplClassGParam
+: WikiImplClassGParam OBJECT IN %S
+// возвращаемый результат: a-string
+//#UC START# *4E09A6E0018Dfor4E01DC9002B0*
+//	%SU
+ %S |U 
+//#UC END# *4E09A6E0018Dfor4E01DC9002B0*
+; // WikiImplClassGParam
+
+
+// перекрытие базового стереотипа LocalConst::Class::Attribute
+// Добавляет дополнительный код инициализации константы
+//%f _AdditionalInitCode
+: AdditionalInitCode OBJECT IN %S
+// параметры: aConstName: a-string = %1
+// возвращаемый результат: a-string
+//#UC START# *4E09C0BD002Afor4E01DC9002B0*
+//	%S%[inherited]\
+ inherited
+//	<{}{%C#f_IsChoices()=true}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsChoices %( )% ) %==  true ) then
+  begin
+//	%C<{}{}{%C}\
+   %C
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if true then
+     begin
+//	\n %2N.AddChoice(str_%C%f_pas_Prefix()%C#f_AdditionalPrefix()%f_N(%C));\
+      #13#10' '
+      %2 |N '.AddChoice(str_'
+      %C %f pas_Prefix %( )% %C %?f AdditionalPrefix %( )% [%f] N %( %C )% ');'
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ //	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%C#f_IsCustomChoice()=true}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsCustomChoice %( )% ) %==  true ) then
+  begin
+//	\n %1N.AddCustomChoice(str_%C%T%f_pas_Prefix()%C%T#f_AdditionalPrefix()%f_N(%C%T));\
+   #13#10' '
+   %1 |N '.AddCustomChoice(str_'
+   %C ->T %f pas_Prefix %( )%  %C ->T %?f AdditionalPrefix %( )%  [%f] N %( %C ->T  )% ');'
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%C#f_IsDefaultChoice()=true}{%C}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsDefaultChoice %( )% ) %==  true ) then
+  begin
+//	\n %1N.AddDefaultChoice(str_%C%T%f_pas_Prefix()%C%T#f_AdditionalPrefix()%f_N(%C%T));\
+   #13#10' '
+   %1 |N '.AddDefaultChoice(str_'
+   %C ->T %f pas_Prefix %( )%  %C ->T %?f AdditionalPrefix %( )%  [%f] N %( %C ->T  )% ');'
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	\n %1N.SetDlgType(mt%S{DlgType});\
+ #13#10' '
+ %1 |N '.SetDlgType(mt'
+ %S get_up ( 'DlgType' ) ');'
+//	[{"%S{NeedCheck}"!="%S{!NeedCheck}"}\n %1N.SetNeedCheck(%S{NeedCheck});]\
+ if ( ( %S get_up ( 'NeedCheck' ) ) %!= ( %S get_up_def ( 'NeedCheck' ) ) ) then
+ begin
+  #13#10' '
+  %1 |N '.SetNeedCheck('
+  %S get_up ( 'NeedCheck' ) ');' 
+ end // if
+//	[{"%S{CheckCaption}"!=""}\n %1N.SetCheckCaption(str_%f_N(%S)_CheckCaption);]\
+ if ( ( %S get_up ( 'CheckCaption' ) ) %!= '' ) then
+ begin
+  #13#10' '
+  %1 |N '.SetCheckCaption(str_'
+  [%f] N %( %S )% '_CheckCaption);' 
+ end // if
+//	[{"%S{SettingsCaption}"!=""}\n %1N.SetSettingsCaption(str_%f_N(%S)_SettingsCaption);]\
+ if ( ( %S get_up ( 'SettingsCaption' ) ) %!= '' ) then
+ begin
+  #13#10' '
+  %1 |N '.SetSettingsCaption(str_'
+  [%f] N %( %S )% '_SettingsCaption);' 
+ end // if
+//	[{"%S{LongHint}"!=""}\n %1N.SetLongHint(str_%f_N(%S)_LongHint);]
+ if ( ( %S get_up ( 'LongHint' ) ) %!= '' ) then
+ begin
+  #13#10' '
+  %1 |N '.SetLongHint(str_'
+  [%f] N %( %S )% '_LongHint);' 
+ end // if
+//#UC END# *4E09C0BD002Afor4E01DC9002B0*
+; // AdditionalInitCode
+
+
+// перекрытие базового стереотипа LocalConst::Class::Attribute
+//%f _CanUseDocAsValue
+: CanUseDocAsValue OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E09CB3D02F1for4E01DC9002B0*
+//	true
+ true
+//#UC END# *4E09CB3D02F1for4E01DC9002B0*
+; // CanUseDocAsValue
+
+
+// перекрытие базового стереотипа LocalConst::Class::Attribute
+//%f _IsMessage
+: IsMessage OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E01C9BC0377for4E01DC9002B0*
+//	true
+ true
+//#UC END# *4E01C9BC0377for4E01DC9002B0*
+; // IsMessage
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4E01DC9002B0*
+//#UC END# *470484D50138for4E01DC9002B0*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for4E01DC9002B0*
+//	<%CX>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%S%f_DoSpell()
+ %S %f DoSpell %( )% 
+//#UC END# *4A41A13D03D5for4E01DC9002B0*
+; // spell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Message::Class::CustomChoice::Attribute
+end. // <<Message>>
+
+implementation @ :: <<Message>> <<CustomChoice>> ;
+//? Выбор для "настраиваемой кнопки"
+//? Т.е. вместо него подставляется значение vcm_mrCustomButton
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4E09D0A100CC*
+//#UC END# *46E6D4BB0339for4E09D0A100CC*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4E09D0A100CC*
+//#UC END# *470F1571031Cfor4E09D0A100CC*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4E09D0A100CC*
+//#UC END# *470F15B800CBfor4E09D0A100CC*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _IsCustomChoice
+; // st_space_key
+
+: IsCustomChoice OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E09D17501C5for4E09D0A100CC*
+//	true
+ true
+//#UC END# *4E09D17501C5for4E09D0A100CC*
+; // IsCustomChoice
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4E09D0A100CC*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4E09D0A100CC*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4E09D0A100CC*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4E09D0A100CC*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4E09D0A100CC*
+//#UC END# *470484D50138for4E09D0A100CC*
+; // wiki_up_add_gen
+
+
+//: Message::Class::DefaultChoice::Attribute
+end. // :: <<Message>> <<CustomChoice>> ;
+
+implementation @ :: <<Message>> <<DefaultChoice>> ;
+//? Выбор по-умолчанию
+//? Выбор, который выбирается при закрытии диалога крестиком
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4E09D1030281*
+//#UC END# *46E6D4BB0339for4E09D1030281*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4E09D1030281*
+//#UC END# *470F1571031Cfor4E09D1030281*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4E09D1030281*
+//#UC END# *470F15B800CBfor4E09D1030281*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _IsDefaultChoice
+; // st_space_key
+
+: IsDefaultChoice OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4E09D190018Afor4E09D1030281*
+//	true
+ true
+//#UC END# *4E09D190018Afor4E09D1030281*
+; // IsDefaultChoice
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4E09D1030281*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4E09D1030281*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4E09D1030281*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4E09D1030281*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4E09D1030281*
+//#UC END# *470484D50138for4E09D1030281*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Message>> <<DefaultChoice>> ;
+

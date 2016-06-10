@@ -158,8 +158,7 @@ begin
   f_HasHyperlink := True
  else
   f_HasSegment := True;
- inherited 
-/
+ inherited;
 //#UC END# *47B49EC50034_525D40F1024C_impl*
 end;//TddTextSegmentsList.DirectInsert
 

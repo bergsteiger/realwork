@@ -1,8 +1,17 @@
 Unit Dt_Mail;
 
-{ $Id: Dt_Mail.pas,v 1.57 2015/12/29 11:36:44 lukyanets Exp $ }
+{ $Id: Dt_Mail.pas,v 1.59 2016/04/22 11:39:39 lukyanets Exp $ }
 
 // $Log: Dt_Mail.pas,v $
+// Revision 1.59  2016/04/22 11:39:39  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.58  2016/03/25 12:41:40  lukyanets
+// cleanup
+//
 // Revision 1.57  2015/12/29 11:36:44  lukyanets
 // Пишем ID письма на котором упали
 //
@@ -578,7 +587,7 @@ Begin
 
   If aName=''
    then
-    aName:='...от '+UserManager.UserTbl.GetNameStr(GetSenderID);
+    aName:='...от '+GlobalDataProvider.UserManager.GetUserName(GetSenderID);
   MailFile.WriteParamStr('Name',aName);
   DataName:=GetUniqFileName(SUserPath,'Mail','.dat',False);
 

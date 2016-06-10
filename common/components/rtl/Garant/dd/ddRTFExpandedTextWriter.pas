@@ -105,7 +105,7 @@ procedure TddBlockInfo.Cleanup;
 begin
 //#UC START# *479731C50290_55BB29ED03B6_impl*
  f_StyleID := 0;
- f_Collapsed := False;
+ f_Collapsed := dd_cbExpand;
  f_ParaID := 0;
  inherited;
 //#UC END# *479731C50290_55BB29ED03B6_impl*
@@ -117,7 +117,7 @@ procedure TddBlockInfo.InitFields;
 begin
 //#UC START# *47A042E100E2_55BB29ED03B6_impl*
  f_StyleID := 0;
- f_Collapsed := False;
+ f_Collapsed := dd_cbExpand;
  f_ParaID := 0;
 //#UC END# *47A042E100E2_55BB29ED03B6_impl*
 end;//TddBlockInfo.InitFields
@@ -198,7 +198,7 @@ procedure TddRTFExpandedTextWriter.StartChild(TypeID: Tl3Type);
 //#UC END# *4836D4650177_55BB1F310213_var*
 begin
 //#UC START# *4836D4650177_55BB1F310213_impl*
- if not  f_AddBlockStyle and InBlock then
+ if not f_AddBlockStyle and InBlock then
   f_BlockStack.Last.ParaID := f_BlockStack.Last.ParaID + 1;
  inherited;
 //#UC END# *4836D4650177_55BB1F310213_impl*
@@ -214,11 +214,13 @@ begin
  inherited;
  l_StyleRec := TddBlockInfo.Create;
  try
+  if f_BlockStack.Count > 0 then // Берем свернутость у предыдущего блока
+   if f_BlockStack.Last.Collapsed > dd_cbExpand then
+    l_StyleRec.Collapsed := dd_cbParentCollapsed;
   f_BlockStack.Add(l_StyleRec);
  finally
   FreeAndNil(l_StyleRec);
  end;
- f_FindStyle := dd_wsNone;
 //#UC END# *55BB1FC300A2_55BB1F310213_impl*
 end;//TddRTFExpandedTextWriter.DoStartBlock
 
@@ -230,7 +232,7 @@ begin
  inherited;
  if InBlock and (f_BlockStack.Count > 0) then
  begin
-  if NeedCorrectIndent(f_BlockStack.Last.StyleID) then
+  if NeedCheckCollapsed(f_BlockStack.Last.StyleID) then
    f_StyledSpace := f_StyledSpace - GetStyleLeftIndent(f_BlockStack.Last.StyleID);
   f_BlockStack.DeleteLast;
  end; // if (CurrentType = k2_typBlock) then
@@ -249,18 +251,10 @@ begin
   begin
    f_BlockStack.Last.StyleID := Value.AsInteger;
    if NeedCheckCollapsed(Value.AsInteger) then
-   begin
     f_StyledSpace := f_StyledSpace + GetStyleLeftIndent(Value.AsInteger);
-    f_FindStyle := dd_wsCheckCollapsed;
-   end // if f_BlockStack.Last.rStyle = ev_saExpandedText then
-   else
-    f_FindStyle := dd_wsOtherStyle;
   end; // if (CurrentType = k2_typBlock) and (AtomIndex = k2_tiStyle) then
-  if (f_FindStyle = dd_wsCheckCollapsed) and (AtomIndex = k2_tiCollapsed) then
-  begin
-   f_BlockStack.Last.Collapsed := Boolean(Value.AsInteger);
-   f_FindStyle := dd_wsExpandedText;
-  end; // if InBlock and (AtomIndex = k2_tiCollapsed) and (f_FindSyle := dd_wsCheckCollapsed) then
+  if NeedCheckCollapsed(f_BlockStack.Last.StyleID) and (AtomIndex = k2_tiCollapsed) and (f_BlockStack.Last.Collapsed < dd_cbParentCollapsed) then
+   f_BlockStack.Last.Collapsed := TddCollapsed(Boolean(Value.AsInteger));
  end; // if InBlock then
  inherited;
 //#UC END# *55BB2C2E01BD_55BB1F310213_impl*
@@ -288,7 +282,7 @@ function TddRTFExpandedTextWriter.BlockIndent: Integer;
 begin
 //#UC START# *55BB58F60134_55BB1F310213_impl*
  Result := propUndefined;
- if (f_BlockStack.Count > 0) and NeedCorrectIndent(f_BlockStack.Last.StyleID) then
+ if (f_BlockStack.Count > 0) and NeedCheckCollapsed(f_BlockStack.Last.StyleID) then
   if (f_BlockStack.Last.ParaID = 1) then
    Result := f_StyledSpace - GetStyleLeftIndent(f_BlockStack.Last.StyleID)
   else
@@ -299,38 +293,15 @@ end;//TddRTFExpandedTextWriter.BlockIndent
 function TddRTFExpandedTextWriter.NeedWritePara: Boolean;
  {* Ручки "наружу" для Writer'а. Писать или не писать параграф в зависимости от стиля. }
 //#UC START# *55BB59B0034D_55BB1F310213_var*
-
- function lp_Visible: Boolean;
- var
-  i: Integer;
- begin
-  Result := f_BlockStack.Count < 2;
-  if not Result then
-  begin
-   Result := True;
-   for i := f_BlockStack.Count - 2 downto 0 do
-    if NeedCheckCollapsed(f_BlockStack.Items[i].StyleID) then
-    begin
-     Result := not f_BlockStack.Items[i].Collapsed;
-     Break;
-    end; // if NeedCheckCollapsed(f_BlockStack.Items[i].StyleID) then
-  end; // if Result then
- end;
-
 //#UC END# *55BB59B0034D_55BB1F310213_var*
 begin
 //#UC START# *55BB59B0034D_55BB1F310213_impl*
  Result := (f_BlockStack.Count = 0);
  if not Result then
  begin
-  Result := not NeedCheckCollapsed(f_BlockStack.Last.StyleID);
-  if not Result then
-  begin
-   Result := lp_Visible;
-   if Result then
-    if f_BlockStack.Last.Collapsed then
-     Result := (f_BlockStack.Last.ParaID = 1)
-  end; // if not Result then
+  Result := f_BlockStack.Last.Collapsed = dd_cbExpand;
+  if not Result and NeedCheckCollapsed(f_BlockStack.Last.StyleID) then
+   Result := (f_BlockStack.Last.ParaID = 1) and (f_BlockStack.Last.Collapsed < dd_cbParentCollapsed);
  end; // if not Result then
 //#UC END# *55BB59B0034D_55BB1F310213_impl*
 end;//TddRTFExpandedTextWriter.NeedWritePara
@@ -341,7 +312,7 @@ function TddRTFExpandedTextWriter.IgnoreLeftIndent: Boolean;
 begin
 //#UC START# *55C092BD009D_55BB1F310213_impl*
  Result := inherited IgnoreLeftIndent;
- if (f_BlockStack.Count > 0) and NeedCorrectIndent(f_BlockStack.Last.StyleID) and (f_BlockStack.Last.ParaID = 1) then
+ if (f_BlockStack.Count > 0) and NeedCheckCollapsed(f_BlockStack.Last.StyleID) and (f_BlockStack.Last.ParaID = 1) then
   Result := True;
 //#UC END# *55C092BD009D_55BB1F310213_impl*
 end;//TddRTFExpandedTextWriter.IgnoreLeftIndent

@@ -1,8 +1,17 @@
 unit ddMDPIntegration;
 
-{ $Id: ddMDPIntegration.pas,v 1.80 2016/02/15 14:02:02 fireton Exp $ }
+{ $Id: ddMDPIntegration.pas,v 1.82 2016/05/23 13:17:10 fireton Exp $ }
 
 // $Log: ddMDPIntegration.pas,v $
+// Revision 1.82  2016/05/23 13:17:10  fireton
+// - синхронизация этапов в Гардок
+//
+// Revision 1.81  2016/05/11 06:47:15  fireton
+// - merge
+//
+// Revision 1.80.2.1  2016/05/10 13:02:19  fireton
+// - тестируем на случай, если это единственный текстовый образ
+//
 // Revision 1.80  2016/02/15 14:02:02  fireton
 // - gardoc_hang + рефакторинг
 //
@@ -293,6 +302,12 @@ uses
 
  dd_lcDocImageConverter;
 
+const
+ 
+ cMDPCfgSection       = 'MDP';
+ cMDPLastTopUpdate    = 'LastTopUpdate';
+ cMDPLastNormalUpdate = 'LastNormalUpdate';
+
 type
  TddMDPDocBatchType = (btTop, btNormal);
 
@@ -340,6 +355,7 @@ type
   procedure DropResult;
   procedure FlushResults;
   procedure FormName(const aGDRec: TGardoc);
+  function GetTheOnlyTextImageIndex(const aGDRec: TGardoc): Integer;
   procedure ImportDocuments(const aList: IGardocList);
   function IsMainImage(const aImg: TImage): Boolean;
   //function IsTextEmpty(aIntDocID: TDocID): Boolean;
@@ -451,13 +467,8 @@ uses
 
 const
  cVerboseMsgLevel = 1;
-
-const
- cSuccessEventStr     = 'save_or_update';
- cMDPCfgSection       = 'MDP';
- cMDPLastTopUpdate    = 'LastTopUpdate';
- cMDPLastNormalUpdate = 'LastNormalUpdate';
- c_MinDocSize = 150;
+ c_MinDocSize     = 150;
+ cSuccessEventStr = 'save_or_update';
 
 resourcestring
  sNoDocIDRangeError        = 'Не определён диапазон для получения номеров топиков';
@@ -555,6 +566,7 @@ var
  J: Integer;
  l_Str: IString;
  l_IsCard : Boolean;
+ 
  l_CStr: Il3CString;
 begin
  l_IsCard := DocHasALabel(aGDRec, 'GARDOC_KART'); // проверим, что документ-просто карточка и поставим группу доступа KART, ежели так
@@ -1095,7 +1107,7 @@ var
  J, l_Idx: Integer;
  l_DocTextEmpty: Boolean;
  l_Img: TImage;
- l_IsMain: Boolean;
+ l_IsImageValidForText: Boolean;
  l_PDict: TDictionary;
  l_TempFN: AnsiString;
  l_Pages: AnsiString;
@@ -1109,6 +1121,7 @@ var
  l_WStr: Tl3WString;
  l_Str: IString;
  l_Log: TLogBookTbl;
+ l_OnlyTextImage: Integer;
 
 const
  c_ImgTypeStr: array [TImageType] of string = ('ZIP','TIFF','DOC','RTF','NSR');
@@ -1123,6 +1136,7 @@ begin
   begin
    l_PDict := DictServer(CurrentFamily).Dict[da_dlCorSources];
    l3System.Msg2Log('  Количество образов документа: %d', [aGDRec.rImages.Count]);
+   l_OnlyTextImage := GetTheOnlyTextImageIndex(aGDRec);
    for J := 0 to aGDRec.rImages.Count - 1 do
    begin
     l_DocTextEmpty := (aGDRec.rState = gsNEW) and (not f_IsDocumentBodyExists); // or IsTextEmpty(aIntDocID); - приводило к ошибкам!
@@ -1177,8 +1191,11 @@ begin
       end
       else
       begin
-       l_IsMain := (aGDRec.rImages.Count = 1) or IsMainImage(l_Img);
-       if (l_Img.rType in [giDOC, giRTF, giNSR]) and l_DocTextEmpty and l_IsMain then
+       // образ подходит для транслирования его в текст документа в случае:
+       //  1. Текстовый образ единственный текстовый в списке
+       //  2. Текстовый образ явно помечен как главный (метка gardoc_image_main)
+       l_IsImageValidForText := (J = l_OnlyTextImage) or IsMainImage(l_Img);
+       if (l_Img.rType in [giDOC, giRTF, giNSR]) and l_DocTextEmpty and l_IsImageValidForText then
        begin
         l3System.Msg2Log('Транслируем текст образа в текст документа', cVerboseMsgLevel);
         TranslateImageToDoc(l_TempFN, l_Img.rType);
@@ -1360,7 +1377,7 @@ begin
          try
           l_TopicList := l_DLL.MakeLongList;
           try
-           l_TopicList.Add(71227336); // топик, который хотим получить
+           l_TopicList.Add(46350046); // топик, который хотим получить
            l_Getter.GardocsByTopicList(l_TopicList, l_List);
           finally
            l_TopicList := nil;
@@ -1543,6 +1560,31 @@ begin
    if Result then
     Break;
   end;
+end;
+
+function TddMDPReader.GetTheOnlyTextImageIndex(const aGDRec: TGardoc): Integer;
+var
+ I: Integer;
+ l_Img: TImage;
+begin
+ // Возвращает индекс единственного текстового образа в списке образов. Если такого нет или
+ // текстовых образов несколько, то возвращает -1.
+ Result := -1;
+ for I := 0 to aGDRec.rImages.Count - 1 do
+ begin
+  aGDrec.rImages.pm_GetItem(I, l_Img);
+  if l_Img.rType in [giDOC, giRTF, giNSR] then
+  begin
+   if Result < 0 then
+    Result := I // найден первый текстовый образ
+   else
+   begin
+    // это уже не первый текстовый образ, отказать
+    Result := -1;
+    Break;
+   end;
+  end;
+ end;
 end;
 
 end.

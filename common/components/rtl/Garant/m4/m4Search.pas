@@ -430,10 +430,10 @@ begin
    f_Result := aSearcher.GetResult(nil,
                                    l3ChangeCodePage(Value, f_CodePage, CP_ANSI));
   {$IfDef m4DebugSearch}
-  l3System.Msg2Log(l3ChangeCodePage('Время поиска вхождений "', CP_ANSI, CP_ANSI) +
-          l3ChangeCodePage(Value, f_CodePage, CP_ANSI) + '" ' +
+  WriteLn(l3ChangeCodePage('Время поиска вхождений "', CP_ANSI, CP_OEM) +
+          l3ChangeCodePage(Value, f_CodePage, CP_OEM) + '" ' +
           TimeToStr(Now - l_Now));
-  l3System.Msg2Log(l3ChangeCodePage('Число вхождений:', CP_ANSI, CP_ANSI) +
+  WriteLn(l3ChangeCodePage('Число вхождений:', CP_ANSI, CP_OEM) +
           IntToStr(f_Result.GetCount));
   {$EndIf m4DebugSearch}
  end;//f_Result = nil

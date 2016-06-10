@@ -5,9 +5,12 @@ unit evSegLst;
 { Автор: Люлин А.В. ©     }
 { Модуль: evSegLst - описание списка отрезков}
 { Начат: 13.03.1997 16:39 }
-{ $Id: evSegLst.pas,v 1.159 2016/03/10 11:35:47 dinishev Exp $ }
+{ $Id: evSegLst.pas,v 1.160 2016/03/25 19:30:36 lulin Exp $ }
 
 // $Log: evSegLst.pas,v $
+// Revision 1.160  2016/03/25 19:30:36  lulin
+// - перегенерация.
+//
 // Revision 1.159  2016/03/10 11:35:47  dinishev
 // Проверка тестов.
 //
@@ -780,7 +783,7 @@ procedure evSegmentsLayer_PaintSegment(aPara   : Tl3Variant;
    try
     l_NewSeg.IntA[k2_tiStart] := Start;
     l_NewSeg.IntA[k2_tiFinish] := Pred(l_OldSeg.IntA[k2_tiStart]);
-    evSegmentSetFontParam(l_NewSeg, anAtom, aValue);
+    evSegment_SetFontParam(l_NewSeg, anAtom, aValue);
     aLayer.AddChild(l_NewSeg, Context);
    finally
     l_NewSeg := nil;
@@ -818,15 +821,15 @@ procedure evSegmentsLayer_PaintSegment(aPara   : Tl3Variant;
   // А вот ниже нужно учитывать прозрачность:
 {$IFNDEF Nemesis}
   if l_OldSeg.IsKindOf(SegType) then
-   evSegmentSetFontParam(l_OldSeg, anAtom, aValue, Context)
+   evSegment_SetFontParam(l_OldSeg, anAtom, aValue, Context)
   else
 {$ENDIF Nemesis}  
   begin
    l_NewSeg := SegType.MakeTag.AsObject;
    try                                            
     l_NewSeg.AsObject.AssignTag(l_OldSeg);
-    evSegmentSetFontParam(l_NewSeg, -k2_typSegment.ID, l_OldSeg, Context);
-    evSegmentSetFontParam(l_NewSeg, anAtom, aValue, Context);
+    evSegment_SetFontParam(l_NewSeg, -k2_typSegment.ID, l_OldSeg, Context);
+    evSegment_SetFontParam(l_NewSeg, anAtom, aValue, Context);
     aLayer.DeleteChild(l_OldSeg, Context);
     aLayer.AddChild(l_NewSeg, Context);
    finally
@@ -862,7 +865,7 @@ begin{PaintSegment}
    ATS := SegType.MakeTag.AsObject;
    ATS.IntA[k2_tiStart] := Start;
    ATS.IntA[k2_tiFinish] := Finish;
-   evSegmentSetFontParam(ATS, anAtom, aValue);
+   evSegment_SetFontParam(ATS, anAtom, aValue);
   end;//Sg
   aLayer.AddChild(ATS, Context);
  end;//Start < Finish

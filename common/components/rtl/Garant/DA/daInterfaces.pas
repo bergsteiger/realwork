@@ -654,6 +654,8 @@ type
    var aUserName: AnsiString;
    var aLoginName: AnsiString;
    var aActFlag: Byte);
+  function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+   aUserID: TdaUserID): Boolean;
   procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
   property AllUsers: Tl3StringDataList

@@ -62,7 +62,7 @@ procedure TAutoBlockTest.Process(aForm: TPrimTextLoadForm);
 //#UC END# *4BE13147032C_4D0256A60243_var*
 begin
 //#UC START# *4BE13147032C_4D0256A60243_impl*
- evAutoBlock.CreateBlockStructure(aForm.Text);
+ evAutoBlock.CreateBlockStructure(aForm.Text, True);
 //#UC END# *4BE13147032C_4D0256A60243_impl*
 end;//TAutoBlockTest.Process
 

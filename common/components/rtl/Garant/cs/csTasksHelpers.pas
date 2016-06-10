@@ -308,6 +308,7 @@ procedure TTasksListHelper.Add(anItem: TddProcessTask);
 //#UC END# *570230C7015F_57022B6800F0_var*
 begin
 //#UC START# *570230C7015F_57022B6800F0_impl*
+ anItem.TaskID := anItem.TaskID; // делаем taskid - чтобы при MakeTask не делались разные таски
  Value.AddChild(anItem.TaggedData);
 //#UC END# *570230C7015F_57022B6800F0_impl*
 end;//TTasksListHelper.Add

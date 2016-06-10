@@ -228,6 +228,7 @@ procedure TAbstractDropDown.DropDown;
 begin
 //#UC START# *52A9A9B802B4_482C80EA0131_impl*
  Tl3ListenersManager.AddWndProcListener(Self);
+ Tl3ListenersManager.AddMouseWheelListener(Self);
  if Assigned(f_OnDropDown) then
   f_OnDropDown(Self);
 //#UC END# *52A9A9B802B4_482C80EA0131_impl*
@@ -334,6 +335,7 @@ procedure TAbstractDropDown.HideDropDown;
 begin
 //#UC START# *53EDCFAF00AA_482C80EA0131_impl*
  Tl3ListenersManager.RemoveWndProcListener(Self);
+ Tl3ListenersManager.RemoveMouseWheelListener(Self);
 //#UC END# *53EDCFAF00AA_482C80EA0131_impl*
 end;//TAbstractDropDown.HideDropDown
 
@@ -415,6 +417,7 @@ var
 begin
 //#UC START# *53ECD5A0033A_482C80EA0131_impl*
  Tl3ListenersManager.RemoveWndProcListener(Self);
+ Tl3ListenersManager.RemoveMouseWheelListener(Self);
  l_NeedUndrop := Tl3GetCaptureHelper.Instance.GetCapture <> f_ExtButton;
  if l_NeedUndrop then
   if (not f_IgnoreDrop) and (not f_IgnoreFocus) then
@@ -517,7 +520,7 @@ procedure TAbstractDropDown.WndProcListenerNotify(Msg: PCWPStruct;
 //#UC END# *4F79CF3400BB_482C80EA0131_var*
 begin
 //#UC START# *4F79CF3400BB_482C80EA0131_impl*
- if Msg.message = WM_ACTIVATEAPP then
+ if (Msg.message = WM_ACTIVATEAPP) then
   if not Boolean(Msg.WParam) then
    HideDropDown;
 //#UC END# *4F79CF3400BB_482C80EA0131_impl*
@@ -542,6 +545,7 @@ begin
 //#UC START# *479731C50290_482C80EA0131_impl*
  Tl3ListenersManager.RemoveWndProcListener(Self);
  Tl3ListenersManager.RemoveMouseListener(Self);
+ Tl3ListenersManager.RemoveMouseWheelListener(Self);
  inherited;
 //#UC END# *479731C50290_482C80EA0131_impl*
 end;//TAbstractDropDown.Cleanup

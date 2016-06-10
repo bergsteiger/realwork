@@ -254,7 +254,10 @@ function TtfwDefaultScriptCaller.StartTimer: Longword;
 //#UC END# *4F0D8C5A01A2_55C482690029_var*
 begin
 //#UC START# *4F0D8C5A01A2_55C482690029_impl*
- Assert(false);
+ if (f_Starts = nil) then
+  f_Starts := Tl3CardinalList.Make;
+ Result := GetTickCount;
+ f_Starts.Add(Result);
 //#UC END# *4F0D8C5A01A2_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.StartTimer
 
@@ -265,7 +268,12 @@ function TtfwDefaultScriptCaller.StopTimer(const aSt: AnsiString = '';
 //#UC END# *4F0D8CB0015D_55C482690029_var*
 begin
 //#UC START# *4F0D8CB0015D_55C482690029_impl*
- Assert(false);
+ Assert(f_Starts <> nil);
+ Assert(f_Starts.Count > 0);
+ Result := GetTickCount - f_Starts.Last;
+ f_Starts.Delete(f_Starts.Hi);
+ if aNeedTimeToLog then
+  TimeToLog(Result, aSt, aSubName);
 //#UC END# *4F0D8CB0015D_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.StopTimer
 
@@ -283,7 +291,7 @@ procedure TtfwDefaultScriptCaller.ToLog(const aSt: AnsiString);
 //#UC END# *4F0DA2A7024A_55C482690029_var*
 begin
 //#UC START# *4F0DA2A7024A_55C482690029_impl*
- Assert(false);
+ l3System.Msg2Log(aSt);
 //#UC END# *4F0DA2A7024A_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.ToLog
 
@@ -342,7 +350,13 @@ procedure TtfwDefaultScriptCaller.TimeToLog(aTime: Cardinal;
 //#UC END# *511BC7C60063_55C482690029_var*
 begin
 //#UC START# *511BC7C60063_55C482690029_impl*
- Assert(false);
+ if (aSubName = '') then
+  l3System.Msg2Log(aSt + ' ' + IntToStr(aTime))
+ else
+ if (aSt = '') then
+  l3System.Msg2Log(aSubName + ' ' + IntToStr(aTime))
+ else
+  l3System.Msg2Log(aSt + ' ' + aSubName + ' ' + IntToStr(aTime));
 //#UC END# *511BC7C60063_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.TimeToLog
 

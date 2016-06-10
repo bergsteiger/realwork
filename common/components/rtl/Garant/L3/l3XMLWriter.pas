@@ -5,9 +5,12 @@ unit l3XMLWriter;
 { Начал: Люлин А.В.       }
 { Модуль: l3XMLWriter -   }
 { Начат: 01.03.2005 19:19 }
-{ $Id: l3XMLWriter.pas,v 1.21 2015/07/22 16:33:06 fireton Exp $ }
+{ $Id: l3XMLWriter.pas,v 1.22 2016/05/26 07:17:29 fireton Exp $ }
 
 // $Log: l3XMLWriter.pas,v $
+// Revision 1.22  2016/05/26 07:17:29  fireton
+// - расширение интерфейса Il3XMLWriter
+//
 // Revision 1.21  2015/07/22 16:33:06  fireton
 // - не пишем пустые данные
 //
@@ -163,6 +166,9 @@ type
         {* - Записывает данные }
       procedure PutData(const aString: Tl3PCharLenPrim); overload;
         {-}
+      procedure PutSimpleField(const aName: AnsiString;
+        const aAttributes: AnsiString;
+        const aData: AnsiString);
     public
     // public methods
       class function Make(const aFileName: AnsiString): Il3XMLWriter;
@@ -477,6 +483,19 @@ begin
   f_IsDataInTag := True;
  end;
 end;
+
+procedure Tl3XMLWriter.PutSimpleField(const aName: AnsiString;
+                                      const aAttributes: AnsiString;
+                                      const aData: AnsiString);
+begin
+ OpenLevel(aName, aAttributes);
+ try
+  PutData(aData);
+ finally
+  CloseLevel;
+ end;
+end;
+
 
 procedure Tl3XMLWriter.PutData(const aString: Il3CString);
 begin

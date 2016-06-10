@@ -1,8 +1,146 @@
 Unit Dt_user;
 
-{ $Id: DT_USER.PAS,v 1.160 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_USER.PAS,v 1.191 2016/06/10 11:43:55 lukyanets Exp $ }
 
 // $Log: DT_USER.PAS,v $
+// Revision 1.191  2016/06/10 11:43:55  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.190  2016/06/08 13:05:26  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.189  2016/06/07 13:25:52  lukyanets
+// Cleanup
+//
+// Revision 1.188  2016/06/06 13:09:38  lukyanets
+// Неверно считали приоритет
+//
+// Revision 1.187  2016/06/03 12:26:30  lukyanets
+// Готовимся к Join в запросах
+//
+// Revision 1.186  2016/06/02 13:26:54  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.185  2016/05/18 06:04:03  lukyanets
+// Выключаем удаленную отладку
+//
+// Revision 1.184  2016/05/16 12:54:42  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.183  2016/05/13 12:55:08  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.182  2016/05/12 13:26:38  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.181  2016/05/12 11:34:37  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.180  2016/05/11 10:18:04  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.179  2016/05/05 12:59:00  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.178  2016/05/05 08:44:03  lukyanets
+// Отвязываемся от знаний про CS
+//
+// Revision 1.177  2016/05/04 13:36:22  lukyanets
+// Отвязываемся от знаний про CS
+//
+// Revision 1.176  2016/04/29 10:27:24  lukyanets
+// Убираем зависимость от cs
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.175  2016/04/28 13:18:24  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.174  2016/04/27 13:07:49  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.173  2016/04/25 12:36:24  lukyanets
+// Приведение типов
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.172  2016/04/25 11:23:55  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.171  2016/04/22 11:39:39  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.170  2016/04/21 10:38:02  lukyanets
+// Спрямляем наследование
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.169  2016/04/20 11:57:34  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.168  2016/04/19 11:34:40  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.167  2016/04/19 07:20:09  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.166  2016/04/18 13:36:46  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.165  2016/04/18 11:48:06  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.164  2016/04/18 08:39:58  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.163  2016/04/14 12:27:08  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.162  2016/04/14 11:14:28  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.161  2016/03/25 12:41:40  lukyanets
+// cleanup
+//
 // Revision 1.160  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -486,17 +624,21 @@ Interface
 
 Uses
   SysUtils, Classes,
+
+  daTypes,
+  daInterfaces,
+  daArchiUser,
+  daArchiUserList,
+
   HT_Const,
   Dt_Types,
   dtIntf, DT_Sab,
   Dt_Dict,Dt_Link,DT_ATbl,
 
-  l3Types, l3DatLst, l3Base, 
-  CSNotification, CsClient, csCommon, csDataPipe,
+  l3Types, l3DatLst, l3Base,
+  {CSNotification, CsClient, csCommon, csDataPipe,}
   l3ObjectRefList,
-  dt_UserConst
-  , dt_UserTypes,
-  ArchiUserList,
+  dt_UserConst,
   l3LongintList,
   dtUserIDList
   ;
@@ -551,11 +693,11 @@ Type
   constructor Create; reintroduce;
   procedure EditItem(aId: LongInt;
                      aName: PAnsiChar;
-                     aImportPriority: TPriority;
-                     aExportPriority: TPriority);
+                     aImportPriority: TdaPriority;
+                     aExportPriority: TdaPriority);
   function ReadPriorities(aGrouId: LongInt;
-                          var aImportPriority: TPriority;
-                          var aExportPriority: TPriority): Boolean;
+                          var aImportPriority: TdaPriority;
+                          var aExportPriority: TdaPriority): Boolean;
 
  end;
 
@@ -580,10 +722,10 @@ Type
 
  TUserManager = Class(Tl3Base)
   private
-   f_CSClient: TcsClient;
-   f_UserList: TArchiUserList;
+//   f_CSClient: TcsClient;
+   f_UserList: TdaArchiUserList;
 
-   procedure pm_SetCSClient(const Value: TcsClient);
+//   procedure pm_SetCSClient(const Value: TcsClient);
    procedure SortUsersInList(aList: Tl3StringDataList);
   protected
    fUserTbl  : TUserTbl;
@@ -591,27 +733,27 @@ Type
    fUsGrDt   : TUserGroupTbl;
    fUsGrLnk  : TUsGrLinkTbl;
 
-   fUGList   : Tl3StringDataList;
-   fUserList : Tl3StringDataList;
-   fIndUList : Tl3StringDataList;
+   f_AllGroupsList   : Tl3StringDataList;
+   f_AllUsersList : Tl3StringDataList;
+//   fIndUList : Tl3StringDataList;
 
-   fOnUACh   : TUserStatusChange;
+//   f_OnUserActiveChange   : TUserStatusChange;
 
    fCacheActiveUserList : TStringList;
 
-   function  GetUGList : Tl3StringDataList;
-   function  GetUserList : Tl3StringDataList;
-   function  GetIndexUserList : Tl3StringDataList;
+   function  GetAllGroupsList : Tl3StringDataList;
+   function  GetAllUsersList : Tl3StringDataList;
+//   function  GetIndexUserList : Tl3StringDataList;
 
    Procedure Cleanup; override;
   public
    Constructor Create; Reintroduce;
 
-   function    CheckPassword(Var aCurUserID   : TUserID;
+   function    xxxCheckPassword(Var aCurUserID   : TUserID;
                              const aLoginName,aPassWord : ShortString) : Boolean;
 
 
-   function IsUserAdmin(aUserID : TUserID) : Boolean;
+   function xxxIsUserAdmin(aUserID : TUserID) : Boolean;
    Procedure   GetUserGroup(aCurUserID   : TUserID);
    Procedure   SetUserGroupList(aUser : TUserID;aUGList : Tl3StringDataList);
 
@@ -620,8 +762,8 @@ Type
    function    AddUserGroup(Var aName : ShortString): TUserGrID;
    Procedure   EditUserGroup(aUsGroupItem : LongInt;
                              var aName : ShortString;
-                             aImportPriority: TPriority;
-                             aExportPriority: TPriority);
+                             aImportPriority: TdaPriority;
+                             aExportPriority: TdaPriority);
    Procedure   DelUserGroup(aUsGroupItem : LongInt);
    procedure   DelUserGroupByID(aUsGroupID: TUserGrID);
 
@@ -636,84 +778,86 @@ Type
    procedure   GetHostUserListOnGroup(aUsGroup : TUserGrID; UsList : Tl3StringDataList; NeedSort: Boolean=False);
    Procedure   SetHostUserListOnGroup(aUsGroup : TUserGrID;UsList : Tl3StringDataList);
 
-   function    IsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID = 0) : boolean;
-   function    GetUserIDSabOnGroup(aUsGroup : TUserGrID) : Sab;
-   function    MakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
+   function    xxxIsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID) : boolean;
+//   function    GetUserIDSabOnGroup(aUsGroup : TUserGrID) : Sab;
+   function    xxxMakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
 
-   Procedure   GetSortUserSabOnGroup(aUsGroup : TUserGrID; Var aSab : Sab);
+//   Procedure   GetSortUserSabOnGroup(aUsGroup : TUserGrID; Var aSab : Sab);
    function    AddUser(aUserName,aLoginName,
                        aPassword  : ShortString;
                        ActFlag    : Byte) : TUserID;
    function AddUserID(const anID: TUserID; aUserName, aLoginName, aPassword: ShortString; ActFlag: Byte): TUserID;
-   Procedure   GetUserInfo(aUser : TUserID; Var aUserName,aLoginName : ShortString;
+   Procedure   xxxGetUserInfo(aUser : TUserID; Var aUserName,aLoginName : ShortString;
                            Var aActFlag    : Byte);
    Procedure   EditUser(aUser : TUserID;aUserName,aLoginName : ShortString;
                         ActFlag    : Byte;EditMask : TUsEditMask);
    Procedure   AdminChangePassWord(aUser : TUserID;NewPass : ShortString);
    Procedure   UserChangePassWord(NewPass : ShortString);
    Procedure   DelUser(aUser : TUserID);
-   function    UserName(aUserId: TUserID): ShortString;
+//   function    UserName(aUserId: TUserID): ShortString;
 
-   Procedure   IterateUserGroups(Action : Tl3IteratorAction);
-   Procedure   IterateUserByGroup(UsGrID : TUserGrID; Action : Tl3IteratorAction;
-                                  WithAdminUsers : Boolean = False);
-   Procedure   SetCurrentActiveUsers;
-   Procedure   ReceiveActiveUsersList(aMessage : PAnsiChar);
+   Procedure   xxxIterateUserGroups(Action : Tl3IteratorAction);
+//   Procedure   IterateUserByGroup(UsGrID : TUserGrID; Action : Tl3IteratorAction;
+//                                  WithAdminUsers : Boolean = False);
+//   Procedure   SetCurrentActiveUsers;
+//   Procedure   ReceiveActiveUsersList(aMessage : PAnsiChar);
 
-   Procedure   ReciveUserLogInMess(aMessage : PAnsiChar);
-   Procedure   ReciveUserLogOffMess(aMessage : PAnsiChar);
+//   Procedure   ReciveUserLogInMess(aMessage : PAnsiChar);
+//   Procedure   ReciveUserLogOffMess(aMessage : PAnsiChar);
    procedure   SetUserGroup(aUser: TUserID; aGroup: TUserGrID; Add: Boolean = True);
-   function    UserIdByLoginName(const aLogin: ShortString; var aUserId: TUserID): Boolean;
-   function    LoginNameByUserId(aUserId: TUserID): AnsiString;
+//   function    UserIdByLoginName(const aLogin: ShortString; var aUserId: TUserID): Boolean;
+//   function    LoginNameByUserId(aUserId: TUserID): AnsiString;
    procedure   RemoveUserFromAllGroups(aUser:TUserID);
-   function   CalcUserPriorities(aUserId: TUserID;
-                                 out aImportPriority: TPriority;
-                                 out aExportPriority: TPriority): Boolean;
-   function CSCheckPassword(const aLogin, aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID : TcsClientID): Boolean;
-   function CSNotifyProc(aNotificationType: TCsNotificationType; aNumber: Integer; const aText: AnsiString): Boolean;
-   procedure cs_GetUsersList(aPipe: TcsDataPipe);
-   function GetUserDisplayName(anID: TUserID): AnsiString;
-   function IsUserExists(anID: TUserID): Boolean;
-   procedure MakeFullUsersList;
-   procedure ReSortUserList;
-   procedure UpdateUserInfo(aUserID: TUserID; aIsGroup: Boolean);
-   function UserByLogin(aLogin: AnsiString): TArchiUser;
-   function UserByID(aID: TUserID): TArchiUser;
+   function   xxxCalcUserPriorities(aUserId: TUserID;
+                                 out aImportPriority: TdaPriority;
+                                 out aExportPriority: TdaPriority): Boolean;
+   function xxxCSCheckPassword(const aCalculator: IdaPriorityCalculator; const aLogin, aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID : TdaUserID): Boolean;
+//   function CSNotifyProc(aNotificationType: TCsNotificationType; aNumber: Integer; const aText: AnsiString): Boolean;
+//   procedure NotifyUserActiveChanged(anUserID: TUserID; anActive: Boolean);
+//   procedure cs_GetUsersList(aPipe: TcsDataPipe);
+   procedure xxxIterateArchiUsers(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+   function xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TUserID): AnsiString;
+   function xxxIsUserExists(anID: TUserID): Boolean;
+   procedure xxxMakeFullUsersList(const aCalculator: IdaPriorityCalculator);
+   procedure xxxReSortUserList;
+   procedure xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TUserID; aIsGroup: Boolean);
+   function xxxUserByLogin(const aCalculator: IdaPriorityCalculator; aLogin: AnsiString): IdaArchiUser;
+   function xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TUserID): IdaArchiUser;
 
-   Property    OnUserActiveChange : TUserStatusChange read fOnUACh write fOnUACh;
+   function xxxGetArchiUsersCount(const aCalculator: IdaPriorityCalculator): Integer;
+   function xxxGetUserGroupsList(anID: TUserID): ISab;
+   function xxxGetUserName(anUserID: TUserID): AnsiString;
+   function xxxGetUserPriorities(aGrouId: LongInt;
+                           var aImportPriority: TdaPriority;
+                           var aExportPriority: TdaPriority): Boolean;
 
-   property CSClient: TcsClient read f_CSClient write pm_SetCSClient;
-   Property    UGroups: Tl3StringDataList read GetUGList;
-   Property    Users  : Tl3StringDataList read GetUserList;
-   Property    IndexedUsers : Tl3StringDataList read GetIndexUserList;
+//   Property OnUserActiveChange : TUserStatusChange read f_OnUserActiveChange write f_OnUserActiveChange;
 
-   Property    UserTbl  : TUserTbl read fUserTbl;
-   Property    UsGrDt   : TUserGroupTbl read fUsGrDt;
-   property    LinkTbl  : TUsGrLinkTbl read fUsGrLnk;
+//   property CSClient: TcsClient read f_CSClient write pm_SetCSClient;
+   Property xxxAllGroups: Tl3StringDataList read GetAllGroupsList;
+   Property xxxAllUsers  : Tl3StringDataList read GetAllUsersList;
+//   Property IndexedUsers : Tl3StringDataList read GetIndexUserList;
+
+   Property xxxUserTbl  : TUserTbl read fUserTbl;
  end;
 
 Const
  UserManager : TUserManager = nil;
 
-function GetRegionStringFromUserID(const anID: TUserID; const CropIfLocal: Boolean = True): AnsiString;
-function ConcatRegionAndUserNames(const aRegionName, aUserName: AnsiString): AnsiString; overload;
-function ConcatRegionAndUserNames(const anID: TUserID; const aUserName: AnsiString): AnsiString; overload;
-
 const
  cUserNameLen = 50;
 
 Implementation
-Uses daInterfaces,
-     daDataProvider,
-     daTypes,
+Uses daDataProvider,
      daSchemeConsts,
+     daUserManagerUtils,
      HT_Dll,
      Dt_err,
      DT_Misc,
      dt_Record,
      Dt_Const, dt_AttrSchema,
      Dt_Serv, Dt_Free, DT_Acces,
-     Dt_List, 
+     Dt_List,
      m2xltlib,
      WinTypes, Math,
      l3Bits, l3Memory, l3String,
@@ -723,6 +867,7 @@ Uses daInterfaces,
      dt_DictConst,
      dt_DictIntf, Windows;
 
+(*
 type
  TActiveUsersQuery = class(Tl3Base)
  private
@@ -735,20 +880,7 @@ type
   property Users: TdtUserIDList
    read f_Users;
  end;
-
-function ConcatRegionAndUserNames(const aRegionName, aUserName: AnsiString): AnsiString;
-begin
- if aRegionName <> '' then
-  Result := aRegionName + '.' + aUserName
- else
-  Result := aUserName;
-end;
-
-function ConcatRegionAndUserNames(const anID: TUserID; const aUserName: AnsiString): AnsiString;
-begin
- Result := ConcatRegionAndUserNames(GetRegionStringFromUserID(anID), aUserName);
-end;
-
+*)
 (********************** TPassTbl *********************************)
 
 Constructor TPassTbl.Create;
@@ -1051,10 +1183,10 @@ begin
  fPassTbl:=TPassTbl.Create;
  fUsGrDt:=TUserGroupTbl.Create;
  fUsGrLnk:=TUsGrLinkTbl.Create;
- f_UserList := TArchiUserList.Make;
- fUGList:=nil;
- fUserList:=nil;
- fIndUList:=nil;
+ f_UserList := TdaArchiUserList.Make;
+ f_AllGroupsList:=nil;
+ f_AllUsersList:=nil;
+// fIndUList:=nil;
 end;
 
 Procedure TUserManager.Cleanup;
@@ -1066,13 +1198,13 @@ begin
  l3Free(fUsGrDt);
  l3Free(fUsGrLnk);
 
- L3Free(fUGList);
- L3Free(fUserList);
- L3Free(fIndUList);
+ L3Free(f_AllGroupsList);
+ L3Free(f_AllUsersList);
+// L3Free(fIndUList);
  Inherited;
 end;
 
-function TUserManager.CheckPassword(Var aCurUserID   : TUserID;
+function TUserManager.xxxCheckPassword(Var aCurUserID   : TUserID;
                                     const aLoginName,aPassWord : ShortString) : Boolean;
 var
  l_UserActive: Boolean;
@@ -1092,27 +1224,27 @@ begin
  Result:=True;
 end;
 
-function TUserManager.GetUGList : Tl3StringDataList;
+function TUserManager.GetAllGroupsList : Tl3StringDataList;
 begin
- if fUGList = nil then
+ if f_AllGroupsList = nil then
  begin
-  fUGList := Tl3StringDataList.Create;
-  fUsGrDt.GetDictList(fUGList, False);
+  f_AllGroupsList := Tl3StringDataList.Create;
+  fUsGrDt.GetDictList(f_AllGroupsList, False);
  end;
- Result := fUGList;
+ Result := f_AllGroupsList;
 end;
 
-function TUserManager.GetUserList : Tl3StringDataList;
+function TUserManager.GetAllUsersList : Tl3StringDataList;
 begin
- if fUserList = nil then
+ if f_AllUsersList = nil then
  begin
-  fUserList:=Tl3StringDataList.Create;
-  fUserTbl.GetDictList(fUserList,False);
-  SortUsersInList(fUserList);
+  f_AllUsersList := Tl3StringDataList.Create;
+  fUserTbl.GetDictList(f_AllUsersList, False);
+  SortUsersInList(f_AllUsersList);
  end;
- Result:=fUserList;
+ Result:=f_AllUsersList;
 end;
-
+(*
 function TUserManager.GetIndexUserList : Tl3StringDataList;
 begin
  if fIndUList = nil then
@@ -1122,7 +1254,7 @@ begin
  end;
  Result:=fIndUList;
 end;
-
+*)
 procedure TUserManager.GetUserGroupList(aUser : TUserID; const aUGList : Tl3StringDataList);
 Var
  Bodies   : SAB;
@@ -1137,7 +1269,7 @@ begin
   aUGList.LockModifiedFlag:=True;
   try
    aUGList.Clear;
-   aUGList.HostDataList:=UGroups;
+   aUGList.HostDataList:=xxxAllGroups;
    Ht(htOpenResults(Bodies,ROPEN_READ,nil,0));
    Try
     While htReadResults(Bodies,@TmpID,fUsGrDt.IDSize)<>0 do
@@ -1234,28 +1366,28 @@ begin
  tmpItem:=fUsGrDt.AddDictItem(cUndefDictID, l_Str, l3PCharLen, l3PCharLen);
  tmpID:=tmpItem.Handle;
  Result:= tmpID;
- if fUGList<>nil then
+ if f_AllGroupsList<>nil then
    begin
-    fUGList.NeedAllocStr:=True;
-    fUGList.Add(@aName[1],@TmpID);
+    f_AllGroupsList.NeedAllocStr:=True;
+    f_AllGroupsList.Add(@aName[1],@TmpID);
    end;
 end;
 
 procedure TUserManager.EditUserGroup(aUsGroupItem: LongInt;
                                      var aName: ShortString;
-                                     aImportPriority: TPriority;
-                                     aExportPriority: TPriority);
+                                     aImportPriority: TdaPriority;
+                                     aExportPriority: TdaPriority);
 Var
  TmpIndex : LongInt;
 begin
  aName:=aName+#0;
  fUsGrDt.EditItem(aUsGroupItem, @aName[1], aImportPriority, aExportPriority);
- if fUGList<>nil
+ if f_AllGroupsList<>nil
   then
    begin
-    TmpIndex:=fUGList.IndexOfData(aUsGroupItem,SizeOf(TUserGrID),0);
-    fUGList.NeedAllocStr:=True;
-    fUGList.Strings[TmpIndex]:=@aName[1];
+    TmpIndex:=f_AllGroupsList.IndexOfData(aUsGroupItem,SizeOf(TUserGrID),0);
+    f_AllGroupsList.NeedAllocStr:=True;
+    f_AllGroupsList.Strings[TmpIndex]:=@aName[1];
    end;
 end;
 
@@ -1282,7 +1414,7 @@ begin
     raise;
    end;
  finally
-  FreeAndNil(fUGList);
+  FreeAndNil(f_AllGroupsList);
  end;
 end;
 
@@ -1290,11 +1422,11 @@ Procedure TUserManager.DelUserGroup(aUsGroupItem : LongInt);
 Var
  TmpID   : TUserGrID;
 begin
- if fUGList = nil then
+ if f_AllGroupsList = nil then
    raise EHtErrors.CreateInt(ecUnableDel);
- TmpID:=PUserGrID(fUGList.Data[aUsGroupItem])^;
+ TmpID:=PUserGrID(f_AllGroupsList.Data[aUsGroupItem])^;
  DelUserGroupByID(TmpID);
- //fUGList.Delete(aUsGroupItem);
+ //f_AllGroupsList.Delete(aUsGroupItem);
 end;
 
 procedure TUserManager.GetDocGroupData(aUserGroup : TUserGrID;aFamily : TFamilyID;
@@ -1500,11 +1632,12 @@ Var
  TmpID,
  TmpIndex : LongInt;
 begin
- if fUserList=nil then GetUserList;
+ if f_AllUsersList = nil then
+  GetAllUsersList;
  if NeedSort then
-  fUserList.Sort;
+  f_AllUsersList.Sort;
  UsList.Clear;
- UsList.HostDataList:=fUserList;
+ UsList.HostDataList := f_AllUsersList;
  if aUsGroup=0
   then
    exit
@@ -1560,25 +1693,25 @@ begin
      end;
     end;
 end;
-
+(*
 function TUserManager.GetUserIDSabOnGroup(aUsGroup : TUserGrID) : Sab;
 begin
  fUsGrLnk.SrchOnBody(aUsGroup,Result);
 end;
-
-function TUserManager.MakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
+*)
+function TUserManager.xxxMakeUserIDSabOnGroup(aUsGroup : TUserGrID) : ISab;
 begin
  Result := MakeSab(fUsGrLnk);
  Result.Select(lnkDictIDFld, aUsGroup);
  Result.ValuesOfKey(lnkDocIDFld);
 end;
 
-function TUserManager.IsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID = 0) : boolean;
+function TUserManager.xxxIsMemberOfGroup(aUsGroupID : TUserGrID; aUserID : TUserID) : boolean;
 begin
- if aUserID = 0 then aUserID := GlobalDataProvider.UserID;
+ Assert(aUserID <> 0);
  Result := fUsGrLnk.RecordExists(aUserID, aUsGroupID);
 end;
-
+(*
 Procedure TUserManager.GetSortUserSabOnGroup(aUsGroup : TUserGrID;Var aSab : Sab);
 Var
  TmpSab1,
@@ -1587,7 +1720,7 @@ Var
 begin
  fUsGrLnk.SrchOnBody(aUsGroup,TmpSab1);
  Try
-  htTransferToTable(TmpSab1,UserTbl.Handle,dtIDFld);
+  htTransferToTable(TmpSab1,fUserTbl.Handle,dtIDFld);
   htRecordsByKey(TmpSab2,TmpSab1);
   Try
    SortFld:=dtNameFld;
@@ -1599,7 +1732,7 @@ begin
   htClearResults(TmpSab1);
  end;
 end;
-
+*)
 function TUserManager.AddUser(aUserName,aLoginName,
                               aPassword  : ShortString;
                               ActFlag    : Byte) : TUserID;
@@ -1607,7 +1740,7 @@ begin
  Result := AddUserID(0, aUserName, aLoginName, aPassword, ActFlag);
 end;
 
-Procedure TUserManager.GetUserInfo(aUser : TUserID;Var aUserName,aLoginName : ShortString;
+Procedure TUserManager.xxxGetUserInfo(aUser : TUserID;Var aUserName,aLoginName : ShortString;
                                     Var aActFlag    : Byte);
 begin
  fPassTbl.GetLoginName(aUser,aLoginName, False);
@@ -1622,7 +1755,7 @@ Var
 begin
  if EditMask.LoginName then
  begin
-  if (aUser > 0) and (fUserTbl.IsUserExists(aUser)) then
+  if (aUser > 0) and (xxxIsUserExists(aUser)) then
    fPassTbl.ForceUser(aUser, '_ArchiUnknownUser_', ''); // бывает, что в таблице паролей нет записи, надо её создать тогда
   fPassTbl.ChangeLoginName(aUser, aLoginName);
  end;
@@ -1633,13 +1766,14 @@ begin
  if EditMask.Name then
  begin
   aUserName := ConcatRegionAndUserNames(aUser, aUserName) + #0;
-  if fUserList<>nil then
+  if f_AllUsersList<>nil then
   begin
-   TmpIndex:=fUserList.IndexOfData(aUser,SizeOf(TUserID),0);
-   fUserList.NeedAllocStr:=True;
-   fUserList.Strings[TmpIndex]:=@aUserName[1];
-   SortUsersInList(fUserList);
+   TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TUserID),0);
+   f_AllUsersList.NeedAllocStr:=True;
+   f_AllUsersList.Strings[TmpIndex]:=@aUserName[1];
+   SortUsersInList(f_AllUsersList);
   end;
+(*
   if fIndUList<>nil then
   begin
    fIndUList.NeedAllocStr:=True;
@@ -1647,6 +1781,7 @@ begin
    fIndUList.Strings[aUser]:=@aUserName[1];
    fIndUList.Data[aUser]:=@TmpSize;
   end;
+*)  
  end;
 end;
 
@@ -1675,29 +1810,31 @@ begin
    fUserTbl.DelData(aUser);
    FreeT.PutFree(fUserTbl.TblName,aUser);
    fPassTbl.DelPassWord(aUser);
-   fUsGrLnk.DelAllLinkItems(aUser);
+   fUsGrLnk.DelAllLinkItems(TDocID(aUser));
 
    GlobalHTServer.CommitTransaction(l_TransID);
   except
    GlobalHTServer.RollBackTransaction(l_TransID);
    raise;
   end;
- if fUserList<>nil
+ if f_AllUsersList<>nil
   then
    begin
-    TmpIndex:=fUserList.IndexOfData(aUser,SizeOf(TUserID),0);
-    fUserList.Delete(TmpIndex);
+    TmpIndex:=f_AllUsersList.IndexOfData(aUser,SizeOf(TUserID),0);
+    f_AllUsersList.Delete(TmpIndex);
    end;
+(*
  if fIndUList<>nil
   then
    fIndUList.ClearItem(aUser);
+*)   
 end;
 
-Procedure TUserManager.IterateUserGroups(Action : Tl3IteratorAction);
+Procedure TUserManager.xxxIterateUserGroups(Action : Tl3IteratorAction);
 begin
- UsGrDt.IterateAllDict(Action, True);
+ fUsGrDt.IterateAllDict(Action, True);
 end;
-
+(*
 Procedure TUserManager.IterateUserByGroup(UsGrID : TUserGrID; Action : Tl3IteratorAction;
                                           WithAdminUsers : Boolean);
 Var
@@ -1724,7 +1861,7 @@ begin
      TmpRec:=TmpList.GetItem(I);
      if (PUserID(TmpRec)^ <> usSupervisor) and
         (PUserID(TmpRec)^ < usAdminReserved) then
-      Action(PAnsiChar(UserTbl.GetNameStr(PUserID(TmpRec)^)),PUserID(TmpRec)^);
+      Action(PAnsiChar(xxxGetUserName(PUserID(TmpRec)^)),PUserID(TmpRec)^);
    end;
   finally
    l3Free(TmpList);
@@ -1733,13 +1870,14 @@ begin
   htClearResults(TmpSab);
  end;
 end;
-
+*)
+(*
 Procedure TUserManager.SetCurrentActiveUsers;
 var
  l_Query: TActiveUsersQuery;
  i: Integer;
 begin
- if Assigned(fOnUACh) then
+ if Assigned(f_OnUserActiveChange) then
  begin
   l_Query:= TActiveUsersQuery.Create;
   try
@@ -1747,45 +1885,40 @@ begin
    begin
     if CSClient.Exec(qtGetActiveUsersList, l_Query.Write2Pipe) then
      for i:= 0 to l_Query.users.Hi do
-      fOnUACh(l_Query.Users.Items[i], True);
+      f_OnUserActiveChange(l_Query.Users.Items[i], True);
    end;
   finally
    l3Free(l_Query);
   end;
  end; // Assigned
-(*
- if Assigned(fOnUACh) then
-  if (GlobalDataProvider.UserID <> usServerService) and
-     ServerServiceMessenger.IsEnable then
-   ServerServiceMessenger.SendGetActiveUsersList(GlobalDataProvider.UserID)
-  else
-   StationJornal.SetActiveUsers(fOnUACh);
-*)
 end;
-
+*)
+(*
 Procedure TUserManager.ReceiveActiveUsersList(aMessage : PAnsiChar);
 var
  I,
  MaxUser : LongInt;
 begin
- if Assigned(fOnUACh) then
+ if Assigned(f_OnUserActiveChange) then
   begin
    MaxUser:=PLongArr(aMessage)^[0];
    for I:=1 to MaxUser do
-    fOnUACh(PLongArr(aMessage)^[I],True);
+    f_OnUserActiveChange(PLongArr(aMessage)^[I],True);
   end;
 end;
-
+*)
+(*
 Procedure TUserManager.ReciveUserLogInMess(aMessage : PAnsiChar);
 begin
- if Assigned(fOnUACh) then fOnUACh(PUserID(aMessage)^,True);
+ if Assigned(f_OnUserActiveChange) then f_OnUserActiveChange(PUserID(aMessage)^,True);
 end;
-
+*)
+(*
 Procedure TUserManager.ReciveUserLogOffMess(aMessage : PAnsiChar);
 begin
- if Assigned(fOnUACh) then fOnUACh(PUserID(aMessage)^,False);
+ if Assigned(f_OnUserActiveChange) then f_OnUserActiveChange(PUserID(aMessage)^,False);
 end;
-
+*)
 procedure TUserManager.SetUserGroup(aUser: TUserID; aGroup: TUserGrID; Add: Boolean = True);
 begin
  if Add then
@@ -1822,18 +1955,18 @@ begin
   GetFromFullRec(pssUserID_fld, aResultId);
  end;
 end;
-
+(*
 function TUserManager.UserIdByLoginName(const aLogin: ShortString;
                                         var aUserId: TUserID): Boolean;
 begin
  Result := fPassTbl.GetUserID(AnsiUpperCase(aLogin), aUserId);
 end;
-
+*)
 procedure TUserManager.RemoveUserFromAllGroups(aUser:TUserID);
 begin
  fUsGrLnk.DelAllLinkItems(aUser);
 end;
-
+(*
 function TUserManager.UserName(aUserId: TUserID): ShortString;
 var
  l_Junk: Byte;
@@ -1848,11 +1981,11 @@ begin
     raise;
  end;
 end;
-
+*)
 procedure TUserGroupTbl.EditItem(aId: Integer;
                                  aName: PAnsiChar;
-                                 aImportPriority: TPriority;
-                                 aExportPriority: TPriority);
+                                 aImportPriority: TdaPriority;
+                                 aExportPriority: TdaPriority);
 var
  l_RecNum: LongInt;
  tmpIndex : LongInt;
@@ -1892,24 +2025,22 @@ begin
    TDictITem(fItemList.Items[tmpIndex]).SetSt(aName,StrLen(aName));
 end;
 
-function TUserManager.CalcUserPriorities(aUserId: TUserID;
-                                         out aImportPriority: TPriority;
-                                         out aExportPriority: TPriority): Boolean;
+function TUserManager.xxxCalcUserPriorities(aUserId: TUserID;
+                                         out aImportPriority: TdaPriority;
+                                         out aExportPriority: TdaPriority): Boolean;
 var
  lSab : ISab;
 begin
  Result := True;
- lSab := MakeSab(LinkTbl);
+ lSab := MakeSab(fUsGrLnk);
  lSab.Select(lnkDocIDFld, aUserId);
  lSab.ValuesOfKey(lnkDictIDFld);
 
- lSab.TransferToPhoto(grIdField, UsGrDt);
+ lSab.TransferToPhoto(grIdField, fUsGrDt);
  lSab.RecordsByKey;
 
- aImportPriority := TPriority(lSab.GetMaxValue(grImportPriorityField));
- aExportPriority := TPriority(lSab.GetMaxValue(grExportPriorityField));
-
- Result := True;
+ aImportPriority := TdaPriority(lSab.GetMaxValue(grImportPriorityField));
+ aExportPriority := TdaPriority(lSab.GetMaxValue(grExportPriorityField));
 end;
 
 function TUserGroupTbl.NeedItemList: Boolean;
@@ -1918,8 +2049,8 @@ begin
 end;
 
 function TUserGroupTbl.ReadPriorities(aGrouId: Integer;
-                                      var aImportPriority: TPriority;
-                                      var aExportPriority: TPriority): Boolean;
+                                      var aImportPriority: TdaPriority;
+                                      var aExportPriority: TdaPriority): Boolean;
 var
  l_RecNum: LongInt;
  l_Priority: Smallint;
@@ -1931,13 +2062,13 @@ begin
   GetFullRec(l_RecNum, False);
 
   GetFromFullRec(grImportPriorityField, l_Priority);
-  aImportPriority := TPriority(l_Priority);
+  aImportPriority := TdaPriority(l_Priority);
 
   GetFromFullRec(grExportPriorityField, l_Priority);
-  aExportPriority := TPriority(l_Priority);
+  aExportPriority := TdaPriority(l_Priority);
  end;
 end;
-
+(*
 function TUserManager.LoginNameByUserId(aUserId: TUserID): AnsiString;
 var
  l_Name: ShortString;
@@ -1945,7 +2076,7 @@ begin
  fPassTbl.GetLoginName(aUserId, l_Name);
  Result := l_Name;
 end;
-
+*)
 type
  PJoinRec = ^TJoinRec;
  TJoinRec = record
@@ -1964,7 +2095,7 @@ Var
  TmpSize : Word;
  l_Region: TdaRegionID;
 begin
- if fUserTbl.IsUserExists(anID) then
+ if xxxIsUserExists(anID) then
   raise EHtErrors.CreateInt(ecIDAlreadyUsed);
 
   Result := anID;
@@ -1999,13 +2130,13 @@ begin
   end;
 
   aUserName := ConcatRegionAndUserNames(Result, aUserName)+#0;
-  if fUserList <> nil then
+  if f_AllUsersList <> nil then
   begin
-   fUserList.NeedAllocStr := True;
-   fUserList.Add(@aUserName[1],@Result);
-   SortUsersInList(fUserList);
+   f_AllUsersList.NeedAllocStr := True;
+   f_AllUsersList.Add(@aUserName[1],@Result);
+   SortUsersInList(f_AllUsersList);
   end;
-
+(*
   if fIndUList <> nil then
   begin
    fIndUList.NeedAllocStr:=True;
@@ -2015,17 +2146,18 @@ begin
    fIndUList.Strings[Result]:=@aUserName[1];
    fIndUList.Data[Result]:=@TmpSize;
   end;
+*)  
 end;
 
-function TUserManager.CSCheckPassword(const aLogin, aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID : TcsClientID): Boolean;
+function TUserManager.xxxCSCheckPassword(const aCalculator: IdaPriorityCalculator; const aLogin, aPassword: AnsiString; RequireAdminRights: Boolean; out theUserID : TdaUserID): Boolean;
 var
- l_AU: TArchiUser;
+ l_AU: IdaArchiUser;
  l_HasAdminRights: Boolean;
 begin
  Result := False;
  if (AnsiLowerCase(aLogin) = c_SupervisorUserName) and not RequireAdminRights then
   Exit;
- l_AU := UserByLogin(aLogin);
+ l_AU := xxxUserByLogin(aCalculator, aLogin);
  if l_AU <> nil then
  begin
   Result := l_AU.Active and ((l_AU.Password = '') or (AnsiCompareText(aPassword, l_AU.Password) = 0));
@@ -2038,39 +2170,29 @@ begin
   end;
  end; // l_AU <> nil
 end;
-
+(*
 function TUserManager.CSNotifyProc(aNotificationType: TCsNotificationType; aNumber: Integer; const aText: AnsiString):
     Boolean;
 begin
  Result := True;
  case aNotificationType of
-  ntUserLogin: if Assigned(fOnUACh) then
-                 fOnUACh(TUserID(aNumber), True);
-  ntUserLogout: if Assigned(fOnUACh) then
-                 fOnUACh(TUserID(aNumber), False);
+  ntUserLogin: if Assigned(f_OnUserActiveChange) then
+                 f_OnUserActiveChange(TUserID(aNumber), True);
+  ntUserLogout: if Assigned(f_OnUserActiveChange) then
+                 f_OnUserActiveChange(TUserID(aNumber), False);
  else
   Result := False;
  end
 end;
-
-function GetRegionStringFromUserID(const anID: TUserID; const CropIfLocal: Boolean = True): AnsiString;
-var
- l_Region: TdaRegionID;
-begin
- Result := '';
- l_Region := anID shr 24;
- if (CropIfLocal and (l_Region = GlobalDataProvider.RegionID)) or (l_Region = $ff {спецрегион}) then
-  Exit;
- Result := GlobalDataProvider.GetRegionName(l_Region);
-end;
-
+*)
+(*
 procedure TUserManager.cs_GetUsersList(aPipe: TcsDataPipe);
 var
  i: Integer;
  l_Stream: Tstream;
 begin
  if f_UserList.Count = 0 then
-  MakeFullusersList;
+  xxxMakeFullusersList;
  aPipe.WriteInteger(f_UserList.Count);
  l_Stream:= Tl3MemoryStream.Make;
  try
@@ -2081,16 +2203,16 @@ begin
   l3Free(l_Stream);
  end
 end;
-
-function TUserManager.GetUserDisplayName(anID: TUserID): AnsiString;
+*)
+function TUserManager.xxxGetUserDisplayName(const aCalculator: IdaPriorityCalculator; anID: TUserID): AnsiString;
 var
  l_Name  : AnsiString;
  l_Flags : Byte;
- lUser : TArchiUser;
+ lUser : IdaArchiUser;
 begin
  //fUserTbl.GetUserInfo(anID, l_Name, l_Flags, False);
- // Так не получается, т к в списке с которым UserByID работает, только пользователи с правами (есть инфа в таблице PassTbl)
- lUser := UserByID(anID);
+ // Так не получается, т к в списке с которым xxxUserByID работает, только пользователи с правами (есть инфа в таблице PassTbl)
+ lUser := xxxUserByID(aCalculator, anID);
  if lUser <> nil then
   l_Name := lUser.UserName;
  //else
@@ -2101,28 +2223,28 @@ begin
  Result := ConcatRegionAndUserNames(GetRegionStringFromUserID(anID), l_Name);
 end;
 
-function TUserManager.IsUserExists(anID: TUserID): Boolean;
+function TUserManager.xxxIsUserExists(anID: TUserID): Boolean;
 begin
  Result := fUserTbl.IsUserExists(anID);
 end;
 
-procedure TUserManager.MakeFullUsersList;
+procedure TUserManager.xxxMakeFullUsersList(const aCalculator: IdaPriorityCalculator);
 var
  l_Users, l_Passes: TAbsHtTbl;
  //l_VI: TValuesIteratorForJoinedRecs;
  //l_Rec : TJoinRec;
- l_IPriority, l_EPriority: TPriority;
+ l_IPriority, l_EPriority: TdaPriority;
 
 
  function lRecAccessProc(aItemPtr : Pointer) : Boolean;
  var
   l_Rec : PJoinRec;
-  l_UserInfo : TArchiUser;
+  l_UserInfo : IdaArchiUser;
  begin
   Result := True;
   l_Rec := PJoinRec(aItemPtr);
 
-  l_UserInfo := TArchiUser.Create;
+  l_UserInfo := TdaArchiUser.Make(aCalculator);
   try
    l_UserInfo.ID := l_Rec.ID;
    l_UserInfo.UserName := l3ArrayToString(l_Rec.UserName, Length(l_Rec.UserName));
@@ -2135,7 +2257,7 @@ var
    //l_UserInfo.ExportPriority := l_EPriority;
    f_UserList.Add(l_UserInfo);
   finally
-   l3Free(l_UserInfo);
+   l_UserInfo := nil;
   end;
  end;
 
@@ -2146,7 +2268,7 @@ var
   lRAProcStub : TdtRecAccessProc;
 
 begin
- l_Users := UserTbl;
+ l_Users := fUserTbl;
  l_Passes := fPassTbl;
 
  lUsersSab := MakeAllRecords(l_Users);
@@ -2174,7 +2296,7 @@ begin
   end;
  end;
 end;
-
+(*
 procedure TUserManager.pm_SetCSClient(const Value: TcsClient);
 begin
  if f_CSClient <> Value then
@@ -2183,11 +2305,11 @@ begin
   CSClient.AddNotifyProc(CSNotifyProc);
  end;
 end;
-
-procedure TUserManager.ReSortUserList;
+*)
+procedure TUserManager.xxxReSortUserList;
 begin
- if fUserList <> nil then
-  SortUsersInList(fUserList);
+ if f_AllUsersList <> nil then
+  SortUsersInList(f_AllUsersList);
 end;
 
 procedure TUserManager.SortUsersInList(aList: Tl3StringDataList);
@@ -2229,19 +2351,19 @@ begin
  aList.SortF(l3LocalStub(@l_CompareUsers));
 end;
 
-procedure TUserManager.UpdateUserInfo(aUserID: TUserID; aIsGroup: Boolean);
+procedure TUserManager.xxxUpdateUserInfo(const aCalculator: IdaPriorityCalculator; aUserID: TUserID; aIsGroup: Boolean);
 begin
 // Учитывая, что данный механизм должен отмереть, сделано в лоб
- makeFullUsersList; 
+ xxxmakeFullUsersList(aCalculator);
 (*
  if not aIsGroup then
  begin
   GetUserInfo(aUserID, l_Username, l_LoginName, l_AFlag);
 
-  l_AU:= UserByID(aUserID);
+  l_AU:= xxxUserByID(aUserID);
   if l_AU = nil then
   begin
-   l_AU:= TArchiUser.Create;
+   l_AU:= IdaArchiUser.Make(CalcUserPriorities);
    try
     l_AU.ID:= aUserID;
     l_AU.UserName:= l_UserName;
@@ -2256,14 +2378,14 @@ begin
 *)
 end;
 
-function TUserManager.UserByLogin(aLogin: AnsiString): TArchiUser;
+function TUserManager.xxxUserByLogin(const aCalculator: IdaPriorityCalculator; aLogin: AnsiString): IdaArchiUser;
 var
  i: Integer;
- l_AU: TArchiUser;
+ l_AU: IdaArchiUser;
 begin
  Result := nil;
  if f_UserList.Count = 0 then
-  MakeFullusersList;
+  xxxMakeFullusersList(aCalculator);
 
  for i := 0 to f_UserList.Hi do
  begin
@@ -2276,14 +2398,14 @@ begin
  end
 end;
 
-function TUserManager.UserByID(aID: TUserID): TArchiUser;
+function TUserManager.xxxUserByID(const aCalculator: IdaPriorityCalculator; aID: TUserID): IdaArchiUser;
 var
  i: Integer;
- l_AU: TArchiUser;
+ l_AU: IdaArchiUser;
 begin
  Result := nil;
  if f_UserList.Count = 0 then
-  MakeFullusersList;
+  xxxMakeFullusersList(aCalculator);
 
  for i := 0 to f_UserList.Hi do
  begin
@@ -2295,7 +2417,7 @@ begin
   end;
  end
 end;
-
+(*
 constructor TActiveUsersQuery.Create;
 begin
  inherited;
@@ -2325,10 +2447,62 @@ begin
   end;
  end;
 end;
-
-function TUserManager.IsUserAdmin(aUserID: TUserID): Boolean;
+*)
+function TUserManager.xxxIsUserAdmin(aUserID: TUserID): Boolean;
 begin
  Result := fUserTbl.IsUserAdmin(aUserID);
+end;
+
+function TUserManager.xxxGetUserGroupsList(anID: TUserID): ISab;
+var
+ l_Sab: ISab;
+begin
+ l_Sab := xxxMakeUserIDSabOnGroup(anID);
+ try
+  Result := MakeSab(fUsGrLnk.Table, l_Sab.ExtractHTSab);
+ finally
+  l_Sab := nil;
+ end;
+end;
+
+function TUserManager.xxxGetUserName(anUserID: TUserID): AnsiString;
+begin
+ Result := fUserTbl.GetNameStr(anUserID);
+end;
+
+function TUserManager.xxxGetUserPriorities(aGrouId: Integer;
+  var aImportPriority, aExportPriority: TdaPriority): Boolean;
+begin
+  Result := fUsGrDt.ReadPriorities(aGrouId, aImportPriority, aExportPriority);
+end;
+(*
+procedure TUserManager.NotifyUserActiveChanged(anUserID: TUserID;
+  anActive: Boolean);
+begin
+ if Assigned(f_OnUserActiveChange) then
+  f_OnUserActiveChange(anUserID, anActive);
+end;
+*)
+function TUserManager.xxxGetArchiUsersCount(const aCalculator: IdaPriorityCalculator): Integer;
+begin
+ if f_UserList.Count = 0 then
+  xxxMakeFullusersList(aCalculator);
+ Result := f_UserList.Count;
+end;
+
+procedure TUserManager.xxxIterateArchiUsers(
+  anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+
+ type
+  PIdaArchiUser = ^IdaArchiUser;
+
+ function DoIt(aData : PIdaArchiUser; anIndex : Integer) : Boolean;
+ begin
+  Result := anAction(aData^);
+ end;
+
+begin
+ f_userList.IterateAllF(l3L2IA(@DoIt));
 end;
 
 end.

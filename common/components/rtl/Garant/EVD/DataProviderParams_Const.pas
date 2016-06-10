@@ -38,6 +38,8 @@ function k2_attrDocBaseVersion: Integer;
 
 function k2_attrAdminBaseVersion: Integer;
 
+function k2_attrDocImageCachePath: Integer;
+
 function k2_typDataProviderParams: DataProviderParamsTag;
 
 implementation
@@ -129,6 +131,16 @@ begin
  if (g_k2_attrAdminBaseVersion = -1) then
   g_k2_attrAdminBaseVersion :=  Tk2Attributes.Instance.CheckIDByName('AdminBaseVersion');
  Result := g_k2_attrAdminBaseVersion;
+end;
+
+var
+ g_k2_attrDocImageCachePath: Integer = -1;
+
+function k2_attrDocImageCachePath: Integer;
+begin
+ if (g_k2_attrDocImageCachePath = -1) then
+  g_k2_attrDocImageCachePath :=  Tk2Attributes.Instance.CheckIDByName('DocImageCachePath');
+ Result := g_k2_attrDocImageCachePath;
 end;
 
 

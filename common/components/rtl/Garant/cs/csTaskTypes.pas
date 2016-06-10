@@ -1,9 +1,48 @@
 unit csTaskTypes;
 { Типы задач }
 
-{ $Id: csTaskTypes.pas,v 1.44 2015/09/08 14:38:27 lukyanets Exp $ }
+{ $Id: csTaskTypes.pas,v 1.52 2016/06/02 15:23:09 fireton Exp $ }
 
 // $Log: csTaskTypes.pas,v $
+// Revision 1.52  2016/06/02 15:23:09  fireton
+// - синхронизация с Гардоком журнала импортов
+//
+// Revision 1.51  2016/05/27 11:14:25  fireton
+// - синхронизация этапов в Гардок
+//
+// Revision 1.50  2016/05/20 09:50:09  lukyanets
+// Вводим состояние "задача прерывается"
+//
+// Revision 1.49  2016/04/15 11:57:02  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.48  2016/04/12 08:24:38  lukyanets
+// Отлаживаем контейнерную задачу
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.47  2016/04/11 12:47:55  lukyanets
+// Отлаживаем контейнерную задачу
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.46  2016/04/07 13:52:49  lukyanets
+// Заготовки прокси задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.45  2016/04/01 12:07:04  lukyanets
+// Заготовки контейнерной задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.44  2015/09/08 14:38:27  lukyanets
 // Заготовки импорта документов
 //
@@ -133,12 +172,14 @@ const
  cs_tsDelivering = evdTaskTypes.cs_tsDelivering;  { выполняется доставка результатов }
  cs_tsAsyncRun = evdTaskTypes.cs_tsAsyncRun; { Исполнение в отцепленном процессе }
  cs_tsAsyncError = evdTaskTypes.cs_tsAsyncError; { выполнение в отцепленном процессе привело к ошибке }
+ cs_tsAborting = evdTaskTypes.cs_tsAborting; { выполнение прерывается }
 
  cs_tsErrorStatuses = evdTaskTypes.cs_tsErrorStatuses;
  cs_tsRunningStatuses = evdTaskTypes.cs_tsRunningStatuses;
  cs_tsKeepProcessingStatuses = evdTaskTypes.cs_tsKeepProcessingStatuses;
  cs_tsStatusesWithProgress = evdTaskTypes.cs_tsStatusesWithProgress;
  cs_tsCanDeleteStatuses = evdTaskTypes.cs_tsCanDeleteStatuses;
+ cs_tsFinishedStatuses = evdTaskTypes.cs_tsFinishedStatuses;
 
 type 
  TcsTaskType = evdTaskTypes.TcsTaskType;
@@ -159,7 +200,6 @@ const
  cs_ttCommonData = evdTaskTypes.cs_ttCommonData;
  cs_ttAExportDoc = evdTaskTypes.cs_ttAExportDoc;
  cs_ttAExportAnno = evdTaskTypes.cs_ttAExportAnno;
- cs_ttRemoteDictEdit = evdTaskTypes.cs_ttRemoteDictEdit;
  cs_ttRegionAutoExport = evdTaskTypes.cs_ttRegionAutoExport;
  cs_ttRunCommand = evdTaskTypes.cs_ttRunCommand;
  cs_ttDossierMake = evdTaskTypes.cs_ttDossierMake;
@@ -174,7 +214,11 @@ const
  cs_ttHavanskyExport = evdTaskTypes.cs_ttHavanskyExport;
  cs_ttRegionImport = evdTaskTypes.cs_ttRegionImport;
  cs_ttMdpSyncDicts = evdTaskTypes.cs_ttMdpSyncDicts;
+ cs_ttMdpSyncStages = evdTaskTypes.cs_ttMdpSyncStages;
+ cs_ttMdpSyncImport = evdTaskTypes.cs_ttMdpSyncImport;
  cs_ttMdpImportDocs = evdTaskTypes.cs_ttMdpImportDocs;
+ cs_ttContainer = evdTaskTypes.cs_ttContainer;
+ cs_ttSchedulerProxy = evdTaskTypes.cs_ttSchedulerProxy;
 
 (*  TcsFileRenameMode = (cs_frmUnique//, // создать уникальное имя Для нового файла
                        //cs_frmBackup, // создать bak-копию старого файла

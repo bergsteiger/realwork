@@ -1,0 +1,100 @@
+unit DailyTest_7.11_TestUnit;
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\DailyTest_7.11_TestUnit.pas"
+// Стереотип: "TestUnit"
+// Элемент модели: "7.11" MUID: (549199FF02ED)
+
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
+
+interface
+
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , K585129079
+ , K585129079_NSRC
+ , K585129079_NSRC_ANSI
+ , K585129079_NSRC_EAST_EUROPE
+ , K585129079_NSRC_KeepExisting
+ , K569230238
+ , K569230238_NSRC
+ , K569230238_EVD2EVD
+ , K585940757
+ , K570542913
+ , K585940693
+ , K586353041
+ , K586706776
+ , K586173596
+ , K586185519
+ , K522781517
+ , K522781827
+ , K587155634
+ , K588037593
+ , K589860215
+ , K590528525
+ , K590512137
+ , K590541952
+ , K590745463
+ , K590745831
+ , K590774242
+ , K591142760
+ , K590757091
+ , K590758825
+ , K592250384
+ , K592251812
+ , K595456849
+ , K595967367
+ , K595976509
+ , K596385595
+ , K596386207
+ , K596385658
+ , K596385821
+ , K598118986
+ , K598131905
+ , K599800930
+ , K600665073
+ , K600945017
+ , K601206322
+ , K601992686
+ , K602000766
+ , K602940462
+ , K602940495
+ , K601686929
+ , K602703982
+ , K602943932
+ , K601462517
+ , K604494903
+ , K604920400
+ , K603416415
+ , K605147298
+ , K605380857
+ , K604908954
+ , K605843892
+ , K606111976
+ , K606118757
+ , K606129271
+ , K606138650
+ , K588577774
+ , K606634250
+ , K606129412
+ , K606808862
+ , K606808786
+ , K607532057
+ , K607532796
+ , K607532072
+ , K607750753
+ , K607284377
+ , l3IntegerToIntegerMapTest
+ , l3StringToStringMapTest
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
+end.

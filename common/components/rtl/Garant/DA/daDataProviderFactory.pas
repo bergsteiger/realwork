@@ -82,6 +82,7 @@ begin
 
  aParams.DocStoragePath := ParamsStorage.DocStoragePath; // Invalid
  aParams.DocImagePath := ParamsStorage.DocImagePath;
+ aParams.DocImageCachePath := ParamsStorage.DocImageCachePath;
 
  aParams.HomeDirPath := ParamsStorage.HomeDirPath; // Invalid
 //#UC END# *55001D8D038F_54F85EE102D1_impl*
@@ -99,6 +100,7 @@ begin
 
  ParamsStorage.DocStoragePath := aParams.DocStoragePath;
  ParamsStorage.DocImagePath := aParams.DocImagePath;
+ ParamsStorage.DocImageCachePath := aParams.DocImagePath;
 
  ParamsStorage.HomeDirPath := aParams.HomeDirPath;
 //#UC END# *550AACDC0003_54F85EE102D1_impl*

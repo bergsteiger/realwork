@@ -1,8 +1,11 @@
 unit Dt_Active;
 
-{ $Id: Dt_Active.pas,v 1.44 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Active.pas,v 1.45 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: Dt_Active.pas,v $
+// Revision 1.45  2016/05/26 14:01:24  voba
+// -k:623267081
+//
 // Revision 1.44  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -452,7 +455,7 @@ begin
   begin
    // Получение списка идентификаторов документов, действующих на дату
    aDiapason.ValuesOfKey(actDocID);
-   Result := dtMakeSortedIDListBySab(aDiapason);
+   Result := dtMakeSortedLongListBySab(aDiapason);
   end;
  end;
 end;

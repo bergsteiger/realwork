@@ -3,11 +3,14 @@ unit vtShockwaveEx;
 ////////////////////////////////////////////////////////////////////////////////
 // Библиотека : VT.
 // Назначение : Компонент для показа flash-ролика.
-// Версия     : $Id: vtShockwaveEx.pas,v 1.50 2015/07/02 13:42:26 dinishev Exp $
+// Версия     : $Id: vtShockwaveEx.pas,v 1.51 2016/04/06 09:57:35 morozov Exp $
 ////////////////////////////////////////////////////////////////////////////////
 
 (*-------------------------------------------------------------------------------
   $Log: vtShockwaveEx.pas,v $
+  Revision 1.51  2016/04/06 09:57:35  morozov
+  Забыл
+
   Revision 1.50  2015/07/02 13:42:26  dinishev
   {Requestlink:602949503}
 
@@ -224,8 +227,10 @@ type
     procedure ReCreateWndWithTimer;
     procedure OnReCreateWndTimer(Sender: TObject);
     procedure ParentResize(aSender : TObject);
+  public
     procedure FitToParent;
     procedure CheckDimensions;
+  private
     procedure SetParent(AParent: TWinControl); override;
   private
   // messages

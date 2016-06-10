@@ -3261,6 +3261,9 @@ begin
   then Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight - c_ScrollBarWidth
   else Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
  Result.Height := ControlHeight(aParent);
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
  TRadioGroup(Result).Items := f_Items;
  TRadioGroup(Result).Caption := Caption;
  TRadioGroup(Result).OnClick := DoOnChange;
@@ -3583,6 +3586,9 @@ begin
    then Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft - c_ScrollBarWidth
    else Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft;
   Result.Height := ControlHeight(aParent);
+ {$ifdef nemesis}
+  Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
   aTop := HeaderHeight(aParent);
   if aMaxLeft < aLeft then
    aMaxLeft := aLeft;
@@ -3938,6 +3944,9 @@ begin
  if aParent is TScrollBox
   then Result.Width := aParent.ClientWidth - 2 * c_ConfigItemRight - c_ScrollBarWidth
   else Result.Width := aParent.ClientWidth - 2 * c_ConfigItemRight;
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
  (Result as TvtPanel).BevelOuter := bvNone;
  (Result as TvtPanel).CCaption := nil;
 
@@ -4241,6 +4250,9 @@ begin
   if aParent is TScrollBox
    then Width := aParent.ClientWidth - aLeft - c_ConfigItemRight - c_ScrollBarWidth
    else Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+ {$ifdef nemesis}
+  Control.Anchors := Control.Anchors + [akRight];
+ {$endif}
   InitControl(Control);
   CheckLoadItems;
   Height := ControlHeight(aParent);
@@ -5059,6 +5071,9 @@ begin
  if aParent is TScrollBox
   then Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight - c_ScrollBarWidth
   else Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
  {$IFDEF RxLibrary}
  (Result as TColorBox).Style := [cbStandardColors,cbExtendedColors,cbIncludeDefault];
  {$ENDIF}
@@ -5153,6 +5168,9 @@ begin
  if aParent is TScrollBox
   then Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight - c_ScrollBarWidth
   else Result.Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
+ {$ifdef nemesis}
+ Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
  Result.Height := ControlHeight(aParent);
  TCheckListBox(Result).Items := f_Items;
  TCheckListBox(Result).Columns := Columns;
@@ -5717,6 +5735,9 @@ begin
      if (l_Control.Parent is TScrollBox) and l_FirstButton
       then l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop - c_ScrollBarWidth
       else l_Control.Left := l_ButtonLeft - l_Control.Width - 2 * c_ConfigItemTop;
+     {$ifdef nemesis}
+     l_Control.Anchors := l_Control.Anchors + [akRight];
+     {$endif}
      l_FirstButton := False;
      l_ButtonLeft := l_Control.Left;
      l_ButtonHeight := l_Control.Height + c_ConfigItemTop;
@@ -6342,6 +6363,9 @@ begin
    Parent := TWinControl(Result);
    Left := lLabel.Left + lLabel.Width + c_ConfigItemLeft;
    Width := Result.ClientRect.Right - Left - c_ConfigItemRight;
+ {$ifdef nemesis}
+   Anchors := Anchors + [akRight];
+ {$endif}
    Style := csDropDownList;
    OnChange := Self.OnChange;
    if f_Captions.Count > 0 then
@@ -6698,7 +6722,9 @@ begin
   if aParent is TScrollBox
    then Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft - c_ScrollBarWidth
    else Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft;
-
+ {$ifdef nemesis}
+  Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
   if Hint <> '' then
   begin
    Result.Hint := Hint;
@@ -7095,7 +7121,7 @@ begin
   Top := aTop;
   l_Width := aParent.ClientWidth - aLeft - c_ConfigItemRight;
   if (aParent is TScrollBox) then
-   Dec(l_Width, c_ScrollBarWidth);
+   Dec(l_Width, c_ScrollBarWidth); /// l_Width никому не нужен?
   Height := ControlHeight(aParent);
  end;
 //#UC END# *521761BB03DE_53A2A70E0369_impl*
@@ -7456,7 +7482,9 @@ begin
   if aParent is TScrollBox
    then Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft - c_ScrollBarWidth
    else Result.Width := aParent.ClientWidth - c_ConfigItemRight - aLeft;
-
+ {$ifdef nemesis}
+  Result.Anchors := Result.Anchors + [akRight];
+ {$endif}
   if Hint <> '' then
   begin
    Result.Hint := Hint;

@@ -1,8 +1,11 @@
 unit ddFileFormats;
 
-{ $Id: ddFileFormats.pas,v 1.4 2015/02/25 12:49:48 voba Exp $ }
+{ $Id: ddFileFormats.pas,v 1.5 2016/04/12 13:16:53 dinishev Exp $ }
 
 // $Log: ddFileFormats.pas,v $
+// Revision 1.5  2016/04/12 13:16:53  dinishev
+// "Грязно" запилил для Эвереста. Что-то ZipForge с нашими буферизированными потоками и включенной оптимизацией хреново дружит.
+//
 // Revision 1.4  2015/02/25 12:49:48  voba
 // - Добавил определение флешей
 //
@@ -79,9 +82,12 @@ begin
    else
    if l_Header = $04034B50 then
    begin
-    Result:= ffZip;
+    {$IFDEF EverestLite}
+    Result := ffDocx;
+    {$ELSE}
     {$IfNDef Nemesis}
     {$IfNDef NoZIP}
+    Result:= ffZip;
     aStream.Seek(0, soFromBeginning);
     try
      l_Zip := TZipForge.Create(nil);
@@ -101,6 +107,7 @@ begin
     {$Else}
     Assert(false);
     {$EndIf Nemesis}
+   {$ENDIF EverestLite}
    end;
   end; // l_Count = 4
  finally

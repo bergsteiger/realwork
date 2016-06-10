@@ -1,8 +1,26 @@
 unit CsActiveClients;
 
-{ $Id: CsActiveClients.pas,v 1.33 2016/03/14 11:01:21 lukyanets Exp $ }
+{ $Id: CsActiveClients.pas,v 1.37 2016/05/12 07:50:26 lukyanets Exp $ }
 
 // $Log: CsActiveClients.pas,v $
+// Revision 1.37  2016/05/12 07:50:26  lukyanets
+// Ќеправильно выкидывали мертвых клиентов
+//
+// Revision 1.36  2016/04/18 08:39:56  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.35  2016/04/18 07:06:38  lukyanets
+// ѕопадались паразитные нулевые клиенты
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.34  2016/03/28 11:46:16  lukyanets
+// Ћовим странного нулевого клиента
+//
 // Revision 1.33  2016/03/14 11:01:21  lukyanets
 // Ќе показываем DeadUser как активного.
 //
@@ -169,6 +187,7 @@ uses
 procedure TCsActiveClients.AllClientIds(aList: TdtUserIDList);
 var
  I: Integer;
+ l_RealCount: Integer;
 begin
  if aList = nil then
   Exit;
@@ -176,9 +195,14 @@ begin
  f_CriticalSection.Enter;
  try
   aList.Count := f_List.Count;
+  l_RealCount := 0;
   for I := 0 to f_List.Count - 1 do
    if f_List[I].ClientId <> usDeadClient then
-    aList.Items[I] := f_List[I].ClientId;
+   begin
+    aList.Items[l_RealCount] := f_List[I].ClientId;
+    Inc(l_RealCount);
+   end;
+  aList.Count := l_RealCount;
  finally
   f_CriticalSection.Leave;
  end;
@@ -260,7 +284,7 @@ begin
      else
      begin
       ClientId:= aUID;
-      Result:= aUID
+      Result:= aUID;
      end;
     end
     else // «аход с другой машины или другого клиентского приложени€ (—корее всего, попадем сюда)

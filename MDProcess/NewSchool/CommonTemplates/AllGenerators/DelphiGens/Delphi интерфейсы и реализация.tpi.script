@@ -4395,19 +4395,31 @@ implementation @ "Delphi интерфейсы и реализация"
 //%f _DoSpell
 : DoSpell OBJECT IN %S
 //#UC START# *4B2A19E3038Bfor470F151302FD*
-//	[{%SC=Class}\
- if ( ( %S |C ) %== 'Class' ) then
+//	%f_SpellAreaLinks(%S)
+ [%f] SpellAreaLinks %( %S )% 
+
+//f _SpellAreaLinks
+; // DoSpell
+
+end. // "Delphi интерфейсы и реализация"
+
+: SpellAreaLinks OBJECT IN %S
+//	[{%f_UseNewGenRecG(%S)!=true}\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
-//	[{%S#f_IsMethod()!=true}\
-  if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
+//	[{%SC=Class}\
+  if ( ( %S |C ) %== 'Class' ) then
   begin
-//	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
-   if ( ( %S %?f IsInterface %( )% ) %!=  true AND 
-     ( ( %S %?f IsVCMFormSetFactory %( )% ) %!=  true  ) AND 
-     ( ( %S %?f IsVCMZone %( )% ) %!=  true  ) ) then
+//	[{%S#f_IsMethod()!=true}\
+   if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
    begin
+//	[{%S#f_IsInterface()!=true&%S#f_IsVCMFormSetFactory()!=true&%S#f_IsVCMZone()!=true}\
+    if ( ( %S %?f IsInterface %( )% ) %!=  true AND 
+      ( ( %S %?f IsVCMFormSetFactory %( )% ) %!=  true  ) AND 
+      ( ( %S %?f IsVCMZone %( )% ) %!=  true  ) ) then
+    begin
 //	%f_set_var(PARENT_CLASS,S)\
-    [%f] set_var %( 'PARENT_CLASS' %, 'S' )% 
+     [%f] set_var %( 'PARENT_CLASS' %, 'S' )% 
 //	<{}{%P#f_IsControl()!=true}\
 
 //	%f_set_var(PARENT_CLASS,P)\
@@ -4418,48 +4430,50 @@ implementation @ "Delphi интерфейсы и реализация"
 
 
 //	<{}{%o#f_IsVCMAreaLink()=true}\
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%o
-    begin
-     OBJECT IN %o
-     if ( ( %o %?f IsVCMAreaLink %( )% ) %==  true ) then
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%o
      begin
-//	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
-      if ( ( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |N ) ) %== '' ) then
+      OBJECT IN %o
+      if ( ( %o %?f IsVCMAreaLink %( )% ) %==  true ) then
       begin
-       [%f] find_element %( 'IvcmViewAreaControllerRef' %, 'IvcmViewAreaControllerRef' )% 
-      end // if
+//	[{"%{IvcmViewAreaControllerRef}N"=""}%f_find_element(IvcmViewAreaControllerRef,IvcmViewAreaControllerRef)]\
+       if ( ( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |N ) ) %== '' ) then
+       begin
+        [%f] find_element %( 'IvcmViewAreaControllerRef' %, 'IvcmViewAreaControllerRef' )% 
+       end // if
 //	%{PARENT_CLASS}%f_make_accessable(%{IvcmViewAreaControllerRef}U)\
-      ( get_global_var ( 'PARENT_CLASS' ) %f make_accessable %( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) )% ) 
+       ( get_global_var ( 'PARENT_CLASS' ) %f make_accessable %( ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) )% ) 
 //	%{PARENT_CLASS}%f_add_attribute(%oU_AutoField,,\
-      ( get_global_var ( 'PARENT_CLASS' ) %f add_attribute %( %o |U '_AutoField' %, '' %, 
+       ( get_global_var ( 'PARENT_CLASS' ) %f add_attribute %( %o |U '_AutoField' %, '' %, 
 //	f_%oN: %{IvcmViewAreaControllerRef}U,\
-      'f_'
-      %o |N ': '
-      ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) %, 
+       'f_'
+       %o |N ': '
+       ( get_global_var ( 'IvcmViewAreaControllerRef' ) |U ) %, 
 //	Attr_Inst)\
-      'Attr_Inst' )% ) 
+       'Attr_Inst' )% ) 
 //	%{Attr_Inst}%f_set_link_type(ref)\
-      ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
 //	%{Attr_Inst}%f_set_abstraction_type(final)\
 //	%{Attr_Inst}%f_set_visibility_type(PrivateAccess)\
-      ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%{Attr_Inst}%f_set_up(ifdef,%o{ifdef})\
-      ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %o get_up ( 'ifdef' ) )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %o get_up ( 'ifdef' ) )% ) 
 //	%{Attr_Inst}%f_set_up(ifndef,%o{ifndef})\
-      ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %o get_up ( 'ifndef' ) )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %o get_up ( 'ifndef' ) )% ) 
 //	%{Attr_Inst}%f_set_applied_gen(cpp,false)\
-      ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'cpp' %, false )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'cpp' %, false )% ) 
 //	%{Attr_Inst}%f_set_applied_gen(h,false)\
-      ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'h' %, false )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_applied_gen %( 'h' %, false )% ) 
 //	%{Attr_Inst}%f_set_documentation(Поле для области вывода %oN)\
-      ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Поле для области вывода '
-      %o |N )% ) 
+       ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Поле для области вывода '
+       %o |N )% ) 
 //	>\
 
-      ++! l_Counter
-     end // if
-    end // for o
+       ++! l_Counter
+      end // if
+     end // for o
+//	]\
+    end // if
 //	]\
    end // if
 //	]\
@@ -4467,10 +4481,11 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]
  end // if
 //#UC END# *4B2A19E3038Bfor470F151302FD*
-; // DoSpell
+; // SpellAreaLinks
 
 
 //%f _IsMethod
+implementation @ "Delphi интерфейсы и реализация"
 : IsMethod OBJECT IN %S
 // возвращаемый результат: boolean
 //#UC START# *4B2A29440092for470F151302FD*
@@ -6897,17 +6912,18 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Injected
   ' : Injected'
-//	   Seq: (<{}{%aC=Dependency&%aS=injects}{Sg} %a#f_pas_script_Reference()> )
+//	   Seq: (<{}{%aC=Dependency&%aS=injects&%f_IsSameProject(%S,%a)=true}{Sg} %a#f_pas_script_Reference(%a%P)> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%ag
   begin
    OBJECT IN %a
    if ( ( %a |C ) %== 'Dependency' AND 
-    ( ( %a |S ) %== 'injects'  ) ) then
+    ( ( %a |S ) %== 'injects'  ) AND 
+    ( ( [%f] IsSameProject %( %S %, %a )% ) %==  true  ) ) then
    begin
     ' '
-    %a %?f pas_script_Reference %( )% 
+    %a %?f pas_script_Reference %( %a ->P  )% 
     ++! l_Counter
    end // if
   end // for a
@@ -6941,6 +6957,37 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
  NOP
+//	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
+ if ( ( %S |S ) %== 'Atom' OR 
+   ( ( %S |S ) %== 'Tag'  ) OR 
+   ( ( %S |S ) %== 'VCMFormDefinition'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Implementors
+   ' : Implementors'
+//	   Seq: (<{}{%f_IsSameProject(%S,%L)=true}{%LSg} %L#f_pas_script_Reference()> )
+   '   Seq: ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%Lg
+   begin
+    OBJECT IN %L
+    if ( ( [%f] IsSameProject %( %S %, %L )% ) %==  true ) then
+    begin
+     ' '
+     %L %?f pas_script_Reference %( )% 
+     ++! l_Counter
+    end // if
+   end // for L
+   ' )'
+//	 ; // Implementors
+   ' ; // Implementors'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
 //	[\
  if NOT-EMPTY
  begin
@@ -6998,18 +7045,6 @@ implementation @ "Delphi интерфейсы и реализация"
 
 //	%S%f_pas_script_GenerateUserProperties()\
  %S %f pas_script_GenerateUserProperties %( )% 
-
-//	%f_clear_list(ALL_GENERATORS_ID)\
-//	%f_all_generators(%S)\
-//	[\
-//	 : Generators
-//	 Seq: (
-//	%{ALL_GENERATORS_ID}<{}{%CN!=wiki&%CN!=spell&%f_has_non_empty_gen(1,%CN)=true&"%f_with_gen_id(%CN,%1L)"!=""}{%C}\
-//	 gen_%CN
-//	>\
-//	 )
-//	 ; // Generators
-//	]\
 
 //	%f_clear_list(ALL_GENERATORS_ID)\
  [%f] clear_list %( 'ALL_GENERATORS_ID' )% 
@@ -7216,6 +7251,21 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{"%S#f_NewTypeName()"!=""}\
+ if ( ( %S %?f NewTypeName %( )% ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+   ' CONST extprop:evd:NewTypeName '
+   [%f] out_val %( %S %?f NewTypeName %( )% )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
 //	[{"%S{isGlobal}"!=""}\
  if ( ( %S get_up ( 'isGlobal' ) ) %!= '' ) then
  begin
@@ -7273,6 +7323,23 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
   end // if
   NOP
+//	]\
+ end // if
+
+//	[{%S{isSynchroEnum}=true}\
+ if ( ( %S get_up ( 'isSynchroEnum' ) ) %==  true ) then
+ begin
+//	 CONST extprop:isSynchroEnum true
+  ' CONST extprop:isSynchroEnum true'
+//	]\
+ end // if
+
+//	[{"%S%{SDS_CASTER}N"!=""}\
+ if ( ( %S ( get_object_var ( 'SDS_CASTER' ) |N )  ) %!= '' ) then
+ begin
+//	 CONST extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
+  ' CONST extprop:SDS_CASTER '
+  [%f] out_val %( %S ( get_object_var ( 'SDS_CASTER' ) |N )  )% 
 //	]\
  end // if
 
@@ -7439,10 +7506,159 @@ implementation @ "Delphi интерфейсы и реализация"
  %S %f pas_script_Name %( )% ' '
  %S |N #13#10
 
-//f _out_val
+//t _SelfNamePrim
 ; // pas_script_GenerateDescription
 
 end. // "Delphi интерфейсы и реализация"
+
+<<transformator>> SelfNamePrim OBJECT IN %S
+//@ %SU
+//c {}
+//r {%t_interface(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),I)}
+//r {%S#f_IsStaticObject()=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+//r {%t_simple_class(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+//r {""=""}: {%f_pas_TypeName(%S)}
+
+//t _SelfNameEx
+; // SelfNamePrim
+
+<<transformator>> SelfNameEx OBJECT IN %S
+//@ %SU
+//c {}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),9)=nevCustom}: {%f_cut_prefix(%t_SelfNamePrim(%S),nevCustom)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),7)=vcmBase}: {%f_cut_prefix(%t_SelfNamePrim(%S),vcmBase)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),8)=evCustom}: {%f_cut_prefix(%t_SelfNamePrim(%S),evCustom)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=nsc}: {%f_cut_prefix(%t_SelfNamePrim(%S),nsc)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=tfw}: {%f_cut_prefix(%t_SelfNamePrim(%S),tfw)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=kw}: {%f_cut_prefix(%t_SelfNamePrim(%S),kw)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=nev}: {%f_cut_prefix(%t_SelfNamePrim(%S),nev)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),3)=vcm}: {%f_cut_prefix(%t_SelfNamePrim(%S),vcm)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=vg}: {%f_cut_prefix(%t_SelfNamePrim(%S),vg)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=vt}: {%f_cut_prefix(%t_SelfNamePrim(%S),vt)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=k2}: {%f_cut_prefix(%t_SelfNamePrim(%S),k2)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ns}: {%f_cut_prefix(%t_SelfNamePrim(%S),ns)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=l3}: {%f_cut_prefix(%t_SelfNamePrim(%S),l3)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ed}: {%f_cut_prefix(%t_SelfNamePrim(%S),ed)}
+//r {%f_substr_from_begin(%t_SelfNamePrim(%S),2)=ev}: {%f_cut_prefix(%t_SelfNamePrim(%S),ev)}
+//r {""=""}: {%t_SelfNamePrim(%S)}
+
+//t _SelfName
+; // SelfNameEx
+
+<<transformator>> SelfName OBJECT IN %S
+//@ %SU
+//c {}
+//r {%t_SelfNameEx(%S)=EditorWindow}: {Editor}
+//r {%t_SelfNameEx(%S)=EditorWindowPrim}: {Editor}
+//r {%t_SelfNameEx(%S)=StackValue}: {SV}
+//r {%t_SelfNameEx(%S)=FontInfo}: {Font}
+//r {%t_SelfNameEx(%S)=ValueList}: {Array}
+//r {%t_SelfNameEx(%S)=FileName}: {File}
+//r {%t_SelfNameEx(%S)=SimpleTree}: {Tree}
+//r {%t_SelfNameEx(%S)=SimpleNode}: {Node}
+//r {%t_SelfNameEx(%S)=vcmEntityForm}: {Form}
+//r {%t_SelfNameEx(%S)=EntityForm}: {Form}
+//r {%t_SelfNameEx(%S)=WinControl}: {Control}
+//r {%t_SelfNameEx(%S)=ElCustomPageControl}: {PageControl}
+//r {%t_SelfNameEx(%S)=ShockwaveFlashEx}: {Flash}
+//r {%t_SelfNameEx(%S)=TasksPanelView}: {TaskPanel}
+//r {%t_SelfNameEx(%S)=CustomToolbarButton97}: {TB97Button}
+//r {%t_SelfNameEx(%S)=ToolbarButton97}: {TB97Button}
+//r {%t_SelfNameEx(%S)=CustomOutliner}: {Tree}
+//r {%t_SelfNameEx(%S)=Outliner}: {Tree}
+//r {%t_SelfNameEx(%S)=CString}: {String}
+//r {%f_substr_from_begin(%t_SelfNameEx(%S),9)=Customize}: {%t_SelfNameEx(%S)}
+//r {""=""}: {%f_cut_prefix(%t_SelfNameEx(%S),Custom)}
+
+//t _isEnum
+; // SelfName
+
+<<transformator>> isEnum OBJECT IN %S
+//@ %SU
+//c {}
+//r {%SS=Enum}: {true}
+//r {%SS=Typedef}: {%t_isEnum(%G)}
+//r {""=""}: {false}
+
+//t _isClassRef
+; // isEnum
+
+<<transformator>> isClassRef OBJECT IN %S
+//@ %SU
+//c {}
+//r {%f_pas_TypeName(%S)=TClass}: {true}
+//r {%SS=Typedef&%S{isClassRef}=true}: {true}
+//r {%SS=Typedef}: {%t_isClassRef(%G)}
+//r {""=""}: {false}
+
+//t _isAcceptableForScripts
+; // isClassRef
+
+<<transformator>> isAcceptableForScripts OBJECT IN %S
+//@ %SU
+//c {}
+//r {%f_pas_TypeName(%S)=TClass}: {true}
+//r {%f_pas_TypeName(%S)=TtfwStackValue}: {true}
+//r {%f_pas_TypeName(%S)=ItfwValueList}: {true}
+//r {%f_pas_TypeName(%S)=ItfwFile}: {true}
+//r {%t_isClassRef(%S)=true}: {true}
+//r {%f_pas_TypeName(%S)=Tl3WString|%f_pas_TypeName(%S)=Tl3PCharLenPrim|%f_pas_TypeName(%S)=Tl3PCharLen}: {true}
+//r {%f_pas_TypeName(%S)=Il3CString}: {true}
+//r {%t_simple_class(%S)=true}: {true}
+//r {%t_interface(%S)=true}: {true}
+//r {%f_pas_TypeName(%S)=String}: {true}
+//r {%f_pas_TypeName(%S)=Char|%f_pas_TypeName(%S)=AnsiChar}: {true}
+//r {%f_pas_TypeName(%S)=TPoint}: {true}
+//r {%f_pas_TypeName(%S)=WideString}: {true}
+//r {%f_pas_TypeName(%S)=AnsiString}: {true}
+//r {%f_pas_TypeName(%S)=Integer}: {true}
+//r {%f_pas_TypeName(%S)=TColor}: {true}
+//r {%f_pas_TypeName(%S)=Cardinal}: {true}
+//r {%t_isEnum(%S)=true}: {true}
+//r {%f_pas_TypeName(%S)=THandle}: {true}
+//r {%f_pas_TypeName(%S)=Boolean}: {true}
+//r {%SS=Typedef}: {%t_isAcceptableForScripts(%G)}
+//r {""=""}: {false}
+
+//f _GetProject
+; // isAcceptableForScripts
+
+: GetProject OBJECT IN %S
+//@ %SU
+//	[{%S#f_IsProject()=true}{\
+ if ( ( %S %?f IsProject %( )% ) %==  true ) then
+ begin
+//	%SU\
+  %S |U 
+//	]
+ end // if
+ else
+ begin
+//	%f_GetProject(%P)\
+  [%f] GetProject %( %P )% 
+//	}\
+ end // else
+
+//f _IsSameProject
+; // GetProject
+
+: IsSameProject OBJECT IN %S
+//	[{%f_GetProject(%S)=%f_GetProject(%1)}{\
+ if ( ( [%f] GetProject %( %S )% ) %== ( [%f] GetProject %( %1 )% ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+
+//f _out_val
+; // IsSameProject
 
 : out_val OBJECT IN %S
 //	[{%SN=true|%SN=True}{\
@@ -9218,6 +9434,25 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{%SS=Atom|%SS=Tag|%SS=VCMFormDefinition}\
+ if ( ( %S |S ) %== 'Atom' OR 
+   ( ( %S |S ) %== 'Tag'  ) OR 
+   ( ( %S |S ) %== 'VCMFormDefinition'  ) ) then
+ begin
+//	<{}{%f_IsSameProject(%S,%L)=true}{%LSg}%L#f_pas_script_GenerateIncludeOrForward()>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Lg
+  begin
+   OBJECT IN %L
+   if ( ( [%f] IsSameProject %( %S %, %L )% ) %==  true ) then
+   begin
+    %L %?f pas_script_GenerateIncludeOrForward %( )% 
+    ++! l_Counter
+   end // if
+  end // for L
+//	]\
+ end // if
+
 //	%S%f_pas_script_GenerateDescription()
  %S %f pas_script_GenerateDescription %( )% 
 
@@ -9408,22 +9643,33 @@ implementation @ "Delphi интерфейсы и реализация"
  ' '
 //	// \
  '// '
-//	[{%SC=Dependency}{\
- if ( ( %S |C ) %== 'Dependency' ) then
+//	[{"%1N"!=""}{\
+ if ( ( %1 |N ) %!= '' ) then
  begin
-//	[%SN:]%TN\
-  if NOT-EMPTY
-  begin
-   %S |N ':' 
-  end // if
-  NOP
-  %T |N 
+//	%1N\
+  %1 |N 
 //	]\
  end // if
  else
  begin
+//	[{%SC=Dependency}{\
+  if ( ( %S |C ) %== 'Dependency' ) then
+  begin
+//	[%SN:]%TN\
+   if NOT-EMPTY
+   begin
+    %S |N ':' 
+   end // if
+   NOP
+   %T |N 
+//	]\
+  end // if
+  else
+  begin
 //	%SN\
-  %S |N 
+   %S |N 
+//	}\
+  end // else
 //	}\
  end // else
 //	\n

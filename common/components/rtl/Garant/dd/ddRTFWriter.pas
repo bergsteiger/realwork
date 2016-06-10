@@ -1,7 +1,13 @@
 unit ddRTFWriter;
 
-{ $Id: ddRTFWriter.pas,v 1.225 2015/12/02 11:34:20 dinishev Exp $ }
+{ $Id: ddRTFWriter.pas,v 1.227 2016/05/24 12:22:57 dinishev Exp $ }
 // $Log: ddRTFWriter.pas,v $
+// Revision 1.227  2016/05/24 12:22:57  dinishev
+// Рамки во вложенных таблицах неправильно определялись.
+//
+// Revision 1.226  2016/05/20 08:42:59  dinishev
+// Переименовал TddRowType в TddTableType.
+//
 // Revision 1.225  2015/12/02 11:34:20  dinishev
 // Bug fix: задел RTFWriter
 //
@@ -751,7 +757,7 @@ type
     function Style2RTF(aStyle: TddStyleEntry; aBlockIndent: Integer; anIgnoreLeftIndent: Boolean): AnsiString; override;
     function TAP2RTF(aTAP: TddRowProperty; aEmtyBorder: Boolean): AnsiString;
     procedure TranslateChar(C: AnsiChar; out Res: AnsiString);
-    procedure CheckAACRow(aStyleID: Integer; const aRow: TddTableRow; aNeedInit: Boolean; aRowType: TddRowType);
+    procedure CheckAACRow(aStyleID: Integer; const aRow: TddTableRow; aNeedInit: Boolean; aTableType: TddTableType);
     procedure InitAACTableParams(aStyleID: Integer);
     function GetPicWidthStack: Tl3LongintList;
     procedure RememberLastPictureWidth;
@@ -771,8 +777,8 @@ type
     procedure WriteHeader(aDefault: Boolean = False); override;
     procedure WritePicture(const Picture: TddPicture; aWholePar: Boolean); override;
     procedure WriteStyleTable(aDefault: Boolean = False); override;
-    procedure WriteTable(const Table: TddTable; aOnlyPart: Boolean); override;
-    procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aRowType: TddRowType = dd_rtNone; aRowPos: TddRowPosition = dd_rpNone); override;
+    procedure WriteTable(const aTable: TddTable; aOnlyPart: Boolean); override;
+    procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aTableType: TddTableType = dd_ttNone; aRowPos: TddRowPosition = dd_rpNone); override;
     procedure WriteTextParagraph(const Para: TddTextParagraph; anOutEOL: Boolean = False); override;
   public
     constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
@@ -1586,7 +1592,7 @@ begin
  end;
 end;
 
-procedure TCustomRTFObjectGenerator.WriteTable(const Table: TddTable; aOnlyPart: Boolean);
+procedure TCustomRTFObjectGenerator.WriteTable(const aTable: TddTable; aOnlyPart: Boolean);
 var
  l_IsAAC : Boolean;
  l_Count : Integer;
@@ -1602,22 +1608,22 @@ var
     Result := dd_rpNone;
  end;
 
- function lp_InitRowType: TddRowType;
+ function lp_InitTableType: TddTableType;
  begin
-  Result := TddRowType(Table.IsSBS);
-  if Result = dd_rtNone then
-   if Table.Nested then
-    if evAACStyle(Table.Style) then
+  Result := TddTableType(aTable.IsSBS);
+  if Result = dd_ttNone then
+   if aTable.Nested then
+    if evAACStyle(aTable.Style) then
     begin
-     Result := dd_rtNestedAAC;
+     Result := dd_ttNestedAAC;
      l_IsAAC := True;
-    end // if evAACStyle(Table.Style) then
+    end // if evAACStyle(aTable.Style) then
     else
-     Result := dd_rtNested
+     Result := dd_ttNested
    else
-    if evAACStyle(Table.Style) then
+    if evAACStyle(aTable.Style) then
     begin
-     Result := dd_rtAAC;
+     Result := dd_ttAAC;
      l_IsAAC := True;
     end;
  end;
@@ -1626,7 +1632,7 @@ var
  l_Row     : TddTableRow;
  l_RowPos  : TddRowPosition;
  l_NextPos : TddRowPosition;
- l_RowType : TddRowType;
+ l_RowType : TddTableType;
 
  procedure lp_InitFillType(anIndex: Integer);
  var
@@ -1646,18 +1652,18 @@ var
   if anIndex < l_Count then
   begin
    l_NextPos := lp_Index2RowPos(anIndex + 1);
-   f_NextFillType := NeedFillCell(Table.Rows[anIndex + 1], l_RowType, l_NextPos);
+   f_NextFillType := NeedFillCell(aTable.Rows[anIndex + 1], l_RowType, l_NextPos);
   end; // if i < l_Count then
   f_FillTypeStack.Push(l_FillType);
  end;
 
  procedure lp_InitFillRowTypeAndRowPos(anIndex: Integer);
  begin
-  if l_RowType >= dd_rtAAC then
+  if l_RowType >= dd_ttAAC then
   begin
-   CheckAACRow(Table.Style, l_Row, anIndex = 0, l_RowType);
+   CheckAACRow(aTable.Style, l_Row, anIndex = 0, l_RowType);
    lp_InitFillType(anIndex);
-  end // if l_RowType >= dd_rtAAC then
+  end // if l_RowType >= dd_ttAAC then
   else
   begin
    l_RowPos := lp_Index2RowPos(anIndex);
@@ -1668,28 +1674,28 @@ var
 var
  i : Integer;
 begin
- if not Table.Stored then Exit;
+ if not aTable.Stored then Exit;
  Inc(f_NestedLevel);
  l_IsAAC := False;
- l_RowType := lp_InitRowType;
- if l_RowType = dd_rtAAC then
+ l_RowType := lp_InitTableType;
+ if l_RowType = dd_ttAAC then
   Try2AddEmtpyPara;
  if f_FillTypeStack = nil then
   f_FillTypeStack := TddFillAACStack.Create;
- l_Count := Table.RowCount - 1;
+ l_Count := aTable.RowCount - 1;
  try
   for i := 0 to l_Count do
   begin
-   l_Row := Table.Rows[i];
-   lp_InitFillRowTypeAndRowPos(Table.StartRow + i);
-   WriteTableRow(l_Row, Table.StartRow + i, l_RowType, l_RowPos);
+   l_Row := aTable.Rows[i];
+   lp_InitFillRowTypeAndRowPos(aTable.StartRow + i);
+   WriteTableRow(l_Row, aTable.StartRow + i, l_RowType, l_RowPos);
    f_FillTypeStack.Pop;
-  end; // for i := 0 to Pred(Table.RowCount) do
+  end; // for i := 0 to Pred(aTable.RowCount) do
   Dec(f_NestedLevel);
   if not aOnlyPart then
   begin
    OutString('\pard\plain ');
-   if (f_NestedLevel = 0) and (l_RowType <> dd_rtAAC) then
+   if (f_NestedLevel = 0) and (l_RowType <> dd_ttAAC) then
     f_WasTable := True;
   end; // if not aOnlyPart then
   if f_FillTypeStack.Count = 0 then
@@ -1702,7 +1708,7 @@ end;
 
 procedure TCustomRTFObjectGenerator.WriteTableRow(const aRow: TddTableRow;
                                                   anIndex: Integer;
-                                                  const aRowType: TddRowType = dd_rtNone;
+                                                  const aTableType: TddTableType = dd_ttNone;
                                                   aRowPos: TddRowPosition = dd_rpNone);
 
  function lp_RowProps: AnsiString;
@@ -1719,11 +1725,11 @@ var
 
  function lp_NeedEOL: Boolean;
  begin
-  Result := (aRowType >= dd_rtAAC) and (aRowPos = dd_rpNone) and (l_Cell.anIndex = 1);
+  Result := (aTableType >= dd_ttAAC) and (aRowPos = dd_rpNone) and (l_Cell.anIndex = 1);
  end;
 
 const
- csetNestedRow = [dd_rtNested, dd_rtNestedAAC];
+ csetNestedRow = [dd_ttNested, dd_ttNestedAAC];
 var
  i, j        : Integer;
  l_Atom      : TddDocumentAtom;
@@ -1734,7 +1740,7 @@ var
  l_CellCount : Integer;
 begin
  l_RowProps := lp_RowProps;
- if (aRowType >= dd_rtAAC) and (aRowPos > dd_rpNone) then
+ if (aTableType >= dd_ttAAC) and (aRowPos > dd_rpNone) then
   l_RowProps := l_RowProps + GetRowHeight4AACSpace(aRowPos = dd_rpFirst);
  if aRow.TAP.Autofit then
  begin
@@ -1747,7 +1753,7 @@ begin
    for i := 0 to Pred(aRow.CellCount) do
     aRow[i].Props.CellOffset := aRow[i].Props.CellOffset * aRow.TAP.Width div l_Width;
  end; // aTAP.Autofit
- l_RowProps := l_RowProps + TAP2RTF(aRow.TAP, aRowType >= dd_rtAAC);
+ l_RowProps := l_RowProps + TAP2RTF(aRow.TAP, aTableType >= dd_ttAAC);
  l_OldWidth := Tl3LongintList.Create;
  try
   l_CellCount := aRow.CellCount - 1;
@@ -1761,7 +1767,7 @@ begin
     l_Cell.Props.CellOffset := l_Cell.Props.CellOffset + aRow.TAP.Left;
    l_RowProps := l_RowProps + Cell2RTF(l_Cell.Props, f_FillTypeStack.Peek, f_NextFillType);
   end; // for i:= 0 to aRow.CellCount - 1 do
-  if not (aRowType in csetNestedRow) then
+  if not (aTableType in csetNestedRow) then
    OutString(l_RowProps);
   RememberLastPictureWidth;
   try
@@ -1783,7 +1789,7 @@ begin
        l_Picture.ScaleX := Table.Scale;
        l_Picture.ScaleY := Table.Scale;
        WritePicture(l_Picture, True);
-       if aRowType < dd_rtAAC then
+       if aTableType < dd_ttAAC then
         OutputEOPara;
       end // if l_Atom.IsPicture then
       else
@@ -1795,7 +1801,7 @@ begin
         OutString(l_RowProps);
        end; // dd_docTable
     end; // for j
-    OutStringLn(IfThen(aRowType in csetNestedRow, '\nestcell{\nonesttables\par}', '\cell'));
+    OutStringLn(IfThen(aTableType in csetNestedRow, '\nestcell{\nonesttables\par}', '\cell'));
     f_CellHasPara := False;
    end; // for i
   finally
@@ -1804,7 +1810,7 @@ begin
  finally
   l3Free(l_OldWidth);
  end;
- if aRowType in csetNestedRow then
+ if aTableType in csetNestedRow then
   OutStringLn('{\*\nesttableprops' + l_RowProps + '\nestrow}{\nonesttables\par}')
  else
   OutStringLn(l_RowProps + '\row');
@@ -2002,13 +2008,13 @@ begin
  OutString('\par');
 end;
 
-procedure TCustomRTFObjectGenerator.CheckAACRow(aStyleID: Integer; const aRow: TddTableRow; aNeedInit: Boolean; aRowType: TddRowType);
+procedure TCustomRTFObjectGenerator.CheckAACRow(aStyleID: Integer; const aRow: TddTableRow; aNeedInit: Boolean; aTableType: TddTableType);
 const
  cnWidthDelta = 50;
 
  function lp_RecalcWidth: Integer;
  begin
-  if aRowType = dd_rtNestedAAC then
+  if aTableType = dd_ttNestedAAC then
    Result := f_PictureWidth
   else
    Result := Document.PageWidth;

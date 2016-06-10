@@ -1203,7 +1203,7 @@ class procedure TkwPopControlColor.DoSetValue(aControl: TControl;
 //#UC END# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_var*
 begin
 //#UC START# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_impl*
- !!! Needs to be implemented !!!
+ TControlFriend(aControl).Color := aValue;
 //#UC END# *54FED42200C0_47E1201703C3_Word_DoSetValue_54FED42200C0_47E1201703C3_Word_impl*
 end;//TkwPopControlColor.DoSetValue
 
@@ -1214,7 +1214,7 @@ function TkwPopControlColor.Color(const aCtx: TtfwContext;
 //#UC END# *54FED42200C0_54FED42200C0_47E1201703C3_Word_var*
 begin
 //#UC START# *54FED42200C0_54FED42200C0_47E1201703C3_Word_impl*
- !!! Needs to be implemented !!!
+ Result := TControlFriend(aControl).Color;
 //#UC END# *54FED42200C0_54FED42200C0_47E1201703C3_Word_impl*
 end;//TkwPopControlColor.Color
 
@@ -1516,7 +1516,7 @@ function TkwPopControlCaption.Caption(const aCtx: TtfwContext;
 //#UC END# *54FED5F90129_54FED5F90129_47E1201703C3_Word_var*
 begin
 //#UC START# *54FED5F90129_54FED5F90129_47E1201703C3_Word_impl*
- !!! Needs to be implemented !!!
+ Result := TControlFriend(aControl).Caption;
 //#UC END# *54FED5F90129_54FED5F90129_47E1201703C3_Word_impl*
 end;//TkwPopControlCaption.Caption
 
@@ -1848,7 +1848,7 @@ function TkwPopControlFont.Font(const aCtx: TtfwContext;
 //#UC END# *556F26B303CB_556F26B303CB_47E1201703C3_Word_var*
 begin
 //#UC START# *556F26B303CB_556F26B303CB_47E1201703C3_Word_impl*
- !!! Needs to be implemented !!!
+ Result := Tl3ControlFontService.Instance.GetFont(aControl);
 //#UC END# *556F26B303CB_556F26B303CB_47E1201703C3_Word_impl*
 end;//TkwPopControlFont.Font
 

@@ -30,12 +30,13 @@ implementation
 
 uses
  l3Memory,
+ daInterfaces,
+ daDataProvider,
  csQueryTypes,
  SysUtils,
  csCommandsConst,
  //DT_UserConst,
  csProcessTask,
- dt_UserTypes,
  dt_User
  ;
 
@@ -83,13 +84,13 @@ procedure TcsServerCommandsManager.cs_GetCommands(aPipe: TCSDataPipe);
 var
  l_Stream: TStream;
  i, l_Count: Integer;
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
  Acquire;
  try
   l_Stream:= Tl3MemoryStream.Create;
   try
-   l_User := UserManager.UserByID(aPipe.ClientID);
+   l_User := GlobalDataProvider.UserManager.UserByID(aPipe.ClientID);
    Assert(Assigned(l_User), Format('Не найден пользователь с ID = %d', [aPipe.ClientID]));
    l_Count := 0;
    for i := 0 to Count - 1 do

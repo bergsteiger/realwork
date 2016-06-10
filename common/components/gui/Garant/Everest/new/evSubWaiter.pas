@@ -4,9 +4,12 @@ unit evSubWaiter;
 { Начал: Люлин А.В.       }
 { Модуль: evSubWaiter -   }
 { Начат: 03.12.2005 19:09 }
-{ $Id: evSubWaiter.pas,v 1.10 2014/04/08 12:35:11 lulin Exp $ }
+{ $Id: evSubWaiter.pas,v 1.11 2016/04/18 13:52:53 dinishev Exp $ }
 
 // $Log: evSubWaiter.pas,v $
+// Revision 1.11  2016/04/18 13:52:53  dinishev
+// {Requestlink:621277661}
+//
 // Revision 1.10  2014/04/08 12:35:11  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -146,6 +149,12 @@ type
                              aParaID          : Integer): Boolean;
         virtual;
         {-}
+      function TrySelectSub(const aContainer : InevDocumentContainer;
+                            const aSel       : InevSelection;
+                            aSubID           : Integer;
+                            aType            : Integer): Boolean;
+        virtual;
+        {-}
       function TrySelectObj(const aContainer : InevDocumentContainer;
                             aParent    : Tl3Variant;
                             aChild     : Tl3Variant): Boolean;
@@ -250,7 +259,6 @@ end;
 function TevSubWaiter.TrySelect(const aContainer: InevDocumentContainer): Boolean;
   {-}
 var
- l_Sub     : IevSub;
  l_Sel     : InevSelection;
  l_Pt      : InevBasePoint;
  l_Control : InevControl;
@@ -270,13 +278,7 @@ begin
    Assert(aContainer <> nil);
    case f_Type of
     Ord(ev_sbtSub) .. Ord(ev_sbtMark) :
-    begin
-     l_Sub := aContainer.SubList.SubEx[f_ID, f_Type];
-     if (l_Sub = nil) OR not l_Sub.Exists then
-      Result := False
-     else
-      Result := l_Sub.Select(l_Sel);
-    end;//ev_sbtSub
+     Result := TrySelectSub(aContainer, l_Sel, f_ID, f_Type);
     ev_sbtPara :
      Result := TrySelectPara(aContainer, l_Sel, f_ID);
     ev_sbtDocumentPlace:
@@ -385,6 +387,18 @@ begin
    end;//case f_Type
   end;//f_WasSub
  end;//f_Owner = nil
+end;
+
+function TevSubWaiter.TrySelectSub(const aContainer: InevDocumentContainer;
+  const aSel: InevSelection; aSubID, aType: Integer): Boolean;
+var
+ l_Sub: IevSub;
+begin
+ l_Sub := aContainer.SubList.SubEx[f_ID, f_Type];
+ if (l_Sub = nil) OR not l_Sub.Exists then
+  Result := False
+ else
+  Result := l_Sub.Select(aSel);
 end;
 
 end.

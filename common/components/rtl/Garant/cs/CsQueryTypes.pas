@@ -1,8 +1,14 @@
 unit CsQueryTypes;
 
-{ $Id: CsQueryTypes.pas,v 1.43 2015/11/24 11:47:30 lukyanets Exp $ }
+{ $Id: CsQueryTypes.pas,v 1.44 2016/04/15 11:57:02 lukyanets Exp $ }
 
 // $Log: CsQueryTypes.pas,v $
+// Revision 1.44  2016/04/15 11:57:02  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.43  2015/11/24 11:47:30  lukyanets
 // Отладочные логи
 //
@@ -170,7 +176,7 @@ type
                qtExecuteCommand,
                qtGetVersionDate,
                qtGetBaseStatus,
-               qtGetNonEditableDicts,
+               qtGetNonEditableDicts_Deprecated,
                qtGetAllUsersList,
                qtGetExecuteStatus,
                qtGetDictChangeFileName,

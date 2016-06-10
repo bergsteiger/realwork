@@ -82,6 +82,7 @@ begin
 //#UC START# *47914F960008_51DBBE7802D5_impl*
  inherited Create;
  Clear;
+ f_SectionState := dd_ssNone;
 //#UC END# *47914F960008_51DBBE7802D5_impl*
 end;//TddSectionProperty.Create
 
@@ -91,7 +92,7 @@ procedure TddSectionProperty.Clear;
 begin
 //#UC START# *518A13330058_51DBBE7802D5_impl*
  inherited;
- f_cCols := 0;                  { number of column }
+ f_ColumnCount := 0;                  { number of column }
  ColsSpace:= 720;    { пространство между колонками }
  LineBetween:= False;  { линия между колонками }
  SBK:= sbkPg;                    { section break type  }
@@ -109,7 +110,7 @@ begin
 //#UC START# *5301DFE6002C_51DBBE7802D5_impl*
  if (anOther Is TddSectionProperty) then
  begin
-  cCols:= TddSectionProperty(anOther).cCols;
+  f_ColumnCount := TddSectionProperty(anOther).f_ColumnCount;
   ColsSpace:= TddSectionProperty(anOther).ColsSpace;
   EndHere:= TddSectionProperty(anOther).EndHere;
   Landscape:= TddSectionProperty(anOther).Landscape;

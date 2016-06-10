@@ -955,11 +955,20 @@ implementation @ <<SimpleClass>>
 //%f _DoSpell
 : DoSpell OBJECT IN %S
 //#UC START# *4B2A19E3038Bfor471466900128*
-//	[{%S{singleton}=true}\
- if ( ( %S get_up ( 'singleton' ) ) %==  true ) then
+//	%f_SimpleClassSpell(%S)
+ [%f] SimpleClassSpell %( %S )% 
+
+//f _SimpleClassSpell
+; // DoSpell
+
+end. // <<SimpleClass>>
+
+: SimpleClassSpell OBJECT IN %S
+//	[{%f_UseNewGenRecG(%S)!=true}{\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%S{singleton}=true}\
+  if ( ( %S get_up ( 'singleton' ) ) %==  true ) then
   begin
 //	[{<{}{%CN=Exists}{C}>=0}\
    if ( 
@@ -1008,263 +1017,261 @@ implementation @ <<SimpleClass>>
 
 //	]\
   end // if
-//	]\
- end // if
+
 
 //	[{%SS!=Wrapper&%S#f_IsInterfaceFactory()!=true}\
- if ( ( %S |S ) %!= 'Wrapper' AND 
-   ( ( %S %?f IsInterfaceFactory %( )% ) %!=  true  ) ) then
- begin
-//	<{}{%RS=Tag}\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%R
+  if ( ( %S |S ) %!= 'Wrapper' AND 
+    ( ( %S %?f IsInterfaceFactory %( )% ) %!=  true  ) ) then
   begin
-   OBJECT IN %R
-   if ( ( %R |S ) %== 'Tag' ) then
+//	<{}{%RS=Tag}\
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
    begin
+    OBJECT IN %R
+    if ( ( %R |S ) %== 'Tag' ) then
+    begin
 
 
 //	%f_addCDep(%S,%R)\
-    [%f] addCDep %( %S %, %R )% 
+     [%f] addCDep %( %S %, %R )% 
 
 //	[{"%{k2TaggedDataHolder.GetTaggedDataType}N"=""}%f_find_element(53AC03EE01FD,k2TaggedDataHolder.GetTaggedDataType)]\
-    if ( ( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( '53AC03EE01FD' %, 'k2TaggedDataHolder.GetTaggedDataType' )% 
-    end // if
+     if ( ( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) |N ) ) %== '' ) then
+     begin
+      [%f] find_element %( '53AC03EE01FD' %, 'k2TaggedDataHolder.GetTaggedDataType' )% 
+     end // if
 
 
 //	[{"%{Tl3Tag}N"=""}%f_find_element(534572370056,Tl3Tag)]\
-    if ( ( ( get_global_var ( 'Tl3Tag' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( '534572370056' %, 'Tl3Tag' )% 
-    end // if
+     if ( ( ( get_global_var ( 'Tl3Tag' ) |N ) ) %== '' ) then
+     begin
+      [%f] find_element %( '534572370056' %, 'Tl3Tag' )% 
+     end // if
 //	%S%f_make_accessable(%{Tl3Tag}U)\
-    %S %f make_accessable %( ( get_global_var ( 'Tl3Tag' ) |U ) )% 
+     %S %f make_accessable %( ( get_global_var ( 'Tl3Tag' ) |U ) )% 
 
 //	[{"%{Tk2RawData}N"=""}%f_find_element(53B546BC00BF,Tk2RawData)]\
-    if ( ( ( get_global_var ( 'Tk2RawData' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( '53B546BC00BF' %, 'Tk2RawData' )% 
-    end // if
+     if ( ( ( get_global_var ( 'Tk2RawData' ) |N ) ) %== '' ) then
+     begin
+      [%f] find_element %( '53B546BC00BF' %, 'Tk2RawData' )% 
+     end // if
 //	%S%f_make_accessable(%{Tk2RawData}U)\
-    %S %f make_accessable %( ( get_global_var ( 'Tk2RawData' ) |U ) )% 
+     %S %f make_accessable %( ( get_global_var ( 'Tk2RawData' ) |U ) )% 
 
 //	%S%f_add_override(%{k2TaggedDataHolder.GetTaggedDataType}U)\
-    %S %f add_override %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) |U ) )% 
+     %S %f add_override %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) |U ) )% 
 
 //	%{k2TaggedDataHolder.GetTaggedDataType}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{k2TaggedDataHolder.GetTaggedDataType},%S)_var,\
-    ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) ) %, %S )% '_var' %, 
+     ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) ) %, %S )% '_var' %, 
 //	 {-}\
-    ' {-}'
+     ' {-}'
 //	)\
 )% ) 
 
 //	%{k2TaggedDataHolder.GetTaggedDataType}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{k2TaggedDataHolder.GetTaggedDataType},%S)_impl,\
-    ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) ) %, %S )% '_impl' %, 
+     ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) %f set_uc_content %( 'intf.pas' %, '_'
+     [%f] pas_MethodOwnerID %( ( get_global_var ( 'k2TaggedDataHolder.GetTaggedDataType' ) ) %, %S )% '_impl' %, 
 //	 Result := k2_typ%RN;\
-    ' Result := k2_typ'
-    %R |N ';'
+     ' Result := k2_typ'
+     %R |N ';'
 //	)\
 )% ) 
 
 //	%R<{}{%CC=Attribute}\
-    %R
-    bind ( 
-     OBJECT VAR %S
-     INTEGER VAR l_Counter l_Counter := 0
-     for %S%C
-     begin
-      OBJECT IN %C
-      if ( ( %C |C ) %== 'Attribute' ) then
+     %R
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
       begin
+       OBJECT IN %C
+       if ( ( %C |C ) %== 'Attribute' ) then
+       begin
 
 
 //	[{"%CS"=""|"%CS"="array"}\
-       if ( ( %C |S ) %== '' OR 
-         ( ( %C |S ) %== 'array'  ) ) then
-       begin
+        if ( ( %C |S ) %== '' OR 
+          ( ( %C |S ) %== 'array'  ) ) then
+        begin
 //	%1%f_add_attribute(%1U_%CU_TagProp,\
-        %1 %f add_attribute %( %1 |U '_'
-        %C |U '_TagProp' %, 
+         %1 %f add_attribute %( %1 |U '_'
+         %C |U '_TagProp' %, 
 //	[{%C{ReadOnly}!=true&"%CS"!="array"}{\
-        if ( ( %C get_up ( 'ReadOnly' ) ) %!=  true AND 
-          ( ( %C |S ) %!= 'array'  ) ) then
-        begin
+         if ( ( %C get_up ( 'ReadOnly' ) ) %!=  true AND 
+           ( ( %C |S ) %!= 'array'  ) ) then
+         begin
 //	property\
-         'property'
+          'property'
 //	]\
-        end // if
-        else
-        begin
+         end // if
+         else
+         begin
 //	readonly\
-         'readonly'
+          'readonly'
 //	}\
-        end // else
+         end // else
 //	,\
 %, //	%CN: %t_TagAttrTypeName(%C%T,%C,%1),\
-        %C |N ': '
-        [%t] TagAttrTypeName %( %C ->T  %, %C %, %1 )% %, 
+         %C |N ': '
+         [%t] TagAttrTypeName %( %C ->T  %, %C %, %1 )% %, 
 //	Attr_Inst)\
-        'Attr_Inst' )% 
+         'Attr_Inst' )% 
 //	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
-        ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+         ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
 //	%{Attr_Inst}%f_set_documentation(%CD)\
-        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |D )% ) 
+         ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( %C |D )% ) 
 //	%{Attr_Inst}%f_set_abstraction_type(final)\
-        ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+         ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Attr_Inst}%f_set_up(ifdef,%C{ifdef})\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
 //	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
-        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
 
 //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)get_var,\
-        ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
-        [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'get_var' %, 
+         ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+         [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'get_var' %, 
 //	 {-}\
-        ' {-}'
+         ' {-}'
 //	)\
 )% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)get_impl,\
-        ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
-        [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'get_impl' %, 
+         ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+         [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'get_impl' %, 
 //	 Assert(Self \<\> nil);
-        ' Assert(Self <> nil);'
+         ' Assert(Self <> nil);'
 //	 Assert(TaggedData \<\> nil);
-        ' Assert(TaggedData <> nil);'
+         ' Assert(TaggedData <> nil);'
 //	[{%C%TN=DateTimeNotNull}\
-        if ( ( %C ->T |N  ) %== 'DateTimeNotNull' ) then
-        begin
+         if ( ( %C ->T |N  ) %== 'DateTimeNotNull' ) then
+         begin
 //	 if not TaggedData.HasSubAtom(k2_attr%{Attr_Inst}N) then
-         ' if not TaggedData.HasSubAtom(k2_attr'
-         ( get_global_var ( 'Attr_Inst' ) |N ) ') then'
+          ' if not TaggedData.HasSubAtom(k2_attr'
+          ( get_global_var ( 'Attr_Inst' ) |N ) ') then'
 //	  if not Tk2Type(TaggedData.TagType).Prop\[k2_attr%{Attr_Inst}N\].ReadOnly then
-         '  if not Tk2Type(TaggedData.TagType).Prop[k2_attr'
-         ( get_global_var ( 'Attr_Inst' ) |N ) '].ReadOnly then'
+          '  if not Tk2Type(TaggedData.TagType).Prop[k2_attr'
+          ( get_global_var ( 'Attr_Inst' ) |N ) '].ReadOnly then'
 //	  begin
-         '  begin'
+          '  begin'
 //	   pm_Set%{Attr_Inst}N(Now);
-         '   pm_Set'
-         ( get_global_var ( 'Attr_Inst' ) |N ) '(Now);'
+          '   pm_Set'
+          ( get_global_var ( 'Attr_Inst' ) |N ) '(Now);'
 //	  end;//not TaggedData.HasSubAtom(k2_attr%{Attr_Inst}N)\n\
-         '  end;//not TaggedData.HasSubAtom(k2_attr'
-         ( get_global_var ( 'Attr_Inst' ) |N ) ')'#13#10
+          '  end;//not TaggedData.HasSubAtom(k2_attr'
+          ( get_global_var ( 'Attr_Inst' ) |N ) ')'#13#10
 //	]\
-        end // if
+         end // if
 //	 Result := [{"%CS"!="array"}{\
-        ' Result := '
-        if ( ( %C |S ) %!= 'array' ) then
-        begin
+         ' Result := '
+         if ( ( %C |S ) %!= 'array' ) then
+         begin
 //	%t_TagAttrGetType(%C%T,%C)(TaggedData.%t_TagAttrAccessor(%C%T)\
-         [%t] TagAttrGetType %( %C ->T  %, %C )% '(TaggedData.'
-         [%t] TagAttrAccessor %( %C ->T  )% 
+          [%t] TagAttrGetType %( %C ->T  %, %C )% '(TaggedData.'
+          [%t] TagAttrAccessor %( %C ->T  )% 
+//	[{%t_TagAttrAccessor(%C%T)=cAtom}{\
+          if ( ( [%t] TagAttrAccessor %( %C ->T  )% ) %== 'cAtom' ) then
+          begin
+//	(k2_attr%CN)\
+           '(k2_attr'
+           %C |N ')'
+//	]\
+          end // if
+          else
+          begin
+//	[{%t_TagAttrAccessor(%C%T)!=Attr}A]\
+           if ( ( [%t] TagAttrAccessor %( %C ->T  )% ) %!= 'Attr' ) then
+           begin
+            'A' 
+           end // if
+//	\[k2_attr%CN\]\
+           '[k2_attr'
+           %C |N ']'
+//	}\
+          end // else
+//	)\
+          ')'
+//	]\
+         end // if
+         else
+         begin
+//	[{%{Tl3Tag}U!=%{Attr_Inst}%TU}{\
+          if ( ( ( get_global_var ( 'Tl3Tag' ) |U ) ) %!= ( ( get_global_var ( 'Attr_Inst' )  ->T |U ) ) ) then
+          begin
+//	T%f_pas_TypeName(%{Attr_Inst}%T).Make(TaggedData.cAtom(k2_attr%CN))\
+           'T'
+           [%f] pas_TypeName %( ( get_global_var ( 'Attr_Inst' )  ->T ) )% '.Make(TaggedData.cAtom(k2_attr'
+           %C |N '))'
+//	]\
+          end // if
+          else
+          begin
+//	TaggedData.cAtom(k2_attr%CN)\
+           'TaggedData.cAtom(k2_attr'
+           %C |N ')'
+//	}\
+          end // else
+//	}\
+         end // else
+//	;\
+         ';'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)set_var,\
+         ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+         [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'set_var' %, 
+//	 {-}\
+         ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)set_impl,\
+         ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+         [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'set_impl' %, 
+//	 TaggedData.\
+         ' TaggedData.'
 //	[{%t_TagAttrAccessor(%C%T)=cAtom}{\
          if ( ( [%t] TagAttrAccessor %( %C ->T  )% ) %== 'cAtom' ) then
          begin
-//	(k2_attr%CN)\
-          '(k2_attr'
-          %C |N ')'
-//	]\
-         end // if
-         else
-         begin
-//	[{%t_TagAttrAccessor(%C%T)!=Attr}A]\
-          if ( ( [%t] TagAttrAccessor %( %C ->T  )% ) %!= 'Attr' ) then
-          begin
-           'A' 
-          end // if
-//	\[k2_attr%CN\]\
-          '[k2_attr'
-          %C |N ']'
-//	}\
-         end // else
-//	)\
-         ')'
-//	]\
-        end // if
-        else
-        begin
-//	[{%{Tl3Tag}U!=%{Attr_Inst}%TU}{\
-         if ( ( ( get_global_var ( 'Tl3Tag' ) |U ) ) %!= ( ( get_global_var ( 'Attr_Inst' )  ->T |U ) ) ) then
-         begin
-//	T%f_pas_TypeName(%{Attr_Inst}%T).Make(TaggedData.cAtom(k2_attr%CN))\
-          'T'
-          [%f] pas_TypeName %( ( get_global_var ( 'Attr_Inst' )  ->T ) )% '.Make(TaggedData.cAtom(k2_attr'
-          %C |N '))'
-//	]\
-         end // if
-         else
-         begin
-//	TaggedData.cAtom(k2_attr%CN)\
-          'TaggedData.cAtom(k2_attr'
-          %C |N ')'
-//	}\
-         end // else
-//	}\
-        end // else
-//	;\
-        ';'
-//	)\
-)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)set_var,\
-        ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
-        [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'set_var' %, 
-//	 {-}\
-        ' {-}'
-//	)\
-)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%1)set_impl,\
-        ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
-        [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %1 )% 'set_impl' %, 
-//	 TaggedData.\
-        ' TaggedData.'
-//	[{%t_TagAttrAccessor(%C%T)=cAtom}{\
-        if ( ( [%t] TagAttrAccessor %( %C ->T  )% ) %== 'cAtom' ) then
-        begin
 //	Attr\
-         'Attr'
+          'Attr'
 //	]\
-        end // if
-        else
-        begin
+         end // if
+         else
+         begin
 //	%t_TagAttrAccessor(%C%T)\
-         [%t] TagAttrAccessor %( %C ->T  )% 
+          [%t] TagAttrAccessor %( %C ->T  )% 
 //	}\
-        end // else
+         end // else
 //	W%f_openKBr(%S)k2_attr%CN%f_comma(%S) \
-        'W'
-        [%f] openKBr %( %S )% 'k2_attr'
-        %C |N [%f] comma %( %S )% ' '
+         'W'
+         [%f] openKBr %( %S )% 'k2_attr'
+         %C |N [%f] comma %( %S )% ' '
 //	nil%f_closeKBr(%S) \
-        'nil'
-        [%f] closeKBr %( %S )% ' '
+         'nil'
+         [%f] closeKBr %( %S )% ' '
 //	:= %t_TagAttrSetType(%C%T,%C)%f_openBr(%S)aValue%f_closeBr(%S);\
-        ':= '
-        [%t] TagAttrSetType %( %C ->T  %, %C )% [%f] openBr %( %S )% 'aValue'
-        [%f] closeBr %( %S )% ';'
+         ':= '
+         [%t] TagAttrSetType %( %C ->T  %, %C )% [%f] openBr %( %S )% 'aValue'
+         [%f] closeBr %( %S )% ';'
 //	)\
 )% ) 
 
 //	]\
-       end // if
+        end // if
 //	>\
 
-       ++! l_Counter
-      end // if
-     end // for C
+        ++! l_Counter
+       end // if
+      end // for C
 
-    ) // bind
+     ) // bind
  //	>\
 
-    ++! l_Counter
-   end // if
-  end // for R
+     ++! l_Counter
+    end // if
+   end // for R
 //	]\
- end // if
+  end // if
 
 
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
- begin
+
+
 //	<{}{%o{needs field}=true&%t_interface(%o%P)=true}{%o}\
   INTEGER VAR l_Counter l_Counter := 0
   for %S%o
@@ -1371,8 +1378,8 @@ implementation @ <<SimpleClass>>
      ++! l_Counter
     end // if
    end // for C
-//	 inherited;\
-   ' inherited;'
+//	%f_outInherited(%S)\
+   [%f] outInherited %( %S )% 
 //	)\
 )% ) 
 
@@ -1381,34 +1388,30 @@ implementation @ <<SimpleClass>>
 //	%f_SpellFriends(%S)\
   [%f] SpellFriends %( %S )% 
 
-//	]\
- end // if
 
-//	%S%[inherited]\
- inherited
+//	%S#[inherited]\
+//	%f_SpellAreaLinks(%S)\
+  [%f] SpellAreaLinks %( %S )% 
 
 //	%f_set_var(WasRegisterInEngine,"false")\
- [%f] set_var %( 'WasRegisterInEngine' %, false )% 
+  [%f] set_var %( 'WasRegisterInEngine' %, false )% 
 //	[{%S#f_IsMixIn()!=true}\
- if ( ( %S %?f IsMixIn %( )% ) %!=  true ) then
- begin
-//	[{%Sa!=abstract}\
-  if ( ( %S |a ) %!= 'abstract' ) then
+  if ( ( %S %?f IsMixIn %( )% ) %!=  true ) then
   begin
-//	[{%SS!=ScriptKeyword}\
-   if ( ( %S |S ) %!= 'ScriptKeyword' ) then
+//	[{%Sa!=abstract}\
+   if ( ( %S |a ) %!= 'abstract' ) then
    begin
+//	[{%SS!=ScriptKeyword}\
+    if ( ( %S |S ) %!= 'ScriptKeyword' ) then
+    begin
 //	%f_SpellRegisterInEngine(%S)\
-    [%f] SpellRegisterInEngine %( %S )% 
+     [%f] SpellRegisterInEngine %( %S )% 
+//	]\
+    end // if
 //	]\
    end // if
-//	]\
-  end // if
 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-  begin
 //	[{%{WasRegisterInEngine}N!=true}\
    if ( ( ( get_global_var ( 'WasRegisterInEngine' ) |N ) ) %!=  true ) then
    begin
@@ -1453,30 +1456,25 @@ implementation @ <<SimpleClass>>
        ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
        ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	[{%S#f_UseNewGenRec()!=true}\
-       if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-       begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-        ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+       ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	[{%S%f_InheritsFrom("TtfwWord")=true}{\
-        if ( ( %S %f InheritsFrom %( 'TtfwWord' )% ) %==  true ) then
-        begin
+       if ( ( %S %f InheritsFrom %( 'TtfwWord' )% ) %==  true ) then
+       begin
 //	 %f_pas_TypeName(%S).RegisterClass;\
-         ' '
-         [%f] pas_TypeName %( %S )% '.RegisterClass;'
+        ' '
+        [%f] pas_TypeName %( %S )% '.RegisterClass;'
 //	]\
-        end // if
-        else
-        begin
-//	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
-         ' TtfwClassRef.Register('
-         [%f] pas_TypeName %( %S )% ');'
-//	}\
-        end // else
-//	)\
-)% ) //	]\
        end // if
-
+       else
+       begin
+//	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
+        ' TtfwClassRef.Register('
+        [%f] pas_TypeName %( %S )% ');'
+//	}\
+       end // else
+//	)\
+)% ) 
 
 //	]\
       end // if
@@ -1492,11 +1490,24 @@ implementation @ <<SimpleClass>>
   [%f] SpellScriptFramework %( %S )% 
 //	]
  end // if
+ else
+ begin
+
+//	%S#[inherited]\
+//	%f_SpellAreaLinks(%S)\
+  [%f] SpellAreaLinks %( %S )% 
+//	}\
+ end // else
+
+//f _outInherited
+; // SimpleClassSpell
+
+: outInherited OBJECT IN %S
+//	 inherited;
+ ' inherited;'
 
 //f _pas_FileName
-; // DoSpell
-
-end. // <<SimpleClass>>
+; // outInherited
 
 : pas_FileName OBJECT IN %S
 //	[{"%f_pas_UnitName(%S)"=""}{\
@@ -1520,8 +1531,8 @@ end. // <<SimpleClass>>
 //	[{%S{needs script}=true}\
  if ( ( %S get_up ( 'needs script' ) ) %==  true ) then
  begin
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%f_UseNewGenRecG(%S)!=true}\
+  if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
   begin
 //	%S%f_add_class(%SU_ResNameGetter,SimpleClass,T%f_pas_FileName(%S)ResNameGetter,Class_Inst)\
    %S %f add_class %( %S |U '_ResNameGetter' %, 'SimpleClass' %, 'T'
@@ -1542,18 +1553,13 @@ end. // <<SimpleClass>>
 //	%{Class_Inst}%f_set_up(need UC,true)\
    ( get_global_var ( 'Class_Inst' ) %f set_up %( 'need UC' %, true )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
-    ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
+   ( get_global_var ( 'Class_Inst' ) %f set_uc_content %( 'intf.pas' %, 'impl' %, 
 //	 \{$R %f_pas_FileName(%S).res}\
-    ' {$R '
-    [%f] pas_FileName %( %S )% '.res}'
+   ' {$R '
+   [%f] pas_FileName %( %S )% '.res}'
 //	)\
-)% ) //	]\
-   end // if
-
+)% ) 
 
 //	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
    ( get_global_var ( 'Class_Inst' ) %f add_operation %( ( get_global_var ( 'Class_Inst' ) |U ) '_Reg' %, 'ini' %, 'RegAxiom ()' %, 'Reg_Instance' )% ) 
@@ -1564,42 +1570,37 @@ end. // <<SimpleClass>>
 //	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
    ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
-    ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+   ( get_global_var ( 'Reg_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %f_pas_TypeName(%{Class_Inst}).Register;\
-    ' '
-    [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
+   ' '
+   [%f] pas_TypeName %( ( get_global_var ( 'Class_Inst' ) ) )% '.Register;'
 //	)\
 )% ) 
 
 //	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
-    if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) |N ) ) %== '' ) then
-    begin
-     [%f] find_element %( '55B7A3AF0359' %, 'TtfwAxiomaticsResNameGetter.ResName' )% 
-    end // if
+   if ( ( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) |N ) ) %== '' ) then
+   begin
+    [%f] find_element %( '55B7A3AF0359' %, 'TtfwAxiomaticsResNameGetter.ResName' )% 
+   end // if
 
 
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
-    ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
+   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_var' %, 
 //	 {-}\
-    ' {-}'
+   ' {-}'
 //	)\
 )% ) 
 
 //	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
-    ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
-    [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
+   ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) %f set_uc_content %( 'intf.pas' %, '_'
+   [%f] pas_MethodOwnerID %( ( get_global_var ( 'TtfwAxiomaticsResNameGetter.ResName' ) ) %, ( get_global_var ( 'Class_Inst' ) ) )% '_impl' %, 
 //	 Result := '%f_pas_FileName(%S)';\
-    ' Result := '''
-    [%f] pas_FileName %( %S )% ''';'
+   ' Result := '''
+   [%f] pas_FileName %( %S )% ''';'
 //	)\
-)% ) //	]\
-   end // if
-
+)% ) 
 
 //	]\
   end // if
@@ -1610,8 +1611,8 @@ end. // <<SimpleClass>>
 ; // SpellScriptFramework
 
 : SpellFriends OBJECT IN %S
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%f_UseNewGenRecG(%S)!=true}\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
 //	%f_clear_list(FRIENDS)\
   [%f] clear_list %( 'FRIENDS' )% 
@@ -1713,8 +1714,8 @@ end. // <<SimpleClass>>
  begin
 //	%f_set_var(WasRegisterInEngine,"true")\
   [%f] set_var %( 'WasRegisterInEngine' %, true )% 
-//	[{%S#f_UseNewGenRec()!=true}\
-  if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%f_UseNewGenRecG(%S)!=true}\
+  if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
   begin
 //	%S%f_add_operation(%SU_Ini_Reg,ini,Ini_Reg (),Op_Instance)\
    %S %f add_operation %( %S |U '_Ini_Reg' %, 'ini' %, 'Ini_Reg ()' %, 'Op_Instance' )% 
@@ -1725,18 +1726,13 @@ end. // <<SimpleClass>>
    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
-//	[{%S#f_UseNewGenRec()!=true}\
-   if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
-   begin
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
-    ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
+   ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 %f_pas_TypeName(%S).RegisterInEngine;\
-    ' '
-    [%f] pas_TypeName %( %S )% '.RegisterInEngine;'
+   ' '
+   [%f] pas_TypeName %( %S )% '.RegisterInEngine;'
 //	)\
 )% ) //	]\
-   end // if
-//	]\
   end // if
 //	]
  end // if
@@ -2140,7 +2136,7 @@ implementation @ <<SimpleClass>>
    [%f] end_new_file %( %S )% 
 //	}\
   end // else
-//	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>\
+//	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%f_UseNewGenRecG(%C)!=true}%CX>\
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -2148,7 +2144,7 @@ implementation @ <<SimpleClass>>
    if ( ( [%f] ChildNeedOwnFile %( %C )% ) AND 
     ( ( %C %f IsClassInner %( )% ) %!=  true  ) AND 
     ( ( %C |O ) %!= ''  ) AND 
-    ( ( %C %?f UseNewGenRec %( )% ) %!=  true  ) ) then
+    ( ( [%f] UseNewGenRecG %( %C )% ) %!=  true  ) ) then
    begin
     %C |X 
     ++! l_Counter
@@ -2197,29 +2193,79 @@ implementation @ <<SimpleClass>>
 //+ spell
 <<generator>> spell OBJECT IN %S
 //#UC START# *4A41A13D03D5for471466900128*
-//	<%CX>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
+//	[{%f_UseNewGenRecG(%S)!=true|%f_SimpleClassNeedsSpell(%S)=true|%SS=TestCase|%SS=TestCaseMixIn}{\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true OR 
+   ( ( [%f] SimpleClassNeedsSpell %( %S )% ) %==  true  ) OR 
+   ( ( %S |S ) %== 'TestCase'  ) OR 
+   ( ( %S |S ) %== 'TestCaseMixIn'  ) ) then
  begin
-  OBJECT IN %C
-  if true then
+//	<%CX>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
   begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//	%S%f_DoSpell()
- %S %f DoSpell %( )% 
-//#UC END# *4A41A13D03D5for471466900128*
+   OBJECT IN %C
+   if true then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	%S#f_DoSpell()\
+  %S %?f DoSpell %( )% 
+//	]
+ end // if
+ else
+ begin
+//	<{}{%C#f_IsMethod()=true|%f_SimpleClassNeedsSpell(%C)=true}%CX>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsMethod %( )% ) %==  true OR 
+    ( ( [%f] SimpleClassNeedsSpell %( %C )% ) %==  true  ) ) then
+   begin
+    %C |X 
+    ++! l_Counter
+   end // if
+  end // for C
+//	}\
+ end // else
+
+//f _SimpleClassNeedsSpell
 ; // spell
+
+end. // <<SimpleClass>>
+
+: SimpleClassNeedsSpell OBJECT IN %S
+//	[{%SS=Service|%SS=ServiceImplementation|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication}{\
+ if ( ( %S |S ) %== 'Service' OR 
+   ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
+   ( ( %S |S ) %== 'GuiControl'  ) OR 
+   ( ( %S %?f IsVCMForm %( )% ) %==  true  ) OR 
+   ( ( %S %?f IsUserType %( )% ) %==  true  ) OR 
+   ( ( %S# ) '_IsControl()' %==  true  ) OR 
+   ( ( %S |S ) %== 'TestResults'  ) OR 
+   ( ( %S |S ) %== 'VCMApplication'  ) OR 
+   ( ( %S |S ) %== 'VCMTestApplication'  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	false\
+   false 
+//	}\
+ end // else
+//#UC END# *4A41A13D03D5for471466900128*
+; // SimpleClassNeedsSpell
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Вложенные стереотипы
 
 //: SimpleClass::Class::impurity value::Attribute
-end. // <<SimpleClass>>
-
 implementation @ :: <<SimpleClass>> <<"impurity value">> ;
 //? Значение параметра класса-примеси.
 //= ClassBaseGenerator::MDAGenerator

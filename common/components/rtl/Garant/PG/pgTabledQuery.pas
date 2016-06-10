@@ -65,7 +65,7 @@ constructor TpgTabledQuery.Create(const aFactory: IdaTableQueryFactory;
 //#UC END# *55F9617402F2_55F960D502F6_var*
 begin
 //#UC START# *55F9617402F2_55F960D502F6_impl*
- inherited Create(aDataConverter, aTable, anAlias);
+ inherited Create(aFactory, aDataConverter, aFromClause);
  aConnection.SetRefTo(f_Connection);
 //#UC END# *55F9617402F2_55F960D502F6_impl*
 end;//TpgTabledQuery.Create

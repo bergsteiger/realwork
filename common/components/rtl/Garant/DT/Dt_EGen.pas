@@ -1,8 +1,17 @@
 Unit Dt_EGen;
 
-{ $Id: Dt_EGen.pas,v 1.120 2015/11/23 11:37:15 lukyanets Exp $ }
+{ $Id: Dt_EGen.pas,v 1.122 2016/04/18 11:48:05 lukyanets Exp $ }
 
 // $Log: Dt_EGen.pas,v $
+// Revision 1.122  2016/04/18 11:48:05  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.121  2016/03/25 12:41:40  lukyanets
+// cleanup
+//
 // Revision 1.120  2015/11/23 11:37:15  lukyanets
 // Заготовки Renum
 //
@@ -381,7 +390,6 @@ Type
    Procedure   ExportKeyWordData(aFile : TFileName; aProgress : Tl3ProgressProc;
                                  aEmpty : Boolean; WithoutAbolished : Boolean = False);
    Procedure   ExportPriority(aFile : TFileName;aProgress : Tl3ProgressProc);
-   Procedure   ExportUsers(aFile : TFileName;aProgress : Tl3ProgressProc);
    Procedure   ExportDictionary(aDictType : TdaDictionaryType; aFile : TFileName;
                                 aProgress : Tl3ProgressProc);
    procedure   ExportDictWithLink(aAttrID : TdtAttribute;
@@ -1102,11 +1110,6 @@ Begin
 
   l3Free(lOutStream);
  end;
-end;
-
-Procedure TDocExportGenerator.ExportUsers(aFile : TFileName;aProgress : Tl3ProgressProc);
-Begin
- GetDictList(UserManager.UserTbl,'Экспорт Пользователей',aFile,aProgress);
 end;
 
 Procedure TDocExportGenerator.ExportDictionary(aDictType : TdaDictionaryType;

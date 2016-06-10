@@ -1,8 +1,23 @@
 Unit Dt_BBLog;
 
-{ $Id: DT_BBLOG.PAS,v 1.71 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_BBLOG.PAS,v 1.74 2016/04/22 11:39:39 lukyanets Exp $ }
 
 // $Log: DT_BBLOG.PAS,v $
+// Revision 1.74  2016/04/22 11:39:39  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.73  2016/04/18 11:48:05  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.72  2016/03/25 12:41:40  lukyanets
+// cleanup
+//
 // Revision 1.71  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -305,7 +320,8 @@ uses
   l3String,
   l3TreeInterfaces,
 
-  daSchemeConsts, 
+  daSchemeConsts,
+  daDataProvider, 
 
   HT_Dll,
   Dt_Err,
@@ -534,7 +550,7 @@ begin
         then
          begin
           TmpNode:=fCurStatTree.InsertNode(fCurStatTree.RootNode,
-                                  MakeNode(PChar(UserManager.UserTbl.GetNameStr(LogRec^.ExtID))));
+                                  MakeNode(PChar(GlobalDataProvider.UserManager.GetUserName(LogRec^.ExtID))));
           (TmpNode as Il3HandleNode).Handle:=LogRec^.ExtID;
          end;
        StDateToDMY(LogRec^.Date,Day,Month,Year);
@@ -705,7 +721,7 @@ begin
    // Если нет, то получаем этого пользователя
    if UserGr then
    begin
-    l_ResultSab := MakeSab(UserManager.LinkTbl.Table, UserManager.GetUserIDSabOnGroup(ID));
+    l_ResultSab := UserManager.xxxGetUserGroupsList(ID);
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(Self));
     l_ResultSab.RecordsByKey;
    end

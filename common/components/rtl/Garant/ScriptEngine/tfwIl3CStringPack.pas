@@ -3782,10 +3782,66 @@ function TkwStringHash48.string_Hash48(const aCtx: TtfwContext;
  const aString: Il3CString): AnsiString;
  {* Реализация слова скрипта string:Hash48 }
 //#UC START# *5739908903BB_5739908903BB_46780DA40383_Word_var*
+(*
+// вычисляет 48-ми битный хэш строки
+unsigned long long RoseElement::hash48 (const std::string& src) const {
+    //алгоритм из книжки "Фундаментальные алгоритмы на С++ (Р. Седжвик)"
+    ACE_UINT64 hash = 0;
+    ACE_UINT64 M = 0xFFFFFFFFFFFFLL;
+    ACE_UINT64 a = 31415;
+    ACE_UINT64 b = 27183;
+
+    for (std::string::const_iterator it = src.begin (); it != src.end (); ++it) {
+        hash = (a*hash + static_cast<ACE_UINT64> (*it)) % M;
+        a = a*b % (M - 1);
+    }
+
+    return hash;
+}
+*)
+
+(*function FMod(x, y: Extended): Extended;
+begin
+ Result := x - (Trunc(x / y)) * y;
+end;
+
+const
+ M  = $FFFFFFFFFFFF;
+var
+ l_Hash : Extended;
+ l_Index : Integer;
+ l_S : AnsiString;
+ a : Extended;
+ b : Extended;*)
+const
+ M  = $FFFFFFFFFFFF;
+var
+ l_Hash : Int64;
+ l_Index : Integer;
+ l_S : AnsiString;
+ a : Int64;
+ b : Int64;
 //#UC END# *5739908903BB_5739908903BB_46780DA40383_Word_var*
 begin
 //#UC START# *5739908903BB_5739908903BB_46780DA40383_Word_impl*
- !!! Needs to be implemented !!!
+ {$OVERFLOWCHECKS OFF}
+ a := 31415;
+ b := 27183;
+ l_Hash := 0;
+ l_S := l3Str(aString);
+(* for l_Index := 1 to Length(l_S) do
+ begin
+  l_Hash := FMod((a*l_Hash + Int64(Ord(l_S[l_Index]))), M);
+  a := FMod(a*b, M - 1);
+ end;//for l_Index
+ Result := SysUtils.IntToHex(Trunc(l_Hash), 6);*)
+ for l_Index := 1 to Length(l_S) do
+ begin
+  l_Hash := (a*l_Hash + Int64(Ord(l_S[l_Index]))) mod M;
+  a := (a*b) mod (M - 1);
+ end;//for l_Index
+// l_Hash := _hash48(@l_S);
+ Result := SysUtils.IntToHex(l_Hash, 6);
 //#UC END# *5739908903BB_5739908903BB_46780DA40383_Word_impl*
 end;//TkwStringHash48.string_Hash48
 

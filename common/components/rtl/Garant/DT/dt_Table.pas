@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.61 2016/01/22 12:18:59 lukyanets Exp $ }
+{ $Id: dt_Table.pas,v 1.62 2016/06/09 08:50:19 voba Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.62  2016/06/09 08:50:19  voba
+// -k:623267081
+//
 // Revision 1.61  2016/01/22 12:18:59  lukyanets
 // Переосмысливаем мигратор
 //
@@ -501,7 +504,18 @@ begin
    for I := 1 to aRecCount do
    begin
     if aFillBuffProc(lCurRec, RecSize) = RecSize then
+    try
      dtCheckErr(htRecordAdd(Handle, lCurRec));
+    except
+     on E : EHtErrors do
+      if E.ErrorValue = -13 then
+      begin
+       l3System.Msg2Log('Record: ' + RecordAsString(lCurRec));
+       l3System.Exception2Log(E);
+      end 
+      else Raise;
+     else Raise;
+    end;
    end;
   {$IfDef DEBUGOUT2}
   l3System.Msg2Log('AddRecs Singl (Table = %s) RecCount=%d : %s', [TblName, aRecCount, dbgFinishTimeCounter(lStartTime)]);

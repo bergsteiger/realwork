@@ -1,167 +1,146 @@
 unit DragData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/DragData.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT::vtCommon::DragData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\DragData.pas"
+// Стереотип: "UtilityPack"
+// Элемент модели: "DragData" MUID: (4F0C0B6801C7)
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Messages,
-  l3Base,
-  l3Except,
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Windows
-  ;
+ l3IntfUses
+ , Messages
+ , Windows
+ , l3Except
+ , l3Base
+ , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+;
+
+const
+ wm_DropAccept = Messages.WM_USER + $100;
+ wm_DropAccepted = Messages.WM_USER + $101;
 
 type
  TDragDataState = (
-   dsPassive
- , dsActive
- , dsPaused
+  dsPassive
+  , dsActive
+  , dsPaused
  );//TDragDataState
 
- TGetCursorByType = function (DDType: Integer): HCURSOR;
-
 const
-  { NewNestedConstants }
- wm_DropAccept = Messages.WM_USER + $100;
- wm_DropAccepted = Messages.WM_USER + $101;
  cnActiveState = [dsActive, dsPaused];
 
 type
+ TGetCursorByType = function(DDType: Integer): HCURSOR;
+
  EDragInProcess = class(El3NoLoggedException)
- public
- // public methods
+  public
    constructor Create; reintroduce;
  end;//EDragInProcess
 
  TDragDataSupport = class(Tl3Base, Il3WndProcListener, Il3WndProcRetListener, Il3MouseListener)
- private
- // private fields
-   f_PrevMRecurse : Boolean;
-   f_PrevWRecurse : Boolean;
-   f_NeedStop : Boolean;
-   f_DCursor : HCURSOR;
-    {* Поле для свойства DCursor}
-   f_DragDataType : Integer;
-    {* Поле для свойства DragDataType}
-   f_DragData : Pointer;
-    {* Поле для свойства DragData}
-   f_AnswerData : Pointer;
-    {* Поле для свойства AnswerData}
-   f_SourceControl : TControl;
-    {* Поле для свойства SourceControl}
-   f_DragState : TDragDataState;
-    {* Поле для свойства DragState}
-   f_DragSuccess : Boolean;
-    {* Поле для свойства DragSuccess}
-   f_OnDragStop : TNotifyEvent;
-    {* Поле для свойства OnDragStop}
-   f_OnGetCursorByType : TGetCursorByType;
-    {* Поле для свойства OnGetCursorByType}
- private
- // private methods
+  private
+   f_PrevMRecurse: Boolean;
+   f_PrevWRecurse: Boolean;
+   f_NeedStop: Boolean;
+   f_DCursor: HCURSOR;
+    {* Поле для свойства DCursor }
+   f_DragDataType: Integer;
+    {* Поле для свойства DragDataType }
+   f_DragData: Pointer;
+    {* Поле для свойства DragData }
+   f_AnswerData: Pointer;
+    {* Поле для свойства AnswerData }
+   f_SourceControl: TControl;
+    {* Поле для свойства SourceControl }
+   f_DragState: TDragDataState;
+    {* Поле для свойства DragState }
+   f_DragSuccess: Boolean;
+    {* Поле для свойства DragSuccess }
+   f_OnDragStop: TNotifyEvent;
+    {* Поле для свойства OnDragStop }
+   f_OnGetCursorByType: TGetCursorByType;
+    {* Поле для свойства OnGetCursorByType }
+  private
    procedure InitListeners;
-     {* Сигнатура метода InitListeners }
    procedure RemoveListeners;
-     {* Сигнатура метода RemoveListeners }
- protected
- // property methods
+  protected
    procedure pm_SetDragDataType(aValue: Integer);
    procedure pm_SetDragData(aValue: Pointer);
- protected
- // realized methods
    procedure MouseListenerNotify(aMouseMessage: WPARAM;
-     aHookStruct: PMouseHookStruct;
-     var theResult: Tl3HookProcResult);
+    aHookStruct: PMouseHookStruct;
+    var theResult: Tl3HookProcResult);
    procedure WndProcListenerNotify(Msg: PCWPStruct;
-     var theResult: Tl3HookProcResult);
+    var theResult: Tl3HookProcResult);
    procedure WndProcRetListenerNotify(Msg: PCWPRetStruct;
-     var theResult: Tl3HookProcResult);
- public
- // public methods
+    var theResult: Tl3HookProcResult);
+  public
    function DoDrop(aDestControl: TControl = nil): Boolean;
    function Execute(SrcControl: TControl): Boolean;
    procedure RunDragData(SrcControl: TControl);
    procedure Stop(aSuccess: Boolean);
    procedure Pause;
-     {* Сигнатура метода Pause }
    procedure Restore;
-     {* Сигнатура метода Restore }
    procedure CheckInProgress;
-     {* Сигнатура метода CheckInProgress }
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property DCursor: HCURSOR
-     read f_DCursor
-     write f_DCursor;
-   property DragDataType: Integer
-     read f_DragDataType
-     write pm_SetDragDataType;
-   property DragData: Pointer
-     read f_DragData
-     write pm_SetDragData;
-   property AnswerData: Pointer
-     read f_AnswerData
-     write f_AnswerData;
-   property SourceControl: TControl
-     read f_SourceControl;
-   property DragState: TDragDataState
-     read f_DragState;
-   property DragSuccess: Boolean
-     read f_DragSuccess;
-   property OnDragStop: TNotifyEvent
-     read f_OnDragStop
-     write f_OnDragStop;
-   property OnGetCursorByType: TGetCursorByType
-     read f_OnGetCursorByType
-     write f_OnGetCursorByType;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TDragDataSupport;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TDragDataSupport }
+  public
+   property DCursor: HCURSOR
+    read f_DCursor
+    write f_DCursor;
+   property DragDataType: Integer
+    read f_DragDataType
+    write pm_SetDragDataType;
+   property DragData: Pointer
+    read f_DragData
+    write pm_SetDragData;
+   property AnswerData: Pointer
+    read f_AnswerData
+    write f_AnswerData;
+   property SourceControl: TControl
+    read f_SourceControl;
+   property DragState: TDragDataState
+    read f_DragState;
+   property DragSuccess: Boolean
+    read f_DragSuccess;
+   property OnDragStop: TNotifyEvent
+    read f_OnDragStop
+    write f_OnDragStop;
+   property OnGetCursorByType: TGetCursorByType
+    read f_OnGetCursorByType
+    write f_OnGetCursorByType;
  end;//TDragDataSupport
 
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  kwVTControlsPack
-  {$IfEnd} //not NoScripts
-  ,
-  afwFacade,
-  l3ListenersManager
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , afwFacade
+ , l3ListenersManager
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , kwVTControlsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+;
 
-// start class EDragInProcess
+var g_TDragDataSupport: TDragDataSupport = nil;
+ {* Экземпляр синглетона TDragDataSupport }
+
+procedure TDragDataSupportFree;
+ {* Метод освобождения экземпляра синглетона TDragDataSupport }
+begin
+ l3Free(g_TDragDataSupport);
+end;//TDragDataSupportFree
 
 constructor EDragInProcess.Create;
 //#UC START# *5530C7180149_552FCE4601AC_var*
@@ -172,25 +151,36 @@ begin
 //#UC END# *5530C7180149_552FCE4601AC_impl*
 end;//EDragInProcess.Create
 
-// start class TDragDataSupport
-
-var g_TDragDataSupport : TDragDataSupport = nil;
-
-procedure TDragDataSupportFree;
+procedure TDragDataSupport.pm_SetDragDataType(aValue: Integer);
+//#UC START# *552FD2B903C5_4F0C0B870141set_var*
+var
+ lCursor: HCURSOR;
+//#UC END# *552FD2B903C5_4F0C0B870141set_var*
 begin
- l3Free(g_TDragDataSupport);
-end;
-
-class function TDragDataSupport.Instance: TDragDataSupport;
-begin
- if (g_TDragDataSupport = nil) then
+//#UC START# *552FD2B903C5_4F0C0B870141set_impl*
+ f_DragDataType := aValue;
+ lCursor := 0;
+ if Assigned(f_OnGetCursorByType) then
  begin
-  l3System.AddExitProc(TDragDataSupportFree);
-  g_TDragDataSupport := Create;
+  lCursor := f_OnGetCursorByType(f_DragDataType);
+  if lCursor > 0 then
+   f_DCursor := lCursor;
  end;
- Result := g_TDragDataSupport;
-end;
+ if lCursor = 0 then
+  f_DCursor := Screen.Cursors[crDefault];
+//#UC END# *552FD2B903C5_4F0C0B870141set_impl*
+end;//TDragDataSupport.pm_SetDragDataType
 
+procedure TDragDataSupport.pm_SetDragData(aValue: Pointer);
+//#UC START# *552FD48A0290_4F0C0B870141set_var*
+//#UC END# *552FD48A0290_4F0C0B870141set_var*
+begin
+//#UC START# *552FD48A0290_4F0C0B870141set_impl*
+ CheckInProgress;
+ Stop(False);
+ f_DragData := aValue;
+//#UC END# *552FD48A0290_4F0C0B870141set_impl*
+end;//TDragDataSupport.pm_SetDragData
 
 procedure TDragDataSupport.InitListeners;
 //#UC START# *552FDEE30376_4F0C0B870141_var*
@@ -351,46 +341,15 @@ begin
 //#UC END# *552FE01A0138_4F0C0B870141_impl*
 end;//TDragDataSupport.CheckInProgress
 
-procedure TDragDataSupport.pm_SetDragDataType(aValue: Integer);
-//#UC START# *552FD2B903C5_4F0C0B870141set_var*
-var
- lCursor: HCURSOR;
-//#UC END# *552FD2B903C5_4F0C0B870141set_var*
-begin
-//#UC START# *552FD2B903C5_4F0C0B870141set_impl*
- f_DragDataType := aValue;
- lCursor := 0;
- if Assigned(f_OnGetCursorByType) then
- begin
-  lCursor := f_OnGetCursorByType(f_DragDataType);
-  if lCursor > 0 then
-   f_DCursor := lCursor;
- end;
- if lCursor = 0 then
-  f_DCursor := Screen.Cursors[crDefault];
-//#UC END# *552FD2B903C5_4F0C0B870141set_impl*
-end;//TDragDataSupport.pm_SetDragDataType
-
-procedure TDragDataSupport.pm_SetDragData(aValue: Pointer);
-//#UC START# *552FD48A0290_4F0C0B870141set_var*
-//#UC END# *552FD48A0290_4F0C0B870141set_var*
-begin
-//#UC START# *552FD48A0290_4F0C0B870141set_impl*
- CheckInProgress;
- Stop(False);
- f_DragData := aValue;
-//#UC END# *552FD48A0290_4F0C0B870141set_impl*
-end;//TDragDataSupport.pm_SetDragData
-
 class function TDragDataSupport.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TDragDataSupport <> nil;
 end;//TDragDataSupport.Exists
 
 procedure TDragDataSupport.MouseListenerNotify(aMouseMessage: WPARAM;
-  aHookStruct: PMouseHookStruct;
-  var theResult: Tl3HookProcResult);
+ aHookStruct: PMouseHookStruct;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CEDF005A_4F0C0B870141_var*
 var
  DestCtrl: TControl;
@@ -453,7 +412,7 @@ begin
 end;//TDragDataSupport.MouseListenerNotify
 
 procedure TDragDataSupport.WndProcListenerNotify(Msg: PCWPStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF3400BB_4F0C0B870141_var*
 //#UC END# *4F79CF3400BB_4F0C0B870141_var*
 begin
@@ -472,7 +431,7 @@ begin
 end;//TDragDataSupport.WndProcListenerNotify
 
 procedure TDragDataSupport.WndProcRetListenerNotify(Msg: PCWPRetStruct;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79CF9200A0_4F0C0B870141_var*
 //#UC END# *4F79CF9200A0_4F0C0B870141_var*
 begin
@@ -486,5 +445,16 @@ begin
  end;
 //#UC END# *4F79CF9200A0_4F0C0B870141_impl*
 end;//TDragDataSupport.WndProcRetListenerNotify
+
+class function TDragDataSupport.Instance: TDragDataSupport;
+ {* Метод получения экземпляра синглетона TDragDataSupport }
+begin
+ if (g_TDragDataSupport = nil) then
+ begin
+  l3System.AddExitProc(TDragDataSupportFree);
+  g_TDragDataSupport := Create;
+ end;
+ Result := g_TDragDataSupport;
+end;//TDragDataSupport.Instance
 
 end.

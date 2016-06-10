@@ -5,778 +5,6 @@ unit evNSRWrt;
 { Автор: Люлин А.В. ©     }
 { Модуль: evNSRWrt - генератор текстов в формате NSRC }
 { Начат: 04.10.1999 17:55 }
-{ $Id: evNSRWrt.pas,v 1.268 2016/03/22 12:08:56 lulin Exp $ }
-
-// $Log: evNSRWrt.pas,v $
-// Revision 1.268  2016/03/22 12:08:56  lulin
-// {RequestLink;620241155}
-//
-// Revision 1.267  2016/03/16 14:25:33  lulin
-// {RequestLink:619944727}
-//
-// Revision 1.266  2016/03/16 14:09:21  lulin
-// {RequestLink:619944727}
-//
-// Revision 1.265  2016/03/16 13:38:43  lulin
-// {RequestLink:619944727}
-//
-// Revision 1.264  2016/03/14 17:14:26  lulin
-// {RequestLink:619577264}.
-// - не пишем размер шрифта.
-//
-// Revision 1.263  2016/03/14 17:08:18  lulin
-// {RequestLink:619577264}.
-// - не пишем размер шрифта.
-//
-// Revision 1.262  2016/03/14 16:42:43  lulin
-// {RequestLink:619577264}.
-// - не пишем размер шрифта.
-//
-// Revision 1.260  2016/03/10 13:02:08  lulin
-// - пишем "Заголовок приложения" как STYLE #.
-//
-// Revision 1.259  2016/02/25 12:52:12  lulin
-// http://mdp.garant.ru/pages/viewpage.action?pageId=613523384&focusedCommentId=618672977&#comment-618672977
-//
-// Revision 1.258  2016/02/25 12:10:16  lulin
-// http://mdp.garant.ru/pages/viewpage.action?pageId=613523384&focusedCommentId=618672977&#comment-618672977
-//
-// Revision 1.257  2015/12/24 07:29:44  dinishev
-// Откатил хитрую проверку на слой сегмента - картинки пропадали.
-//
-// Revision 1.256  2015/12/23 09:24:09  dinishev
-// {Requestlink:614228201}
-//
-// Revision 1.254  2015/12/23 08:09:16  dinishev
-// Cleanup
-//
-// Revision 1.253  2015/12/23 07:46:53  fireton
-// - переименовал SkipErrors в SkipInvalidPictures и сделал его свойством
-//
-// Revision 1.252  2015/12/09 11:45:50  lulin
-// - костыляем за Бежаном.
-//
-// Revision 1.251  2015/10/22 15:03:42  lulin
-// - вычисляем необходимость корректировки.
-//
-// Revision 1.250  2015/10/22 14:47:27  lulin
-// - задаём ID документа снаружи.
-//
-// Revision 1.249  2015/10/21 16:11:13  lulin
-// {RequestLink:605383118}.
-// - Добавляем фильтр шрифтов.
-// - Пигем список номеров документов.
-//
-// Revision 1.248  2015/10/21 15:59:17  lulin
-// {RequestLink:605383118}.
-// - Добавляем фильтр шрифтов.
-// - Пигем список номеров документов.
-//
-// Revision 1.247  2015/10/21 14:51:45  lulin
-// {RequestLink:605383118}.
-//
-// Revision 1.245  2015/10/14 15:42:20  lulin
-// {RequestLink:608627000}.
-//
-// Revision 1.244  2015/10/13 14:43:17  lulin
-// {RequestLink:598136171}
-//
-// Revision 1.243  2015/10/13 14:22:51  lulin
-// {RequestLink:598136171}
-//
-// Revision 1.242  2015/10/13 14:17:47  lulin
-// {RequestLink:598136171}
-//
-// Revision 1.240  2015/10/13 13:57:59  lulin
-// {RequestLink:598136171}
-//
-// Revision 1.239  2015/10/13 13:49:44  lulin
-// - заготовочка.
-//
-// Revision 1.238  2015/08/19 15:05:30  lulin
-// http://mdp.garant.ru/pages/viewpage.action?pageId=604899511&focusedCommentId=605829699#comment-605829699
-//
-// Revision 1.237  2015/08/19 11:36:52  lulin
-// http://mdp.garant.ru/pages/viewpage.action?pageId=604899511&focusedCommentId=605829699#comment-605829699
-//
-// Revision 1.236  2015/08/18 14:23:41  lulin
-// {RequestLink:604929313}
-//
-// Revision 1.235  2015/08/18 11:45:46  lulin
-// - не пишем видимость.
-//
-// Revision 1.234  2015/08/17 15:36:46  lulin
-// {RequestLink:604929290}
-//
-// Revision 1.233  2015/08/17 14:05:01  lulin
-// - так правильнее.
-//
-// Revision 1.232  2015/08/17 13:11:29  lulin
-// {RequestLink:604929313}.
-//
-// Revision 1.231  2015/08/17 11:40:55  lulin
-// {RequestLink:604929313}.
-//
-// Revision 1.230  2015/08/17 11:35:10  lulin
-// {RequestLink:604929313}.
-//
-// Revision 1.229  2015/08/17 11:07:31  lulin
-// - дотачиваем "корректиовщик формул".
-//
-// Revision 1.226  2015/08/17 10:44:44  lulin
-// - вырезаем начальные пробелы.
-//
-// Revision 1.223  2015/08/17 10:32:20  lulin
-// - убираем концевые пробелы.
-//
-// Revision 1.220  2015/08/17 10:21:11  lulin
-// - пишем оформление.
-//
-// Revision 1.218  2015/08/17 09:53:37  lulin
-// - не фильтруем сегменты со шрифтом.
-//
-// Revision 1.217  2015/08/17 09:40:04  lulin
-// - заготовочка.
-//
-// Revision 1.214  2015/08/17 09:28:32  lulin
-// - заготовочка.
-//
-// Revision 1.212  2015/06/24 12:01:09  dinishev
-// {Requestlink:601992686}
-//
-// Revision 1.211  2015/03/10 08:28:14  dinishev
-// {Requestlink:590512137}. Bug fix: удаляли лишние пробелы.
-//
-// Revision 1.210  2014/12/17 17:32:27  lulin
-// {RequestLink:585129079}
-//
-// Revision 1.209  2014/12/17 17:05:15  lulin
-// {RequestLink:585129079}. Диагностика.
-//
-// Revision 1.208  2014/12/17 16:29:56  lulin
-// {RequestLink:585129079}.
-//
-// Revision 1.207  2014/09/04 12:07:59  dinishev
-// {Requestlink:564750095}. Использование "тестовых" ручек вышло боком.
-//
-// Revision 1.206  2014/09/04 11:43:50  dinishev
-// {Requestlink:564750095}
-//
-// Revision 1.205  2014/09/01 12:09:28  dinishev
-// Assert на отсутствие содержимого картинки.
-//
-// Revision 1.204  2014/08/29 12:24:43  lulin
-// - вычищаем ненужную директиву.
-//
-// Revision 1.203  2014/05/20 11:53:05  dinishev
-// {Requestlink:532634915}. Правлю удалением лишних сегментов.
-//
-// Revision 1.202  2014/04/10 11:59:50  lulin
-// - переходим от интерфейсов к объектам.
-//
-// Revision 1.201  2014/04/08 17:13:19  lulin
-// - переходим от интерфейсов к объектам.
-//
-// Revision 1.200  2014/04/07 09:33:59  lulin
-// - переходим от интерфейсов к объектам.
-//
-// Revision 1.199  2014/04/07 06:02:21  dinishev
-// Bug fix: не компилировались проекты.
-//
-// Revision 1.198  2014/03/27 14:29:01  lulin
-// - переходим от интерфейсов к объектам.
-//
-// Revision 1.197  2014/03/03 16:07:47  lulin
-// - избавляемся от странностей.
-//
-// Revision 1.196  2014/02/28 14:54:15  lulin
-// - перетряхиваем генераторы.
-//
-// Revision 1.195  2014/02/25 16:44:11  lulin
-// - исправляем плаввающую ошибку записи в NSRC.
-//
-// Revision 1.194  2014/02/25 15:26:44  lulin
-// - вычищаем ненужное.
-//
-// Revision 1.193  2014/02/25 14:17:37  lulin
-// - чистим параметры.
-//
-// Revision 1.192  2014/02/07 04:46:47  dinishev
-// Bug fix: не компилировались исходники.
-//
-// Revision 1.191  2014/02/06 13:23:09  dinishev
-// {Requestlink:509085881}
-//
-// Revision 1.190  2013/12/26 15:14:20  dinishev
-// {Requestlink:511186785}. Последний вариант.
-//
-// Revision 1.189  2013/12/26 13:00:41  dinishev
-// {Requestlink:511186785}
-//
-// Revision 1.188  2013/12/26 11:46:12  lulin
-// {RequestLink:509706011}
-//
-// Revision 1.187  2013/12/25 08:42:26  dinishev
-// Bug fix: при выливке только с номерами стилей оставляли "мордочки"
-//
-// Revision 1.186  2013/12/17 13:44:01  dinishev
-// {Requestlink:508453984}
-//
-// Revision 1.185  2013/12/13 11:56:39  dinishev
-// {Requestlink:508453984}. Директиву добавил. Начались "спецэффекты".
-//
-// Revision 1.184  2013/10/28 10:07:54  lulin
-// - готовимся к смене типа значения по-муоолчанию.
-//
-// Revision 1.183  2013/10/21 15:42:58  lulin
-// - потихоньку избавляемся от использования идентификаторов типов тегов.
-//
-// Revision 1.182  2013/10/21 10:30:41  lulin
-// - потихоньку избавляемся от использования идентификаторов типов тегов.
-//
-// Revision 1.181  2013/10/18 14:11:23  lulin
-// - потихоньку избавляемся от использования идентификаторов типов тегов.
-//
-// Revision 1.180  2013/05/07 09:25:18  voba
-// - K:453164162
-//
-// Revision 1.179  2013/04/09 07:59:15  dinishev
-// Bug fix; устраняем последствия портирования - не проходил тест с выливкой формулы.
-//
-// Revision 1.178  2013/04/05 12:02:16  lulin
-// - портируем.
-//
-// Revision 1.177  2013/02/19 08:18:53  dinishev
-// {Requestlink:338461122}. Проверка создания файла с картинкой.
-//
-// Revision 1.176  2013/02/18 10:53:15  lulin
-// - аккуратнее обращаемся с позицией потока.
-//
-// Revision 1.175  2013/02/14 10:49:07  narry
-// Новые параметры картинки - ширина и высота
-//
-// Revision 1.174  2012/12/04 12:56:07  lulin
-// {RequestLink:398275085}
-//
-// Revision 1.173  2012/12/04 10:13:22  lulin
-// {RequestLink:408654725}
-//
-// Revision 1.172  2012/07/12 19:17:43  lulin
-// {RequestLink:237994598}
-//
-// Revision 1.171  2012/04/20 14:56:33  lulin
-// {RequestLink:283610570}
-//
-// Revision 1.170  2012/03/28 13:49:29  narry
-// Формирование расширения для картинки без расширения
-//
-// Revision 1.169  2012/03/28 13:25:46  narry
-// Формирование расширения для картинки
-//
-// Revision 1.168  2012/03/15 13:16:29  voba
-// - k : 336664105
-//
-// Revision 1.167  2012/03/05 11:23:24  lulin
-// {RequestLink:342865677}
-//
-// Revision 1.166  2012/02/29 09:09:44  lulin
-// {RequestLink:336664105}
-//
-// Revision 1.165  2012/02/29 08:32:34  lulin
-// {RequestLink:336664105}
-//
-// Revision 1.164  2012/02/29 07:26:17  lulin
-// {RequestLink:336664105}.
-//
-// Revision 1.163  2012/02/28 16:23:48  lulin
-// {RequestLink:336664105}
-//
-// Revision 1.162  2012/02/28 16:15:49  lulin
-// {RequestLink:336664105}
-//
-// Revision 1.161  2012/02/28 13:09:03  lulin
-// {RequestLink:336664105}
-//
-// Revision 1.159  2011/10/05 11:03:07  voba
-// - k : 281525254 Борьба с утечками
-//
-// Revision 1.158  2011/08/31 13:35:59  dinishev
-// [$280859299]
-//
-// Revision 1.157  2011/08/03 10:00:26  dinishev
-// [$235058873]
-//
-// Revision 1.156  2011/07/29 10:42:44  dinishev
-// [$276535467]
-//
-// Revision 1.155  2011/05/27 13:30:46  dinishev
-// [$267324701]. Вытираем мусор из текста формулы.
-//
-// Revision 1.154  2010/11/30 11:47:02  lulin
-// {RequestLink:228688602}.
-// - борьба с предупреждениями.
-//
-// Revision 1.153  2010/09/21 10:37:16  lulin
-// {RequestLink:235054083}.
-//
-// Revision 1.152  2010/08/11 09:05:17  dinishev
-// [$182452385]. Вернул, т.к. в Немезисе и в модели разъехалось - недоглядел. :-(
-//
-// Revision 1.16  2010/08/11 06:48:44  dinishev
-// [$182452385]
-//
-// Revision 1.150  2010/06/18 14:14:46  lulin
-// {RequestLink:182452717}.
-// - меняем способ нумерования версий. Теперь версии нумеруем с шагом 20. 0-е - это Архивариус, 1-е - это F1.
-//
-// Revision 1.149  2010/05/20 05:15:44  narry
-// - K214073721
-//
-// Revision 1.148  2010/05/13 09:47:50  dinishev
-// Cleanup
-//
-// Revision 1.147  2010/05/12 15:08:41  dinishev
-// [$210438308]
-//
-// Revision 1.146  2010/05/12 11:41:32  narry
-// - заточки под конвертер
-//
-// Revision 1.145  2010/05/06 12:39:40  lulin
-// {RequestLink:210043510}.
-//
-// Revision 1.144  2010/05/05 14:22:44  lulin
-// {RequestLink:209584396}.
-//
-// Revision 1.143  2010/05/05 14:08:07  lulin
-// {RequestLink:209584396}.
-// - тест подточен под архивариус.
-//
-// Revision 1.142  2010/05/05 13:48:19  lulin
-// {RequestLink:209584396}.
-// - добавлен тест.
-//
-// Revision 1.141  2010/04/29 10:02:49  lulin
-// {RequestLink:207389888}.
-//                                                          
-// Revision 1.140  2010/04/28 14:08:19  lulin
-// {RequestLink:207388924}.
-//
-// Revision 1.139  2010/04/20 12:48:30  lulin
-// {RequestLink:180060974}.
-// - bug fix: в "Немезисе" NSRC писался не так как в Архивариусе.
-//
-// Revision 1.137  2010/04/02 13:35:22  lulin
-// {RequestLink:200901262}.
-//
-// Revision 1.136  2010/04/02 09:55:04  fireton
-// - удаляем пробелы в формулах при выливке NSRC
-//
-// Revision 1.135  2010/04/01 13:53:16  lulin
-// - комментарий.
-//
-// Revision 1.134  2010/04/01 13:40:34  lulin
-// - комментарий.
-//
-// Revision 1.133  2010/04/01 13:39:04  lulin
-// - ссылка на обсуждение.
-//
-// Revision 1.132  2010/03/26 13:02:07  lulin
-// {RequestLink:199590833}.
-// - записываем размер кегля для печати.
-//
-// Revision 1.131  2010/03/26 11:24:10  lulin
-// {RequestLink:199590833}.
-// - добавляем тест записи размеря кегля для печати.
-//
-// Revision 1.130  2010/01/22 19:10:28  lulin
-// - в тестах тоже корректно пишем адреса гиперссылок.
-//
-// Revision 1.129  2010/01/22 18:55:34  lulin
-// - упорядочиваем код.
-// - пишем тест на проверку того, что стиль при заливке из NSRC меняется.
-//
-// Revision 1.128  2010/01/22 17:39:37  lulin
-// - делаем тест для "бубны".
-//
-// Revision 1.127  2009/09/11 08:28:57  voba
-// - Header формируется один раз. (Экономим память)
-//
-// Revision 1.126  2009/07/07 09:27:40  lulin
-// - правим форматирование.
-//
-// Revision 1.125  2009/07/03 16:24:02  lulin
-// - шаг к переходу от интерфейсов к объектам.
-//
-// Revision 1.124  2009/05/15 14:17:55  dinishev
-// [$147490351]
-//
-// Revision 1.123  2009/03/04 14:17:42  lulin
-// - <K>: 137470629. Генерируем идентификаторы типов с модели и убираем их из общей помойки.
-//
-// Revision 1.122  2009/01/13 17:00:39  lulin
-// - bug fix: не пишем кодировку, если она совпадает с целевой.
-//
-// Revision 1.121  2009/01/13 16:21:00  narry
-// - татары
-//
-// Revision 1.120  2008/12/23 10:10:24  dinishev
-// Bug fix: тормоза при выливке из-за неициализированной переменной.
-//
-// Revision 1.119  2008/12/18 14:42:47  lulin
-// - <K>: 132222370.
-//
-// Revision 1.118  2008/12/18 13:58:30  lulin
-// - <K>: 132222370. Локализуем место выставления целевой кодировки.
-//
-// Revision 1.117  2008/12/12 19:26:07  lulin
-// - <K>: 129762414.
-//
-// Revision 1.116  2008/09/23 12:17:56  fireton
-// - импорт/экспорт номера судебного дела
-//
-// Revision 1.115  2008/09/10 11:35:55  dinishev
-// Bug fix: при анализе забывали об реальном окончании гиперссыкли
-//
-// Revision 1.114  2008/09/09 08:22:48  dinishev
-// Bug fix: не сбрасывали найденные позиции при поиске пробелов
-//
-// Revision 1.113  2008/08/28 07:02:06  dinishev
-// Bug fix: проверяем наличие пробелов перед гиперссылкой
-//
-// Revision 1.112  2008/06/20 14:48:50  lulin
-// - используем префиксы элементов.
-//
-// Revision 1.111  2008/05/26 15:27:11  lulin
-// - <K>: 91850556.
-//
-// Revision 1.110  2008/05/26 12:03:42  lulin
-// - поправлена информация о версии генератора.
-//
-// Revision 1.109  2008/05/26 08:19:58  lulin
-// - работы по <K>: 91848978.
-//
-// Revision 1.108  2008/05/21 17:05:14  lulin
-// - <K>: 90441490.
-//
-// Revision 1.107  2008/03/03 20:05:45  lulin
-// - <K>: 85721135.
-//
-// Revision 1.106  2007/12/04 13:04:55  lulin
-// - объединяем два каталога с исходниками Эвереста.
-//
-// Revision 1.14  2007/11/22 07:36:10  voba
-// - enh. фильтруем _k2_idBookmark
-//
-// Revision 1.13  2007/10/18 13:08:01  voba
-// - откат пред. изменений. Поправили в другом месте
-//
-// Revision 1.12  2007/10/17 07:21:06  voba
-// - bug fix от Шуры
-//
-// Revision 1.11  2007/10/09 14:17:27  lulin
-// - bug fix: не собирался Эверест.
-//
-// Revision 1.10  2007/09/21 12:58:16  lulin
-// - сделана выливка формул в NSRC.
-//
-// Revision 1.9  2007/09/14 13:26:02  lulin
-// - объединил с веткой B_Tag_Clean.
-//
-// Revision 1.8.4.1  2007/09/12 19:13:17  lulin
-// - bug fix: не собирался Эверест.
-//
-// Revision 1.8  2007/08/29 12:37:06  lulin
-// - файл версий переехал в правильную папку.
-//
-// Revision 1.7  2007/08/29 12:22:43  lulin
-// - cleanup.
-//
-// Revision 1.6  2007/08/14 19:31:27  lulin
-// - оптимизируем очистку памяти.
-//
-// Revision 1.5  2007/08/09 18:18:40  lulin
-// - избавляемся от излишнего использования интерфейсов, т.к. переносимость может быть достигнута другими методами.
-//
-// Revision 1.4  2007/08/09 11:19:10  lulin
-// - cleanup.
-//
-// Revision 1.3  2007/07/19 06:18:11  oman
-// - fix: выпрямляем зависимости. Схема документа, теперь не зависит от Эвереста.
-// (Не собиралась библиотека)
-//
-// Revision 1.2  2006/10/12 15:17:37  lulin
-// - переехали в общую папку.
-//
-// Revision 1.1.2.1  2006/10/12 15:15:01  lulin
-// - переехали в общую папку.
-//
-// Revision 1.104  2006/09/21 12:28:42  dinishev
-// new class: TevNSRCStringFormatter - для формирования строк с гиперссылками
-//
-// Revision 1.103  2005/07/21 11:15:04  lulin
-// - bug fix: не компилировался Архивариус.
-//
-// Revision 1.102  2005/06/14 08:31:35  narry
-// - update: вывод короткого имени документа
-//
-// Revision 1.101  2005/05/20 15:15:29  lulin
-// - new unit: evStyleInterface.
-//
-// Revision 1.100  2005/03/29 08:34:47  lulin
-// - bug fix: не компилировалось.
-//
-// Revision 1.99  2005/03/28 11:32:07  lulin
-// - интерфейсы переехали в "правильный" модуль.
-//
-// Revision 1.98  2005/03/24 16:12:49  lulin
-// - при валидации строки не отрезались конечные пробелы.
-//
-// Revision 1.97  2005/03/21 10:04:49  lulin
-// - new interface: _Ik2Type.
-//
-// Revision 1.96  2005/03/19 16:39:51  lulin
-// - спрятаны ненужные методы.
-//
-// Revision 1.95  2005/03/17 16:37:55  lulin
-// - bug fix: выливка в NSRC теперь учитывает возможность наличия вложенных документов.
-//
-// Revision 1.94  2005/03/16 16:30:09  lulin
-// - new style: "нормальный для аннотаций".
-//
-// Revision 1.93  2005/03/04 11:10:03  lulin
-// - bug fix: TevCustomNSRCWriter в отсутствии форматтера перед ним не контроллировал кодировку текста.
-//
-// Revision 1.92  2004/11/22 13:23:13  lulin
-// - bug fix: неправильно выливалась команда !Division для параметров, по-умолчанию.
-//
-// Revision 1.91  2004/09/21 12:55:41  lulin
-// - Release заменил на Cleanup.
-//
-// Revision 1.90  2004/07/21 06:49:14  law
-// - добавлены стили для колонтитулов.
-//
-// Revision 1.89  2004/06/04 10:42:17  law
-// - new behavior: если у строки таблицы все символы не вступили силу, то вся строка выливается как не вступившая в силу.
-//
-// Revision 1.88  2004/06/02 14:45:48  law
-// - rename method: Tk2BaseStackGenerator.Atom2String -> VariantAsString.
-// - сделан фильтр для сбора информации о документах со строками в кодировке _1252.
-//
-// Revision 1.87  2004/05/18 13:34:55  law
-// - new behavior: берем "букву" от стиля, если не указано какое-то специальное "хакерство".
-//
-// Revision 1.86  2004/05/14 15:16:53  law
-// - remove unit: evTypesE.
-//
-// Revision 1.85  2004/05/14 14:08:49  law
-// - change: TevVariant переименован в Tk2Variant и переехал в k2Types.
-//
-// Revision 1.84  2004/04/02 09:28:48  law
-// - bug fix: после таблицы и команды !Division не выливалась команда !Style.
-//
-// Revision 1.83  2004/04/01 15:32:42  law
-// - bug fix: перед командой !Division не выливалась команда !Style.
-//
-// Revision 1.82  2004/03/26 16:22:27  law
-// - new behavior: выливаем команду !DIVISION.
-//
-// Revision 1.81  2004/01/21 08:50:59  narry
-// - update: реализация задачи OIT500005900
-//
-// Revision 1.80  2004/01/09 10:39:53  law
-// - bug fix: в NSRC неправильно выливались продолжения ссылок, автоматически получаемые из ссылок.
-//
-// Revision 1.79  2003/12/25 17:19:12  law
-// - bug fix: при записи в NSRC выливаем все ссылки, и без Handle тоже.
-//
-// Revision 1.78  2003/12/08 13:33:46  law
-// - new behavior: выливаем стиль ev_saNotApplied.
-//
-// Revision 1.77  2003/07/31 13:33:35  law
-// - bug fix: на стыке блоков пропадала команда !STYLE.
-//
-// Revision 1.76  2003/06/26 12:55:01  law
-// - new bahavior: в режиме SkipPreformated пропускаем SBS-параграфы.
-//
-// Revision 1.75  2003/06/25 11:53:30  law
-// - new prop: TevCustomNSRCWriter.SkipPreformatted.
-//
-// Revision 1.74  2003/06/10 15:16:03  law
-// - new behavior: для автоклассификации убрана выливка технических комментариев и комментариев в заголовке файла.
-//
-// Revision 1.73  2003/06/10 15:03:08  law
-// - new behavior: для автоклассификации убрана выливка команды !Style.
-//
-// Revision 1.72  2003/04/11 08:24:42  voba
-// -new behavior :Теперь  тиль "информация о версии" выливается с трефами и червами
-//
-// Revision 1.71  2003/01/15 13:53:40  law
-// - new style: ev_saVersionInfo - "Информация о версии".
-//
-// Revision 1.70  2002/12/24 13:02:01  law
-// - change: объединил Int64_Seek c основной веткой.
-//
-// Revision 1.69.2.1  2002/12/23 15:51:26  law
-// - bug fix: не работали с хранилищем > 2Гб.
-//
-// Revision 1.69  2002/11/22 12:38:11  law
-// - bug fix: неправильно обрабатывались незакрытые сегменты, утратившие силу.
-//
-// Revision 1.68  2002/11/21 14:19:55  law
-// - new behavior: если у строки таблицы все символы утратили силу, то вся строка выливается как утратившая силу (см. _TestSet\Table\6.evd ).
-//
-// Revision 1.67  2002/11/15 13:04:26  law
-// - new test file: _TestSet\Segments\Hyperlinks\7.evd.
-//
-// Revision 1.66  2002/11/15 13:02:13  law
-// - new behavior: теперь в NSRC выливаются невидимые сегменты (см. _TestSet\Segments\Hyperlinks\7.evd).
-//
-// Revision 1.65  2002/10/31 13:35:58  law
-// - bug fix: неправильно выливались сегменты и ссылки - было пересечение (см. _TestSet\Segments\Hyperlinks\5.evd).
-//
-// Revision 1.64  2002/10/24 14:13:49  law
-// - bug fix: пересечение ссылки и других сегментов.
-//
-// Revision 1.63  2002/10/23 12:56:53  law
-// - cleanup.
-//
-// Revision 1.62  2002/09/24 15:09:39  law
-// - rename unit: evTxtExp -> evTextFormatter.
-//
-// Revision 1.61  2002/09/19 13:41:34  law
-// - cleanup and comments.
-//
-// Revision 1.60  2002/09/19 12:52:38  law
-// - cleanup.
-//
-// Revision 1.59  2002/09/18 14:31:36  law
-// - change: начата работа по поддержке нотификации об изменении стилей.
-// - new unit: evStyleTableTools.
-//
-// Revision 1.58  2002/09/18 07:08:02  law
-// - new units: k2StackGenerator, _k2Ver.
-// - new behavior: Tk2CustomReader теперь наследуется от Tk2CustomStackGenerator и соответственно наследует его поведение.
-//
-// Revision 1.57  2002/09/18 06:03:32  law
-// - cleanup: удален параметр IsDefault.
-//
-// Revision 1.56  2002/07/09 12:02:20  law
-// - rename unit: evUnits -> l3Units.
-//
-// Revision 1.55  2002/06/21 12:23:04  law
-// - bug fix: после технического комментария не выливалась смена стиля.
-//
-// Revision 1.54  2002/05/30 15:21:54  law
-// - cleanup: удален стиль ev_saWideTable.
-//
-// Revision 1.53  2002/05/29 12:07:13  law
-// - new behavior: учитываем ev_saWideTable при выливке в NSRC.
-//
-// Revision 1.52  2002/05/22 16:19:58  law
-// - bug fix: иногда неправильно выливались длинные технические комментарии.
-//
-// Revision 1.51  2002/04/11 06:45:47  law
-// - new behavior: комментарий теперь не приводит к команде !Style.
-//
-// Revision 1.50  2002/01/03 14:19:02  law
-// - some cosmetics.
-//
-// Revision 1.49  2001/10/29 14:14:19  law
-// - new style: "Технический комментарий".
-//
-// Revision 1.48  2001/08/31 09:04:36  law
-// - cleanup.
-//
-// Revision 1.47  2001/07/24 12:30:24  law
-// - comments: xHelpGen.
-//
-// Revision 1.46  2001/07/17 14:59:02  law
-// - bug fix: в соответствии с задачей №722.
-//
-// Revision 1.45  2001/05/28 12:26:45  law
-// - bug fix: неправильно выливались рамки у сложных таблиц с объединенными ячейками (_TestSet\ComplexTable\4.evd).
-//
-// Revision 1.44  2001/05/07 06:56:55  law
-// - bug fix: доделана выливка таблиц с учетом невидимых символов.
-//
-// Revision 1.43  2001/05/04 11:30:06  narry
-// - new const: ev_NSRCInvisible.
-//
-// Revision 1.42  2001/05/04 11:03:37  law
-// - new version: изменился номер версии генератора, учитывающего спецсимволы.
-//
-// Revision 1.41  2001/05/04 11:02:12  law
-// - new behavior: сделан учет спецсимволов при выливке таблиц в NSRC и txt.
-//
-// Revision 1.40  2001/05/03 10:20:39  law
-// - cleanup: убраны свойство и параметр CheckEmptyFrame.
-//
-// Revision 1.39  2001/04/23 11:44:54  law
-// - new behavior: сегменты, стиль которых совпадает со стилем параграфа, теперь не выливаются в NSRC.
-//
-// Revision 1.38  2001/04/20 15:22:36  law
-// - bug fix: поправлена выливка некоторых таблиц со сложными рамками.
-//
-// Revision 1.37  2001/04/20 12:22:38  law
-// - new version: версия 0.27.
-//
-// Revision 1.36  2001/04/20 12:21:45  law
-// - bug fix: сделан учет рамок головной ячейки, для ячеек объединеных по вертикали.
-//
-// Revision 1.35  2001/03/21 16:59:43  law
-// - bug fix: неправильно выливались таблицы, когда не удавалось разогнать строку по ширине (не было пробелов).
-//
-// Revision 1.34  2001/03/14 13:24:55  law
-// - some cleaup and tuning.
-//
-// Revision 1.33  2001/02/23 13:44:26  law
-// - к текстовому параграфу добавлено свойство AllowHyphen.
-//
-// Revision 1.32  2001/02/22 09:29:36  law
-// - добавлена обработка табличных стилей.
-//
-// Revision 1.31  2001/02/20 13:28:09  law
-// - немного переделал алгоритм нарезки слов по слогам.
-//
-// Revision 1.30  2001/02/20 10:23:51  law
-// - some tuning
-//
-// Revision 1.29  2001/02/19 13:34:03  law
-// - bug fix: поправлена очередная ошибка зависания при сохранении в текст и NSCR.
-//
-// Revision 1.28  2001/02/02 14:46:47  law
-// - версия 0.22 - поправлена выливка ячеек, объединенных по вертикали.
-//
-// Revision 1.27  2001/01/26 14:24:45  law
-// - версия 0.21. bug fix: экспорт сегментов для которых Start > Finish.
-//
-// Revision 1.26  2000/12/27 13:00:02  law
-// - bug fix: выливка отступа для таблицы, следующей сразу же за предыдущей.
-//
-// Revision 1.25  2000/12/27 09:05:45  law
-// - bug fix: выливка тега k2_tiVisible для комментариев и гипертекстовых ссылок в NSRC.
-//
-// Revision 1.24  2000/12/20 18:19:20  law
-// - bug fix: перед комментарием не выводился заголовок.
-//
-// Revision 1.23  2000/12/20 18:05:32  law
-// - изменил версию на 0.18 - для отсечения файлов с ошибкой для SoftEnter'ов.
-//
-// Revision 1.22  2000/12/19 15:52:40  law
-// - убраны ненужные директивы компиляции.
-//
-// Revision 1.21  2000/12/18 17:30:10  law
-// - версия изменена на 0.17 - для отсечения возможных ошибок при переносах по слогам.
-//
-// Revision 1.20  2000/12/18 14:59:41  law
-// - версия изменена на 0.16 - для отсечения возможных ошибок.
-//
-// Revision 1.19  2000/12/15 15:30:58  law
-// - сделана выливка отступов не меньше 0.
-//
-// Revision 1.18  2000/12/15 15:10:36  law
-// - вставлены директивы Log.
-//
 
 {$Include evDefine.inc }
 
@@ -829,26 +57,26 @@ type
     private
     {internal fields}
       f_PrevParaStyle        : TevNSRCParaStyle;
-      f_SubCount             : Long;
+      f_SubCount             : Integer;
       f_StringFiler          : Tl3CustomFiler;
       f_String               : Tl3String;
       f_StyleInterface       : TevStyleInterface;
-      f_WasShortname         : Bool;
-      f_AddBlocks            : Bool;
+      f_WasShortname         : Boolean;
+      f_AddBlocks            : Boolean;
       f_BeforeCommentLetter  : AnsiChar;
-      f_CodePage             : Long;
-      f_OutStyle             : Bool;
-      f_PlainText            : Bool;
-      f_SkipPreformatted     : Bool;
+      f_CodePage             : Integer;
+      f_OutStyle             : Boolean;
+      f_PlainText            : Boolean;
+      f_SkipPreformatted     : Boolean;
       f_Division             : TevNSRCDivision;
       fHeaderString          : AnsiString;
       f_CheckChar            : AnsiChar; // Символ для проверки в ValidateLine
       f_ExternalDocHandle    : Integer;
     protected
-     f_Handle                : Long;                {  }
+     f_Handle                : Integer;                {  }
      f_CurParaParas          : TevNSRCParaParas;
     public 
-     InternalHandle        : Long;                {  }
+     InternalHandle        : Integer;                {  }
      NeedCorrect : Boolean;
     private
     //event fields
@@ -884,9 +112,9 @@ type
       procedure OutTextStyle(anEmpty   : Boolean;
                              aCodePage : Integer;
                              out anInsertSemeColon: Boolean);
-      procedure AnalizeStyle(StHandle: Long);
+      procedure AnalizeStyle(StHandle: Integer);
         {-}
-      procedure OutSub(SubHandle: Long);
+      procedure OutSub(SubHandle: Integer);
         {-}
       function NeedOutSub: Boolean;
        virtual;
@@ -894,16 +122,16 @@ type
       procedure OutStyle4Cell;
        virtual;
         {-}
-      procedure OutSubInt(SubHandle: Long);
+      procedure OutSubInt(SubHandle: Integer);
        {-}
-      procedure OpenBlock(BlockHandle: Long);
+      procedure OpenBlock(BlockHandle: Integer);
         {-}
       procedure CloseBlock;
         {-}
-      procedure DoOutSub(SubHandle: Long);
+      procedure DoOutSub(SubHandle: Integer);
         virtual;
         {* - процедура записи Sub'а. Может быть перекрыта в потомках. }
-      procedure DoOutBlock(BlockHandle: Long);
+      procedure DoOutBlock(BlockHandle: Integer);
         virtual;
         {* - процедура записи блока. Может быть перекрыта в потомках. }
       procedure DoOutShortName(Name: Tl3CustomString);
@@ -919,12 +147,12 @@ type
       procedure DoOutHyperlink(Ob: Tl3Variant; var S: AnsiString);
         virtual;
         {* - процедура записи гиперссылки. Проверяет наличие Handle и вызывает DoOutHyperlinkEx. Может быть перекрыта в потомках. }
-      function  IsMarkStyle(aParaVisible        : Bool;
-                            aParaStyle          : Long;
+      function  IsMarkStyle(aParaVisible        : Boolean;
+                            aParaStyle          : Integer;
                             aStyledObject : Tl3Variant;
                             aText: Tl3String;
                             out Open, Close     : AnsiString;
-                            var DeleteText      : Boolean): Bool;
+                            var DeleteText      : Boolean): Boolean;
         override;
         {-}
       function IsStyleEqual(aParaStyle: Integer; aSegmentStyle: Integer): Boolean;
@@ -940,10 +168,10 @@ type
       procedure Cleanup;
         override;
         {-}
-      procedure CloseStream(NeedUndo: Bool);
+      procedure CloseStream(NeedUndo: Boolean);
         override;
         {-вызывается один раз в конце генерации}
-      procedure CloseStructure(NeedUndo: Bool);
+      procedure CloseStructure(NeedUndo: Boolean);
         override;
         {-вызывается на закрывающуюся скобку}
       procedure ClearPrevPara;
@@ -974,10 +202,10 @@ type
       procedure StartChild(TypeID: Tl3Type);
         override;
         {-}
-      procedure StartTag(TagID: Long);
+      procedure StartTag(TagID: Integer);
         override;
         {-}
-      procedure AddAtomEx(AtomIndex: Long; const Value: Tk2Variant);
+      procedure AddAtomEx(AtomIndex: Integer; const Value: Tk2Variant);
         override;
       procedure ClearPP;
       procedure ClearPPBetweenDoc;
@@ -987,22 +215,22 @@ type
         {-}
     public
     {public properties}
-      property AddBlocks: Bool
+      property AddBlocks: Boolean
         read f_AddBlocks
         write f_AddBlocks
         default false;
         {* - записывть блоки? }
-      property CodePage: Long
+      property CodePage: Integer
         read f_CodePage
         write f_CodePage
         default CP_OEM;
         {* - кодировка в которой записывать строки. }
-      property OutStyle: Bool
+      property OutStyle: Boolean
         read f_OutStyle
         write f_OutStyle
         default true;
         {-}
-      property PlainText: Bool
+      property PlainText: Boolean
         read f_PlainText
         write f_PlainText
         default false;
@@ -1011,7 +239,7 @@ type
         read f_SkipInvalidPictures
         write f_SkipInvalidPictures;
         {-}
-      property SkipPreformatted: Bool
+      property SkipPreformatted: Boolean
         read f_SkipPreformatted
         write f_SkipPreformatted
         default false;
@@ -1260,7 +488,7 @@ begin
  end;//..k2_idPara..
 end;
 
-procedure TevCustomNSRCWriter.StartTag(TagID: Long);
+procedure TevCustomNSRCWriter.StartTag(TagID: Integer);
   //override;
   {-}
 var
@@ -1282,7 +510,7 @@ begin
  end;//..k2_idPageProperties..
 end;
 
-procedure TevCustomNSRCWriter.CloseStream(NeedUndo: Bool);
+procedure TevCustomNSRCWriter.CloseStream(NeedUndo: Boolean);
   {override;}
   {-вызывается один раз в конце генерации}
 begin
@@ -1291,7 +519,7 @@ begin
  inherited;
 end;
 
-procedure TevCustomNSRCWriter.CloseStructure(NeedUndo: Bool);
+procedure TevCustomNSRCWriter.CloseStructure(NeedUndo: Boolean);
   {override;}
   {-вызывается на закрывающуюся скобку}
 var
@@ -1413,7 +641,7 @@ var
  l_InsertSemiCol : Boolean;
  {$ELSE}
  l_Suffix        : AnsiString;
- l_OutStyle      : Bool;
+ l_OutStyle      : Boolean;
  l_CodePage      : AnsiString;
  l_PrintFontSize : AnsiString;
  {$ENDIF evUseEvdStyleOnly}
@@ -1579,7 +807,7 @@ begin
  Result := Self;
 end;
 
-procedure TevCustomNSRCWriter.AnalizeStyle(StHandle: Long);
+procedure TevCustomNSRCWriter.AnalizeStyle(StHandle: Integer);
   {-}
 var
  St : Tl3Variant;
@@ -1707,7 +935,7 @@ begin
  end;
 end;
 
-procedure TevCustomNSRCWriter.OutSub(SubHandle: Long);
+procedure TevCustomNSRCWriter.OutSub(SubHandle: Integer);
   {-}
 begin
  Inc(f_SubCount);
@@ -1718,7 +946,7 @@ begin
  end;
 end;
 
-procedure TevCustomNSRCWriter.OpenBlock(BlockHandle: Long);
+procedure TevCustomNSRCWriter.OpenBlock(BlockHandle: Integer);
   {-}
 begin
  if AddBlocks then begin
@@ -1739,14 +967,14 @@ begin
  end;{AddBlocks}
 end;
 
-procedure TevCustomNSRCWriter.DoOutSub(SubHandle: Long);
+procedure TevCustomNSRCWriter.DoOutSub(SubHandle: Integer);
   {virtual;}
   {-}
 begin
  if Assigned(f_OnOutSub) then f_OnOutSub(Self, SubHandle, Filer);
 end;
 
-procedure TevCustomNSRCWriter.DoOutBlock(BlockHandle: Long);
+procedure TevCustomNSRCWriter.DoOutBlock(BlockHandle: Integer);
   {virtual;}
   {-}
 begin
@@ -1824,11 +1052,11 @@ procedure TevCustomNSRCWriter.DoOutHyperlinkEx(Ob: Tl3Variant; var S: AnsiString
   {-}
 
 var
- OutComma : Bool;
+ OutComma : Boolean;
 
- function OutAddress(anAddress: Tl3Variant; Index: Long): Bool; far;
+ function OutAddress(anAddress: Tl3Variant; Index: Integer): Boolean; far;
  var
-  DocID, SubID : Long;
+  DocID, SubID : Integer;
  begin
   if OutComma then
    S := S + {cc_Comma + }cc_HardSpace
@@ -1854,7 +1082,7 @@ var
 
 var
  SF       : Tl3CustomFiler;
- l_Handle : Long;
+ l_Handle : Integer;
 begin
  if Assigned(f_OnOutHyperlink) then
  begin
@@ -1905,12 +1133,12 @@ begin
  end;{..k2_idHyperlink..}
 end;
 
-function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Bool;
-                                         aParaStyle          : Long;
+function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Boolean;
+                                         aParaStyle          : Integer;
                                          aStyledObject       : Tl3Variant;
                                          aText: Tl3String;
                                          out Open, Close     : AnsiString;
-                                         var DeleteText      : Boolean): Bool;
+                                         var DeleteText      : Boolean): Boolean;
   {override;}
   {-}
 
@@ -1993,8 +1221,8 @@ function TevCustomNSRCWriter.IsMarkStyle(aParaVisible        : Bool;
  {$EndIf evOutDecorToNSRC}
 
 var
- l_IsPara : Bool;
- V        : Bool;
+ l_IsPara : Boolean;
+ V        : Boolean;
 
  procedure OutVisible;
  begin//OutVisible
@@ -2028,10 +1256,10 @@ var
  end;
 
 var
- l_EndTextPos  : Long;
+ l_EndTextPos  : Integer;
  l_FormulaText : AnsiString;
  C             : AnsiChar;
- ID            : Long;
+ ID            : Integer;
  l_EP          : AnsiString;
  l_EH          : Integer;
  l_DPI         : Integer;
@@ -2300,7 +1528,7 @@ begin
  end;//with aStyledObject
 end;
 
-procedure TevCustomNSRCWriter.AddAtomEx(AtomIndex: Long; const Value: Tk2Variant);
+procedure TevCustomNSRCWriter.AddAtomEx(AtomIndex: Integer; const Value: Tk2Variant);
   {override;}
   {-}
 var
@@ -2531,12 +1759,12 @@ procedure TevCustomNSRCWriter.ValidateLine(aLine : Tl3String; aCodePage : Intege
    end;//I < aLine.Len
   end;//CorrectFormulas
 
-  procedure CorrectSwappedBrackets;
+  procedure CorrectSwappedCommentBrackets;
   // http://mdp.garant.ru/pages/viewpage.action?pageId=207388924
   var
    l_Len : Integer;
-  begin//CorrectSwappedBrackets
-   l_Len := aLine.Len;
+  begin//CorrectSwappedCommentBrackets
+   l_Len := aLine.RTrimLen;
    if (l_Len >= 4) then
    begin
     if (aLine[0] = ev_NSRCInvisible) AND (aLine[1] = ev_NSRCComment) AND
@@ -2546,7 +1774,7 @@ procedure TevCustomNSRCWriter.ValidateLine(aLine : Tl3String; aCodePage : Intege
      aLine[l_Len-2] := ev_NSRCComment;
     end;//(aLine[0] = ev_NSRCInvisible) AND (aLine[0] = ev_NSRCComment)
    end;//aLine.Len >= 4
-  end;//CorrectSwappedBrackets
+  end;//CorrectSwappedCommentBrackets
 
   procedure lp_CheckStyle;
   var
@@ -2564,9 +1792,6 @@ procedure TevCustomNSRCWriter.ValidateLine(aLine : Tl3String; aCodePage : Intege
    end; // if (f_CheckChar <> #0) then
   end;
 
-var
- l_Count: Long;
-
   procedure lp_CheckIntersectionWithHyperlink;
   var
    i             : Integer;
@@ -2575,12 +1800,14 @@ var
    l_HyperCount  : Integer;
    l_HyperStart  : Integer;
    l_PrevNSRCChar: AnsiChar;
+   l_Count: Integer;
   begin
    i := 0;
    l_PrevNSRCChar := #0;
    l_HyperCount := 0;
    l_HyperStart := -1;
    l_OpenIndex := -1;
+   l_Count := aLine.RTrimLen - 1; // A количество символов уже могло измениться...
    with aLine do
     while (i <= l_Count) do
     begin
@@ -2667,196 +1894,230 @@ var
   end;//aLine.CodePage = CP_Unicode
  end;
 
-var
- l_Index   : Long;
- l_Open    : TevNSRCSymbolStatus;
- l_FChar   : AnsiChar;
- l_Char    : AnsiChar;
- l_HIndex  : Long;
- l_HChar   : AnsiChar;
- l_Gap     : AnsiString;
- l_HlSymbS : Long;
- l_HlSymbF : Long;
- i         : Long;
+ procedure CheckSpacesInHyperlink;
+ var
+  l_HlSymbS : Integer;
+  l_HlSymbF : Integer;
+  i         : Integer;
+  l_Index   : Integer;
+  l_Count   : Integer;
+ begin//CheckSpacesInHyperlink
+  // Дальше идет проверка на включение пробелов в гиперссылку - будет перенос, а он не нужен...
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=200088144&focusedCommentId=200088151#comment-200088151
+  l_HlSymbS := -1;
+  l_HlSymbF := -1;
+  l_Count := aLine.RTrimLen - 1; // A количество символов уже могло измениться...
+  //if false then
+  begin
+   for l_Index := 0 to l_Count - 1 do
+   begin
+    if (aLine.Ch[l_Index] = ev_NSRCHyperlink) then
+     if (l_HlSymbS = -1) and (l_HlSymbF > -1) then
+      l_HlSymbF := -1
+     else
+      if l_HlSymbS = -1 then
+       l_HlSymbS := l_Index
+      else
+       if l_HlSymbF = -1 then
+        l_HlSymbF := l_Index
+       else
+        begin
+         l_HlSymbS := -1;
+         l_HlSymbF := -1;
+        end;
+    if (l_HlSymbS <> -1) and (l_HlSymbF <> -1) then
+    begin
+     i := 0;
+     for i := l_HlSymbS + 1 to l_HlSymbF - 1 do
+      if aLine.Ch[i] <> cc_HardSpace then Break;
+     if i > l_HlSymbS + 1 then
+     begin
+      aLine.Ch[i - 1] := ev_NSRCHyperlink;
+      aLine.Ch[l_HlSymbS] := cc_HardSpace;
+     end; //if i > l_HlSymbS + 1 then
+     l_HlSymbS := -1;
+    end; //if (l_HlSymbS <> -1) and (l_HlSymbF <> -1) then
+   end; //for l_Index := 0 to l_Count - 1 do
+  end;//if false
+ end;//CheckSpacesInHyperlink
+
+ procedure CheckHyperlinkSwappedBrackets;
+ var
+  l_FirstBracketChar : AnsiChar;
+
+  function HasOpenHyperlink(anIndex: Integer): Boolean;
+  var
+   l_Index : Integer;
+   l_Ch : Char;
+  begin//HasOpenHyperlink
+   if (anIndex < 0) then
+    Result := false
+   else
+   begin
+    l_Index := anIndex;
+    while (l_Index >= 0) do
+    begin
+     l_Ch := aLine.Ch[l_Index];
+     if (l_Ch = l_FirstBracketChar) then
+     begin
+      Result := true;
+      Exit;
+     end;//l_Ch = l_FirstBracketChar
+     Dec(l_Index);
+    end;//while (l_Index >= 0)
+    Result := false;
+   end;//anIndex < 0
+  end;//HasOpenHyperlink
+  
+ var
+  l_Index   : Integer;
+  l_OpenedAfterHyperlink : TevNSRCSymbolStatus;
+  l_OpenedInsideHyperlink : TevNSRCSymbolStatus;
+  l_Char    : AnsiChar;
+  l_HIndex  : Integer;
+  l_HChar   : AnsiChar;
+  l_Gap     : AnsiString;
+  l_Count   : Integer;
+  l_HyperlinkEndPos : Integer;
+ begin//CheckHyperlinkSwappedBrackets
+  l_Char := #0;
+  l_Count := aLine.RTrimLen - 1;
+  l_Index := l_Count;
+  with aLine do
+  begin
+   //if false then
+   begin
+    l3FillChar(l_OpenedAfterHyperlink, SizeOf(l_OpenedAfterHyperlink));
+    l_HyperlinkEndPos := -1;
+    while (l_Index >= 0) do
+    // - просматриваем строку от конца к началу на предмет перепутанности
+    //   скобок оформления и гиперссылок
+    begin
+     l_FirstBracketChar := Ch[l_Index];
+     if (l_FirstBracketChar in [ev_NSRCHyperlink, ev_NSRCHyperlinkCont]) then
+     begin
+      Assert(l_HyperlinkEndPos < 0);
+      l_HyperlinkEndPos := l_Index;
+      l3FillChar(l_OpenedInsideHyperlink, SizeOf(l_OpenedInsideHyperlink));
+      Dec(l_Index);
+      if (l_FirstBracketChar = ev_NSRCHyperlink) then
+       // - если бывает номер
+       while (l_Index >= 0) do
+       begin
+        // - пропускаем номер
+        if (Ch[l_Index] = ev_NSRCHyperlink) then
+        begin
+         Dec(l_Index);
+         Break
+        end//Ch[l_Index] = ev_NSRCHyperlink
+        else
+         Dec(l_Index);
+       end;//while (l_Index >= 0)
+      l_Gap := '';
+      while (l_Index >= 0) do
+      begin
+       l_Char := Ch[l_Index];
+       if (l_Char = l_FirstBracketChar) then
+       // - ссылка началась, но пара не найдена, добавляем в конец закрывающие скобки
+       begin
+        if (l_Gap <> '') then
+         Append(l3PCharLen(l_Gap, CodePage));
+        l_HyperlinkEndPos := -1; 
+        Break;
+       end;//l_Char = l_FirstBracketChar
+       if (l_Char in ev_NSRCSimple) then
+       begin
+        if l_OpenedAfterHyperlink[l_Char] then
+        begin
+         Assert(not l_OpenedInsideHyperlink[l_Char]);
+         Assert(l_HyperlinkEndPos > 0);
+         if HasOpenHyperlink(l_Index - 1) then
+         begin
+          l_OpenedAfterHyperlink[l_Char] := false;
+          Delete(l_Index, 1);
+          Insert(l_Char, l_HyperlinkEndPos);
+          break;
+         end;//HasOpenHyperlink
+        end;//l_OpenedAfterHyperlink[l_Char]
+
+        l_OpenedAfterHyperlink[l_Char] := false;
+        
+        begin
+         l_OpenedInsideHyperlink[l_Char] := not l_OpenedInsideHyperlink[l_Char];
+         if (l_OpenedInsideHyperlink[l_Char]) then
+         begin
+          // - обрабатываем открывающий символ
+          l_HIndex := Pred(l_Index);
+          while (l_HIndex >= 0) do
+          begin
+           l_HChar := Ch[l_HIndex];
+           if (l_HChar = l_Char) then
+            // - нашли пару
+            Break;
+           if (l_HChar = l_FirstBracketChar) then
+           begin
+            Delete(l_Index, 1);
+            l_Gap := l_Char + l_Gap;
+            l_HyperlinkEndPos := -1;
+            Break;
+           end;//l_Char = l_FirstBracketChar
+           Dec(l_HIndex);
+          end;//while (l_HIndex >= 0)
+         end;//l_OpenedInsideHyperlink[l_Char]
+        end;//l_OpenedAfterHyperlink[l_Char]
+       end;//l_Char in ev_NSRCSimple
+       Dec(l_Index);
+      end;//while (l_Index >= 0)
+      Break;
+     end//l_FirstBracketChar in [ev_NSRCHyperlink, ev_NSRCHyperlinkCont]
+     else
+     if (l_Char in ev_NSRCSimple) then
+     // - уткнулись внутри ссылки в открывающую скобку
+      Break
+     else
+     if (l_FirstBracketChar in ev_NSRCSimple) then
+     begin
+      Assert(l_HyperlinkEndPos = -1);
+      // - потому, что вложенные в ссылку сегменты обрабатываются в другом цикле выше
+      l_OpenedAfterHyperlink[l_FirstBracketChar] := not l_OpenedAfterHyperlink[l_FirstBracketChar];
+     end;//l_FirstBracketChar in ev_NSRCSimple
+     Dec(l_Index);
+    end;//while (l_Index >= 0)
+   end;//if false
+  end;//with aLine
+ end;//CheckHyperlinkSwappedBrackets
+
 begin
  ValidateCodePage;
  aLine.CodePage := aCodePage;
  inherited;
  if not aLine.Empty then
  begin
+  CorrectSwappedCommentBrackets;
+  
   // Дальше, если я правильно понимаю, удаляются дублирующиеся символы.
+  // - нет - НЕПРАВИЛЬНО - дальше переставляются местами непарные скобки
   // - bug fix: неправильно выливались сегменты и ссылки - было пересечение (см. _TestSet\Segments\Hyperlinks\5.evd).
-  with aLine do
-  begin
-   l_Char := #0;
-   l_Count := RTrimLen - 1;
-   l_Index := l_Count;
-   while (l_Index >= 0) do
-   begin
-    l_FChar := Ch[l_Index];
-    if (l_FChar in [ev_NSRCHyperlink, ev_NSRCHyperlinkCont]) then
-    begin
-     l3FillChar(l_Open, SizeOf(l_Open), 0);
-     Dec(l_Index);
-     if (l_FChar = ev_NSRCHyperlink) then
-      // - если бывает номер
-      while (l_Index >= 0) do
-      begin
-       // - пропускаем номер
-       if (Ch[l_Index] = ev_NSRCHyperlink) then
-       begin
-        Dec(l_Index);
-        Break
-       end//Ch[l_Index] = ev_NSRCHyperlink
-       else
-        Dec(l_Index);
-      end;//while (l_Index >= 0)
-     l_Gap := '';
-     while (l_Index >= 0) do
-     begin
-      l_Char := Ch[l_Index];
-      if (l_Char = l_FChar) then
-      begin
-       if (l_Gap <> '') then
-        Append(l3PCharLen(l_Gap, CodePage));
-       Break;
-      end;//l_Char = l_FChar
-      if (l_Char in ev_NSRCSimple) then
-      begin
-       l_Open[l_Char] := not l_Open[l_Char];
-       if (l_Open[l_Char]) then begin
-        // - обрабатываем открывающий символ
-        l_HIndex := Pred(l_Index);
-        while (l_HIndex >= 0) do
-        begin
-         l_HChar := Ch[l_HIndex];
-         if (l_HChar = l_Char) then
-          // - нашли пару
-          Break;
-         if (l_HChar = l_FChar) then
-         begin
-          Delete(l_Index, 1);
-          l_Gap := l_Char + l_Gap;
-          Break;
-         end;//l_Char = l_FChar
-         Dec(l_HIndex);
-        end;//while (l_HIndex >= 0)
-       end;//l_Open[l_Char]
-      end;//l_Char in ev_NSRCSimple
-      Dec(l_Index);
-     end;//while (l_Index >= 0)
-     Break;
-    end//l_Char = ev_NSCRHyperLink
-    else
-    if (l_Char in ev_NSRCSimple) then
-     Break;
-    Dec(l_Index);
-   end;//while (l_Index >= 0)
-  end;//with aLine
+  CheckHyperlinkSwappedBrackets;
 
-  CorrectSwappedBrackets;
+  CorrectSwappedCommentBrackets;
+
   CorrectFormulas;
   lp_CheckStyle;
   //lp_CheckIntersectionWithHyperlink;
   {RequestLink:619944727} // - убрано, т.к. починили по-другому и это мешало
 
-  // Дальше идет проверка на включение пробелов в гиперссылку - будет перенос, а он не нужен...
-  // http://mdp.garant.ru/pages/viewpage.action?pageId=200088144&focusedCommentId=200088151#comment-200088151
-  l_HlSymbS := -1;
-  l_HlSymbF := -1;
-  l_Count := aLine.RTrimLen - 1; // A количество символов уже могло измениться...
-  for l_Index := 0 to l_Count - 1 do
-  begin
-   if (aLine.Ch[l_Index] = ev_NSRCHyperlink) then
-    if (l_HlSymbS = -1) and (l_HlSymbF > -1) then
-     l_HlSymbF := -1
-    else
-     if l_HlSymbS = -1 then
-      l_HlSymbS := l_Index
-     else
-      if l_HlSymbF = -1 then
-       l_HlSymbF := l_Index
-      else
-       begin
-        l_HlSymbS := -1;
-        l_HlSymbF := -1;
-       end;
-   if (l_HlSymbS <> -1) and (l_HlSymbF <> -1) then
-   begin
-    i := 0;
-    for i := l_HlSymbS + 1 to l_HlSymbF - 1 do
-     if aLine.Ch[i] <> cc_HardSpace then Break;
-    if i > l_HlSymbS + 1 then
-    begin
-     aLine.Ch[i - 1] := ev_NSRCHyperlink;
-     aLine.Ch[l_HlSymbS] := cc_HardSpace;
-    end; //if i > l_HlSymbS + 1 then
-    l_HlSymbS := -1;
-   end; //if (l_HlSymbS <> -1) and (l_HlSymbF <> -1) then
-  end; //for l_Index := 0 to l_Count - 1 do
-
+  CheckSpacesInHyperlink;
+  
   if not aLine.Empty then
    if (aLine.Ch[0] = '!') then
     aLine.Insert('!', 0);
  end; //if not aLine.Empty then
 end;
 
-(*
-procedure TevCustomNSRCWriter.ValidateLine(aLine : Tl3String);
-  //override;
-  {* - процедура для проверки корректности строки. Для перекрытия в потомках. }
-var
- l_Open   : TevNSRCSymbolStatus;
- l_SIndex : Long;
- l_SChar  : AnsiChar;
- l_HIndex : Long;
- l_HChar  : AnsiChar;
-begin
- inherited;
- if not aLine.Empty then begin
-  l3FillChar(l_Open, SizeOf(l_Open), 0);
-  l_SIndex := 0;
-  with aLine do
-   while (l_SIndex < Len) do begin
-    l_SChar := Ch[l_SIndex];
-    if (l_SChar in ev_NSRCAll) then begin
-     // - это спецсимвол
-     l_Open[l_SChar] := not l_Open[l_SChar];
-     if l_Open[l_SChar] then begin
-      // - это открывающий символ
-      if (l_SChar <> ev_NSRCHyperlink) then begin
-       // - это не ссылка
-       // - теперь надо проверить пересечение со ссылкой:
-       l_HIndex := Succ(l_SIndex);
-       while (l_HIndex < Len) do begin
-        l_HChar := Ch[l_HIndex];
-        if (l_HChar = l_SChar) then
-         // - скобка закрылась
-         break
-        else begin
-         if (l_HChar = ev_NSRCHyperlink) then begin
-          // - ба! да это же ссылка
-          Insert(l_SChar, l_HIndex);
-          Inc(l_HIndex);
-          Insert(l_SChar, Succ(l_HIndex));
-         end;//l_HChar = ev_NSCRHyperLink
-        end;//l_HChar = l_SChar
-        Inc(l_HIndex);
-       end;//while (l_HIndex < Len)
-       //l_SChar <> ev_NSRCHyperlink
-      end else begin
-       // - гиперссылку надо обработать особым образом
-      end;//l_SChar <> ev_NSRCHyperlink
-     end;//l_Open[l_SChar]
-    end;//l_SChar in ev_NSRCSimple
-    Inc(l_SIndex);
-   end;//while (l_SIndex < Len)
- end;//not aLine.Empty
-end;
-*)
 procedure TevCustomNSRCWriter.CheckNeed2AddBlock;
 begin
-
+ // - специально ничего не делаем. Делать должен потомок.
 end;
 
 procedure TevCustomNSRCWriter.ValidateText(aText: Tl3String;
@@ -2871,7 +2132,7 @@ var
     DeleteAllChars(evAllLineBrackets[l_BracketIndex]);
     LPad(evAllLineBrackets[l_BracketIndex]);
     Append(evAllLineBrackets[l_BracketIndex]);
-   end;//l_Open
+   end;//with aText
   end; // lp_CheckText
 
 const
@@ -2881,8 +2142,8 @@ const
 var
  l_Pos           : Integer;
  l_Char          : AnsiChar;
- l_Open          : Bool;
- l_Index         : Long;
+ l_Open          : Boolean;
+ l_Index         : Integer;
  l_ContinueOuter : Boolean;
  l_CheckString   : Tl3String;
 begin
@@ -3055,7 +2316,7 @@ begin
 end;
 {$ENDIF evUseEvdStyleOnly}
 
-procedure TevCustomNSRCWriter.OutSubInt(SubHandle: Long);
+procedure TevCustomNSRCWriter.OutSubInt(SubHandle: Integer);
 begin
  OutString(Format('!SUB %d', [SubHandle]));
  DoOutSub(SubHandle);

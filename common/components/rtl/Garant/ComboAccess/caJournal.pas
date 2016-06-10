@@ -72,7 +72,7 @@ begin
 //#UC START# *56BD9BFD0109_56BD8F200154_impl*
  inherited Create(aFactory);
  f_HTJournal := aHTJournal;
- f_PGJournal := aHTJournal;
+ f_PGJournal := aPGJournal;
 //#UC END# *56BD9BFD0109_56BD8F200154_impl*
 end;//TcaJournal.Create
 
@@ -108,7 +108,8 @@ procedure TcaJournal.CheckUser(anUserID: TdaUserID);
 //#UC END# *559B6A290200_56BD8F200154_var*
 begin
 //#UC START# *559B6A290200_56BD8F200154_impl*
-// Do nothing
+ (f_HTJournal as IdaComboAccessJournalHelper).AlienCheckUser(anUserID);
+ (f_PGJournal as IdaComboAccessJournalHelper).AlienCheckUser(anUserID);
 //#UC END# *559B6A290200_56BD8F200154_impl*
 end;//TcaJournal.CheckUser
 
@@ -117,7 +118,8 @@ procedure TcaJournal.UserChanged(anUserID: TdaUserID);
 //#UC END# *559B6A7C03AA_56BD8F200154_var*
 begin
 //#UC START# *559B6A7C03AA_56BD8F200154_impl*
-// Do nothing
+ (f_HTJournal as IdaComboAccessJournalHelper).AlienUserChanged(anUserID);
+ (f_PGJournal as IdaComboAccessJournalHelper).AlienUserChanged(anUserID);
 //#UC END# *559B6A7C03AA_56BD8F200154_impl*
 end;//TcaJournal.UserChanged
 

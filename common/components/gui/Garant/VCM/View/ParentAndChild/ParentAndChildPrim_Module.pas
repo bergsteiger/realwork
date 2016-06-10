@@ -30,48 +30,11 @@ uses
   vcmMainForm
   {$IfEnd} //not NoVCM
   ,
-  ElPgCtl,
-  vtPanel
-  {$If defined(Nemesis)}
-  ,
-  nscFormsPageControl
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
   PrimChild_Form,
   PrimParent_Form,
+  F1Like_FormDefinitions_Controls,
   Parent_Form,
   Child_Form,
-  F1Like_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  ParentKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  ChildKeywordsPack
-  {$IfEnd} //not NoScripts
-  ,
   vcmExternalInterfaces {a},
   vcmInterfaces {a},
   vcmModule {a},
@@ -92,23 +55,6 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
   vcmFormSetFactory {a},
   StdRes {a}
   ;

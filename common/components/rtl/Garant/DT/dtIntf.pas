@@ -1,8 +1,11 @@
 unit dtIntf;
 
-{ $Id: dtIntf.pas,v 1.11 2016/01/22 12:18:59 lukyanets Exp $ }
+{ $Id: dtIntf.pas,v 1.12 2016/05/17 11:59:35 voba Exp $ }
 
 // $Log: dtIntf.pas,v $
+// Revision 1.12  2016/05/17 11:59:35  voba
+// -k:623081921
+//
 // Revision 1.11  2016/01/22 12:18:59  lukyanets
 // Переосмысливаем мигратор
 //
@@ -228,7 +231,7 @@ type
     procedure SubSelectByMask(aElemNum : ThtField; aMask : Integer);
 
     // ФУНКЦИЯ НЕ ТЕСТИРОВАЛАСЬ
-    procedure SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc; const aPhoto : ISab = nil);
+    procedure SelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc; const aPhoto : ISab = nil);
 
     procedure SelectAll(const aPhoto : ISab = nil);
 
@@ -237,7 +240,7 @@ type
     procedure SubSelect(aElemNum : ThtField; const aLoValue; const aHiValue);
      overload;
 
-    procedure SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TUserSearchProc);
+    procedure SubSelectUserDefined(aElemNum : ThtField; const aUserSearchProc: TdtRecAccessProc);
 
     procedure SubSelectTwoFldEq(aElemNum1 : ThtField; aElemNum2 : ThtField);
      {* - Функция предназначена для получения подмножества записей, c одинаковыми значениями полей aElemNum1 и aElemNum2}

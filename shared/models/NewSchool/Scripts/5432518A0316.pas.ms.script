@@ -5486,6 +5486,42 @@ ref; // ME_573BF4EF02EE aActFlag
 
 ref; // ME_573AEE9902DF GetUserInfo
 
+: ME_575AA3590242
+ CONST Name 'aUserGroupID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_575A8C9F006A' '5432448401BC.pas.ms.script' // TdaUserGroupID
+ ;
+
+ref; // ME_575AA3590242 aUserGroupID
+
+: ME_575AA3590261
+ CONST Name 'aUserID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_543244A30197' '5432448401BC.pas.ms.script' // TdaUserID
+ ;
+
+ref; // ME_575AA3590261 aUserID
+
+: ME_575A8B790353
+ CONST UID '575A8B790353'
+ CONST Name 'IsMemberOfGroup'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_5628D14000F6 // IdaUserManager
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_575AA3590242 // aUserGroupID
+ ME_575AA3590261 // aUserID
+ )
+ ; // Parameters
+
+ref; // ME_575A8B790353 IsMemberOfGroup
+
 : ME_5729DD530330_ME_5628D14000F6
  : Original ME_5729DD530330 // IterateArchiUsersF
  ;
@@ -5541,6 +5577,7 @@ ref; // ME_5757D9BB0116_ME_5628D14000F6 IterateUserGroupsF
  ME_5739835200CF // NotifyUserActiveChanged
  ME_573AC17202BF // CSCheckPassword
  ME_573AEE9902DF // GetUserInfo
+ ME_575A8B790353 // IsMemberOfGroup
  )
  ; // Operations
  : Implemented

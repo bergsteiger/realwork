@@ -133,6 +133,11 @@ begin
   tsseTabText:
    Result := TGPFont.Create(cTabTextFontName,
     cTabTextFontSize, cTabTextFontStyle, cTabTextFontUnits);
+  else
+  begin
+   Result := nil;
+   Assert(false);
+  end;
  end;
 end;
 

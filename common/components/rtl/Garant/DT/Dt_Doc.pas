@@ -1,8 +1,11 @@
 Unit Dt_Doc;
 
-{ $Id: Dt_Doc.pas,v 1.309 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Doc.pas,v 1.310 2016/05/17 11:57:53 voba Exp $ }
 
 // $Log: Dt_Doc.pas,v $
+// Revision 1.310  2016/05/17 11:57:53  voba
+// -k:623081921
+//
 // Revision 1.309  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -967,7 +970,6 @@ Type
    procedure   GetFieldFromRecord(aRecord : PAnsiChar; aField : ThtField;var aBody);  override;
   public
    Constructor Create(aFamily : TFamilyID); Reintroduce;
-   //function    AbsNumByID(const aDocID : TDocID): LongInt;
 
    function    AddDoc : LongInt; // нужна утилите listimport
    Procedure   DelDoc(ID : LongInt);
@@ -975,7 +977,6 @@ Type
    function    CheckDoc(ID : TDocID; aDocRec : PdtRecord = nil) : Boolean;
    function    GetDocRecord(var aID : TDocID; var aDocRec : TdtRecord) : Boolean;
    Function    CheckRel(aRelID : TDocID) : LongInt;
-   function    CheckIDSab(IDs : Sab) : Sab;
 
    Function    GetDocIdOnRelated(aRelID : TDocID) : TDocID;
 
@@ -1015,9 +1016,6 @@ Type
    fFamily          : TFamilyID;
 
    fFileTbl         : TFileTbl;
-   //fStageTbl        : TStageTbl;
-   //fActiveTbl       : TActiveIntervalTbl;
-   //fAlarmTbl        : TAlarmTbl;
 
    fProgressProc    : Tl3ProgressProc;
    fCurProgress     : LongInt;
@@ -1033,13 +1031,6 @@ Type
 
    function  GetDocOnValues(Values : SAB;WithSort : Boolean;Photo  : LPSab) : SAB;
 
-   (*procedure GroupUpdateDoc(aID : TDocID;
-                            appFullName: string;
-                            appShortName : string;
-                            Status : Integer; NUStatus : Integer;
-                            UserType : TUserType; NUUserType : Boolean;
-                            aPriority : word = 0);
-   *)
    procedure CheckDocPriorityEx(NullOnly : Boolean;aProgress : Tl3ProgressProc = nil);
    { В штатном софте не используется, решал проблемы с перерассчетом "на коленке"}
    procedure CheckDocPriority(NullOnly : Boolean;aProgress : Tl3ProgressProc);
@@ -1107,7 +1098,6 @@ Type
    procedure SetChkActive(aValue : Boolean);
 
    function  GetWithOrder : Boolean;
-//   procedure SetWithOrder(aValue : Boolean);
    procedure AddToOrderIndex(aValue : Integer);
    procedure DelFromOrderIndex(aIndex : Integer);
    procedure ClearOrderIndex;
@@ -1124,8 +1114,6 @@ Type
    constructor CreateEmpty(aFamily : TFamilyID);
 
    procedure   SetEmptySab;
-   //procedure   SetValueSab(aValSab : Sab);
-   //function    GetValueSub : ISab;
 
    procedure   SortList(aSortFields : array of ThtField);
    procedure   ClearCurSab;
@@ -1133,24 +1121,16 @@ Type
    function    GetDoc(aItem : LongInt) : TDocReadRec;
    procedure   DelDoc(aItem : LongInt);
    function    AddDoc(aID : LongInt) : LongInt;
-   //procedure   SetDocIds(const aDocIds: Tl3LongintList);
-
-   //function    GetRecHandle(aIndex : Cardinal) : RHandle;
-   //function    GetIndex(aID {aAbsNum} : Cardinal) : Cardinal;
 
    procedure   SaveList(DataName : TFileName;Comment : PAnsiChar);
    procedure   LoadList(DataName : TFileName;var Comment : PAnsiChar);
 
-   //procedure   OutToFile(aName : TFileName; aTitle : PAnsiChar;aRealNumbers : Boolean);
-
    function    Count: Integer;
-   //procedure   GetDocIds(out aDocIds: Sab);
 
    property    Family : TFamilyID read fFamily write SetFamily;
    property    CheckActiveStatus : Boolean read  GetChkActive
                                            write SetChkActive; // По умолчанию - False
    property    CurSab    : ISab read fCurSab write SetCurSab;
-   //property    SabCursor : ISabCursor read GetSabCursor;
    property    WithOrder : Boolean read GetWithOrder {write SetWithOrder};
    property    Docs      : ISab read GetDocs;
 
@@ -1305,55 +1285,6 @@ Begin
  finally
   htClearResults(TmpSab);
  end;
-end;
-
-function TFileTbl.CheckIDSab(IDs : Sab) : Sab;
-var
- realDocs,
- realRels : SAB;
- valDocs,
- valRels,
- valAll   : SAB;
- lPhoto : Sab;
-begin
- lPhoto := PhotoOfTable;
- l3FillChar(Result,SizeOf(SAB));
- //RefreshSrchList;
- htTransferToPhoto(IDs,lPhoto,fID_Fld);
- htRecordsByKey(realDocs,IDs);
- try
-  htTransferToPhoto(IDs,lPhoto,fRelated_fld);
-  htRecordsByKey(realRels,IDs);
-  try
-   if IDs.gFoundCnt > (realDocs.gFoundCnt + realRels.gFoundCnt) then
-    begin
-     htTransferToPhoto(IDs,lPhoto,fID_Fld);
-     htValuesOfKey(valDocs,fID_Fld,realDocs);
-     try
-      htValuesOfKey(valRels,fRelated_fld,realRels);
-      try
-       htTransferToPhoto(valRels,lPhoto,fID_Fld);
-       htOrResults(valAll,valDocs,valRels);
-       try
-        htXorResults(Result,IDs,valAll);
-       finally
-        htClearResults(valAll);
-       end;
-      finally
-       htClearResults(valRels);
-      end;
-     finally
-      htClearResults(valDocs);
-     end;
-    end;
-  finally
-   htClearResults(realRels);
-  end;
- finally
-  htClearResults(realDocs);
- end;
-
- htClearResults(lPhoto);
 end;
 
 function TFileTbl.GetVerLink(aDocID : TDocID) : TDocID;
@@ -2276,67 +2207,6 @@ begin
  end;
 end;
 
-(*
-procedure TDocumentSabList.OutToFile(aName : TFileName; aTitle : PAnsiChar;
-                                     aRealNumbers : Boolean);
-const
- CashSize = 4096;
- STitle   : array [1..22] of Char = 'Количество найденных: ';
- EndChars : array [1..2] of Char = #13#10;
- TabChars : Char = #9;
-var
- CurFl   : TmgExFileStream;
- CurBuf  : TmgBuffStream;
- I       : LongInt;
-
- CurItem : PDocReadRec;
- lDocID   : TDocID;
- TmpLen  : Word;
- TmpStr  : ShortString;
-begin
- if (fCurSab = nil) or fCurSab.IsEmpty then
-  exit;
-
- CurFl:=TmgExFileStream.Create(aName,l3_fmWrite);
- CurBuf:=TmgBuffStream.Create(CurFl,CashSize);
- try
-  //ReadForvard:=True;
-  CurBuf.WriteBuffer(aTitle^,l3StrLen(aTitle));
-  CurBuf.WriteBuffer(EndChars,SizeOf(EndChars));
-  CurBuf.WriteBuffer(STitle,SizeOf(STitle));
-  TmpStr:=IntToStr(Count);
-  CurBuf.WriteBuffer(TmpStr[1],Length(TmpStr));
-  CurBuf.WriteBuffer(EndChars,SizeOf(EndChars));
-  CurBuf.WriteBuffer(EndChars,SizeOf(EndChars));
-
-  for I:=0 to Count - 1 do
-  begin
-   CurItem := SabCursor.GetItem(I);
-   lDocID := CurItem^.ID;
-   if not aRealNumbers then
-    lDocID := LinkServer(fFamily).Renum.GetExtDocID(lDocID);
-
-   TmpStr := IntToStr(lDocID);
-   CurBuf.WriteBuffer(TmpStr[1],Length(TmpStr));
-   CurBuf.WriteBuffer(TabChars,SizeOf(TabChars));
-   try
-    TmpLen:=l3RTrimLen(@CurItem^.Name, cFullNameSize);
-   except
-    //!DEBUG
-    //TmpLen:=l3RTrimLen(@CurItem^.Name,FullNameSize);
-    TmpLen := cFullNameSize;
-    l3System.Msg2Log(Format('l3RTrimLen bug GDocID = %d', [lDocID]));
-   end;
-   CurBuf.WriteBuffer(CurItem^.Name,TmpLen);
-   CurBuf.WriteBuffer(EndChars,SizeOf(EndChars));
-  end;
-  //ReadForvard:=False;
- finally
-  l3Free(CurBuf);
-  l3Free(CurFl);
- end;
-end;
-  *)
 procedure TFileTbl.GetAllVerLinkOrder(aDocID: TDocID; aDocList: TL3LongintList);
 var
  l_CurId: TDocId;
@@ -2407,22 +2277,6 @@ begin
  end;
 end;
 
-//function TFileTbl.AbsNumByID(const aDocID : TDocID): LongInt;
-//var
-// RecH: RHANDLE;
-//begin
-// Result := Ht(htRecordByUniq(nil, Handle, fId_Fld, @aDocID, @RecH));
-//end;
-
-//function TFileTbl.GetFullRecOnID(anID: LongInt; aNeedHold: Boolean): Longint;
-//begin
-// Result := AbsNumByID(anID);
-// if Result = 0 then
-//  raise EHtErrors.CreateInt(ecNotFound);
-// ClearFullRec;
-// GetFullRec(Result, aNeedHold);
-//end;
-
 procedure TFileTbl.GetRelated(var aDocIDs: ISab;
                               out aRelatedIds: ISab;
                               aRelatedToTheseDocsOnly: Boolean);
@@ -2463,65 +2317,6 @@ begin
   // (7) все RelatedIds, кроме общих (т.е. использованых не только в записях по исходным DocIds). result = (3) - (6)
 end;
 
-(*procedure TFileTbl.GetRelated(var aDocIDs: Sab;
-                              out aRelatedIds: Sab;
-                              aRelatedToTheseDocsOnly: Boolean);
-var
- l_RecsByDocIds: Sab;
- l_RecsByRelatedIds: Sab;
- l_RecsWithCommonRelatedIds: Sab;
- l_AllRelatedIds: Sab;
- l_CommonRelatedIds: Sab;
-begin
- RefreshSrchList;
- htTransferToPhoto(aDocIDs, fSrchList, fID_Fld);
- Ht(aDocIDs.nRetCode);
-  // (1) значения DocIds
- htRecordsByKey(l_RecsByDocIds, aDocIDs);
- Ht(l_RecsByDocIds.nRetCode);
-  // (2) записи по исходным DocIds. (1) --> (2)
- try
-  htValuesOfKey(l_AllRelatedIds, fRelated_fld, l_RecsByDocIds);
-  Ht(l_AllRelatedIds.nRetCode);
-    // (3) значения RelatedIds для исходных DocIds (и не только !!!). (2) --> (3)
-  try
-   if not aRelatedToTheseDocsOnly then
-    Ht(htCopyResults(aRelatedIds, l_AllRelatedIds)) // (3) --> result
-   else
-   begin
-    htRecordsByKey(l_RecsByRelatedIds, l_AllRelatedIds);
-    Ht(l_RecsByRelatedIds.nRetCode);
-    // (4) записи по RelatedIds. (3) --> (4)
-    try
-     htXorResults(l_RecsWithCommonRelatedIds, l_RecsByRelatedIds, l_RecsByDocIds);
-     Ht(l_RecsWithCommonRelatedIds.nRetCode);
-      // (5) записи с RelatedIds, которые использованы не только в записях по исходным DocIds. (5) = (4) - (2)
-     try
-      htValuesOfKey(l_CommonRelatedIds, fRelated_fld, l_RecsWithCommonRelatedIds);
-      Ht(l_CommonRelatedIds.nRetCode);
-       // (6) значения RelatedIds которые использованы не только в записях по исходным DocIds. (5) --> (6)
-      try
-       htXorResults(aRelatedIds, l_AllRelatedIds, l_CommonRelatedIds);
-       Ht(aRelatedIds.nRetCode);
-        // (7) все RelatedIds, кроме общих (т.е. использованых не только в записях по исходным DocIds). result = (3) - (6)
-      finally
-       htClearResults(l_CommonRelatedIds);
-      end;
-     finally
-      htClearResults(l_RecsWithCommonRelatedIds);
-     end;
-    finally
-     htClearResults(l_RecsByRelatedIds);
-    end;
-   end; // if-else
-  finally
-   htClearResults(l_AllRelatedIds);
-  end;
- finally
-  htClearResults(l_RecsByDocIds);
- end;
-end;*)
-
 function TDocumentSabList.GetDocs: ISab;
 var
  l_SabIsOpen: Boolean;
@@ -2553,29 +2348,6 @@ var
  lVSF : IValueSetFiller;
  lRecList   : Tl3FieldSortRecList;
  lStopTime : TDateTime;
-
- {lSab := TSab.MakeEmptyValue(MakePhoto(aTable), aField);
- try
-  if (aList <> nil) and (aList.Count > 0) then
-  begin
-   lVSF := TValueSetFiller.Create(lSab);
-   try
-    for I := 0 to pred(aList.Count) do
-    begin
-     lInt := aList.Items[I];
-     lVSF.AddValue(lInt);
-    end;
-   finally
-    l3Free(lVSF);
-   end;
-  end;
-
-  Result := lSab;
- finally
-  l3Free(lSab);
- end;
-end;
- }
 
  function lCheckPriority(gRecNo : LongInt;fpRecord : Pointer) : MFUNC_RET;
  var

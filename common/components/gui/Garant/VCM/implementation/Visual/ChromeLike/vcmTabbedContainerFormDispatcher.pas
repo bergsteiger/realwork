@@ -621,6 +621,9 @@ begin
    Assert(False);
  end
  else
+ if not NeedUseTabs then
+  l_VCMContainer := vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer
+ else
   Assert(False);
  Result := l_VCMContainer;
 //#UC END# *5583E3F7021E_537AEC5E03DDget_impl*
@@ -728,6 +731,7 @@ var
 begin
 //#UC START# *537AF0BC0134_537AEC5E03DD_impl*
  l_ActiveContainer := GetCurrentActiveContainer;
+ Assert(aChildForm <> nil);
  Assert(aChildForm is DockableFormClass);
  NotifyListeners(tcnNewContainerMakingStarted);
  l_ExistingContainer := GetFormContainer(aChildForm);
@@ -747,6 +751,7 @@ begin
    if (Application.MainForm = nil) OR (not (Application.MainForm is TvcmTabbedContainerForm)) then
     THackApplication(Application).FMainForm := Result;
    afw.ProcessMessages;
+   aChildForm.Visible := True;
   end;
  end
  else

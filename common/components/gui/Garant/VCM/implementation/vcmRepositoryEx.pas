@@ -5,9 +5,12 @@ unit vcmRepositoryEx;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmRepositoryEx - }
 { Начат: 21.03.2003 12:20 }
-{ $Id: vcmRepositoryEx.pas,v 1.16 2014/08/22 09:45:10 kostitsin Exp $ }
+{ $Id: vcmRepositoryEx.pas,v 1.17 2016/03/31 11:52:55 lulin Exp $ }
 
 // $Log: vcmRepositoryEx.pas,v $
+// Revision 1.17  2016/03/31 11:52:55  lulin
+// - перегенерация.
+//
 // Revision 1.16  2014/08/22 09:45:10  kostitsin
 // чиню библиотеки компонент
 //
@@ -139,6 +142,11 @@ var
  l_Item : TvcmBaseCollectionItem;
 {$EndIf  DesignTimeLibrary}
 begin
+ if (aName = '') then
+ begin
+  Result := -1;
+  Exit;
+ end;//aName = ''
  {$IfNDef DesignTimeLibrary}
  Assert((aRep <> vcm_repOperation) OR (aParentID <> 0),
         'Не задана сущность, для которой получается ID операции');
@@ -153,12 +161,21 @@ begin
    // - это модуль
    {$IfEnd}
    begin
+    Assert(aName <> '');
     l_Item := g_MenuManager.GetOperationableObjectByID(aParentID).Operations.Add As TvcmBaseCollectionItem;
     l_Item.Name := aName;
    end;//aParentID < 0
   end;//l_Item = nil
-  Assert(l_Item <> nil, Format('Для объекта %s в StdRes не определена операция %s', [g_MenuManager.GetOperationableObjectByID(aParentID).Name, aName]));
-  Result := l_Item.GetID;
+  if (aName = '') then
+  begin
+   Assert(l_Item = nil);
+   Result := -1; 
+  end//aName = ''
+  else
+  begin
+   Assert(l_Item <> nil, Format('Для объекта %s в StdRes не определена операция %s', [g_MenuManager.GetOperationableObjectByID(aParentID).Name, aName]));
+   Result := l_Item.GetID;
+  end;//aName = ''
  end//aRep = vcm_repOperation
  else
  if (aRep = vcm_repEntity) then

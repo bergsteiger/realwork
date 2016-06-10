@@ -5,9 +5,12 @@ unit m3Morph;
 { Автор: Люлин А.В. ©     }
 { Модуль: m3Morph -       }
 { Начат: 20.12.2001 16:01 }
-{ $Id: m3Morph.pas,v 1.8 2014/02/13 10:31:39 lulin Exp $ }
+{ $Id: m3Morph.pas,v 1.9 2016/04/21 13:59:12 lulin Exp $ }
 
 // $Log: m3Morph.pas,v $
+// Revision 1.9  2016/04/21 13:59:12  lulin
+// - правим кодировку.
+//
 // Revision 1.8  2014/02/13 10:31:39  lulin
 // - рефакторим безликие списки.
 //
@@ -142,6 +145,7 @@ type
 implementation
 
 uses
+  l3String,
   m0LNGLib
   ;
 
@@ -189,7 +193,7 @@ var
  l_Word   : AnsiString;
  l_Flags  : Integer;
 begin
- l_Word := aValue;
+ l_Word := l3Str(aValue);
  if (f_Flags = 0) then begin
   l_Flags := cFlags;
   if UsePseudo then

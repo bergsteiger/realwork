@@ -2028,29 +2028,6 @@ ref; // ME_C0F9CA0F0F86
 
 ref; // ME_4AA0D5380056 DayTips
 
-: ME_41FAF5E4CDFD
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_86D7BA65C042 // Tkw_Tips_opShowDayTips
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_41FAF5E4CDFD 
-
-: ME_4DB0614603C8_ME_86D7BA65C042
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_86D7BA65C042 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_86D7BA65C042
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_86D7BA65C042 GetModuleOperationCode
-
 : ME_86D7BA65C042
  CONST UID '86D7BA65C042'
  CONST Name 'Tkw_Tips_opShowDayTips'
@@ -2067,15 +2044,6 @@ ref; // ME_4DB079E00084_ME_86D7BA65C042 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_86D7BA65C042 // GetWordNameForRegister
- ME_4DB079E00084_ME_86D7BA65C042 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_41FAF5E4CDFD // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Совет_дня_ShowDayTips'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\kw_Tips_opShowDayTips.pas'

@@ -2,9 +2,12 @@ unit l3Drawer;
 
 { "Универсальный отрисовщик", использующий по возможности функции GDI+ }
 
-{ $Id: l3Drawer.pas,v 1.20 2016/01/29 19:30:47 kostitsin Exp $ }
+{ $Id: l3Drawer.pas,v 1.21 2016/04/14 09:12:00 kostitsin Exp $ }
 
 // $Log: l3Drawer.pas,v $
+// Revision 1.21  2016/04/14 09:12:00  kostitsin
+// {requestlink: 620672440 } - Откручиваем круглый уголок
+//
 // Revision 1.20  2016/01/29 19:30:47  kostitsin
 // {requestlink: 153682070 }
 //
@@ -123,7 +126,7 @@ type
   constructor Create(aDC : HDC; aMode: Tl3DrawerMode = {$IfNDef noGDIPlus}l3_dmGDIPlus{$Else}l3_dmGDI{$EndIf});
     reintroduce;
     overload;
-  procedure DrawLine(const X1, Y1, X2, Y2: Integer);
+  procedure DrawLine(const X1, Y1, X2, Y2: Integer{$IfNDef noGDIPlus}; aThickness: Single = 1{$EndIf});
   procedure DrawEllipse(const X1, Y1, X2, Y2: Integer);
   procedure DrawRect(const X1, Y1, X2, Y2: Integer);
   procedure DrawPolygon(const Points: array of TPoint);
@@ -267,11 +270,23 @@ begin
  end;
 end;
 
-procedure Tl3Drawer.DrawLine(const X1, Y1, X2, Y2: Integer);
+procedure Tl3Drawer.DrawLine(const X1, Y1, X2, Y2: Integer{$IfNDef noGDIPlus}; aThickness: Single = 1{$EndIf});
+var
+ l_W: Single;
 begin
  case f_Mode of
   {$IfNDef noGDIPlus}
-  l3_dmGDIPlus: f_GPGraphics.DrawLine(f_GPPen, X1, Y1, X2, Y2);
+  l3_dmGDIPlus:
+   begin
+    if (aThickness <> f_GPPen.GetWidth) then
+    begin
+     l_W := f_GPPen.GetWidth;
+     f_GPPen.SetWidth(aThickness);
+    end;
+    f_GPGraphics.DrawLine(f_GPPen, X1, Y1, X2, Y2);
+    if (aThickness <> l_W) then
+     f_GPPen.SetWidth(l_W);
+   end;
   {$EndIf  noGDIPlus}
   l3_dmGDI:
    with f_Canvas do

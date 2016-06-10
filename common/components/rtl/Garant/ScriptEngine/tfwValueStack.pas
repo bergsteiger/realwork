@@ -764,8 +764,16 @@ function TtfwValueStack.PopList: ItfwValueList;
 //#UC END# *551015680218_4DB009CF0103_var*
 begin
 //#UC START# *551015680218_4DB009CF0103_impl*
- pLast.CheckTypeIs(tfw_vtList);
- Result := ItfwValueList(Pop.AsIntf);
+ if (pLast.rType = tfw_vtNil) then
+ begin
+  Drop;
+  Result := nil;
+ end//pLast.rType = tfw_vtNil
+ else
+ begin
+  pLast.CheckTypeIs(tfw_vtList);
+  Result := ItfwValueList(Pop.AsIntf);
+ end;//pLast.rType = tfw_vtNil
 //#UC END# *551015680218_4DB009CF0103_impl*
 end;//TtfwValueStack.PopList
 

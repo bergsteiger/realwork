@@ -53,6 +53,7 @@ type
   TddProcessTask = class(TddProcessTaskPrim)
   private
     f_Aborted: Boolean;
+    f_Deleting: Boolean;
     f_WasDeliveredAfterRun : Boolean;
     f_RunComment: AnsiString;
     f_RunProgress: Long;
@@ -63,6 +64,7 @@ type
     function pm_GetEnabled: Boolean;
     procedure pm_SetEnabled(const Value: Boolean);
     function DoExternalAbort: Boolean;
+    procedure ReportError;
   protected
     function RequireDelivery: Boolean; virtual;
   {$If defined(AppServerSide)}
@@ -110,9 +112,9 @@ type
     property Enabled: Boolean read pm_GetEnabled write pm_SetEnabled;
     property Status: TcsTaskStatus read pm_GetStatus;
     function CompareWith(anObject: TddProcessTask): Integer;
-    procedure CorrectStatus;
+    procedure CorrectStatus; virtual;
     procedure RequestQuery;
-    procedure RequestDeleted;
+    procedure RequestDelete;
     procedure RequestFrozen;
     procedure RequestFrozenRun;
     procedure RequestDelivery;
@@ -190,7 +192,8 @@ const
   0,   // cs_tsDelayed { выполнение отложено до ЕО }
   20,  // cs_tsDelivering { выполняется доставка результатов }
   10,  // cs_tsAsyncRun { Исполнение в отцепленном процессе }
-  35   // cs_tsAsyncError { выполнение в отцепленном процессе привело к ошибке }
+  35,  // cs_tsAsyncError { выполнение в отцепленном процессе привело к ошибке }
+  35   // cs_tsAborting { выполнение прерывается }
  );
 
 function CompareTaskForActiveList(const A, B: TddProcessTask): Integer;
@@ -296,6 +299,11 @@ begin
   f_Aborted:= True;
   if not DoExternalAbort then
     DoAbort;
+  if not (Status in (cs_tsFinishedStatuses + [cs_tsReadyToDelivery, cs_tsDelivering])) then
+  begin
+    StatusW := cs_tsAborting;
+    SetCommentToDefault;
+  end;
 end;
 
 procedure TddProcessTask.RequestDelivery;
@@ -314,11 +322,29 @@ end;
 procedure TddProcessTask.Done;
 begin
  //Clear; // раз задача выполнена, никакая информация уже не нужна
- if not f_WasDeliveredAfterRun then
-  if ReadyToDelivery then
-   l3System.Stack2Log('Задача с идентификатором ' + TaskID + ' метится как выполненая. Статус задачи: ' + GetEnumName(TypeInfo(TcsTaskStatus), ord(Status)));
- StatusW := cs_tsDone;
- SetCommentToDefault;
+ if f_Deleting then
+ begin
+  StatusW := cs_tsDeleted;
+  SetCommentToDefault;
+ end
+ else
+  if f_Aborted then
+  begin
+   if not (Status in cs_tsErrorStatuses) then
+   begin
+    StatusW := cs_tsError;
+    SetCommentToDefault;
+   end;
+  end
+  else
+   if not (Status in cs_tsErrorStatuses) then
+   begin
+    if not f_WasDeliveredAfterRun then
+     if ReadyToDelivery then
+      l3System.Stack2Log('Задача с идентификатором ' + TaskID + ' метится как выполненая. Статус задачи: ' + GetEnumName(TypeInfo(TcsTaskStatus), ord(Status)));
+    StatusW := cs_tsDone;
+    SetCommentToDefault;
+   end;
 end;
 
 procedure TddProcessTask.DoRun(const aContext: TddRunContext);
@@ -337,8 +363,7 @@ begin
  else
   Self.Comment := aErrorMessage;
  StatusW:= cs_tsError;
- l3System.Stack2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
- TcsTaskChangeHelper.Instance.TaskGotErrorStatus;
+ ReportError;
 end;
 
 procedure TddProcessTask.DoLoadFrom(aStream: TStream; aIsPipe: Boolean);
@@ -387,6 +412,7 @@ end;
 procedure TddProcessTask.RequestRun;
 begin
  f_Aborted := False;
+ f_Deleting := False;
  f_WasDeliveredAfterRun := false;
  if Status <> cs_tsAsyncRun then
  begin
@@ -429,7 +455,8 @@ procedure TddProcessTask.DoSaveTo(aStream: TStream; aIsPipe: Boolean);
 var
  l_Status : TcsTaskStatus;
 begin
- f_Aborted:= False;
+ f_Aborted := False;
+ f_Deleting := False;
  inherited;
  l_Status := Self.Status;
  aStream.Write(l_Status, SizeOf(l_Status));
@@ -467,21 +494,40 @@ begin
  SetCommentToDefault;
 end;
 
-procedure TddProcessTask.RequestDeleted;
+procedure TddProcessTask.RequestDelete;
 begin
- Self.StatusW := cs_tsDeleted;
- SetCommentToDefault;
+ if Status in (cs_tsRunningStatuses + [cs_tsAborting]) then
+ begin
+  f_Deleting := True;
+  Comment := 'Задача удаляется';
+ end
+ else
+ begin
+  Self.StatusW := cs_tsDeleted;
+  SetCommentToDefault;
+ end;
 end;
 
 procedure TddProcessTask.RequestDelivering;
 begin
  Self.StatusW := cs_tsDelivering;
- SetCOmmentToDefault;
+ SetCommentToDefault;
 end;
 
 function TddProcessTask.NeedProcess: Boolean;
 begin
   Result := Status in [cs_tsQuery];
+end;
+
+procedure TddProcessTask.ReportError;
+begin
+ if Aborted then
+  l3System.Msg2Log('Task aborted by user: %s (%s)', [Self.Comment, Self.TaskID])
+ else
+ begin
+  l3System.Stack2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
+  TcsTaskChangeHelper.Instance.TaskGotErrorStatus;
+ end;
 end;
 
 procedure TddProcessTask.AsyncError(const aErrorMessage: String = '');
@@ -491,8 +537,7 @@ begin
  else
    Self.Comment := aErrorMessage;
  StatusW:= cs_tsAsyncError;
- l3System.Stack2Log(Format('TASKERROR fired for task: %s (%s)', [Self.Comment, Self.TaskID]));
- TcsTaskChangeHelper.Instance.TaskGotErrorStatus;
+ ReportError;
 end;
 
 procedure TddProcessTask.SetProgress(AProgress: Long;
@@ -661,6 +706,7 @@ begin
   cs_tsDelivering: Comment := 'доставляется';
   cs_tsAsyncRun: Comment := 'выполняется асинхронно';
   cs_tsAsyncError: Comment := 'асинхронное выполнение завершилось ошибкой';
+  cs_tsAborting: Comment := 'выполнение прерывается';
  end;
 end;
 

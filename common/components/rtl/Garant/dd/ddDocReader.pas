@@ -5,10 +5,16 @@ unit ddDocReader;
 { Автор: Люлин А.В. ©            }
 { Модуль: ddDocReader - квази-фильтр для чтения файлов MS Word }
 { Начат: 01.02.2000 11:59        }
-{ $Id: ddDocReader.pas,v 1.46 2015/10/28 08:31:18 fireton Exp $ }
+{ $Id: ddDocReader.pas,v 1.48 2016/03/30 06:51:21 dinishev Exp $ }
 
 
 // $Log: ddDocReader.pas,v $
+// Revision 1.48  2016/03/30 06:51:21  dinishev
+// Вернул как было - тесты поотъезжали.
+//
+// Revision 1.47  2016/03/29 07:03:46  dinishev
+// Убрал загадочный код с l3IStream2Stream. Он там нафиг не нужен. А тест отъезжал.
+//
 // Revision 1.46  2015/10/28 08:31:18  fireton
 // - отладочный код
 //

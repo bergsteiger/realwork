@@ -262,7 +262,8 @@ function nsNeedOpenLinkInExternalBrowser(const anURL: WideString): Boolean;
 //#UC END# *523FE5580232_49EEF16603C9_var*
 begin
 //#UC START# *523FE5580232_49EEF16603C9_impl*
- Result := not nsNeedOpenLinkInInternalBrowser(anURL);
+ Result := (not nsNeedOpenLinkInInternalBrowser(anURL))
+  or nsIsFileFromMobileGarant(anURL);
 //#UC END# *523FE5580232_49EEF16603C9_impl*
 end;//nsNeedOpenLinkInExternalBrowser
 

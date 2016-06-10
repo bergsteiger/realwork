@@ -1,8 +1,17 @@
 Unit DT_Jour;
 
-{ $Id: DT_Jour.pas,v 1.53 2015/06/08 12:44:07 voba Exp $ }
+{ $Id: DT_Jour.pas,v 1.56 2016/06/09 08:51:57 voba Exp $ }
 
 // $Log: DT_Jour.pas,v $
+// Revision 1.56  2016/06/09 08:51:57  voba
+// -k:623267081
+//
+// Revision 1.55  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.54  2016/05/17 11:59:35  voba
+// -k:623081921
+//
 // Revision 1.53  2015/06/08 12:44:07  voba
 // -откатил изменеи€
 //
@@ -137,7 +146,10 @@ Uses
  l3Base,
  l3Stream,
  l3DatLst,
- l3RecList;
+ l3IDList,
+ l3RecList,
+ l3BufferStream;
+
 Const
  cHeaderSize = 12;
  cHeader  : Array[1..cHeaderSize] of Char = 'Lock Journal';
@@ -168,7 +180,7 @@ type
  TAbstractJournal = Class(Tl3Base)
   private
    fLockCnt      : LongInt;
-   fJourFl       : Tl3FileStream;
+   fJourFl       : Tl3NewBufferStream;
    fJourName     : TPathStr;
 
    fStName       : Int64;
@@ -177,6 +189,7 @@ type
 
    fCompareSysData  : TCompareSysDataFunc;
 
+   function WriteLockRec(aPos : Longint; aRec : TJourRec; aNeedWriteStopLabel : boolean = false) : Longint;
   protected
    procedure BeforeRelease; override;
    procedure Cleanup; override;
@@ -191,8 +204,12 @@ type
                       aJourFullName : TPathStr); Reintroduce;
 
    function    Lock(aID : TIDType; var aSysData : TSysData; aLockType : TdtLockType = dtlUsual) : TJLHandle;
-   procedure   SetNewSysData(aLH : TJLHandle; var aSysData : TSysData);
+   procedure   BatchLock(var aDocList : Il3IDList; aRightsNeeded: TSysData; var aRejectedDocs : Il3IDList; var aLockHandles: Il3IDList);
+
    procedure   UnLock(aLH : TJLHandle);
+   procedure   BatchUnLock(aLockHandles: Il3IDList);
+
+   procedure   SetNewSysData(aLH : TJLHandle; var aSysData : TSysData);
 
    procedure   IterateLockRecF(aFunc : TdtJIAccessFunc);
 
@@ -215,6 +232,7 @@ type
 Implementation
 
 Uses
+ vtDebug,
  Classes,
  l3Types, l3MinMax,
  m0Const,
@@ -244,10 +262,22 @@ asm
  jmp  l3FreeLocalStub
 end;{asm}
 
+function MakeLockRec(aStationName : Int64; aDocID : TIDType; aLockType : TdtLockType; aSysData : TSysData) : TJourRec;
+begin
+ With Result do
+ begin
+  rStationName := aStationName;
+  rDocID       := aDocID;
+  rLockType    := aLockType;
+  rSysData     := aSysData;
+ end;
+end;
+
 Constructor TAbstractJournal.Create(aStationName  : TStationID;
                                     aJourFullName : TPathStr);
 Var
  TmpVer : Char;
+ lStream : Tl3FileStream;
 begin
  Inherited Create;
  fHeaderSize := cHeaderSize + 1;
@@ -259,27 +289,31 @@ begin
 
  if not FileExists(fJourName) then
  begin
-  fJourFl := Tl3FileStream.Create(fJourName, l3_fmFullShareCreateReadWrite);
-  fJourFl.Write(cVersion, 1);
-  fJourFl.Write(cHeader, cHeaderSize);
+  lStream := Tl3FileStream.Create(fJourName, l3_fmFullShareCreateReadWrite);
+  lStream.Write(cVersion, 1);
+  lStream.Write(cHeader, cHeaderSize);
  end
  else
  begin
-  fJourFl := Tl3FileStream.Create(fJourName, l3_fmFullShareReadWrite);
-  fJourFl.ReadBuffer(TmpVer, 1);
+  lStream := Tl3FileStream.Create(fJourName, l3_fmFullShareReadWrite);
+  lStream.ReadBuffer(TmpVer, 1);
 
   if TmpVer <> cVersion then
   begin
    l3Free(fJourFl);
-   fJourFl := Tl3FileStream.Create(fJourName, l3_fmFullShareCreateReadWrite);
-   fJourFl.Write(cVersion, 1);
-   fJourFl.Write(cHeader, cHeaderSize);
+   lStream := Tl3FileStream.Create(fJourName, l3_fmFullShareCreateReadWrite);
+   lStream.Write(cVersion, 1);
+   lStream.Write(cHeader, cHeaderSize);
   end;
  end;
 
+ try
+  fJourFl := Tl3NewBufferStream.Create(lStream);
+ finally
+  l3Free(lStream);
+ end;
+
  fLockCnt := 0;
- //fJourFl := Tl3FileStream.Create(fJourName,l3_fmFullShareReadWrite);
- //ClearBadJourRec;
 end;
 
 procedure TAbstractJournal.BeforeRelease;
@@ -300,7 +334,7 @@ end;
 procedure TAbstractJournal.JFLock;
 begin
  if fLockCnt = 0 then
-  if not fJourFl.Lock(1, cHeaderSize, 3*60*1000 {3 мин}) then
+  if not Tl3FileStream(fJourFl.InnerStream).Lock(1, cHeaderSize, 3*60*1000 {3 мин}) then
    raise Exception.Create('∆урнал захватов недоступен.');
  Inc(fLockCnt);
 end;
@@ -309,7 +343,10 @@ procedure TAbstractJournal.JFUnlock;
 begin
  Dec(fLockCnt);
  if fLockCnt = 0 then
-  fJourFl.UnLock(1, cHeaderSize);
+ begin
+  fJourFl.Flush;
+  Tl3FileStream(fJourFl.InnerStream).UnLock(1, cHeaderSize);
+ end;
 end;
 
 procedure TAbstractJournal.IterateRecF(aFunc : TdtJIAccessFunc);
@@ -440,6 +477,105 @@ begin
  end;
 end;
 
+procedure TAbstractJournal.BatchLock(var aDocList : Il3IDList; aRightsNeeded: TSysData; var aRejectedDocs : Il3IDList; var aLockHandles: Il3IDList);
+ var
+  lLockedList : Il3IDList;
+  lNeedWriteStopLabel : boolean;
+  lListIndex : Integer;
+
+ function lCheckRights(aOldSysData, aNewSysData : TSysData) : Boolean;
+ begin
+  Result := (aOldSysData = acFullBlock) or ((aOldSysData and aNewSysData) <> 0);
+ end;
+
+ function lCheckRightProc(var aRec : TJourRec; aPos : Longint) : Boolean;
+ begin
+  Result := not ((aRec.rStationName = cDelStationID) and (aRec.rLockType = cStopLockType)); // метка окончани€ полезной части файла
+  if not Result then Exit;
+
+  if (aRec.rStationName <> cDelStationID) and lCheckRights(aRec.rSysData, aRightsNeeded) then
+   lLockedList.Add(aRec.rDocID);
+ end;
+
+ function lWriteLockProc(var aRec : TJourRec; aPos : Longint) : Boolean;
+ begin
+  if (aRec.rStationName = cDelStationID) and (aRec.rLockType = cStopLockType) then // метка окончани€ полезной части файла
+   lNeedWriteStopLabel := True;
+
+  Result := lListIndex < Pred(aDocList.Count);
+
+  if (aRec.rStationName = cDelStationID) then
+  begin
+   WriteLockRec(aPos, MakeLockRec(fStName, aDocList[lListIndex], dtlUsual {aLockType}, aRightsNeeded), lNeedWriteStopLabel and Result);
+   aLockHandles.Add(aPos);
+   Inc(lListIndex);
+  end;
+ end;
+
+var
+ lTime : Cardinal;
+begin
+ lLockedList := l3MakeIDList;
+
+ JFLock;
+ lTime := dbgStartTimeCounter;
+ try
+  //набрираем список захваченных с требуемыми правами
+  IterateRecF(L2JIAccessFunc(@lCheckRightProc));
+  lLockedList.AndList(aDocList);
+
+  aRejectedDocs.MergeList(lLockedList);
+  aDocList.SubtractList(lLockedList);
+
+  if aDocList.Count = 0 then exit;
+  //«аписываем залочки скопом
+  lListIndex := 0;
+  lNeedWriteStopLabel := false;
+  lTime := dbgStartTimeCounter;
+  IterateRecF(L2JIAccessFunc(@lWriteLockProc));
+  while lListIndex < aDocList.Count do // дописываем хвост
+  begin
+   WriteLockRec(-1, MakeLockRec(fStName, aDocList[lListIndex], dtlUsual {aLockType}, aRightsNeeded));
+   Inc(lListIndex);
+  end;
+ finally
+  l3System.Msg2Log('BatchLock  = %S', [dbgFinishTimeCounter(lTime)]);
+  JFUnlock;
+ end;
+end;
+
+function TAbstractJournal.WriteLockRec(aPos : Longint; aRec : TJourRec; aNeedWriteStopLabel : boolean) : Longint;
+ begin
+   if aPos = -1 then
+   begin
+    fJourFl.Seek(0, soEnd);
+    {$IFDEF LOCKDEBUG}
+     Check(fJourFl.Position);
+    {$ENDIF LOCKDEBUG}
+   end
+   else
+   begin
+    fJourfl.Seek(aPos, soBeginning);
+    {$IFDEF LOCKDEBUG}
+     Check(fJourFl.Position);
+    {$ENDIF LOCKDEBUG}
+   end;
+
+   Result := fJourFl.Position;
+   fJourFl.Write(aRec, SizeOf(TJourRec));
+
+   if aNeedWriteStopLabel and (fJourFl.Position < fJourFl.Size) then
+   begin
+    with aRec do
+    begin
+     rStationName := cDelStationID;
+     rDocID := 0;
+     rLockType := cStopLockType;
+    end;
+    fJourFl.Write(aRec, SizeOf(TJourRec));
+   end;
+ end;
+
 function  TAbstractJournal.Lock(aID : TIDType; var aSysData : TSysData; aLockType : TdtLockType = dtlUsual) : TJLHandle;
 var
  lSavePos : Longint;
@@ -501,49 +637,6 @@ var
   end;
  end;
 
- function WriteLockRec(aPos : Longint; aNeedWriteStopLabel : boolean) : Longint;
- var
-  lRec : TJourRec;
- begin
-  With lRec do
-   begin
-    rStationName := fStName;
-    rDocID := aID;
-    rLockType := aLockType;
-    rSysData := aSysData;
-   end;
-
-   if aPos = -1 then
-   begin
-    fJourFl.Seek(0, soEnd);
-    {$IFDEF LOCKDEBUG}
-     Check(fJourFl.Position);
-    {$ENDIF LOCKDEBUG}
-   end
-   else
-   begin
-    fJourfl.Seek(aPos, soBeginning);
-    {$IFDEF LOCKDEBUG}
-     Check(fJourFl.Position);
-    {$ENDIF LOCKDEBUG}
-   end;
-
-   Result := fJourFl.Position;
-   fJourFl.Write(lRec, SizeOf(TJourRec));
-
-   if aNeedWriteStopLabel and (fJourFl.Position < fJourFl.Size) then
-   begin
-    with lRec do
-    begin
-     rStationName := cDelStationID;
-     rDocID := 0;
-     rLockType := cStopLockType;
-    end;
-    fJourFl.Write(lRec, SizeOf(TJourRec));
-   end;
- end;
-
-
  {$IFDEF LOCKDEBUG}
 var
  lSaveSize : Integer;
@@ -570,13 +663,13 @@ begin
    if lLockFailure then
     Exit;
 
-  if lAlreadyLock then
-  begin
-   Result := lSavePos;
-   Exit;
-  end;
+   if lAlreadyLock then
+   begin
+    Result := lSavePos;
+    Exit;
+   end;
 
-  Result := WriteLockRec(lSavePos, lNeedWriteStopLabel);
+   Result := WriteLockRec(lSavePos, MakeLockRec(fStName, aID, aLockType, aSysData), lNeedWriteStopLabel);
 
   finally
    If Result = -1 then
@@ -648,6 +741,26 @@ begin
    Check(fJourFl.Size);
   {$ENDIF LOCKDEBUG}
  finally
+  JFUnlock;
+ end;
+end;
+
+procedure TAbstractJournal.BatchUnLock(aLockHandles: Il3IDList);
+var
+ I : Integer;
+ lTime : Cardinal;
+begin
+ if aLockHandles.Count = 0 then Exit;
+ JFLock;
+ lTime := dbgStartTimeCounter;
+ try
+  for I := 0 to pred(aLockHandles.Count) do
+  begin
+   fJourFl.Seek(TJLHandle(aLockHandles[I]), soBeginning);
+   fJourFl.Write(cDelStationID, SizeOf(cDelStationID));
+  end;
+ finally
+  l3System.Msg2Log('BatchUnLock  = %S', [dbgFinishTimeCounter(lTime)]);
   JFUnlock;
  end;
 end;

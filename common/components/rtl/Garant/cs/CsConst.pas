@@ -17,7 +17,7 @@ uses
 ;
 
 const
- c_CsVersion = 26;
+ c_CsVersion = 27;
  c_AllStations = '*';
   {* адрес для широковещания }
  c_WrongClientId = daInterfaces.usWrongClient;

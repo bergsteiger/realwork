@@ -405,7 +405,7 @@ procedure TkwPopComboBoxSelectItem.SelectItem(const aCtx: TtfwContext;
 //#UC END# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_var*
 begin
 //#UC START# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_impl*
- aComboTree.ItemIndex := aComboTree.Items.IndexOf(aString);
+ TCustomComboBoxFriend(aCombobox).SelectItem(aString);
 //#UC END# *55B7A5FB0027_55B7A5FB0027_5049DA2A035D_Word_impl*
 end;//TkwPopComboBoxSelectItem.SelectItem
 
@@ -459,19 +459,11 @@ procedure TkwPopComboBoxSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
  anIndex: Integer);
  {* Реализация слова скрипта pop:ComboBox:SetItemIndex }
 //#UC START# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
-var
- l_Node: Il3SimpleNode;
 //#UC END# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_var*
 begin
 //#UC START# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_impl*
- if (aComboTree is TvtComboBoxQS) then //561950536
-  aComboTree.ItemIndex := anIndex
- else
- begin
-  l_Node := aComboTree.Tree.GetNode(anIndex);
-  aComboTree.Tree.GotoOnNode(l_Node);
-  aComboTree.ShowNode(l_Node, True);
- end;//aComboTree is TvtComboBoxQS
+ aCombobox.ItemIndex := anIndex;
+ TCustomComboBoxFriend(aCombobox).Select;
 //#UC END# *55B7A6200240_55B7A6200240_5049DA2A035D_Word_impl*
 end;//TkwPopComboBoxSetItemIndex.SetItemIndex
 
@@ -528,6 +520,8 @@ procedure TkwPopComboBoxSaveItems.SaveItems(const aCtx: TtfwContext;
 var
  l_S: AnsiString;
  l_Filer : Tl3CustomDosFiler;
+ I: Integer;
+ l_Count: Integer;
 //#UC END# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_var*
 begin
 //#UC START# *55B7A69E02F1_55B7A69E02F1_5049DA2A035D_Word_impl*
@@ -537,7 +531,9 @@ begin
  try
   l_Filer.Open;
   try
-   l_Filer.WriteLn((aComboTree.Items as Il3Strings).Items.Text);
+   l_Count := aCombobox.Items.Count;
+   for I := 0 to l_Count - 1 do
+    l_Filer.WriteLn(aCombobox.Items[I]);
   finally
    l_Filer.Close;
   end;
@@ -600,7 +596,7 @@ procedure TkwPopComboTreeDropDown.DropDown(const aCtx: TtfwContext;
 //#UC END# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_impl*
- aCombobox.DroppedDown := aValue;
+ aComboTree.Dropped := aValue;
 //#UC END# *55B7A59500C7_55B7A59500C7_55B780E60398_Word_impl*
 end;//TkwPopComboTreeDropDown.DropDown
 
@@ -656,7 +652,10 @@ function TkwPopComboTreeGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
 //#UC END# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_impl*
- Result := aCombobox.ItemIndex;
+ if Assigned(aComboTree.ChoosenValue) then
+  Result := aComboTree.FindIndexOf(aComboTree.ChoosenValue)
+ else
+  Result := aComboTree.ItemIndex;
 //#UC END# *55B7A5B502F8_55B7A5B502F8_55B780E60398_Word_impl*
 end;//TkwPopComboTreeGetItemIndex.GetItemIndex
 
@@ -703,7 +702,7 @@ function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_var*
 begin
 //#UC START# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
- Result := aCombobox.Items.IndexOf(aString);
+ Result := aComboTree.Items.IndexOf(aString);
 //#UC END# *55B7A5CD03A9_55B7A5CD03A9_55B780E60398_Word_impl*
 end;//TkwPopComboTreeIndexOf.IndexOf
 

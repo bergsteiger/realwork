@@ -1,8 +1,14 @@
 Unit Dt_Prior;
 
-{ $Id: Dt_Prior.pas,v 1.51 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Prior.pas,v 1.53 2016/05/26 14:01:24 voba Exp $ }
 
 // $Log: Dt_Prior.pas,v $
+// Revision 1.53  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.52  2016/04/08 11:01:23  voba
+// -bf вычисление priority  дл€ групповой операции не работало
+//
 // Revision 1.51  2015/11/25 14:01:48  lukyanets
 // «аготовки дл€ выдачи номеров+переезд констант
 //
@@ -139,7 +145,10 @@ Uses
   HT_Const,
   l3Interfaces,
   l3Variant,
-  l3Types, l3Base, l3LongintList, l3FieldSortRecList,
+  l3Types, l3Base,
+  l3LongintList,
+  l3FieldSortRecList,
+  l3IDList,
   k2Interfaces,
   Dt_Const, Dt_Types,
   dtIntf,
@@ -154,20 +163,18 @@ Const
  prResult_fld = 3;
  prBoth_key   = 4;
 
- MinPriority  = 999;
- MaxPriority  = 0;
+ MinPriority  : word = 999;
+ MaxPriority  : word = 0;
 Type
   TPriorTbl = Class(TPrometTbl)
    public
     Constructor Create(aFamily : TFamilyID); Reintroduce;
 
     function    GetPriorityOnList(SourSab,TypeSab : Sab;WithRefresh : Boolean) : Word;
-    function    CalcPriorityBy(aSourIds, aTypeIds: Tl3LongintList;
-                               aWithRefresh: Boolean): Word;
+    function    CalcPriorityBy(const aSourIds, aTypeIds: Il3IDList; aWithRefresh: Boolean): Word;
     function    GetPriorityOnValue(aSour,aType : TDictID;WithRefresh : Boolean) : Word;
 
-    Procedure   ImportPriorityFromFile(aFile : TFileName;ConvertFromOEM : Boolean;
-                                       WithDropData : Boolean);
+    Procedure   ImportPriorityFromFile(aFile : TFileName;ConvertFromOEM : Boolean; WithDropData : Boolean);
     Procedure   ExportPriorityToFile(aFile : TFileName;aProgress : Tl3ProgressProc);
 
     procedure   DeletePriorityOnDictID(aID : TDictID; aType : TdaDictionaryType);
@@ -180,8 +187,9 @@ Type
   public
    constructor Create(aFamily : TFamilyID); Reintroduce;
    function CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IntegerList): Word; overload;
-   function CalcPriorityBy(aSourceIDs, aTypeIDs: Tl3LongintList): Word; overload;
+   function CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IDList): Word; overload;
    function CalcPriorityBy(aSourceList, aTypeList: Tl3Tag): Word; overload;
+   function CalcPriorityBy(aSourceID, aTypeID: TDictID): Word; overload;
   end;
 
 
@@ -210,7 +218,7 @@ Type
 —ейчас "пустые" Source и "пустые" Type хран€тс€ но не учитываютс€ в рассчетах
 *)
 
-function GetProirityTbl(aFamily : TFamilyID) : TPriorityCash;
+function GetProirityTbl(aFamily : TFamilyID = 1) : TPriorityCash;
 
 
 
@@ -596,12 +604,12 @@ begin
  end;
 end;
 
-function TPriorTbl.CalcPriorityBy(aSourIds, aTypeIds: Tl3LongintList;
+function TPriorTbl.CalcPriorityBy(const aSourIds, aTypeIds: Il3IDList;
                                   aWithRefresh: Boolean): Word;
 var
  l_SourIds,
  l_TypeIds: Sab;
- l_List: Tl3LongintList;
+ l_List: Il3IDList;
  l_ListIndex: Longint;
  l_FillBufferProc: TFillBufferProc;
 
@@ -654,16 +662,12 @@ Type
 
 constructor TPriorityCash.Create(aFamily : TFamilyID);
 var
- aTbl : TPriorTbl;
- I : Integer;
+ lPriorSab : ISab;
 begin
  inherited Create;
- aTbl := TPriorTbl.Create(aFamily);
- try
-  fRecList := dtMakeRecListBySab(MakeAllRecords(aTbl), [], [1, 2]);
- finally
-  l3Free(aTbl);
- end;
+ lPriorSab := MakeSab(LinkServer(aFamily).PriorTbl);
+ lPriorSab.Select(prResult_fld, MinPriority, LESS);
+ fRecList := dtMakeRecListBySab(lPriorSab, [], [1, 2]);
 end;
 
 procedure TPriorityCash.Cleanup;
@@ -672,7 +676,7 @@ begin
  inherited;
 end;
 
-function TPriorityCash.CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IntegerList): Word;
+function TPriorityCash.CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IDList): Word;
 var
  lTIdx  : Integer;
  lSIdx  : Integer;
@@ -692,7 +696,20 @@ begin
   end;
 end;
 
-function TPriorityCash.CalcPriorityBy(aSourceIDs, aTypeIDs: Tl3LongintList): Word;
+function TPriorityCash.CalcPriorityBy(aSourceID, aTypeID: TDictID): Word;
+var
+ lRec   : TPriorRec;
+ lIndex : Integer;
+begin
+ lRec.rSID := aSourceID;
+ lRec.rTID := aTypeID;
+ if fRecList.FindRecord(lRec, lIndex) then
+  Result := PPriorRec(fRecList.ItemSlot(lIndex))^.rPriority
+ else
+  Result := MinPriority;
+end;
+
+function TPriorityCash.CalcPriorityBy(const aSourceIDs, aTypeIDs: Il3IntegerList): Word;
 var
  lTIdx  : Integer;
  lSIdx  : Integer;
@@ -772,32 +789,29 @@ begin
 end;
 
 type
- PPriorRecAcc = ^TPriorRecAcc;
- TPriorRecAcc = packed record
-  rDocID : TDocID;
-  rPrior : Word;
+ PDSTRecAcc = ^TDSTRecAcc;
+ TDSTRecAcc = packed record
+  rDocID  : TDocID;
+  rSource : TDictID;
+  rType   : TDictID;
  end;
 
 function TPriorityList.GetPriority(aDocID : TDocID): Word;
 var
- lRec : PPriorRecAcc;
+ lRec : PDSTRecAcc;
 begin
- Result := 999;
- if (fPriorCursor = nil) or (fPriorCursor.Count >= fCursorCurIndex) then Exit;
+ Result := MinPriority;
+ if (fPriorCursor = nil) or (fCursorCurIndex >= fPriorCursor.Count) then Exit;
 
- lRec := PPriorRecAcc(fPriorCursor.GetItem(fCursorCurIndex));
  repeat
+  lRec := PDSTRecAcc(fPriorCursor.GetItem(fCursorCurIndex));
   if lRec^.rDocID = aDocID then
-  begin
-   Result := lRec^.rPrior;
-   Break;
-  end
+   Result := Min(Result, GetProirityTbl.CalcPriorityBy(lRec^.rSource, lRec^.rType))
   else
    if lRec^.rDocID > aDocID then
-    break
-   else
-    Inc(fCursorCurIndex);
- until fPriorCursor.Count >= fCursorCurIndex;
+    break;
+  Inc(fCursorCurIndex);
+ until fCursorCurIndex >= fPriorCursor.Count;
 end;
 
 function TPriorityList.CalcPriorityData(const aDocIDValue : ISab) : ISabCursor;
@@ -806,11 +820,8 @@ function TPriorityList.CalcPriorityData(const aDocIDValue : ISab) : ISabCursor;
   lTypeSab : ISab;
   lPriorSab : ISab;
 
-  lSourJSab : IJoinSab;
-  lTypeJSab : IJoinSab;
-  lPriorJSab : IJoinSab;
+  lSTJSab   : IJoinSab;
 
-  //lPriorTbl : ITblInfo;
  const
   lZero : byte = 0;
 
@@ -829,21 +840,22 @@ function TPriorityList.CalcPriorityData(const aDocIDValue : ISab) : ISabCursor;
   lSourSab.TransferToPhoto(lnkDocIDFld, LinkServer(fFamily)[atSources]);
   lSourSab.RecordsByKey;
 
-  lSourJSab := MakeJoinSab(lSourSab, lnkDictIDFld,
-                           MakeAllRecords(LinkServer(fFamily).PriorityObj), prSour_fld);
-
-
   lTypeSab.TransferToPhoto(lnkDocIDFld, LinkServer(fFamily)[atTypes]);
   lTypeSab.RecordsByKey;
 
-  lTypeJSab := MakeJoinSab(lTypeSab, lnkDictIDFld,
-                           MakeAllRecords(LinkServer(fFamily).PriorityObj), prType_fld);
+  //lSourSab + lTypeSab
+  lSTJSab := MakeJoinSab(lSourSab, lnkDocIDFld,
+                         lTypeSab, lnkDocIDFld{, DRAFT_ALL});
 
-  lPriorJSab := MakeJoinSab(lSourJSab, lTypeJSab);
 
-  lPriorJSab.SortJoin([JFRec(LinkServer(fFamily)[atSources], lnkDocIDFld), JFRec(LinkServer(fFamily).PriorityObj, prResult_fld)]);
+  lSTJSab.SortJoin([JFRec(LinkServer(fFamily)[atSources], lnkDocIDFld)]);
 
-  Result := lPriorJSab.MakeJoinSabCursor([JFRec(LinkServer(fFamily)[atSources], lnkDocIDFld), JFRec(LinkServer(fFamily).PriorityObj, prResult_fld)]);
+  Result := lSTJSab.MakeJoinSabCursor([JFRec(LinkServer(fFamily)[atSources], lnkDocIDFld),
+                                          JFRec(LinkServer(fFamily)[atSources], lnkDictIDFld),
+                                          JFRec(LinkServer(fFamily)[atTypes], lnkDictIDFld)
+                                         ]);
+
  end;
+
 
 end.

@@ -22613,29 +22613,6 @@ ref; // ME_BD8F0D752962
 
 ref; // ME_A8C41C353B7D TstDocumentShowChangesInfoItem
 
-: ME_9E757E1D5537
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_A84598360094 // Tkw_Document_opOpenDocOnNumber
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_9E757E1D5537 
-
-: ME_4DB0614603C8_ME_A84598360094
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_A84598360094 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_A84598360094
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_A84598360094 GetModuleOperationCode
-
 : ME_A84598360094
  CONST UID 'A84598360094'
  CONST Name 'Tkw_Document_opOpenDocOnNumber'
@@ -22652,15 +22629,6 @@ ref; // ME_4DB079E00084_ME_A84598360094 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_A84598360094 // GetWordNameForRegister
- ME_4DB079E00084_ME_A84598360094 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_9E757E1D5537 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Документ_Открыть_документ_по_номеру'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\kw_Document_opOpenDocOnNumber.pas'

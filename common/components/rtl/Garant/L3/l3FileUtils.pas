@@ -5,9 +5,12 @@ unit l3FileUtils;
 { Автор: Бабанин В.Б. ©               }
 { Модуль: l3FileUtils -               }
 { Начат: 12.04.98 16:27               }
-{ $Id: l3FileUtils.pas,v 1.91 2016/03/16 09:39:45 dinishev Exp $ }
+{ $Id: l3FileUtils.pas,v 1.92 2016/05/19 08:38:49 lukyanets Exp $ }
 
 // $Log: l3FileUtils.pas,v $
+// Revision 1.92  2016/05/19 08:38:49  lukyanets
+// Уточнение диагностики
+//
 // Revision 1.91  2016/03/16 09:39:45  dinishev
 // Не падаем при копировани залоченных файлов.
 //
@@ -1593,8 +1596,10 @@ var
  l_FileSize          : Int64;
 Begin
  TmpLog := False;
+ if (Length(Dest) = 0) then
+  raise Exception.Create('Не задано имя целевого файла');
  if (Length(Sour) = 0) or (Length(Dest) = 0) or not FileExists(Sour) then
-  raise Exception.Create('Неверное имя файла');
+  raise Exception.CreateFmt('Неверное имя файла "%s"', [Sour]);
  BufSize := Min(MaxAvail, 32 * 1024);
  l3System.GetLocalMem(buf, BufSize);
  try

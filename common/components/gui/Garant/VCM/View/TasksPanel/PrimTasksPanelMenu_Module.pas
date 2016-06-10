@@ -27,61 +27,11 @@ uses
   ,
   Menus
   {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
   ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  eeTreeView,
   vcmTaskPanelInterfaces,
-  vcmUserControls,
-  vtPanel,
-  vtCtrls,
-  eeCheckBox,
-  vtGroupBox,
-  vtLabel,
-  l3StringIDEx,
   vcmPopupMenuPrim,
   PrimCustomizeTasksPanel_Form,
-  CustomizeTasksPanel_Form
-  {$If not defined(NoVCL)}
-  ,
-  Buttons
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
-  eeButton
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtButton
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  CustomizeTasksPanelKeywordsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
+  CustomizeTasksPanel_Form,
   vcmExternalInterfaces {a},
   vcmInterfaces {a},
   vcmModule {a},
@@ -130,7 +80,6 @@ implementation
 {$If not defined(NoVCM)}
 uses
   vcmCustOpsRepGroupList,
-  l3MessageID,
   SysUtils,
   vcmMenus
   {$If not defined(NoVCL)}
@@ -142,22 +91,6 @@ uses
   ,
   kw_TasksPanelMenu_opCustomize
   {$IfEnd} //not NoScripts AND not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
   ,
   vcmFormSetFactory {a},
   StdRes {a},

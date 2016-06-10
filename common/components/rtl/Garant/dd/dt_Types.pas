@@ -1,8 +1,23 @@
 Unit Dt_Types;
 
-{ $Id: dt_Types.pas,v 1.70 2015/09/01 12:31:56 lukyanets Exp $ }
+{ $Id: dt_Types.pas,v 1.74 2016/06/07 13:41:40 fireton Exp $ }
 
 // $Log: dt_Types.pas,v $
+// Revision 1.74  2016/06/07 13:41:40  fireton
+// - кеширование образов документов
+//
+// Revision 1.73  2016/05/17 11:59:38  voba
+// -k:623081921
+//
+// Revision 1.72  2016/05/16 12:54:40  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.71  2016/04/27 13:07:47  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.70  2015/09/01 12:31:56  lukyanets
 // Заготовки к Postgress
 //
@@ -815,6 +830,7 @@ Type
                LockPath,
                TmpPath,
                DocImgPath,
+               DocImgCachePath,
                DocsPath : TPathStr;
              end;
 
@@ -874,8 +890,6 @@ type
                    2 : (List     : Sab);
                    3 : (Obj      : Pointer);
                  end;
-
-  TPriority = (prLowest = -2, prLow = -1, prNormal = 0, prHigh = 1, prHighest = 2);
 
   TReplaceDocPair = record
    aOldDocID : TDocID;
@@ -940,7 +954,7 @@ type
   TPromProc         = Procedure of object;
   TFilterFunc       = Function (aNumber : Longint) : LongBool of object;
   TOpenSabProc      = Procedure (KeySab : Sab) of Object;
-  TUserStatusChange = Procedure (UserID : TUserID; Active : Boolean) of Object;
+//  TUserStatusChange = Procedure (UserID : TUserID; Active : Boolean) of Object;
 
   TdtHandleIDType = (dt_hidSub, dt_hidHyperlink);
   TdtGetNewHandleID  = procedure(aType : TdtHandleIDType; var aHandleID : Integer) of object;
@@ -963,11 +977,6 @@ type
   TdtBlockAccessProc = function(aBuffer: Pointer; aBufSize: Longint) : Boolean; register;
   function  L2BlockAccessProc(Action: Pointer): TdtBlockAccessProc; register;
   procedure FreeBlockAccessProc(var Stub: TdtBlockAccessProc); register;
-
-type
-  TUserSearchProc = function (aData: Pointer): Boolean; register;
-  function  L2UserSearchProc(aProc: Pointer): TUserSearchProc; register;
-  procedure FreeUserSearchProc(var aProc: TUserSearchProc); register;
 
 type
   //PUserSortProc  = TUserSortProc; //LPOFUNC;
@@ -1083,16 +1092,6 @@ procedure FreeBlockAccessProc(var Stub: TdtBlockAccessProc); register;
 asm
           jmp  l3FreeLocalStub
 end;{asm}
-
-function  L2UserSearchProc(aProc: Pointer): TUserSearchProc; register;
-asm
-          jmp l3LocalStub
-end;
-
-procedure FreeUserSearchProc(var aProc: TUserSearchProc); register;
-asm
-          jmp l3FreeLocalStub
-end;
 
 function  L2UserSortProc(aProc : Pointer): TUserSortProc; register;
 asm

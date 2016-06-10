@@ -23,9 +23,6 @@ Const
  grImportPriorityField = 4;
  grExportPriorityField = 5;
 
- c_UnknownLogin = 'UNKNOWN USER';
- c_UnknownUserName = 'Пользователь %s.%d';
-
 function IsWrongUser(anUserID: TUserID): Boolean;
 
 implementation

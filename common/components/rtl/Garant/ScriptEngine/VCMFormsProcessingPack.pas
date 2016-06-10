@@ -249,7 +249,7 @@ function TkwPopFormFormID.FormID(const aCtx: TtfwContext;
 //#UC END# *55003BED00FC_55003BED00FC_49525B34022A_Word_var*
 begin
 //#UC START# *55003BED00FC_55003BED00FC_49525B34022A_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aForm.FormID.rName;
 //#UC END# *55003BED00FC_55003BED00FC_49525B34022A_Word_impl*
 end;//TkwPopFormFormID.FormID
 

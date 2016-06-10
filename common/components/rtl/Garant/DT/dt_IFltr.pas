@@ -1,8 +1,20 @@
 unit Dt_IFltr;
 
-{ $Id: dt_IFltr.pas,v 1.332 2015/11/24 14:08:24 voba Exp $ }
+{ $Id: dt_IFltr.pas,v 1.336 2016/06/09 08:51:45 voba Exp $ }
 
 // $Log: dt_IFltr.pas,v $
+// Revision 1.336  2016/06/09 08:51:45  voba
+// -k:623267081
+//
+// Revision 1.335  2016/05/26 14:01:24  voba
+// -k:623267081
+//
+// Revision 1.334  2016/05/17 11:59:35  voba
+// -k:623081921
+//
+// Revision 1.333  2016/04/08 11:01:23  voba
+// -bf вычисление priority  для групповой операции не работало
+//
 // Revision 1.332  2015/11/24 14:08:24  voba
 // -bf убрал конкурентную запись дерева словаря. Теперь дерево переписываем только при апдейте, в спокойной обстановке
 //
@@ -892,7 +904,7 @@ uses
      dt_Record,
      DT_Renum, DT_Free, DT_Dict, DT_Log, DT_TblCache, DT_TblCacheDef, DT_Prior,
      l3ObjectRefArray,
-     l3LongintList,
+     l3IDList,
      l3FieldSortRecList,
      k2Interfaces,
      k2Base,
@@ -954,8 +966,8 @@ type
     //f_PriorTable   : TPriorityCash; //TPriorTbl;
 
     fNeedCalcPriority : Boolean;
-    f_SourcesList     : Tl3LongintList;
-    f_TypesList       : Tl3LongintList;
+    f_SourcesList     : Il3IDList;
+    f_TypesList       : Il3IDList;
 
     fDelSubList       : Tl3FieldSortRecList;
     fExclusiveMode    : Boolean;
@@ -1111,6 +1123,10 @@ type
    procedure DoEraseRecords(aAttrType : TCacheType; const aSab : ISab);
 
    property SaveMode : TdtSaveMode read fSaveMode write fSaveMode;
+
+   procedure OpenStream; override;
+   procedure CloseStream(aNeedUndo : Boolean); override;
+
   public
    constructor Create(aOwner : Tk2TagGeneratorOwner); override;
 
@@ -1118,9 +1134,6 @@ type
     {* - выполняется инициализация кеширующих структур}
    procedure DoneCachingData; virtual;
     {* - выполняется сброс кешей в СУБД}
-
-   procedure OpenStream; override;
-   procedure CloseStream(aNeedUndo : Boolean); override;
 
    procedure StartChild(TypeID : Tl3VariantDef); override;
    procedure StartTag(TagID : Long); override;
@@ -1205,18 +1218,19 @@ end;
 
 TGroupOpFilter = class(TCustomDBFilter)
 private
- fDocIDList : Tl3LongintList;
- fDocIDList_forAnonced : Tl3LongintList;
- fDocIDList_forIZM : Tl3LongintList;
+ fDocIDList : Il3IDList;
+ fDocIDList_forAnonced : Il3IDList;
+ fDocIDList_forIZM : Il3IDList;
 
- fLckHandleList : Tl3LongintList;
- fRejectedDocs  : Tl3LongintList;
+ fLckHandleList : Il3IDList;
+ fRejectedDocs  : Il3IDList;
 
  fShortLogKeySize  : integer;
 
  procedure SaveLogActionSet;
  procedure CheckStageClose(const aRec : TdtRecordAccess);
 protected
+ procedure CloseStream(aNeedUndo : Boolean); override;
  procedure BeforeRelease; override;
  procedure DoneDocument; override;
  procedure TuneAttrData(aAttrData : TCustomCacheAttrData); override;
@@ -1234,10 +1248,10 @@ protected
  procedure AddDoc2DocLinkRec(aLeaf: Tl3Tag);                   override;
  function  IsValidAttribute(aAttrType : TCacheType) : Boolean; override;
 public
- procedure SetDocIDList(aDocIDList : Tl3LongintList);
- property DocIDList_forAnonced : Tl3LongintList read fDocIDList_forAnonced;
- property DocIDList_forIZM : Tl3LongintList read fDocIDList_forIZM;
- property RejectedDocsID : Tl3LongintList read fRejectedDocs;
+ procedure SetDocIDList(aDocIDList : Il3IDList);
+ property DocIDList_forAnonced : Il3IDList read fDocIDList_forAnonced;
+ property DocIDList_forIZM : Il3IDList read fDocIDList_forIZM;
+ property RejectedDocsID : Il3IDList read fRejectedDocs;
  property SaveMode;
 
 end;
@@ -1247,8 +1261,8 @@ TImportFilter = class(TDBFilter)
  private
   fIsBaseLock : boolean;
 
-  fLckHandleList : Tl3LongintList;
-  fLckDocIDList  : Tl3LongintList;
+  fLckHandleList : Il3IDList;
+  fLckDocIDList  : Il3IDList;
 
   f_GetDeleteCondition: TGetDeleteConditionEvent;
 
@@ -1450,8 +1464,8 @@ begin
  fMasterUser := 0;
  FAddNewAs := acWasImported;
  FAddNewAnnoAs := acAnnoWasImported;
- f_TypesList := Tl3LongintList.MakeSorted;
- f_SourcesList := Tl3LongintList.MakeSorted;
+ f_TypesList := l3MakeIDList;
+ f_SourcesList := l3MakeIDList;
  f_AddNewToLog := True;
 
  fFullDocFlag := True;
@@ -1477,17 +1491,17 @@ procedure TCustomDBFilter.LogSabFilter(aAttrType : TCacheType; const aFoundAttr 
 
 var
  //lFilteredAttr : SAB;
- lHTStub       : TUserSearchProc;
+ lHTStub       : TdtRecAccessProc;
 begin
  if aAttrType = ctLog_Doc then
-  lHTStub := L2UserSearchProc(@lIsProperLogAction_Doc)
+  lHTStub := L2RecAccessProc(@lIsProperLogAction_Doc)
  else
-  lHTStub := L2UserSearchProc(@lIsProperLogAction_Anno);
+  lHTStub := L2RecAccessProc(@lIsProperLogAction_Anno);
  try
   aFoundAttr.SubSelectUserDefined(lgAction_Key, lHTStub);
   //htSubSearch(aFoundAttr, lFilteredAttr, GetTblObj(aAttrType).Handle, lgAction_Key, USER_DEF, lHTStub, self);
  finally
-  FreeUserSearchProc(lHTStub);
+  FreeRecAccessProc(lHTStub);
  end;
  //Ht(lFilteredAttr.nRetCode);
 end;
@@ -1495,8 +1509,8 @@ end;
 procedure TCustomDBFilter.BeforeRelease;
 begin
  //l3Free(f_PriorTable);
- l3Free(f_TypesList);
- l3Free(f_SourcesList);
+ //l3Free(f_TypesList);
+ //l3Free(f_SourcesList);
  inherited;
  Assert(fCachingDataCnt = 0);
 end;
@@ -3533,8 +3547,8 @@ begin
   SetLockBase(True);
  inherited;
 
- fLckHandleList := Tl3LongintList.MakeSorted;
- fLckDocIDList  := Tl3LongintList.MakeSorted;
+ fLckHandleList := l3MakeIDList;
+ fLckDocIDList  := l3MakeIDList;
 end;
 
 procedure TImportFilter.DoneCachingData;
@@ -3543,13 +3557,12 @@ begin
  FreeLockedDocs;
  SetLockBase(False);
 
- l3Free(fLckHandleList);
- l3Free(fLckDocIDList);
+ fLckHandleList := nil;
+ fLckDocIDList := nil;
 end;
 
 procedure TImportFilter.BeginDocument(aNewDocID : TDocID);
 var
- tmpIndex   : LongInt;
  lIsRelated : Boolean;
  lLockID     : TDocID;
  tmpStation : TStationNameArray;
@@ -3585,7 +3598,7 @@ begin
      try
       if CheckDeleteConditions(aNewDocID, lIsRelated, lLockID) then
       begin
-       if not IsBaseLocked and (lLockID <> 0) and not fLckDocIDList.FindData(lLockID, tmpIndex) then
+       if not IsBaseLocked and (lLockID <> 0) and (fLckDocIDList.IndexOf(lLockID) < 0) then
        begin
         try
          {$IfDef ImportTest_K455105818}
@@ -3629,7 +3642,7 @@ begin
          fLckDocIDList.Add(lLockID);       // add to lock Documents list
          fLckHandleList.Add(lLockHandle); // add to lock Handles list
         end;
-       end; // if (lLockID <> 0) and not fLckDocIDList.Find(lLockID, tmpIndex) then
+       end; // if not IsBaseLocked and (lLockID <> 0) and (fLckDocIDList.IndexOf(lLockID) < 0) then
       end
       else //if CheckDeleteConditions ...
       begin
@@ -3662,7 +3675,7 @@ begin
 
   if not IsBaseLocked and (lLockHandle = -1) then
   begin
-   if not fLckDocIDList.FindData(aNewDocID, tmpIndex) then
+   if (fLckDocIDList.IndexOf(aNewDocID) < 0) then
    begin
     lLockHandle:=LockServer.FullLockDoc(fFamily, aNewDocID);
     if lLockHandle = -1 then
@@ -3960,16 +3973,16 @@ end;
 // + расчет приорити для пачки
 
 // +попытка захвата доков и
-// +выдача списка захватов fLckHandleList : Tl3LongintList;
+// +выдача списка захватов fLckHandleList : Tl3IDList;
 // +выдача списка незахваченных
 
 procedure TGroupOpFilter.BeforeRelease;
 begin
- l3Free(fLckHandleList);
- l3Free(fRejectedDocs);
- l3Free(fDocIDList_forAnonced);
- l3Free(fDocIDList_forIZM);
- l3Free(fDocIDList);
+ //l3Free(fLckHandleList);
+ //l3Free(fRejectedDocs);
+ //l3Free(fDocIDList_forAnonced);
+ //l3Free(fDocIDList_forIZM);
+ //l3Free(fDocIDList);
  inherited;
 end;
 
@@ -4016,7 +4029,11 @@ begin
   AddImpDocRec(false);
 
  SaveLogActionSet;
+end;
 
+procedure TGroupOpFilter.CloseStream(aNeedUndo : Boolean);
+begin
+ Inherited;
  if not fLckHandleList.Empty then
   LockServer.BatchUnlockDoc(fFamily, fLckHandleList);
 end;
@@ -4059,15 +4076,15 @@ begin
 
  if lRightsMask > 0 then
  begin
-  fLckHandleList := Tl3LongintList.MakeSorted;
-  fRejectedDocs := Tl3LongintList.MakeSorted;
+  fLckHandleList := l3MakeIDList;
+  fRejectedDocs := l3MakeIDList;
   LockServer.BatchLockDoc(fFamily, fDocIDList, lRightsMask, fLckHandleList, fRejectedDocs);
  end;
 end;
 
-procedure TGroupOpFilter.SetDocIDList(aDocIDList : Tl3LongintList);
+procedure TGroupOpFilter.SetDocIDList(aDocIDList : Il3IDList);
 begin
- fDocIDList := aDocIDList.Use;
+ fDocIDList := aDocIDList;
 end;
 
 procedure TGroupOpFilter.TuneAttrData(aAttrData : TCustomCacheAttrData);
@@ -4127,14 +4144,14 @@ var
  procedure AddForIZM(lGetDocID : TDocID);
  begin
   if fDocIDList_forIZM = nil then
-   fDocIDList_forIZM := Tl3LongintList.Create;
+   fDocIDList_forIZM := l3MakeIDList;
   fDocIDList_forIZM.Add(lGetDocID);
  end;
 
  procedure AddForAnonced(lGetDocID : TDocID);
  begin
   if fDocIDList_forAnonced = nil then
-   fDocIDList_forAnonced := Tl3LongintList.Create;
+   fDocIDList_forAnonced := l3MakeIDList;
   fDocIDList_forAnonced.Add(lGetDocID);
  end;
 
@@ -4309,6 +4326,7 @@ begin
   lPriorList := TPriorityList.Create(fFamily, lSab);
  try
   lSab.RecordsByKey;
+  lSab.Sort([fId_Fld]);
 
   lRAProcStub := L2RecAccessProc(@lRecAccessProc);
   try

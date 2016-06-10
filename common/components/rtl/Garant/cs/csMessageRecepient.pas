@@ -104,6 +104,8 @@ begin
    if (Size-Position) >= 2*SizeOf(l_Count) then
    begin
     Read(f_ClientID, SizeOf(f_ClientID));
+    if (ClientID < 1) then
+     l3System.Stack2Log('ClientID < 1');
     Read(l_Count, SizeOf(l_Count));
     if (l_Count < 10000) then
     begin

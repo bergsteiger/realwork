@@ -1,9 +1,12 @@
 //..........................................................................................................................................................................................................................................................
 unit ddImportPipe;
 { Верхний слой трубы для импорта - знает про входные форматы и цикл }
-{ $Id: ddImportPipe.pas,v 1.98 2015/11/25 07:22:10 lukyanets Exp $ }
+{ $Id: ddImportPipe.pas,v 1.99 2016/05/18 06:03:58 lukyanets Exp $ }
 
 // $Log: ddImportPipe.pas,v $
+// Revision 1.99  2016/05/18 06:03:58  lukyanets
+// Выключаем удаленную отладку
+//
 // Revision 1.98  2015/11/25 07:22:10  lukyanets
 // Заготовки для выдачи номеров
 //
@@ -689,7 +692,7 @@ end;
 
 function TddImportPipe.Execute: Boolean;
 var
-  aUserName,aLoginName : ShortString;
+  aUserName,aLoginName : String;
   aActFlag    : Byte;
 begin
  Result := False;
@@ -697,7 +700,7 @@ begin
   f_ErrorLog.Clear;
  if UserID > 0 then
  begin
-  UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
   l3System.Msg2Log(Format('Начало выполнения импорта от имени %s (ID %d)', [aUserName, UserID]));
  end // UserID > 0
  else
@@ -829,12 +832,12 @@ end;
 procedure TddImportPipe._SkipDocument(aDocID : TDocID; WhyFlag : TSkipDocReason;
     UserID: Longint);
 var
- aUserName,aLoginName : ShortString;
+ aUserName,aLoginName : String;
  aActFlag             : Byte;
  l_Msg: AnsiString;
 begin
  if UserID > -1 then
-  UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
   { Накапливаем сообщения о пропущенных документах }
  case WhyFlag of
   srUnknown       : l_Msg:= 'Причина неизвестна';

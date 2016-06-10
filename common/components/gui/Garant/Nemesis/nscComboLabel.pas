@@ -213,16 +213,14 @@ end;//TnscLabelSubTree.CMMouseLeave
 
 procedure TnscLabelSubTree.WMNCCalcSize(var Message: TWMNCCalcSize);
 //#UC START# *570664F001CF_5704FC1A0398_var*
-const
- cFrameWidth = 3;
 //#UC END# *570664F001CF_5704FC1A0398_var*
 begin
 //#UC START# *570664F001CF_5704FC1A0398_impl*
  inherited;
- Inc(Message.CalcSize_Params.rgrc[0].Top, cFrameWidth);
- Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth + 2);
- Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth + 2);
- Dec(Message.CalcSize_Params.rgrc[0].Right, cFrameWidth);
+ Inc(Message.CalcSize_Params.rgrc[0].Top, 3);
+ Dec(Message.CalcSize_Params.rgrc[0].Bottom, 3);
+ Inc(Message.CalcSize_Params.rgrc[0].Left, 3);
+ Dec(Message.CalcSize_Params.rgrc[0].Right, 3);
 //#UC END# *570664F001CF_5704FC1A0398_impl*
 end;//TnscLabelSubTree.WMNCCalcSize
 
@@ -231,8 +229,11 @@ procedure TnscLabelSubTree.CNKeyDown(var Message: TWMKeyDown);
 //#UC END# *57067C0302FD_5704FC1A0398_var*
 begin
 //#UC START# *57067C0302FD_5704FC1A0398_impl*
- inherited;
- //CloseUp(False);
+ with Message do
+  if (CharCode = VK_ESCAPE) then
+   CloseUp(False)
+  else
+   inherited;
 //#UC END# *57067C0302FD_5704FC1A0398_impl*
 end;//TnscLabelSubTree.CNKeyDown
 
@@ -241,7 +242,8 @@ procedure TnscLabelSubTree.WMKillFocus(var Message: TWMKillFocus);
 //#UC END# *5710FAC701BB_5704FC1A0398_var*
 begin
 //#UC START# *5710FAC701BB_5704FC1A0398_impl*
- if (Message.FocusedWnd <> Handle) then
+ Assert(Owner is TnscComboLabel);
+ if (Message.FocusedWnd <> Handle) and (Message.FocusedWnd <> (Owner as TnscComboLabel).f_FocusedControl) then
   CloseUp(False);
  inherited;
 //#UC END# *5710FAC701BB_5704FC1A0398_impl*
@@ -441,7 +443,12 @@ procedure TnscComboLabel.pm_SetTreeStruct(const aValue: Il3SimpleTree);
 //#UC END# *5704FDF001B3_5704F8CA00C8set_var*
 begin
 //#UC START# *5704FDF001B3_5704F8CA00C8set_impl*
- Tree.TreeStruct := aValue;
+ if (Tree.TreeStruct <> aValue) then
+ begin
+  Tree.TreeStruct := aValue;
+  UpdateCaption;
+  DoChanged;
+ end;
 //#UC END# *5704FDF001B3_5704F8CA00C8set_impl*
 end;//TnscComboLabel.pm_SetTreeStruct
 
@@ -450,8 +457,12 @@ procedure TnscComboLabel.pm_SetCurrentItem(aValue: Integer);
 //#UC END# *570685C4031F_5704F8CA00C8set_var*
 begin
 //#UC START# *570685C4031F_5704F8CA00C8set_impl*
- f_CurrentItem := aValue;
- DoChanged;
+ if (f_CurrentItem <> aValue) then
+ begin
+  f_CurrentItem := aValue;
+  UpdateCaption;
+  DoChanged;
+ end;
 //#UC END# *570685C4031F_5704F8CA00C8set_impl*
 end;//TnscComboLabel.pm_SetCurrentItem
 
@@ -460,7 +471,6 @@ procedure TnscComboLabel.DoChanged;
 //#UC END# *5704F9AE00E5_5704F8CA00C8_var*
 begin
 //#UC START# *5704F9AE00E5_5704F8CA00C8_impl*
- UpdateCaption;
  if Assigned(f_OnChange) then
   f_OnChange(Self);
 //#UC END# *5704F9AE00E5_5704F8CA00C8_impl*
@@ -484,7 +494,7 @@ procedure TnscComboLabel.UpdateCaption;
 //#UC END# *570685E80050_5704F8CA00C8_var*
 begin
 //#UC START# *570685E80050_5704F8CA00C8_impl*
- if (f_CurrentItem >= 0) then
+ if (f_CurrentItem >= 0) and (f_CurrentItem < Tree.Total) then
   Caption := l3Str(TreeStruct.Nodes[f_CurrentItem].Text)
  else
   Caption := '';
@@ -497,6 +507,8 @@ procedure TnscComboLabel.TreeCloseUp(Sender: TObject);
 begin
 //#UC START# *5707A0EB00B5_5704F8CA00C8_impl*
  f_Dropped := False;
+ if (Windows.GetFocus = Tree.Handle) then
+  Windows.SetFocus(f_FocusedControl);
 //#UC END# *5707A0EB00B5_5704F8CA00C8_impl*
 end;//TnscComboLabel.TreeCloseUp
 
@@ -507,6 +519,7 @@ procedure TnscComboLabel.MouseListenerNotify(aMouseMessage: WPARAM;
 var
  l_Pt: TPoint;
  l_Handle: THandle;
+ l_SelfRect: TRect;
 //#UC END# *4F79CEDF005A_5704F8CA00C8_var*
 begin
 //#UC START# *4F79CEDF005A_5704F8CA00C8_impl*
@@ -524,7 +537,13 @@ begin
      l_Pt := aHookStruct^.Pt;
      l_Handle := WindowFromPoint(l_Pt);
      if (l_Handle <> Tree.Handle) then
+     begin
+      with Self.BoundsRect do
+       l_SelfRect := Rect(Parent.ClientToScreen(TopLeft), Parent.ClientToScreen(BottomRight));
+      if PtInRect(l_SelfRect, l_Pt) then
+       Exit;
       Tree.CloseUp(False);
+     end;
     end;
   end;
 //#UC END# *4F79CEDF005A_5704F8CA00C8_impl*
@@ -548,7 +567,9 @@ procedure TnscComboLabel.MouseWheelListenerNotify(Msg: PMsg;
 //#UC END# *4F79D08A02C7_5704F8CA00C8_var*
 begin
 //#UC START# *4F79D08A02C7_5704F8CA00C8_impl*
- !!! Needs to be implemented !!!
+ if Assigned(Tree) and Tree.HandleAllocated then
+  if (Msg.hwnd <> Tree.Handle) then
+   Tree.CloseUp(False);
 //#UC END# *4F79D08A02C7_5704F8CA00C8_impl*
 end;//TnscComboLabel.MouseWheelListenerNotify
 
@@ -560,6 +581,7 @@ begin
 //#UC START# *479731C50290_5704F8CA00C8_impl*
  Tl3ListenersManager.RemoveWndProcListener(Self);
  Tl3ListenersManager.RemoveMouseListener(Self);
+ Tl3ListenersManager.RemoveMouseWheelListener(Self);
  inherited;
 //#UC END# *479731C50290_5704F8CA00C8_impl*
 end;//TnscComboLabel.Cleanup
@@ -572,6 +594,7 @@ begin
  inherited;
  Tl3ListenersManager.AddWndProcListener(Self);
  Tl3ListenersManager.AddMouseListener(Self);
+ Tl3ListenersManager.AddMouseWheelListener(Self);
 //#UC END# *47D1602000C6_5704F8CA00C8_impl*
 end;//TnscComboLabel.Create
 
@@ -592,7 +615,7 @@ begin
  if Assigned(TreeStruct) and (TreeStruct.RootNode.ThisChildrenCount > 0) then
  begin
   Tree.Current := f_CurrentItem;
-  Tree.ClientHeight := Tree.CalcFullHeight + 1;//Tree.GetBorderSize;
+  Tree.ClientHeight := Tree.CalcFullHeight;
   Tree.Width := Max(Tree.CalcFullWidth + 30, Width);
   with ClientToScreen(Point(0, Height)) do
   begin

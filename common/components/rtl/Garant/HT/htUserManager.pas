@@ -56,6 +56,8 @@ type
     var aLoginName: AnsiString;
     var aActFlag: Byte);
    function Get_PriorityCalculator: IdaPriorityCalculator;
+   function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+    aUserID: TdaUserID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -87,6 +89,7 @@ constructor ThtUserManager.Create;
 begin
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
+ f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 end;//ThtUserManager.Create
 
@@ -158,7 +161,7 @@ function ThtUserManager.GetUserName(anUserID: TdaUserID): AnsiString;
 //#UC END# *5718B5CF0399_5629E343023B_var*
 begin
 //#UC START# *5718B5CF0399_5629E343023B_impl*
- Result := dt_User.UserManager.GetUserName(anUserID);
+ Result := dt_User.UserManager.xxxGetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 end;//ThtUserManager.GetUserName
 
@@ -169,7 +172,7 @@ function ThtUserManager.GetUserPriorities(aGroupId: TdaUserID;
 //#UC END# *571DCFB50217_5629E343023B_var*
 begin
 //#UC START# *571DCFB50217_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ Result := dt_User.UserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
 //#UC END# *571DCFB50217_5629E343023B_impl*
 end;//ThtUserManager.GetUserPriorities
 
@@ -178,7 +181,7 @@ procedure ThtUserManager.ReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_var*
 begin
 //#UC START# *5721F5E60367_5629E343023B_impl*
- !!! Needs to be implemented !!!
+ dt_User.UserManager.xxxReSortUserList;
 //#UC END# *5721F5E60367_5629E343023B_impl*
 end;//ThtUserManager.ReSortUserList
 
@@ -187,7 +190,7 @@ function ThtUserManager.Get_ArchiUsersCount: Integer;
 //#UC END# *5729C59E00D5_5629E343023Bget_var*
 begin
 //#UC START# *5729C59E00D5_5629E343023Bget_impl*
- Result := dt_User.UserManager.xxxGetArchiUsersCount;
+ Result := dt_User.UserManager.xxxGetArchiUsersCount(Get_PriorityCalculator);
 //#UC END# *5729C59E00D5_5629E343023Bget_impl*
 end;//ThtUserManager.Get_ArchiUsersCount
 
@@ -211,7 +214,7 @@ function ThtUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
 //#UC END# *57358B940211_5629E343023B_var*
 begin
 //#UC START# *57358B940211_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByID(aID);
+ Result := dt_User.UserManager.xxxUserByID(Get_PriorityCalculator, aID);
 //#UC END# *57358B940211_5629E343023B_impl*
 end;//ThtUserManager.UserByID
 
@@ -220,7 +223,7 @@ function ThtUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
 //#UC END# *57358BCB0360_5629E343023B_var*
 begin
 //#UC START# *57358BCB0360_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByLogin(aLogin);
+ Result := dt_User.UserManager.xxxUserByLogin(Get_PriorityCalculator, aLogin);
 //#UC END# *57358BCB0360_5629E343023B_impl*
 end;//ThtUserManager.UserByLogin
 
@@ -230,7 +233,7 @@ procedure ThtUserManager.UpdateUserInfo(aUserID: TdaUserID;
 //#UC END# *5735AE4D0017_5629E343023B_var*
 begin
 //#UC START# *5735AE4D0017_5629E343023B_impl*
- dt_User.UserManager.xxxUpdateUserInfo(aUserID, aIsGroup);
+ dt_User.UserManager.xxxUpdateUserInfo(Get_PriorityCalculator, aUserID, aIsGroup);
 //#UC END# *5735AE4D0017_5629E343023B_impl*
 end;//ThtUserManager.UpdateUserInfo
 
@@ -239,7 +242,7 @@ procedure ThtUserManager.MakeFullArchiUsersList;
 //#UC END# *5735AE7F0071_5629E343023B_var*
 begin
 //#UC START# *5735AE7F0071_5629E343023B_impl*
- dt_User.UserManager.xxxmakeFullUsersList;
+ dt_User.UserManager.xxxmakeFullUsersList(Get_PriorityCalculator);
 //#UC END# *5735AE7F0071_5629E343023B_impl*
 end;//ThtUserManager.MakeFullArchiUsersList
 
@@ -248,7 +251,7 @@ function ThtUserManager.GetUserDisplayName(anID: TdaUserID): AnsiString;
 //#UC END# *5735AECA0121_5629E343023B_var*
 begin
 //#UC START# *5735AECA0121_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserDisplayName(anID);
+ Result := dt_User.UserManager.xxxGetUserDisplayName(Get_PriorityCalculator, anID);
 //#UC END# *5735AECA0121_5629E343023B_impl*
 end;//ThtUserManager.GetUserDisplayName
 
@@ -308,7 +311,7 @@ function ThtUserManager.CSCheckPassword(const aLogin: AnsiString;
 //#UC END# *573AC17202BF_5629E343023B_var*
 begin
 //#UC START# *573AC17202BF_5629E343023B_impl*
- Result := dt_User.UserManager.xxxCSCheckPassword(aLogin, aPassword, RequireAdminRights, theUserID);
+ Result := dt_User.UserManager.xxxCSCheckPassword(Get_PriorityCalculator, aLogin, aPassword, RequireAdminRights, theUserID);
 //#UC END# *573AC17202BF_5629E343023B_impl*
 end;//ThtUserManager.CSCheckPassword
 
@@ -370,12 +373,23 @@ begin
 //#UC END# *5757D9BB0116_5629E343023B_impl*
 end;//ThtUserManager.IterateUserGroupsF
 
+function ThtUserManager.IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+ aUserID: TdaUserID): Boolean;
+//#UC START# *575A8B790353_5629E343023B_var*
+//#UC END# *575A8B790353_5629E343023B_var*
+begin
+//#UC START# *575A8B790353_5629E343023B_impl*
+ Result := dt_User.UserManager.xxxIsMemberOfGroup(aUserGroupID, aUserID);
+//#UC END# *575A8B790353_5629E343023B_impl*
+end;//ThtUserManager.IsMemberOfGroup
+
 procedure ThtUserManager.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5629E343023B_var*
 //#UC END# *479731C50290_5629E343023B_var*
 begin
 //#UC START# *479731C50290_5629E343023B_impl*
+ f_PriorityCalculator := nil;
  FreeAndNil(f_UserStatusChangedSubscriberList);
  inherited;
 //#UC END# *479731C50290_5629E343023B_impl*

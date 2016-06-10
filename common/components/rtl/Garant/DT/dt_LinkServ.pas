@@ -1,9 +1,15 @@
 
 Unit Dt_LinkServ;
 
-{ $Id: dt_LinkServ.pas,v 1.21 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: dt_LinkServ.pas,v 1.23 2016/05/17 11:59:35 voba Exp $ }
 
 // $Log: dt_LinkServ.pas,v $
+// Revision 1.23  2016/05/17 11:59:35  voba
+// -k:623081921
+//
+// Revision 1.22  2016/04/08 11:01:23  voba
+// -bf вычисление priority  для групповой операции не работало
+//
 // Revision 1.21  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -111,7 +117,7 @@ type
    function  GetHLinkTbl: THyperLinkTbl;
    function  GetRenumTbl : TReNumTbl;
 
-   function  GetPriorObj : TPriorTbl;
+   function  GetPriorTbl : TPriorTbl;
 
    procedure DataClear;
    procedure Cleanup; override;
@@ -168,9 +174,9 @@ type
 
    function   GetPriority(ID : TDocID) : Word;
 
-   function   GetMask(aDoc : TDocID) : LongInt;
+   //function   GetMask(aDoc : TDocID) : LongInt;
 
-   function   GetSelfMask : Word;
+   //function   GetSelfMask : Word;
     {* - Отдает "верхнюю" половину маски прав (независимую от документа).
          Используется в TLockServer.FullLockDoc для проверки acfDelete}
 
@@ -203,9 +209,9 @@ type
    property   LogBook : TLogBookTbl   read GetLogBook;
    property   Stages  : TStageTbl     read GetTStageTbl;
    property   ActiveIntervals : TActiveIntervalTbl read GetActiveTbl;
-   property   Alarms  : TAlarmTbl     read GetAlarmTbl;
-   property   Renum   : TReNumTbl     read GetRenumTbl;
-   property   PriorityObj : TPriorTbl read GetPriorObj;
+   property   Alarms   : TAlarmTbl     read GetAlarmTbl;
+   property   Renum    : TReNumTbl     read GetRenumTbl;
+   property   PriorTbl : TPriorTbl read GetPriorTbl;
  end;
 
 function LinkServer(aFamily : TFamilyID) : TLinkServer;
@@ -369,7 +375,7 @@ begin
   fPrior.UpdateTbl;
 end;
 
-function TLinkServer.GetPriorObj : TPriorTbl;
+function TLinkServer.GetPriorTbl : TPriorTbl;
 begin
  if fFamily = 0 then raise EHtErrors.CreateInt(ecNotAssigned);
  if not Assigned(fPrior) then
@@ -923,17 +929,17 @@ begin
        else
         TypeVal:=0;
 
-      Result:=PriorityObj.GetPriorityOnValue(SourVal,TypeVal,True);
+      Result:=PriorTbl.GetPriorityOnValue(SourVal,TypeVal,True);
      end
     else
-     Result:=PriorityObj.GetPriorityOnList(SourSab,TypeSab,True);
+     Result:=PriorTbl.GetPriorityOnList(SourSab,TypeSab,True);
  finally
   htClearResults(SourSab);
   htClearResults(TypeSab);
  end;
 end;
 
-function TLinkServer.GetSelfMask : Word;
+(*function TLinkServer.GetSelfMask : Word;
 var
  lMask  : TTblMaskRec;
 begin
@@ -975,6 +981,7 @@ begin
  TLongWord(Result).LoWord:=TTblMaskRec(GrMask).AllowMask and
                            not TTblMaskRec(GrMask).DenyMask;
 end;
+*)
 
 procedure TLinkServer.GetSubFlags(aDoc : TDocID; const aSubList: InevSubList);
 

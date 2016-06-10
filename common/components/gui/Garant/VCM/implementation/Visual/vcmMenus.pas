@@ -5,9 +5,12 @@ unit vcmMenus;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmMenus -      }
 { Начат: 25.02.2003 20:06 }
-{ $Id: vcmMenus.pas,v 1.168 2015/11/17 11:57:31 morozov Exp $ }
+{ $Id: vcmMenus.pas,v 1.169 2016/04/29 07:13:30 lulin Exp $ }
 
 // $Log: vcmMenus.pas,v $
+// Revision 1.169  2016/04/29 07:13:30  lulin
+// - перегенерация.
+//
 // Revision 1.168  2015/11/17 11:57:31  morozov
 // {RequestLink: 611211969}
 //
@@ -633,7 +636,7 @@ uses
   vcmAction,
   vcmMenuItemActionLink,
 
-  vcmToolbar,
+  //vcmToolbar,
 
   vcmChromeLikeTypes
   ;

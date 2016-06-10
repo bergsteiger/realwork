@@ -1,9 +1,18 @@
 unit m3StgMgr;
 {*  лассы-менеджеры дл€ работы с IStorage. }
 
-// $Id: m3stgmgr.pas,v 1.57 2015/05/14 11:40:17 lulin Exp $
+// $Id: m3stgmgr.pas,v 1.60 2016/04/20 14:57:20 lulin Exp $
 
 // $Log: m3stgmgr.pas,v $
+// Revision 1.60  2016/04/20 14:57:20  lulin
+// - делаем так, чтобы тест индексации мог работать по нескольку раз и без предварительных пасов руками.
+//
+// Revision 1.59  2016/04/20 14:24:08  lulin
+// - делаем так, чтобы тест индексации мог работать по нескольку раз и без предварительных пасов руками.
+//
+// Revision 1.58  2016/04/13 11:27:49  lulin
+// - улучшаем диагностику - выводим им€ файла.
+//
 // Revision 1.57  2015/05/14 11:40:17  lulin
 // {RequestLink:588034502}. ќптимизируем очистку кеша.
 //
@@ -325,6 +334,9 @@ begin
  Result := FILE_SHARE_READ or FILE_SHARE_WRITE;
 end;
 
+const
+ cFileMacro = '%1';
+
 class function Tm3ReadModeStorageManager.MakeInterface(const aName    : WideString;
                                                        UseCompression : Tm3StorageType = def_ReadModeStorageUseCompression): Im3IndexedStorage;
 const
@@ -356,8 +368,9 @@ begin
  except
   on E: EOleSysError do
   begin
-   if (E.ErrorCode = STG_E_INVALIDHEADER) then
-    raise EOleSysError.Create(ANSIReplaceStr(E.Message, '%1', '"' + aName + '"'), E.ErrorCode, E.HelpContext)
+   if (E.ErrorCode = STG_E_INVALIDHEADER)
+      OR (Pos(cFileMacro, E.Message) > 0) then
+    raise EOleSysError.Create(ANSIReplaceStr(E.Message, cFileMacro, '"' + aName + '"'), E.ErrorCode, E.HelpContext)
    else
     raise;
   end;//on E: EOleSysError
@@ -425,16 +438,27 @@ begin
   if Tm3StorageHolder.GetFromCache(aName, STGM_READWRITE, UseCompression, SharedMode, Result) then
    Exit;
   l3FileUtils.MakeDir(ExtractFilePath(AName));
-  if HasSplitted(aName) then
-  begin
-   Assert(not HasSolid(aName), '—уществуют и кусочна€ и некусочна€ части: ' + aName);
-   Result := MakeInterface(Tm3SplittedFileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode);
-  end//HasSplitted(aName)
-  else
-  if UseSplitted AND not HasSolid(AName) then
-   Result := MakeInterface(Tm3SplittedFileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode)
-  else
-   Result := MakeInterface(Tm3FileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode);
+  try
+   if HasSplitted(aName) then
+   begin
+    Assert(not HasSolid(aName), '—уществуют и кусочна€ и некусочна€ части: ' + aName);
+    Result := MakeInterface(Tm3SplittedFileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode);
+   end//HasSplitted(aName)
+   else
+   if UseSplitted AND not HasSolid(AName) then
+    Result := MakeInterface(Tm3SplittedFileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode)
+   else
+    Result := MakeInterface(Tm3FileStream.Make(AName, CAccess, SharedMode, CDistribution, CFlags), UseCompression).StoreToCache(aName, SharedMode);
+  except
+   on E: EOleSysError do
+   begin
+    if (E.ErrorCode = STG_E_INVALIDHEADER)
+       OR (Pos(cFileMacro, E.Message) > 0) then
+     raise EOleSysError.Create(ANSIReplaceStr(E.Message, cFileMacro, '"' + aName + '"'), E.ErrorCode, E.HelpContext)
+    else
+     raise;
+   end;//on E: EOleSysError
+  end;//try..except
  end;//AName = ''
 end;
 
@@ -481,10 +505,24 @@ end;
 // start class Tm3StorageManager
 
 class procedure Tm3StorageManager.IterateStorageFiles(const aName : AnsiString; aDoFile : TFileProcessingFunc);
+
+var
+ l_Ext : AnsiString;
+ 
+ function DoFile(const aFileName: AnsiString; aData: Pointer): Boolean;
+ begin//DoFile
+  if (Pos('.etalon.', aFileName) > 0) then
+  //if AnsiEndsStr('.etalon' + l_Ext, aFileName) then
+   Result := true
+  else
+   Result := aDoFile(aFileName, aData);
+ end;//DoFile
+
+var
+ l_FPStub : Pointer;
 const
  cMaskPart = '.*';
 var
- l_Ext : AnsiString;
  l_Mask : AnsiString;
  l_Folder : AnsiString;
 begin
@@ -494,7 +532,12 @@ begin
  aDoFile(Tm3SplittedFileStream.NormalizeFileName(aName) + l_Ext + cLockLogExt, nil);
  l_Folder := ExtractFilePath(aName);
  l_Mask := Tm3SplittedFileStream.NormalizeFileName(ExtractFileName(aName)) + cMaskPart + l_Ext;
- ProcessFilesWithMask(l_Folder, l_Mask, aDoFile);
+ l_FPStub := l3LocalStub(@DoFile);
+ try
+  ProcessFilesWithMask(l_Folder, l_Mask, l_FPStub);
+ finally
+  l3FreeLocalStub(l_FPStub);
+ end;//try..finally
 end;
 
 class procedure Tm3StorageManager.DeleteStorageFile(const aName : AnsiString);

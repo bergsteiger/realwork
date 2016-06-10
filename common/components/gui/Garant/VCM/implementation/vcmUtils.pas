@@ -4,9 +4,12 @@ unit vcmUtils;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmUtils -      }
 { Начат: 24.11.2003 16:35 }
-{ $Id: vcmUtils.pas,v 1.48 2015/10/19 13:53:56 kostitsin Exp $ }
+{ $Id: vcmUtils.pas,v 1.49 2016/04/19 11:41:47 morozov Exp $ }
 
 // $Log: vcmUtils.pas,v $
+// Revision 1.49  2016/04/19 11:41:47  morozov
+// {RequestLink: 452370459}
+//
 // Revision 1.48  2015/10/19 13:53:56  kostitsin
 // рисуем TvcmBaseOperationsCollectionItem
 //
@@ -339,8 +342,10 @@ begin
  Result := nil;
  if Assigned(anOpDef) then
   Result := anOpDef.Caption;
- if Assigned(anEntityDef) and not anOpDef.IsCaptionUnique then
-  Result := vcmFmt('%s /%s/', [anOpDef.Caption, anEntityDef.Caption]);
+(* if Assigned(anEntityDef) and not anOpDef.IsCaptionUnique then
+  Result := vcmFmt('%s /%s/', [anOpDef.Caption, anEntityDef.Caption]);*)
+ // - Закомментировал. Посмотрим, не сломается ли что-нибудь.
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=452370459
 end;//vcmMakeCaption
 
 procedure vcmMakeControlAction(aControl             : TWinControl;

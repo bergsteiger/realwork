@@ -111,13 +111,14 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=467276976
  Self.Duplicates := l3_dupAccept;
  Self.Sorted := true;
- while true do
- begin
-  l_E := anIter.Next;
-  if (l_E = nil) then
-   break;
-  Self.Add(l_E);
- end;
+ if (anIter <> nil) then
+  while true do
+  begin
+   l_E := anIter.Next;
+   if (l_E = nil) then
+    break;
+   Self.Add(l_E);
+  end;
 //#UC END# *51D149B9038D_51D14918034E_impl*
 end;//TvcmOperationsDefIteratorForContextMenu.Create
 

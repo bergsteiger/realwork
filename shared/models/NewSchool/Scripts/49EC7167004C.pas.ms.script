@@ -3328,29 +3328,6 @@ ref; // ME_4E957515024B EnumChildWindowProc
 
 ref; // ME_4E9574DB0120 nsWebBrowserHelper
 
-: ME_FAC724500938
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_F132DC06DD1C // Tkw_InternetAgent_opInternetAgent
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_FAC724500938 
-
-: ME_4DB0614603C8_ME_F132DC06DD1C
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_F132DC06DD1C GetWordNameForRegister
-
-: ME_4DB079E00084_ME_F132DC06DD1C
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_F132DC06DD1C GetModuleOperationCode
-
 : ME_F132DC06DD1C
  CONST UID 'F132DC06DD1C'
  CONST Name 'Tkw_InternetAgent_opInternetAgent'
@@ -3367,15 +3344,6 @@ ref; // ME_4DB079E00084_ME_F132DC06DD1C GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_F132DC06DD1C // GetWordNameForRegister
- ME_4DB079E00084_ME_F132DC06DD1C // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_FAC724500938 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Интернет-агент_Новости_онлайн'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\kw_InternetAgent_opInternetAgent.pas'

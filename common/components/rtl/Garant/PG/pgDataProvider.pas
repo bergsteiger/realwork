@@ -251,7 +251,7 @@ begin
 //#UC START# *56448A910213_55D6DA9E00BF_impl*
  if f_RegionQuery = nil then
  begin
-  f_RegionQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtRegions));
+  f_RegionQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtRegions)));
   f_RegionQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['Name']));
   f_RegionQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtRegions).Field['ID'], da_copEqual, 'p_RegionID');
   f_RegionQuery.Prepare;
@@ -448,7 +448,7 @@ var
 //#UC END# *551D35040362_55D6DA9E00BF_var*
 begin
 //#UC START# *551D35040362_55D6DA9E00BF_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtRegions));
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtRegions)));
  try
   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['ID']));
   l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['Name']));
@@ -832,9 +832,12 @@ procedure TpgDataProvider.BeginImpersonate(anUserID: TdaUserID);
 //#UC END# *561796070253_55D6DA9E00BF_var*
 begin
 //#UC START# *561796070253_55D6DA9E00BF_impl*
- if f_ImpersonatedUserID <> usNone then
-  l3System.Msg2Log('ALERT ImpersonateUser');
- f_ImpersonatedUserID := anUserID;
+ inc(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 1 then
+  f_ImpersonatedUserID := anUserID
+ else
+  if f_ImpersonatedUserID <> anUserID then
+   l3System.Msg2Log('ALERT ImpersonateUser');
 //#UC END# *561796070253_55D6DA9E00BF_impl*
 end;//TpgDataProvider.BeginImpersonate
 
@@ -843,7 +846,11 @@ procedure TpgDataProvider.EndImpersonate;
 //#UC END# *5617961F0105_55D6DA9E00BF_var*
 begin
 //#UC START# *5617961F0105_55D6DA9E00BF_impl*
- f_ImpersonatedUserID := usNone;
+ Dec(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 0 then
+  f_ImpersonatedUserID := usNone;
+ if f_ImpersonateCounter < 0 then
+  f_ImpersonateCounter := 0;
 //#UC END# *5617961F0105_55D6DA9E00BF_impl*
 end;//TpgDataProvider.EndImpersonate
 

@@ -1,8 +1,11 @@
 Unit ExportPipe;
 
-{ $Id: ExportPipe.pas,v 1.227 2015/12/23 07:48:24 fireton Exp $ }
+{ $Id: ExportPipe.pas,v 1.228 2016/04/19 11:56:24 fireton Exp $ }
 
 // $Log: ExportPipe.pas,v $
+// Revision 1.228  2016/04/19 11:56:24  fireton
+// - больше информации в лог про экспорт образов
+//
 // Revision 1.227  2015/12/23 07:48:24  fireton
 // - используем SkipInvalidPictures чтобы пропускать невалидные картинки в NSRC
 //
@@ -1128,6 +1131,7 @@ var
  l_RangeManager  : Tl3RangeManager;
  l_Units         : AnsiString;
  l_s             : AnsiString;
+
 begin
  //Получим lPublInDataList
  Result:= False;
@@ -1146,9 +1150,12 @@ begin
   end;
   try
    if FProgressor <> nil then
-    FProgressor.Start(l_PublInDataList.Count, 'Экспорт образов документов', False);
+    FProgressor.Start(l_PublInDataList.Count, 'Экспорт образов документов', False)
+   else
+    if Assigned(f_TotalProgressProc) then
+     f_TotalProgressProc(piStart, l_PublInDataList.Count, 'Экспорт образов документов');
 
-   l3System.Msg2Log('Экспорт образов %D документов', [l_PublInDataList.Count], l3_msgLevel2);
+   l3System.Msg2Log('Экспорт образов %d документов', [l_PublInDataList.Count]);
    l_RangeManager:= Tl3RangeManager.Create;
    try
     for I:= 0 to pred(l_PublInDataList.Count) do
@@ -1165,7 +1172,10 @@ begin
      if FProgressor <> nil then
       FProgressor.ProcessUpdate(i)
      else
-      afw.ProcessMessages;
+      if Assigned(f_TotalProgressProc) then
+       f_TotalProgressProc(piCurrent, i)
+      else
+       afw.ProcessMessages;
      if f_Pipe.Aborted then
       break;
     end; // for i
@@ -1177,8 +1187,11 @@ begin
    if f_ImagesByPages then
     CloseFile(l_TextF);
    if FProgressor <> nil then
-    FProgressor.Stop;
-   l3System.Msg2Log('Экспорт образов закончен', l3_msgLevel2);
+    FProgressor.Stop
+   else
+    if Assigned(f_TotalProgressProc) then
+     f_TotalProgressProc(piEnd, l_PublInDataList.Count);
+   l3System.Msg2Log('Экспорт образов закончен');
   end; // try..finally
  end; // <> nil
 end;
@@ -1551,6 +1564,7 @@ begin
      try
       if Progressor <> nil then
        Progressor.ProcessUpdate(0, aRangeManager.Count, 'Запись образов к документу ' + aTopic);
+      //l3System.Msg2Log('Запись образов к документу ' + aTopic);
       for J:= 1 to aRangeManager.Count do
       begin
        if f_Pipe.Aborted then
@@ -1559,7 +1573,7 @@ begin
        l_CurPage := Pred(aRangeManager.Pages[J]);
        l_ImageIO.Params.TIFF_ImageIndex := l_CurPage;
        try
-        l3System.Msg2Log('страница %D/%D ', [J, aRangeManager.Count], l3_msgLevel2);
+        l3System.Msg2Log('страница %D/%D ', [J, aRangeManager.Count]);
 
         l_ImageIO.LoadFromFileTIFF(aImageFileName);
         l_ImageIO.Params.TIFF_Compression := ioTIFF_G4FAX;
@@ -1657,7 +1671,6 @@ begin
                            'Неправильное имя файла "'+ l_ImageFileName +'"'));
    exit;
   end; // ((SourId = 0) and (l_ShName <> '@')) or (l_ShName = '') or not DocImageServer.IsImageExists(l_PublRec)
-  l3System.Msg2Log('Выливаем образ '+l_ImageFileName, l3_msgLevel2);
   l_Num  := l3ArrayToString(Num, SizeOf(Num));
   aCSVElem := '';
   AddToCSV(l_ShName + #9 + l_Num + #9#9);
@@ -1683,6 +1696,8 @@ begin
    end;
   end;
   AddToCSV(l_Num + #9);
+
+  l3System.Msg2Log('Запись образов к документу '+l_Topic);
 
   if f_ImgCounters.FindPart(DocID, SizeOf(TDocID), l_Idx) then
   begin

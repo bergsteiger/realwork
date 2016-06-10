@@ -63,7 +63,7 @@ constructor ThtTabledQuery.Create(const aFactory: IdaTableQueryFactory;
 //#UC END# *5551AB780328_5551AB1602F4_var*
 begin
 //#UC START# *5551AB780328_5551AB1602F4_impl*
- inherited Create(aDataConverter, aTable, anAlias);
+ inherited Create(aFactory, aDataConverter, aFromClause);
  f_Helper := aHelper;
 //#UC END# *5551AB780328_5551AB1602F4_impl*
 end;//ThtTabledQuery.Create
@@ -86,12 +86,13 @@ end;//ThtTabledQuery.Make
 function ThtTabledQuery.FindTable(const anAlias: AnsiString): IhtFromTable;
 //#UC START# *555CA4CC00D6_5551AB1602F4_var*
 var
- l_IDX: Integer;
+ l_FromTable: IdaFromTable;
 //#UC END# *555CA4CC00D6_5551AB1602F4_var*
 begin
 //#UC START# *555CA4CC00D6_5551AB1602F4_impl*
- if AnsiSameText(anAlias, Table.TableAlias) then
-  Result := Table as IhtFromTable
+ l_FromTable := FromClause.FindTable(anAlias);
+ if Assigned(l_FromTable) then
+  Result := l_FromTable as IhtFromTable
  else
   Result := nil;
 //#UC END# *555CA4CC00D6_5551AB1602F4_impl*
@@ -100,29 +101,44 @@ end;//ThtTabledQuery.FindTable
 procedure ThtTabledQuery.PrepareTable;
 //#UC START# *566A892A0191_5551AB1602F4_var*
 var
- l_Table: IhtFromTable;
  l_Set: TdaTablesSet;
+
+ function DoIt(const anItem: IdaFromTable): Boolean;
+ var
+  l_Table: IhtFromTable;
+ begin
+  Result := True;
+  if Supports(anItem, IhtFromTable, l_Table) then
+  begin
+   l_Table.Prepare(f_Helper, l_Table.Table.Kind in l_Set);
+   Include(l_Set, l_Table.Table.Kind);
+  end;
+ end;
+
 //#UC END# *566A892A0191_5551AB1602F4_var*
 begin
 //#UC START# *566A892A0191_5551AB1602F4_impl*
  l_Set := [];
- if Supports(Table, IhtFromTable, l_Table) then
- begin
-  l_Table.Prepare(f_Helper, l_Table.Table.Kind in l_Set);
-  Include(l_Set, l_Table.Table.Kind);
- end;
+ FromClause.IterateTablesF(L2daFromClauseIteratorIterateTablesFAction(@DoIt));
 //#UC END# *566A892A0191_5551AB1602F4_impl*
 end;//ThtTabledQuery.PrepareTable
 
 procedure ThtTabledQuery.UnPrepareTable;
 //#UC START# *566A893B03C7_5551AB1602F4_var*
-var
- l_Table: IhtFromTable;
+
+ function DoIt(const anItem: IdaFromTable): Boolean;
+ var
+  l_Table: IhtFromTable;
+ begin
+  Result := True;
+  if Supports(anItem, IhtFromTable, l_Table) then
+   l_Table.Unprepare(f_Helper);
+ end;
+
 //#UC END# *566A893B03C7_5551AB1602F4_var*
 begin
 //#UC START# *566A893B03C7_5551AB1602F4_impl*
- if Supports(Table, IhtFromTable, l_Table) then
-  l_Table.Unprepare(f_Helper);
+ FromClause.IterateTablesF(L2daFromClauseIteratorIterateTablesFAction(@DoIt));
 //#UC END# *566A893B03C7_5551AB1602F4_impl*
 end;//ThtTabledQuery.UnPrepareTable
 
@@ -167,6 +183,9 @@ begin
 
  l3ZeroMemory(@l_SAB, SizeOf(l_SAB));
 
+//!! !!! Needs to be implemented !!! join tables support!
+  Assert(Supports(FromClause, IhtFromTable));
+
  if WhereCondition <> nil then
  begin
 //!! !!! Needs to be implemented !!! complex conditions support
@@ -180,7 +199,7 @@ begin
    Assert(False, 'Complex condition unimplemented');
  end
  else
-  htSearch(nil, l_Sab, (Table as IhtFromTable).Handle, AbsNumFld, GREAT, @Zero, nil);
+  htSearch(nil, l_Sab, (FromClause as IhtFromTable).Handle, AbsNumFld, GREAT, @Zero, nil);
  if OrderBy.Count > 0 then
  begin
   SetLength(l_Sort, OrderBy.Count);

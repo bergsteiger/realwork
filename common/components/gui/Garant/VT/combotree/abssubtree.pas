@@ -240,6 +240,7 @@ var
 //#UC END# *5298B8B00132_4F8D5535021C_var*
 begin
 //#UC START# *5298B8B00132_4F8D5535021C_impl*
+ inherited;
  DC := GetWindowDC(Handle);
  try
   if IsSizeableTree and IsShowGripper then
@@ -275,7 +276,6 @@ begin
  finally
   ReleaseDC(Handle, DC);
  end;//try..finally
- inherited; // перенесли в конец - http://mdp.garant.ru/pages/viewpage.action?pageId=263291236 
 //#UC END# *5298B8B00132_4F8D5535021C_impl*
 end;//TAbsSubTree.WMNCPaint
 

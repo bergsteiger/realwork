@@ -1580,8 +1580,12 @@ procedure Tl3CanvasPrim.CheckOrientation;
   l_Div : Long;
   l_Mod : Long;
  begin//CorrectDelta
+  Assert(A > 0);
+  Assert(B > 0);
   if (A >= B) then
   begin
+   if (B <= 0) then
+    Exit;
    l_Div := A div B;
    l_Mod := A mod B;
    if (l_Mod < l3Epsilon * l_Div) then
@@ -5721,13 +5725,13 @@ begin
  while Drawing do
   EndPaint; { - Принудительно освобождаем все ресурсы. }
  l3System.FreeLocalMem(f_ConvertBuf);
- f_Printer := nil;
  f_Painter := nil;
  f_VirtualCanvas := nil;
  f_AbortChecker := nil;
  f_FrameLines := nil;
  f_Font := nil;
- Canvas := nil;
+ Canvas := nil; // Канву нужно обнулить до принтера!!! А не после!!!
+ f_Printer := nil;
  FreeAndNil(f_Filled);
  FreeAndNil(f_ClipRectList);
  FreeAndNil(f_LineSpacingStack);
@@ -5758,7 +5762,7 @@ begin
  etoFlags := eto_Opaque;
  BackColor := def_PaperColor;
  TextColor := clBlack;
- Zoom := def_Zoom;
+ Zoom := def_Zoom;                             
  SectionExtent := l3Point(def_inchPaperWidth, def_inchPaperHeight);
  if (f_Printer <> nil) then
   PageOrientation := f_Printer.Orientation

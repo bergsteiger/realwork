@@ -6,9 +6,12 @@ interface
 { Автор: Люлин А.В. © }
 { Модуль: l3MinMax - }
 { Начат: 01.12.95 16:28 }
-{ $Id: l3MinMax.pas,v 1.8 2014/05/20 16:49:24 lulin Exp $ }
+{ $Id: l3MinMax.pas,v 1.9 2016/03/23 14:36:16 lulin Exp $ }
 
 // $Log: l3MinMax.pas,v $
+// Revision 1.9  2016/03/23 14:36:16  lulin
+// - вычищаем.
+//
 // Revision 1.8  2014/05/20 16:49:24  lulin
 // - пытаемся восстановить компилируемость под XE.
 //
@@ -69,22 +72,34 @@ end;
 
 function Min(A, B: LongInt): LongInt;
 begin
- if (A < B) then Result := A else Result := B;
+ if (A < B) then
+  Result := A
+ else
+  Result := B;
 end;
 
 function Min64(A, B: Int64): Int64;
 begin
- if (A < B) then Result := A else Result := B;
+ if (A < B) then
+  Result := A
+ else
+  Result := B;
 end;
 
 function Max(A, B: LongInt): LongInt;
 begin
- if (A > B) then Result := A else Result := B;
+ if (A > B) then
+  Result := A
+ else
+  Result := B;
 end;
 
 function Max64(A, B: Int64): Int64;
 begin
- if (A > B) then Result := A else Result := B;
+ if (A > B) then
+  Result := A
+ else
+  Result := B;
 end;
 
 {$IfDef Win32}

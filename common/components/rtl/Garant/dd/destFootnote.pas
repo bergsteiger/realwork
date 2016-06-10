@@ -87,8 +87,9 @@ begin
  with l_Para do
  begin
   AddSub(f_CustomRTFReader.NextFootnoteNumber, Format('Сноска %d', [f_CustomRTFReader.NextFootnoteNumber]));
-  if not (Text[0] in cc_WhiteSpaceExt) then
-   l_FN := l_FN + cc_HardSpace;
+  if (Text[0] in cc_WhiteSpaceExt) then
+   Text.LTrim;
+  l_FN := l_FN + cc_SoftSpace;
   Text.Insert(l3PCharLen(l_FN), 0);
   Closed := True;
   l_Last := Self.LastParagraph;

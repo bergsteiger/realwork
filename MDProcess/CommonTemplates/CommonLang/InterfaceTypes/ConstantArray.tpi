@@ -85,6 +85,7 @@ r {""=""}: {}
 	%{Op_Instance}%f_set_documentation(«аполнение списка строк значени€ми)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
 	var
 	 l_Index: %f_pas_TypeName(%R);\
@@ -94,6 +95,7 @@ r {""=""}: {}
 	 for l_Index := Low(l_Index) to High(l_Index) do
 	  aStrings.Add(%SN\[l_Index\].AsCStr);\
 	)\
+	]\
 
 	[{"%{Il3CString}N"=""}%f_find_element(46780DA40383,Il3CString)]\
 	%P%f_make_accessable(%{Il3CString}U)\
@@ -110,6 +112,7 @@ r {""=""}: {}
 	%{Op_Instance}%f_set_documentation(ѕреобразование строкового значени€ к пор€дковому)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+	[{%f_UseNewGenRecG(%S)!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Helper_Inst})_var,\
 	var
 	 l_Index: %f_pas_TypeName(%R);\
@@ -123,6 +126,7 @@ r {""=""}: {}
 	  end;//l3Same..
 	 raise Exception.CreateFmt('Display name "\%s" not found in map "%SN"', \[l3Str(aDisplayName)\]);\
 	)\
+	]\
 	]\
 
 	[{%S{Need map interface}=true}\
@@ -152,6 +156,7 @@ r {""=""}: {}
 	%P%f_make_accessable(%{l3FillChar}U)\
 	%f_addCDep(%P,%{l3FillChar})\
 
+	[{%f_UseNewGenRecG(%S)!=true}\
 // MapID
 	%f_find_element(46A5EFE602DE,Op_Instance)\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Map_ImplPrim})get_var,\
@@ -199,6 +204,7 @@ r {""=""}: {}
 	 Assert(aValue \<= Ord(High(%f_pas_TypeName(%R))));
 	 Result := %SN\[%f_pas_TypeName(%R)(aValue)\].AsCStr;\
 	)\
+	]\
 
 	%P%f_add_class(%SU_MapImpl,SimpleClass,T%SNImpl,Map_Impl)\
 	%{Map_Impl}%f_set_var(SpelledFor,S)\

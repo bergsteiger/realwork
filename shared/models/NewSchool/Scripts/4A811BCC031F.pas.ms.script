@@ -880,29 +880,6 @@ ref; // ME_3204EEE6F3FE
 
 ref; // ME_4A811C1A0293 BaseWorkJournal
 
-: ME_7F179B1115D5
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_AD86DC9C7EF5 // Tkw_WorkJournal_opOpenJournal
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_7F179B1115D5 
-
-: ME_4DB0614603C8_ME_AD86DC9C7EF5
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_AD86DC9C7EF5 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_AD86DC9C7EF5
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_AD86DC9C7EF5 GetModuleOperationCode
-
 : ME_AD86DC9C7EF5
  CONST UID 'AD86DC9C7EF5'
  CONST Name 'Tkw_WorkJournal_opOpenJournal'
@@ -919,15 +896,6 @@ ref; // ME_4DB079E00084_ME_AD86DC9C7EF5 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_AD86DC9C7EF5 // GetWordNameForRegister
- ME_4DB079E00084_ME_AD86DC9C7EF5 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_7F179B1115D5 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::Журнал_работы_OpenJournal'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\kw_WorkJournal_opOpenJournal.pas'

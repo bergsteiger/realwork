@@ -1,7 +1,13 @@
 Unit Dt_Stage;
 
-{ $Id: Dt_Stage.pas,v 1.85 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: Dt_Stage.pas,v 1.86 2016/04/18 11:48:06 lukyanets Exp $ }
 // $Log: Dt_Stage.pas,v $
+// Revision 1.86  2016/04/18 11:48:06  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.85  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -314,12 +320,6 @@ Type
    Procedure   GetDocStagesRecList(aDocID : TDocID; aList : Tl3CustomDataList);
    procedure   SetDocStagesRecList(aDocID : TDocID; aList : Tl3CustomDataList);
    Function    PutStageRec(aDocID : TDocID; aStage : TStageType; aBeginDate, aEndDate : TStDate; aUserID : TUserID) : Boolean;
-   //procedure   StagesInEDateInterval(aFromEDate, aToEDate: TStDate;
-   //                                  aResult: Tl3CustomDataList); // в списоке все DocId будут ВНЕШНИЕ!
-   //{* - используется в парне, для обмена списками закрытых этапов см. GardocBridge.OutListToStageExchangeFile}
-   //procedure   StagesOnDocs(aDocs : Sab; aResult: Tl3CustomDataList);
-    {* - возвращает список Stages для заданного списка документов}
-    {* - используется в парне, для обмена списками закрытых этапов см. GardocBridge.OutListToStageExchangeFile}
 
    //Procedure   SetDocStages(aDocID : TDocID; BeginSet,EndSet : TStageSet);
    //Procedure   DelDocStage(aStage : TStageType);
@@ -887,209 +887,11 @@ Begin
 end;
 *)
 
-(*
-procedure TStageTbl.StagesOnDocs(aDocs : Sab; aResult: Tl3CustomDataList);
-    {* - возвращает список Stages для заданного списка документов}
-var
- {l_Recs: Sab;
- l_Mode: TOpenMode;
- l_List: TAbstractList;
- I: Word;
- }
-
- l_RecsByDocs: Sab;
- l_UserIds: Sab;
- l_RecsByValidUsers: Sab;
- l_Recs: Sab;
- l_JoinedRecs: Sab;
- l_RenumTbl: TDocAttrTbl;
- l_VI: TValuesIteratorForJoinedRecs;
- lSab : Sab;
-begin
- with fTable do
- begin
- aResult.Clear;
- aResult.DataSize := RecSize;
-
- htTransferToTable(aDocs, Handle, stDocID_Key);
- htRecordsByKey(l_RecsByDocs, aDocs);
- Ht(l_RecsByDocs.nRetCode);
- try
-  if l_RecsByDocs.gFoundCnt > 0 then
-  begin
-   // исключаем убитых пользователей
-   lSab := UserManager.UserTbl.MakeAllRecordsSab;
-   htValuesOfKey(l_UserIds, dtIDFld, lSab);
-   htClearResults(lSab);
-
-   Ht(l_UserIds.nRetCode);
-   try
-    htTransferToPhoto(l_UserIds, l_RecsByDocs, stAuthor_Key);
-    htRecordsByKey(l_RecsByValidUsers, l_UserIds);
-    Ht(l_RecsByValidUsers.nRetCode);
-    try
-     // пересечение списков - по датам и по живым пользователям
-     htAndResults(l_Recs, l_RecsByDocs, l_RecsByValidUsers);
-     Ht(l_Recs.nRetCode);
-     try
-      if l_Recs.gFoundCnt > 0 then
-      begin
-       l_RenumTbl := LinkServer(CurrentFamily)[atRenum];
-       lSab := l_RenumTbl.Table.MakeAllRecordsSab;
-
-       if htTablesJoin(l_JoinedRecs,
-                       l_Recs,
-                       stDocID_Key,
-                       EQUAL,
-                       lSab,
-                       rnRealID_fld,
-                       nil,
-                       False,
-                       DRAFT_ZERO) = nil
-       then
-        Ht(l_JoinedRecs.nRetCode);
-       htClearResults(lSab);
-
-       try
-        if l_JoinedRecs.gFoundCnt > 0 then
-        begin
-         l_VI := TValuesIteratorForJoinedRecs.Create(l_JoinedRecs,
-                                                     l_RenumTbl.Table,
-                                                     [rnImportID_fld],
-                                                     fTable,
-                                                     [stType_Key, stBDate_Key, stEDate_Key, stAuthor_Key]);
-         try
-          aResult.DataSize := l_VI.RecordSize;
-          while not l_VI.EOF do
-          begin
-           aResult.Add(l_VI.CurrentRecord);
-           l_VI.Next;
-          end;
-         finally
-          l3Free(l_VI);
-         end;
-        end; // if
-       finally
-        htClearResults(l_JoinedRecs);
-       end;
-      end; // if
-     finally
-      htClearResults(l_Recs);
-     end;
-    finally
-     htClearResults(l_RecsByValidUsers);
-    end;
-   finally
-    htClearResults(l_UserIds);
-   end;
-  end; // if
- finally
-  htClearResults(l_RecsByDocs);
- end;
- end;
-end;
-*)
 function StageTypeToBitIndex(const aStageID: TStageType): Integer;
 begin
  Result := Ord(aStageID) - 2;
  Assert(Result >= 0, 'Тип этапа не входит в битовую маску!');
 end;
 
-
-(*procedure TStageTbl.StagesInEDateInterval(aFromEDate, aToEDate: TStDate;
-                                          aResult: Tl3CustomDataList);
-var
- l_UserIds: Sab;
- l_RecsByDates: Sab;
- l_RecsByValidUsers: Sab;
- l_Recs: Sab;
- l_JoinedRecs: Sab;
- l_RenumTbl: TDocAttrTbl;
- l_VI: TValuesIteratorForJoinedRecs;
-begin
-
-
- aResult.Clear;
- with fTable do
- begin
- RefreshSrchList;
- htSearch(@fSrchList,
-          l_RecsByDates,
-          Handle,
-          stEDate_Key,
-          IN_RANGE,
-          @aFromEDate,
-          @aToEDate);
- Ht(l_RecsByDates.nRetCode);
- try
-  if l_RecsByDates.gFoundCnt > 0 then
-  begin
-   // исключаем убитых пользователей
-   UserManager.UserTbl.RefreshSrchList;
-   htValuesOfKey(l_UserIds, dtIDFld, UserManager.UserTbl.fSrchList);
-   Ht(l_UserIds.nRetCode);
-   try
-    htTransferToPhoto(l_UserIds, fSrchList, stAuthor_Key);
-    htRecordsByKey(l_RecsByValidUsers, l_UserIds);
-    Ht(l_RecsByValidUsers.nRetCode);
-    try
-     // пересечение списков - по датам и по живым пользователям
-     htAndResults(l_Recs, l_RecsByDates, l_RecsByValidUsers);
-     Ht(l_Recs.nRetCode);
-     try
-      if l_Recs.gFoundCnt > 0 then
-      begin
-       l_RenumTbl := LinkServer(CurrentFamily)[atRenum];
-       l_RenumTbl.Table.RefreshSrchList;
-       if htTablesJoin(l_JoinedRecs,
-                       l_Recs,
-                       stDocID_Key,
-                       EQUAL,
-                       l_RenumTbl.Table.fSrchList,
-                       rnRealID_fld,
-                       nil,
-                       False,
-                       DRAFT_ZERO) = nil
-       then
-        Ht(l_JoinedRecs.nRetCode);
-       try
-        if l_JoinedRecs.gFoundCnt > 0 then
-        begin
-         l_VI := TValuesIteratorForJoinedRecs.Create(l_JoinedRecs,
-                                                     l_RenumTbl.Table,
-                                                     [rnImportID_fld],
-                                                     fTable,
-                                                     [stType_Key, stBDate_Key, stEDate_Key, stAuthor_Key]);
-         try
-          aResult.DataSize := l_VI.RecordSize;
-          while not l_VI.EOF do
-          begin
-           aResult.Add(l_VI.CurrentRecord);
-           l_VI.Next;
-          end;
-         finally
-          l3Free(l_VI);
-         end;
-        end; // if
-       finally
-        htClearResults(l_JoinedRecs);
-       end;
-      end; // if
-     finally
-      htClearResults(l_Recs);
-     end;
-    finally
-     htClearResults(l_RecsByValidUsers);
-    end;
-   finally
-    htClearResults(l_UserIds);
-   end;
-  end; // if
- finally
-  htClearResults(l_RecsByDates);
- end;
- end; //with Table
-end;
-*)
 end.
 

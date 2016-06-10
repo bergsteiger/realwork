@@ -1,9 +1,21 @@
 
 unit Dt_Dict;
 
-{ $Id: DT_DICT.PAS,v 1.434 2015/11/25 14:01:48 lukyanets Exp $ }
+{ $Id: DT_DICT.PAS,v 1.437 2016/06/09 15:14:58 fireton Exp $ }
 
 // $Log: DT_DICT.PAS,v $
+// Revision 1.437  2016/06/09 15:14:58  fireton
+// - кеширование образов документов
+//
+// Revision 1.436  2016/04/15 11:57:05  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.435  2016/04/08 11:01:23  voba
+// -bf вычисление priority  для групповой операции не работало
+//
 // Revision 1.434  2015/11/25 14:01:48  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -1917,10 +1929,6 @@ Type
    {$IfDef AppServerSide}
    f_MessageManager: TcsMessageManager;
    {$EndIf AppServerSide}
-   {$IFDEF RemoteDict}
-   f_Query: TRemoteDictEditQuery;
-   {$EndIF RemoteDict}
-
    f_DictScan   : Tm4DictScanner;
   protected
    fNotifiedObjList : Tl3LongintList;
@@ -1957,21 +1965,9 @@ Type
    procedure ReceiveMoveMode(aDictType : TdaDictionaryType;aID,aParentID,aNextID : TDictID);
 
    procedure Cleanup; override;
-   {$IFDEF RemoteDict}
-   procedure Lock(aQuery: TRemoteDictEditQuery);
-   procedure Unlock(aQuery: TGetDictEditQuery);
-   {$EndIF RemoteDict}
    procedure DoBeforeItemDelete(aTable : TdtTable; aRecID : Longint);
-
-   {$IFDEF RemoteDict}
-   procedure SendRemoteEditMessage(aOperation: TOperActionType; DictType: TdaDictionaryType; aID: TDictID; aData: PAnsiChar; aParentID:
-       TDictID{ = cUndefDictID}); overload;
-   procedure SendRemoteEditMessage(aOperation: TOperActionType; aDictType: TdaDictionaryType; aID: TDictID; aName, aShortName,
-       aNameE: PAnsiChar; aParentID, aNextID: TDictID; aIsPrivate: TIsPrivate; aIsNonperiodic: TIsNonperiodic); overload;
-   {$EndIF RemoteDict}    
-
   private
-   function pm_GetBusy: Boolean;
+//   function pm_GetBusy: Boolean;
 
    procedure pm_SetCSClient(const Value: TcsClient);
    {$IfDef AppServerSide}
@@ -2031,9 +2027,6 @@ Type
    Procedure  PO_End;
 
 (*   function   IdByShortNameInAccGroupsTable(const aShName: AnsiString; out aFoundId: TDictID): Boolean;*)
-   {$IFDEF RemoteDict}
-   procedure  ProcessRemoteDictEdit(theTask: TRemoteDictEditQuery);
-   {$EndIF RemoteDict}
    procedure  SendNotify(theDictRec: TDictMessageRec; ExcludeUser: Integer);
 
    property   Family : TFamilyID read fFamily write SetFamily;
@@ -2048,7 +2041,7 @@ Type
    property   PocketModify : Boolean read GetPocketModifyFlag;
    property   BiLingual: Boolean read GetBiLingual write SetBilingual;
    property   CSClient: TcsClient read f_CSClient write pm_SetCSClient;
-   property   Busy: Boolean read pm_GetBusy;
+//   property   Busy: Boolean read pm_GetBusy;
    property   LastEditedID: TDictID read f_LastEditedID;
    {$IfDef AppServerSide}
    property   MessageManager: TcsMessageManager read f_MessageManager write pm_SetMessageManager;
@@ -4729,12 +4722,7 @@ procedure TDictionary.DelDictItemFromTbls(aID : TDictID; aNewID : TDictID = cUnd
 begin
  if (aNewID <> cUndefDictID) and not Tbl.CheckExists(aNewID) then
   raise EHtErrors.CreateInt(ecNotEnable);
-
-{$IFDEF RemoteDict}
- DictServer.SendRemoteEditMessage(atDelete, fDictType, aID, nil, nil, nil, 0, aNewID, cEmptyByte, cEmptyByte);
-{$ELSE}
  RealDelDictItemFromTbls(aID, aNewID);
-{$ENDIF}
 end;
 
 procedure TDictionary.DelDictItem(aID : TDictID; aNewID : TDictID = cUndefDictID);
@@ -4757,12 +4745,7 @@ end;
 
 procedure TDictionary.EditNonKeyValueInTbl(aID: TDictID; aFld: Word; aValue: Pointer);
 begin
-{$IFDEF RemoteDict}
- raise EInvalidOperation.Create('Метод EditNonKeyValueInTbl не реализован');
-{ TODO 5 -oДудко -cЕдиный КВ : Отправить информацию на сервер, обработка происходит в Remote... }
-{$ELSE}
  RealEditNonKeyValueInTbl(aID, aFld, aValue);
-{$ENDIF}
 end;
 
 procedure TDictionary.ChangeKeyValues(aFld: ThtField; var theOldValue, theNewValue);
@@ -4772,24 +4755,14 @@ end;
 
 procedure TDictionary.AddEqualToTbl(aFirstID, aSecondID : TDictID);
 begin
-{$IFDEF RemoteDict}
- raise EInvalidOperation.Create('Метод AddEqualToTbl не реализован');
-{ TODO 5 -oДудко -cЕдиный КВ : Отправить информацию на сервер, Ддбавление происходит в RemoteAdd... }
-{$ELSE}
  RealAddEqualToTbl(aFirstID, aSecondID);
-{$ENDIF}
 end;
 
 procedure TDictionary.DelEqualFromTbl(aFirstID, aSecondID : TDictID);
 var
  lCurEqualTbl : TEqualItemsTbl;
 begin
-{$IFDEF RemoteDict}
- raise EInvalidOperation.Create('Метод DelEqualFromTbl не реализован');
-{ TODO 5 -oДудко -cЕдиный КВ : Отправить информацию на сервер, обработка происходит в RemoteAdd... }
-{$ELSE}
  RealDelEqualFromTbl(aFirstID, aSecondID);
-{$ENDIF}
 end;
 
 procedure TDictionary.AddEqualNode(aFirstID, aSecondID : TDictID);
@@ -4844,15 +4817,9 @@ begin
  begin
   lID := IDOfDictRec(aRec);
   DictServer(fFamily).Dict[cDLPassports[fDictType].rDepDictID].AddDictFullDataNode(lID, DataOfDictRec(aRec), aParentNode);
-  {$IFNDEF RemoteDict}
   PDictID(aRec)^ := lID; //возвращаем lID в рекорд
 
   Result := CreateExtNode(aParentNode, aRec);
-  {$ELSE}
-  // Пока нет ни номера, ни ноды... Нужно отправить сообщение на сервер, чтобы он создал доп ноду
-
-
-  {$ENDIF}
  end;
 end;
 
@@ -4864,14 +4831,8 @@ end;
 
 procedure TDictionary.DelExtItemTbl(aDictID : TDictID; aHairDictID : TDictID = cUndefDictID);
 begin
-(*
-{$IFDEF RemoteDict}
- raise EInvalidOperation.Create('Метод DelExtItemFromTbl не реализован');
-{ TODO 5 -oДудко -cЕдиный КВ : Отправить информацию на сервер, обработка происходит в Remote... }
-{$ELSE}
-*) if cDLPassports[fDictType].rDepDictID <> da_dlNone then
+ if cDLPassports[fDictType].rDepDictID <> da_dlNone then
   DictServer(fFamily).Dict[cDLPassports[fDictType].rDepDictID].DelDictItemFromTbls(aDictID, aHairDictID);
-//{$ENDIF}
 end;
 
 function TDictionary.CreateExtNode(const aParentNode : Il3Node; aRec : Pointer) : Il3Node;
@@ -5007,28 +4968,12 @@ procedure TDictionary.EditDictItemInTblEx(aID: TDictID;
                                           aIsPrivate: TIsPrivate = cEmptyByte;
                                           aIsNonperiodic: TIsNonperiodic = cEmptyByte);
 begin
-{$IFDEF RemoteDict}
- DictServer.SendRemoteEditMessage(atEdit, fDictType, aID, aNameR, aShortName, aNameE, 0, 0, aIsPrivate, aIsNonPeriodic);
-{$ELSE}
  RealEditDictItemInTbl(aID, aNameR, aNameE, aShortName, aIsPrivate, aIsNonperiodic);
-{$ENDIF}
 end;
 
 function TDictionary.AddDictFullDataNode(var theID : TDictID; aData : PAnsiChar; const aParentNode : Il3Node = nil): Il3Node;
-{$IFDEF RemoteDict}
-var
- l_ParentID: TDictID;
-{$ENDIF}
 begin
-{$IFDEF RemoteDict}
- if aParentNode <> nil then
-  l_ParentID:= (aParentNode as IDictItem).Handle
- else
-  l_ParentID:= cUndefDictID;
- DictServer.SendRemoteEditMessage(atAdd, fDictType, theID, aData, l_ParentID);
-{$ELSE}
  Result:= RealAddDictFullDataNode(theID, aData, aParentNode)
-{$ENDIF}
 end;
 
 function TDictionary.RealAddDictFullDataNode(var theID : TDictID; aData : PAnsiChar; const aParentNode : Il3Node = nil): Il3Node;
@@ -5076,15 +5021,7 @@ function TDictionary.AddDictNode(aID: TDictID;
 var
  l_ParentID: TDictID;
 begin
- {$IFDEF RemoteDict}
- if aParentNode <> nil then
-  l_ParentID := (aParentNode as IDictItem).Handle
- else
-  l_ParentID := cUndefDictID;
- DictServer.SendRemoteEditMessage(atAdd, fDictType, aID, aNameR, aShortName, aNameE, l_ParentID, 0, aIsPrivate, aIsNonPeriodic);
- {$ELSE}
  Result:= RealAddDictNode(aID, aNameR, aNameE, aShortName, aParentNode, aIsPrivate, aIsNonperiodic);
- {$ENDIF}
 end;
 
 function TDictionary.RealAddDictNode(aID: TDictID;
@@ -5135,11 +5072,7 @@ end;
 
 procedure TDictionary.EditDictFullData(aID : TDictID; aData : PAnsiChar);
 begin
-{$IFDEF RemoteDict}
- DictServer.SendRemoteEditMessage(atEdit, fDictType, aID, aData);
-{$ELSE}
  RealEditDictFullData(aID, aData);
-{$ENDIF}
 end;
 
 function TDictionary.FindNodeByFullPath(const aNodePath: Tl3WString;
@@ -5293,7 +5226,7 @@ var
     l_List.Add(LinkServer(fFamily).Links[fDictType].table); 
 
    if fDictType in [da_dlTypes, da_dlSources] then
-    l_List.Add(LinkServer(fFamily).PriorityObj);
+    l_List.Add(LinkServer(fFamily).PriorTbl);
 
    if Equals <> nil then
     l_List.Add(Equals);
@@ -5360,7 +5293,7 @@ begin
      if fDictType in [da_dlTypes, da_dlSources] then
      begin
       DictTbl.SetDelNumber(aID);
-      LinkServer(fFamily).PriorityObj.DeletePriorityOnDictID(aID, fDictType);
+      LinkServer(fFamily).PriorTbl.DeletePriorityOnDictID(aID, fDictType);
      end;
     end // (aDateToDelete = 0) or (aDateToDelete = Today)
     else
@@ -5428,9 +5361,6 @@ begin
  if GlobalHtServer<>Nil
   then
    DictChangeConfig.CfgFileName:=GlobalHtServer.FamilyTbl.FamilyPath(MainTblsFamily)+DictJourName;
- {$IFDEF RemoteDict}
- f_Query := nil;
- {$EndIF RemoteDict}
 end;
 
 procedure TDictionaryServer.Cleanup;
@@ -5734,13 +5664,12 @@ begin
   with PPublishedDictRec(TCustomDictTbl(aTable).FullRecord)^ do
   begin
    lNonPeriodic := (Sour = 0) or (DictTbl[da_dlCorSources].GetIsNonperiodic(Sour) = 1);
-   lImgFileName := DocImageServer.GetImageFileName(Sour, SDate, EDate, l3ArrayToString(Num, SizeOf(Num)), lNonPeriodic);
    if not (lNonPeriodic and ((SDate <> BlankDate) or (EDate <> BlankDate))) then
     // Защита. Дело в том что файлы для NonPeriodic кодируются без использования
     //даты и можно удаляя мусор из словаря снести полбазы образов,
     // что уже и проделала 07.08.2012 тупая Потрехаева (Такташова).
     //(Тупая не потому что снесла, а потому что ей говорили ничего не трогать.)
-    DeleteFilesByMask('', lImgFileName);
+    DocImageServer.DeleteImages(Sour, SDate, EDate, l3ArrayToString(Num, SizeOf(Num)), lNonPeriodic);
   end;
  end;
 end;
@@ -5943,29 +5872,13 @@ procedure TDictionaryServer.SendEditMessage(aDictType : TdaDictionaryType;
                                             aOperation : TOperActionType;
                                             aID, aParentID, aNextID : TDictID);
 var
-{$IFDEF RemoteDict}
- TmpRec     : TDictMessageRec;
-{$ELSE}
  l_Q        : TDictEditQuery;
-{$ENDIF}
  l_S        : TDLTypeSet;
 begin
  l_S:= [];
  AddDLClassToSet(l_S, atcSingle);
  If Not PocketModify and not (aDictType in l_S) then
  begin
-  {$IFDEF RemoteDict}
-  if MessageManager <> nil then
-  begin
-   TmpRec.Family:= Family;
-   TmpRec.DictType:= aDictType;
-   TmpRec.Operation:= aOperation;
-   TmpRec.ID:= aID;
-   TmpRec.ParentID:= aParentID;
-   TmpRec.NextID := aNextID;
-   SendNotify(TmpRec, GlobalDataProvider.UserID); // По хорошему нужно подставить кого-то
-  end;
-  {$ELSE}
   if CSClient <> nil then
   begin
    l_Q := TDictEditQuery.Create(csClient.ClientID);
@@ -5982,7 +5895,6 @@ begin
     l3Free(l_Q);
    end
   end;
-  {$ENDIF}
   SetDictChanges(aDictType);
 
   if aDictType in [da_dlSources, da_dlTypes] then
@@ -6934,9 +6846,6 @@ begin
                                 l_Info.ParentID,
                                 l_Info.NextID);
      end; // case l_Q.Operation
-     {$IFDEF RemoteDict}
-     Unlock(l_Q); { TODO -oДмитрий Дудко -cЕдиный КВ : Желательно проверить наш ли это элемент }
-     {$ENDIF}
      if Assigned(fNotifiedObjList) then
      begin
       I := Pred(fNotifiedObjList.Count);
@@ -7013,34 +6922,12 @@ begin
   aDataPipe.WriteInteger(l_Msg.NextID);
  end;//l_Msg <> nil
 end;
-
-(*function TDictionaryServer.IdByShortNameInAccGroupsTable(const aShName: AnsiString;
-                                                         out aFoundId: TDictID): Boolean;
-var
- l_Arr: TArr10;
-begin
- l3StringToArray(l_Arr, SizeOf(TArr10), aShName);
- Result := Tbl[da_dlAccGroups].FindByUniqKey(dtShNameFld, l_Arr, dtIDFld, aFoundId);
-end;*)
-
-{$IFDEF RemoteDict}
-procedure TDictionaryServer.Lock(aQuery: TRemoteDictEditQuery);
-begin
- if TOperActionType(aQuery.Operation) in [atAdd, atEdit] then
-  if f_Query = nil then
-   f_Query:= aQuery.Use;
-end;
-{$EndIF RemoteDict}
-
+(*
 function TDictionaryServer.pm_GetBusy: Boolean;
 begin
- {$IFDEF RemoteDict}
- Result := f_Query <> nil;
- {$Else  RemoteDict}
  Result := false;
- {$EndIF RemoteDict}
 end;
-
+*)
 procedure TDictionaryServer.pm_SetCSClient(const Value: TcsClient);
 begin
  if f_CSClient <> Value then
@@ -7058,73 +6945,6 @@ begin
   f_MessageManager := Value;
 end;
 {$EndIf AppServerSide}
-
-{$IFDEF RemoteDict}
-procedure TDictionaryServer.ProcessRemoteDictEdit(theTask: TRemoteDictEditQuery);
-var
- l_ParentNode: Il3Node;
-begin
- // клиент передал на сервер информацию об элементе словаря, который НУЖНО изменить
- with theTask do
- begin
-  // Для da_dlPublisheds RootNode - это элемент словаря da_dlCorSources
-  //cDLPassports
-  if (not IsDictClass(TdaDictionaryType(DictType))) or (ParentID = cUndefDictID) then
-   l_ParentNode:= nil
-  else
-   l_ParentNode:= Dict[TdaDictionaryType(DictType)].FindNodeByID(ParentID);
-  Case TOPerActionType(Operation) of
-   atAdd :
-(*    if Data <> nil then
-     Dict[TdaDictionaryType(DictType)].RealAddDictFulldataNode(ID, Data, l_ParentNode)
-    else*)
-     Dict[TdaDictionaryType(DictType)].RealAddDictNode(ID, l3PCharLen(NameCyr), l3PCharLen(NameLat), l3PCharLen(NameShort), l_ParentNode, IsPrivate, IsNonPeriodic);
-   atDelete:
-    Dict[TdaDictionaryType(DictType)].RealDelDictItemFromTbls(ID, NextID);
-   atEdit  :
-(*    if Data <> nil then
-     Dict[TdaDictionaryType(DictType)].RealEditDictFullData(ID, Data)
-    else*)
-     Dict[TdaDictionaryType(DictType)].RealEditDictItemInTbl(ID, l3PCharLen(NameCyr), l3PCharLen(NameLat), l3PCharLen(NameShort), IsPrivate, IsNonPeriodic);
-   atMove  : ;
-    //Dict[TdaDictionaryType(DictType)].DictItemMove1(ID, l_ParentNode, NextID);
-  end; // case TOPerActionType(Operation)
- end; // wuth theTask
-end;
-{$EndIF RemoteDict}
-
-{$IFDEF RemoteDict}
-procedure TDictionaryServer.SendRemoteEditMessage(aOperation: TOperActionType; DictType: TdaDictionaryType; aID: TDictID; aData:
-    PAnsiChar; aParentID: TDictID{ = cUndefDictID});
-var
- l_Q : TRemoteDictEditQuery;
- l_S : TDLTypeSet;
-begin
- l_S:= [];
- AddDLClassToSet(l_S, atcSingle);
- If Not PocketModify and not (DictType in l_S) then
- begin
-  if CSClient <> nil then
-  begin
-   l_Q := TRemoteDictEditQuery.Create(csClient.ClientID);
-   try
-//    l_Q.UserID := CSClient.ClientId;
-    l_Q.Family := Family;
-    l_Q.DictType := Ord(DictType);
-    l_Q.Operation:= Ord(aOperation);
-    l_Q.ID:= aID;
-    l_Q.ParentID:= aParentID;
-    l_Q.Data:= aData;
-    if UserRequestManager.SendTask(l_Q) then
-     Lock(l_Q);
-   finally
-    l3Free(l_Q);
-   end
-  end;
-  SetDictChanges(DictType);
- end;
-end;
-{$EndIF RemoteDict}
 
 procedure TDictionaryServer.SendNotify(theDictRec: TDictMessageRec; ExcludeUser: Integer);
 var
@@ -7148,291 +6968,6 @@ begin
  Assert(false);
  {$EndIf AppServerSide}
 end;
-
-{$IFDEF RemoteDict}
-procedure TDictionaryServer.SendRemoteEditMessage(aOperation: TOperActionType; aDictType: TdaDictionaryType; aID: TDictID; aName,
-    aShortName, aNameE: PAnsiChar; aParentID, aNextID: TDictID; aIsPrivate: TIsPrivate; aIsNonperiodic: TIsNonperiodic);
-var
- l_Q : TRemoteDictEditQuery;
- l_S : TDLTypeSet;
-begin
- l_S:= [];
- AddDLClassToSet(l_S, atcSingle);
- If Not PocketModify and not (aDictType in l_S) then
- begin
-  if CSClient <> nil then
-  begin
-   l_Q := TRemoteDictEditQuery.Create(csClient.ClientID);
-   try
-//    l_Q.UserID := CSClient.ClientId;
-    l_Q.Family := Family;
-    l_Q.DictType := Ord(aDictType);
-    l_Q.Operation:= Ord(aOperation);
-    l_Q.ID:= aID;
-    l_Q.ParentID:= aParentID;
-    l_Q.NextID:= aNextID;
-    l_Q.NameCyr:= StrPas(aName);
-    l_Q.NameShort:= StrPas(aShortName);
-    l_Q.NameLat:= StrPas(aNameE);
-    l_Q.IsPrivate:= aIsPrivate;
-    l_Q.IsNonPeriodic:= aIsNonPeriodic;
-    UserRequestManager.SendTask(l_Q);
-    Lock(l_Q);
-   finally
-    l3Free(l_Q);
-   end
-  end;
-  SetDictChanges(aDictType);
- end;
-end;
-{$EndIF RemoteDict}
-
-{$IFDEF RemoteDict}
-procedure TDictionaryServer.Unlock(aQuery: TGetDictEditQuery);
-begin
- if f_Query <> nil then
-  if (aQuery.DictInfo.Family = f_Query.Family) and
-    (aQuery.DictInfo.Operation = f_Query.Operation) and
-    (aQuery.DictInfo.DictType = f_Query.DictType)
-    // Нужно как-то понять совпадение остальных параметров
-    //and ((f_Query.Operation <> Ord(atEdit)) and
-    //AnsiEndsStr(f_Query.GetName, TrimRight(Dict[TdaDictionaryType(aQuery.DictInfo.DictType)].GetFullDictItemName(aQuery.DictInfo.ID))))
-  then
-   begin
-    l3Free(f_Query);
-    f_LastEditedID:= aQuery.DictInfo.ID;
-   end;
-end;
-{$EndIF RemoteDict}
-
-// Copy Item disposition from one tree (in Prefixes) to anoter (in Classes)
-(*procedure RepairClassTree;
-var
- l_OldTree,
- l_NewTree  : TDictRootNode;
-
- function IterHandler1(const aCurNode : Il3Node) : Boolean; far;
- var
-  l_CurItem : Il3CString;
-  l_OldNode : Il3Node;
- begin
-  l_CurItem := l3GetFullPathCStr(l_NewTree, aCurNode, aCurNode.Text.SCodePage);
-  try
-   l_OldNode := l3SearchByPath(l_OldTree, l_CurItem.AsWStr);
-   if l_OldNode <> nil then
-    (aCurNode as Il3HandleNode).Handle := (l_OldNode as Il3HandleNode).Handle
-   else
-    (aCurNode as Il3HandleNode).Handle := 0;
-  finally
-   l_CurItem := nil;
-  end;
- end;
-
- function IterHandler2(const aCurNode : Il3Node) : Boolean; far;
- begin
-  (aCurNode as IDictNode).dn_SetDictItem(nil);
- end;
-
-begin
- l_OldTree := DictServer(CurrentFamily).DictRootNode[da_dlPrefixes];
- l_NewTree := DictServer(CurrentFamily).DictRootNode[da_dlClasses];
-
- l_NewTree.IterateF(l3L2NA(@IterHandler1), 0);
- l_NewTree.IterateF(l3L2NA(@IterHandler2), 0);
- l_NewTree.fTreeChanged := true;
- l_NewTree.Save;
-end;*)
-
-(*procedure CountPrefixesOnClasses;
-type
- THistRec = Record
-             Value : TDictID;
-             Count : LongInt;
-            end;
-const
- fDocFld  : Integer = 1;
- fDictFld : Integer = 3;
- fDocKey  : Integer = 4;
-
- Suffix    : Array [1..2] of AnsiChar = #13#10;
- cTab      : AnsiChar = #9;
- cSpace    : AnsiChar = ' ';
- cPoint    : AnsiChar = '.';
- cComma    : AnsiChar = ',';
-
- cPrefixes : Array [1..10] of AnsiString = ('Документы','Судебная практика',
-                                        'Международные договоры',
-                                        'Проекты законов',
-                                        'Комментарии законодательства, схемы',
-                                        '','','','','Формы документов');
-
-var
- lTblH,
- lTblH1       : HT_Const.THandle;
- FullSab,
- FullSab1    : HT_Const.Sab;
- Name,
- Name1       : ShortString;
-
- CurDictItem : IDictItem;
-
- ClassSab,
- PrefixSab,
- Docs,
- HistSab     : Sab;
-
- TmpClss     : PAnsiChar;
- TmpNum      : AnsiString;
-
- CurHistRec  : THistRec;
-
- FlH         : Tl3FileStream;
-
- CurCount    : LongInt;
-
- function IterHandler(const CurNode : Il3Node) : Boolean; far;
- var
-  DictID : TDictID;
- begin
-  if not CurNode.HasChild then
-  begin
-   CurNode.QueryInterface(IDictItem,CurDictItem);
-   try
-    DictID:=CurDictItem.Handle;
-   finally
-    CurDictItem:=nil;
-   end;
-
-   htSearch(@FullSab,ClassSab,lTblH,fDictFld,EQUAL,@DictID,nil);
-   try
-    if ClassSab.gFoundCnt >= 100 then
-    begin
-     htValuesOfKey(Docs,fDocKey,ClassSab);
-     htTransferToPhoto(Docs,FullSab1,fDocKey);
-     htRecordsByKey(PrefixSab,Docs);
-     htClearResults(Docs);
-     try
-      htHistogramByCount(HistSab,fDictFld,PrefixSab,100,500000);
-      if HistSab.gFoundCnt <> 0 then
-      try
-       htClearResults(HistSab);
-       htHistogramOfKey(HistSab,fDictFld,PrefixSab);
-
-       TmpClss:=l3GetFullPathAlloc(DictServer(CurrentFamily).DictRootNode[da_dlClasses],CurNode,'\','', false, false);
-       try
-        TmpNum:=IntToStr(CurCount);
-        inc(CurCount);
-        FlH.WriteBuffer(PAnsiChar(TmpNum)^,Length(TmpNum));
-        FlH.WriteBuffer(cPoint,1);
-        FlH.WriteBuffer(cSpace,1);
-        FlH.WriteBuffer(TmpClss^,StrLen(TmpClss));
-        FlH.WriteBuffer(Suffix,2);
-       finally
-        l3StrDispose(TmpClss);
-       end;
-
-       htOpenResults(HistSab,ROPEN_BODY,Nil,0);
-       try
-        While htReadResults(HistSab,@CurHistRec,SizeOf(CurHistRec))<>0 do
-        begin
-         FlH.WriteBuffer(cSpace,1);
-         TmpNum:=IntToStr(CurHistRec.Count);
-         FlH.WriteBuffer(PAnsiChar(TmpNum)^,Length(TmpNum));
-         FlH.WriteBuffer(cTab,1);
-         FlH.WriteBuffer(PAnsiChar(cPrefixes[CurHistRec.Value])^,Length(cPrefixes[CurHistRec.Value]));
-         FlH.WriteBuffer(Suffix,2);
-        end;
-        FlH.WriteBuffer(Suffix,2);
-       finally
-        htCloseResults(HistSab);
-       end;
-      finally
-       htClearResults(HistSab);
-      end;
-     finally
-      htClearResults(PrefixSab);
-     end;
-    end;
-   finally
-    htClearResults(ClassSab);
-   end;
-  end;
-  Result:=False;
- end;
-
-begin
-(* нижеописанные таблицы имеют структуру DocID - SubID - DictID и ключ на
-   пару параметров DocID-SubID. Они получены из стандартных таблиц Link вручную,
-   простым перелитием данных.
-
-   Кроме того, таблица LNK#C002 пополнялась записями для всех Sub'ов, упомянутых
-   в таблице LNK#3002, но отсутствующих в ней. Значение поля DictID для этих записей
-   бралось аналогичное значению стоящему у 0 Sub'а.
-   Ниже приведен алгоритм заполнения этого процесса:
-
-     htValuesOfKey(AllDocSubInPrefix,fDocKey,FullSab1);
-     htTransferToPhoto(AllDocSubInPrefix,FullSab,fDocKey);
-     try
-      For i:=1 to 6 do
-      begin
-       // 1
-       htSearch(@FullSab1,tmpSab,TblH1,fDictFld,EQUAL,@PrefixID[i],nil);
-       htValuesOfKey(Docs,fDocFld,tmpSab);
-       htClearResults(tmpSab);
-       // 2
-       htTransferToPhoto(Docs,FullSab,fDocFld);
-       htRecordsByKey(tmpSab,Docs);
-       htClearResults(Docs);
-       htValuesOfKey(DocSubInClass,fDocKey,tmpSab);
-       htClearResults(tmpSab);
-       // 3
-       htAndResults(tmpSab,DocSubInClass,AllDocSubInPrefix);
-       htXorResults(ResultPair,DocSubInClass,TmpSab);
-       htClearResults(tmpSab);
-       htClearResults(DocSubInClass);
-       // 4
-       htOpenResults(ResultPair,ROPEN_BODY,Nil,0);
-       try
-        CurLinkRec.DictID:=PrefixID[i];
-        While htReadResults(ResultPair,@CurDocKey,SizeOf(CurDocKey))<>0 do
-        begin
-         CurLinkRec.DocKey:=CurDocKey;
-         OpResult:=htRecordAdd(tblH1,@CurLinkRec);
-        end;
-       finally
-        htCloseResults(ResultPair);
-       end;
-       htClearResults(ResultPair);
-      end;
-     finally
-      htClearResults(AllDocSubInPrefix);
-     end;
- *)
-
-(* Name:='D:\Temp\LNK#3002'+#0;
- Name1:='D:\Temp\LNK#C002'+#0;
- htTableOpen(@Name[1],nil,nil,Tab_Share,lTblH);
- htTableOpen(@Name1[1],nil,nil,Tab_Share,lTblH1);
- try
-  htSearch(nil,FullSab,lTblH,AbsNumFld,GREAT,@Zero,nil);
-  htSearch(nil,FullSab1,lTblH1,AbsNumFld,GREAT,@Zero,nil);
-  try
-   FlH:=Tl3FileStream.Create('D:\Temp\Report.txt',l3_fmWrite);
-   try
-    CurCount:=1;
-    l3IterateSubTreeF(DictServer(CurrentFamily).DictRootNode[da_dlClasses],l3L2NA(@IterHandler),0);
-   finally
-    l3Free(FlH);
-   end;
-  finally
-   htClearResults(FullSab);
-   htClearResults(FullSab1);
-  end;
- finally
-  htTableClose(lTblH);
-  htTableClose(lTblH1);
- end;
-end;*)
 
 function DictServer(aFamily: TFamilyID = CurrentFamily): TDictionaryServer;
 begin

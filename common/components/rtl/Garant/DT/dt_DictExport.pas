@@ -875,8 +875,8 @@ begin
                   nil {aProgress}, '' {aProgTitle},
                   False {WithID}, True {WithCommands}, True {WithNumbers}, True {WithEquals});
 
-  da_dlNewClasses_Deprecated  :
-   Assert(False, 'Deprecated dlNewClasses');
+//  da_dlNewClasses_Deprecated  :
+//   Assert(False, 'Deprecated dlNewClasses');
 //   ExportNewClasses(aDictServ, aDir);
 
   //da_dlKeyWords : ; // отдельная песня
@@ -933,7 +933,8 @@ var
  lDict : TdaDictionaryType;
 begin
  for lDict := Succ(Low(TdaDictionaryType)) to High(TdaDictionaryType) do
-  ExportDictionary(aDictServ, lDict, aDir);
+  if not (lDict in cDeprecatedDicts) then
+   ExportDictionary(aDictServ, lDict, aDir);
 end;
 
 procedure ExportDictLink(aDictServ: TDictionaryServer; aDict: TdaDictionaryType; aFile: TFileName; aRenum: Boolean; aProgress:

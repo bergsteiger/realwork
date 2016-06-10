@@ -3,9 +3,24 @@ unit ddDocument;
 
 { Базовый класс для сохранения в различные форматы }
 
-// $Id: ddDocument.pas,v 1.314 2016/02/16 09:24:19 dinishev Exp $
+// $Id: ddDocument.pas,v 1.319 2016/05/24 12:22:57 dinishev Exp $
 
 // $Log: ddDocument.pas,v $
+// Revision 1.319  2016/05/24 12:22:57  dinishev
+// Рамки во вложенных таблицах неправильно определялись.
+//
+// Revision 1.318  2016/05/20 08:42:59  dinishev
+// Переименовал TddRowType в TddTableType.
+//
+// Revision 1.317  2016/05/20 06:41:51  dinishev
+// Лишние поля.
+//
+// Revision 1.316  2016/05/06 11:51:02  dinishev
+// {Requestlink:617082437}. Накопилось...
+//
+// Revision 1.315  2016/03/24 12:05:47  dinishev
+// Cleanup
+//
 // Revision 1.314  2016/02/16 09:24:19  dinishev
 // {Requestlink:617777252}
 //
@@ -1089,7 +1104,6 @@ type
   private
     FUseExternalLinks: Boolean;
     f_BorderOwner: TddBorderOwner;
-    f_Cell_: TddTableCell;
     f_ColorEntry: TddColorEntry;
     f_CurFramePart: TddBorderParts;
     f_DocID: LongInt;
@@ -1102,7 +1116,6 @@ type
     f_OneStep: Boolean;
     f_Para: TddTextParagraph;
     f_Picture: TddPicture;
-    f_Row_: TddTableRow;
     f_Sect: TddBreak;
     f_Seg: TddTextSegment;
     f_StyleEntry: TddStyleEntry;
@@ -1195,11 +1208,11 @@ type
     procedure WriteHeader(aDefault: Boolean = False); virtual;
     procedure WritePicture(const Picture: TddPicture; aWholePar: Boolean); virtual;
     procedure WriteStyleTable(aDefault: Boolean = False); virtual;
-    procedure WriteTable(const Table: TddTable; aOnlyPart: Boolean); virtual;
-    procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aRowType: TddRowType = dd_rtNone; aRowPos: TddRowPosition = dd_rpNone); virtual;
+    procedure WriteTable(const aTable: TddTable; aOnlyPart: Boolean); virtual;
+    procedure WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aTableType: TddTableType = dd_ttNone; aRowPos: TddRowPosition = dd_rpNone); virtual;
     procedure WriteTextParagraph(const Para: TddTextParagraph; anOutEOL: Boolean = False); virtual;
     property FilerFileName: AnsiString read GetFilerFileName;
-    function NeedFillCell(const aRow: TddTableRow; aRowType: TddRowType; aRowPos: TddRowPosition): TddFillAAC;
+    function NeedFillCell(const aRow: TddTableRow; aTableType: TddTableType; aRowPos: TddRowPosition): TddFillAAC;
     function IsAACPictureRow(const aRow: TddTableRow): Boolean;
     function IsAACInnerTableRow(const aRow: TddTableRow): Boolean;
     property Table: TddTable read pm_GetTable write pm_SetTable;
@@ -2441,7 +2454,7 @@ var
 begin
  case AtomIndex of
   k2_tiLeftIndent:
-     Table.LeftIndent := {Table.LeftIndent + }Value.AsInteger;
+     Table.LeftIndent := Value.AsInteger;
   k2_tiWidth: ;
   k2_tiZoom:
    Table.Scale := Value.AsInteger;
@@ -2463,7 +2476,7 @@ procedure TddDocumentGenerator.Apply2TabStop(AtomIndex: Long; const Value:
 var
  l_Tab: TddTab;
 begin
- l_Tab := TddTab(f_Para.PAP.TabList.Last);
+ l_Tab := f_Para.PAP.TabList.Last;
  case AtomIndex of
   k2_tiStart: l_Tab.TabPos := Value.AsInteger;
   k2_tiType:
@@ -3057,11 +3070,11 @@ procedure TddDocumentGenerator.WriteStyleTable(aDefault: Boolean = False);
 begin
 end;
 
-procedure TddDocumentGenerator.WriteTable(const Table: TddTable; aOnlyPart: Boolean);
+procedure TddDocumentGenerator.WriteTable(const aTable: TddTable; aOnlyPart: Boolean);
 begin
 end;
 
-procedure TddDocumentGenerator.WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aRowType: TddRowType = dd_rtNone; aRowPos: TddRowPosition = dd_rpNone);
+procedure TddDocumentGenerator.WriteTableRow(const aRow: TddTableRow; anIndex: Integer; const aTableType: TddTableType = dd_ttNone; aRowPos: TddRowPosition = dd_rpNone);
 begin
 end;
 
@@ -3343,7 +3356,7 @@ var
 begin
  l_Tab:= TddTab.Create;
  try
-  f_Para.PAP.TabList.Add(l_tab);
+  f_Para.PAP.TabList.Add(l_Tab);
  finally
   l3Free(l_Tab);
  end;
@@ -3497,9 +3510,9 @@ begin
 end;
 
 function TddDocumentGenerator.NeedFillCell(const aRow: TddTableRow;
-  aRowType: TddRowType; aRowPos: TddRowPosition): TddFillAAC;
+  aTableType: TddTableType; aRowPos: TddRowPosition): TddFillAAC;
 begin
- if (aRowType >= dd_rtAAC) then
+ if (aTableType >= dd_ttAAC) then
   Result := dd_faacWhite
  else
   Result := dd_faacNone;

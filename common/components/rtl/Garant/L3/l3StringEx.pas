@@ -4,9 +4,12 @@ unit l3StringEx;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3StringEx -                }
 { Начат: 16.02.2000 16:50             }
-{ $Id: l3StringEx.pas,v 1.60 2015/10/05 11:41:12 lulin Exp $ }
+{ $Id: l3StringEx.pas,v 1.61 2016/04/20 10:24:48 lulin Exp $ }
 
 // $Log: l3StringEx.pas,v $
+// Revision 1.61  2016/04/20 10:24:48  lulin
+// - перегенерация.
+//
 // Revision 1.60  2015/10/05 11:41:12  lulin
 // {RequestLink:607751255}.
 //
@@ -224,6 +227,11 @@ function l3MultiByteToWideChar(aCodePage : Integer;
                                 aOut      : PWideChar;
                                 aOutLen   : Integer): Integer;
   {-}
+function l3WideCharToMultiByte(aCodePage : Integer;
+                               aIn       : PWideChar;
+                               aInLen    : Integer;
+                               aOut      : PAnsiChar;
+                               aOutLen   : Integer): Integer;
 function l3HasTatar(const aStr: WideString): Boolean;
   {-}
 procedure l3FreeStringMem(var aMem : Tl3PtrRec);

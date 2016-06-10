@@ -4,9 +4,18 @@ unit nevShapesPainted;
 { Начал: Морозов М.А.                                                  }
 { Модуль: nevShapesPainted - коллекция отрисованных параграфов.        }
 { Начат: 29.06.2005 16:51                                              }
-{ $Id: nevShapesPainted.pas,v 1.277 2015/12/30 06:48:34 dinishev Exp $ }
+{ $Id: nevShapesPainted.pas,v 1.280 2016/04/15 06:27:38 dinishev Exp $ }
 
 // $Log: nevShapesPainted.pas,v $
+// Revision 1.280  2016/04/15 06:27:38  dinishev
+// {Requestlink:620674289}
+//
+// Revision 1.279  2016/04/11 08:45:39  dinishev
+// {Requestlink:620674289}
+//
+// Revision 1.278  2016/03/25 11:06:01  dinishev
+// {Requestlink:620261162}
+//
 // Revision 1.277  2015/12/30 06:48:34  dinishev
 // {Requestlink:570533216}. Откатил. Тесты отъехали, да проблему не решило.
 //
@@ -1538,7 +1547,7 @@ type
     procedure SetDrawnBottom(const aBottom: TnevPoint);
       virtual;
       {-}
-    procedure DoClearBounds;
+    procedure DoClearBounds; 
       {-}
     procedure ClearBounds;
       {-}
@@ -3684,6 +3693,7 @@ procedure TnevRowShape.UpdateBounds(aChild: TnevShape);
   {-}
 var
  l_Rect   : Tl3Rect;
+ l_Height : Integer;
  l_Bottom : Integer;
 begin
  l_Rect := Bounds;
@@ -3696,8 +3706,21 @@ begin
   begin
    if (f_BottomShape = nil) or (aChild.Bounds.Bottom > f_BottomShape.Bounds.Bottom) then
     f_BottomShape := aChild;
+   // V - http://mdp.garant.ru/pages/viewpage.action?pageId=620261162
    if f_BottomShape <> nil then
-    l_Rect.Bottom := Max(l_Rect.Bottom, f_BottomShape.Bounds.Bottom + Self.Get_FI.Spacing.Bottom);
+   begin
+    l_Height := f_BottomShape.f_FI.Height + f_BottomShape.f_FI.Spacing.Bottom  + f_BottomShape.f_FI.Spacing.Top;
+    if (l_Rect.Bottom - l_Rect.Top) > l_Height then
+    begin
+     l_Rect.Top := f_BottomShape.Bounds.Top - Self.Get_FI.Spacing.Top;
+     l_Rect.Bottom := f_BottomShape.Bounds.Bottom + Self.Get_FI.Spacing.Bottom;
+    end // if (l_Rect.Bottom - l_Rect.Top) > l_Height then
+    else
+    begin
+     l_Rect.Top := Min(l_Rect.Top, f_BottomShape.Bounds.Top - Self.Get_FI.Spacing.Top);
+     l_Rect.Bottom := Max(l_Rect.Bottom, f_BottomShape.Bounds.Bottom + Self.Get_FI.Spacing.Bottom);
+    end;
+   end; // if f_BottomShape <> nil then
   end; // if not InevView(f_AllShapes.f_View).Metrics.InfoCavas.Printing then
  end; // if aChild.NeedIncHeight then
  Bounds := l_Rect;

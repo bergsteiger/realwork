@@ -81,6 +81,8 @@ type
     var aLoginName: AnsiString;
     var aActFlag: Byte);
    function Get_PriorityCalculator: IdaPriorityCalculator;
+   function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+    aUserID: TdaUserID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -113,13 +115,17 @@ begin
  inherited Create;
  f_Factory := aFactory;
 
- f_PasswordQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtPassword));
+ f_ArchiUsers := TdaArchiUserList.Create;
+ f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
+
+ f_PasswordQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtPassword)));
  f_PasswordQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtPassword)['Password']));
  f_PasswordQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtPassword)['User_ID']));
  f_PasswordQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtPassword)['ShortName'], da_copEqual, 'p_ShortName');
  f_PasswordQuery.Prepare;
 
- f_UserFlagsQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+ f_UserFlagsQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers)));
+ f_UserFlagsQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
  f_UserFlagsQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['Active']));
  f_UserFlagsQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
  f_UserFlagsQuery.Prepare;
@@ -152,7 +158,7 @@ begin
  aList.Changing;
  try
   aList.Clear;
-  aList.DataSize := SizeOf(l_ID);
+  aList.DataSize := aDataSize;
   aList.NeedAllocStr := True;
   while not aResultSet.EOF do
   begin
@@ -168,19 +174,51 @@ end;//TpgUserManager.FillListByResultSet
 
 procedure TpgUserManager.FillAllUsers(aList: Tl3StringDataList);
 //#UC START# *5715E71600DD_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
 //#UC END# *5715E71600DD_5629FC88034B_var*
 begin
 //#UC START# *5715E71600DD_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers)));
+ try
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['id']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  l_Query.Prepare;
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   FillListByResultSet(aList, l_ResultSet, 'id', 4, 'user_name');
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
 //#UC END# *5715E71600DD_5629FC88034B_impl*
 end;//TpgUserManager.FillAllUsers
 
 procedure TpgUserManager.FillAllGroups(aList: Tl3StringDataList);
 //#UC START# *5715E74402CA_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
 //#UC END# *5715E74402CA_5629FC88034B_var*
 begin
 //#UC START# *5715E74402CA_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroups)));
+ try
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['id']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['group_name']));
+  l_Query.Prepare;
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   FillListByResultSet(aList, l_ResultSet, 'id', 2, 'group_name');
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
 //#UC END# *5715E74402CA_5629FC88034B_impl*
 end;//TpgUserManager.FillAllGroups
 
@@ -236,7 +274,7 @@ begin
 //#UC START# *5718C16B036E_5629FC88034B_impl*
  if f_UserNameQuery = nil then
  begin
-  f_UserNameQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers)));
   f_UserNameQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
   f_UserNameQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
   f_UserNameQuery.Prepare;
@@ -252,11 +290,10 @@ begin
 //#UC START# *573B0837013B_5629FC88034B_impl*
  if f_UserLoginQuery = nil then
  begin
-  f_UserLoginQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtPassword));
-  f_UserNameQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
-  f_UserNameQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtPassword)['ShortName']));
-  f_UserNameQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtPassword)['User_ID'], da_copEqual, 'p_UserID');
-  f_UserNameQuery.Prepare;
+  f_UserLoginQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtPassword)));
+  f_UserLoginQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtPassword)['ShortName']));
+  f_UserLoginQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtPassword)['User_ID'], da_copEqual, 'p_UserID');
+  f_UserLoginQuery.Prepare;
  end;
  Result := f_UserLoginQuery;
 //#UC END# *573B0837013B_5629FC88034B_impl*
@@ -267,7 +304,21 @@ function TpgUserManager.AllArchiUsersQuery: IdaTabledQuery;
 //#UC END# *57514203013A_5629FC88034B_var*
 begin
 //#UC START# *57514203013A_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ if f_AllArchiUsersQuery = nil then
+ begin
+  f_AllArchiUsersQuery := f_Factory.MakeTabledQuery(
+   f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers), 'u').Join(
+    f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtPassword), 'p'),
+    da_jkLeftOuter).SetCondition(f_Factory.MakeJoinCondition('u', TdaScheme.Instance.Table(da_mtUsers)['id'], 'p', TdaScheme.Instance.Table(da_mtPassword)['User_ID']))
+  );
+  f_AllArchiUsersQuery.AddSelectField(f_Factory.MakeSelectField('u', TdaScheme.Instance.Table(da_mtUsers)['id']));
+  f_AllArchiUsersQuery.AddSelectField(f_Factory.MakeSelectField('u', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
+  f_AllArchiUsersQuery.AddSelectField(f_Factory.MakeSelectField('u', TdaScheme.Instance.Table(da_mtUsers)['active']));
+  f_AllArchiUsersQuery.AddSelectField(f_Factory.MakeSelectField('p', TdaScheme.Instance.Table(da_mtPassword)['ShortName']));
+  f_AllArchiUsersQuery.AddSelectField(f_Factory.MakeSelectField('p', TdaScheme.Instance.Table(da_mtPassword)['Password']));
+  f_AllArchiUsersQuery.Prepare;
+ end;
+ Result := f_AllArchiUsersQuery;
 //#UC END# *57514203013A_5629FC88034B_impl*
 end;//TpgUserManager.AllArchiUsersQuery
 
@@ -410,10 +461,33 @@ function TpgUserManager.GetUserPriorities(aGroupId: TdaUserID;
  var aImportPriority: TdaPriority;
  var aExportPriority: TdaPriority): Boolean;
 //#UC START# *571DCFB50217_5629FC88034B_var*
+var
+ l_Query: IdaTabledQuery;
+ l_ResultSet: IdaResultSet;
 //#UC END# *571DCFB50217_5629FC88034B_var*
 begin
 //#UC START# *571DCFB50217_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroups)));
+ try
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['import_priority']));
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['export_priority']));
+  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtGroups)['ID'], da_copEqual, 'p_GroupID');
+  l_Query.Prepare;
+  l_Query.Param['p_GroupID'].AsLargeInt := aGroupId;
+  l_ResultSet := l_Query.OpenResultSet;
+  try
+   Result := not l_ResultSet.IsEmpty;
+   if Result then
+   begin
+    aImportPriority := TdaPriority(l_ResultSet.Field['import_priority'].AsInteger);
+    aExportPriority := TdaPriority(l_ResultSet.Field['export_priority'].AsInteger);
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l_Query := nil;
+ end;
 //#UC END# *571DCFB50217_5629FC88034B_impl*
 end;//TpgUserManager.GetUserPriorities
 
@@ -422,7 +496,8 @@ procedure TpgUserManager.ReSortUserList;
 //#UC END# *5721F5E60367_5629FC88034B_var*
 begin
 //#UC START# *5721F5E60367_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ if f_AllUsers <> nil then
+  SortUsersInList(f_AllUsers);
 //#UC END# *5721F5E60367_5629FC88034B_impl*
 end;//TpgUserManager.ReSortUserList
 
@@ -431,19 +506,27 @@ function TpgUserManager.Get_ArchiUsersCount: Integer;
 //#UC END# *5729C59E00D5_5629FC88034Bget_var*
 begin
 //#UC START# *5729C59E00D5_5629FC88034Bget_impl*
- Result := 0;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ if f_ArchiUsers.Count = 0 then
+  MakeFullArchiUsersList;
+ Result := f_ArchiUsers.Count;
 //#UC END# *5729C59E00D5_5629FC88034Bget_impl*
 end;//TpgUserManager.Get_ArchiUsersCount
 
 procedure TpgUserManager.IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
 //#UC START# *5729DD530330_5629FC88034B_var*
+
+ type
+  PIdaArchiUser = ^IdaArchiUser;
+
+ function DoIt(aData : PIdaArchiUser; anIndex : Integer) : Boolean;
+ begin
+  Result := anAction(aData^);
+ end;
+
 //#UC END# *5729DD530330_5629FC88034B_var*
 begin
 //#UC START# *5729DD530330_5629FC88034B_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ f_ArchiUsers.IterateAllF(l3L2IA(@DoIt));
 //#UC END# *5729DD530330_5629FC88034B_impl*
 end;//TpgUserManager.IterateArchiUsersF
 
@@ -528,11 +611,44 @@ end;//TpgUserManager.UpdateUserInfo
 
 procedure TpgUserManager.MakeFullArchiUsersList;
 //#UC START# *5735AE7F0071_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+ l_IDField: IdaField;
+ l_NameField: IdaField;
+ l_LoginField: IdaField;
+ l_PasswordField: IdaField;
+ l_FlagsField: IdaField;
+ l_UserInfo : IdaArchiUser;
 //#UC END# *5735AE7F0071_5629FC88034B_var*
 begin
 //#UC START# *5735AE7F0071_5629FC88034B_impl*
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ l_ResultSet := AllArchiUsersQuery.OpenResultSet;
+ try
+  l_IDField := l_ResultSet.Field['id'];
+  l_NameField := l_ResultSet.Field['user_name'];
+  l_LoginField := l_ResultSet.Field['ShortName'];
+  l_PasswordField := l_ResultSet.Field['Password'];
+  l_FlagsField := l_ResultSet.Field['active'];
+
+  while not l_ResultSet.EOF do
+  begin
+   l_UserInfo := TdaArchiUser.Make(Get_PriorityCalculator);
+   try
+    l_UserInfo.ID := l_IDField.AsLargeInt;
+    l_UserInfo.UserName := l_NameField.AsString;
+    l_UserInfo.LoginName:= l_LoginField.AsString;
+    l_UserInfo.Password := l_PasswordField.AsString;
+    l_UserInfo.Active := (l_FlagsField.AsByte and usActive) = usActive;
+    l_UserInfo.HasAdminRights := (l_UserInfo.ID = usSupervisor) or ((l_FlagsField.AsByte and usAdmin) = usAdmin);
+    f_ArchiUsers.Add(l_UserInfo);
+   finally
+    l_UserInfo := nil;
+   end;
+   l_ResultSet.Next;
+  end;
+ finally
+  l_ResultSet := nil;
+ end;
 //#UC END# *5735AE7F0071_5629FC88034B_impl*
 end;//TpgUserManager.MakeFullArchiUsersList
 
@@ -577,7 +693,8 @@ procedure TpgUserManager.RegisterUserStatusChangedSubscriber(const aSubscriber: 
 //#UC END# *5739832A00A2_5629FC88034B_var*
 begin
 //#UC START# *5739832A00A2_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ if f_UserStatusChangedSubscriberList.IndexOf(aSubscriber) = -1 then
+  f_UserStatusChangedSubscriberList.Add(aSubscriber);
 //#UC END# *5739832A00A2_5629FC88034B_impl*
 end;//TpgUserManager.RegisterUserStatusChangedSubscriber
 
@@ -586,17 +703,27 @@ procedure TpgUserManager.UnRegisterUserStatusChangedSubscriber(const aSubscriber
 //#UC END# *5739834700B2_5629FC88034B_var*
 begin
 //#UC START# *5739834700B2_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ f_UserStatusChangedSubscriberList.Remove(aSubscriber);
 //#UC END# *5739834700B2_5629FC88034B_impl*
 end;//TpgUserManager.UnRegisterUserStatusChangedSubscriber
 
 procedure TpgUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
  anActive: Boolean);
 //#UC START# *5739835200CF_5629FC88034B_var*
+
+ type
+  PIdaUserStatusChangedSubscriber = ^IdaUserStatusChangedSubscriber;
+
+ function DoIt(aData : PIdaUserStatusChangedSubscriber; anIndex : Integer) : Boolean;
+ begin
+  aData^.UserStatusChanged(anUserID, anActive);
+  Result := True;
+ end;
+
 //#UC END# *5739835200CF_5629FC88034B_var*
 begin
 //#UC START# *5739835200CF_5629FC88034B_impl*
- !!! Needs to be implemented !!!
+ f_UserStatusChangedSubscriberList.IterateAllF(l3L2IA(@DoIt));
 //#UC END# *5739835200CF_5629FC88034B_impl*
 end;//TpgUserManager.NotifyUserActiveChanged
 
@@ -643,7 +770,7 @@ begin
  l_ResultSet := UserLoginQuery.OpenResultSet;
  try
   if not l_ResultSet.IsEmpty then
-   aLoginName := l_ResultSet.Field['ShoreName'].AsString
+   aLoginName := l_ResultSet.Field['ShortName'].AsString
   else
    aLoginName := c_UnknownLogin;
  finally
@@ -665,7 +792,6 @@ begin
  finally
   l_ResultSet := nil;
  end;
-
 //#UC END# *573AEE9902DF_5629FC88034B_impl*
 end;//TpgUserManager.GetUserInfo
 
@@ -675,7 +801,7 @@ function TpgUserManager.Get_PriorityCalculator: IdaPriorityCalculator;
 begin
 //#UC START# *575020410175_5629FC88034Bget_impl*
  if f_PriorityCalculator = nil then
-  f_PriorityCalculator := TpgPriorityCalculator.Make;
+  f_PriorityCalculator := TpgPriorityCalculator.Make(f_Factory);
  Result := f_PriorityCalculator;
 //#UC END# *575020410175_5629FC88034Bget_impl*
 end;//TpgUserManager.Get_PriorityCalculator
@@ -710,14 +836,45 @@ begin
 //#UC END# *5757D9BB0116_5629FC88034B_impl*
 end;//TpgUserManager.IterateUserGroupsF
 
+function TpgUserManager.IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+ aUserID: TdaUserID): Boolean;
+//#UC START# *575A8B790353_5629FC88034B_var*
+var
+ l_ResultSet: IdaResultSet;
+//#UC END# *575A8B790353_5629FC88034B_var*
+begin
+//#UC START# *575A8B790353_5629FC88034B_impl*
+ Result := False;
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+// IsMemberOfGroupQuery.Param['p_UserID'].AsLargeInt := aUserID;
+// IsMemberOfGroupQuery.Param['p_GroupID'].AsLargeInt := aUserGroupID;
+// l_ResultSet := IsMemberOfGroupQuery.OpenResultSet;
+ try
+  Result := not l_ResultSet.IsEmpty;
+ finally
+  l_ResultSet := nil;
+ end;
+//#UC END# *575A8B790353_5629FC88034B_impl*
+end;//TpgUserManager.IsMemberOfGroup
+
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5629FC88034B_var*
 //#UC END# *479731C50290_5629FC88034B_var*
 begin
 //#UC START# *479731C50290_5629FC88034B_impl*
+ FreeAndNil(f_ArchiUsers);
+ FreeAndNil(f_UserStatusChangedSubscriberList);
+ FreeAndNil(f_AllUsers);
+ FreeAndNil(f_AllGroups);
  f_PasswordQuery := nil;
  f_UserFlagsQuery := nil;
+ f_UserNameQuery := nil;
+ f_UserLoginQuery := nil;
+ f_PriorityCalculator := nil;
+ f_AllArchiUsersQuery := nil;
+ f_AllGroupsQuery := nil;
  f_Factory := nil;
  inherited;
 //#UC END# *479731C50290_5629FC88034B_impl*

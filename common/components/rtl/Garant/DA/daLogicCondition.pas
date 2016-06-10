@@ -72,12 +72,25 @@ end;//TdaLogicCondition.Make
 
 procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
 //#UC START# *564089E3039B_5640598000F0_var*
+
+var
+ l_Continue: Boolean;
+
+ function DoIt(const anItem: IdaCondition): Boolean;
+ begin
+  Result := anAction(anItem);
+  if not Result then
+   l_Continue := False;
+ end;
+
 //#UC END# *564089E3039B_5640598000F0_var*
 begin
 //#UC START# *564089E3039B_5640598000F0_impl*
  inherited;
- f_Left.Iterate(anAction);
- f_Right.Iterate(anAction);
+ l_Continue := True;
+ f_Left.IterateF(L2daConditionIteratorIterateAction(@DoIt));
+ if l_Continue then
+  f_Right.IterateF(L2daConditionIteratorIterateAction(@DoIt));
 //#UC END# *564089E3039B_5640598000F0_impl*
 end;//TdaLogicCondition.Iterate
 
@@ -91,7 +104,7 @@ const
 //#UC END# *56408E7F01A1_5640598000F0_var*
 begin
 //#UC START# *56408E7F01A1_5640598000F0_impl*
- Result := Format('(&s) &s (%s)', [f_Left.BuildSQLValue(aHelper), cMap[f_Operation], f_Right.BuildSQLValue(aHelper)]);
+ Result := Format('(%s) %s (%s)', [f_Left.BuildSQLValue(aHelper), cMap[f_Operation], f_Right.BuildSQLValue(aHelper)]);
 //#UC END# *56408E7F01A1_5640598000F0_impl*
 end;//TdaLogicCondition.DoBuildSQL
 

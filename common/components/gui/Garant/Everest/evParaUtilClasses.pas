@@ -4,9 +4,12 @@ unit evParaUtilClasses;
 { Начал: Люлин А.В.       }
 { Модуль: evParaUtilClasses - }
 { Начат: 02.09.2008 18:12 }
-{ $Id: evParaUtilClasses.pas,v 1.142 2015/04/20 12:43:18 dinishev Exp $ }
+{ $Id: evParaUtilClasses.pas,v 1.143 2016/03/25 19:30:36 lulin Exp $ }
 
 // $Log: evParaUtilClasses.pas,v $
+// Revision 1.143  2016/03/25 19:30:36  lulin
+// - перегенерация.
+//
 // Revision 1.142  2015/04/20 12:43:18  dinishev
 // {Requestlink:596845383}
 //
@@ -747,8 +750,8 @@ begin
     end//aTagIndex < (aRow.ChildrenCount - 1)
     else
      l_Neighbours[ed_fpiRight] := Tl3NullTag.Instance;
-    l_Neighbours[ed_fpiUp] := evTableGetNeighbour(aView, aCell, ev_npUp);
-    l_Neighbours[ed_fpiDown] := evTableGetNeighbour(aView, aCell, ev_npDown);
+    l_Neighbours[ed_fpiUp] := evTable_GetNeighbour(aView, aCell, ev_npUp);
+    l_Neighbours[ed_fpiDown] := evTable_GetNeighbour(aView, aCell, ev_npDown);
    end
    else
    begin

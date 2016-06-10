@@ -1,8 +1,20 @@
 unit vtDialogs;
 
-// $Id: vtDialogs.pas,v 1.119 2015/04/28 15:00:00 lulin Exp $
+// $Id: vtDialogs.pas,v 1.122 2016/05/23 12:00:38 lukyanets Exp $
 
 // $Log: vtDialogs.pas,v $
+// Revision 1.122  2016/05/23 12:00:38  lukyanets
+// Ловим аномалии в шедулере
+//
+// Revision 1.121  2016/05/16 09:48:29  dinishev
+// Делаем диалог поиска более тестируемым.
+//
+// Revision 1.120  2016/04/27 09:33:56  lukyanets
+// Запоминаем текущий каталог сбоку
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.119  2015/04/28 15:00:00  lulin
 // - рефакторим.
 //
@@ -288,6 +300,7 @@ uses
   TFileDlgMode = (fdmSave, fdmOpen);
   TWaitDlgCanCloseProc = procedure (var aCanClose: Boolean) of object;
 
+  TSaveOpenDialogExecutor = function (const aDlg : TOpenDialog; aFileDlgMode : TFileDlgMode): Boolean;
 
  function vtInputQuery(const ACaption : AnsiString;
                        const APrompt  : AnsiString;
@@ -394,6 +407,10 @@ uses
 
  procedure vtShowWaitMessage(aMessage: AnsiString; WaitDlgCanClose: TWaitDlgCanCloseProc);
 
+ procedure vtSetSaveOpenDialogExecutor(anExecutor: TSaveOpenDialogExecutor);
+
+ procedure vtShowMemoBox(const aCaption, aMsg: AnsiString);
+
 implementation
 
 uses
@@ -439,6 +456,57 @@ const
 
 var
   ButtonWidths : array[TMsgDlgBtn] of integer;  // initialized to zero
+
+procedure vtShowMemoBox(const aCaption, aMsg: AnsiString);
+var
+ l_Form: TForm;
+ l_Button: TButton;
+ l_Memo: TMemo;
+const
+ cBorder = 5;
+begin
+ l_Form := TForm.Create(nil);
+ try
+  l_Form.Position := poMainFormCenter;
+  l_Form.Width := 600;
+  l_Form.Height := 450;
+  l_Form.Caption := aCaption;
+  l_Form.BorderStyle := bsDialog;
+  l_Button := TButton.Create(l_Form);
+  l_Button.Top := l_Form.ClientHeight - l_Button.Height - cBorder;
+  l_Button.Left := (l_Form.ClientWidth - l_Button.Width) div 2;
+  l_Button.ModalResult := mrCancel;
+  l_Button.Caption := 'Закрыть';
+  l_Button.Cancel := True;
+
+  l_Memo := TMemo.Create(l_Form);
+  l_Memo.Parent := l_Form;
+  l_Memo.SetBounds(cBorder, cBorder, l_Form.ClientWidth - 2*cBorder, l_Button.Top - cBorder);
+  l_Memo.ReadOnly := True;
+  l_Memo.Lines.Text := aMsg;
+  l_Button.Parent := l_Form;
+
+  l_Form.ShowModal;
+ finally
+  FreeAndNil(l_Form);
+ end;
+end;
+
+function DefaultSaveOpenDialogExecutor(const aDlg : TOpenDialog; aFileDlgMode : TFileDlgMode): Boolean;
+begin
+ Result := aDlg.Execute;
+end;
+
+var
+ g_SaveOpenDialogExecutor: TSaveOpenDialogExecutor = DefaultSaveOpenDialogExecutor;
+
+procedure vtSetSaveOpenDialogExecutor(anExecutor: TSaveOpenDialogExecutor);
+begin
+ if Assigned(anExecutor) then
+  g_SaveOpenDialogExecutor := anExecutor
+ else
+  g_SaveOpenDialogExecutor := DefaultSaveOpenDialogExecutor;
+end;
 
 function GetAveCharSize(Canvas: TCanvas): TPoint;
 var
@@ -1188,7 +1256,7 @@ end;
 
 procedure vtMessageDlg(aExceptMsg : Exception);
 begin
- vtMessageDlg(l3CStr(aExceptMsg.Message), mtWarning);
+ vtMessageDlg(l3CStr(aExceptMsg.Message), mtError);
 end;
 
 function vtMessageDlgLock(const aMsg    : Il3CString;
@@ -1379,7 +1447,7 @@ begin
    FilterIndex := aFilterIndex;
    Filter := aFilter;
    Options := aOptions;
-   Result := Execute;
+   Result := g_SaveOpenDialogExecutor(aDlg, aFileDlgMode);
    If not Result then Exit;
 
    aFilterIndex := FilterIndex;

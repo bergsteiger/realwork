@@ -87,7 +87,8 @@ procedure TtfwArrayView.DoForEachBack(aLambda: TtfwWordPrim;
 //#UC END# *52E666F6036E_52E270AE02EA_var*
 begin
 //#UC START# *52E666F6036E_52E270AE02EA_impl*
- f_Other.ForEachBack(aLambda, aCtx);
+ if (f_Other <> nil) then
+  f_Other.ForEachBack(aLambda, aCtx);
 //#UC END# *52E666F6036E_52E270AE02EA_impl*
 end;//TtfwArrayView.DoForEachBack
 

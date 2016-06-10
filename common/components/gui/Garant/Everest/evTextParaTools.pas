@@ -1628,10 +1628,19 @@ end;//evTextParaGetPosByDelta
 function evGetFirstParaHyperlink(const aPara: InevPara;
  aMap: TnevFormatInfoPrim): Tl3Variant;
 //#UC START# *552FA1440245_48D3AF8E024B_var*
+
+ function lp_GetOwnerFI: TnevFormatInfoPrim;
+ begin
+  Result := aMap.ParentInfo;
+  if aPara.Owner.IsKindOf(k2_typLeafParaDecorationsHolder) then
+   Result := Result.ParentInfo;
+ end;
+
 var
  l_Text           : Tl3Variant;
  l_Decor          : Tl3Variant;
  l_TextLen        : Integer;
+ l_ParentFI       : TnevFormatInfoPrim;
  l_HyperlinkLayer : Tl3Variant;
 //#UC END# *552FA1440245_48D3AF8E024B_var*
 begin
@@ -1643,7 +1652,8 @@ begin
   if l_Text.IsValid and not l_Text.Empty then
   begin
    l_TextLen := l_Text.AsWStr.SLen;
-   l_Decor := aMap.ParentInfo.DecorObj(nev_dtHeader);
+   l_ParentFI := lp_GetOwnerFI;
+   l_Decor := l_ParentFI.DecorObj(nev_dtHeader);
    Assert(l_Decor.IsValid);
    l_HyperlinkLayer := l_Decor.AsObject.rAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slHyperlinks)]);
    Result := l_HyperlinkLayer.Child[0].AsObject;

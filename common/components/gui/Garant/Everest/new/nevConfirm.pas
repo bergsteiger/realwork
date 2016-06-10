@@ -59,7 +59,14 @@ begin
  if Assigned(AlienReplaceConfirm) then
   Result := AlienReplaceConfirm(Self, aBlock)
  else
-  Result := mrAll; 
+ begin
+  {$IfNDef NoVCL}
+   Result := mrAll;
+  {$Else  NoVCL}
+   Result := 0;
+   Assert(false);
+  {$EndIf NoVCL}
+ end;//Assigned(AlienReplaceConfirm)
 //#UC END# *47C6CA4103BA_47FE40A503CD_impl*
 end;//TnevConfirm.ReplaceConfirm
 

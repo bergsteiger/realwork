@@ -275,8 +275,8 @@ implementation @ <<method>>
 )% ) //	}\
  end // else
 
-//	[{%S#f_UseNewGenRec()!=true}\
- if ( ( %S %?f UseNewGenRec %( )% ) %!=  true ) then
+//	[{%f_UseNewGenRecG(%S)!=true}\
+ if ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true ) then
  begin
 //	%S%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%S,%P)_impl,\
   %S %f set_uc_content %( 'intf.pas' %, '_'
@@ -462,9 +462,9 @@ implementation @ <<method>>
 //	[{%Gx=true}\
  if ( ( %G |x ) %==  true ) then
  begin
-//	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+//	[{%Sa!=final|%f_UseNewGenRecG(%S)!=true}\
   if ( ( %S |a ) %!= 'final' OR 
-    ( ( %S %?f UseNewGenRec %( )% ) %!=  true  ) ) then
+    ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true  ) ) then
   begin
 //	[{%S#f_IsFactory()!=true}\
    if ( ( %S %?f IsFactory %( )% ) %!=  true ) then
@@ -582,9 +582,9 @@ implementation @ <<method>>
 //	]\
  end // if
 
-//	[{%Sa!=final|%S#f_UseNewGenRec()!=true}\
+//	[{%Sa!=final|%f_UseNewGenRecG(%S)!=true}\
  if ( ( %S |a ) %!= 'final' OR 
-   ( ( %S %?f UseNewGenRec %( )% ) %!=  true  ) ) then
+   ( ( [%f] UseNewGenRecG %( %S )% ) %!=  true  ) ) then
  begin
 //	[{%S#f_IsFactory()!=true&"<{}{%CC=Operation}{C}>"="0"}\
   if ( ( %S %?f IsFactory %( )% ) %!=  true AND 

@@ -1,8 +1,26 @@
 unit CsClient;
 
-{ $Id: CsClient.pas,v 1.41 2015/06/05 11:50:09 lukyanets Exp $ }
+{ $Id: CsClient.pas,v 1.44 2016/04/18 08:39:57 lukyanets Exp $ }
 
 // $Log: CsClient.pas,v $
+// Revision 1.44  2016/04/18 08:39:57  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.43  2016/04/18 07:06:38  lukyanets
+// Попадались паразитные нулевые клиенты
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.42  2016/04/05 07:22:40  lukyanets
+// Ловим нулевого клиента
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.41  2015/06/05 11:50:09  lukyanets
 // Допускаем релогин для закрытой базы
 //
@@ -201,6 +219,7 @@ implementation
 uses
   Classes,
   SysUtils,
+  TypInfo,
 
   IdStack,
   IdStackConsts,
@@ -467,9 +486,7 @@ begin
     f_Password:= aPassword;
    end
    else
-   begin
     f_ClientId := 0;
-   end;
   end; // Result
  finally
   l3Free(l_LoginQuery);

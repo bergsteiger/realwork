@@ -1244,7 +1244,7 @@ function TeeEditorExport.DoBreakPara(aDrawLines: Boolean;
   if l_Cursor <> nil then
   begin
    l_Cursor := l_Cursor.MostInner;
-   if (l_Cursor <> nil) and not l_Cursor.ParentPoint.Obj.IsKindOf(k2_typCommentPara) then
+   if (l_Cursor <> nil) and not l_Cursor.ParentPoint.Obj.IsKindOf([k2_typCommentPara, k2_typTableCell]) then
     Selection.Cursor.Move(View, ev_ocParaUp, anOp);
   end; // if l_Cursor <> nil then
  end;

@@ -1,8 +1,14 @@
 unit ddRTFReader;
 
-// $Id: ddRTFReader.pas,v 1.251 2016/02/12 08:54:42 dinishev Exp $ 
+// $Id: ddRTFReader.pas,v 1.253 2016/04/12 12:38:12 dinishev Exp $ 
 
 // $Log: ddRTFReader.pas,v $
+// Revision 1.253  2016/04/12 12:38:12  dinishev
+// Убрал древний try except
+//
+// Revision 1.252  2016/04/06 13:17:33  dinishev
+// {Requestlink:621056217}. Режем левые символы.
+//
 // Revision 1.251  2016/02/12 08:54:42  dinishev
 // {Requestlink:617082437}
 //
@@ -1018,28 +1024,21 @@ var
  l_OldDest : TddRTFDestination;
  l_NewDest : TddRTFDestination;
 begin
- try
-  l_OldRDS:= RDS;
-  l_OldDest:= Destination[l_OldRDS];
-  l_State := f_States.PeekPrev;
-  if l_State = nil then
-   l_NewRDS := rdsNone
-  else
-   l_NewRDS := l_State.RDS;
-  l_NewDest := Destination[l_NewRDS];
-  l_OldDest.Close(State, l_NewDest);
-  if l_OldDest is TdestNorm then
-   TdestNorm(l_OldDest).AfterClose(l_NewDest, State, CHP);
-   { Переключение на новый RDS }
-  f_States.Pop;
-  if (l_OldRDS = rdsNorm) and (RDS = rdsNone) then {  Последняя закрывающая скобка - далее в файле лежит мусор }
-   f_DocIsDone := True;
- except
-  l3System.Msg2Log(SRTFBadStruct);
-  {$IfDef nsTest}
-  raise;
-  {$EndIf  nsTest}
- end;
+ l_OldRDS:= RDS;
+ l_OldDest:= Destination[l_OldRDS];
+ l_State := f_States.PeekPrev;
+ if l_State = nil then
+  l_NewRDS := rdsNone
+ else
+  l_NewRDS := l_State.RDS;
+ l_NewDest := Destination[l_NewRDS];
+ l_OldDest.Close(State, l_NewDest);
+ if l_OldDest is TdestNorm then
+  TdestNorm(l_OldDest).AfterClose(l_NewDest, State, CHP);
+  { Переключение на новый RDS }
+ f_States.Pop;
+ if (l_OldRDS = rdsNorm) and (RDS = rdsNone) then {  Последняя закрывающая скобка - далее в файле лежит мусор }
+  f_DocIsDone := True;
  ReadHexData := RDS = rdsPicture;
  SkipHexData := ReadHexData and (LiteVersion and not EnablePictures);
 end;
@@ -1382,12 +1381,17 @@ end;
 
 function TddRTFReader.CheckUnicodeChar(aParam: Long): Boolean;
 const
- cnStartIgnoreCode = 57344;
- cnFinishIgnoreCode = 63743;
+ // {$Requestlink:621056217}
+ cnStartSkipChars1 = 11383;
+ cnFinishSkipChars1 = 42775;
+ // {$Requestlink:610504218}
+ cnStartSkipChars = 57344;
+ cnFinishSkipChars = 63743;
 begin
  Result := True;
  // напильник
- if (aParam >= cnStartIgnoreCode) and (aParam <= cnFinishIgnoreCode) then
+ if ((aParam >= cnStartSkipChars1) and (aParam <= cnFinishSkipChars1)) or
+    ((aParam >= cnStartSkipChars) and (aParam <= cnFinishSkipChars)) then
  begin
   case aParam of
    61485,

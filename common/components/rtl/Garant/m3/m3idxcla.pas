@@ -1,9 +1,42 @@
 unit m3IdxCla;
 {* Реализация некоторых интерфейсов индексатора. }
 
-// $Id: m3idxcla.pas,v 1.59 2015/10/13 12:59:26 lulin Exp $
+// $Id: m3idxcla.pas,v 1.72 2016/03/28 11:00:20 lulin Exp $
 
 // $Log: m3idxcla.pas,v $
+// Revision 1.72  2016/03/28 11:00:20  lulin
+// - bug fix: было неправильное приведение классов при перестроении индекса заголовков.
+//
+// Revision 1.71  2016/03/24 15:57:26  lulin
+// - подтачиваем.
+//
+// Revision 1.70  2016/03/24 12:07:52  lulin
+// - подчищаем.
+//
+// Revision 1.69  2016/03/24 09:56:46  lulin
+// - подчищаем.
+//
+// Revision 1.68  2016/03/24 09:49:28  lulin
+// - подчищаем.
+//
+// Revision 1.67  2016/03/24 09:43:45  lulin
+// - подчищаем.
+//
+// Revision 1.66  2016/03/24 09:31:53  lulin
+// - подчищаем.
+//
+// Revision 1.65  2016/03/24 09:27:51  lulin
+// - подчищаем.
+//
+// Revision 1.63  2016/03/23 15:08:43  lulin
+// - подчищаем.
+//
+// Revision 1.62  2016/03/23 14:36:18  lulin
+// - вычищаем.
+//
+// Revision 1.60  2016/03/23 14:07:37  lulin
+// - вычищаем.
+//
 // Revision 1.59  2015/10/13 12:59:26  lulin
 // - убираем Assert.
 //
@@ -398,67 +431,19 @@ type
 
   Tm3HashHandleList = class(Tm3HashHandleListPrim)
     private
-      _Status:                LongWord;
-    private
-    // internal methods
-          function          InitProc00000001    (const ABitMask: LongWord;
-                                                 const AHashCount: Word
-                                                ): LongWord;
-
-          procedure         DoneProc00000001    (
-                                                );
-
-
-          function          InitProc00000002    (const ABitMask: LongWord;
-                                                 const AHashSize: LongInt
-                                                ): LongWord;
-
-          procedure         DoneProc00000002    (
-                                                );
-
-
-          function          InitProc00000004    (const ABitMask: LongWord;
-                                                 const AHashVersion: Word
-                                                ): LongWord;
-
-          procedure         DoneProc00000004    (
-                                                );
-
-
-          function          InitProc00000008    (const ABitMask: LongWord
-                                                ): LongWord;
-
-          procedure         DoneProc00000008    (
-                                                );
-
-
-    private
-      FHashCount:             Word;
-      FHashSize:              LongInt;
-      FHashVersion:           Word;
+      FHashVersion : Word;
       f_ExHandleClass : Rm3BranchHandle;        
     protected
-      class function          MakeHash            (const AValue: WideString;
-                                                   const AHashCount: Word;
-                                                   const AHashSize: LongInt;
-                                                   const AHashVersion: Word
-                                                  ): Word;
+      class function MakeHash(const aValue: WideString;
+                              const aHashVersion: Word): Word;
 
 
     public
-
-
-          constructor       Create              (anExHandleClass : Rm3BranchHandle = nil;
-                                                 const AHashCount: Word = Cm2HASDefCount;
-                                                 const AHashSize: LongInt = Cm2HASDefSize;
-                                                 const AHashVersion: Word = Cm2HASVersion
-                                                );
-
-          procedure Cleanup;
-            override;
-            {-}
-
-
+       constructor Create(anExHandleClass : Rm3BranchHandle = nil;
+                          const aHashVersion : Word = Cm2HASVersion);
+       procedure Cleanup;
+         override;
+         {-}
       function SearchBranchHandle(const AValue        : WideString;
                                   const ANormalizater : Im3Normalizater;
                                   theFlags            : Pm3SearchWordFlags = nil): Tm3BranchHandlePrim;
@@ -612,25 +597,11 @@ type
     // event fields
       f_OnSortFinished : TNotifyEvent;
 
+         procedure LoadIndex;
 
-                procedure         LoadIndex           (
-                                                      );
+         procedure SaveIndex;
 
-                procedure         SaveIndex           (
-                                                      );
-
-
-                function          pm_GetHashCount     (
-                                                      ): Word;
-
-
-                function          pm_HashSize         (
-                                                      ): LongInt;
-
-
-                function          pm_HashVersion      (
-                                                      ): Word;
-
+         function pm_HashVersion: Word;
 
          protected
            // Il3ProgressSource
@@ -639,17 +610,13 @@ type
         {-}
 
 
-                property          HashCount: Word read pm_GetHashCount;
-
-                property          HashSize: LongInt read pm_HashSize;
-                property          HashVersion: Word read pm_HashVersion;
+          property HashVersion: Word
+           read pm_HashVersion;
 
 
-          class function          HashDataName        (
-                                                      ): WideString;
+          class function          HashDataName: WideString;
 
-          class function          HashInfoName        (
-                                                      ): WideString;
+          class function          HashInfoName: WideString;
 
          public
 
@@ -780,8 +747,6 @@ type
       FVersion             : Int64;
 
       f_HasDataLoaded      : Bool;
-      f_HashCount          : Word;
-      f_HashSize           : LongInt;
       f_HashVersion        : Word;
 
       f_HashDataStorage    : Im3IndexedStorage;
@@ -908,6 +873,7 @@ implementation
 uses
   l3Chars,
   l3String,
+  l3MinMax,
 
   m2AddDbg,
   
@@ -1361,162 +1327,45 @@ procedure TNormalizaterResult.Reset;
 begin
  FValueNormalArrayIndex := 0;
 end;
-  
-// Tm3HashHandleList.private
 
- function    Tm3HashHandleList.InitProc00000001(const ABitMask: LongWord;
-                                                const AHashCount: Word
-                                               ): LongWord;
- begin
+// Tm3HashHandleList
 
-  with Self do
-   begin
-
-    FHashCount:=AHashCount;
-
-   end;
-
-  Result:=ABitMask;
-
- end;
-
- procedure   Tm3HashHandleList.DoneProc00000001(
-                                               );
- begin
-
-  with Self do
-   begin
-   end;
-
- end;
-
- function    Tm3HashHandleList.InitProc00000002(const ABitMask: LongWord;
-                                                const AHashSize: LongInt
-                                               ): LongWord;
- begin
-
-  with Self do
-   begin
-
-    FHashSize:=AHashSize;
-
-   end;
-
-  Result:=ABitMask;
-
- end;
-
- procedure   Tm3HashHandleList.DoneProc00000002(
-                                               );
- begin
-
-  with Self do
-   begin
-   end;
-
- end;
-
- function    Tm3HashHandleList.InitProc00000004(const ABitMask: LongWord;
-                                                const AHashVersion: Word
-                                               ): LongWord;
- begin
-
-  with Self do
-   begin
-
-    FHashVersion:=AHashVersion;
-
-   end;
-
-  Result:=ABitMask;
-
- end;
-
- procedure   Tm3HashHandleList.DoneProc00000004(
-                                               );
- begin
-
-  with Self do
-   begin
-   end;
-
- end;
-
- function    Tm3HashHandleList.InitProc00000008(const ABitMask: LongWord
-                                               ): LongWord;
- begin
-
-  with Self do
-   begin
-
-    Count:=LongInt(FHashCount);
-
-   end;
-
-  Result:=ABitMask;
-
- end;
-
- procedure   Tm3HashHandleList.DoneProc00000008(
-                                               );
- begin
-
-  with Self do
-   begin
-   end;
-
- end;
-
-// Tm3HashHandleList.protected
-
- class
- function    Tm3HashHandleList.MakeHash(const AValue: WideString;
-                                        const AHashCount: Word;
-                                        const AHashSize: LongInt;
-                                        const AHashVersion: Word
-                                       ): Word;
- begin
-  Result:=LongInt(m2HASUpdate16(0,PAnsiChar(AValue),m2S32Min(Length(AValue)*SizeOf(WideChar),AHashSize),AHashVersion) and Pred(AHashCount));
- end;
+class function Tm3HashHandleList.MakeHash(const aValue: WideString;
+                                          const aHashVersion: Word): Word;
+begin
+ Result := m2SmallHash16(aValue, aHashVersion);
+end;
 
 constructor Tm3HashHandleList.Create(anExHandleClass : Rm3BranchHandle;
-                                     const AHashCount: Word;
-                                     const AHashSize: LongInt;
-                                     const AHashVersion: Word
-                                    );
+                                     const aHashVersion: Word);
 begin
  inherited Create;
  if (anExHandleClass = nil) then
   f_ExHandleClass := Tm3BranchHandle
  else
   f_ExHandleClass := anExHandleClass;
- m2InitOperation(_Status,InitProc00000001($00000001,AHashCount));
- m2InitOperation(_Status,InitProc00000002($00000002,AHashSize));
- m2InitOperation(_Status,InitProc00000004($00000004,AHashVersion));
- m2InitOperation(_Status,InitProc00000008($00000008));
+ FHashVersion := aHashVersion;
+ Count := Cm2HASDefCount;
 end;
 
 procedure Tm3HashHandleList.Cleanup;
 begin
- m2DoneOperation(_Status,$00000008,DoneProc00000008);
- m2DoneOperation(_Status,$00000004,DoneProc00000004);
- m2DoneOperation(_Status,$00000002,DoneProc00000002);
- m2DoneOperation(_Status,$00000001,DoneProc00000001);
+ f_ExHandleClass := nil;
  inherited;
 end;
 
-function Tm3HashHandleList.SearchBranchHandle(const AValue        : WideString;
-                                              const ANormalizater : Im3Normalizater;
+function Tm3HashHandleList.SearchBranchHandle(const aValue        : WideString;
+                                              const aNormalizater : Im3Normalizater;
                                               theFlags            : Pm3SearchWordFlags = nil): Tm3BranchHandlePrim;
 var
  LHash         : Word;
  LIndex        : LongInt;
- LBranchHandle : Tm3BranchHandlePrim;
+ LBranchHandle : Tm3BranchHandle;
  l_Result      : Im3NormalizaterResult;
  l_Count       : Long;
  l_Flags       : Tm3SearchWordFlags;
 begin
- LHash := MakeHash(AValue,FHashCount,FHashSize,FHashVersion);
+ LHash := MakeHash(aValue, FHashVersion);
  with Items[LongInt(LHash)].BranchHandleList do
  begin
   if FindItemByKey(Tm3WideString_C(AValue), LIndex) then
@@ -1531,7 +1380,7 @@ begin
     theFlags^ := [m3_swfNew];
    if (aNormalizater = nil) then
    begin
-    LBranchHandle := Tm3BranchHandlePrim.Create;
+    LBranchHandle := Tm3BranchHandle.Create;
     l_Count := 0;
     //Assert(false);
     // - нельзя это, индексатор падает
@@ -1542,7 +1391,7 @@ begin
     l_Result := ANormalizater.GetResult(AValue);
     if (l_Result = nil) then
     begin
-     LBranchHandle := Tm3BranchHandlePrim.Create;
+     LBranchHandle := Tm3BranchHandle.Create;
     end
     else
     begin
@@ -1559,7 +1408,7 @@ begin
      if (l_Count = 0) then
      begin
       l_Result := nil;
-      LBranchHandle := Tm3BranchHandlePrim.Create;
+      LBranchHandle := Tm3BranchHandle.Create;
      end//l_Count = 0
      else
      if (l_Count = 1) then
@@ -1567,7 +1416,7 @@ begin
       if (WideCompareStr(aValue, l_Result.GetValue) = 0) then
       begin
        l_Result := nil;
-       LBranchHandle := Tm3BranchHandlePrim.Create;
+       LBranchHandle := Tm3BranchHandle.Create;
       end
       else
       begin
@@ -1585,10 +1434,10 @@ begin
      Hash := LHash;
      Value := Tm3WideStringManager.Instance.AllocString(aValue);
     end;//with LBranchHandle.Data
-    Insert(LIndex, Pointer(LBranchHandle));
+    Insert(LIndex, LBranchHandle As Tm3BranchHandle);
     if (l_Result <> nil) then
     begin
-     with Tm3BranchHandle(LBranchHandle) do
+     with LBranchHandle do
      begin
       with l_Result do
       begin
@@ -1900,7 +1749,7 @@ end;
 
 function Tm3IndexUpdater.InitProc00001000(const ABitMask: LongWord): LongWord;
 begin
- FHashHandleList:=Tm3HashHandleList.Create(nil, HashCount,HashSize,HashVersion);
+ FHashHandleList := Tm3HashHandleList.Create(nil, HashVersion);
  Result:=ABitMask;
 end;
 
@@ -2157,22 +2006,6 @@ begin//SaveIndex
   l_Storage := nil;
  end;//try..finally
 end;//SaveIndex
-
-function Tm3IndexUpdater.pm_GetHashCount: Word;
-begin
- if (FHashInfoStream = nil) then
-  Result := Tm3BaseHashInfoStream.DefaultHeaderValue.RHashCount
- else
-  Result := FHashInfoStream.HeaderData.RHashCount;
-end;
-
-function Tm3IndexUpdater.pm_HashSize: LongInt;
-begin
- if (FHashInfoStream = nil) then
-  Result := Tm3BaseHashInfoStream.DefaultHeaderValue.RHashSize
- else
-  Result := FHashInfoStream.HeaderData.RHashSize;
-end;
 
 function Tm3IndexUpdater.pm_HashVersion: Word;
 begin
@@ -2656,20 +2489,12 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
 
  function __GetHashDataStream(const AHashDataStorage : Im3IndexedStorage;
                               const AValue           : WideString;
-                              const AHashCount       : Word;
-                              const AHashSize        : LongInt;
                               const AHashVersion     : Word): IStream;
 
   function __MakeHash(const AValue       : WideString;
-                      const AHashCount   : Word;
-                      const AHashSize    : LongInt;
                       const AHashVersion : Word): Word;
   begin
-   l3System.Msg2Log('__MakeHash:' + aValue);
-   l3System.Msg2Log('AHashCount:' + IntToStr(AHashCount));
-   l3System.Msg2Log('AHashSize:' + IntToStr(AHashSize));
-   l3System.Msg2Log('AHashVersion' + IntToStr(AHashVersion));
-   Result:=Tm3HashHandleList.MakeHash(AValue,AHashCount,AHashSize,AHashVersion);
+   Result := Tm3HashHandleList.MakeHash(AValue, AHashVersion);
   end;
 
   function    __OpenStorage(const AStorage : Im3IndexedStorage;
@@ -2679,9 +2504,7 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
                       STGM_SHARE_EXCLUSIVE or
                       STGM_DIRECT;
   begin
-   l3System.Msg2Log('Индекс хеша: ' + IntToStr(anIndex));
    Result := m3COMOpenStorage(aStorage, anIndex, CStatStgReadMode, false);
-   Assert(Result <> nil, 'Не открыли хэш');
   end;
 
   function __OpenStream(const AStorage : Im3IndexedStorage;
@@ -2696,27 +2519,20 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
 
  begin//__GetHashDataStream
   try
-   Assert(AHashDataStorage <> nil);
-   Result:=__OpenStream(__OpenStorage(AHashDataStorage,__MakeHash(AValue,AHashCount,AHashSize,AHashVersion)),l3PCharLen(AValue));
-   if (Result = nil) then
-    l3System.Msg2Log('nil: ' + aValue)
-   else
-    l3System.Msg2Log('Found: ' + aValue);
+   Result:=__OpenStream(__OpenStorage(aHashDataStorage,
+                                      __MakeHash(aValue, aHashVersion)
+                                     ),
+                        l3PCharLen(aValue));
   except
    on E: EOleSysError do
     if (E.ErrorCode = STG_E_FILENOTFOUND) then
-    begin
-     l3System.Msg2Log('Not found: ' + aValue);
      Result:=nil
-    end 
     else
      raise;
   end;//try..except
  end;//__GetHashDataStream
 
  procedure __GetHashInfo(const ARootStorage : Im3IndexedStorage;
-                         var   AHashCount   : Word;
-                         var   AHashSize    : LongInt;
                          var   AHashVersion : Word);
  const
   CStatStgReadMode = STGM_READ or
@@ -2728,12 +2544,7 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
                                                 CStatStgReadMode,False),
                                 m2COMModeAccess(CStatStgReadMode)) do
    try
-    with HeaderData do
-    begin
-     AHashCount:=RHashCount;
-     AHashSize:=RHashSize;
-     AHashVersion:=RHashVersion;
-    end;//with HeaderData
+    aHashVersion := HeaderData.RHashVersion;
    finally
     Free;
    end;
@@ -2745,7 +2556,8 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
                      const aItem2 : Pointer;
                      const ASize  : LongInt): Integer;
   begin//__Compare
-   if (aItem1 = nil) then begin
+   if (aItem1 = nil) then
+   begin
     if (aItem2 = nil) then
      Result := 0
     else
@@ -2767,23 +2579,17 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
  begin//__MergeHashData
   LTempStream:=Tm3TempStream.Create;
   try
-   l3System.Msg2Log('LTempStream:=Tm3TempStream.Create;');
    LBuffStream:=Tm3BuffStream.Create(LTempStream);
    try
-    l3System.Msg2Log('LBuffStream:=Tm3BuffStream.Create(LTempStream);');
     repeat
      LItem:=nil;
      LFound:=-1;
      for LIndex:=0 to Pred(Length(ASearchInfoArray)) do begin
       with ASearchInfoArray[LIndex] do begin
-        Assert(rStream <> nil);
         if (RStream <> nil) then begin
          if RNeedLoad then begin
           if FIndexReader.Get(RStream,RItem,FItemSize) then
-          begin
-           l3System.Msg2Log('FIndexReader.Get(RStream,RItem,FItemSize)');
-           RNeedLoad := false;
-          end
+           RNeedLoad := false
           else begin
            RStream := nil;
            Continue;
@@ -2803,7 +2609,6 @@ function Tm3IndexSearcher.GetResult(const ANormalizater : Im3Normalizater;
       with ASearchInfoArray[LFound] do begin
        RNeedLoad:=True;
        FIndexWriter.Put(LBuffStream, RItem, FItemSize);
-       l3System.Msg2Log('FIndexWriter.Put(LBuffStream, RItem, FItemSize);');
       end//with ASearchInfoArray[LFound]
      else
        Break;
@@ -2829,7 +2634,7 @@ begin//GetResult
   if (f_HashDataStorage = nil) then
    f_HashDataStorage := __GetHashDataStorage(LRootStorage);
   if not f_HasDataLoaded then begin
-   __GetHashInfo(LRootStorage, f_HashCount, f_HashSize, f_HashVersion);
+   __GetHashInfo(LRootStorage, f_HashVersion);
    f_HasDataLoaded := true;
   end;//not f_HasDataLoaded
   LRootStorage := nil; // - здесь корень уже можно освободить
@@ -2837,7 +2642,7 @@ begin//GetResult
   begin
    Result := Tm3LiveSearcherResult.Make(__GetHashDataStream(f_HashDataStorage,
                                         aValue,
-                                        f_HashCount, f_HashSize, f_HashVersion),
+                                        f_HashVersion),
                                         FItemSize);
   end//aNormalizater = nil
   else
@@ -2849,7 +2654,7 @@ begin//GetResult
      // - цепочка одна - значит ничего не надо объединять
      Result := Tm3LiveSearcherResult.Make(__GetHashDataStream(f_HashDataStorage,
                                           GetValue,
-                                          f_HashCount, f_HashSize, f_HashVersion),
+                                          f_HashVersion),
                                           FItemSize);
     end else *)begin
      m2MEMAlloc(LSearchBuff, l_Count * FItemSize);
@@ -2862,7 +2667,7 @@ begin//GetResult
         begin
          RStream:=__GetHashDataStream(f_HashDataStorage,
                                       GetValue,
-                                      f_HashCount, f_HashSize, f_HashVersion);
+                                      f_HashVersion);
          RItem:=Pointer(LongInt(LSearchBuff)+(LIndex*FItemSize));
          RNeedLoad := True;
         end;//with LSearchInfoArray[LIndex]

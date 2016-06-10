@@ -2033,8 +2033,13 @@ begin
  if not Supports(aTest, ITestSuite) then
  begin
  // - пишем только конечные тесты, а не наборы
-  System.WriteLn(f_AllRunnedTests, TestNameForOutputInTestLists(aTest));
-  System.Flush(f_AllRunnedTests);
+  try
+   System.WriteLn(f_AllRunnedTests, TestNameForOutputInTestLists(aTest));
+   System.Flush(f_AllRunnedTests);
+  except
+   on E: Exception do
+    l3System.Exception2Log(E);
+  end;
  end;//not Supports(aTest, ITestSuite)
 //#UC END# *4F16C8890222_4B2A6CEB0377_impl*
 end;//TKTestListener.WriteTestToAllRunnedTests

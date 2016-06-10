@@ -2,9 +2,24 @@ unit ddCalendarEvents;
 
 // Константы для нотификаций по календарным событиям
 
-{ $Id: ddCalendarEvents.pas,v 1.27 2016/03/04 09:35:41 lukyanets Exp $ }
+{ $Id: ddCalendarEvents.pas,v 1.32 2016/06/02 15:23:11 fireton Exp $ }
 
 // $Log: ddCalendarEvents.pas,v $
+// Revision 1.32  2016/06/02 15:23:11  fireton
+// - синхронизация с Гардоком журнала импортов
+//
+// Revision 1.31  2016/05/27 11:14:27  fireton
+// - синхронизация этапов в Гардок
+//
+// Revision 1.30  2016/03/30 12:44:57  lukyanets
+// Cleanup
+//
+// Revision 1.29  2016/03/30 11:50:45  lukyanets
+// Cleanup
+//
+// Revision 1.28  2016/03/29 13:11:26  lukyanets
+// Cleanup
+//
 // Revision 1.27  2016/03/04 09:35:41  lukyanets
 // Отвалились вложенные задания
 //
@@ -97,15 +112,13 @@ uses
 type
  TddCalendarTaskType = (ctDeltaTask, ctUpdateTask, ctBirthdayTask, ctHolidayTask,
     ctPreventiveTask, ctAutoExportTask, ctFNSExport_DEPRECATED, ctLoadRegions, ctAutoSubs,
-    ctAutoclassify, ctVersion, ctCompilation, ctUploadRegions, ctMakeDivisions,
+    ctAutoclassify, ctVersion, ctCompilation, ctUploadRegions, ctMakeDivisions_DEPRECATED,
     ctRelPublish, ctHavansky, ctCloneBase, ctExportAnonced, ctExportAnoncedEx,
-    ctAnnoExport, ctMdpSyncDicts, ctMdpSyncDocs, ctContainer);
+    ctAnnoExport, ctMdpSyncDicts, ctMdpSyncDocs, ctMdpSyncStages, ctMdpSyncImport, ctContainer);
 
  TddCalendarEventData = record
   Color : TColor;
   Caption: AnsiString;
-  Unique : Boolean;
-  ExecuteByTimer: Boolean;
   Required: Boolean;
   DefaultRep: Byte;
  end;
@@ -122,162 +135,126 @@ const
  ddCalendarEventArray : array[TddCalendarTaskType] of TddCalendarEventData = (
   (Color: clOlive;
    Caption: 'Импорт дельты документов';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctDeltaTask
 
   (Color: clTeal;
    Caption: 'Ежедневное обновление';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: True;
    DefaultRep: repeatEveryday), // ctUpdateTask
 
   (Color: clFuchsia;
    Caption: 'День рождения пользователя';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryYear), // ctBirthdayTask
 
   (Color: clRed;
    Caption: 'Праздник';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryYear), // ctHolidayTask
 
   (Color: clGreen;
    Caption: 'Профилактика';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctPreventiveTask
 
   (Color: clNavy;
    Caption: 'Автоматический экспорт';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctAutoExportTask
 
   (Color: clYellow;
    Caption: 'УСТАРЕЛО! Экспорт документов для ФНС РФ';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctFNSExport_DEPRECATED
 
   (Color: clAqua;
    Caption: 'Импорт внешних документов';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctLoadRegions
 
   (Color: clSilver;
    Caption: 'Расстановка меток в ФАСах';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), // ctAutoSubs
 
   (Color: clMaroon;
    Caption: 'Автоклассификация документов';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctAutoClassify
 
   (Color: clMoneyGreen;
    Caption: 'Версия';
-   Unique: True;
-   ExecuteByTimer: False;
    Required: True;
    DefaultRep: repeatEveryWeek), // ctVersion
 
   (Color: clGray;
    Caption: 'Компиляция';
-   Unique: True;
-   ExecuteByTimer: True;
    Required: True;
    DefaultRep: repeatEveryWeek),  // ctCompilation
 
   (Color: clLime;
    Caption: 'Экспорт внешних документов';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctUploadRegions
 
   (Color: clYellow;
    Caption: 'Расстановка разделов в документах';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
-   DefaultRep: repeatEveryDay), //  ctDivisions
+   DefaultRep: repeatEveryDay), //  ctMakeDivisions_DEPRECATED
 
   (Color: clCream;
    Caption: 'Добавление информации о публикации в справки';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctRelPublish
 
   (Color: clCream;
    Caption: 'Экспорт документов для Пик Пресс';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryMonth), //  ctHavansky
 
   (Color: clCream;
    Caption: 'Клонирование базы';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), //  ctCloneBase
 
   (Color: clCream;
    Caption: 'Экспорт анонсированных';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday),//  ctExportAnonced
 
   (Color: clCream;
    Caption: 'Экспорт анонсированных в день компиляции';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryWeek), //  ctExportAnoncedEx
 
   (Color: clBlue;
    Caption: 'Экспорт аннотаций для дельты';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), //  ctAnnoExport
 
   (Color: clCream;
    Caption: 'Синхронизация словарей в Гардок';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctMdpSyncDicts
 
   (Color: clCream;
    Caption: 'Импорт документов из Гардока';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday), // ctMdpSyncDocs
 
+  (Color: clCream;
+   Caption: 'Синхронизация этапов в Гардок';
+   Required: False;
+   DefaultRep: repeatEveryday), // ctMdpSyncStages
+
+  (Color: clCream;
+   Caption: 'Синхронизация импортов в Гардок';
+   Required: False;
+   DefaultRep: repeatEveryday), // ctMdpSyncImport
+
   (Color: clBlack;
    Caption: 'Пустая контейнерная задача';
-   Unique: False;
-   ExecuteByTimer: True;
    Required: False;
    DefaultRep: repeatEveryday) // ctContainer
  );

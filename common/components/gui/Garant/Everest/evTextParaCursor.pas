@@ -640,6 +640,7 @@ function TevTextParaCursor.DoSplit(const aView: InevView;
  const anOp: InevOp): Il3TagRef;
 //#UC START# *49DEFB770015_49DF7D98029A_var*
 var
+ l_Offset      : Integer;
  l_OldPara     : InevTextPara;
  l_OldSegments : Tl3Variant;
  l_Anchor      : Integer;
@@ -705,9 +706,13 @@ begin
       with (Result.AsObject.cAtom(k2_tiText) As Tl3String) do
       begin
        CodePage := l_Text.CodePage;
-       AsPCharLen := l3PCharLen(l_Text.St + l_Anchor, l_Text.Len - l_Anchor, l_Text.CodePage);
+       if l_Text.CodePage = CP_Unicode then
+        l_Offset := l_Anchor * SizeOf(WideChar)
+       else
+        l_Offset := l_Anchor;
+       AsPCharLen := l3PCharLen(l_Text.St + l_Offset, l_Text.Len - l_Anchor, l_Text.CodePage);
       end;
-      Self.DeleteString(aView, l_Text.Len-l_Anchor, anOp,
+      Self.DeleteString(aView, l_Text.Len - l_Anchor, anOp,
                         [misfLockSegments] + aFlags);
      end;//l_Text.Len > 0..
     end;//l_Anchor < l_Text.Len

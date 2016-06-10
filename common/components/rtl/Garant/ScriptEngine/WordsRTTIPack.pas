@@ -1799,7 +1799,7 @@ function TkwPopWordGetRefForCompare.GetRefForCompare(const aCtx: TtfwContext;
 //#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_var*
 begin
 //#UC START# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aWord.GetRefForCompare;
 //#UC END# *57500AC802FC_57500AC802FC_4DAEED140007_Word_impl*
 end;//TkwPopWordGetRefForCompare.GetRefForCompare
 
@@ -1845,7 +1845,7 @@ function TkwPopWordDirectives.Directives(const aCtx: TtfwContext;
 //#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_var*
 begin
 //#UC START# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ Result := GetWordDirectives(aCtx, aWord);
 //#UC END# *550C26A10073_550C26A10073_4DAEED140007_Word_impl*
 end;//TkwPopWordDirectives.Directives
 
@@ -1894,10 +1894,23 @@ function TkwPopWordEndBracket.EndBracket(const aCtx: TtfwContext;
  aWord: TtfwWord): AnsiString;
  {* Реализация слова скрипта pop:Word:EndBracket }
 //#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
+var
+ l_B : RtfwWord;
 //#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_var*
 begin
 //#UC START# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ try
+  if (aWord = nil) then
+   l_B := nil
+  else
+   l_B := aWord.GetEndBracket(aCtx, true);
+ except
+  l_B := nil;
+ end;//try..except
+ if (l_B = nil) then
+  Result := ''
+ else
+  Result := aCtx.rEngine.KeywordByName(TtfwCStringFactory.C(l_B.NameForRegister)).AsString;
 //#UC END# *550C274E00CA_550C274E00CA_4DAEED140007_Word_impl*
 end;//TkwPopWordEndBracket.EndBracket
 
@@ -1949,7 +1962,7 @@ function TkwPopWordLeftWordRefValuesCount.LeftWordRefValuesCount(const aCtx: Ttf
 //#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_var*
 begin
 //#UC START# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aWord.LeftWordRefValuesCount(aCtx);
 //#UC END# *550C27EA0141_550C27EA0141_4DAEED140007_Word_impl*
 end;//TkwPopWordLeftWordRefValuesCount.LeftWordRefValuesCount
 
@@ -2001,7 +2014,10 @@ function TkwPopWordName.Name(const aCtx: TtfwContext;
 //#UC END# *550C28100270_550C28100270_4DAEED140007_Word_var*
 begin
 //#UC START# *550C28100270_550C28100270_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ if (aWord = nil) then
+  Result := TtfwCStringFactory.C('??? Unexisting word ???')
+ else
+  Result := aWord.WordName;
 //#UC END# *550C28100270_550C28100270_4DAEED140007_Word_impl*
 end;//TkwPopWordName.Name
 
@@ -2053,7 +2069,7 @@ function TkwPopWordParent.Parent(const aCtx: TtfwContext;
 //#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_var*
 begin
 //#UC START# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aWord.ParentWord;
 //#UC END# *550C283B01A0_550C283B01A0_4DAEED140007_Word_impl*
 end;//TkwPopWordParent.Parent
 
@@ -2105,7 +2121,7 @@ function TkwPopWordProducer.Producer(const aCtx: TtfwContext;
 //#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
 begin
 //#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aWord.WordProducer;
 //#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
 end;//TkwPopWordProducer.Producer
 

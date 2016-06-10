@@ -2,9 +2,12 @@
 unit ddBlockDeepLevelDlg;
 {* Запрос уровня вложенности блоков в документе }
 
-// $Id: ddBlockDeepLevelDlg.pas,v 1.9 2012/08/10 09:45:56 dinishev Exp $
+// $Id: ddBlockDeepLevelDlg.pas,v 1.10 2016/06/07 12:19:26 dinishev Exp $
 
 // $Log: ddBlockDeepLevelDlg.pas,v $
+// Revision 1.10  2016/06/07 12:19:26  dinishev
+// Недокоммител.
+//
 // Revision 1.9  2012/08/10 09:45:56  dinishev
 // {Requestlink:382408648}. Тест.
 //
@@ -61,8 +64,6 @@ type
     checkConfirmJoin: TCheckBox;
     cbUseFootnotes: TCheckBox;
     cbTuneStructure: TCheckBox;
-    procedure FormShow(Sender: TObject);
-    procedure FormPaint(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -74,26 +75,6 @@ type
 implementation
 
 {$R *.dfm}
-
-procedure TddBlockDeepLevelDialog.FormShow(Sender: TObject);
-begin
-{$IFNDEF InsiderTest}
- {$IfDef nsTest}
- ModalResult := mrOk;
- // - чтоб в тестах всё работало АВТОМАТОМ
- {$EndIf nsTest}
-{$ENDIF InsiderTest} 
-end;
-
-procedure TddBlockDeepLevelDialog.FormPaint(Sender: TObject);
-begin
-{$IFNDEF InsiderTest}
- {$IfDef nsTest}
- ModalResult := mrOk;
- // - чтоб в тестах всё работало АВТОМАТОМ
- {$EndIf nsTest}
-{$ENDIF InsiderTest} 
-end;
 
 function TddBlockDeepLevelDialog.DefaultCloseAction: TCloseAction;
 begin

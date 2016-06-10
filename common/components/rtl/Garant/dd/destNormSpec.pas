@@ -178,15 +178,21 @@ begin
  if aRowIndex = -1 then
  begin
   f_Table.CheckLastRow(False);
-  l_Row := f_Table.LastRow
+  l_Row := f_Table.LastRow;
+  if l_Row.CurColumn < 0 then
+   l_Row.IncCurrColumn;
  end // if aRowIndex = -1 then
  else
+ begin
   l_Row := f_Table.Rows[aRowIndex];
+  if l_Row.CurColumn < aCurColumn then
+   l_Row.IncCurrColumn;
+ end;
  l_Cell := l_Row.GetLastNonClosedCellOrAddNew;
  f_LastCell := l_Cell;
  f_LastRow := l_Row;
- SetCellProp(l_Cell, f_CurColumn);
- f_TabIndex := 0;
+ SetCellProp(l_Cell, aCurColumn);
+ InitNewColumns;
 //#UC END# *56BB3E570128_56BB14F503A0_impl*
 end;//TdestNormSpec.AddColumn4Table
 
@@ -199,12 +205,16 @@ var
 begin
 //#UC START# *56BB3E9801EA_56BB14F503A0_impl*
  Assert(f_Table <> nil);
- l_Row := f_Table.LastRow;
+ if f_StartRow < 0 then Exit;
+ l_Row := f_Table.Rows[f_StartRow];
  l_Cell := l_Row.LastCell;
  if l_Cell <> nil then
+ begin
+  CheckCellWidth;
   l_Cell.Closed := True;
- Inc(f_CurColumn);
- AddColumn4Table(f_StartRow);
+ end; //if l_Cell <> nil then
+ l_Row.IncCurrColumn;
+ AddColumn4Table(f_StartRow, l_Row.CurColumn);
 //#UC END# *56BB3E9801EA_56BB14F503A0_impl*
 end;//TdestNormSpec.FinishColumn
 
@@ -215,10 +225,10 @@ begin
 //#UC START# *56BB3EE301F6_56BB14F503A0_impl*
  if f_Table <> nil then
  begin
-  f_CurColumn := -1;
-  f_SaveInColumns := False;
+  PopTransferMode(dd_tmTab);
   f_Table.CloseRow;
   f_StartRow := -1;
+  f_InAddingCell := False;
  end; // if l_Table <> nil then
 //#UC END# *56BB3EE301F6_56BB14F503A0_impl*
 end;//TdestNormSpec.CheckColumnTable
@@ -229,37 +239,57 @@ procedure TdestNormSpec.AppyToColumn(aWhat: TIProp;
 //#UC START# *56BD6FDC025E_56BB14F503A0_var*
 
  procedure lp_Try2AddNewTable;
+
+  function lp_Try2MergeWithPrevCell: Boolean;
+  begin
+   Result := False;
+   if (f_LastRow.CurColumn = 0) and (f_LastCell <> nil) and ((f_ColWidths.First - f_LastCell.Props.CellOffset) > ddEpsilon) then
+   begin
+    f_LastCell.Closed := False;
+    f_LastRow.Closed := False;
+    SetCellProp(f_LastCell, 0);
+    f_StartRow := f_Table.RowCount - 1;
+    InitNewColumns;
+    Result := True;
+   end //if (aCurColumn = 0) and (f_LastCell <> nil) and (f_LastCell.Props.CellOffset < f_ColWidths.First) then
+  end;
+
  var
   l_Row  : TddTableRow;
   l_Cell : TddTableCell;
  begin
   f_Table := LastTable(False); // Вложенные колонки не поддерживаем...
+  f_EmptyParaCount := 0;
   if f_Table = nil then
   begin
    Try2AddTable(1);
    f_Table := LastTable(False);
   end // if f_Table = nil then
   else
-  begin
-   l_Row := f_Table.LastRow;
-   l_Cell := l_Row.LastCell;
-   if (l_Cell <> nil) then
-    if l_Cell.IsCellEmpty then
-    begin
-     SetCellProp(l_Cell, l_Row.CellCount - 1);
-     Exit;
-    end // if l_Cell.IsCellEmpty then
-    else
-    begin
-     l_Cell.Closed := True;
-     l_Row.Closed := True;
-    end; // if l_Cell <> nil then
-  end;
+   if lp_Try2MergeWithPrevCell then
+    Exit
+   else
+   begin
+    l_Row := f_Table.LastRow;
+    l_Cell := l_Row.LastCell;
+    if (l_Cell <> nil) then
+     if l_Cell.IsCellEmpty then
+     begin
+      SetCellProp(l_Cell, l_Row.CurColumn);
+      Exit;
+     end // if l_Cell.IsCellEmpty then
+     else
+     begin
+      CheckCellWidth;
+      l_Cell.Closed := True;
+      l_Row.Closed := True;
+     end; // if l_Cell <> nil then
+   end;
   f_StartRow := f_Table.RowCount;
-  AddColumn4Table(-1);
+  AddColumn4Table(-1, 0);
  end;
 
- function lp_CalcColsWidth: Integer;
+ function lp_CalColumnCountWidth: Integer;
  var
   i: Integer;
  begin
@@ -277,12 +307,11 @@ begin
   ipropColCount : begin
    if f_ColWidths.Count > 0 then
     f_ColWidths.Clear;
-   f_SectProp.cCols := aValue;
+   f_SectProp.ColumnCount := aValue;
    f_ColCount := aValue;
    f_ColIndex := 0;
   end;
-  ipropColNum:
-   begin
+  ipropColNum: begin
     f_ColIndex := aValue - 1;
     f_ColWidths.Add(0);
    end;
@@ -294,14 +323,13 @@ begin
    begin
     if f_PrevColsWidth > 0 then
     begin
-     l_CurWidth := lp_CalcColsWidth;
+     l_CurWidth := lp_CalColumnCountWidth;
      if l_CurWidth < f_PrevColsWidth then
       f_ColWidths.Last := f_ColWidths.Last + f_PrevColsWidth - l_CurWidth;
     end // if f_PrevColsWidth > 0 then
     else
-     f_PrevColsWidth := lp_CalcColsWidth;
-    f_SaveInColumns := True;
-    f_CurColumn := 0;
+     f_PrevColsWidth := lp_CalColumnCountWidth;
+    PopTransferMode(dd_tmColumn);
     lp_Try2AddNewTable;
    end; // if f_ColIndex = (f_ColCount - 1) then
   end;
@@ -316,11 +344,41 @@ procedure TdestNormSpec.SetCellProp(aCell: TddTableCell;
 begin
 //#UC START# *56BD93A10343_56BB14F503A0_impl*
  aCell.Props.CellOffset := ColumnOffset(anIndex);
+ aCell.Props.OffsetType := dd_otByColumn;
 //#UC END# *56BD93A10343_56BB14F503A0_impl*
 end;//TdestNormSpec.SetCellProp
 
 procedure TdestNormSpec.AddNewRowWithColumn(aPAP: TddParagraphProperty);
 //#UC START# *56C5769301AC_56BB14F503A0_var*
+
+ procedure lp_Clear;
+ begin
+  f_ClearColumnOffset := True;
+  f_EmptyParaCount := 0;
+ end;
+
+var
+ l_LastRow: TddTableRow;
+
+ procedure lp_Try2CopyPrevData;
+ const
+  cnMinTextLen = 20;
+ var
+  i      : Integer;
+  l_Count: Integer;
+ begin
+  if l_LastRow <> nil then // Предусмотреть получение первой ячейки с текстом, т.к. могут быть выравнивающие ячейки из-за отступов...
+   if (l_LastRow[0].Count > 1) and (l_LastRow[0].LastTextPara.Text.Len > cnMinTextLen) then
+   begin
+    l_Count := l_LastRow[0].Count;
+    for i := l_Count - 1 downto 1 do
+    begin
+     f_LastRow.Cells[0].Insert(0, l_LastRow[0].Items[i]);
+     l_LastRow[0].Delete(i);
+    end; // for i := l_Count - 1 downto 1 do
+   end; // if l_LastRow[0].Count > 1 then
+ end;
+
 var
  i         : Integer;
  l_Row     : TddTableRow;
@@ -329,68 +387,81 @@ var
 //#UC END# *56C5769301AC_56BB14F503A0_var*
 begin
 //#UC START# *56C5769301AC_56BB14F503A0_impl*
- if CheckNewColumn then Exit;
+ if CheckLeftIndent(aPAP) then
+ begin
+  lp_Clear;
+  Exit;
+ end; // if CheckLeftIndent(aPAP) then
+ if NotInFirstColumn then
+ begin
+  lp_Clear;
+  Exit;
+ end; //if NotInFirstColumn then
  Assert(f_Table <> nil);
  f_TabIndex := 0;
  l_Row := f_Table.LastRow;
  l_Cell := l_Row.LastCell;
+ CheckCellWidth;
  l_Cell.Closed := True;
  l_Row.Closed := True;
- l_LastCol := f_CurColumn;
+ CheckCellWidth;
+ if f_ClearColumnOffset then
+ begin
+  f_ClearColumnOffset := False;
+  f_LastRow.CurColumn := 0;
+ end; // if f_ClearColumnOffset then
+ l_LastCol := f_LastRow.CurColumn;
+ f_EmptyParaCount := 0;
  l_Row := nil;
- try
-  for i := 0 to l_LastCol do
+ l_LastRow := f_LastRow;
+ for i := 0 to l_LastCol do
+ begin
+  AddColumn4Table(-1, i);
+  if l_Row = nil then
+   l_Row := f_Table.LastRow;
+  if i < l_LastCol then
   begin
-   f_CurColumn := i;
-   AddColumn4Table(-1);
-   if l_Row = nil then
-    l_Row := f_Table.LastRow;
-   if i < l_LastCol then
-   begin
-    l_Cell := l_Row.LastCell;
-    l_Cell.Closed := True;
-   end // if i < l_NewIndex then
-   else
-   begin
-    f_LastRow := l_Row;
-    f_LastCell := l_Row.LastCell;
-   end;
-  end; // for i := 0 to l_NewIndex do
- finally
-  f_CurColumn := l_LastCol;
- end;
+   l_Cell := l_Row.LastCell;
+   l_Cell.Closed := True;
+  end // if i < l_NewIndex then
+  else
+  begin
+   f_LastRow := l_Row;
+   f_LastCell := l_Row.LastCell;
+  end;
+ end; // for i := 0 to l_NewIndex do
+ f_LastRow.CurColumn := l_LastCol;
+ lp_Try2CopyPrevData;
 //#UC END# *56C5769301AC_56BB14F503A0_impl*
 end;//TdestNormSpec.AddNewRowWithColumn
 
 function TdestNormSpec.CheckLeftIndent(aPAP: TddParagraphProperty): Boolean;
 //#UC START# *56C6FC91019C_56BB14F503A0_var*
 const
- cnDelta = 10;
+ cnDelta   = 10;
+ cnMinLeft = 100;
 var
  i           : Integer;
- l_FoundIndex: Integer;
+ l_NextIndex : Integer;
  l_LeftIndent: Integer;
 //#UC END# *56C6FC91019C_56BB14F503A0_var*
 begin
 //#UC START# *56C6FC91019C_56BB14F503A0_impl*
+ Result := False;
  l_LeftIndent := aPAP.xaLeft;
- if (aPAP.xaFirst > -(l_LeftIndent div 2)) and (l_LeftIndent > 0) and (f_ColWidths.Count > 0) then
- begin
-  l_FoundIndex := -1;
-  for i := 0 to f_ColWidths.Count - 1 do
-   if Abs(l_LeftIndent - f_ColWidths[i]) < cnDelta then
+ if (l_LeftIndent <> propUndefined) and (l_LeftIndent > cnMinLeft) and (f_Table <> nil) and (f_LastRow <> nil) then
+  for i := 0 to f_LastRow.CellCount - 1 do
+   if Abs(l_LeftIndent - f_LastRow.Cells[i].Props.CellOffset) < cnDelta then
    begin
-    l_FoundIndex := i;
+    l_NextIndex := i + 1;
+    if (f_LastRow.CellCount > l_NextIndex) and (f_LastRow.CurColumn > -1) and (f_LastRow.CurColumn < f_ColWidths.Count) then
+     if f_LastRow.Cells[l_NextIndex].Props.CellOffset = f_ColWidths[f_LastRow.CurColumn] then
+      Break;
+    Result := True;
+    f_LastRow.CurColumn := l_NextIndex; // Следующая ячейка, а не у которой одинаковое смещение...
+    f_LastCell := f_LastRow.Cells[l_NextIndex];
     Break;
-   end; // if Abs(l_LeftIndent - f_ColWidths[i]) < l3Epsilon then
-  if l_FoundIndex > -1 then
-   for i := 0 to l_FoundIndex do
-   begin
-    f_CurColumn := i;
-    AddColumn4Table(-1);
-    f_LastRow.LastCell.Closed := True;
-   end; // for i := 0 to l_FoundIndex do
- end; // if l_LeftIndent > 0 then
+   end; // if Abs(l_LeftIndent - f_ColWidths[i]) < cnDelta then
 //#UC END# *56C6FC91019C_56BB14F503A0_impl*
 end;//TdestNormSpec.CheckLeftIndent
 
@@ -402,7 +473,7 @@ var
 begin
 //#UC START# *56C6FCC401C7_56BB14F503A0_impl*
  Result := 0;
- for i := 0 to anIndex do
+ for i := 0 to Min(anIndex, f_ColWidths.Count - 1) do
   Inc(Result, f_ColWidths[i]);
 //#UC END# *56C6FCC401C7_56BB14F503A0_impl*
 end;//TdestNormSpec.ColumnOffset
@@ -410,16 +481,21 @@ end;//TdestNormSpec.ColumnOffset
 function TdestNormSpec.CheckNewColumn: Boolean;
 //#UC START# *56C6FCEF0347_56BB14F503A0_var*
 var
+ l_Row     : TddTableRow;
  l_RowIndex: Integer;
 //#UC END# *56C6FCEF0347_56BB14F503A0_var*
 begin
 //#UC START# *56C6FCEF0347_56BB14F503A0_impl*
  Result := False;
+ if f_InAddingCell then Exit; // Мы и так добавляем ячейку...
  Assert(f_Table <> nil);
  l_RowIndex := f_Table.RowIndex(f_LastRow);
  if l_RowIndex < (f_Table.RowCount - 1) then
  begin
-  AddColumn4Table(l_RowIndex + 1);
+  l_Row := f_Table.Rows[l_RowIndex + 1];
+  if (l_Row.CurColumn < CurColID) and (l_Row.LastCell <> nil) and not l_Row.LastCell.IsCellEmpty then
+   l_Row.LastCell.Closed := True;
+  AddColumn4Table(l_RowIndex + 1, CurColID);
   Result := True;
  end; // if l_RowIndex < (l_Table.RowCount - 1) then
 //#UC END# *56C6FCEF0347_56BB14F503A0_impl*
@@ -437,45 +513,126 @@ end;//TdestNormSpec.NeedNewCell
 procedure TdestNormSpec.AddNewCellByTab(aState: TddRTFState);
 //#UC START# *56C6FD3B01A5_56BB14F503A0_var*
 
- function lp_AddCell(aRow: TddTableRow; aWidth: Integer): TddTableCell;
+ function lp_AddCell(aRow: TddTableRow; aWidth: Integer; aPrevOffsetType: TddOffsetType): TddTableCell;
  begin
   Result := aRow.GetLastNonClosedCellOrAddNew;
   Result.Props.CellOffset := aWidth;
+  Result.Props.OffsetType := aPrevOffsetType;
  end;
 
+const
+ cnMinTabInCell = 5;
+ cnMinLeftIndent = 1000; // На самом деле нужно смотреть не было ли постоянного LeftIndent для предыдущих строк (на который увеличивается ширина строки).
+
 var
- l_Offset    : Integer;
- l_PrevOffset: Integer;
+ l_Index         : Integer;
+ l_Offset        : Integer;
+ l_NewRow        : Boolean;
+ l_CellCount     : Integer;
+ l_ColOffset     : Integer;
+ l_PrevOffset    : Integer;
+ l_OffsetType    : TddOffsetType;
+ l_ByLeftIndent  : Boolean;
+ l_Tabs4AllCells : Boolean;
+ l_PrevOffsetType: TddOffsetType;
 //#UC END# *56C6FD3B01A5_56BB14F503A0_var*
 begin
 //#UC START# *56C6FD3B01A5_56BB14F503A0_impl*
+ l_ByLeftIndent := False;
+ l_Tabs4AllCells := False;
+ l_NewRow := False;
+ l_Offset := 0;
  if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) then
   if (f_TabIndex >= aState.PAP.TabList.Count) then
   begin
-   f_TabIndex := 0;
-   AddNewRow(aState.PAP);
-  end; // if (f_TabIndex >= aState.PAP.TabList.Count) then
-  if f_SaveInColumns then
+   if (aState.PAP.xaLeft <> propUndefined) and (aState.PAP.xaLeft > cnMinLeftIndent) then
+   begin
+    l_Offset := aState.PAP.xaLeft;
+    l_OffsetType := dd_otByLeftIndent;
+    l_ByLeftIndent := True;
+   end // if (aState.PAP.xaLeft <> propUndefined) and (aState.PAP.xaLeft > cnMinLeftIndent) then
+   else
+   begin
+    AddNewRowByTab(aState.PAP);
+    f_TabIndex := 0;
+    l_NewRow := True;
+    if aState.PAP.TabList.Count > 0 then
+    begin
+     l_Offset := aState.PAP.TabList[f_TabIndex].TabPos;
+     l_OffsetType := dd_otByTab;
+    end; // if aState.PAP.TabList.Count > 0 then
+   end;
+  end // if (f_TabIndex >= aState.PAP.TabList.Count) then
+  else
   begin
-   l_Offset := TddTab(aState.PAP.TabList[f_TabIndex]).TabPos;
+   l_Offset := aState.PAP.TabList[f_TabIndex].TabPos;
+   l_OffsetType := dd_otByTab;
+   if (f_Table.RowCount > 1) then
+   begin
+    l_CellCount := f_Table.Rows[f_Table.RowCount - 2].CellCount;
+    l_Tabs4AllCells := (l_CellCount > f_ColCount) and (l_CellCount > cnMinTabInCell) and ((aState.PAP.TabList.Count - l_CellCount) = 1);
+   end; // if f_Table.RowCount > 1 then
+  end;
+  if f_TransferMode = dd_tmColumn then
+  begin
+   if l_NewRow then
+   begin
+    l_ColOffset := ColumnOffset(0);
+    f_LastCell.Props.CellOffset := l_ColOffset;
+    f_LastCell.Props.OffsetType := dd_otByColumn;
+    f_LastRow.IncCurrColumn;
+   end // if l_Offset = 0 then
+   else
+    l_ColOffset := ColumnOffset(f_LastRow.CurColumn - 1);
+   if l_Tabs4AllCells then
+    if (l_Offset - l_ColOffset) < ddEpsilon then
+    begin
+     f_LastCell := f_LastRow.Cells[0];
+     Inc(f_TabIndex);
+     Exit;
+    end // if(l_Offset < l_ColOffset) then
+    else
+     f_LastCell := f_LastRow.LastCell;
+   if (f_LastRow.CurColumn > 0) and (l_Offset < l_ColOffset) then
+    Inc(l_Offset, l_ColOffset);
    f_LastCell.Closed := True;
-   if f_CurColumn > 0 then
-    Inc(l_Offset, ColumnOffset(f_CurColumn - 1));
+   if l_ByLeftIndent then
+   begin
+    f_LastCell := f_LastRow.LastCell;
+    f_LastCell.Closed := True;
+   end; // if l_ByLeftIndent then
+   CheckCellWidth;
    l_PrevOffset := f_LastCell.Props.CellOffset;
+   l_PrevOffsetType := f_LastCell.Props.OffsetType;
+   if l_PrevOffset < l_Offset then
+   begin
+    l_Index := f_LastRow.CellIndex(f_LastCell);
+    if l_Index < (f_LastRow.CellCount - 1) then
+     Inc(l_Index);
+    f_LastCell := f_LastRow.Cells[l_Index];
+    l_PrevOffset := f_LastCell.Props.CellOffset;
+   end; // if l_PrevOffset < l_Offset then
    f_LastCell.Props.CellOffset := l_Offset;
-   f_LastCell := lp_AddCell(f_LastRow, l_PrevOffset);
+   f_LastCell.Props.OffsetType := l_OffsetType;
+   f_LastCell := lp_AddCell(f_LastRow, l_PrevOffset, l_PrevOffsetType);
    Inc(f_TabIndex);
-  end // if f_SaveInColumns then
+   f_EmptyParaCount := 0;
+  end // if f_TransferMode then
   else
    if f_Table <> nil then
    begin
-    l_Offset := TddTab(aState.PAP.TabList[f_TabIndex]).TabPos;
     f_LastRow.LastCell.Props.CellOffset := l_Offset;
+    f_LastRow.LastCell.Props.OffsetType := l_OffsetType;
     f_LastCell.Closed := True;
-    f_LastCell := lp_AddCell(f_LastRow, l_Offset);
+    CheckCellWidth;
+    f_LastCell := lp_AddCell(f_LastRow, l_Offset, dd_otNone);
     Inc(f_TabIndex);
     if f_TabIndex = aState.PAP.TabList.Count then
+    begin
      f_LastRow.LastCell.Props.CellOffset := f_PrevColsWidth;
+     f_LastRow.LastCell.Props.OffsetType := dd_otByColumn;
+    end; // if f_TabIndex = aState.PAP.TabList.Count then
+    f_EmptyParaCount := 0; 
    end; // if (f_LastCell <> nil) and (aState.PAP.TabList.Count > 0) then
 //#UC END# *56C6FD3B01A5_56BB14F503A0_impl*
 end;//TdestNormSpec.AddNewCellByTab
@@ -495,20 +652,37 @@ end;//TdestNormSpec.ClearTextPara4Table
 
 procedure TdestNormSpec.AddNewRowByTab(aPAP: TddParagraphProperty);
 //#UC START# *56D81BA40350_56BB14F503A0_var*
+
+ procedure lp_CreateNewTable;
+ const
+  cnIngnoreValue = 4000;
+ begin
+  if (aPAP.TabList[0].TabPos > cnIngnoreValue) and (aPAP.xaLeft < cnIngnoreValue) then
+  begin
+   Try2AddTable(1);
+   f_Table := LastTable(False);
+   PopTransferMode(dd_tmTab);
+   f_EmptyParaCount := 0;
+  end; // if aPAP.TabList[0].TabPos > cnIngnoreValue then
+ end;
+
 //#UC END# *56D81BA40350_56BB14F503A0_var*
 begin
 //#UC START# *56D81BA40350_56BB14F503A0_impl*
- if f_Table <> nil then
+ if f_Table = nil then
+  lp_CreateNewTable;
+ if f_Table <> nil then 
  begin
-  f_Table.LastRow.Closed := True;
+  if f_Table.LastRow <> nil then
+   f_Table.LastRow.Closed := True;
   f_Table.CheckLastRow(False);
   f_LastRow := nil;
   f_LastCell := nil;
-  CheckLeftIndent(aPAP);
   if f_LastRow = nil then
    f_LastRow := f_Table.LastRow;
   f_LastCell := f_LastRow.GetLastNonClosedCellOrAddNew;
   f_TabIndex := 0;
+  f_ClearColumnOffset := False;
  end; // if f_Table <> nil then
 //#UC END# *56D81BA40350_56BB14F503A0_impl*
 end;//TdestNormSpec.AddNewRowByTab
@@ -794,9 +968,14 @@ begin
  FreeAndNil(f_SectProp);
  f_PrevColsWidth := 0;
  f_StartRow := -1;
- f_SaveInColumns := False;
+ f_TransferMode := dd_tmNone;
+ f_PrevTransferMode := dd_tmNone;
  f_TabIndex := 0;
  f_SplitPara := dd_spNone;
+ f_EmptyParaCount := 0;
+ f_WaitChar := dd_wcNone;
+ f_SpacesCount := 0;
+ f_InAddingCell := False;
  inherited;
 //#UC END# *479731C50290_56BB14F503A0_impl*
 end;//TdestNormSpec.Cleanup
@@ -809,9 +988,14 @@ begin
  f_PrevColsWidth := 0;
  f_LastCell := nil;
  f_LastRow := nil;
- f_SaveInColumns := False;
+ f_TransferMode := dd_tmNone;
+ f_PrevTransferMode := dd_tmNone;
  f_TabIndex := 0;
  f_SplitPara := dd_spNone;
+ f_EmptyParaCount := 0;
+ f_WaitChar := dd_wcNone;
+ f_InAddingCell := False;
+ f_SpacesCount := 0;
  inherited;
 //#UC END# *51D27A48038E_56BB14F503A0_impl*
 end;//TdestNormSpec.Clear
@@ -835,11 +1019,8 @@ procedure TdestNormSpec.ApplyProperty(propType: TPropType;
 begin
 //#UC START# *51D27EC50388_56BB14F503A0_impl*
  inherited ApplyProperty(propType, What, Value, aState);
- case propType of
-  propShape: if What = ipropsectd then
-              f_SectProp.SBK := sbkNon;
-  propColumn: AppyToColumn(What, Value, aState);              
- end;
+ if propType = propColumn then
+  AppyToColumn(What, Value, aState);
 //#UC END# *51D27EC50388_56BB14F503A0_impl*
 end;//TdestNormSpec.ApplyProperty
 
@@ -855,9 +1036,15 @@ begin
  f_LastCell := nil;
  f_LastRow := nil;
  f_StartRow := -1;
- f_SaveInColumns := False;
+ f_TransferMode := dd_tmNone;
+ f_PrevTransferMode := dd_tmNone;
  f_TabIndex := 0;
  f_SplitPara := dd_spNone;
+ f_EmptyParaCount := 0;
+ f_WaitChar := dd_wcNone;
+ f_ClearColumnOffset := False;
+ f_InAddingCell := False;
+ f_SpacesCount := 0;
 //#UC END# *51E7C9DB0213_56BB14F503A0_impl*
 end;//TdestNormSpec.Create
 
@@ -865,25 +1052,26 @@ procedure TdestNormSpec.ParseSymbol(Symbol: Integer;
  propType: TPropType;
  aState: TddRTFState);
 //#UC START# *51E8CFEF027A_56BB14F503A0_var*
+var
+ l_IsTab: Boolean;
 //#UC END# *51E8CFEF027A_56BB14F503A0_var*
 begin
 //#UC START# *51E8CFEF027A_56BB14F503A0_impl*
- if (propType = propCHP) and (Symbol = Ord(cc_Tab)) then
+ l_IsTab := (Symbol = Ord(cc_Tab));
+ if (propType = propCHP) and l_IsTab then
  begin
-  if NeedNewCell(aState) then
-  begin
-   if f_SaveInColumns then
-    ParseSymbol(Symbol, propPAP, aState); // Закрываем параграф.
-   AddNewCell(aState);
-  end // if NeedNewCell then
-  else
+  if not Try2AddNewCell(Symbol, aState) then
    AddAnsiChar(cc_HardSpace, aState);
  end // if (propType = propCHP) and (Symbol = Ord(cc_Tab)) then
  else
  begin
   inherited ParseSymbol(Symbol, propType, aState);
   if (propType = propDOP) and (Symbol = Ord(breakColumn)) then
-   FinishColumn(aState)
+   FinishColumn(aState);
+  if (propType = propDOP) and (Symbol = Ord(breakSection)) then
+   f_SectProp.SectionState := dd_ssStart;
+  if (propType = propPAP) and not aState.SkipGroup then
+   Try2CloseTabble(aState.PAP);
  end;
 //#UC END# *51E8CFEF027A_56BB14F503A0_impl*
 end;//TdestNormSpec.ParseSymbol
@@ -892,15 +1080,34 @@ procedure TdestNormSpec.ApplyToPAP(What: TIProp;
  aValue: Integer;
  aPAP: TddParagraphProperty);
 //#UC START# *51E8D2F90025_56BB14F503A0_var*
+CONST
+ cnMaxRight = 4000;
 //#UC END# *51E8D2F90025_56BB14F503A0_var*
 begin
 //#UC START# *51E8D2F90025_56BB14F503A0_impl*
  inherited ApplyToPAP(What, aValue, aPAP);
+ if (What = ipropRight) then
+  if aPAP.xaRight > cnMaxRight then // Нужно здесь доделать, чтобы сравнивался правый отступ и размер колонок...
+  begin
+   if f_TransferMode = dd_tmBreak then
+    if NeedNewRow(aPAP) then
+    begin
+     AddNewRowWithColumn(aPAP);
+     f_LastRow.DecCurrColumn;
+     f_LastCell := f_LastRow.Cells[0];
+    end; // if NeedNewRow(aPAP) then
+  end;
  if (What = ipropDefault) then
  begin
-  if (f_SectProp.SBK = sbkNon) and (f_SectProp.cCols = 0) then
-   CheckColumnTable;
+  if (f_SectProp.SectionState = dd_ssStart) and (f_SectProp.SBK = sbkPg) and (f_SectProp.ColumnCount = 0) then
+   if f_TransferMode = dd_tmColumn then
+    CheckColumnTable
+   else
+    CloseTable;
+  if (f_SectProp.SectionState = dd_ssStart) and (f_SectProp.ColumnCount = 0) then
+   PopTransferMode(dd_tmBreak);
   f_SectProp.Clear;
+  f_SectProp.SectionState := dd_ssNone;
  end; // if (What = ipropDefault) then
 //#UC END# *51E8D2F90025_56BB14F503A0_impl*
 end;//TdestNormSpec.ApplyToPAP
@@ -915,11 +1122,12 @@ procedure TdestNormSpec.ApplyToSep(aWhat: TIProp;
    case aWhat of
     ipropLandscape: Landscape := True;
     ipropWidth: xaPage := aValue;
-    ipropHeight: YaPage := aValue;
+    ipropHeight: yaPage := aValue;
     ipropLeft: xaLeft := aValue;
     ipropRight: xaRight := aValue;
     ipropTop: yaTop := aValue;
     ipropBottom: yaBottom := aValue;
+    ipropSbkNone: SBK := sbkNon;
    end;
  end;
  
@@ -941,19 +1149,34 @@ begin
   if f_LastCell.IsCellEmpty then
    Result := nil
   else
+  begin
    Result := f_LastCell.LastTextPara;
+   if (Result <> nil) and Result.Closed then
+    Result := nil;
+  end;
 //#UC END# *51E8D68F0379_56BB14F503A0get_impl*
 end;//TdestNormSpec.pm_GetLastParagraph
 
 function TdestNormSpec.InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
 //#UC START# *51E8D7E60235_56BB14F503A0_var*
+var
+ l_TextPara: TddTextParagraph;
 //#UC END# *51E8D7E60235_56BB14F503A0_var*
 begin
 //#UC START# *51E8D7E60235_56BB14F503A0_impl*
  if f_LastCell = nil then
   Result := inherited InternalAddTextPara(aPAP)
  else
-  Result := f_LastCell.AddParagraph
+ begin
+  l_TextPara := f_LastCell.LastTextPara;
+  if (l_TextPara <> nil) and l_TextPara.Empty then
+  begin
+   Result := l_TextPara;
+   l_TextPara.Closed := False;
+  end // if (l_TextPara <> nil) and l_TextPara.Empty then
+  else
+   Result := f_LastCell.AddParagraph;
+ end;
 //#UC END# *51E8D7E60235_56BB14F503A0_impl*
 end;//TdestNormSpec.InternalAddTextPara
 
@@ -987,6 +1210,7 @@ procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
   function lp_CheckNumber: Boolean;
   var
    l_Str         : Tl3String;
+   l_Cell        : TddTableCell;
    l_SepPos      : PAnsiChar;
    l_ColIndex    : Integer;
    l_FinishNumber: Integer;
@@ -999,17 +1223,21 @@ procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
     begin
      l_FinishNumber := l_SepPos - aPara.Text.St;
      if (f_SplitPara = dd_spNumber) then
-      l_ColIndex := f_CurColumn
+      l_ColIndex := CurColID
      else
-      l_ColIndex := f_CurColumn + 1;
-     l_Str := Tl3String.Make(aPara.Text);
-     try
-      l_Str.Offset(l_FinishNumber);
-      f_LastRow.Cells[l_ColIndex].LastTextPara.AddText(l_Str);
-     finally
-      FreeAndNil(l_Str);
-     end;
-     aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
+      l_ColIndex := CurColID + 1;
+     l_Cell := f_LastRow.Cells[l_ColIndex];
+     if l_Cell <> nil then
+     begin
+      l_Str := Tl3String.Make(aPara.Text);
+      try
+       l_Str.Offset(l_FinishNumber);
+       l_Cell.LastTextPara.AddText(l_Str);
+      finally
+       FreeAndNil(l_Str);
+      end;
+      aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
+     end; // if l_Cell <> nil then
     end; // if l_SepPos <> nil then
     f_SplitPara := dd_spNone;
    end; // if (f_SplitPara = dd_spNumber) then
@@ -1018,21 +1246,33 @@ procedure TdestNormSpec.CloseTextPara(aPAP: TddParagraphProperty;
   procedure lp_CheckDigits;
   var
    l_Str         : Tl3String;
+   l_LastPara    : TddTextParagraph;
    l_ColumnIndex : Integer;
    l_FinishNumber: Integer;
   begin
-   l_FinishNumber := ev_lpCharset2Indent(aPara.Text.St, aPara.Text.Len, cc_Digits + [cc_Dot, cc_Comma]);
-   if l_FinishNumber > 0 then
+   if f_StartRow = -1 then Exit;
+   l_ColumnIndex := f_LastRow.CurColumn;
+   if (l_ColumnIndex < f_LastRow.CellCount) and (l_ColumnIndex >= 0) then
    begin
-    l_Str := Tl3String.Make(aPara.Text);
-    try
-     l_Str.Offset(l_FinishNumber);
-     f_LastRow.Cells[f_CurColumn + 1].LastTextPara.AddText(l_Str);
-    finally
-     FreeAndNil(l_Str);
-    end;
-    aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
-   end; // if l_FinishNumber > 0 then 
+    l_LastPara := f_LastRow.Cells[l_ColumnIndex].LastTextPara;
+    if l_LastPara <> nil then
+    begin
+     l_FinishNumber := ev_lpCharset2Indent(aPara.Text.St, aPara.Text.Len, cc_Digits + [cc_Dot, cc_Comma]);
+     if l_FinishNumber > 0 then
+     begin
+      l_Str := Tl3String.Make(aPara.Text);
+      try
+       l_Str.Offset(l_FinishNumber);
+       l_LastPara.AddText(l_Str);
+       CheckCellWidth;
+       f_LastCell := f_LastRow.Cells[l_ColumnIndex];
+      finally
+       FreeAndNil(l_Str);
+      end;
+      aPara.Text.Delete(l_FinishNumber, aPara.Text.Len - l_FinishNumber);
+     end; // if l_FinishNumber > 0 then
+    end; // if l_LastPara <> nil then
+   end; // if f_LastRow.CurColumn < f_LastRow.CellCount then
   end;
 
  begin
@@ -1065,13 +1305,17 @@ begin
  if f_Table <> nil then
   lp_MoveLastPart;
  if not aPara.Text.Empty then
-  if f_SaveInColumns and (f_LastCell <> nil) and not f_LastCell.IsCellEmpty then
+ begin
+  PushTransferMode;
+  if (f_TransferMode = dd_tmColumn) and (f_LastCell <> nil) and not f_LastCell.IsCellEmpty then
   begin
-   if (f_CurColumn > 0) then
+   if (CurColID > 0) then
    // Если колонка была, то добавляем выравнивающие ячейки...
     CheckNewColumn;
-  end; // if f_SaveInColumns then
- ClearTextPara4Table(aPara);
+  end; // if f_TransferMode then
+ end; // if not aPara.Text.Empty then
+ if f_Table <> nil then
+  ClearTextPara4Table(aPara);
 //#UC END# *56BC3011019B_56BB14F503A0_impl*
 end;//TdestNormSpec.CloseTextPara
 
@@ -1105,13 +1349,17 @@ procedure TdestNormSpec.DoAddTabStop(aPAP: TddParagraphProperty);
 begin
 //#UC START# *56C574EA022E_56BB14F503A0_impl*
  if aPAP.TabList.Count = 1 then // Нам нужна реакция на первое добавление...
-  if f_SaveInColumns then
-  begin
-   if (f_LastCell <> nil) and not f_LastCell.IsCellEmpty then
-    AddNewRowWithColumn
-  end // if f_SaveInColumns then
-  else
-   AddNewRow(aPAP);
+ begin
+  PushTransferMode;
+  if (f_WaitChar <> dd_wcDoubleQuote) then
+   if (f_TransferMode = dd_tmColumn) then
+   begin
+    if NeedNewRow(aPAP) then
+     AddNewRowWithColumn(aPAP)
+   end // if f_TransferMode then
+   else
+    AddNewRowByTab(aPAP);
+ end; // if aPAP.TabList.Count = 1 then
 //#UC END# *56C574EA022E_56BB14F503A0_impl*
 end;//TdestNormSpec.DoAddTabStop
 

@@ -165,6 +165,8 @@ begin
  Result := Result + SysUtils.Format('папка: %s, формат: %s',
                                      [ExportDirectory,
                                      SupportFileTypeNames[TepSupportFileType(OutFileType)]]);
+ if ExportDocImage then
+  Result := Result + ', с графическими образами';                                    
 end;
 
 procedure TcsExport.DoLoadFrom(aStream: TStream; aIsPipe: Boolean);

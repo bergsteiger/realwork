@@ -2057,29 +2057,6 @@ ref; // ME_E2BFE5F0DA18
 
 ref; // ME_4AA919B200AB CommonPost
 
-: ME_2F39DDCDC7C9
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_08BD36053A81 // Tkw_CommonPost_opSavePostList
- ;
- : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
- ;
-
-ref; // ME_2F39DDCDC7C9 
-
-: ME_4DB0614603C8_ME_08BD36053A81
- : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB0614603C8_ME_08BD36053A81 GetWordNameForRegister
-
-: ME_4DB079E00084_ME_08BD36053A81
- : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
- ;
- CONST OpKind opkind_Overridden
-ref; // ME_4DB079E00084_ME_08BD36053A81 GetModuleOperationCode
-
 : ME_08BD36053A81
  CONST UID '08BD36053A81'
  CONST Name 'Tkw_CommonPost_opSavePostList'
@@ -2096,15 +2073,6 @@ ref; // ME_4DB079E00084_ME_08BD36053A81 GetModuleOperationCode
    Seq: ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
  )
  ; // Inherits
- : Overridden
-   Seq: ( ME_4DB0614603C8_ME_08BD36053A81 // GetWordNameForRegister
- ME_4DB079E00084_ME_08BD36053A81 // GetModuleOperationCode
- )
- ; // Overridden
- : Dependencies
-   Seq: ( ME_2F39DDCDC7C9 // StdRes
- )
- ; // Dependencies
  CONST "NameForScript" 'моп::‘айл_Ёкспортировать_все_индивидуальные_ленты_в_файл'
  CONST "ifndef" 'NoScripts'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\kw_CommonPost_opSavePostList.pas'

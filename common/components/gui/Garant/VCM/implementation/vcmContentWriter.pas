@@ -1,8 +1,11 @@
 unit vcmContentWriter;
 
-{ $Id: vcmContentWriter.pas,v 1.45 2015/07/21 14:28:57 lulin Exp $ }
+{ $Id: vcmContentWriter.pas,v 1.46 2016/05/26 12:33:48 kostitsin Exp $ }
 
 // $Log: vcmContentWriter.pas,v $
+// Revision 1.46  2016/05/26 12:33:48  kostitsin
+// - не собиралось
+//
 // Revision 1.45  2015/07/21 14:28:57  lulin
 // - делаем чтобы собиралось.
 //
@@ -228,9 +231,13 @@ type
                        aNeedClose    : Boolean = true);
         overload;
         {* - сохраняет объект в поток. }
-   procedure PutData(const aString: AnsiString); overload; virtual; abstract;
-   procedure PutData(const aString: Il3CString); overload; virtual; abstract;
-   procedure PutData(const aString: Tl3WString); overload; virtual; abstract;
+      procedure PutData(const aString: AnsiString); overload;
+      procedure PutData(const aString: Il3CString); overload;
+      procedure PutData(const aString: Tl3WString); overload;
+      procedure PutSimpleField(const aName: AnsiString;
+       const aAttributes: AnsiString;
+       const aData: AnsiString);
+    {* Утилитный метод. Открывает тег с атрибутами, записывает внутрь данные и закрывает тег. }
     public
     // public methods
       constructor Create(const aFileName: String);
@@ -696,6 +703,27 @@ begin
  OpenLevel(aString, l_Suffix);
  if aNeedClose then
   CloseLevel;
+end;
+
+procedure TvcmContentWriter.PutData(const aString: Il3CString);
+begin
+ Assert(False);
+end;
+
+procedure TvcmContentWriter.PutData(const aString: AnsiString);
+begin
+ Assert(False);
+end;
+
+procedure TvcmContentWriter.PutData(const aString: Tl3WString);
+begin
+ Assert(False);
+end;
+
+procedure TvcmContentWriter.PutSimpleField(const aName, aAttributes,
+  aData: AnsiString);
+begin
+ Assert(False);
 end;
 
 {$EndIf vcmNeedL3}

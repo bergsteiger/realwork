@@ -6,8 +6,11 @@ unit ddNSRC_r;
 
 25 февраля 2000 - расчленение процедуры Read
 }
-{ $Id: ddNSRC_r.pas,v 1.458 2015/10/15 11:32:36 lulin Exp $ }
+{ $Id: ddNSRC_r.pas,v 1.459 2016/04/13 08:32:30 dinishev Exp $ }
 // $Log: ddNSRC_r.pas,v $
+// Revision 1.459  2016/04/13 08:32:30  dinishev
+// Доточил параметры парсера для NSRC.
+//
 // Revision 1.458  2015/10/15 11:32:36  lulin
 // - при чтении из NSRC преобразуем формулы обратно в юникод.
 //
@@ -1763,6 +1766,8 @@ var
   l: TevdLanguage;
 begin
   inherited Create(aOwner);
+  Parser.OpenComment := '';
+  Parser.CloseComment := '';
   Parser.CheckFloat:= False;
   parser.CheckHex := False;
   Parser.CheckInt := False;

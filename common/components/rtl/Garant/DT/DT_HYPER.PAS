@@ -1,8 +1,11 @@
 Unit Dt_Hyper;
 
-{ $Id: DT_HYPER.PAS,v 1.167 2015/10/23 14:15:50 voba Exp $ }
+{ $Id: DT_HYPER.PAS,v 1.168 2016/05/17 11:58:08 voba Exp $ }
 
 // $Log: DT_HYPER.PAS,v $
+// Revision 1.168  2016/05/17 11:58:08  voba
+// -k:623081921
+//
 // Revision 1.167  2015/10/23 14:15:50  voba
 // -bf : замена ссылок в корреспондентах выдавала AV если ссылок не найдено
 //
@@ -616,7 +619,7 @@ Type
     procedure   PureUpdSubName(AbsNum : LongInt;Text : PAnsiChar;RealFlag : Boolean);
     procedure   UpdSubID(AbsNum : LongInt;aID : TSubID);
     function    CheckSub(ID : LongInt;Sub : TSubID;Var AbsNum : LongInt) : Boolean;
-    function    CheckKeySAB(KeySab : Sab) : Sab;
+    //function    CheckKeySAB(KeySab : Sab) : Sab;
     //procedure   PropagateSubNames(aOriginalDoc: TDocID);
      // У всех документов, являющихся версией документа aOriginalDoc
      // выполняется замена имеющихся у них SubName's
@@ -1144,7 +1147,7 @@ begin
  Result:=AbsNum <> 0;
 end;
 
-function TSubTbl.CheckKeySAB(KeySab : Sab) : Sab;
+(*function TSubTbl.CheckKeySAB(KeySab : Sab) : Sab;
 var
  realSubs,
  valKeys  : Sab;
@@ -1166,7 +1169,7 @@ begin
   htClearResults(realSubs);
  end;
 end;
-
+*)
 Type
  TSDocRec = Record
              ID     : TDocID;
@@ -1551,110 +1554,64 @@ end;
 
 procedure THyperLinkTbl.CheckDestInDoc(aDocID : TDocID; aList : Tl3LongintList);
 
- function lFilterNullSub(gRecNo : LongInt; fpField : Pointer) : Boolean;
- begin
-  Result := PSubID(fpField)^ <> 0;
- end;
-
 var
- curDocHL,
- curSubPair,
- destDocsID,
- destPairID : SAB;
- badDocs,
- badSubs    : SAB;
-
- tmpSab1,
- tmpSab2,
- ListSab    : SAB;
-
- TmpHandle  : LongInt;
- Field      : SmallInt;
-
- lHTStub    : Pointer;
- lPhoto     : SAB;
+ lBadDocs : ISab;
+ lBadSubs : ISab;
+ lGoodDocs : ISab;
+ lGoodSubs : ISab;
+ lValue   : Integer;
 
 begin
  aList.Clear;
- lPhoto  := Table.PhotoOfTable;
 
- htSearch(@lPhoto, curDocHL, Table.Handle, hlSourD_fld, Equal, @aDocID, nil);
- try
-  htValuesOfKey(destDocsID, hlDestD_fld, curDocHL);
-  try
-   badDocs := DocumentServer(Table.TblFamily).FileTbl.CheckIDSab(destDocsID);
-  finally
-   htClearResults(destDocsID);
-  end;
+ lBadDocs := MakeSab(Self);
+ lBadDocs.Select(hlSourD_fld, aDocID);
 
-  Field:=hlDestS_fld;
-  lHTStub := HTStub3(@lFilterNullSub);
-  try
-   htFilterRecords(curSubPair, curDocHL, @Field, 1, lHTStub, Self);
-  finally
-   HTStubFree(lHTStub);
-  end;
+ lBadSubs := MakeSabCopy(lBadDocs);
 
-  try
-   htValuesOfKey(destPairID,hlDest_key,curSubPair);
-   try
-    badSubs := LinkServer(Table.TblFamily).SubTbl.CheckKeySAB(destPairID);
-   finally
-    htClearResults(destPairID);
-   end;
-  finally
-   htClearResults(curSubPair);
-  end;
+ lValue := 0;
+ lBadSubs.SubSelect(hlDestS_fld, lValue, NOT_EQUAL);
 
-  try
-   if (badDocs.gFoundCnt + badSubs.gFoundCnt) > 0 then
-    begin
-     l3FillChar(tmpSab1,SizeOf(SAB));
-     l3FillChar(tmpSab2,SizeOf(SAB));
-     if badDocs.gFoundCnt > 0 then
-     begin
-      htTransferToPhoto(badDocs, lPhoto, hlDestD_fld);
-      htRecordsByKey(tmpSab1,badDocs);
-     end;
-     if badSubs.gFoundCnt > 0 then
-     begin
-      htTransferToPhoto(badSubs, lPhoto, hlDest_key);
-      htRecordsByKey(tmpSab2,badSubs);
-     end;
-     try
-      if (tmpSab1.gFoundCnt <> 0) and
-         (tmpSab2.gFoundCnt <> 0) then
-       htOrResults(ListSab,tmpSab1,tmpSab2)
-      else
-       if (tmpSab1.gFoundCnt <> 0) then
-        htCopyResults(ListSab,tmpSab1)
-       else
-        htCopyResults(ListSab,tmpSab2);
-      try
-       Field:=hlID_fld;
-       Ht(htOpenResults(ListSab,ROPEN_BODY,@Field,1));
-       try
-        while htReadResults(ListSab,@TmpHandle,SizeOf(TmpHandle))<>0 do
-         aList.Add(TmpHandle);
-       finally
-        htCloseResults(ListSab);
-       end;
-      finally
-       htClearResults(ListSab);
-      end;
-     finally
-      htClearResults(tmpSab1);
-      htClearResults(tmpSab2);
-     end;
-    end;
-  finally
-   htClearResults(badDocs);
-   htClearResults(badSubs);
-  end;
- finally
-  htClearResults(curDocHL);
- end;
- htClearResults(lPhoto);
+ lBadSubs.ValuesOfKey(hlDest_key);
+
+ //вычтем существующие пары док-саб
+ lGoodSubs := MakeSabCopy(lBadSubs);
+ lGoodSubs.TransferToPhoto(subUniKey, LinkServer(Table.TblFamily).SubTbl);
+ lGoodSubs.RecordsByKey;
+ lGoodSubs.ValuesOfKey(subUniKey);
+ lBadSubs.SubtractSab(lGoodSubs);
+ lGoodSubs := nil;
+ lBadSubs.RecordsByKey;
+
+
+ lBadDocs.ValuesOfKey(hlDestD_fld);
+
+ //вычтем существующие доки
+ lGoodDocs := MakeSabCopy(lBadDocs);
+ lGoodDocs.TransferToPhoto(fID_Fld, DocumentServer(Table.TblFamily).FileTbl);
+
+ lGoodDocs.RecordsByKey;
+ lGoodDocs.ValuesOfKey(fID_Fld);
+ lBadDocs.SubtractSab(lGoodDocs);
+
+ //вычтем существующие справки
+ lGoodDocs := MakeSabCopy(lBadDocs);
+ lGoodDocs.TransferToPhoto(fRelated_fld, DocumentServer(Table.TblFamily).FileTbl);
+
+ lGoodDocs.RecordsByKey;
+ lGoodDocs.ValuesOfKey(fID_Fld);
+ lBadDocs.SubtractSab(lGoodDocs);
+
+ lGoodDocs := nil;
+ lBadDocs.RecordsByKey;
+
+ lBadDocs.OrSab(lBadSubs);
+
+ if lBadDocs.Count = 0 then exit;
+
+ lBadDocs.ValuesOfKey(hlID_fld);
+
+ dtCopyValuesSabToList(lBadDocs, aList);
 end;
 
 procedure THyperLinkTbl.CheckDestDoc(aRec: PHyperLinkRec);

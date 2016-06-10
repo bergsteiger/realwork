@@ -841,6 +841,15 @@ implementation @ <<Ifdef>>
 : UseNewGen OBJECT IN %S
 // возвращаемый результат: boolean
 //#UC START# *56BCA508022Dfor4976EB82018C*
+//	%f_UseNewGenG(%S)
+ [%f] UseNewGenG %( %S )% 
+
+//f _UseNewGenG
+; // UseNewGen
+
+end. // <<Ifdef>>
+
+: UseNewGenG OBJECT IN %S
 //@ %SU
 //	[{%S{UseNewGen}=true}{\
  if ( ( %S get_up ( 'UseNewGen' ) ) %==  true ) then
@@ -851,9 +860,8 @@ implementation @ <<Ifdef>>
  end // if
  else
  begin
-//	[{%S#f_IsVCMForm()=true&%Sa=final}{\
-  if ( ( %S %?f IsVCMForm %( )% ) %==  true AND 
-    ( ( %S |a ) %== 'final'  ) ) then
+//	[{%SS=VCMControls}{\
+  if ( ( %S |S ) %== 'VCMControls' ) then
   begin
 //	true\
     true 
@@ -861,18 +869,18 @@ implementation @ <<Ifdef>>
   end // if
   else
   begin
-//	[{%PS=VCMFormsPack}{\
-   if ( ( %P |S ) %== 'VCMFormsPack' ) then
+//	[{%SS=ControllerInterfaces|%SS=UseCaseControllerImp}{\
+   if ( ( %S |S ) %== 'ControllerInterfaces' OR 
+     ( ( %S |S ) %== 'UseCaseControllerImp'  ) ) then
    begin
-//	false\
-     false 
+//	true\
+     true 
 //	]\
    end // if
    else
    begin
-//	[{%SS=ScriptKeyword&%PS!=VCMControls}{\
-    if ( ( %S |S ) %== 'ScriptKeyword' AND 
-      ( ( %P |S ) %!= 'VCMControls'  ) ) then
+//	[{%S#f_IsVCMForm()=true}{\
+    if ( ( %S %?f IsVCMForm %( )% ) %==  true ) then
     begin
 //	true\
       true 
@@ -880,69 +888,18 @@ implementation @ <<Ifdef>>
     end // if
     else
     begin
-//	[{%SS=SimpleClass}{\
-     if ( ( %S |S ) %== 'SimpleClass' ) then
+//	[{%PS=VCMFormsPack}{\
+     if ( ( %P |S ) %== 'VCMFormsPack' ) then
      begin
-//	[{%PS!=VCMControls&%PS!=SettingsHolder&%PS!=VCMForm&%PS!=VCMContainer&%PS!=ExeTarget&%PS!=VCMApplication&%PS!=UseCaseControllerImp&%PS!=VCMFormsPack}{\
-      if ( ( %P |S ) %!= 'VCMControls' AND 
-        ( ( %P |S ) %!= 'SettingsHolder'  ) AND 
-        ( ( %P |S ) %!= 'VCMForm'  ) AND 
-        ( ( %P |S ) %!= 'VCMContainer'  ) AND 
-        ( ( %P |S ) %!= 'ExeTarget'  ) AND 
-        ( ( %P |S ) %!= 'VCMApplication'  ) AND 
-        ( ( %P |S ) %!= 'UseCaseControllerImp'  ) AND 
-        ( ( %P |S ) %!= 'VCMFormsPack'  ) ) then
-      begin
-//	[{%S#f_InheritsFrom("Tl3Tag")!=true}{\
-       if ( ( %S %?f InheritsFrom %( 'Tl3Tag' )% ) %!=  true ) then
-       begin
-//	true\
-         true 
-//	]\
-       end // if
-       else
-       begin
 //	false\
-         false 
-//	}\
-       end // else
-//	]\
-      end // if
-      else
-      begin
-//	false\
-        false 
-//	}\
-      end // else
+       false 
 //	]\
      end // if
      else
      begin
-//	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack|%SS=TestCase|%SS=TestCaseMixIn|%SS=ScriptKeywords|%SS=UserType|%SS=UtilityPack|%SS=Impurity|%SS=GUIControlMixIn|%SS=GuiControl|%SS=Interfaces|%SS=InternalInterfaces|%SS=Service|%SS=ServiceImplementation|%SS=TestResults|%SS=ExeTarget|%SS=AdapterTarget|%SS=AdapterTargetUnion|%SS=TestTarget|%SS=TestLibrary|%SS=VCMTestTarget|%SS=VCMTestApplication|%SS=VCMGUI}{\
-      if ( ( %S |S ) %== 'Wrapper' OR 
-        ( ( %S |S ) %== 'TestClass'  ) OR 
-        ( ( %S |S ) %== 'ScriptKeywordsPack'  ) OR 
-        ( ( %S |S ) %== 'TestCase'  ) OR 
-        ( ( %S |S ) %== 'TestCaseMixIn'  ) OR 
-        ( ( %S |S ) %== 'ScriptKeywords'  ) OR 
-        ( ( %S |S ) %== 'UserType'  ) OR 
-        ( ( %S |S ) %== 'UtilityPack'  ) OR 
-        ( ( %S |S ) %== 'Impurity'  ) OR 
-        ( ( %S |S ) %== 'GUIControlMixIn'  ) OR 
-        ( ( %S |S ) %== 'GuiControl'  ) OR 
-        ( ( %S |S ) %== 'Interfaces'  ) OR 
-        ( ( %S |S ) %== 'InternalInterfaces'  ) OR 
-        ( ( %S |S ) %== 'Service'  ) OR 
-        ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
-        ( ( %S |S ) %== 'TestResults'  ) OR 
-        ( ( %S |S ) %== 'ExeTarget'  ) OR 
-        ( ( %S |S ) %== 'AdapterTarget'  ) OR 
-        ( ( %S |S ) %== 'AdapterTargetUnion'  ) OR 
-        ( ( %S |S ) %== 'TestTarget'  ) OR 
-        ( ( %S |S ) %== 'TestLibrary'  ) OR 
-        ( ( %S |S ) %== 'VCMTestTarget'  ) OR 
-        ( ( %S |S ) %== 'VCMTestApplication'  ) OR 
-        ( ( %S |S ) %== 'VCMGUI'  ) ) then
+//	[{%SS=ScriptKeyword|%SS=ScriptKeywordsPack}{\
+      if ( ( %S |S ) %== 'ScriptKeyword' OR 
+        ( ( %S |S ) %== 'ScriptKeywordsPack'  ) ) then
       begin
 //	true\
         true 
@@ -950,8 +907,66 @@ implementation @ <<Ifdef>>
       end // if
       else
       begin
+//	[{%SS=SimpleClass}{\
+       if ( ( %S |S ) %== 'SimpleClass' ) then
+       begin
+//	[{%PS!=SettingsHolder&%PS!=VCMApplication&%PS!=VCMFormsPack}{\
+        if ( ( %P |S ) %!= 'SettingsHolder' AND 
+          ( ( %P |S ) %!= 'VCMApplication'  ) AND 
+          ( ( %P |S ) %!= 'VCMFormsPack'  ) ) then
+        begin
+//	true\
+          true 
+//	]\
+        end // if
+        else
+        begin
 //	false\
-        false 
+          false 
+//	}\
+        end // else
+//	]\
+       end // if
+       else
+       begin
+//	[{%SS=Wrapper|%SS=TestClass|%SS=ScriptKeywordsPack|%SS=TestCase|%SS=TestCaseMixIn|%SS=ScriptKeywords|%SS=UserType|%SS=UtilityPack|%SS=Impurity|%SS=GUIControlMixIn|%SS=GuiControl|%SS=Interfaces|%SS=InternalInterfaces|%SS=Service|%SS=ServiceImplementation|%SS=TestResults|%SS=ExeTarget|%SS=AdapterTarget|%SS=AdapterTargetUnion|%SS=TestTarget|%SS=TestLibrary|%SS=VCMTestTarget|%SS=VCMTestApplication|%SS=VCMGUI}{\
+        if ( ( %S |S ) %== 'Wrapper' OR 
+          ( ( %S |S ) %== 'TestClass'  ) OR 
+          ( ( %S |S ) %== 'ScriptKeywordsPack'  ) OR 
+          ( ( %S |S ) %== 'TestCase'  ) OR 
+          ( ( %S |S ) %== 'TestCaseMixIn'  ) OR 
+          ( ( %S |S ) %== 'ScriptKeywords'  ) OR 
+          ( ( %S |S ) %== 'UserType'  ) OR 
+          ( ( %S |S ) %== 'UtilityPack'  ) OR 
+          ( ( %S |S ) %== 'Impurity'  ) OR 
+          ( ( %S |S ) %== 'GUIControlMixIn'  ) OR 
+          ( ( %S |S ) %== 'GuiControl'  ) OR 
+          ( ( %S |S ) %== 'Interfaces'  ) OR 
+          ( ( %S |S ) %== 'InternalInterfaces'  ) OR 
+          ( ( %S |S ) %== 'Service'  ) OR 
+          ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
+          ( ( %S |S ) %== 'TestResults'  ) OR 
+          ( ( %S |S ) %== 'ExeTarget'  ) OR 
+          ( ( %S |S ) %== 'AdapterTarget'  ) OR 
+          ( ( %S |S ) %== 'AdapterTargetUnion'  ) OR 
+          ( ( %S |S ) %== 'TestTarget'  ) OR 
+          ( ( %S |S ) %== 'TestLibrary'  ) OR 
+          ( ( %S |S ) %== 'VCMTestTarget'  ) OR 
+          ( ( %S |S ) %== 'VCMTestApplication'  ) OR 
+          ( ( %S |S ) %== 'VCMGUI'  ) ) then
+        begin
+//	true\
+          true 
+//	]\
+        end // if
+        else
+        begin
+//	false\
+          false 
+//	}\
+        end // else
+//	}\
+       end // else
 //	}\
       end // else
 //	}\
@@ -965,13 +980,13 @@ implementation @ <<Ifdef>>
 //	}\
  end // else
 
-//%f _UseNewGenRecPrim
-; // UseNewGen
+//f _UseNewGenRecPrim
+; // UseNewGenG
 
 : UseNewGenRecPrim OBJECT IN %S
 //@ %SU
-//	[{%S%f_UseNewGen()=true}{\
- if ( ( %S %f UseNewGen %( )% ) %==  true ) then
+//	[{%f_UseNewGenG(%S)=true}{\
+ if ( ( [%f] UseNewGenG %( %S )% ) %==  true ) then
  begin
 //	true\
    true 
@@ -979,8 +994,8 @@ implementation @ <<Ifdef>>
  end // if
  else
  begin
-//	[{%P#f_UseNewGenRecPrim()=true}{\
-  if ( ( %P %?f UseNewGenRecPrim %( )% ) %==  true ) then
+//	[{%f_UseNewGenRecPrim(%P)=true}{\
+  if ( ( [%f] UseNewGenRecPrim %( %P )% ) %==  true ) then
   begin
 //	true\
     true 
@@ -999,12 +1014,22 @@ implementation @ <<Ifdef>>
 
 
 //%f _UseNewGenRec
+implementation @ <<Ifdef>>
 : UseNewGenRec OBJECT IN %S
 // возвращаемый результат: boolean
 //#UC START# *56BCA5310152for4976EB82018C*
+//	%f_UseNewGenRecG(%S)
+ [%f] UseNewGenRecG %( %S )% 
+
+//f _UseNewGenRecG
+; // UseNewGenRec
+
+end. // <<Ifdef>>
+
+: UseNewGenRecG OBJECT IN %S
 //@ %SU
-//	[{%S#f_UseNewGenRecPrim()=true}{\
- if ( ( %S %?f UseNewGenRecPrim %( )% ) %==  true ) then
+//	[{%f_UseNewGenRecPrim(%S)=true}{\
+ if ( ( [%f] UseNewGenRecPrim %( %S )% ) %==  true ) then
  begin
 //	true\
    true 
@@ -1028,10 +1053,11 @@ implementation @ <<Ifdef>>
 //	}\
  end // else
 //#UC END# *56BCA5310152for4976EB82018C*
-; // UseNewGenRec
+; // UseNewGenRecG
 
 
 //%f _NoSpell
+implementation @ <<Ifdef>>
 : NoSpell OBJECT IN %S
 // возвращаемый результат: boolean
 //#UC START# *5703F28702DDfor4976EB82018C*
@@ -1057,8 +1083,8 @@ implementation @ <<Ifdef>>
 // возвращаемый результат: boolean
 //#UC START# *5703F29A0296for4976EB82018C*
 //@ %SU
-//	[{%S%f_NoSpell()=true}{\
- if ( ( %S %f NoSpell %( )% ) %==  true ) then
+//	[{%S#f_NoSpell()=true}{\
+ if ( ( %S %?f NoSpell %( )% ) %==  true ) then
  begin
 //	true\
    true 

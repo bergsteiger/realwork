@@ -56,6 +56,8 @@ const
             '.wmf', '.emf', '.tga', '.pxm');
 {$ENDIF}
 const
+  ddEpsilon = evEpsilon;
+  
   cc_HexDigitalCharSet = cc_Digits + ['a'..'f'] + ['A'..'F'];
   cc_HexDigitalCharSetWithEnters = cc_HexDigitalCharSet + [cc_HardEnter, cc_SoftEnter];
   cc_RTFFinishLineChar = cc_CloseBrace;

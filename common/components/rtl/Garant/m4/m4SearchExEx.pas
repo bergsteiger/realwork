@@ -71,8 +71,7 @@ uses
   
   m4Search,
   m4SearchFormula,
-  m4SearchEx,
-  l3String
+  m4SearchEx
   ;
 
 function m4SearchByFormula(const anIndex : Im3IndexedStorage;
@@ -120,7 +119,6 @@ begin
   else begin
    l_Searcher := Tm4SearchEngine.Create(anIndexFileName);
    try
-    l3System.Msg2Log(l3Str(aString));
     Result := l_Searcher.Search(l_Expr, theAddresses);
    finally
     l3Free(l_Searcher);

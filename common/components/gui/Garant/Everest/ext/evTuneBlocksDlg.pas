@@ -2,9 +2,24 @@
 unit evTuneBlocksDlg;
 {* Запрос уровня вложенности блоков в документе }
 
-// $Id: evTuneBlocksDlg.pas,v 1.18 2015/02/02 08:07:21 dinishev Exp $
+// $Id: evTuneBlocksDlg.pas,v 1.24 2016/06/10 14:23:03 dinishev Exp $
 
 // $Log: evTuneBlocksDlg.pas,v $
+// Revision 1.24  2016/06/10 14:23:03  dinishev
+// Reformat
+//
+// Revision 1.23  2016/06/10 14:18:01  dinishev
+// Лишнее поле.
+//
+// Revision 1.22  2016/06/07 12:18:27  dinishev
+// Убрал попадание в цикл перемещения узла в vtOutliner в диалоге изменения структуры дерева.
+//
+// Revision 1.21  2016/06/06 08:37:14  dinishev
+// Выкинул лишний код под директивой: ShowBlockInfo
+//
+// Revision 1.20  2016/06/06 08:16:14  dinishev
+// Чистка кода.
+//
 // Revision 1.18  2015/02/02 08:07:21  dinishev
 // Обновление эталона.
 //
@@ -216,23 +231,18 @@ type
       const aFont: Il3Font);
     procedure ActionList1Update(Action: TBasicAction;
       var Handled: Boolean);
-    procedure FormPaint(Sender: TObject);
   private
     FIndexOnIcon: Integer;
     FMyRoot: Il3Node;
     f_CountToMove: Integer;
     { Private declarations }
-   f_SetData: Boolean;
-   f_OnInsertBlocks: TOnInsertBlocks;
+    f_OnInsertBlocks: TOnInsertBlocks;
     f_MoveDirection: Cardinal;
    procedure CorrectBlockBorders(aNode: Il3SimpleNode; Up: Boolean);
    procedure ChangeVisibleSameLevel(aLevel: Integer; aVisible: Boolean);
    procedure ChangeVisibleSubTree(aNode: Il3Node);
    procedure DeleteOne(const aNode: Il3Node);
    procedure Notify(aOperation : Integer;  const aNode : Il3SimpleNode);
-   {$IFDEF ShowBlockInfo}
-   procedure ChangeNodeText(const aNode: Il3Node);
-   {$ENDIF ShowBlockInfo}
   public
     property MyRoot: Il3Node read FMyRoot write FMyRoot;
     { Public declarations }
@@ -266,30 +276,6 @@ resourcestring
 
 {$R *.dfm}
 
-{$IFDEF ShowBlockInfo}
-procedure TddTuneBlocksDialog.ChangeNodeText(const aNode: Il3Node);
-var
- l_S, l_F: Integer;
- l_BI: IddBlockInfo;
- l_Level : Integer;
-begin
- if Supports(aNode, IddBlockInfo, l_BI) then
- begin
-  if l_BI.Finish <> nil then
-   l_F:= l_BI.Finish.Position
-  else
-   l_F:= 0;
-  if l_BI.Start <> nil then
-   l_S:= l_BI.Start.Position
-  else
-   l_S:= 0;
-  l_Level:= aNode.GetLevelFor(BlockTree.CTree.RootNode);
-  aNode.Text:= PAnsiChar(Format('(Start:%d-Finish%d) Level %d', [l_S, l_F, l_Level]));
- end; // aNode.QueryInterface(IddBlockInfo, l_BI)
- BlockTree.Invalidate;
-end;
-{$ENDIF ShowBlockInfo}
-
 procedure TddTuneBlocksDialog.DelButtonClick(Sender: TObject);
 begin
  Il3CommandTarget(BlockTree).ProcessCommand(ccDel, true, 1);
@@ -297,13 +283,13 @@ end;
 
 procedure TddTuneBlocksDialog.UpButtonClick(Sender: TObject);
 begin
- Il3CommandTarget(BlockTree).ProcessCommand(ccMoveLeft, true, 1);
+ Il3CommandTarget(BlockTree).ProcessCommand(ccMoveLeftInt, true, 1);
  BlockTreeCurrentChanged(BlockTree, BlockTree.Current, BlockTree.Current);
 end;
 
 procedure TddTuneBlocksDialog.DownButtonClick(Sender: TObject);
 begin
- Il3CommandTarget(BlockTree).ProcessCommand(ccMoveRight, true, 1);
+ Il3CommandTarget(BlockTree).ProcessCommand(ccMoveRightInt, true, 1);
  BlockTreeCurrentChanged(BlockTree, BlockTree.Current, BlockTree.Current);
 end;
 
@@ -325,11 +311,6 @@ begin
    begin
     l_Finish := l_BI.CloneFinish;
     try
-    (*if (l_BI.Finish <> nil) and (l_MovingBlock.Finish <> nil) and
-      (l_BI.Finish.Position = l_MovingBlock.Finish.Position) and
-      (l_BI.Start.Position < l_MovingBlock.Start.Position) then
-     l_BI.Finish:= l_MovingBlock.Start;
-    *)
      l_BI.Finish := l_MovingBlock.Start;
      l_MovingBlock.Finish := l_Finish;
     finally
@@ -343,10 +324,6 @@ begin
    if Supports(l_PrevNode, IddBlockInfo, l_BI) then
     l_BI.Finish:= l_MovingBlock.Finish;
   end; // Down
-  {$IFDEF ShowBlockInfo}
-  ChangeNodeText(l_PrevNode);
-  ChangeNodeText(l_MovingNode);
-  {$ENDIF ShowBlockInfo}
  end; // aNode.QueryInterface(Il3Node, l_Node) = 0
 end;
 
@@ -414,9 +391,8 @@ begin
    if f_MoveDirection = 0 then
    begin
     // настоящие блоки удалять нельзя!
-    //if Supports(aNode, IddBlockInfo, l_BlockInfo) then
     { Реагировать только в случае вызова удаления. Все остальные случаи пропускаем }
-     if {(l_BlockInfo.RealType <> dd_cbBlock) and} Supports(aNode, Il3Node, l_Node) then
+     if Supports(aNode, Il3Node, l_Node) then
       DeleteOne(l_Node);
    end;
   ntDeleteDone :;
@@ -425,7 +401,7 @@ begin
    {* - началось движение элемента. }
    begin
     { Видимо, тут нужно изменить границы перемещаемого блока }
-    CorrectBlockBorders(aNode, f_MoveDirection = ccMoveLeft);
+    CorrectBlockBorders(aNode, (f_MoveDirection = ccMoveLeft) or (f_MoveDirection = ccMoveLeftInt));
    end;
   ntMoveEnd    :
    begin
@@ -456,15 +432,10 @@ begin
  // вызов события происходит до выполнения операции
  Result:= True;
  case aOperation of
-  ccDel:
-   begin
-    (*if aSender is TvtOuliner then
-    begin
-     TvtOutliner(aSender).CurrentCNode
-    end;*)
-   end;
-  ccMoveLeft  ,
-  ccMoveRight :
+  ccMoveLeft,
+  ccMoveRight,
+  ccMoveRightInt,
+  ccMoveLeftInt:
    begin
     f_MoveDirection:= aOperation;
     f_CountToMove:= BlockTree.CTree.SelectCount;
@@ -508,7 +479,6 @@ begin
    begin
     l_Level:= l_Node.GetLevelFor(BlockTree.CTree.RootNode);
     l_BI.Visible:= not l_BI.Visible;
-   //  TShiftState = set of (ssShift, ssAlt, ssCtrl, ssLeft, ssRight, ssMiddle, ssDouble);
     if (ssShift in Shift) then
      ChangeVisibleSameLevel(l_Level, l_BI.Visible);
     if (ssCtrl in Shift) then
@@ -607,14 +577,6 @@ procedure TddTuneBlocksDialog.ActionList1Update(Action: TBasicAction;
 begin
  // Отработать доступность команд
 
-end;
-
-procedure TddTuneBlocksDialog.FormPaint(Sender: TObject);
-begin
- {$IfDef nsTest}
- BitBtn1.Click;
- // - чтоб в тестах всё работало АВТОМАТОМ
- {$EndIf nsTest}
 end;
 
 end.

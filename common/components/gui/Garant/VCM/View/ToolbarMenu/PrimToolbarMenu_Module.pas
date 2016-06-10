@@ -23,33 +23,16 @@ interface
 {$If not defined(NoVCM)}
 uses
   vcmToolbarsInterfaces,
-  vcmUserControls,
   l3ProtoDataContainer,
   vcmBaseMenuManager,
-  l3StringIDEx,
   PrimCustomizeTools_Form,
-  CustomizeTools_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
+  CustomizeTools_Form,
   l3Types,
   l3Memory,
   l3Interfaces,
   l3Core,
   l3Except,
-  Classes
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  CustomizeToolsKeywordsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  ,
+  Classes,
   vcmExternalInterfaces {a},
   vcmInterfaces {a},
   vcmModule {a},
@@ -136,7 +119,6 @@ uses
   eeShortCutEdit
   {$IfEnd} //Nemesis
   ,
-  l3MessageID,
   l3Base,
   l3MinMax,
   RTLConsts,
@@ -150,6 +132,7 @@ uses
   ,
   vcmCustomizeAvailableToolbarOps,
   vcmEntityForm,
+  vcmUserControls,
   vcmMenus,
   vcmToolbar
   {$If not defined(NoScripts) AND not defined(NoVCM)}
@@ -171,16 +154,6 @@ uses
   ,
   kw_ToolbarMenu_opFasten
   {$IfEnd} //not NoScripts AND not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
   ,
   vcmFormSetFactory {a},
   StdRes {a},

@@ -44,7 +44,7 @@ constructor TpgFamilyHelper.Create(const aFactory: IdaTableQueryFactory);
 begin
 //#UC START# *5645C3C5010C_5645BD2C03A2_impl*
  inherited Create;
- f_Query := aFactory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtFamily));
+ f_Query := aFactory.MakeTabledQuery(aFactory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtFamily)));
  f_Query.AddSelectField(aFactory.MakeSelectField('', TdaScheme.Instance.Table(da_mtFamily).Field['PathToTbl']));
  f_Query.WhereCondition := aFactory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtFamily).Field['ID'], da_copEqual, 'p_ID');
  f_Query.Prepare;

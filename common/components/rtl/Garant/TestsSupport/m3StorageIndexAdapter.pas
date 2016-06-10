@@ -81,7 +81,8 @@ begin
                      );
 
  try
-  l_DB.Start(m3_saReadWrite);
+  //l_DB.Start(m3_saReadWrite);
+  l_DB.Start(m3_saRead);
   try
    {$IFNDEF nsTest}
    f_PhaseStr := 'Build index: %d/%d';

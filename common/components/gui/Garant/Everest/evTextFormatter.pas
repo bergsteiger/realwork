@@ -5,9 +5,45 @@ unit evTextFormatter;
 { Автор: Люлин А.В. ©     }
 { Модуль: evTextFormatter - текстовый экспорт}
 { Начат: 14.06.1997 12:10 }
-{ $Id: evTextFormatter.pas,v 1.262 2016/03/22 14:42:59 lulin Exp $ }
+{ $Id: evTextFormatter.pas,v 1.274 2016/03/25 14:41:59 lulin Exp $ }
 
 // $Log: evTextFormatter.pas,v $
+// Revision 1.274  2016/03/25 14:41:59  lulin
+// - подтачиваем.
+//
+// Revision 1.273  2016/03/25 14:36:12  lulin
+// - подтачиваем.
+//
+// Revision 1.272  2016/03/25 14:26:48  lulin
+// - подтачиваем.
+//
+// Revision 1.271  2016/03/25 14:16:52  lulin
+// - подтачиваем.
+//
+// Revision 1.270  2016/03/25 14:11:14  lulin
+// - подтачиваем.
+//
+// Revision 1.269  2016/03/25 13:59:07  lulin
+// - подтачиваем.
+//
+// Revision 1.268  2016/03/25 13:17:16  lulin
+// - подтачиваем.
+//
+// Revision 1.267  2016/03/25 13:03:05  lulin
+// - подтачиваем.
+//
+// Revision 1.266  2016/03/25 12:30:57  lulin
+// - подтачиваем.
+//
+// Revision 1.265  2016/03/24 23:15:44  lulin
+// - подтачиваем.
+//
+// Revision 1.264  2016/03/24 17:51:58  lulin
+// {RequestLink:620262073}
+//
+// Revision 1.263  2016/03/24 17:41:45  lulin
+// {RequestLink:620262073}
+//
 // Revision 1.262  2016/03/22 14:42:59  lulin
 // {RequestLink;620241155}
 //
@@ -3310,6 +3346,37 @@ begin//ClearFont
  end;//aSeg.IsValid
 end;//ClearFont
 
+function SameFont(aS1 : Tl3Variant; aS2 : Tl3Variant): Boolean;
+var
+ l_F1 : Tl3Variant;
+ l_F2 : Tl3Variant;
+begin
+ if aS1.HasSubAtom(k2_tiFont) then
+ begin
+  if aS2.HasSubAtom(k2_tiFont) then
+  begin
+   l_F1 := aS1.Attr[k2_tiFont];
+   l_F2 := aS2.Attr[k2_tiFont];
+   Result :=
+    (l_F1.BoolA[k2_tiBold] = l_F2.BoolA[k2_tiBold])
+    AND (l_F1.BoolA[k2_tiItalic] = l_F2.BoolA[k2_tiItalic])
+    AND (l_F1.BoolA[k2_tiUnderline] = l_F2.BoolA[k2_tiUnderline])
+    AND (l_F1.BoolA[k2_tiStrikeout] = l_F2.BoolA[k2_tiStrikeout])
+    AND (l_F1.StrA[k2_tiName] = l_F2.StrA[k2_tiName])
+    AND (l_F1.IntA[k2_tiSize] = l_F2.IntA[k2_tiSize])
+    AND (l_F1.IntA[k2_tiIndex] = l_F2.IntA[k2_tiIndex])
+    ;
+  end//aS2.HasSubAtom(k2_tiFont)
+  else
+   Result := false;
+ end//aS1.HasSubAtom(k2_tiFont)
+ else
+ if aS2.HasSubAtom(k2_tiFont) then
+  Result := false
+ else
+  Result := true; 
+end;
+
 procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
                                                   const aText : Tl3PCharLen);
   {* - Проверяет список сегментов и склеивает соседние. }
@@ -3408,37 +3475,6 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
     end; // with l_Boundaries[l_BoundArrayL] do
    end; // if not l_Found then
   end;//CheckSegment
-
-  function SameFont(aS1 : Tl3Variant; aS2 : Tl3Variant): Boolean;
-  var
-   l_F1 : Tl3Variant;
-   l_F2 : Tl3Variant;
-  begin
-   if aS1.HasSubAtom(k2_tiFont) then
-   begin
-    if aS2.HasSubAtom(k2_tiFont) then
-    begin
-     l_F1 := aS1.Attr[k2_tiFont];
-     l_F2 := aS2.Attr[k2_tiFont];
-     Result :=
-      (l_F1.BoolA[k2_tiBold] = l_F2.BoolA[k2_tiBold])
-      AND (l_F1.BoolA[k2_tiItalic] = l_F2.BoolA[k2_tiItalic])
-      AND (l_F1.BoolA[k2_tiUnderline] = l_F2.BoolA[k2_tiUnderline])
-      AND (l_F1.BoolA[k2_tiStrikeout] = l_F2.BoolA[k2_tiStrikeout])
-      AND (l_F1.StrA[k2_tiName] = l_F2.StrA[k2_tiName])
-      AND (l_F1.IntA[k2_tiSize] = l_F2.IntA[k2_tiSize])
-      AND (l_F1.IntA[k2_tiIndex] = l_F2.IntA[k2_tiIndex])
-      ;
-    end//aS2.HasSubAtom(k2_tiFont)
-    else
-     Result := false;
-   end//aS1.HasSubAtom(k2_tiFont)
-   else
-   if aS2.HasSubAtom(k2_tiFont) then
-    Result := false
-   else
-    Result := true; 
-  end;
 
  var
   l_Seg : Tl3Variant;
@@ -3639,7 +3675,17 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
      begin
       anOurSegment.IntA[k2_tiFinish] := l_OtherFinish;
       Exit;
-     end;    
+     end;
+
+     if (l_OurStart < l_OtherStart) AND
+        (l_OurFinish < l_OtherFinish) AND
+        (l_OurFinish > l_OtherStart) then
+     begin
+      // Our   : [----]
+      // Other :   [----]
+      anOurSegment.IntA[k2_tiFinish] := l_OtherFinish;
+      Exit;
+     end;
 
      {$IfDef nsTest}
      Assert(false, Format('Непонятное взаимное расположение сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
@@ -3673,8 +3719,6 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
 
  function CheckCrossBoundInOneLayer(anOurLayer: Tl3Variant; anIndex: Long): Boolean;
  var
-  l_I, l_J : Integer;
- var
   l_OurSeg : Tl3Variant;
   l_OtherSeg : Tl3Variant;
  var
@@ -3686,15 +3730,83 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
   l_Continue : Boolean;
 
  procedure DeleteSeg(anIndex: Integer);
- begin//DeleteSeg
-  l3System.Msg2Log(Format('Удалён пересекающийся сегмент. Стиль сегмента: %d Стиль другого сегмента: %d',
-                          [l_OurSeg.IntA[k2_tiStyle], l_OtherSeg.IntA[k2_tiStyle]]));
-  l3System.Msg2Log(Format('Координаты сегментов: (%d,%d) (%d,%d)', [l_OurStart, l_OurFinish, l_OtherStart, l_OtherFinish]));
+ var
+  l_From : Tl3Variant;
+  l_To : Tl3Variant;
 
+  procedure UpdateFromAndTo;
+  begin//UpdateFromAndTo;
+   if (anOurLayer.Child[anIndex] = l_OurSeg) then
+   begin
+    l_From := l_OurSeg;
+    l_To := l_OtherSeg;
+   end//anOurLayer.Child[anIndex] = l_OurSeg
+   else
+   begin
+    l_From := l_OtherSeg;
+    l_To := l_OurSeg;
+   end;//anOurLayer.Child[anIndex] = l_OurSeg
+  end;//UpdateFromAndTo;
+
+  procedure CopyFont(aFrom: Tl3Variant; aTo: Tl3Variant);
+  var
+   l_FFrom : Tl3Variant;
+   l_FTo : Tl3Variant;
+   l_Index : Tk2FontParam;
+  begin//CopyFont
+   if aFrom.HasSubAtom(k2_tiFont) then
+   begin
+    l_FFrom := aFrom.Attr[k2_tiFont];
+    l_FTo := aTo.cAtom(k2_tiFont);
+    for l_Index := Low(Tk2FontParam) to High(Tk2FontParam) do
+    begin
+     if not l_FTo.HasSubAtom(l_Index) then
+      if l_FFrom.HasSubAtom(l_Index) then
+       l_FTo.AttrW[l_Index, nil] := l_FFrom.Attr[l_Index];
+    end;//for l_Index
+   end;//aFrom.HasSubAtom(k2_tiFont)
+  end;//CopyFont
+
+ begin//DeleteSeg
+  l3System.Msg2Log('Удалён пересекающийся сегмент');
+
+  UpdateFromAndTo;
+
+  if not SameFont(l_OurSeg, l_OtherSeg) then
+  begin
+   l3System.Msg2Log('У сегментов различается шрифтовое оформление');
+
+   if l_From.HasSubAtom(k2_tiFont) then
+   // - заточка для белорусских документов - чтобы не терять верхний индекс
+   begin
+    if l_From.Attr[k2_tiFont].HasSubAtom(k2_tiIndex) then
+    begin
+     anIndex := anOurLayer.IndexOfChild(l_To);
+    end;//l_From.Attr[k2_tiFont].HasSubAtom(k2_tiIndex)
+   end;//l_From.HasSubAtom(k2_tiFont)
+
+   UpdateFromAndTo;
+   CopyFont(l_From, l_To);
+  end;//not SameFont(l_OurSeg, l_OtherSeg)
+
+  if (l_OurSeg.IntA[k2_tiStyle] <> l_OtherSeg.IntA[k2_tiStyle]) then
+  begin
+   l3System.Msg2Log(Format('Стиль сегмента: %d Стиль другого сегмента: %d',
+                           [l_OurSeg.IntA[k2_tiStyle],
+                            l_OtherSeg.IntA[k2_tiStyle]]));
+   if (l_From.IntA[k2_tiStyle] <> ev_saTxtNormalANSI) then
+    l_To.IntA[k2_tiStyle] := l_From.IntA[k2_tiStyle];
+  end;//l_OurSeg.IntA[k2_tiStyle] <> l_OtherSeg.IntA[k2_tiStyle]
+
+  l3System.Msg2Log(Format('Координаты сегментов: (%d,%d) (%d,%d)',
+                          [l_OurStart, l_OurFinish,
+                           l_OtherStart, l_OtherFinish]));
   anOurLayer.DeleteChild(anIndex);
   l_Continue := true;
  end;//DeleteSeg
  
+ var
+  l_I, l_J : Integer;
  begin//CheckCrossBoundInOneLayer
   Result := true;
   if (anOurLayer.IntA[k2_tiHandle] = Ord(ev_slView)) then
@@ -3750,6 +3862,16 @@ procedure TevCustomTextFormatter.ValidateSegments(aPara : Tl3Variant;
        // Other :   [---]
       begin
        DeleteSeg(l_J);
+       break;
+      end;
+
+      if (l_OurStart = l_OurFinish) AND
+         (l_OurFinish = l_OtherFinish) AND
+         (l_OurStart > l_OtherStart) then
+      begin
+       // Our   :    [-]
+       // Other :  [---]
+       DeleteSeg(l_I);
        break;
       end;
 
@@ -4574,17 +4696,19 @@ procedure TevCustomTextFormatter.NotifyInsertion(aTarget: TObject; aPos, aLen: L
   var
    l_Pos : Long;
   begin
-   l_Pos := Segment.IntA[k2_tiStart];
+   l_Pos := Segment.IntA[k2_tiStart] - 1;
    if (l_Pos <> evNoStart) then 
    begin
-    if (aPos < l_Pos) then
-     Segment.IntA[k2_tiStart] := l_Pos + aLen;
+    if (aPos <= l_Pos) then
+     Segment.IntA[k2_tiStart] := l_Pos + aLen + 1;
    end;
-   if Segment.HasSubAtom(k2_tiFinish) then 
+   if Segment.HasSubAtom(k2_tiFinish) then
    begin
-    l_Pos := Segment.IntA[k2_tiFinish];
-    if (aPos < l_Pos) then
-     Segment.IntA[k2_tiFinish] := l_Pos + aLen;
+    l_Pos := Segment.IntA[k2_tiFinish] - 1;
+    if (aPos <= l_Pos) then
+    begin
+     Segment.IntA[k2_tiFinish] := l_Pos + aLen + 1;
+    end;//aPos < l_Pos
    end;
    Result := True;
   end;{ShiftSegment}

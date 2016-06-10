@@ -5,9 +5,18 @@ unit l3Base;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Base -                    }
 { Начат: 12.04.1998 16:28             }
-{ $Id: l3Base.pas,v 1.587 2016/03/01 12:56:59 lukyanets Exp $ }
+{ $Id: l3Base.pas,v 1.590 2016/05/16 15:24:32 lulin Exp $ }
 
 // $Log: l3Base.pas,v $
+// Revision 1.590  2016/05/16 15:24:32  lulin
+// - перегенерация.
+//
+// Revision 1.589  2016/05/06 13:40:53  lulin
+// - перегенерация.
+//
+// Revision 1.588  2016/04/06 15:23:00  lulin
+// - логируем секции инициализации.
+//
 // Revision 1.587  2016/03/01 12:56:59  lukyanets
 // Текут LocalStub - отладочная печать
 //
@@ -2067,6 +2076,8 @@ type
         {-}
       procedure LeaveGlobalCS;
         {-}
+      function  CheckClipboard(const anAskProc: Tl3AskClearClipboardProc = nil): Integer; virtual;
+        {-}
     public
     {public properties}
       property LocalMemUsed: Long
@@ -2223,7 +2234,7 @@ type
         {* - вывести в лог статистику использования памяти. }
       procedure ClearClipboard(aValue: Integer = IDNo);
         {-}
-      function  CheckClipboard(const anAskProc: Tl3AskClearClipboardProc = nil): Integer;
+      function  CheckClipboard(const anAskProc: Tl3AskClearClipboardProc = nil): Integer; override;
         {-}
       procedure Beep;
         {-}
@@ -5910,6 +5921,15 @@ procedure Tl3System.Msg2Log(const S: AnsiString; aMsgLevel: Byte = l3_msgAll);
 begin
 {$IfDef l3Requires_m0}
  {$If Declared(Gm0EXCLibDefSrv)}
+ if (aMsgLevel > MessageLevel) then
+  Exit;
+ if (Gm0EXCLibDefSrv = nil) then
+ begin
+  {$If Declared(Application)}
+  if (Application <> nil) then
+  {$IfEnd}
+   OpenLog;
+ end;//Gm0EXCLibDefSrv = nil
  if (Gm0EXCLibDefSrv <> nil) and (aMsgLevel <= MessageLevel) then
   Gm0EXCLibDefSrv.SaveMessage(Cm0EXCLibINF, AddLogIndent + S);
  {$IfEnd}
@@ -6306,10 +6326,17 @@ begin
  l3StatMemAlloc(aSize, aL3);
 end;
   
+function Tl3SystemPrim.CheckClipboard(const anAskProc: Tl3AskClearClipboardProc = nil): Integer;
+  {-}
+begin
+ Result := IDYes;
+end;
+  
 procedure Tl3SystemPrim.BeforeRelease;
   {override;}
   {-}
 begin
+ CheckClipboard;
  f_CanCache := false;
  inherited;
 end;

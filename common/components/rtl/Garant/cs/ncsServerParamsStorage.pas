@@ -333,6 +333,8 @@ begin
    'Используя этот путь, программа выполняет подключение к базе данных для выполнения регламентных работ'));
   aConfig.AddItem(lp_AddFolderNameItem('ImageStoragePath', 'Образы документов',
    'Папка для хранения сканированных образов документов'));
+  aConfig.AddItem(lp_AddFolderNameItem('ImageCachePath', 'Кэш образов документов',
+   'Папка для кэширования образов документов'));
   l3FillChar(l_Default, SizeOf(l_Default), 0);
   l_Default.Kind := dd_vkBoolean;
   l_Default.AsBoolean := False;

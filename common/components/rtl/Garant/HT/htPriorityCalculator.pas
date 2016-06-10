@@ -63,7 +63,7 @@ function ThtPriorityCalculator.Calc(aUserId: TdaUserID;
 //#UC END# *575000000164_575008E903D1_var*
 begin
 //#UC START# *575000000164_575008E903D1_impl*
- Result := dt_User.UserManager.CalcUserPriorities(aUserID, aImportPriority, aExportPriority);
+ Result := dt_User.UserManager.xxxCalcUserPriorities(aUserID, aImportPriority, aExportPriority);
 //#UC END# *575000000164_575008E903D1_impl*
 end;//ThtPriorityCalculator.Calc
 

@@ -324,22 +324,6 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//UserEditQueryTag
 
- RemoteDictEditQueryTagClass = class(Tk2ParentedTypedSmallLeafTag)
-  {* Класс реализации тега "RemoteDictEditQuery" }
- protected
- // realized methods
-   function GetTagType: Tl3Type; override;
-     {* Тип параграфа }
- end;//RemoteDictEditQueryTagClass
-
- RemoteDictEditQueryTag = class(Tk2AutoType)
- protected
-   function GetAsPCharLen: Tl3PCharLenPrim; override;
-   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
- public
-   function DoMakeTag(aRef: Integer): Il3TagRef; override;
- end;//RemoteDictEditQueryTag
-
  PlainFileTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "PlainFile" }
  protected
@@ -1635,21 +1619,21 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csGetPartialTaskDescriptionTag
 
- mdpSyncDictsTagClass = class(Tk2ParentedTypedSmallLeafTag)
-  {* Класс реализации тега "mdpSyncDicts" }
+ mdpSyncTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "mdpSync" }
  protected
  // realized methods
    function GetTagType: Tl3Type; override;
      {* Тип параграфа }
- end;//mdpSyncDictsTagClass
+ end;//mdpSyncTagClass
 
- mdpSyncDictsTag = class(Tk2AutoType)
+ mdpSyncTag = class(Tk2AutoType)
  protected
    function GetAsPCharLen: Tl3PCharLenPrim; override;
    function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
  public
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
- end;//mdpSyncDictsTag
+ end;//mdpSyncTag
 
  mdpImportDocsTagClass = class(Tk2ParentedTypedSmallLeafTag)
   {* Класс реализации тега "mdpImportDocs" }
@@ -1683,6 +1667,93 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//ComboAccessProviderParamsTag
 
+ ContainerTaskTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "ContainerTask" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//ContainerTaskTagClass
+
+ ContainerTaskTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//ContainerTaskTag
+
+ ContainerTask_TasksList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//ContainerTask_TasksList_Tag
+
+ SchedulerProxyTaskTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "SchedulerProxyTask" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//SchedulerProxyTaskTagClass
+
+ SchedulerProxyTaskTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//SchedulerProxyTaskTag
+
+ mdpSyncDictsTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "mdpSyncDicts" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//mdpSyncDictsTagClass
+
+ mdpSyncDictsTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//mdpSyncDictsTag
+
+ mdpSyncStagesTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "mdpSyncStages" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//mdpSyncStagesTagClass
+
+ mdpSyncStagesTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//mdpSyncStagesTag
+
+ mdpSyncImportTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "mdpSyncImport" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//mdpSyncImportTagClass
+
+ mdpSyncImportTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//mdpSyncImportTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -1706,7 +1777,6 @@ type
    t_ExportTask_RegionIDList : ExportTask_RegionIDList_Tag;
    t_DictEditQuery : DictEditQueryTag;
    t_UserEditQuery : UserEditQueryTag;
-   t_RemoteDictEditQuery : RemoteDictEditQueryTag;
    t_PlainFile : PlainFileTag;
    t_AutoSpellTask : AutoSpellTaskTag;
    t_CommonDataRequest : CommonDataRequestTag;
@@ -1806,9 +1876,15 @@ type
    t_csCorrectFolder : csCorrectFolderTag;
    t_RelPublishTask : RelPublishTaskTag;
    t_csGetPartialTaskDescription : csGetPartialTaskDescriptionTag;
-   t_mdpSyncDicts : mdpSyncDictsTag;
+   t_mdpSync : mdpSyncTag;
    t_mdpImportDocs : mdpImportDocsTag;
    t_ComboAccessProviderParams : ComboAccessProviderParamsTag;
+   t_ContainerTask : ContainerTaskTag;
+   t_ContainerTask_TasksList : ContainerTask_TasksList_Tag;
+   t_SchedulerProxyTask : SchedulerProxyTaskTag;
+   t_mdpSyncDicts : mdpSyncDictsTag;
+   t_mdpSyncStages : mdpSyncStagesTag;
+   t_mdpSyncImport : mdpSyncImportTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -1830,7 +1906,6 @@ uses
   ExportTask_Const,
   DictEditQuery_Const,
   UserEditQuery_Const,
-  RemoteDictEditQuery_Const,
   PlainFile_Const,
   AutoSpellTask_Const,
   CommonDataRequest_Const,
@@ -1895,9 +1970,14 @@ uses
   csCorrectFolder_Const,
   RelPublishTask_Const,
   csGetPartialTaskDescription_Const,
-  mdpSyncDicts_Const,
+  mdpSync_Const,
   mdpImportDocs_Const,
   ComboAccessProviderParams_Const,
+  ContainerTask_Const,
+  SchedulerProxyTask_Const,
+  mdpSyncDicts_Const,
+  mdpSyncStages_Const,
+  mdpSyncImport_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -2356,27 +2436,6 @@ end;
 function UserEditQueryTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
  Result := UserEditQueryTagClass.Make(Self);
-end;
-
-function RemoteDictEditQueryTagClass.GetTagType: Tl3Type;
-begin
- Result := k2_typRemoteDictEditQuery;
-end;//RemoteDictEditQueryTagClass.TagType
-
-function RemoteDictEditQueryTag.GetAsPCharLen: Tl3PCharLenPrim;
-begin
- Result := l3PCharLen(AnsiString('RemoteDictEditQuery'));
-end;
-
-function RemoteDictEditQueryTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
-begin
- Result := (Self = anAtomType) OR 
-           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
-end;
-
-function RemoteDictEditQueryTag.DoMakeTag(aRef: Integer): Il3TagRef;
-begin
- Result := RemoteDictEditQueryTagClass.Make(Self);
 end;
 
 function PlainFileTagClass.GetTagType: Tl3Type;
@@ -4245,25 +4304,25 @@ begin
  Result := csGetPartialTaskDescriptionTagClass.Make(Self);
 end;
 
-function mdpSyncDictsTagClass.GetTagType: Tl3Type;
+function mdpSyncTagClass.GetTagType: Tl3Type;
 begin
- Result := k2_typmdpSyncDicts;
-end;//mdpSyncDictsTagClass.TagType
+ Result := k2_typmdpSync;
+end;//mdpSyncTagClass.TagType
 
-function mdpSyncDictsTag.GetAsPCharLen: Tl3PCharLenPrim;
+function mdpSyncTag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
- Result := l3PCharLen(AnsiString('mdpSyncDicts'));
+ Result := l3PCharLen(AnsiString('mdpSync'));
 end;
 
-function mdpSyncDictsTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+function mdpSyncTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
 begin
  Result := (Self = anAtomType) OR 
            TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
 end;
 
-function mdpSyncDictsTag.DoMakeTag(aRef: Integer): Il3TagRef;
+function mdpSyncTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
- Result := mdpSyncDictsTagClass.Make(Self);
+ Result := mdpSyncTagClass.Make(Self);
 end;
 
 function mdpImportDocsTagClass.GetTagType: Tl3Type;
@@ -4306,6 +4365,126 @@ end;
 function ComboAccessProviderParamsTag.DoMakeTag(aRef: Integer): Il3TagRef;
 begin
  Result := ComboAccessProviderParamsTagClass.Make(Self);
+end;
+
+function ContainerTask_TasksList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('ContainerTask_TasksList'));
+end;
+
+function ContainerTask_TasksList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function ContainerTask_TasksList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function ContainerTaskTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typContainerTask;
+end;//ContainerTaskTagClass.TagType
+
+function ContainerTaskTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('ContainerTask'));
+end;
+
+function ContainerTaskTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function ContainerTaskTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := ContainerTaskTagClass.Make(Self);
+end;
+
+function SchedulerProxyTaskTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typSchedulerProxyTask;
+end;//SchedulerProxyTaskTagClass.TagType
+
+function SchedulerProxyTaskTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('SchedulerProxyTask'));
+end;
+
+function SchedulerProxyTaskTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function SchedulerProxyTaskTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := SchedulerProxyTaskTagClass.Make(Self);
+end;
+
+function mdpSyncDictsTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typmdpSyncDicts;
+end;//mdpSyncDictsTagClass.TagType
+
+function mdpSyncDictsTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('mdpSyncDicts'));
+end;
+
+function mdpSyncDictsTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_mdpSync.IsKindOf(anAtomType);
+end;
+
+function mdpSyncDictsTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := mdpSyncDictsTagClass.Make(Self);
+end;
+
+function mdpSyncStagesTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typmdpSyncStages;
+end;//mdpSyncStagesTagClass.TagType
+
+function mdpSyncStagesTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('mdpSyncStages'));
+end;
+
+function mdpSyncStagesTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_mdpSync.IsKindOf(anAtomType);
+end;
+
+function mdpSyncStagesTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := mdpSyncStagesTagClass.Make(Self);
+end;
+
+function mdpSyncImportTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typmdpSyncImport;
+end;//mdpSyncImportTagClass.TagType
+
+function mdpSyncImportTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('mdpSyncImport'));
+end;
+
+function mdpSyncImportTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_mdpSync.IsKindOf(anAtomType);
+end;
+
+function mdpSyncImportTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := mdpSyncImportTagClass.Make(Self);
 end;
 
 constructor TevdTasksSchema.Create;
@@ -4651,16 +4830,6 @@ begin
   begin
   end;//IsGroup
  end;//UserEditQuery
- // RemoteDictEditQuery
- t_RemoteDictEditQuery := DefineAutoType([t_ProcessTask], '', RemoteDictEditQueryTag) As RemoteDictEditQueryTag;
- with t_RemoteDictEditQuery do
- begin
-  AtomClass := RemoteDictEditQueryTagClass;
-  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
-  begin
-   DefaultValue := Ord(cs_ttRemoteDictEdit);
-  end;//TaskType
- end;//RemoteDictEditQuery
  // PlainFile
  t_PlainFile := DefineAutoType([t_Tag], '', PlainFileTag) As PlainFileTag;
  with t_PlainFile do
@@ -5646,6 +5815,10 @@ begin
  with t_RegionImportTask do
  begin
   AtomClass := RegionImportTaskTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttRegionImport);
+  end;//TaskType
   with DefineProperty(k2_attrRegionIndex, t_Long, '') do
   begin
   end;//RegionIndex
@@ -5694,6 +5867,9 @@ begin
   with DefineProperty(k2_attrAdminBaseVersion, t_Long, '') do
   begin
   end;//AdminBaseVersion
+  with DefineProperty(k2_attrDocImageCachePath, t_String, '') do
+  begin
+  end;//DocImageCachePath
  end;//DataProviderParams
  // HyTechProviderParams
  t_HyTechProviderParams := DefineAutoType([t_DataProviderParams], '', HyTechProviderParamsTag) As HyTechProviderParamsTag;
@@ -6042,21 +6218,11 @@ begin
   begin
   end;//FileName
  end;//csGetPartialTaskDescription
- // mdpSyncDicts
- t_mdpSyncDicts := DefineAutoType([t_ProcessTask], '', mdpSyncDictsTag) As mdpSyncDictsTag;
- with t_mdpSyncDicts do
+ // mdpSync
+ t_mdpSync := DefineAutoType([t_ProcessTask], '', mdpSyncTag) As mdpSyncTag;
+ with t_mdpSync do
  begin
-  AtomClass := mdpSyncDictsTagClass;
-  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
-  begin
-   DefaultValue := Ord(cs_ttMdpSyncDicts);
-  end;//TaskType
-  with DefineProperty(k2_attrSyncFolderMask, t_String, '') do
-  begin
-  end;//SyncFolderMask
-  with DefineProperty(k2_attrGuardName, t_String, '') do
-  begin
-  end;//GuardName
+  AtomClass := mdpSyncTagClass;
   with DefineProperty(k2_attrSyncURL, t_String, '') do
   begin
   end;//SyncURL
@@ -6075,7 +6241,7 @@ begin
   with DefineProperty(k2_attrProxyPassword, t_String, '') do
   begin
   end;//ProxyPassword
- end;//mdpSyncDicts
+ end;//mdpSync
  // mdpImportDocs
  t_mdpImportDocs := DefineAutoType([t_ProcessTask], '', mdpImportDocsTag) As mdpImportDocsTag;
  with t_mdpImportDocs do
@@ -6107,6 +6273,79 @@ begin
   begin
   end;//DataServerPort
  end;//ComboAccessProviderParams
+ // ContainerTask
+ t_ContainerTask := DefineAutoType([t_ProcessTask], '', ContainerTaskTag) As ContainerTaskTag;
+ with t_ContainerTask do
+ begin
+  AtomClass := ContainerTaskTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttContainer);
+  end;//TaskType
+  t_ContainerTask_TasksList := DefineAutoType([t_OList], 'ContainerTask TasksList', ContainerTask_TasksList_Tag) As ContainerTask_TasksList_Tag;
+  try
+   t_ContainerTask_TasksList.DefineChildren(t_ProcessTask);
+   DefineProperty(k2_attrTasksList, t_ContainerTask_TasksList, '');
+   t_ContainerTask_TasksList.Recalc;
+  except
+   FreeAndNil(t_ContainerTask_TasksList);
+  end;//try..except
+  with t_ContainerTask_TasksList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//TasksList
+  with DefineProperty(k2_attrParallelExecutionMode, t_Bool, '') do
+  begin
+  end;//ParallelExecutionMode
+ end;//ContainerTask
+ // SchedulerProxyTask
+ t_SchedulerProxyTask := DefineAutoType([t_ProcessTask], '', SchedulerProxyTaskTag) As SchedulerProxyTaskTag;
+ with t_SchedulerProxyTask do
+ begin
+  AtomClass := SchedulerProxyTaskTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttSchedulerProxy);
+  end;//TaskType
+  with DefineProperty(k2_attrSchedulerTaskType, t_Long, '') do
+  begin
+  end;//SchedulerTaskType
+ end;//SchedulerProxyTask
+ // mdpSyncDicts
+ t_mdpSyncDicts := DefineAutoType([t_mdpSync], '', mdpSyncDictsTag) As mdpSyncDictsTag;
+ with t_mdpSyncDicts do
+ begin
+  AtomClass := mdpSyncDictsTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttMdpSyncDicts);
+  end;//TaskType
+  with DefineProperty(k2_attrSyncFolderMask, t_String, '') do
+  begin
+  end;//SyncFolderMask
+  with DefineProperty(k2_attrGuardName, t_String, '') do
+  begin
+  end;//GuardName
+ end;//mdpSyncDicts
+ // mdpSyncStages
+ t_mdpSyncStages := DefineAutoType([t_mdpSync], '', mdpSyncStagesTag) As mdpSyncStagesTag;
+ with t_mdpSyncStages do
+ begin
+  AtomClass := mdpSyncStagesTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttMdpSyncStages);
+  end;//TaskType
+ end;//mdpSyncStages
+ // mdpSyncImport
+ t_mdpSyncImport := DefineAutoType([t_mdpSync], '', mdpSyncImportTag) As mdpSyncImportTag;
+ with t_mdpSyncImport do
+ begin
+  AtomClass := mdpSyncImportTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttMdpSyncImport);
+  end;//TaskType
+ end;//mdpSyncImport
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -6118,7 +6357,6 @@ begin
  t_ExportTask.Recalc;
  t_DictEditQuery.Recalc;
  t_UserEditQuery.Recalc;
- t_RemoteDictEditQuery.Recalc;
  t_PlainFile.Recalc;
  t_AutoSpellTask.Recalc;
  t_CommonDataRequest.Recalc;
@@ -6183,9 +6421,14 @@ begin
  t_csCorrectFolder.Recalc;
  t_RelPublishTask.Recalc;
  t_csGetPartialTaskDescription.Recalc;
- t_mdpSyncDicts.Recalc;
+ t_mdpSync.Recalc;
  t_mdpImportDocs.Recalc;
  t_ComboAccessProviderParams.Recalc;
+ t_ContainerTask.Recalc;
+ t_SchedulerProxyTask.Recalc;
+ t_mdpSyncDicts.Recalc;
+ t_mdpSyncStages.Recalc;
+ t_mdpSyncImport.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -6213,7 +6456,6 @@ begin
  t_ExportTask_RegionIDList.InterfaceFactory := nil;
  t_DictEditQuery.InterfaceFactory := nil;
  t_UserEditQuery.InterfaceFactory := nil;
- t_RemoteDictEditQuery.InterfaceFactory := nil;
  t_PlainFile.InterfaceFactory := nil;
  t_AutoSpellTask.InterfaceFactory := nil;
  t_CommonDataRequest.InterfaceFactory := nil;
@@ -6313,9 +6555,15 @@ begin
  t_csCorrectFolder.InterfaceFactory := nil;
  t_RelPublishTask.InterfaceFactory := nil;
  t_csGetPartialTaskDescription.InterfaceFactory := nil;
- t_mdpSyncDicts.InterfaceFactory := nil;
+ t_mdpSync.InterfaceFactory := nil;
  t_mdpImportDocs.InterfaceFactory := nil;
  t_ComboAccessProviderParams.InterfaceFactory := nil;
+ t_ContainerTask.InterfaceFactory := nil;
+ t_ContainerTask_TasksList.InterfaceFactory := nil;
+ t_SchedulerProxyTask.InterfaceFactory := nil;
+ t_mdpSyncDicts.InterfaceFactory := nil;
+ t_mdpSyncStages.InterfaceFactory := nil;
+ t_mdpSyncImport.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -6336,7 +6584,6 @@ begin
  FreeAndNil(t_ExportTask_RegionIDList);
  FreeAndNil(t_DictEditQuery);
  FreeAndNil(t_UserEditQuery);
- FreeAndNil(t_RemoteDictEditQuery);
  FreeAndNil(t_PlainFile);
  FreeAndNil(t_AutoSpellTask);
  FreeAndNil(t_CommonDataRequest);
@@ -6436,9 +6683,15 @@ begin
  FreeAndNil(t_csCorrectFolder);
  FreeAndNil(t_RelPublishTask);
  FreeAndNil(t_csGetPartialTaskDescription);
- FreeAndNil(t_mdpSyncDicts);
+ FreeAndNil(t_mdpSync);
  FreeAndNil(t_mdpImportDocs);
  FreeAndNil(t_ComboAccessProviderParams);
+ FreeAndNil(t_ContainerTask);
+ FreeAndNil(t_ContainerTask_TasksList);
+ FreeAndNil(t_SchedulerProxyTask);
+ FreeAndNil(t_mdpSyncDicts);
+ FreeAndNil(t_mdpSyncStages);
+ FreeAndNil(t_mdpSyncImport);
  inherited;
 end;
 

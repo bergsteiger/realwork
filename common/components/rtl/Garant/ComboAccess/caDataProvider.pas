@@ -499,6 +499,8 @@ begin
   SetAlienJournalData(f_HTProvider.Journal.CurSessionID);
  end;
  f_PGProvider.Start;
+ if f_HTProvider.HasJournal then
+  Get_Journal.UserID := Get_UserID;
  f_IsStarted := True;
 //#UC END# *5526537A00CE_56A86BCE01EE_impl*
 end;//TcaDataProvider.Start
