@@ -79,6 +79,7 @@ constructor TdaFromTable.Create(const aFactory: IdaTableQueryFactory;
 begin
 //#UC START# *55530BE50143_55FFB14A031C_impl*
  inherited Create;
+ f_Factory := aFactory;
  f_TableAlias := anAlias;
  f_Table := aTable;
 //#UC END# *55530BE50143_55FFB14A031C_impl*
@@ -150,10 +151,16 @@ end;//TdaFromTable.FindTable
 
 procedure TdaFromTable.IterateTablesF(anAction: daFromClauseIterator_IterateTablesF_Action);
 //#UC START# *574443A401BE_55FFB14A031C_var*
+var
+ Hack : Pointer absolute anAction;
 //#UC END# *574443A401BE_55FFB14A031C_var*
 begin
 //#UC START# *574443A401BE_55FFB14A031C_impl*
- !!! Needs to be implemented !!!
+ try
+  anAction(Self);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
 //#UC END# *574443A401BE_55FFB14A031C_impl*
 end;//TdaFromTable.IterateTablesF
 
@@ -195,6 +202,7 @@ begin
 //#UC START# *479731C50290_55FFB14A031C_impl*
  Assert(not Prepared);
  f_Table := nil;
+ f_Factory := nil;
  inherited;
 //#UC END# *479731C50290_55FFB14A031C_impl*
 end;//TdaFromTable.Cleanup

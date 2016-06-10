@@ -136,7 +136,7 @@ var
 begin
 //#UC START# *57456F6B01D2_574D5A9900B6get_impl*
  if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
-  Result := TcaFromClause.Make(l_HTJoin.Left, l_PGJoin.Left)
+  Result := TcaFromClause.Make(f_Factory, l_HTJoin.Left, l_PGJoin.Left) as IdaFromClause
  else
   Result := nil;
 //#UC END# *57456F6B01D2_574D5A9900B6get_impl*
@@ -151,7 +151,7 @@ var
 begin
 //#UC START# *57456F800124_574D5A9900B6get_impl*
  if Supports(f_HTClause, IdaJoin, l_HTJoin) and Supports(f_PGClause, IdaJoin, l_PGJoin) then
-  Result := TcaFromClause.Make(l_HTJoin.Right, l_PGJoin.Right)
+  Result := TcaFromClause.Make(f_Factory, l_HTJoin.Right, l_PGJoin.Right) as IdaFromClause
  else
   Result := nil;
 //#UC END# *57456F800124_574D5A9900B6get_impl*

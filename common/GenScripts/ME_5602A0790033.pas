@@ -97,7 +97,7 @@ procedure TpgJournal.PurgeCache;
  function lp_LogEvent(Data: PpgJournalCacheRec; Index: Long): Bool;
  begin
   Result := True;
-  LogEvent(Data^.rOperation, Data^.rFamilyID, Data^.rExtID, Data^.rData);
+  DoLogEvent(Data^.rOperation, Data^.rFamilyID, Data^.rExtID, Data^.rData);
  end;
 //#UC END# *5649D8A70161_5602A0790033_var*
 begin
@@ -205,6 +205,7 @@ var
  l_DocCondition: IdaCondition;
  l_UserCondition: IdaCondition;
  l_UserQuery: IdaTabledQuery;
+ l_FromDate, l_ToDate: TstDate;
 
  function lp_AddSelectField(aField: IdaFieldDescription): Boolean;
  begin
@@ -215,11 +216,13 @@ var
 //#UC END# *559CF9D300FA_5602A0790033_var*
 begin
 //#UC START# *559CF9D300FA_5602A0790033_impl*
- CorrectDates(FromDate, ToDate);
- l_Query := Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtJournal), 'j');
+ l_FromDate := FromDate;
+ l_ToDate := ToDate;
+ CorrectDates(l_FromDate, l_ToDate);
+ l_Query := Factory.MakeTabledQuery(Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtJournal), 'j'));
  try
   TdaScheme.Instance.Table(da_mtJournal).IterateFieldsF(L2DaTableDescriptionIteratorIterateFieldsFAction(@lp_AddSelectField));
-  l_DateDocSubQuery := Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtJournal), 's');
+  l_DateDocSubQuery := Factory.MakeTabledQuery(Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtJournal), 's'));
   try
    l_DateDocSubQuery.AddSelectField(Factory.MakeSelectField('s', TdaScheme.Instance.Table(da_mtJournal).Field['session_id']));
    l_DateCondition := Factory.MakeLogicCondition(Factory.MakeParamsCondition('s', TdaScheme.Instance.Table(da_mtJournal).Field['date'], da_copGreaterOrEqual, 'p_DateFrom'),
@@ -238,14 +241,14 @@ begin
    try
     if UserOrGroupID <> 0 then
     begin
-     l_SubQuery := Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtJournal), 'us');
+     l_SubQuery := Factory.MakeTabledQuery(Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtJournal), 'us'));
      l_SubQuery.AddSelectField(Factory.MakeSelectField('us', TdaScheme.Instance.Table(da_mtJournal).Field['session_id']));
 
      l_UserCondition := Factory.MakeParamsCondition('us', TdaScheme.Instance.Table(da_mtJournal).Field['operation_id'], da_copEqual, 'p_StartSessionID');
      try
       if UserGr then
       begin
-       l_UserQuery := Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtGroupMembers), 'j');
+       l_UserQuery := Factory.MakeTabledQuery(Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroupMembers), 'j'));
        try
         l_UserQuery.AddSelectField(Factory.MakeSelectField('u', TdaScheme.Instance.Table(da_mtGroupMembers).Field['user_id']));
         l_UserQuery.WhereCondition := Factory.MakeParamsCondition('u', TdaScheme.Instance.Table(da_mtGroupMembers).Field['group_id'], da_copEqual, 'p_UserID');
@@ -256,7 +259,7 @@ begin
        end;
       end
       else
-       l_UserCondition := Factory.MakeLogicCondition(l_UserCondition, da_loAnd, Factory.MakeParamsCondition('s', TdaScheme.Instance.Table(da_mtJournal).Field['ext_id'], da_copEqual, 'p_UserID'));
+       l_UserCondition := Factory.MakeLogicCondition(l_UserCondition, da_loAnd, Factory.MakeParamsCondition('us', TdaScheme.Instance.Table(da_mtJournal).Field['ext_id'], da_copEqual, 'p_UserID'));
       l_SubQuery.WhereCondition := Factory.MakeLogicCondition(Factory.MakeSubQueryCondition('us', TdaScheme.Instance.Table(da_mtJournal).Field['session_id'], l_DateDocSubQuery), da_loAnd, l_UserCondition);
      finally
       l_UserCondition := nil;
@@ -288,20 +291,26 @@ begin
   finally
    l_DateDocSubQuery := nil;
   end;
+  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('session_id')));
+  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('date')));
+  l_Query.AddOrderBy(Factory.MakeSortField(l_Query.SelectFieldByName('time')));
   l_Query.Prepare;
-  l_Query.Param['p_DateFrom'].AsStDate := FromDate;
-  l_Query.Param['p_DateTo'].AsStDate := ToDate;
+  l_Query.Param['p_DateFrom'].AsStDate := l_FromDate;
+  l_Query.Param['p_DateTo'].AsStDate := l_ToDate;
   if aDocID <> 0 then
   begin
    l_Query.Param['p_DocID'].AsLargeInt := aDocID;
    l_Query.Param['p_StartSessionID'].AsInteger := Ord(da_oobSessionBegin);
    l_Query.Param['p_EndSessionID'].AsInteger := Ord(da_oobSessionEnd);
   end;
-  if aDocID <> 0 then
-    l_Query.Param['p_UserID'].AsLargeInt := UserOrGroupID;
+  if UserOrGroupID <> 0 then
+  begin
+   l_Query.Param['p_UserID'].AsLargeInt := UserOrGroupID;
+   l_Query.Param['p_StartSessionID'].AsInteger := Ord(da_oobSessionBegin);
+  end;
   Result := l_Query.OpenResultSet;
  finally
-  FreeAndNil(l_Query);
+  l_Query := nil;
  end;
 //#UC END# *559CF9D300FA_5602A0790033_impl*
 end;//TpgJournal.MakeResultSet

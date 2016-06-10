@@ -156,7 +156,7 @@ var
 //#UC END# *5549F9E70184_559A3BD901CC_var*
 begin
 //#UC START# *5549F9E70184_559A3BD901CC_impl*
- l_Query := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtJournal));
+ l_Query := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtJournal)));
  try
   Result:=BlankSession;
   TmpDate:=(CurrentDate - DMYtoStDate(1,1,1998)) mod 24855;
@@ -328,13 +328,13 @@ begin
     da_oobPause : PauseTime:=PauseTime + l_AdditionalInfoField.AsInteger;
     da_oobSessionBegin:
      begin
-      TmpNode := CurStatTree.FindNodeByParam(CurStatTree.RootNode, l_ExtIDField.AsLargeInt, imOneLevel);
+      TmpNode := CurStatTree.FindNodeByParam(CurStatTree.RootNode, Integer(TdaUserID(l_ExtIDField.AsLargeInt)), imOneLevel);
       if TmpNode=nil
        then
         begin
          TmpNode:=CurStatTree.InsertNode(CurStatTree.RootNode,
-                                 MakeNode(PChar(f_Factory.GetUserNameStr(l_ExtIDField.AsLargeInt))));
-         (TmpNode as Il3HandleNode).Handle:=l_ExtIDField.AsLargeInt;
+                                 MakeNode(PAnsiChar(GlobalDataProvider.UserManager.GetUserName(l_ExtIDField.AsLargeInt))));
+         (TmpNode as Il3HandleNode).Handle:=Integer(TdaUserID(l_ExtIDField.AsLargeInt));
         end;
       StDateToDMY(l_DateField.AsStDate,Day,Month,Year);
       StTimeToHMS(l_TimeField.AsStTime, l_Hours, l_Minutes, l_Seconds);
@@ -437,7 +437,7 @@ procedure TdaJournal.CorrectDates(var FromDate: TStDate;
 //#UC END# *55657CD20360_559A3BD901CC_var*
 begin
 //#UC START# *55657CD20360_559A3BD901CC_impl*
- if FromDate = 0 then
+ if FromDate = 0 then                                      
   FromDate := 1{CurrentDate};
  if ToDate = 0 then
   ToDate := CurrentDate + 5;
@@ -700,7 +700,9 @@ procedure TdaJournal.SessionDone;
 //#UC END# *554A037B0325_559A3BD901CC_var*
 begin
 //#UC START# *554A037B0325_559A3BD901CC_impl*
- LogEvent(da_oobSessionEnd, 0, 0, 0);
+ if NeedLogSessionEnd then
+  LogEvent(da_oobSessionEnd, 0, 0, 0);
+ f_CurSessionID := BlankSession;
 //#UC END# *554A037B0325_559A3BD901CC_impl*
 end;//TdaJournal.SessionDone
 
@@ -714,8 +716,10 @@ begin
  begin
   if f_CurSessionID <> BlankSession then
   begin
-   LogEvent(da_oobSessionEnd, 0, 0, 0);
-   f_CurSessionID := BlankSession
+   f_CurSessionID := BlankSession;
+   SessionChanged;
+   if NeedLogSessionEnd then
+    LogEvent(da_oobSessionEnd, 0, 0, 0);
   end;
   f_CurUser := anUserID;
   UserChanged(f_CurUser);
@@ -723,7 +727,8 @@ begin
   begin
     f_CurSessionID := aSessionID;
     SessionChanged;
-    LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
+    if NeedLogSessionBegin then
+     LogEvent(da_oobSessionBegin, 0, LongInt(f_CurUser), 0);
   end;
  end;
 //#UC END# *56E2A25501A6_559A3BD901CC_impl*
@@ -737,7 +742,7 @@ procedure TdaJournal.LogAlienEvent(aOperation: TdaJournalOperation;
 //#UC END# *56E2A7DB03CE_559A3BD901CC_var*
 begin
 //#UC START# *56E2A7DB03CE_559A3BD901CC_impl*
- LogEvent(aOperation, aFamilyID, aExtID, aData);
+ DoLogEvent(aOperation, aFamilyID, aExtID, aData);
 //#UC END# *56E2A7DB03CE_559A3BD901CC_impl*
 end;//TdaJournal.LogAlienEvent
 

@@ -117,7 +117,7 @@ begin
 //#UC START# *56F11DEF037F_55F81B3F024D_impl*
  if f_UserNameQuery = nil then
  begin
-  f_UserNameQuery := MakeTabledQuery(TdaScheme.Instance.Table(da_mtUsers));
+  f_UserNameQuery := MakeTabledQuery(MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtUsers)));
   f_UserNameQuery.AddSelectField(MakeSelectField('', TdaScheme.Instance.Table(da_mtUsers)['user_name']));
   f_UserNameQuery.WhereCondition := MakeParamsCondition('', TdaScheme.Instance.Table(da_mtUsers)['ID'], da_copEqual, 'p_UserID');
   f_UserNameQuery.Prepare;
@@ -131,7 +131,7 @@ function TpgTableQueryFactory.MakeTabledQuery(const aFromClause: IdaFromClause):
 //#UC END# *5549C65D038D_55F81B3F024D_var*
 begin
 //#UC START# *5549C65D038D_55F81B3F024D_impl*
- Result := TpgTabledQuery.Make(f_DataConverter, aTable, f_Connection, anAlias);
+ Result := TpgTabledQuery.Make(Self, f_DataConverter, aFromClause, f_Connection);
 //#UC END# *5549C65D038D_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeTabledQuery
 
@@ -228,7 +228,6 @@ function TpgTableQueryFactory.MakeSimpleFromClause(const aTable: IdaTableDescrip
 //#UC END# *574C32760314_55F81B3F024D_var*
 begin
 //#UC START# *574C32760314_55F81B3F024D_impl*
- Assert(anAlias <> '');
  Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeSimpleFromClause

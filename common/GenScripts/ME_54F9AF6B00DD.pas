@@ -114,6 +114,7 @@ begin
  Result.LockPath := LockPath;
  Result.TmpPath := TmpDirPath;
  Result.DocImgPath := DocImagePath;
+ Result.DocImgCachePath := DocImageCachePath;
  Result.DocsPath := DocStoragePath;
 //#UC END# *55114DCA0351_54F9AF6B00DD_impl*
 end;//ThtDataProviderParams.MakePathRec

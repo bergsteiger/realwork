@@ -60,7 +60,7 @@ constructor TcaTabledQuery.Create(const aFactory: IdaTableQueryFactory;
 //#UC END# *56C6DC070160_56C6DB730289_var*
 begin
 //#UC START# *56C6DC070160_56C6DB730289_impl*
- inherited Create(aDataConverter, aTable, anAlias);
+ inherited Create(aFactory, aDataConverter, aFromClause);
  f_HTQuery := aHTQuery;
  f_PGQuery := aPGQuery;
 //#UC END# *56C6DC070160_56C6DB730289_impl*

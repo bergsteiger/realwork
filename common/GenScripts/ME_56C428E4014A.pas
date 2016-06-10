@@ -57,6 +57,8 @@ type
     var aLoginName: AnsiString;
     var aActFlag: Byte);
    function Get_PriorityCalculator: IdaPriorityCalculator;
+   function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+    aUserID: TdaUserID): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -137,7 +139,8 @@ function TcaUserManager.Get_AllUsers: Tl3StringDataList;
 //#UC END# *5715DEF20209_56C428E4014Aget_var*
 begin
 //#UC START# *5715DEF20209_56C428E4014Aget_impl*
- !!! Needs to be implemented !!!
+ Result := f_HTManager.AllUsers;
+ Assert(l3IsIdenticalLists(Result, f_PGManager.AllUsers));
 //#UC END# *5715DEF20209_56C428E4014Aget_impl*
 end;//TcaUserManager.Get_AllUsers
 
@@ -146,7 +149,8 @@ function TcaUserManager.Get_AllGroups: Tl3StringDataList;
 //#UC END# *5715DF0D03C2_56C428E4014Aget_var*
 begin
 //#UC START# *5715DF0D03C2_56C428E4014Aget_impl*
- !!! Needs to be implemented !!!
+ Result := f_HTManager.AllGroups;
+ Assert(l3IsIdenticalLists(Result, f_PGManager.AllGroups));
 //#UC END# *5715DF0D03C2_56C428E4014Aget_impl*
 end;//TcaUserManager.Get_AllGroups
 
@@ -164,10 +168,20 @@ function TcaUserManager.GetUserPriorities(aGroupId: TdaUserID;
  var aImportPriority: TdaPriority;
  var aExportPriority: TdaPriority): Boolean;
 //#UC START# *571DCFB50217_56C428E4014A_var*
+var
+ l_ImportPriority: TdaPriority;
+ l_ExportPriority: TdaPriority;
+ l_Check: Boolean;
 //#UC END# *571DCFB50217_56C428E4014A_var*
 begin
 //#UC START# *571DCFB50217_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ l_ImportPriority := aImportPriority;
+ l_ExportPriority := aExportPriority;
+ Result := f_HTManager.GetUserPriorities(aGroupId, aImportPriority, aExportPriority);
+ l_Check := f_PGManager.GetUserPriorities(aGroupId, l_ImportPriority, l_ExportPriority);
+ Assert(l_Check = Result);
+ if Result then
+  Assert((aImportPriority = l_ImportPriority) and (aExportPriority = l_ExportPriority));
 //#UC END# *571DCFB50217_56C428E4014A_impl*
 end;//TcaUserManager.GetUserPriorities
 
@@ -176,7 +190,8 @@ procedure TcaUserManager.ReSortUserList;
 //#UC END# *5721F5E60367_56C428E4014A_var*
 begin
 //#UC START# *5721F5E60367_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ f_HTManager.ReSortUserList;
+ f_PGManager.ReSortUserList;
 //#UC END# *5721F5E60367_56C428E4014A_impl*
 end;//TcaUserManager.ReSortUserList
 
@@ -195,33 +210,38 @@ procedure TcaUserManager.IterateArchiUsersF(anAction: ArchiUsersIterator_Iterate
 //#UC END# *5729DD530330_56C428E4014A_var*
 begin
 //#UC START# *5729DD530330_56C428E4014A_impl*
- f_HTManager.ForEachF(anAction);
+ f_HTManager.IterateArchiUsersF(anAction);
+ f_PGManager.IterateArchiUsersF(anAction); // ??? Неоднозначно.
+                                           // Если накапливаем в список - излишне.
+                                           // Если модифицируем пользователей - необходимо
 //#UC END# *5729DD530330_56C428E4014A_impl*
 end;//TcaUserManager.IterateArchiUsersF
 
 function TcaUserManager.UserByID(aID: TdaUserID): IdaArchiUser;
 //#UC START# *57358B940211_56C428E4014A_var*
 var
- l_Check: IdaArchiUser;
+ l_HTUser: IdaArchiUser;
+ l_PGUser: IdaArchiUser;
 //#UC END# *57358B940211_56C428E4014A_var*
 begin
 //#UC START# *57358B940211_56C428E4014A_impl*
- Result := f_HTManager.UserByID(aID);
- l_Check := f_PGManager.UserByID(aID);
- Assert(IsUsersEqual(Result, l_Check));
+ l_HTUser := f_HTManager.UserByID(aID);
+ l_PGUser := f_PGManager.UserByID(aID);
+ Result := TcaArchiUser.Make(l_HTUser, l_PGUser);
 //#UC END# *57358B940211_56C428E4014A_impl*
 end;//TcaUserManager.UserByID
 
 function TcaUserManager.UserByLogin(const aLogin: AnsiString): IdaArchiUser;
 //#UC START# *57358BCB0360_56C428E4014A_var*
 var
- l_Check: IdaArchiUser;
+ l_HTUser: IdaArchiUser;
+ l_PGUser: IdaArchiUser;
 //#UC END# *57358BCB0360_56C428E4014A_var*
 begin
 //#UC START# *57358BCB0360_56C428E4014A_impl*
- Result := f_HTManager.UserByLogin(aLogin);
- l_Check := f_PGManager.UserByLogin(aLogin);
- Assert(IsUsersEqual(Result, l_Check));
+ l_HTUser := f_HTManager.UserByLogin(aLogin);
+ l_PGUser := f_PGManager.UserByLogin(aLogin);
+ Result := TcaArchiUser.Make(l_HTUser, l_PGUser);
 //#UC END# *57358BCB0360_56C428E4014A_impl*
 end;//TcaUserManager.UserByLogin
 
@@ -271,7 +291,8 @@ procedure TcaUserManager.RegisterUserStatusChangedSubscriber(const aSubscriber: 
 //#UC END# *5739832A00A2_56C428E4014A_var*
 begin
 //#UC START# *5739832A00A2_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ f_HTManager.RegisterUserStatusChangedSubscriber(aSubscriber);
+ f_PGManager.RegisterUserStatusChangedSubscriber(aSubscriber);
 //#UC END# *5739832A00A2_56C428E4014A_impl*
 end;//TcaUserManager.RegisterUserStatusChangedSubscriber
 
@@ -280,7 +301,8 @@ procedure TcaUserManager.UnRegisterUserStatusChangedSubscriber(const aSubscriber
 //#UC END# *5739834700B2_56C428E4014A_var*
 begin
 //#UC START# *5739834700B2_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ f_HTManager.UnRegisterUserStatusChangedSubscriber(aSubscriber);
+ f_PGManager.UnRegisterUserStatusChangedSubscriber(aSubscriber);
 //#UC END# *5739834700B2_56C428E4014A_impl*
 end;//TcaUserManager.UnRegisterUserStatusChangedSubscriber
 
@@ -290,7 +312,9 @@ procedure TcaUserManager.NotifyUserActiveChanged(anUserID: TdaUserID;
 //#UC END# *5739835200CF_56C428E4014A_var*
 begin
 //#UC START# *5739835200CF_56C428E4014A_impl*
- !!! Needs to be implemented !!!
+ f_HTManager.NotifyUserActiveChanged(anUserID, anActive);
+// f_PGManager.NotifyUserActiveChanged(anUserID, anActive); // ??? Неоднозначно.
+                                           // будет приходить удвоенная нотификация.
 //#UC END# *5739835200CF_56C428E4014A_impl*
 end;//TcaUserManager.NotifyUserActiveChanged
 
@@ -353,6 +377,17 @@ begin
 //#UC END# *5757D9BB0116_56C428E4014A_impl*
 end;//TcaUserManager.IterateUserGroupsF
 
+function TcaUserManager.IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
+ aUserID: TdaUserID): Boolean;
+//#UC START# *575A8B790353_56C428E4014A_var*
+//#UC END# *575A8B790353_56C428E4014A_var*
+begin
+//#UC START# *575A8B790353_56C428E4014A_impl*
+ Result := f_HTManager.IsMemberOfGroup(aUserGroupID, aUserID);
+ Assert(Result = f_PGManager.IsMemberOfGroup(aUserGroupID, aUserID));
+//#UC END# *575A8B790353_56C428E4014A_impl*
+end;//TcaUserManager.IsMemberOfGroup
+
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56C428E4014A_var*
@@ -361,6 +396,7 @@ begin
 //#UC START# *479731C50290_56C428E4014A_impl*
  f_HTManager := nil;
  f_PGManager := nil;
+ f_PriorityCalculator := nil;
  inherited;
 //#UC END# *479731C50290_56C428E4014A_impl*
 end;//TcaUserManager.Cleanup

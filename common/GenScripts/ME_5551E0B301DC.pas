@@ -52,7 +52,7 @@ function IsSameItems(const A: _ItemType_;
 //#UC END# *47B07CF403D0_5551E0B301DC_var*
 begin
 //#UC START# *47B07CF403D0_5551E0B301DC_impl*
- Assert(False);
+ Result := Pointer(A) = Pointer(B);
 //#UC END# *47B07CF403D0_5551E0B301DC_impl*
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)

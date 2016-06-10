@@ -517,9 +517,12 @@ procedure ThtDataProvider.BeginImpersonate(anUserID: TdaUserID);
 //#UC END# *561796070253_5519351D01BE_var*
 begin
 //#UC START# *561796070253_5519351D01BE_impl*
- if f_ImpersonatedUserID <> usNone then
-  l3System.Msg2Log('ALERT ImpersonateUser');
- f_ImpersonatedUserID := anUserID;
+ inc(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 1 then
+  f_ImpersonatedUserID := anUserID
+ else
+  if f_ImpersonatedUserID <> anUserID then
+   l3System.Msg2Log('ALERT ImpersonateUser');
 //#UC END# *561796070253_5519351D01BE_impl*
 end;//ThtDataProvider.BeginImpersonate
 
@@ -528,7 +531,11 @@ procedure ThtDataProvider.EndImpersonate;
 //#UC END# *5617961F0105_5519351D01BE_var*
 begin
 //#UC START# *5617961F0105_5519351D01BE_impl*
- f_ImpersonatedUserID := usNone;
+ Dec(f_ImpersonateCounter);
+ if f_ImpersonateCounter = 0 then
+  f_ImpersonatedUserID := usNone;
+ if f_ImpersonateCounter < 0 then
+  f_ImpersonateCounter := 0;
 //#UC END# *5617961F0105_5519351D01BE_impl*
 end;//ThtDataProvider.EndImpersonate
 

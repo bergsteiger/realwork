@@ -43,7 +43,7 @@ constructor TpgRenumerator.Create(const aFactory: IdaTableQueryFactory);
 begin
 //#UC START# *5652CB64000B_5652B5360294_impl*
  inherited Create;
- f_ToRealQuery := aFactory.MakeTabledQuery(TdaScheme.Instance.Table(da_ftRenum));
+ f_ToRealQuery := aFactory.MakeTabledQuery(aFactory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_ftRenum)));
  f_ToRealQuery.AddSelectField(aFactory.MakeSelectField('', TdaScheme.Instance.Table(da_ftRenum)['RealID']));
  f_ToRealQuery.WhereCondition := aFactory.MakeParamsCondition('', TdaScheme.Instance.Table(da_ftRenum)['ImportID'], da_copEqual, 'p_ID');
  f_ToRealQuery.Prepare;

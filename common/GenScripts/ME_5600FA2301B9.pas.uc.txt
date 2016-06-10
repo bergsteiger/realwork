@@ -37,11 +37,8 @@
 //#UC END# *56010A7801F2_5600FA2301B9_var*
 //#UC START# *56010AB70258_5600FA2301B9_impl*
  Assert(f_SelectFields.Count > 0);
-//!! !!! check aggregatefield
  for l_IDX := 0 to f_SelectFields.Count - 1 do
-//  f_SelectFields[l_IDX].EnumTables(@CheckTable);
-  if Supports(f_SelectFields[l_IDX], IdaFieldFromTable, l_Field) then
-   Assert(FromClause.HasTable(l_Field.Field.Table));
+  f_SelectFields[l_IDX].IterateTables(L2daSelectFieldIteratorIterateTablesAction(@CheckTable));
  Assert(Assigned(FromClause));
  Assert(FromClause.IsRelationsConditionsValid);
  FromClause.IterateRelationConditionsF(L2daFromClauseIteratorIterateRelationConditionsFAction(@lp_ProcessRelation));

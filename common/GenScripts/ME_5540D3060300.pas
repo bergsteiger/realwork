@@ -129,10 +129,14 @@ function ThtJournal.GetUserStatistic(const FromDate: TStDate;
 var
  l_ResultSab: ISab;
  TmpOper  : Word;
+ l_FromDate : TStDate;
+ l_ToDate : TStDate;
 //#UC END# *5563286A0387_5540D3060300_var*
 begin
 //#UC START# *5563286A0387_5540D3060300_impl*
- CorrectDates(FromDate, ToDate);
+ l_FromDate := FromDate;
+ l_ToDate := ToDate;
+ CorrectDates(l_FromDate, l_ToDate);
  Result := nil;
 
  l_ResultSab := MakeSab(BigBrother);
@@ -144,7 +148,7 @@ begin
    // Если нет, то получаем этого пользователя
    if UserGr then
    begin
-    l_ResultSab := MakeSab(UserManager.LinkTbl.Table, UserManager.GetUserIDSabOnGroup(UserOrGroupID));
+    l_ResultSab := UserManager.xxxGetUserGroupsList(UserOrGroupID);
     l_ResultSab.TransferToPhoto(bbID_Ext, MakePhoto(BigBrother));
     l_ResultSab.RecordsByKey;
    end
@@ -155,14 +159,14 @@ begin
    TmpOper := Word(da_oobSessionBegin);
    l_ResultSab.SubSelect(bbID_Operation, TmpOper);
    // получаем сессии в диапазоне дат...
-   l_ResultSab.SubSelect(bbDate, FromDate, ToDate);
+   l_ResultSab.SubSelect(bbDate, l_FromDate, l_ToDate);
 
    // получаем все операции выбранных сессий
    l_ResultSab.ValuesOfKey(bbID_Session);
    l_ResultSab.RecordsByKey;
   end
   else
-   l_ResultSab.Select(bbDate, FromDate, ToDate);
+   l_ResultSab.Select(bbDate, l_FromDate, l_ToDate);
 
   Result := l_ResultSab;
  finally
@@ -180,10 +184,14 @@ var
  l_SessSab : ISab;
  l_SessEndSab: ISab;
  TmpOper  : Word;
+ l_FromDate : TStDate;
+ l_ToDate : TStDate;
 //#UC END# *556328D003C8_5540D3060300_var*
 begin
 //#UC START# *556328D003C8_5540D3060300_impl*
- CorrectDates(FromDate, ToDate);
+ l_FromDate := FromDate;
+ l_ToDate := ToDate;
+ CorrectDates(l_FromDate, l_ToDate);
  Result := nil;
 
  l_DocSab := MakeSab(BigBrother);
@@ -197,7 +205,7 @@ begin
    TmpOper:=Word(da_oobSessionBegin);
    l_DocSab.SubSelect(bbID_Operation, TmpOper, NOT_EQUAL);
    // теперь отфильтруем по дате
-   l_DocSab.SubSelect(bbDate, FromDate, ToDate);
+   l_DocSab.SubSelect(bbDate, l_FromDate, l_ToDate);
 
    // мы получили все записи, в которых что-то делается с искомым документом
    // теперь получим список сессий, в которых это происходит
@@ -225,7 +233,7 @@ begin
    end;
   end
   else // если aDocID документа не задано, то получаем все записи из диапазона дат
-   l_DocSab.Select(bbDate, FromDate, ToDate);
+   l_DocSab.Select(bbDate, l_FromDate, l_ToDate);
 
   Result := l_DocSab;
  finally

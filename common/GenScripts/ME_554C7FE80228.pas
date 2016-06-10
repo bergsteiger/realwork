@@ -109,7 +109,7 @@ function ThtTableQueryFactory.MakeTabledQuery(const aFromClause: IdaFromClause):
 //#UC END# *5549C65D038D_554C7FE80228_var*
 begin
 //#UC START# *5549C65D038D_554C7FE80228_impl*
- Result := ThtTabledQuery.Make(f_DataConverter, f_Helper, aTable, anAlias);
+ Result := ThtTabledQuery.Make(Self, f_DataConverter, f_Helper, aFromClause);
 //#UC END# *5549C65D038D_554C7FE80228_impl*
 end;//ThtTableQueryFactory.MakeTabledQuery
 
@@ -206,8 +206,7 @@ function ThtTableQueryFactory.MakeSimpleFromClause(const aTable: IdaTableDescrip
 //#UC END# *574C32760314_554C7FE80228_var*
 begin
 //#UC START# *574C32760314_554C7FE80228_impl*
- Assert(anAlias <> '');
- Result := TdaFromTable.Make(Self, aTable, anAlias);
+ Result := ThtFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_554C7FE80228_impl*
 end;//ThtTableQueryFactory.MakeSimpleFromClause
 

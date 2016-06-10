@@ -31,10 +31,16 @@ uses
 function GetRegionStringFromUserID(anID: TdaUserID;
  CropIfLocal: Boolean = True): AnsiString;
 //#UC START# *5714CC1501B0_5714CBFE00FA_var*
+var
+ l_Region: TdaRegionID;
 //#UC END# *5714CC1501B0_5714CBFE00FA_var*
 begin
 //#UC START# *5714CC1501B0_5714CBFE00FA_impl*
- !!! Needs to be implemented !!!
+ Result := '';
+ l_Region := GetUserRegion(anID);
+ if (CropIfLocal and (l_Region = GlobalDataProvider.RegionID)) or (l_Region = $ff {спецрегион}) then
+  Exit;
+ Result := GlobalDataProvider.GetRegionName(l_Region);
 //#UC END# *5714CC1501B0_5714CBFE00FA_impl*
 end;//GetRegionStringFromUserID
 
@@ -44,7 +50,10 @@ function ConcatRegionAndUserNames(const aRegionName: AnsiString;
 //#UC END# *5714CC980361_5714CBFE00FA_var*
 begin
 //#UC START# *5714CC980361_5714CBFE00FA_impl*
- !!! Needs to be implemented !!!
+ if aRegionName <> '' then
+  Result := aRegionName + '.' + aUserName
+ else
+  Result := aUserName;
 //#UC END# *5714CC980361_5714CBFE00FA_impl*
 end;//ConcatRegionAndUserNames
 
@@ -54,7 +63,7 @@ function ConcatRegionAndUserNames(anID: TdaUserID;
 //#UC END# *5714CD00006F_5714CBFE00FA_var*
 begin
 //#UC START# *5714CD00006F_5714CBFE00FA_impl*
- !!! Needs to be implemented !!!
+ Result := ConcatRegionAndUserNames(GetRegionStringFromUserID(anID), aUserName);
 //#UC END# *5714CD00006F_5714CBFE00FA_impl*
 end;//ConcatRegionAndUserNames
 
@@ -63,7 +72,7 @@ function GetUserRegion(anUserID: TdaUserID): TdaRegionID;
 //#UC END# *5715FBBC0249_5714CBFE00FA_var*
 begin
 //#UC START# *5715FBBC0249_5714CBFE00FA_impl*
- !!! Needs to be implemented !!!
+ Result := anUserID shr 24;
 //#UC END# *5715FBBC0249_5714CBFE00FA_impl*
 end;//GetUserRegion
 

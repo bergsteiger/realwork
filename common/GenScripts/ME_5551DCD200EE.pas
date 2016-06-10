@@ -111,7 +111,7 @@ function TdaSelectField.BuildSQLValue(AddAlias: Boolean = True): AnsiString;
 begin
 //#UC START# *5608E5A4025F_5551DCD200EE_impl*
  Result := f_Field.SQLName;
- if f_Alias <> '' then
+ if AddAlias and (f_Alias <> '') then
   Result := Result + ' as ' + f_Alias;
  if f_TableAlias <> '' then
   Result := f_TableAlias + '.' + Result;

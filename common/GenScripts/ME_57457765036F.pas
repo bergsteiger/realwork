@@ -197,6 +197,7 @@ begin
 //#UC START# *574570520193_57457765036F_impl*
  f_Condition := aCondition;
  Assert(IsRelationsConditionsValid);
+ Result := Self;
 //#UC END# *574570520193_57457765036F_impl*
 end;//TdaJoin.SetCondition
 
