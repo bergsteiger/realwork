@@ -853,7 +853,8 @@ end;
 
 destructor TMenuItem.Destroy;
 begin
-  ShortCutItems.ClearItem(Self);
+  if (ShortCutItems <> nil) then
+   ShortCutItems.ClearItem(Self);
   if FParent <> nil then
   begin
     FParent.Remove(Self);
@@ -869,7 +870,9 @@ begin
   FreeAndNil(FItems);
   FreeAndNil(FActionLink);
   FreeAndNil(FImageChangeLink);
-  if FCommand <> 0 then CommandPool[FCommand] := False;
+  if FCommand <> 0 then
+   if (CommandPool <> nil) then
+    CommandPool[FCommand] := False;
   if Assigned(FBitmap) then FreeAndNil(FBitmap){.Free};
  {$IfDef Nemesis}
   FreeAndNil(f_BackgroundBrush);
