@@ -616,7 +616,9 @@ procedure TvtCustomLabel.DoDrawText(var Rect: TRect;
    lfEscapement := cRotation * 10;
    lfOrientation := cRotation * 10;
 
-   if fsBold in aFont.Style then lfWeight := FW_BOLD else lfWeight := FW_NORMAL;
+   if fsBold in aFont.Style
+    then lfWeight := FW_BOLD
+    else lfWeight := FW_NORMAL;
    lfItalic    := cBoolToByte[fsItalic in aFont.Style];
    lfUnderline := cBoolToByte[fsUnderline in aFont.Style];
    lfStrikeout := cBoolToByte[fsStrikeOut in aFont.Style];
@@ -925,55 +927,49 @@ end;//TvtImageLabel.Create
 {$If NOT Defined(NoVCL)}
 procedure TvtImageLabel.AdjustBounds;
 //#UC START# *4F2A44BC0297_57039747002E_var*
-{const
+const
   WordWraps: array[Boolean] of Word = (0, DT_WORDBREAK);
 var
   DC: HDC;
   X: Integer;
   Rect: TRect;
-  AAlignment: TAlignment;}
+  AAlignment: TAlignment;
 //#UC END# *4F2A44BC0297_57039747002E_var*
 begin
 //#UC START# *4F2A44BC0297_57039747002E_impl*
-(* if not (csReading in ComponentState) and AutoSize then
+ if not (csReading in ComponentState) and AutoSize then
   if not f_InAdjustBounds then
-  begin
+  try
    f_InAdjustBounds := true;
-   try
-    Rect := ClientRect;
-    DC := GetDC(0);
-    try
-     Canvas.Handle := DC;
-     DoDrawText(Rect, (DT_EXPANDTABS or DT_CALCRECT) or WordWraps[WordWrap]);
-     Canvas.Handle := 0;
-    finally
-     ReleaseDC(0, DC);
-    end;
-    X := Left;
-    AAlignment := Alignment;
-    if UseRightToLeftAlignment then
-     ChangeBiDiModeAlignment(AAlignment);
-    if (AAlignment = taRightJustify) then
-     Inc(X, Width - Rect.Right);
-    if DrawDirection = ddHorizontal then
-    begin
-     //http://mdp.garant.ru/pages/viewpage.action?pageId=494529735
-     if Align = alClient then
-      SetBounds(Left, Top, Width, Height)
-     else
-     begin
-      {if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
-       Rect.Right := Rect.Right + f_ImageIndent + f_ImageList.Width;}
-      SetBounds(X, Top, Rect.Right, Rect.Bottom);
-     end;
-    end
+   Rect := ClientRect;
+   DC := GetDC(0);
+   Canvas.Handle := DC;
+   if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
+    Dec(Rect.Right, f_ImageIndent + f_ImageList.Width);
+   DoDrawText(Rect, (DT_EXPANDTABS or DT_CALCRECT) or WordWraps[WordWrap]);
+   if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
+    Inc(Rect.Right, f_ImageIndent + f_ImageList.Width);
+   Canvas.Handle := 0;
+   ReleaseDC(0, DC);
+   X := Left;
+   AAlignment := Alignment;
+   if UseRightToLeftAlignment then
+    ChangeBiDiModeAlignment(AAlignment);
+   if (AAlignment = taRightJustify) then
+    Inc(X, Width - Rect.Right);
+   if DrawDirection = ddHorizontal then
+   begin
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=494529735
+    if Align = alClient then
+     SetBounds(Left, Top, Width, Height)
     else
-     SetBounds(X, Top, Rect.Bottom, Rect.Right);
-   finally
-    f_InAdjustBounds := false;
-   end;//try..finally
-  end;//not (csReading in ComponentState) and AutoSize*)
- inherited;
+     SetBounds(X, Top, Rect.Right, Rect.Bottom);
+   end
+   else
+    SetBounds(X, Top, Rect.Bottom, Rect.Right);
+  finally
+   f_InAdjustBounds := false;
+  end;//try..finally
 //#UC END# *4F2A44BC0297_57039747002E_impl*
 end;//TvtImageLabel.AdjustBounds
 {$IfEnd} // NOT Defined(NoVCL)
@@ -1125,20 +1121,14 @@ begin
      begin
       if Assigned(f_ImageList) and (f_ImageIndex >= 0) then
       begin
-       Rect.Right := Rect.Right + f_ImageIndent + f_ImageList.Width;
        if (Rect.Bottom - Rect.Top < f_ImageList.Height) then
         Rect.Bottom := Rect.Top + f_ImageList.Height;
       end;
      end else//Flags and DT_CALCRECT = DT_CALCRECT
      begin
-      if (Rect.Bottom - Rect.Top < f_ImageList.Height) then
-       l_ImageTop := Rect.Top
-      else
-      case f_VerticalAligment of
-       ev_valTop: l_ImageTop := Rect.Top;
-       ev_valCenter: l_ImageTop := (Rect.Top + Rect.Bottom - f_ImageList.Height) div 2;
-       ev_valBottom: l_ImageTop := Rect.Bottom - f_ImageList.Height;
-      end;
+      if (Rect.Bottom - Rect.Top < f_ImageList.Height)
+       then l_ImageTop := Rect.Top
+       else l_ImageTop := (Rect.Top + Rect.Bottom - f_ImageList.Height) div 2;
       f_ImageList.Draw(f_Canvas.Canvas, l_ImageLeft, l_ImageTop, f_ImageIndex);
      end;//Flags and DT_CALCRECT = DT_CALCRECT
     end;//DrawDirection <> ddHorizontal..

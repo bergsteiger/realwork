@@ -57,7 +57,7 @@ class procedure TkwPopSpinEditValue.DoSetValue(aSpinEdit: TvtSpinEdit;
 //#UC END# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_var*
 begin
 //#UC START# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_impl*
- !!! Needs to be implemented !!!
+ aSpinEdit.AsInteger := aValue;
 //#UC END# *552E41740211_4C52C0600246_Word_DoSetValue_552E41740211_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.DoSetValue
 
@@ -68,7 +68,7 @@ function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
 //#UC END# *552E41740211_552E41740211_4C52C0600246_Word_var*
 begin
 //#UC START# *552E41740211_552E41740211_4C52C0600246_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aSpinEdit.AsInteger;
 //#UC END# *552E41740211_552E41740211_4C52C0600246_Word_impl*
 end;//TkwPopSpinEditValue.Value
 

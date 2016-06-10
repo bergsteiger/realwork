@@ -95,7 +95,9 @@ procedure TkwApplicationCancelHint.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_552FAFAA0226_Word_var*
 begin
 //#UC START# *4DAEEDE10285_552FAFAA0226_Word_impl*
- !!! Needs to be implemented !!!
+ with TvtHintManager.Instance do
+  if Count > 0 then
+   ShowWindow(Item[Count - 1].Handle, SW_HIDE);
 //#UC END# *4DAEEDE10285_552FAFAA0226_Word_impl*
 end;//TkwApplicationCancelHint.DoDoIt
 

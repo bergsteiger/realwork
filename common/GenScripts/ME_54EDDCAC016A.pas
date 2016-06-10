@@ -510,7 +510,7 @@ procedure TkwStyleTableChanged.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_5731CA8500B0_Word_var*
 begin
 //#UC START# *4DAEEDE10285_5731CA8500B0_Word_impl*
- !!! Needs to be implemented !!!
+ EvNotifyStyleTableChanged;
 //#UC END# *4DAEEDE10285_5731CA8500B0_Word_impl*
 end;//TkwStyleTableChanged.DoDoIt
 
@@ -539,7 +539,7 @@ procedure TkwStyleTableChanging.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_5731CA920303_Word_var*
 begin
 //#UC START# *4DAEEDE10285_5731CA920303_Word_impl*
- !!! Needs to be implemented !!!
+ EvNotifyStyleTableChanging;
 //#UC END# *4DAEEDE10285_5731CA920303_Word_impl*
 end;//TkwStyleTableChanging.DoDoIt
 
@@ -560,7 +560,7 @@ begin
  {$IFDEF EverestLite}
  RunnerError(Format('Функция %s не поддерживается в EverestLite!', [GetWordNameForRegister]), aCtx);
  {$ELSE}
- RunnerAssert(aCtx.rEngine.IsTopString, 'Нужна строка', aCtx);
+ //RunnerAssert(aCtx.rEngine.IsTopString, 'Нужна строка', aCtx);
  l_InData := l3PCharLen(aData);
  l_InStream := Tl3ConstMemoryStream.Create(l_InData.S, l_InData.SLen);
  try

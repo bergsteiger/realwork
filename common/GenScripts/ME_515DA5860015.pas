@@ -3532,10 +3532,22 @@ var
   end;//StartMove
 
   procedure DoMove;
+
+   procedure lp_EntMove;
+   begin
+    f_NodeInMove.EndMove(lUserParam);
+    if Assigned(f_OnNodeMoveEnd) then
+     f_OnNodeMoveEnd(Self, CNode, CNode.Parent <> lSaveMoveParent);
+    f_NodeInMove := nil;
+   end;
+
   var
    Msg: TMsg;
   begin//DoMove
   {$IfNDef DesignTimeLibrary}
+   if (Cmd = ccMoveRightInt) or (Cmd = ccMoveLeftInt) then
+    lp_EntMove
+   else
    with Application do
    begin
     repeat
@@ -3548,14 +3560,11 @@ var
       if ((Msg.Message = WM_KEYUP) or (Msg.Message = WM_SYSKEYUP))
                   and (GetAsyncKeyState(vk_Menu) >= 0) then
        begin
-        f_NodeInMove.EndMove(lUserParam);
-        if Assigned(f_OnNodeMoveEnd) then
-         f_OnNodeMoveEnd(Self, CNode, CNode.Parent <> lSaveMoveParent);
-        f_NodeInMove := nil;
+        lp_EntMove;
         Break;
        end;
      except
-      HandleException(Self);
+      HandleException(Self);                 
      end;
     until Terminated;
    end;
@@ -3613,7 +3622,7 @@ begin
        lNewCurrent := Current; //работает процедура удержания текущего в Changing/Changed
       end;
 
-     ccMoveLeft :
+     ccMoveLeft, ccMoveLeftInt: 
       begin
        StartMove;
        if (MultiSelect and CTree.MoveSelectedNodes(dLeft)) or
@@ -3621,14 +3630,14 @@ begin
         lNewCurrent := CTree.GetIndex(CNode);
       end;
 
-     ccMoveRight :
+     ccMoveRight, ccMoveRightInt:
       begin
        StartMove;
        if (MultiSelect and CTree.MoveSelectedNodes(dRight)) or
           (not MultiSelect and CTree.MoveNode(CNode, dRight)) then
         lNewCurrent := CTree.GetIndex(CNode);
       end;
-
+                                                      
      ccMoveUp :
       begin
        StartMove;
@@ -3687,7 +3696,7 @@ begin
         else
          if (lSrchResult >= 0) and
             (lSrchResult <= f_HighIndex) then
-          begin
+          begin                                                                                                                                  
            Inc(f_InQuickSearch);
            try
             pm_SetCurrent(lSrchResult);

@@ -2887,14 +2887,15 @@ procedure TvcmPopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
   if l_Form is TvcmEntityForm then
   begin
    f_PopupForm := TvcmEntityForm(l_Form);
-   vcmMakeEntitiesMenus(aMenu,
-                        TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
-                        [vcm_ooShowInContextMenu],
-                        True,
-                        vcm_icExternal,
-                        nil,
-                        CheckPopup
-                        );
+   if (f_PopupForm.GetEntitiesDefIterator <> nil) then
+    vcmMakeEntitiesMenus(aMenu,
+                         TvcmEntitiesDefIteratorForContextMenu.Make(f_PopupForm.GetEntitiesDefIterator),
+                         [vcm_ooShowInContextMenu],
+                         True,
+                         vcm_icExternal,
+                         nil,
+                         CheckPopup
+                         );
   end;
  end;
 

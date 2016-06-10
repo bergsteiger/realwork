@@ -596,7 +596,7 @@ function TkwPopReminderIsBaloonVisible.IsBaloonVisible(const aCtx: TtfwContext;
 //#UC END# *550047F201E5_550047F201E5_532973740186_Word_var*
 begin
 //#UC START# *550047F201E5_550047F201E5_532973740186_Word_impl*
- !!! Needs to be implemented !!!
+ Result := ((aReminder.PopupForm <> nil) and aReminder.PopupForm.Visible);
 //#UC END# *550047F201E5_550047F201E5_532973740186_Word_impl*
 end;//TkwPopReminderIsBaloonVisible.IsBaloonVisible
 
@@ -792,7 +792,7 @@ function TkwPopReminderTextBackColor.TextBackColor(const aCtx: TtfwContext;
 //#UC END# *550048F80073_550048F80073_532973740186_Word_var*
 begin
 //#UC START# *550048F80073_550048F80073_532973740186_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aReminder.vgTextRect.Fill.Color;
 //#UC END# *550048F80073_550048F80073_532973740186_Word_impl*
 end;//TkwPopReminderTextBackColor.TextBackColor
 

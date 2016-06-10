@@ -70,6 +70,7 @@ function _CellSelectionByMouse_.GetPoint(const aMap: InevMap): Tl3Point;
 //#UC END# *4C3C927B027E_4E97EE2D00D7_var*
 begin
 //#UC START# *4C3C927B027E_4E97EE2D00D7_impl*
+ Assert(aMap <> nil);
  Result := l3Point(aMap.Bounds.Left + 3 * evEpsilon, aMap.Outer.Bounds.Bottom - 2 * evEpsilon);
 //#UC END# *4C3C927B027E_4E97EE2D00D7_impl*
 end;//_CellSelectionByMouse_.GetPoint

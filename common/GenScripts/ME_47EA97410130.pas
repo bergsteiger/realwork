@@ -1433,6 +1433,7 @@ procedure TevDocumentPreviewPrim.Print(anInterval: TafwPagesInterval = afwTypes.
 var
  l_PagesCount : TafwPagesInfo;
  l_Pages      : TafwPrintPagesArray;
+ l_Copies     : Integer;
 //#UC END# *473D8CAF028B_47EA97410130_var*
 begin
 //#UC START# *473D8CAF028B_47EA97410130_impl*
@@ -1470,13 +1471,14 @@ begin
     {$ENDIF}
      // - печатать нечего
    end;//(aRange = nil) and (f_Counter = nil)
+   l_Copies := Printer.Copies;
    Printer.Copies := Max(1, aCopies);
    Printer.Collate := aCollate;
    try
     DoPrint(nil, l_Pages);
     AfterPrint;
    finally
-    Printer.Copies := 1;
+    Printer.Copies := l_Copies;
     if f_Stopped then TryClose;
    end;//try..finally
   end;//l_PagesCount > 0

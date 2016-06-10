@@ -615,7 +615,7 @@ function TkwPopRemindersLineVisible.Visible(const aCtx: TtfwContext;
 //#UC END# *55005964029E_55005964029E_532322D901A3_Word_var*
 begin
 //#UC START# *55005964029E_55005964029E_532322D901A3_Word_impl*
- !!! Needs to be implemented !!!
+ Result := TvgRemindersLineFriend(aRemindersLine).Form.Visible
 //#UC END# *55005964029E_55005964029E_532322D901A3_Word_impl*
 end;//TkwPopRemindersLineVisible.Visible
 

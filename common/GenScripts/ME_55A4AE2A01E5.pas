@@ -333,6 +333,7 @@ begin
 //#UC START# *55A4BBCC00E5_55A4AE43002D_impl*
  inherited Create;
  f_Items := TvcmFormSetFormHistoryItemList.Create;
+ aContainer.AsForm.SaveState(f_ContainerData, vcm_stContent);
  FillItems(aFormSet, aContainer, f_Items);
  if Supports(aContainer, IvcmContainedForm, l_ContainedForm) then
  try
@@ -406,6 +407,7 @@ begin
  finally
   l_ContainedForm := nil;
  end;//try..finally
+ aContainer.AsForm.LoadState(f_ContainerData, vcm_stContent);
 //#UC END# *55A4A5A90145_55A4AE43002D_impl*
 end;//TvcmBaseFormSetHistoryItem.MakeFormSet
 
@@ -804,15 +806,22 @@ end;//TvcmFormSetHistory.EndOp
 function TvcmFormSetHistory.MakeStepItems(const aContainer: IvcmContainer;
  aForClone: Boolean): IvcmFormSetHistoryStepItems;
 //#UC START# *55E54A7100E5_55A5EB6F0346_var*
+var
+ l_HasNonFormSetForms: Boolean;
+ l_HasAnyFormSet: Boolean;
 //#UC END# *55E54A7100E5_55A5EB6F0346_var*
 begin
 //#UC START# *55E54A7100E5_55A5EB6F0346_impl*
  Assert(aContainer <> nil);
  Result := TvcmFormSetHistoryStepItems.Make;
- if HasNonFormSetForms(aContainer) then
+ l_HasNonformSetForms := HasNonFormSetForms(aContainer);
+ if l_HasNonFormSetForms then
   Result.Add(TvcmLegacyFormSetHistoryItemStep.Make(aContainer, aForClone));
- if HasAnyFormSet(aContainer) then
+ l_HasAnyFormSet := HasAnyFormSet(aContainer);
+ if l_HasAnyFormSet then
   Result.Add(TvcmFormSetHistoryItemStep.Make(aContainer, aForClone));
+ Assert(l_HasNonFormSetForms or l_HasAnyFormSet,
+  'Не должно быть такого чтоб вообще не было форм для сохранения');
 //#UC END# *55E54A7100E5_55A5EB6F0346_impl*
 end;//TvcmFormSetHistory.MakeStepItems
 
@@ -836,7 +845,7 @@ function TvcmFormSetHistory.HasNonFormsetForms(const aContainer: IvcmContainer):
   l_Component: TComponent;
   l_Form: IvcmEntityForm;
  begin
-  Result := (not IsInFormset(aForm)) and (aForm.Aggregate <> nil);
+  Result := (not IsInFormset(aForm));
   if (not Result) then
   begin
    for l_Index := 0 to Pred(aForm.VCLWinControl.ControlCount) do

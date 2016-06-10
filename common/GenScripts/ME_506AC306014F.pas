@@ -713,6 +713,7 @@ function TkwVgControlGetIsChecked.vg_control_GetIsChecked(const aCtx: TtfwContex
 //#UC END# *551D4DB90078_551D4DB90078_4D49562A01B7_Word_var*
 begin
 //#UC START# *551D4DB90078_551D4DB90078_4D49562A01B7_Word_impl*
+ Assert(aVisualObject <> nil);
  Result := (aVisualObject As TvgRadioButton).IsChecked;
 //#UC END# *551D4DB90078_551D4DB90078_4D49562A01B7_Word_impl*
 end;//TkwVgControlGetIsChecked.vg_control_GetIsChecked
@@ -760,6 +761,7 @@ procedure TkwVgControlSetIsChecked.vg_control_SetIsChecked(const aCtx: TtfwConte
 //#UC END# *551D4DC601EC_551D4DC601EC_4D49562A01B7_Word_var*
 begin
 //#UC START# *551D4DC601EC_551D4DC601EC_4D49562A01B7_Word_impl*
+ Assert(aVisualObject <> nil);
  (aVisualObject As TvgRadioButton).IsChecked := aValue;
 //#UC END# *551D4DC601EC_551D4DC601EC_4D49562A01B7_Word_impl*
 end;//TkwVgControlSetIsChecked.vg_control_SetIsChecked

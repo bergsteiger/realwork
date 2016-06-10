@@ -825,7 +825,7 @@ class procedure TkwPopEditorCaretVisible.DoSetValue(aEditor: TevCustomEditorWind
 //#UC END# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_var*
 begin
 //#UC START# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_impl*
- !!! Needs to be implemented !!!
+ aEditor.Selection.Caret.Visible := aValue;
 //#UC END# *55D5F5430178_4829D92A037B_Word_DoSetValue_55D5F5430178_4829D92A037B_Word_impl*
 end;//TkwPopEditorCaretVisible.DoSetValue
 
@@ -836,7 +836,7 @@ function TkwPopEditorCaretVisible.CaretVisible(const aCtx: TtfwContext;
 //#UC END# *55D5F5430178_55D5F5430178_4829D92A037B_Word_var*
 begin
 //#UC START# *55D5F5430178_55D5F5430178_4829D92A037B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aEditor.Selection.Caret.Visible;
 //#UC END# *55D5F5430178_55D5F5430178_4829D92A037B_Word_impl*
 end;//TkwPopEditorCaretVisible.CaretVisible
 
@@ -1072,7 +1072,7 @@ function TkwPopEditorDocumentTailVisible.DocumentTailVisible(const aCtx: TtfwCon
 //#UC END# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_var*
 begin
 //#UC START# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aEditor.View.IsDocumentTailVisible;
 //#UC END# *55D5F7C3030B_55D5F7C3030B_4829D92A037B_Word_impl*
 end;//TkwPopEditorDocumentTailVisible.DocumentTailVisible
 
@@ -1172,7 +1172,7 @@ class procedure TkwPopEditorDrawLines.DoSetValue(aEditor: TevCustomEditorWindow;
 //#UC END# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_var*
 begin
 //#UC START# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_impl*
- !!! Needs to be implemented !!!
+ aEditor.Selection.DrawLines := aValue;
 //#UC END# *55D5FECF025D_4829D92A037B_Word_DoSetValue_55D5FECF025D_4829D92A037B_Word_impl*
 end;//TkwPopEditorDrawLines.DoSetValue
 
@@ -1183,7 +1183,7 @@ function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
 //#UC END# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_var*
 begin
 //#UC START# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aEditor.Selection.DrawLines;
 //#UC END# *55D5FECF025D_55D5FECF025D_4829D92A037B_Word_impl*
 end;//TkwPopEditorDrawLines.DrawLines
 
