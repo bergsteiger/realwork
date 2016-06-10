@@ -58,7 +58,7 @@ type
     var aActFlag: Byte);
    function Get_PriorityCalculator: IdaPriorityCalculator;
    function IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
-    aUserID: TdaUserID): Boolean;
+    aUserID: TdaUserID = 0): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -378,7 +378,7 @@ begin
 end;//TcaUserManager.IterateUserGroupsF
 
 function TcaUserManager.IsMemberOfGroup(const aUserGroupID: TdaUserGroupID;
- aUserID: TdaUserID): Boolean;
+ aUserID: TdaUserID = 0): Boolean;
 //#UC START# *575A8B790353_56C428E4014A_var*
 //#UC END# *575A8B790353_56C428E4014A_var*
 begin

@@ -250,6 +250,8 @@ const
   ccTreeCollapse           = 92;
 
   ccLastCmd                = 92; {***} {last interfaced command}
+  ccMoveLeftInt            = ccLastCmd + 1;
+  ccMoveRightInt           = ccLastCmd + 2;
 
   {internal}
   ccChar                   = 249; {regular character; generated internally}
@@ -274,8 +276,7 @@ const
   ccUser8                  = ccUserFirst + 8;
   ccUser9                  = ccUserFirst + 9;
   {...                     = ccUserFirst + 65535 - ccUserFirst}
-
-
+  
 {data type base offset}
 const
   DataTypeOfs              =  BaseOffset + 1300; {***}
