@@ -44,6 +44,7 @@ uses
  , TestFrameWork
  , tfwScriptEngine
  //#UC START# *4DB03B1B0055impl_uses*
+ , nsUtils
  //#UC END# *4DB03B1B0055impl_uses*
 ;
 

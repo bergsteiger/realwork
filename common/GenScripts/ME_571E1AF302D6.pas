@@ -29,6 +29,8 @@ uses
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571E1AF302D6impl_uses*
+ , StdRes
+ , vcmBase
  //#UC END# *571E1AF302D6impl_uses*
 ;
 
@@ -73,10 +75,34 @@ end;//TkwFiltersList.DoDoIt
 
 procedure TkwPermanentFilterExists.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2B1460348_var*
+var
+ l_Filters: IFiltersFromQuery;
+ l_Filter: IFilterFromQuery;
+ l_Result: Boolean;
+ I: Integer;
 //#UC END# *4DAEEDE10285_53B2B1460348_var*
 begin
 //#UC START# *4DAEEDE10285_53B2B1460348_impl*
- !!! Needs to be implemented !!!
+ l_Result := False;
+ l_Filters := GetFilters;
+ try
+  for I := l_Filters.Count - 1 downto 0 do
+  begin
+   l_Filters.pm_GetItem(I, l_Filter);
+   try
+    if l_Filter.GetPermanent then
+    begin
+     l_Result := True;
+     Break;
+    end;
+   finally
+    l_Filter := nil;
+   end; 
+  end;
+ finally
+  l_Filters := nil;
+ end;
+ aCtx.rEngine.PushBool(l_Result);
 //#UC END# *4DAEEDE10285_53B2B1460348_impl*
 end;//TkwPermanentFilterExists.DoDoIt
 
@@ -85,7 +111,7 @@ function TkwIsLegalPermanentFilterExists.GetFilters: IFiltersFromQuery;
 //#UC END# *53B2B2C800D6_53B2B2950270_var*
 begin
 //#UC START# *53B2B2C800D6_53B2B2950270_impl*
- !!! Needs to be implemented !!!
+ DefDataAdapter.NativeAdapter.MakeFiltersManager.GetLegalFilters(Result);
 //#UC END# *53B2B2C800D6_53B2B2950270_impl*
 end;//TkwIsLegalPermanentFilterExists.GetFilters
 
@@ -99,7 +125,7 @@ function TkwIsPharmPermanentFilterExists.GetFilters: IFiltersFromQuery;
 //#UC END# *53B2B2C800D6_53B2B2730077_var*
 begin
 //#UC START# *53B2B2C800D6_53B2B2730077_impl*
- !!! Needs to be implemented !!!
+ DefDataAdapter.NativeAdapter.MakeFiltersManager.GetPharmFilters(Result);
 //#UC END# *53B2B2C800D6_53B2B2730077_impl*
 end;//TkwIsPharmPermanentFilterExists.GetFilters
 

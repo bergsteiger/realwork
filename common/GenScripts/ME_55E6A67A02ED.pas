@@ -419,7 +419,7 @@ begin
  else
   Assert(False);
  end;
- aXML.OpenLevel('data', Format('version="%d" region="%d" dict="%s" operation="%s"', [cMdpSourceSyncVersion,
+ aXML.OpenLevel('data', Format('version="%d" region="%d" dict="%s" operation="%s"', [cMdpSyncVersion,
     GlobalDataProvider.RegionID, l_DictName, c_mssOperationStr[aOperation]]));
 //#UC END# *560507F403A2_55E6A67A02ED_impl*
 end;//TalcuDictChangeMDPSynchronizator.XMLGenerateRoot

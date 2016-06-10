@@ -1640,7 +1640,7 @@ function TPrimBaseSearchForm.DoGetNeedSaveToTabHistory: Boolean;
 //#UC END# *55B9F0BD0069_4AB791130260_var*
 begin
 //#UC START# *55B9F0BD0069_4AB791130260_impl*
- Result := {not MainMenuLikeBaseSearch}True;
+ Result := False; // Не сохраняем в историю никогда
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 end;//TPrimBaseSearchForm.DoGetNeedSaveToTabHistory
 

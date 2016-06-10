@@ -1078,6 +1078,7 @@ begin
     ParentFont := False;
     ParentShowHint := False;
     ShowHint := True;
+    InitPanels;
   end;//with StatusBar
  RequestAlign; 
 //#UC END# *4A8E8F2E0195_4F6B382E00D9_impl*

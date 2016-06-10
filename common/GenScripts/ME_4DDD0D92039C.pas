@@ -320,7 +320,9 @@ begin
  Result := k2_typDocument.MakeTag;
  try
   l_D := Result.AsObject;
-  l_D.IntA[k2_tiExternalHandle] := f_DocumentInfo.Doc.GetInternalId;
+  l_D.IntA[k2_tiExternalHandle] := f_DocumentInfo.Doc.GetInternalId + 100000;
+  // Îãà. Ãû-ãû.
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=570118754&focusedCommentId=620262032&#comment-620262032
   f_DiffProvider.GetHeaderParaList(l_L);
   try
    AddListToCont(l_D, l_L, [f1_saChanges1, ev_saTxtHeader1, f1_saChanges1, f1_saChanges2]);

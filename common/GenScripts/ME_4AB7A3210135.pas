@@ -717,7 +717,7 @@ begin
   ScrollStyle := ssNone;
   OnGetHotSpotInfo := CardTextLabelGetHotSpotInfo;
   OnMouseAction := CardTextLabelMouseAction;
-  TextSource.OnGetControlItemImg := CardTextLabelTextSourceTnscSimpleEditorCardTextLabelGetControlItemImg;
+  TextSource.OnGetControlItemImg := CardTextLabelTextSourceTnscSimpleEditor_CardTextLabelGetControlItemImg;
   DisableMouseWheelProcessing := True;
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=294584542
   OnResize := CardTextLabelResize;

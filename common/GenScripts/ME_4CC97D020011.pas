@@ -95,8 +95,9 @@ var l_Processor: InsBaseSearchQueryDataProcessor;
 begin
 //#UC START# *4AB7881B00EA_4CC97D020011_impl*
  l_Container := CheckContainer(nil).NativeMainForm;
- if Supports(l_Container, InsBaseSearchWindowOpener, l_Opener) then
-  l_Opener.OpenWindow(OpenKind);
+
+ TnsBaseSearchService.Instance.OpenBaseSearch(l_Container, OpenKind);
+
  if (aQuery <> nil) and
     Supports(l_Container, InsBaseSearchQueryDataProcessor, l_Processor) then
   l_Processor.SetDataFromQuery(aQuery);

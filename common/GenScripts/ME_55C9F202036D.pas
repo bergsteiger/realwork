@@ -258,7 +258,7 @@ function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
 //#UC END# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_var*
 begin
 //#UC START# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aTest.GetSubFolder;
 //#UC END# *55C9F29F0029_55C9F29F0029_4B2F420202F4_Word_impl*
 end;//TkwPopTestSubFolder.SubFolder
 

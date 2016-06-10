@@ -39,10 +39,18 @@ end;//TkwClearConfig.GetWordNameForRegister
 
 procedure TkwClearConfig.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_56A09E250064_var*
+var
+ l_DirName  : AnsiString;
+ l_FileName : AnsiString;
 //#UC END# *4DAEEDE10285_56A09E250064_var*
 begin
 //#UC START# *4DAEEDE10285_56A09E250064_impl*
-
+ inherited;
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано директория для базы!', aCtx);
+ l_DirName := aCtx.rEngine.PopDelphiString;
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя архива с базой!', aCtx);
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(aCtx.rEngine.PopDelphiString);
+ AcClearConfig(l_FileName, l_DirName);
 //#UC END# *4DAEEDE10285_56A09E250064_impl*
 end;//TkwClearConfig.DoDoIt
 
