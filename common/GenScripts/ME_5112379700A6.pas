@@ -58,9 +58,12 @@ procedure TevRowAndTableTypeSupport.AnalizeTableStyle;
 begin
 //#UC START# *5076B24B0038_5112379700A6_impl*
  case f_CurrentRowType of
-  ed_NumericCels: f_TableStyle := ed_tsWithHeader;
-  ev_FormCells: f_TableStyle := ed_tsForm;
-  ed_ChessTableRow: f_TableStyle := ed_tsChessTable;
+  ed_rtNumericCels:
+   f_TableStyle := ed_tsWithHeader;
+  ev_rtFormCells:
+   f_TableStyle := ed_tsForm;
+  ed_rtChessTableRow:
+   f_TableStyle := ed_tsChessTable;
  end; // case f_CurrentRowType of
 //#UC END# *5076B24B0038_5112379700A6_impl*
 end;//TevRowAndTableTypeSupport.AnalizeTableStyle
@@ -90,10 +93,10 @@ procedure TevRowAndTableTypeSupport.CheckRowType(const aRow: IedRow);
 //#UC END# *5152CEDE0255_5112379700A6_var*
 begin
 //#UC START# *5152CEDE0255_5112379700A6_impl*
- if f_CurrentRowType = ed_NumericCels then
+ if f_CurrentRowType = ed_rtNumericCels then
  begin
   if aRow.CellsIterator.CellsCount <> GetCellsCountInPreviousRow then
-   f_CurrentRowType := ed_SimpleWithoutEmpty;
+   f_CurrentRowType := ed_rtSimpleWithoutEmpty;
  end; // if f_CurrentRowType = ed_NumericCels then
 //#UC END# *5152CEDE0255_5112379700A6_impl*
 end;//TevRowAndTableTypeSupport.CheckRowType

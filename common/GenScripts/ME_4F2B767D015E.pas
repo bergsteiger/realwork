@@ -221,7 +221,7 @@ begin
  begin
   Result := True;
   CopyFromSuitableList(l_FindList, l_FoundType);
-  if CurrentRowType = ed_NumericCels then
+  if CurrentRowType = ed_rtNumericCels then
    f_NumbericData := f_CellsOffsetPairList.Last;
  end; // if l_FindList <> nil then
  if not l_WasTemlate and FoundPriorityTemplate and f_WasNotEqualRows then // Значит - пора выравнивать предыдущие...
@@ -369,7 +369,7 @@ begin
  aFoundType := ev_fstNone;
  if not FoundPriorityTemplate then
  begin
-  if CurrentRowType = ed_NumericCels then
+  if CurrentRowType = ed_rtNumericCels then
   begin
    Result := f_CellsOffsetPairList.Last;
    aFoundType := ev_fstTemplate; // Строку с номерами ячеек лучше выровнять по предыдущей
@@ -383,7 +383,7 @@ begin
      aFoundType := ev_fstInList;
     end // if (CurrentRowType in edSingleCell) and (GetPrevRowType in edAllowCellInHeadRow) then
     else
-     if (GetPrevRowType = ed_HasMergedCell) and (CurrentRowType = ed_SimpleCells) then
+     if (GetPrevRowType = ed_rtHasMergedCell) and (CurrentRowType = ed_rtSimpleCells) then
      begin
       f_PriorityTemplateRow := f_CellsOffsetPairList.Last;
       aFoundType := ev_fstTemplate;
@@ -446,7 +446,7 @@ var
   // Анализируем случай, когда таблица сложная - фактически две или более таблиц в одной...
   l_StartIndex := l_RecalcCount;
   for i := l_RecalcCount downto 0 do
-   if (f_CellsOffsetPairList[i].RowType in [ed_NumericCels, ed_SingleCell, ed_PsevdoSingleCells, ev_FormCells, ed_SimpleEmptyCells]) then
+   if (f_CellsOffsetPairList[i].RowType in [ed_rtNumericCels, ed_rtSingleCell, ed_rtPsevdoSingleCells, ev_rtFormCells, ed_rtSimpleEmptyCells]) then
     Break;
   l_StartIndex := i + 1;
   if l_StartIndex > 0 then

@@ -538,7 +538,7 @@ var
 begin
 //#UC START# *5530AB81002B_47F1F3BC0330_impl*
  Result := 0;
- l_Style := aPara.Owner.Attr[k2_tiStyle];
+ l_Style := evCheckParaOwner(aPara).Attr[k2_tiStyle];
  if l_Style.IsValid then
   Result := l_Style.IntA[k2_tiLeftIndent];
 //#UC END# *5530AB81002B_47F1F3BC0330_impl*
@@ -554,14 +554,14 @@ var
 //#UC END# *5530BEFD0336_47F1F3BC0330_var*
 begin
 //#UC START# *5530BEFD0336_47F1F3BC0330_impl*
- l_Block := aTextPara.OwnerPara;
+ l_Block := evCheckParaOwner(aTextPara);
  l_Collapsed := not aView.IsObjectCollapsed[l_Block];
- if EvExpandedText(l_Block.AsObject) then
+ if evExpandedText(l_Block.AsObject) then
  begin
   aView.IsObjectCollapsed[l_Block] := l_Collapsed;
   if Supports(aView.Control, IevSubCache, l_SubCache) then
    l_SubCache.ClearSubs;
- end;
+ end; // if EvExpandedText(l_Block.AsObject) then
  Result := true;
 //#UC END# *5530BEFD0336_47F1F3BC0330_impl*
 end;//evExpandOrCollapse
@@ -575,19 +575,37 @@ var
 //#UC END# *55B785E003CD_47F1F3BC0330_var*
 begin
 //#UC START# *55B785E003CD_47F1F3BC0330_impl*
- l_Block := aTextPara.OwnerPara;
+ l_Block :=evCheckParaOwner(aTextPara);
  Result := aView.IsObjectCollapsed[l_Block];
 //#UC END# *55B785E003CD_47F1F3BC0330_impl*
 end;//evBlockCollapsed
 
 function evHeaderTextPara(const aPara: InevObjectPrim): Boolean;
 //#UC START# *552FA1280185_47F1F3BC0330_var*
+
+ function lp_CheckChildren(const aPara: InevObjectPrim): Boolean;
+ var
+  l_Index: Integer;
+  l_Child: Tl3Variant;
+ begin
+  Result := False;
+  for l_Index := 0 to aPara.ChildrenCount - 1 do
+  begin
+   l_Child := aPara.Child[l_Index];
+   if l_Child.IsKindOf(k2_typLeafPara) and not l_Child.IsKindOf(k2_typDecorTextPara) then
+   begin
+    Result := True;
+    Break;
+   end;//not l_Child.IsKindOf(k2_typDecorTextPara)
+  end;//for l_Index
+ end;
+
 var
  l_Parent : Tl3Variant;
 //#UC END# *552FA1280185_47F1F3BC0330_var*
 begin
 //#UC START# *552FA1280185_47F1F3BC0330_impl*
- l_Parent := aPara.Owner;
+ l_Parent := evCheckParaOwner(aPara.AsObject);
  Result := l_Parent.IsValid and l_Parent.IsKindOf(k2_typBlock) and not l_Parent.IsKindOf(k2_typDocument) and EvExpandedText(l_Parent);
  if Result then
   if aPara.IsKindOf(k2_typLeafPara) then
@@ -600,7 +618,10 @@ begin
      Result := aPara.Owner.Child[0].IsKindOf(k2_typDecorTextPara);
    end
   else
-   Result := (aPara.PID = 0)
+   if aPara.IsKindOf(k2_typLeafParaDecorationsHolder) then
+    Result := lp_CheckChildren(aPara)
+   else
+    Result := (aPara.PID = 0)
 //#UC END# *552FA1280185_47F1F3BC0330_impl*
 end;//evHeaderTextPara
 
@@ -608,18 +629,18 @@ procedure evExpandOwnerStyleBlocks(const aPara: InevObject;
  const aView: InevControlView);
 //#UC START# *55F7F2C60135_47F1F3BC0330_var*
 var
-  l_OwnerPara: InevObjectList;
+ l_OwnerPara: InevPara;
 //#UC END# *55F7F2C60135_47F1F3BC0330_var*
 begin
 //#UC START# *55F7F2C60135_47F1F3BC0330_impl*
  if aPara.IsKindOf(k2_typLeafPara) then
  begin
-  l_OwnerPara := aPara.OwnerObj;
+  l_OwnerPara := evCheckParaOwner(aPara.AsPara);
   while (l_OwnerPara <> nil) and l_OwnerPara.IsValid do
   begin
    if EvExpandedText(l_OwnerPara.AsObject) and aView.IsObjectCollapsed[l_OwnerPara] then
     aView.IsObjectCollapsed[l_OwnerPara] := False;
-   l_OwnerPara := l_OwnerPara.OwnerObj;
+   l_OwnerPara := evCheckParaOwner(l_OwnerPara);
   end; //while (l_Owner <> nil) do
  end // if aPara.IsKindOf(k2_typLeafPara) then
  else
@@ -653,10 +674,23 @@ function evInBlock(anAtom: Tl3Variant;
  aViewKind: TevBlockViewKind;
  out theParent: Tl3Variant): Boolean;
 //#UC START# *5715E58F019A_47F1F3BC0330_var*
+var
+ l_Parent : Tl3Variant;
 //#UC END# *5715E58F019A_47F1F3BC0330_var*
 begin
 //#UC START# *5715E58F019A_47F1F3BC0330_impl*
- !!! Needs to be implemented !!!
+ Result := false;
+ l_Parent := anAtom.AsObject;
+ while (l_Parent <> nil) AND l_Parent.IsValid do
+ begin
+  if l_Parent.IsKindOf(k2_typBlock) and (l_Parent.IntA[k2_tiViewKind] = Ord(aViewKind)) then
+  begin
+   theParent := l_Parent;
+   Result := True;
+   Break;
+  end;//l_Parent.IhneritsFrom(aTypeID)
+  l_Parent := l_Parent.Owner;
+ end;//while l_Parent.IsValid
 //#UC END# *5715E58F019A_47F1F3BC0330_impl*
 end;//evInBlock
 
@@ -665,7 +699,9 @@ function evCheckParaOwner(aPara: Tl3Variant): Tl3Variant;
 //#UC END# *57187A09034A_47F1F3BC0330_var*
 begin
 //#UC START# *57187A09034A_47F1F3BC0330_impl*
- !!! Needs to be implemented !!!
+ Result := aPara.Owner;
+ if Result.IsKindOf(k2_typLeafParaDecorationsHolder) then
+  Result := Result.Owner;
 //#UC END# *57187A09034A_47F1F3BC0330_impl*
 end;//evCheckParaOwner
 
@@ -674,7 +710,9 @@ function evCheckParaOwner(const aPara: InevPara): InevPara;
 //#UC END# *57187A510399_47F1F3BC0330_var*
 begin
 //#UC START# *57187A510399_47F1F3BC0330_impl*
- !!! Needs to be implemented !!!
+ Result := aPara.OwnerPara;
+ if Result.IsKindOf(k2_typLeafParaDecorationsHolder) then
+  Result := Result.OwnerPara;
 //#UC END# *57187A510399_47F1F3BC0330_impl*
 end;//evCheckParaOwner
 

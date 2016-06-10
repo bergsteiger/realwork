@@ -436,7 +436,7 @@ begin
 //#UC START# *52F1ED3803C8_4F2F6CA40273_impl*
  l_Delta := f_Offsets[anIndex] - anOffset;
  for i := anIndex - 1 downto 0 do
-  if aCellTypeList[i] = ed_EmptyAndNotFramed then
+  if aCellTypeList[i] = ed_ctEmptyAndNotFramed then
   begin
    f_Widths[i] := f_Widths[i] - l_Delta;
    f_Offsets[i + 1] := f_Offsets[i] + f_Widths[i];

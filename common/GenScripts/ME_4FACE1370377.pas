@@ -774,7 +774,7 @@ begin
       lp_DeleteCell(i + 1);
       if (l_Width < ddGetMinimalCellWidth) then
        if (((i + 1) < l_Count) and (Cells[i + 2].IsCellEmpty)) or lp_OneLetter(l_Cell) or (l_Width = 0) then
-       Continue;
+        Continue;
      end // if (i < l_Count) and CellWidth[i + 1].IsCellEmtpy then
      else
       l_Width := ddGetMinimalCellWidth;
@@ -809,6 +809,7 @@ begin
  FreeAndNil(f_CellList);
  FreeAndNil(f_TAP);
  f_CellPropsCompleate := False;
+ f_CurColumn := -1;
  inherited;
 //#UC END# *479731C50290_4FACE1370377_impl*
 end;//TddTableRow.Cleanup
@@ -842,6 +843,7 @@ procedure TddTableRow.Clear;
 begin
 //#UC START# *518A48F500CF_4FACE1370377_impl*
  inherited;
+ f_CurColumn := -1;
  f_HasMerged := False;
  f_TAP.Clear;
  ClearCellProps;
@@ -873,6 +875,7 @@ begin
  f_TAP:= TddRowProperty.Create;
  f_RTFLikeWidth := False;
  f_CellProps := TddCellsPropertyList.Make;
+ f_CurColumn := -1;
 //#UC END# *51E91BA80051_4FACE1370377_impl*
 end;//TddTableRow.Create
 

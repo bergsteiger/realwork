@@ -253,7 +253,7 @@ begin
 //#UC START# *502205480080_4A3919200142_impl*
  if (anAtom = -k2_typSegment.ID) then
  begin
-  EvSegmentAssignSegment(aSegment, aValue, aContext);
+  EvSegment_AssignSegment(aSegment, aValue, aContext);
  end//anAtom = -k2_idSegment
  else
   with aSegment do

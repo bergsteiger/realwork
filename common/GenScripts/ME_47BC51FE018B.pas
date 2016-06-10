@@ -113,6 +113,8 @@ type
  TStageType = (
  );//TStageType
 
+ TUserGrID = ;
+
 implementation
 
 uses

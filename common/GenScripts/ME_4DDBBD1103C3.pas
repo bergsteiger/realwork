@@ -165,6 +165,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4DDBBD1103C3impl_uses*
+ , SysUtils
  //#UC END# *4DDBBD1103C3impl_uses*
 ;
 

@@ -767,7 +767,10 @@ begin
    else
    if LastAtom.IsTable then
    begin
-    Try2AddTable(aState.PAP.itap);
+    if l_Prop = nil then
+     Try2AddTable(1)
+    else 
+     Try2AddTable(aState.PAP.itap);
     LastTable(True).AddPicture(aPicture, l_Prop, anAssign2Last);
    end // if LastAtom.IsTable then
    else
@@ -794,20 +797,6 @@ procedure TdestNorm.Append(aState: TddRTFState;
 //#UC START# *51E8D8250134_51D278280093_var*
 
  procedure lp_AddTextPara(const aPara: TddTextParagraph);
-
-  procedure lp_Try2AddSegmentWithURL;
-  var
-   l_Start       : Integer;
-   l_AddHyperlink: Boolean;
-  begin
-   l_AddHyperlink := (aPara.SegmentCount = 1) and aPara.Segments[0].IsHyperlink and not aPara.Segments[0].URL.Empty;
-   if l_AddHyperlink then
-    l_Start := LastParagraph.Text.Len + 1;
-   LastParagraph.AddText(aPara.Text);
-   if l_AddHyperlink then
-    LastParagraph.AddHyperlinkWithURL(l_Start, aPara.Segments[0].URL.AsString);
-  end;
-
  var
   l_NewPara : TddTextParagraph;
  begin
@@ -827,7 +816,10 @@ procedure TdestNorm.Append(aState: TddRTFState;
     else
     begin
      LastParagraph.AddSegment(aPara.CHP, nil, False);
-     lp_Try2AddSegmentWithURL;
+     if f_CustomRTFReader.ReadURL then 
+      LastParagraph.JoinWith(aPara)
+     else
+      LastParagraph.AddText(aPara.Text);
      if aPara.Closed then
       CloseTextPara(aState.PAP, LastParagraph);
     end;
@@ -1404,60 +1396,13 @@ end;//TdestNorm.SimpleAddShape
 
 function TdestNorm.AddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
 //#UC START# *55C4754B00B7_51D278280093_var*
-
- procedure lp_AddShape;
-
-  function lp_ClearUndef(aValue: Integer): Integer;
-  begin
-   if aValue = propUndefined then
-    Result := 0
-   else
-    Result := aValue;
-  end;
-  
- var
-  l_Shape: TddRTFShape;
- begin
-  l_Shape := TddRTFShape.Create(Self);
-  try
-   l_Shape.Left := aPAP.PosX;
-   l_Shape.Top := aPAP.PosY;
-   l_Shape.Right := l_Shape.Left + lp_ClearUndef(aPAP.AbsW);
-   l_Shape.Bottom := l_Shape.Top + lp_ClearUndef(aPAP.AbsH);
-   Result := l_Shape.AddTextPara;
-   f_LastShape := l_Shape;
-   SimpleAddShape(l_Shape);
-  finally
-   FreeAndNil(l_Shape);
-  end;
- end;
-
-var
- l_Shape   : TddRTFShape;
- l_LastAtom: TddDocumentAtom;
 //#UC END# *55C4754B00B7_51D278280093_var*
 begin
 //#UC START# *55C4754B00B7_51D278280093_impl*
  if InTable(aPAP) or (aPAP.PosY = propUndefined) or (aPAP.PosX = propUndefined) then
   Result := InternalAddTextPara(aPAP)
  else
-  begin
-   l_LastAtom := f_LastShape;
-   if (l_LastAtom = nil) or not (l_LastAtom is TddRTFShape) then
-    lp_AddShape
-   else
-    begin
-     l_Shape := l_LastAtom as TddRTFShape;
-     if l_Shape.Closed or (l_Shape.Left <> aPAP.PosX) or (l_Shape.Top <> aPAP.PosY) then
-      lp_AddShape
-     else
-     begin
-      Result := l_Shape.LastPara;
-      if (Result = nil) or Result.Closed then
-       Result := l_Shape.AddTextPara;
-     end;
-    end;
-  end;
+  Result := Try2AddShapeWithTextPara(aPAP);
 //#UC END# *55C4754B00B7_51D278280093_impl*
 end;//TdestNorm.AddTextPara
 
@@ -2116,6 +2061,7 @@ begin
   Try2AddTable(aState.PAP.itap)
  else
   lp_CheckStartedPicture;
+ BeforeWriteBuffer(aText, aState);
  l_Para := GetLastTextParaOrCreateNew(aState.PAP, l_NewPara);
  if l_NewPara then
   lp_TryMergeWithPicture;

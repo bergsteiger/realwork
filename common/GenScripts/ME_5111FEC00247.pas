@@ -216,6 +216,7 @@ begin
  f_IsPercent:= aCellProperty.IsPercent;
  f_CellSpan := aCellProperty.CellSpan;
  f_RowSpan := aCellProperty.RowSpan;
+ f_OffsetType := aCellProperty.OffsetType;
 //#UC END# *52CFA04E02A8_5111FEC00247_impl*
 end;//TddCellProperty.Assign
 
@@ -305,6 +306,7 @@ begin
  f_IsPercent:= False;
  f_CellSpan:= 1;
  f_RowSpan := 1;
+ f_OffsetType := dd_otNone;
 //#UC END# *518A13330058_5111FEC00247_impl*
 end;//TddCellProperty.Clear
 
