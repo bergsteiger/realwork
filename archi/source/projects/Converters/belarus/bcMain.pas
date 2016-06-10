@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, ToolEdit, evdSchema,
-  ComCtrls, ExtCtrls, l3Types, l3Interfaces, bcReader;
+  ComCtrls, ExtCtrls, l3Types, l3Interfaces, bcInterfaces;
 
 type
   TMainForm = class(TForm)
@@ -22,22 +22,20 @@ type
     cbAppendResult: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure btnDoThingsClick(Sender: TObject);
-    
   private
-    f_CurTopic: Il3CString;
+    f_CountProvider: IbcTopicCounterProvider;
     f_DidStartUp: Boolean;
     f_LastUpdated: Cardinal;
     f_TopicCount: Cardinal;
-    f_Reader: TbcReader;
+    //f_Reader: TbcReader;
     f_RunFromCmdLine: Boolean;
     procedure DoOnIdle(Sender: TObject; var Done: Boolean);
-    procedure CurTopicHandler(const aTopic: Il3CString);
-    procedure DoJob;
+    procedure ConvertRegular;
+    // procedure ProcessDir(const aInDir, aOutDir: AnsiString; aDoAdd: Boolean);
     procedure InitDB;
     procedure DoneDB;
     procedure DoProgress(aState: Byte; aValue: Long; const aMsg : AnsiString = '');
     procedure DoPerFileProgress(aState: Byte; aValue: Long; const aMsg : AnsiString = '');
-    procedure ErrorHandler(const aMsg: AnsiString; aLevel: Integer = 0);
     procedure ReadParams;
     procedure ShowError(const aMsg: AnsiString);
     procedure UpdateTopicCounter;
@@ -52,72 +50,22 @@ var
 implementation
 uses
  l3Base,
+ l3IniFile,
  l3FileUtils,
  l3Filer,
- l3IniFile,
- l3String,
- l3LongintList,
- l3LongintListPrim,
- k2FileGenerator,
- k2TagGen,
- evdWriter,
- evNestedDocumentEliminator,
- evSimpleTextPainter,
 
  HT_Const,
  Ht_DLL,
  DT_Err,
 
- ddFileIterator,
- ddNSRC_w,
- ddUtils,
  ddCmdLineUtils,
  ddCmdLineDlg,
 
- bcInterfaces,
- bcTopicDispatcher,
- bcLinksFilter,
- bcBitmapHandleFilter,
- bcAngleBracketsFilter,
- bcCutLongParaFilter,
- bcCmdLine
- ;
+ bcProcessor,
+ bcCmdLine,
+ bcTopicDispatcher;
 
 {$R *.dfm}
-
-procedure LoadListFromFile(const aFN: AnsiString; const aList: Tl3LongintList);
-var
- l_Filer: Tl3DOSFiler;
- l_Topic: Integer;
-begin
- l_Filer := Tl3DOSFiler.Make(aFN);
- try
-  l_Filer.Open;
-  while not l_Filer.EOF do
-  begin
-   l_Topic := l3StrToIntDef(l3Trim(l_Filer.ReadLn), 0);
-   if l_Topic > 0 then
-    aList.Add(l_Topic);
-  end;
- finally
-  FreeAndNil(l_Filer);
- end;
-end;
-
-procedure SaveListToFile(const aFN: AnsiString; const aList: Tl3LongintList);
-var
- I: Integer;
- l_Filer: Tl3DOSFiler;
-begin
- l_Filer := Tl3DOSFiler.Make(aFN, l3_fmWrite);
- try
-  l_Filer.Open;
-  for I := 0 to aList.Hi do
-   l_Filer.WriteLn(IntToStr(aList.Items[I]));
- finally
-  FreeAndNil(l_Filer);
- end;
-end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
@@ -126,16 +74,80 @@ end;
 
 procedure TMainForm.btnDoThingsClick(Sender: TObject);
 begin
- DoJob;
+ ConvertRegular;
 end;
 
-procedure TMainForm.CurTopicHandler(const aTopic: Il3CString);
+procedure TMainForm.ConvertRegular;
+var
+ l_Format: TbcOutFormat;
+ l_OutDir: AnsiString;
+ l_SourceDir: AnsiString;
+ l_Ph1: TbcPhaseOneConverter;
+ l_SettingsPath: AnsiString;
+ l_TD: IbcTopicDispatcher;
+ l_TDPath: AnsiString;
+ l_TempDir: AnsiString;
 begin
- // l3System.Msg2Log('# %s', [l3Str(aTopic)]);
- f_CurTopic := aTopic;
+ btnDoThings.Enabled := False;
+ try
+  l_SourceDir := deSource.Text;
+  if not DirectoryExists(l_SourceDir) then
+  begin
+   ShowError('Исходная папка указана неверно!');
+   Exit;
+  end;
+ 
+  l_OutDir := deResult.Text;
+  ForceDirectories(l_OutDir);
+  if not DirectoryExists(l_OutDir) then
+  begin
+   ShowError('Папка для результата указана неверно!');
+   Exit;
+  end;
+  WriteParams;
+
+  InitDB;
+  try
+   l_TDPath := ExtractFilePath(ParamStr(0)) + cTDTableName;
+   l_TD := TbcTopicDispatcher.Make(l_TDPath);
+   l_SettingsPath := ExtractFilePath(ParamStr(0)) + cConfigFileName;
+
+   l_TempDir := ExtractFilePath(ParamStr(0)) + '$TEMP';
+   ForceDirectories(l_TempDir);
+   PureDir(l_TempDir);
+   ForceDirectories(l_OutDir);
+   PureDir(l_OutDir);
+   try
+    l_Ph1 := TbcPhaseOneConverter.Create(l_TD, l_SettingsPath);
+    try
+     l_Ph1.FileProgressProc  := DoPerFileProgress;
+     l_Ph1.TotalProgressProc := DoProgress;
+     l_Ph1.ErrorFolder := ConcatDirName(l_OutDir, '_errors');
+     f_CountProvider := l_Ph1;
+     l_Ph1.Process(l_SourceDir, l_TempDir, False);
+    finally
+     f_CountProvider := nil;
+     FreeAndNil(l_Ph1);
+    end;
+    case rgFormat.ItemIndex of
+     0: l_Format := bcoEVD;
+     1: l_Format := bcoNSRC;
+    end;
+    BCPhaseTwoProcess(l_TempDir, l_OutDir, l_Format, l_TD, nil, DoProgress, DoPerFileProgress);
+   finally
+    DelDir(l_TempDir);
+   end;
+  finally
+   l_TD := nil;
+   DoneDB;
+  end;
+ finally
+  btnDoThings.Enabled := True;
+ end;
 end;
 
-procedure TMainForm.DoJob;
+(*
+procedure TMainForm.ProcessDir(const aInDir, aOutDir: AnsiString; aDoAdd: Boolean);
 var
  I: Integer;
  l_Gen: Tk2TagGenerator;
@@ -246,9 +258,9 @@ begin
    try
     l_TDPath := ExtractFilePath(ParamStr(0)) + 'BELCONTD';
     l_TD := TbcTopicDispatcher.Make(l_TDPath);
- 
+
     l_SettingsPath := ExtractFilePath(ParamStr(0)) + 'belacon.dat';
- 
+
     l_Gen := nil;
     try
      case rgFormat.ItemIndex of
@@ -297,6 +309,7 @@ begin
   FreeAndNil(l_ExistTopics);
  end;
 end;
+*)
 
 procedure TMainForm.DoneDB;
 begin
@@ -349,11 +362,6 @@ begin
  end;
 end;
 
-procedure TMainForm.ErrorHandler(const aMsg: AnsiString; aLevel: Integer = 0);
-begin
- l3System.Msg2Log('Топик %s : %s', [l3Str(f_CurTopic), aMsg]);
-end;
-
 procedure TMainForm.DoOnIdle(Sender: TObject; var Done: Boolean);
 var
  l_Cmd: TbcCmdLine;
@@ -380,12 +388,12 @@ begin
     begin
      deSource.Text := l_Cmd.InFolder;
      deResult.Text := l_Cmd.OutFolder;
-     cbAppendResult.Checked := l_Cmd.Add;
+     //cbAppendResult.Checked := l_Cmd.Add;
      if (l_Cmd.Format = 'E') or (l_Cmd.Format = 'e') then
       rgFormat.ItemIndex := 0
      else
       rgFormat.ItemIndex := 1;
-     DoJob;
+     ConvertRegular;
     end;
    end;
   finally
@@ -444,7 +452,7 @@ begin
   deSource.Text := l_Ini.ReadParamStrDef('Path', '');
   deResult.Text := l_Ini.ReadParamStrDef('ResultPath', '');
   rgFormat.ItemIndex := l_Ini.ReadParamIntDef('Format', 0);
-  cbAppendResult.Checked := l_Ini.ReadParamBoolDef('AppendResult', False);
+  //cbAppendResult.Checked := l_Ini.ReadParamBoolDef('AppendResult', False);
  finally
   FreeAndNil(l_Ini);
  end;
@@ -463,8 +471,8 @@ end;
 
 procedure TMainForm.UpdateTopicCounter;
 begin
- if f_Reader <> nil then
-  lblCount.Caption := Format('Получено документов: %d', [f_Reader.TopicCount]);
+ if f_CountProvider <> nil then
+  lblCount.Caption := Format('Получено документов: %d', [f_CountProvider.TopicCount]);
 end;
 
 function TMainForm.WriteParams: Integer;
@@ -477,7 +485,7 @@ begin
   l_Ini.WriteParamStr('Path', deSource.Text);
   l_Ini.WriteParamStr('ResultPath', deResult.Text);
   l_Ini.WriteParamInt('Format', rgFormat.ItemIndex);
-  l_Ini.WriteParamBool('AppendResult', cbAppendResult.Checked);
+  //l_Ini.WriteParamBool('AppendResult', cbAppendResult.Checked);
  finally
   FreeAndNil(l_Ini);
  end;

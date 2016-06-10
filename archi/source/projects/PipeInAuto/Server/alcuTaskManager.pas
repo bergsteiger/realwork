@@ -1,7 +1,112 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.132 2016/03/09 10:07:23 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.154 2016/06/02 15:28:03 fireton Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.154  2016/06/02 15:28:03  fireton
+// - синхронизация с Гардоком журнала импортов
+//
+// Revision 1.153  2016/05/30 07:18:42  lukyanets
+// Добавляем логи
+//
+// Revision 1.152  2016/05/27 11:16:45  fireton
+// - синхронизация этапов в Гардок
+//
+// Revision 1.151  2016/05/20 09:49:32  lukyanets
+// Вводим состояние "задача прерывается"
+//
+// Revision 1.150  2016/05/13 12:54:28  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.149  2016/05/12 11:34:14  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.148  2016/05/11 10:16:24  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.147  2016/04/28 13:17:47  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.146  2016/04/22 10:29:10  lukyanets
+// Причесываем лог
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.145  2016/04/20 11:57:01  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.144  2016/04/15 11:54:29  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.143  2016/04/13 08:36:39  lukyanets
+// Корректне закрываем сервер
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.142  2016/04/12 09:05:16  lukyanets
+// Разрешаем задачу
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.141  2016/04/11 12:47:11  lukyanets
+// Отлаживаем контейнерную задачу
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.140  2016/04/11 06:36:25  lukyanets
+// Лажа при создании шедулерных задач
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.139  2016/04/07 13:56:39  lukyanets
+// Заготовки прокси задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.138  2016/04/07 11:38:37  lukyanets
+// Заготовки контейнерной задачи для шедулера
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.137  2016/04/06 09:45:45  lukyanets
+// Заготовки контейнерной задачи для шедулера
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.136  2016/04/01 12:06:31  lukyanets
+// Заготовки контейнерной задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.135  2016/04/01 08:15:44  lukyanets
+// Корректней отдаем дату следующей версии
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.134  2016/03/31 12:53:25  lukyanets
+// Расчитываем даты версии/компиляции с учетом нескольких однотипных заданий
+//
+// Revision 1.133  2016/03/30 12:44:40  lukyanets
+// Cleanup
+//
 // Revision 1.132  2016/03/09 10:07:23  lukyanets
 // Функция не возвращала результат
 //
@@ -1090,7 +1195,7 @@ uses
  csProcessTask, ddImportPipe, ExportPipe, ddProgressObj,
  l3IniFile, l3ObjectRefList,
  CSDataPipe, csMessageManager,
- ddServerTaskList, alcuDictManager, ddScheduler, dtIntf, dt_Sab, alcuTypes,
+ ddServerTaskList, ddScheduler, dtIntf, dt_Sab, alcuTypes,
  csServerCommandsManager, csTaskTypes, ddServerTask, DT_AskList, alcuTaskList,
 
  l3ProtoObject,
@@ -1122,7 +1227,6 @@ type
     f_TasksToPurgeList: TalcuNotSortedTaskList;
     f_BaseEngineHolder: TalcuBaseEngineHolder; // сервер
     f_DelayedList: TalcuTaskList;
-    f_DictManager: TalcuDictionaryManager;
     f_EnabledTaskTypes: TcsTaskTypes; // типы задач которые могут выполяться
     f_TaskExecutionEnabled: Boolean; // разрешение "из вне" выполнять все задания
     f_LastUpdate: TDateTime;
@@ -1166,7 +1270,6 @@ type
     procedure ClearTask(aTask: TddProcessTask);
     procedure DoCommand(aTask: TddProcessTask);
     procedure DoChangeDictItem(aTask: TddProcessTask);
-    procedure DoRemoteChangeDictItem(aTask: TddProcessTask);
     procedure DoChangeUserItem(aTask: TddProcessTask);
     procedure DoSaveUserDefinedExport(aTask: TddProcessTask);
     procedure DoDeleteDocs(aTask: TddProcessTask);
@@ -1180,7 +1283,6 @@ type
     procedure pm_SetStatus(const Value: TalcuStatus);
     procedure RunTask(aTask: TddProcessTask);
     procedure SaveQuery;
-    procedure SchedulerClientNotify(const aTask: TddSchedulerTask);
     procedure pm_SetProgressor(const Value: TddProgressObject);
     procedure pm_SetMessageManager(const Value: TcsMessageManager);
     function pm_GetWorkThreadCount: Integer;
@@ -1245,7 +1347,8 @@ type
     function AddTaskToIncoming(const aTask: TddProcessTask): integer;
     procedure AddRequest(const aRequest: TddProcessTask);
     procedure AddActiveTask(const aTask: TddProcessTask);
-    procedure FreezeQueryQueue;
+    procedure ForceExecuteTask(const aTask: TddProcessTask);
+    procedure FreezeQueryQueue(WaitForFreeze: Boolean);
     procedure FreezeRunningSyncTask;
     procedure cs_ExecuteCommand(aPipe: TCSDataPipe);
     procedure cs_GetActiveUsers(aPipe: TCSDataPipe);
@@ -1281,21 +1384,21 @@ type
     procedure MakeCaseCodeGenerateTask;
     procedure StopProcessQuery(aTask: TddProcessTask);
     procedure UnLockProcessing; // dec(f_LockProcessingCounter). При f_LockProcessingCounter = 0 разбор очереди заданий РАЗБЛОКИРОВАН
-    procedure WorkupDelayed;
+    procedure WorkupDelayed(ForceRun: Boolean);
     procedure NotifyProgress(TotalPercent: Long; const TotalCaption: AnsiString);
     procedure LockAsyncRun;
     procedure UnLockAsyncRun;
     procedure LockTaskExecution;
     procedure UnlockTaskExecution;
     function TaskExecutionLocked: Boolean;
-    function ExecutingTask: Boolean;
+    function ExecutingTask(CountAbortingTask: Boolean): Boolean;
     procedure SignalServerStarted;
     procedure RequestExecuteCommand(aUser: TUserID; aCommandID: Integer);
+    function HasActiveTask(aTaskType: TcsTaskType): Boolean;
     property Actions: TcsServerCommandsManager read f_Actions write f_Actions;
     property ActiveTaskList: TalcuTaskList read f_ActiveTaskList;
     property ActiveTaskListCount: Integer read pm_GetActiveTaskListCount; // количества задач ожидающих выполнения
     property CurrentUserName: string read pm_GetCurrentUserName;
-    property DictManager: TalcuDictionaryManager read f_DictManager;
     property TaskExecutionEnabled: Boolean read f_TaskExecutionEnabled write pm_SetTaskExecutionEnabled; // разрешение "из вне" выполнять все задания
     property EnabledTaskTypes: TcsTaskTypes read f_EnabledTaskTypes write pm_SetEnabledTaskTypes;
     property LineLen: Integer read pm_GetLineLen;
@@ -1325,12 +1428,12 @@ type
 
 const
  alcuAllTaskTypes = [cs_ttImport, cs_ttExport, {$IFDEF AutoClass}cs_ttAutoClass,{$ENDIF AutoClass}
-                  cs_ttAnnoExport, cs_ttAExportAnno, cs_ttAExportDoc, cs_ttRegionAutoExport,
-                  cs_ttDossierMake, cs_ttCaseCode, cs_ttSpellCheck, cs_ttAutoSpellCheck{$IFDEF UpdateAsTask},
-                  cs_ttEverydayUpdate, cs_ttLoaddelta{$ENDIF}, cs_ttAACImport, cs_ttUnregistered,
-                  cs_ttRelPublish, cs_ttAnoncedExport, cs_ttHavanskyExport, cs_ttMdpSyncDicts,
-                  cs_ttMdpImportDocs];
- alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRemoteDictEdit, cs_ttRunCommand, cs_ttUserDefinedExport];
+   cs_ttAnnoExport, cs_ttAExportAnno, cs_ttAExportDoc, cs_ttRegionAutoExport, cs_ttRegionImport,
+   cs_ttDossierMake, cs_ttCaseCode, cs_ttSpellCheck, cs_ttAutoSpellCheck,
+   cs_ttAACImport, cs_ttUnregistered, cs_ttRelPublish, cs_ttAnoncedExport,
+   cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
+   cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
+ alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand, cs_ttUserDefinedExport];
 
 implementation
 Uses
@@ -1341,6 +1444,7 @@ Uses
  daInterfaces,
  daTypes,
  daSchemeConsts,
+ daDataProvider,
  dt_User, dt_Const, dt_AttrSchema, dt_IFltr, dt_Serv,  dt_Stage,
  dt_Dict, dt_Table, dt_Link, dt_Lock, dt_Query, DT_SrchQueries,
  l3Filer, l3FileUtils, l3Stream, l3String, l3TempMemoryStream,
@@ -1348,7 +1452,7 @@ Uses
  CSNotification, csActiveClients, CsNotifier,
  alcuMailServer, alcuUtils, alcuAutoClassifier, rxStrUtils, l3ShellUtils, vtLogFile, alcuPrime,
  alcuStrings, StrUtils, alcuAutoExport, ddAppConfigDataAdapters,
- ddAppConfigTypes, l3LongintListPrim, dt_UserTypes, dt_UserConst, dt_DictTypes,
+ ddAppConfigTypes, l3LongintListPrim, dt_UserConst, dt_DictTypes,
  dt_LinkServ, DT_DictConst, ddCaseCodeMaker, csImport, csServerTaskTypes, DT_Utils,
  csUserDefinedExport,
  alcuSpellCorrectTask,
@@ -1364,7 +1468,10 @@ Uses
  alcuAsyncSubmitterManager,
  l3Variant,
  TaskResult_Const,
+ csTasksHelpers,
+ evdTaskTypes,
  csTaskResult,
+ csContainerTask,
  ncsFileTransferReg,
  ncsMessageExecutorFactory,
  ncsGetReadyToDeliveryTasks,
@@ -1412,17 +1519,6 @@ begin
   f_RequestList:= TddServerTaskList.Create;
   f_DelayedList:= TalcuTaskList.Create;
   f_DelayedList.Filename:= ConcatDirName(RootTaskFolder, 'DelayedTasks.dat');
-  {$IFDEF RemoteDict}
-  f_DictManager:= TalcuDictionaryManager.Make(ddAppConfiguration.AsInteger['Dict_List'],
-                                              TalcuDictionaryManagerMode(Succ(ddAppConfiguration.AsInteger['Dict_Mode'])));
-  {$ENDIF RemoteDict}
-
-  with (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler) do
-  begin
-   // Нотификации пользователей
-   AddExecuteHandler(ctVersion, SchedulerClientNotify);
-   AddChangeHandler(ctVersion, SchedulerClientNotify);
-  end;
   {$IFDEF UserQuery}
   f_UserQueries := TQueryList.Create();
   f_UserQueries.QueriesPath:= ddAppConfiguration.AsString['sqFolder'];
@@ -1487,9 +1583,9 @@ end;
 
 procedure TddServerTaskManager.CalculatePriority(aTask: TddProcessTask);
 var
- l_AU: TArchiUser;
+ l_AU: IdaArchiUser;
 begin
- l_AU := UserManager.UserByID(aTask.UserID);
+ l_AU := GlobalDataProvider.UserManager.UserByID(aTask.UserID);
  if l_AU <> nil then
  begin
   case aTask.TaskType of
@@ -1554,9 +1650,6 @@ procedure TddServerTaskManager.Cleanup;
 begin
  TncsMessageExecutorFactory.Instance.UnRegister(Self);
  SaveQuery;
- {$IFDEF RemoteDict}
- l3Free(f_DictManager);
- {$ENDIF RemoteDict}
  FreeAndNil(f_DelayedList);
  {$IFDEF UserQuery}
  FreeAndNil(f_UserQueries);
@@ -1627,14 +1720,38 @@ end;
 procedure TddServerTaskManager.cs_GetNextVersionDate(aPipe: TCSDataPipe);
 var
  l_Date, l_NextDate: TDateTime;
- l_TaskV, l_TaskC: TddSchedulerTask;
+ l_CompileDate: TDateTime;
+
+(*
+ l_Date2, l_NextDate2: TDateTime;
+ l_TaskC, l_TaskV: TddSchedulerTask;
+*)
 begin
+ if (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetFullDateTime(ctCompilation, Now, l_CompileDate) then
+ begin
+  if not (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetFullDateTime(ctVersion, l_CompileDate, l_Date) then
+   Assert(False, 'SCHEDUL DATES - Не нашли дату следующей версии');
+  if not (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetFullDateTime(ctVersion, IncDay(l_Date), l_NextDate) then
+   Assert(False, 'SCHEDUL DATES - Не нашли дату после следующей версии');
+ end
+ else
+  Assert(False, 'SCHEDUL DATES - Не нашли дату следующей компиляции');
+
+(*
+ l3System.Msg2Log('COMPILE %s', [FormatDateTime('dd.mm.yyyy hh:nn:ss', l_CompileDate)]);
+ l3System.Msg2Log('DATE %s', [FormatDateTime('dd.mm.yyyy hh:nn:ss', l_Date)]);
+ l3System.Msg2Log('NEXTDATE %s', [FormatDateTime('dd.mm.yyyy hh:nn:ss', l_NextDate)]);
+
  l_TaskC := (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetTaskByTaskType(ctCompilation);
  Assert(l_TaskC <> nil);
  l_TaskV := (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetTaskByTaskType(ctVersion);
  Assert(l_TaskV <> nil);
- l_Date := l_TaskV.FullDateTime[l_TaskC.FullDateTime[Now]];
- l_NextDate:= l_TaskV.FullDateTime[IncDay(l_Date)];
+ l_Date2 := l_TaskV.FullDateTime[l_TaskC.FullDateTime[Now]];
+ l_NextDate2:= l_TaskV.FullDateTime[IncDay(l_Date)];
+
+ If (l_Date2 <> l_Date) or (l_NextDate2 <> l_NextDate) then
+  Assert(False);
+*)
  aPipe.WriteDateTime(l_Date);
  aPipe.WriteDateTime(l_NextDate);
 end;
@@ -1815,9 +1932,9 @@ begin
    aTask.OnChange:= nil;*)
   if not aSendMessage then
    aTask.CanNotifyChange := false;
-  aTask.RequestDeleted;
+  aTask.RequestDelete;
   ClearTask(aTask);
-  f_TasksToPurgeList.Add(aTask);
+//  f_TasksToPurgeList.Add(aTask);
   TaskListUpdated(aTask);
  finally
   aTask.Free;
@@ -1841,33 +1958,10 @@ begin
  DictServer(CurrentFamily).ProcessDictEdit(l_Rec, aTask.UserID);
 end;
 
-procedure TddServerTaskManager.DoRemoteChangeDictItem(aTask: TddProcessTask);
-var
- l_Rec: TDictMessageRec;
-begin
-{$IFDEF RemoteDict}
- aTask.RequestRun;
-
-// Пришли только исходные данные
- with (aTask as TRemoteDictEditQuery) do
- begin
-  l_Rec.Family := Word(Family);
-  l_rec.DictType := TdaDictionaryType(DictType);
-  l_Rec.Operation:= TOperActionType(Operation);
-  l_Rec.ID := ID;
-  l_Rec.NextID := NextID;
-  l_Rec.ParentID := ParentID;
- end;
- f_DictManager.SaveDictInfo(aTask as TRemoteDictEditQuery);
- DictServer(rec.Family).ProcessRemoteDictEdit(aTask as TRemoteDictEditQuery);
-{$ENDIF}
- aTask.Done;
-end;
-
 procedure TddServerTaskManager.DoChangeUserItem(aTask: TddProcessTask);
 begin
  with (aTask as TUserEditQuery) do
-  UserManager.UpdateUserInfo(ID, IsGroup);
+  GlobalDataProvider.UserManager.UpdateUserInfo(ID, IsGroup);
  aTask.Done;
 end;
 
@@ -1881,7 +1975,7 @@ begin
  l_Sab:= MakeValueSet(DocumentServer.FileTbl, fId_fld, aTask.DocumentIDList);
  try
   DocumentServer.DelDocs(l_Sab);
-  l3System.Msg2Log('Пользователь %s удалил документы (внешние (#внутренние) номера):', [UserManager.UserName(aTask.UserID)]);
+  l3System.Msg2Log('Пользователь %s удалил документы (внешние (#внутренние) номера):', [GlobalDataProvider.UserManager.GetUserName(aTask.UserID)]);
   for l_Index:= 0 to Pred(aTask.DocumentIDList.Count) do
    l3System.Msg2Log('%d (#%d)', [LinkServer(CurrentFamily).ReNum.GetExtDocID(aTask.DocumentIDList.Items[l_Index]), aTask.DocumentIDList.Items[l_Index]]); 
   // Разослать всем пользователям информацию об удаленных документах
@@ -2091,8 +2185,13 @@ var
     begin
      if f_WorkPoolManager.EnterTaskExecution(anItem) then
       try
-        RunTask(anItem);
-        TaskFinished(anItem);
+        l3System.Msg2Log('Выполняю синхронную задачу %s (%s)', [anItem.Description, anItem.TaskID], l3_msgLevel10);
+        try
+         RunTask(anItem);
+         TaskFinished(anItem);
+        finally
+         l3System.Msg2Log('Закончил синхронную задачу %s (%s)', [anItem.Description, anItem.TaskID], l3_msgLevel10);
+        end;
         if not (anItem.Status in [cs_tsQuery, cs_tsAsyncRun]) then
         begin
           l_NeedRepeat := true;
@@ -2118,7 +2217,7 @@ var
  function DoSearch(anItem: TddProcessTask): Boolean;
  begin//DoIt
   Result := true;
-  if (anItem = nil) or (anItem.TaggedData = nil) then
+  if (l3System.MessageLevel >= 10) and (anItem = nil) or (anItem.TaggedData = nil) then
   begin
    l3System.Msg2Log(Format('AF TRAP - found empty TaggedData task %p. See K-617777268', [Pointer(anItem)]), l3_msgLevel3);
    Exit;
@@ -2271,16 +2370,10 @@ begin
   BeforeSaveQuery;
   {$ENDIF}
   SaveQuery;
- end//aTask.Status <> cs_tsError
+ end//not (aTask.Status in cs_tsErrorStatuses)
  else
   if aTask.Status = cs_tsError then
     ExcludeTaskType(aTask.TaskType);
-end;
-
-procedure TddServerTaskManager.SchedulerClientNotify(const aTask: TddSchedulerTask);
-begin
- MessageManager.SendNotify(c_AllClients, ntCalendar, Ord(aTask.TaskType), '', usServerService);
- aTask.ExecuteResult := strOk;
 end;
 
 procedure TddServerTaskManager.cs_GetExecuteStatus(aPipe: TcsDataPipe);
@@ -2303,11 +2396,14 @@ end;
 procedure TddServerTaskManager.cs_GetCompileDate(aPipe: TCSDataPipe);
 var
  l_Date: TDateTime;
- l_TaskC: TddSchedulerTask;
 begin
+ if not (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetFullDateTime(ctCompilation, Now, l_Date) then
+  Assert(False);
+(*
  l_TaskC := (ddAppConfiguration.AsObject[SalcuAutoPipeServer_Scheduler] as TddSCheduler).GetTaskByTaskType(ctCompilation);
  Assert(Assigned(l_TaskC));
  l_Date := l_TaskC.FullDateTime[Now];
+*)
  aPipe.WriteDateTime(l_Date);
 end;
 
@@ -2444,13 +2540,13 @@ procedure TddServerTaskManager.TaskDone(aTask: TddProcessTask);
 begin
  aTask.Use;
  try
-  l3System.Msg2Log('Задача с идентификатором %s удаляется из активных - успех', [aTask.TaskID]);
-  if not (aTask.Status in cs_tsErrorStatuses) then
-    aTask.Done;
+  if f_TaskList.Has(aTask) then
+   l3System.Msg2Log('Задача с идентификатором %s удаляется из активных - успех', [aTask.TaskID]);
+  aTask.Done;
   // Посылать ли заказчику уведомление об окончании? По-моему, он и так его получит... Или только в случае наблюдения за очередью?
   // aTask.OnChange := nil;
   aTask.CanNotifyChange := false;
-  if f_SerachActiveTaskCounter > 0 then
+  if (l3System.MessageLevel >= 10) and (f_SerachActiveTaskCounter > 0) then
    l3System.Stack2Log(Format('AF TRAP - delete task %p. See K-617777268', [Pointer(aTask)]));
   ClearTask(aTask);
   f_TasksToPurgeList.Add(aTask);
@@ -2562,7 +2658,17 @@ procedure TddServerTaskManager.WorkupDelayed;
  function DoIt(anItem: TddProcessTask): Boolean;
  begin
   Result := true;
-  AddActiveTask(anItem);
+  if ForceRun then
+  begin
+   ForceExecuteTask(anItem);
+   while not (anItem.Status in cs_tsFinishedStatuses) do
+   begin
+    Application.ProcessMessages;
+    Sleep(0);
+   end;
+  end 
+  else
+   AddActiveTask(anItem);
  end;
 
 begin
@@ -2592,8 +2698,6 @@ procedure TddServerTaskManager.WorkupRequests;
     DoChangeUserItem(anItem);
    cs_ttDeleteDocs:
     DoDeleteDocs(anItem);
-   cs_ttRemoteDictEdit:
-    DoRemoteChangeDictItem(anItem);
    cs_ttRunCommand:
     DoCommand(anItem);
    cs_ttUserDefinedExport:
@@ -2721,7 +2825,7 @@ end;
 
 procedure TddServerTaskManager.WaitForAsyncRunningTasks;
 begin
-  while f_WorkPool.HasRunningTask(Self) do
+  while f_WorkPool.HasRunningTask(Self, True) do
   begin
    {$IFNDEF Service}
     Application.ProcessMessages;
@@ -2801,7 +2905,7 @@ begin
   MessageManager.SendTextMessage(anUserID, aMessage);
 end;
 
-procedure TddServerTaskManager.FreezeQueryQueue;
+procedure TddServerTaskManager.FreezeQueryQueue(WaitForFreeze: Boolean);
 
  function DoIt(anItem: TddProcessTask): Boolean;
  begin
@@ -2810,11 +2914,17 @@ procedure TddServerTaskManager.FreezeQueryQueue;
  end;
 
 begin
- FreezeRunningSyncTask;
+ Changing;
+ try
+  FreezeRunningSyncTask;
+  f_ActiveTaskList.ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+  if WaitForFreeze then
+   WaitForAsyncRunningTasks;
+  f_TransporterPool.TerminateAll;
+ finally
+  Changed;
+ end;
  f_OnTaskListChanged := nil;
- f_ActiveTaskList.ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
- WaitForAsyncRunningTasks;
- f_TransporterPool.TerminateAll;
 end;
 
 procedure TddServerTaskManager.DoSaveUserDefinedExport(
@@ -2917,10 +3027,14 @@ begin
  end; 
 end;
 
-function TddServerTaskManager.ExecutingTask: Boolean;
+function TddServerTaskManager.ExecutingTask(CountAbortingTask: Boolean): Boolean;
 begin
-  Result := Assigned(f_ActiveTask) and (f_ActiveTask.Status in cs_tsRunningStatuses) or
-    f_WorkPool.HasRunningTask(Self);
+  if CountAbortingTask then
+    Result := Assigned(f_ActiveTask) and (f_ActiveTask.Status in (cs_tsRunningStatuses + [cs_tsAborting])) or
+      f_WorkPool.HasRunningTask(Self, CountAbortingTask)
+  else
+    Result := Assigned(f_ActiveTask) and (f_ActiveTask.Status in cs_tsRunningStatuses) or
+      f_WorkPool.HasRunningTask(Self, CountAbortingTask);
 end;
 
 procedure TddServerTaskManager.FreezeRunningSyncTask;
@@ -3183,6 +3297,87 @@ function TddServerTaskManager.NeedProcessTask(
   const aTask: TddProcessTask): Boolean;
 begin
   Result := aTask.NeedProcess and not f_TasksToPurgeList.Has(aTask);
+end;
+
+function TddServerTaskManager.HasActiveTask(
+  aTaskType: TcsTaskType): Boolean;
+
+var
+ l_Result: Boolean;
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+ var
+  l_TasksList: TasksListHelper;
+  l_IDX: Integer;
+  l_Task: TddProcessTask;
+ begin
+  Result := true;
+  if anItem.Status in cs_tsFinishedStatuses then
+   Exit;
+  if (anItem.TaskType = aTaskType) then
+  begin
+   Result := False;
+   l_Result := True;
+  end
+  else
+   if anItem is TcsContainerTask then
+   begin
+    l_TasksList := TcsContainerTask(anItem).TasksList;
+    try
+     for l_IDX := 0 to l_TasksList.Count - 1 do
+     begin
+      l_Task := l_TasksList.MakeTask(l_IDX, '');
+      try
+       DoIt(l_Task);
+       if l_Result then
+       begin
+        Result := False;
+        Exit
+       end;
+      finally
+       FreeANdNil(l_Task);
+      end;
+     end;
+    finally
+     l_TasksList := nil;
+    end;
+   end;
+ end;
+
+begin
+ l_Result := False;
+ f_ActiveTaskList.ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+ Result := l_Result;
+end;
+
+procedure TddServerTaskManager.ForceExecuteTask(
+  const aTask: TddProcessTask);
+begin
+ if NeedProcessTask(aTask) then
+ begin
+  while not f_WorkPoolManager.EnterTaskExecution(aTask) do
+   Application.ProcessMessages;
+  try
+   if not (f_WorkPool.HasWorkThreads and AllowAsyncRunTask(aTask)) then
+   begin
+    l3System.Msg2Log('Выполняю подзадачу %s (%s)', [aTask.Description, aTask.TaskID]);
+    try
+     RunTask(aTask);
+     TaskFinished(aTask);
+    finally
+     l3System.Msg2Log('Закончили подзадачу %s (%s)', [aTask.Description, aTask.TaskID]);
+    end; 
+   end
+   else
+   begin
+    l3System.Msg2Log('Отцепляю подзадачу %s (%s)', [aTask.Description, aTask.TaskID]);
+    while not f_WorkPool.SubmitTask(aTask) do
+     Application.ProcessMessages;
+   end;
+  finally
+    f_WorkPoolManager.LeaveTaskExecution(aTask);
+  end;// try
+ end; // NeedProcessTask(anItem) and (anItem.TaskType in EnabledTaskTypes)
 end;
 
 end.

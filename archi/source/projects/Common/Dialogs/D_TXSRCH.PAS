@@ -324,6 +324,11 @@ uses
   l3Chars,
 
   afwNavigation
+  {$IFDEF InsiderTest}
+  ,
+  l3BatchService,
+  l3ModalService
+  {$ENDIF InsiderTest}
   ;
 
 resourcestring
@@ -624,6 +629,9 @@ begin
   FDialogMode := sdmEditor;
   Show;
   Result := True;
+  {$IFDEF InsiderTest}
+   Tl3BatchService.Instance.ExecuteCurrentModalWorker(se_meInLoop);
+  {$ENDIF InsiderTest}
  end;//with CheckDialog
 end;
 
@@ -653,6 +661,9 @@ begin
   FDialogMode := sdmList;
   Show;
   Result := True;
+  {$IFDEF InsiderTest}
+   Tl3BatchService.Instance.ExecuteCurrentModalWorker(se_meInLoop);
+  {$ENDIF InsiderTest}
  end;//with CheckDialog
 end;
 {$ENDIF}
@@ -727,45 +738,45 @@ begin
  end;
 
  with TvtPopupList.Create(TComponent(Sender), TvtDStringLister) do
-  try
-   AdjustCorner := acBottomRight;
-   Lister.Images := SrchRes.CommonImageList;
-   Lister.OnGetItemImageIndex := DropListGetItemImageIndex;
-   with (Lister as TvtDStringLister).Items do
+ try
+  AdjustCorner := acBottomRight;
+  Lister.Images := SrchRes.CommonImageList;
+  Lister.OnGetItemImageIndex := DropListGetItemImageIndex;
+  with (Lister as TvtDStringLister).Items do
+  begin
+   DataSize := SizeOf(TtsSrchType);
+   for l_Type := Low(TtsSrchType) to High(TtsSrchType) do
    begin
-    DataSize := SizeOf(TtsSrchType);
-    for l_Type := Low(TtsSrchType) to High(TtsSrchType) do
-    begin
-    {$IFNDEF NotArchiProject}
-     if (Sender = sbSrchSpecType) and
-        (l_Type = srtSub) then
-      Continue; // поиск по номеру Sub'a в Архивариусе не поддерживается
+   {$IFNDEF NotArchiProject}
+    if (Sender = sbSrchSpecType) and
+       (l_Type = srtSub) then
+     Continue; // поиск по номеру Sub'a в Архивариусе не поддерживается
 
-     if (Sender = sbReplaceSpecType) and
-        (fReplaceAllowTypes <> []) and
-        not (l_Type in fReplaceAllowTypes) then
-      Continue; //фильтр по допустимым типам поисков
+    if (Sender = sbReplaceSpecType) and
+       (fReplaceAllowTypes <> []) and
+       not (l_Type in fReplaceAllowTypes) then
+     Continue; //фильтр по допустимым типам поисков
 
-    {$ENDIF}
-     AddStr(cSrchTypeNames[l_Type], @l_Type);
-    end;
+   {$ENDIF}
+    AddStr(cSrchTypeNames[l_Type], @l_Type);
    end;
-   if Sender = sbSrchSpecType then
-    Lister.Current := Byte(SType)
-   else
-    Lister.Current := Byte(RType);
-
-   l_Res := Execute;
-   if l_Res < 0 then Exit;
-   lSTRes := TtsSrchType((Lister as TvtDStringLister).Items.DataInt[l_Res]);
-   if Sender = sbReplaceSpecType then
-    SR := 1
-   else
-    SR := 0;
-   SetSrchSpecType(SR, lSTRes);
-  finally
-   Free;
   end;
+  if Sender = sbSrchSpecType then
+   Lister.Current := Byte(SType)
+  else
+   Lister.Current := Byte(RType);
+
+  l_Res := Execute;
+  if l_Res < 0 then Exit;
+  lSTRes := TtsSrchType((Lister as TvtDStringLister).Items.DataInt[l_Res]);
+  if Sender = sbReplaceSpecType then
+   SR := 1
+  else
+   SR := 0;
+  SetSrchSpecType(SR, lSTRes);
+ finally
+  Free;
+ end;
  InputsChange(nil);
 end;
 
@@ -1207,7 +1218,7 @@ begin
         aHLink.AddressList.Delete(lCurAddr);
       end;
       on E : Exception do
-       Application.ShowException(E);
+       vtMessageDlg(E);
      end;
     end;
     Inc(I);
@@ -1411,10 +1422,60 @@ end;
 
 procedure TTextSearchDlg.ParseInput;
 var
- l_SubID          : Integer;
- l_IsWeNeedRegexp : Boolean;
  l_TextToSearch   : string;
- l_Form           : TCustomForm;
+ l_IsWeNeedRegexp : Boolean;
+
+ function lp_InitSeacher4TextFind: Boolean;
+ begin
+  Result := True;
+  if cbNormalize.Checked then
+   LastSrchRec.Searcher := fNormalWordSearcher
+  else
+   if cbRegular.Checked then
+    LastSrchRec.Searcher := fRegularExpressionSearcher
+   else
+   begin
+    try
+     if not ConvertTextWildcards(l_TextToSearch, l_IsWeNeedRegexp) then
+      raise Exception.Create(SInvalidSpecialSymbol + l_TextToSearch);
+     if l_IsWeNeedRegexp or cbAnyTail.Checked then
+      LastSrchRec.Searcher := fRegularExpressionSearcher
+     else
+      LastSrchRec.Searcher := fTextSearcher;
+    except
+     on E : Exception do
+     begin
+      vtMessageDlg(E);
+      ModalResult := mrNone;
+      ActiveControl := STextComboBox;
+      Result := False;
+     end;
+    end;
+   end;
+ end;
+
+ function lp_InitTextProp: Boolean;
+ begin
+  Result := True;
+  try
+   if cbAnyTail.Checked and (SType = srtText) then
+    LastSrchRec.Searcher.Text := TranslateForAnyTail(l_TextToSearch, l_IsWeNeedRegexp)
+   else
+    LastSrchRec.Searcher.Text := l_TextToSearch;
+  except
+   on E : Exception do
+    begin
+     if not (E is El3NoLoggedException) then
+      vtMessageDlg(E);
+     ModalResult := mrNone;
+     ActiveControl := STextComboBox;
+     Result := False;
+    end;
+  end;
+ end;
+
+var
+ l_SubID : Integer;
 begin
  if (STextComboBox.Text = '') then
  begin
@@ -1427,40 +1488,20 @@ begin
 
  case SType of
   srtText : begin
-             if cbNormalize.Checked then
-              LastSrchRec.Searcher := fNormalWordSearcher
-             else
-              if cbRegular.Checked then
-               LastSrchRec.Searcher := fRegularExpressionSearcher
-              else
-              begin
-               try
-                if not ConvertTextWildcards(l_TextToSearch, l_IsWeNeedRegexp) then
-                 raise Exception.Create(SInvalidSpecialSymbol + l_TextToSearch);
-                if l_IsWeNeedRegexp or cbAnyTail.Checked then
-                 LastSrchRec.Searcher := fRegularExpressionSearcher
-                else
-                 LastSrchRec.Searcher := fTextSearcher;
-               except
-                on E : Exception do
-                begin
-                 Application.ShowException(E);
-                 ModalResult := mrNone;
-                 ActiveControl := STextComboBox;
-                 Exit;
-                end;
-               end;
-              end;
+             if not lp_InitSeacher4TextFind then Exit;
+             if not lp_InitTextProp then Exit;
              STextComboBox.AddToHistory;
             end;
   srtStyle: begin
-             fStyleSearcher.Layer  := l3NilLong;
+             fStyleSearcher.Layer := l3NilLong;
              LastSrchRec.Searcher := fStyleSearcher;
+             if not lp_InitTextProp then Exit;
             end;{srtStyle}
 
 {$IFNDEF NotArchiProject}
   srtHLink: begin
              LastSrchRec.Searcher := fHLinkSearcher;
+             if not lp_InitTextProp then Exit;
              STextComboBox.AddToHistory;
             end;{srtHLink}
 {$ENDIF}
@@ -1476,21 +1517,6 @@ begin
            Exit;
           end;//srtSub
  end;{case SType}
- try
-  if cbAnyTail.Checked and (SType = srtText) then
-   LastSrchRec.Searcher.Text := TranslateForAnyTail(l_TextToSearch, l_IsWeNeedRegexp)
-  else
-   LastSrchRec.Searcher.Text := l_TextToSearch;
- except
-  on E : Exception do
-   begin
-    if not (E is El3NoLoggedException) then
-     Application.ShowException(E);
-    ModalResult := mrNone;
-    ActiveControl := STextComboBox;
-    Exit;
-   end;
- end;
 
  UpdateFindFlag(SrchMode);
  FInputIsParsed := True;
@@ -1525,6 +1551,9 @@ begin
       FEditor.Find(LastSrchRec.Searcher, LastSrchRec.Replacer, LastSrchRec.SFlags);
       if Assigned(FEditor) then
        FEditor.AdjustForm2Found(Self);
+      {$IFDEF InsiderTest}
+       Tl3BatchService.Instance.ExecuteCurrentModalWorker(se_meAfterLoop);
+      {$ENDIF InsiderTest}                                                
       if Assigned(LastSrchRec.Replacer) and (f_OwnerToClose <> 0) then
        PostMessage(f_OwnerToClose, WM_CLOSE, 0, 0);
      except
@@ -1613,7 +1642,13 @@ begin
  try
   fReplaceResult := mrNone;
   while FReplaceResult = mrNone do
+  begin
+   {$IFDEF InsiderTest}
+    if not Tl3BatchService.Instance.ExecuteCurrentModalWorker(se_meInLoop) then
+     FReplaceResult := mrNone;
+   {$ENDIF InsiderTest}
    Application.ProcessMessages;
+  end; // while FReplaceResult = mrNone do
   Result := FReplaceResult;
  finally
   FInReplaceLoop := False;
@@ -1843,7 +1878,7 @@ begin
    on E : Exception do
    begin
     if not (E is El3NoLoggedException) then
-     Application.ShowException(E);
+     vtMessageDlg(E);
     ModalResult := mrNone;
     ActiveControl := RTextComboBox;
     Exit;

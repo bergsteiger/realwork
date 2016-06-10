@@ -1,8 +1,23 @@
 unit a2bUserProfile;
 
-{ $Id: a2bUserProfile.pas,v 1.30 2015/04/07 07:35:52 lukyanets Exp $}
+{ $Id: a2bUserProfile.pas,v 1.33 2016/05/18 06:02:39 lukyanets Exp $}
 
 // $Log: a2bUserProfile.pas,v $
+// Revision 1.33  2016/05/18 06:02:39  lukyanets
+// Выключаем удаленную отладку
+//
+// Revision 1.32  2016/04/25 11:23:20  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.31  2016/04/20 11:57:00  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.30  2015/04/07 07:35:52  lukyanets
 // Изолируем HT
 //
@@ -162,6 +177,7 @@ uses
  l3DatLst,
 
  daInterfaces,
+ daDataProvider,
 
  csQueryTypes,
 
@@ -186,11 +202,11 @@ end;
 procedure Ta2UserProfile.DoRevert;
 var
  l_Flags: Byte;
- l_Name, l_Login: ShortString;
+ l_Name, l_Login: String;
 begin
  if f_ID <> a2cNewItemID then
  begin
-  UserManager.GetUserInfo(f_ID, l_Name, l_Login, l_Flags);
+  GlobalDataProvider.UserManager.GetUserInfo(f_ID, l_Name, l_Login, l_Flags);
   f_Name := l_Name;
   f_Login := l_Login;
   f_OldLogin := f_Login;
@@ -324,7 +340,7 @@ end;
 
 function Ta2UserProfile.pm_GetIsReadonly: Boolean;
 begin
- Result := (f_ID = usSupervisor) or (f_ID = usAdminReserved);
+ Result := (f_ID = usSupervisor){ or (f_ID >= usAdminReserved)};
 end;
 
 function Ta2UserProfile.pm_GetLogin: string;
@@ -388,12 +404,12 @@ begin
  else
  begin
   // если новый пользователь просто копируем список групп...
-  if f_GroupsList.HostDataList <> UserManager.UGroups then
+  if f_GroupsList.HostDataList <> GlobalDataProvider.UserManager.AllGroups then
   begin
    f_GroupsList.Clear;
-   f_GroupsList.HostDataList := UserManager.UGroups;
+   f_GroupsList.HostDataList := GlobalDataProvider.UserManager.AllGroups;
   end;
-  for I := 0 to UserManager.UGroups.Count-1 do
+  for I := 0 to GlobalDataProvider.UserManager.AllGroups.Count-1 do
    f_GroupsList.Select[I] := False;
  end;
  f_GroupsList.Modified := False;

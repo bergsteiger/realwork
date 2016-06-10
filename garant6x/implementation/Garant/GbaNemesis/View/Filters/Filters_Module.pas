@@ -31,48 +31,11 @@ uses
   ,
   Classes,
   SimpleListInterfaces,
-  Filters_Form
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
   Common_FormDefinitions_Controls,
   PrimFiltersOptions_Form,
   PrimCreateFilter_Form,
-  CreateFilter_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  FiltersKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CreateFilterKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  Filters_Form,
+  CreateFilter_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -99,29 +62,12 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   DataAdapter,
   PrimCreateFilter_cfRename_UserType,
   PrimCreateFilter_cfCreate_UserType,
   dsCreateFilter,
   deFilter,
-  Search_Strange_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  Search_Strange_Controls,
   vcmFormSetFactory {a},
   StdRes {a}
   ;

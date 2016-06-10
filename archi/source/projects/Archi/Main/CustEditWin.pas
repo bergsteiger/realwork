@@ -1,8 +1,23 @@
 unit CustEditWin;
 
-{ $Id: CustEditWin.pas,v 1.36 2015/12/25 12:49:10 voba Exp $ }
+{ $Id: CustEditWin.pas,v 1.39 2016/06/03 07:48:32 fireton Exp $ }
 
 // $Log: CustEditWin.pas,v $
+// Revision 1.39  2016/06/03 07:48:32  fireton
+// - недокоммит
+//
+// Revision 1.38  2016/04/22 10:59:48  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.37  2016/04/18 08:39:29  lukyanets
+// Cleanup
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.36  2015/12/25 12:49:10  voba
 // no message
 //
@@ -1117,7 +1132,7 @@ begin
    begin
     if lMsgStr <> '' then
      lMsgStr := lMsgStr + ', ';
-    lMsgStr := lMsgStr + UserManager.UserTbl.GetNameStr(lUserID[I]);
+    lMsgStr := lMsgStr + GlobalDataProvider.UserManager.GetUserName(lUserID[I]);
    end;
    if High(lUserID) > 0 then
     lMsgStr := 'Пользователи : ' + lMsgStr
@@ -1942,7 +1957,8 @@ begin
     If l3IOk(l_Hyperlink.QueryInterface(IevAddressList, l_AddresList)) then
      try
       if l_AddresList.Count = 0 then
-       vtMessageDlg(l3Fmt(l3CStr(@sidHlinkErr), [l_Hyperlink.ID]),  mtError)
+       Result := Format(sidHlinkErr, [l_Hyperlink.ID])
+      // vtMessageDlg(l3Fmt(l3CStr(@sidHlinkErr), [l_Hyperlink.ID]),  mtError)
       else
       begin
        for I := 0 to Pred(l_AddresList.Count) do

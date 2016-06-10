@@ -1439,7 +1439,10 @@ begin
   finally
    Editor.TextSource.UnLock(Self);
   end;//try..finally
- end;//dsQuery <> nil
+ end//dsQuery <> nil
+ else
+  f_MgrSearch := nil;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=623278441
 //#UC END# *497469C90140_497EBA4301CA_impl*
 end;//TPrimQueryCardForm.NotifyDataSourceChanged
 

@@ -1,8 +1,29 @@
 unit a2bGroupProfile;
 
-{ $Id: a2bGroupProfile.pas,v 1.25 2015/11/25 14:01:27 lukyanets Exp $}
+{ $Id: a2bGroupProfile.pas,v 1.29 2016/04/27 13:07:25 lukyanets Exp $}
 
 // $Log: a2bGroupProfile.pas,v $
+// Revision 1.29  2016/04/27 13:07:25  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.28  2016/04/25 11:23:20  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.27  2016/04/20 11:57:00  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.26  2016/03/25 12:42:12  lukyanets
+// cleanup
+//
 // Revision 1.25  2015/11/25 14:01:27  lukyanets
 // Заготовки для выдачи номеров+переезд констант
 //
@@ -85,7 +106,7 @@ interface
 uses
  l3Base,
 
- Dt_Types,
+ daTypes,
  Dt_User,
 
  a2Interfaces,
@@ -97,7 +118,7 @@ type
  private
   f_CanChangeDataGroup: Integer;
   f_CanDelete: Integer;
-  f_CurFamily: TFamilyID;
+  f_CurFamily: TdaFamilyID;
   f_RightsList: Ta2GroupRightsList;
   f_UserList: Ta2MarkedList;
   f_ImportPriority: Ta2Priority;
@@ -148,9 +169,11 @@ uses
  csServerTaskTypes,
 
  daSchemeConsts,
+ daDataProvider,
 
  DT_Const,
- Dt_Acces;
+ DT_Types,
+ Dt_Acces, daInterfaces;
 
 resourcestring
  Sa2NoFamilyError = 'Ta2UserGroupProfile.DoRevert: Нет семейств (что бы это ни значило)';
@@ -177,9 +200,9 @@ var
  l_SelfMask: TTblMaskRec;
  l_FamilyList: Tl3StringDataList;
  l_IPriority,
- l_EPriority: TPriority;
+ l_EPriority: TdaPriority;
 
- function Priority2a2Priority(aPriority: TPriority): Ta2Priority;
+ function Priority2a2Priority(aPriority: TdaPriority): Ta2Priority;
  begin
   case aPriority of
    prLowest  : Result := pvLowest;
@@ -200,7 +223,7 @@ begin
    if l_FamilyList.Count = 0 then
     raise Ea2GroupDataLoadError.Create(Sa2NoFamilyError);
    l_SelfMask:=PUGAccessMask(l_FamilyList.Data[l_FamilyList.IndexOfData(f_CurFamily, SizeOf(f_CurFamily), 0)])^.MaskRec;
-   if UserManager.UsGrDt.ReadPriorities(f_ID, l_IPriority, l_EPriority) then
+   if GlobalDataProvider.UserManager.GetUserPriorities(f_ID, l_IPriority, l_EPriority) then
    begin
     f_ImportPriority := Priority2a2Priority(l_IPriority);
     f_ExportPriority := Priority2a2Priority(l_EPriority);
@@ -210,8 +233,8 @@ begin
   end; {try..finally}
   f_CanChangeDataGroup := GetSelectStateFromMask(l_SelfMask, 0);
   f_CanDelete := GetSelectStateFromMask(l_SelfMask, 1);
-  l_Tmp := UserManager.UGroups.IndexOfData(f_ID, SizeOf(TUserGrID));
-  f_Name := UserManager.UGroups.PasStr[l_Tmp];
+  l_Tmp := GlobalDataProvider.UserManager.AllGroups.IndexOfData(f_ID, SizeOf(TUserGrID));
+  f_Name := GlobalDataProvider.UserManager.AllGroups.PasStr[l_Tmp];
  end
  else
  begin
@@ -234,7 +257,7 @@ var
  l_Mask : TTblMaskRec;
  l_Task : TUserEditQuery;
 
- function a2Priority2Priority(aPriority: Ta2Priority): TPriority;
+ function a2Priority2Priority(aPriority: Ta2Priority): TdaPriority;
  begin
   case aPriority of
    pvLowest  : Result := prLowest;
@@ -418,7 +441,7 @@ begin
  else
  begin
   f_UserList.Clear;
-  f_UserList.HostDataList := UserManager.Users;
+  f_UserList.HostDataList := GlobalDataProvider.UserManager.AllUsers;
   for I := 0 to f_UserList.Count-1 do
    f_UserList.Select[I] := False;
  end;

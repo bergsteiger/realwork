@@ -1,8 +1,11 @@
 unit Main;
 
-{ $Id: Main.pas,v 1.5 2010/06/28 15:29:44 dinishev Exp $ }
+{ $Id: Main.pas,v 1.6 2016/03/28 15:47:28 dinishev Exp $ }
 
 // $Log: Main.pas,v $
+// Revision 1.6  2016/03/28 15:47:28  dinishev
+// Очередная "мутация" утилиты.
+//
 // Revision 1.5  2010/06/28 15:29:44  dinishev
 // [$220202662]
 //
@@ -204,6 +207,8 @@ uses
 
   m3DB,
 
+  evOEMTableFlagChecker,
+
   evdReader,
 
   D_MEMUSG
@@ -221,7 +226,6 @@ var
 
  procedure DoIndex;
  var
-  l_Filer  : Tl3CustomFiler;
   l_Name   : string;
   l_Filter : Tk2TagGenerator;
  begin//DoIndex
@@ -233,7 +237,7 @@ var
                      FilesProcessed,
                      FilesProcessedEx);
   try
-   l_Filter := nil;
+   l_Filter := TevOEMTableFlagChecker.Create('OEMTables.csv');
    try
     f_DB.AllFiles.Iterate(l_Filter,
                           False,
@@ -248,7 +252,6 @@ var
  end;//DoIndex
 
 begin
- g_AllowRaiseAbort := true;
  f_Stopped := false;
  f_InProcess := true;
  btCopy.Enabled := false;

@@ -344,8 +344,8 @@ end;
 
 procedure TSpyForm.FormCreate(Sender: TObject);
 var
- aName: ShortString;
- aLoginName: ShortString;
+ aName: String;
+ aLoginName: String;
  aActiveFlag: Byte;
  l_StandAlone: Boolean;
  l_IsAdmin, l_ShowSplash: Boolean;
@@ -449,8 +449,8 @@ begin
     VersionLabel.Font.Color:= clInactiveCaptionText;
    end;//Tm3StorageManager.UseSplitted
    // Заполняем список пользователей и позиционируемся на Autoload
-   comboUserList.Items.Assign(UserManager.Users);
-   UserManager.GetUserInfo(usServerService, aName, aLoginName, aActiveFlag);
+   comboUserList.Items.Assign(GlobalDataProvider.UserManager.AllUsers);
+   GlobalDataProvider.UserManager.GetUserInfo(usServerService, aName, aLoginName, aActiveFlag);
    comboUserList.ItemIndex:= comboUserList.Items.IndexOf(aName);
 
    f_ImportErrors:= TStringList.Create;
@@ -837,7 +837,7 @@ begin
   f_Pipe.PictureDir:= dirPicture.Text;
   // Выяснение номера пользователя, от имени которого будем заливать
   if comboUserList.ItemIndex > -1 then
-    f_Pipe.UserID:= UserManager.Users.DataInt[comboUserList.ItemIndex];
+    f_Pipe.UserID:= GlobalDataProvider.UserManager.AllUsers.DataInt[comboUserList.ItemIndex];
   {$IFDEF Bilingual}
   f_Pipe.IsEnglish:= chkImportParams.Checked[cEnglishBase];
   {$ELSE}

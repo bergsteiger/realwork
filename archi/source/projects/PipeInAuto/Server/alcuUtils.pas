@@ -65,13 +65,15 @@ const
  OldStorage = True;
 
 implementation
-Uses
+
+uses
+ daInterfaces,
+ daDataProvider,
  alcuMailServer,
  dt_User, dt_Const,
  l3String,
  l3Bits, DateUtils,
  JclDebug,
- dt_UserTypes,
  l3ExceptionsLog, l3FileUtils,
  {$If not defined(ServerAssistantSide)}
  ddAppConfig,
@@ -87,13 +89,13 @@ resourcestring
 
 function UserHostByID(aID: TcsClientID): String;
 var
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
  if aID > High(TUserID) then
   Result := ''
  else
  begin
-  l_User := UserManager.UserByID(aID);
+  l_User := GlobalDataProvider.UserManager.UserByID(aID);
   if l_User = nil then
    Result := ''
   else
@@ -139,13 +141,13 @@ end;
 
 function UserNameByID(aID: TcsClientID; const InkognitoSuffix: AnsiString = ''; const LoginName: AnsiString = ''): String;
 var
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
  if aID > High(TUserID) then
   Result := rsInkognito
  else
  begin
-  l_User := UserManager.UserByID(aID);
+  l_User := GlobalDataProvider.UserManager.UserByID(aID);
   if l_User = nil then
   begin
    if InkognitoSuffix <> '' then
@@ -329,7 +331,10 @@ begin
  if aTask.TaskType = cs_ttAutoClass then
   Result:= 13
  else
-  Result:= -1;
+  if aTask.TaskType = cs_ttContainer then
+   Result:= 21
+  else
+   Result:= -1;
 end;
 
 function FileIsFree(const aFileName: String): Boolean;

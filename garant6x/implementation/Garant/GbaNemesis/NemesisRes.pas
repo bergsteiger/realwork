@@ -321,6 +321,11 @@ uses
   ,
   nscFocusLabel
   {$IfEnd} //Nemesis
+  
+  {$If defined(Nemesis)}
+  ,
+  nscComboLabel
+  {$IfEnd} //Nemesis
   ,
   PrimBaseSearchInterfaces,
   BaseSearchInterfaces

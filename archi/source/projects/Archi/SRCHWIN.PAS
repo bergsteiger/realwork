@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.294 2016/03/18 05:39:46 dinishev Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.300 2016/06/03 09:24:39 fireton Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -292,7 +292,8 @@ uses
  l3Bits,
  l3Date,
  l3IniFile,
- l3LongintList,
+ //l3LongintList,
+ l3IDList,
  l3FieldSortRecList,
  l3FileUtils,
 
@@ -320,7 +321,6 @@ uses
  Dt_TblCache, dt_TblCacheDef,
 
  arIZM,
- GardocBridge,
  SewerPipe,
 
  ddDocNameUpdateFilter,
@@ -401,7 +401,7 @@ procedure TSearchWin.SetFamily(Value : TFamilyID);
 begin
  if DocList.Family = Value then Exit;
  DocList.Family := Value;
- miDeleteDoc.Enabled := l3TestMask(LinkServer(Family).GetSelfMask, acfDelete);
+ miDeleteDoc.Enabled := l3TestMask(AccessServer.GetSelfMask(Family), acfDelete);
 end;
 
 function  TSearchWin.GetModified : Boolean;
@@ -744,7 +744,7 @@ begin
    begin
     if l_UsersStr <> '' then
      l_UsersStr := l_UsersStr + ', ';
-    l_UsersStr := l_UsersStr + UserManager.UserTbl.GetNameStr(l_UserID[I]);
+    l_UsersStr := l_UsersStr + GlobalDataProvider.UserManager.GetUserName(l_UserID[I]);
    end;
 
    if High(l_UserID) > 0 then
@@ -774,7 +774,7 @@ var
  l_ErrWin      : TAccessErrorWin;
  l_Attribute   : IDocAttribute;
 
- procedure l_AddToDenyList(aIDList : Tl3LongintList);
+ procedure l_AddToDenyList(const aIDList : Il3IDList);
  var
   I : Cardinal;
  begin
@@ -802,7 +802,7 @@ var
  function lMakeDBFilter : TGroupOpFilter;
   // устанавливает фильтр, который укладывает данные в СУБД
  var
-  lDocIDList : Tl3LongintList;
+  lDocIDList : Il3IDList;
  begin
   Result := TGroupOpFilter.Create(nil);
   with Result do
@@ -818,11 +818,7 @@ var
    end;
 
    lDocIDList := dtMakeSortedIDListBySab(DocList.Query.GetDocIdList);
-   try
-    Result.SetDocIDList(lDocIDList);
-   finally
-    l3Free(lDocIDList);
-   end;
+   Result.SetDocIDList(lDocIDList);
 
    ExcludeAttr := []; //CctAllAttributes - [ctHLink, ctSub];
 
@@ -831,7 +827,7 @@ var
   end;
  end;
 
- procedure ProcessForAnoncedList(aDocIDList : Tl3LongintList);
+ procedure ProcessForAnoncedList(const aDocIDList : Il3IDList);
  var
   lSab : ISab;
   lTypeSab : ISab;
@@ -839,7 +835,7 @@ var
   I : TUserType;
 
  begin
-  if aDocIDList.Empty then Exit;
+  if (aDocIDList = nil) or aDocIDList.Empty then Exit;
   lSab := MakeValueSet(DocumentServer(Family).FileTbl, fId_Fld, aDocIDList);
   lSab.RecordsByKey;
 
@@ -860,18 +856,18 @@ var
   LinkServer(Family).LogBook.PutLogRecToDocs(lSab, acAnonced, 0, DateTimeToStDate(IniRec.AnouncedDate));
  end;
 
- procedure ProcessForIZMList(aDocIDList : Tl3LongintList);
+ procedure ProcessForIZMList(Const aDocIDList : Il3IDList);
  var
   lSab : ISab;
  begin
-  if aDocIDList.Empty then Exit;
+  if  (aDocIDList = nil) or aDocIDList.Empty then Exit;
   lSab := MakeValueSet(DocumentServer(Family).FileTbl, fId_Fld, aDocIDList);
   GetIZMChecker.CheckoutForIZM(lSab);
  end;
 
 var
- lDocIDList_forAnonced : Tl3LongintList;
- lDocIDList_forIZM : Tl3LongintList;
+ lDocIDList_forAnonced : Il3IDList;
+ lDocIDList_forIZM : Il3IDList;
 
 {gr op}
 begin
@@ -1049,7 +1045,7 @@ begin
  l_SelectedCount := DocList.SrchResultLister.SelectedCount;
  if l_SelectedCount = 0 then Exit;
 
- if not l3TestMask(LinkServer(Family).GetSelfMask, acfDelete) then
+ if not l3TestMask(AccessServer.GetSelfMask(Family), acfDelete) then
  begin
   vtMessageDlg(l3Fmt(sidDeleteDenied, [sidAccessDeny]), mtError);
   Exit;
@@ -1545,9 +1541,9 @@ procedure TSearchWin.acBatchDeleteAttributesExecute(Sender: TObject);
 var
  l_Dlg      : TBatchAttrDelDlg;
  l_Selected : TBADDResult;
- l_LockHandles : Tl3LongintList;
- l_RejectedDocs : ISab;
- l_AcceptedDocs : ISab;
+ l_LockHandles : Il3IDList;
+ l_RejectedDocs : Il3IDList;
+ l_AcceptedDocs : Il3IDList;
  I : Integer;
  l_AttrSet: set of TdtAttribute;
  l_RightsNeeded: Longint;
@@ -1555,12 +1551,12 @@ var
  l_AttrLogged: Boolean;
  l_ErrWin: TAccessErrorWin;
  l_RejIterator: TdtRecAccessProc;
-
- function RejIterator(aRec : Pointer) : Boolean;
- begin
-  Result := True;
-  AddToDenyList(Family, TDocID(aRec^), {l_RightsNeeded,} l_ErrWin.ItemList.Items, True);
- end;
+ lIDSab : ISab;
+ //function RejIterator(aRec : Pointer) : Boolean;
+ //begin
+ // Result := True;
+ // AddToDenyList(Family, TDocID(aRec^), {l_RightsNeeded,} l_ErrWin.ItemList.Items, True);
+ //end;
 
 begin
  if DocList.QueryProvider.IsEmpty then Exit;
@@ -1589,44 +1585,46 @@ begin
     if l_AttrSet <> [] then
      l_RightsNeeded := l_RightsNeeded or acgNameAttr;
     Assert(l_RightsNeeded <> 0);
-    l_LockHandles  := Tl3LongintList.Create;
-    try
+
+    l_LockHandles  := l3MakeIDList;
+    l_AcceptedDocs := l3MakeIDList;
+    l_RejectedDocs := l3MakeIDList;
      LockServer.BatchLockDoc(Family, DocList.QueryProvider.MakeDocIDList, l_RightsNeeded,
          l_LockHandles, l_AcceptedDocs, l_RejectedDocs);
      try
-      if l_AcceptedDocs <> nil then
+      if (l_AcceptedDocs <> nil) and (l_AcceptedDocs.Count > 0) then
       begin
-       l_AttrLogged := False;
-       for I := Low(l_Selected) to High(l_Selected) do
-       begin
-        l_DLType := AttrID2DLType(l_Selected[I]);
-        LinkServer(Family).Links[l_DLType].DelAllLinkItems(l_AcceptedDocs);
-        case l_DLType of
-         da_dlPrefixes,
-         da_dlClasses  : LinkServer(Family).LogBook.PutLogRecToDocs(l_AcceptedDocs, acClassWork);
-         da_dlKeyWords : LinkServer(Family).LogBook.PutLogRecToDocs(l_AcceptedDocs, acKWWork);
-        else
-         if not l_AttrLogged then
-         begin
-          LinkServer(Family).LogBook.PutLogRecToDocs(l_AcceptedDocs, acAttrWork);
-          l_AttrLogged := True;
-         end;
-        end;{case}
-       end;{for}
+       lIDSab := MakeValueSet(DocumentServer(Family).FileTbl, fId_Fld, l_AcceptedDocs);
+       try
+        l_AttrLogged := False;
+        for I := Low(l_Selected) to High(l_Selected) do
+        begin
+         l_DLType := AttrID2DLType(l_Selected[I]);
+         LinkServer(Family).Links[l_DLType].DelAllLinkItems(lIDSab);
+         case l_DLType of
+          da_dlPrefixes,
+          da_dlClasses  : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acClassWork);
+          da_dlKeyWords : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acKWWork);
+         else
+          if not l_AttrLogged then
+          begin
+           LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
+           l_AttrLogged := True;
+          end;
+         end;{case}
+        end;{for}
+       finally
+        lIDSab := nil;
+       end;
       end;
       // отображаем список документов, которые не удалось поменять
       if (l_RejectedDocs <> nil) and (l_RejectedDocs.Count > 0) then
       begin
        l_ErrWin := TAccessErrorWin.Create(Self);
        try
-        l_ErrWin.ItemList.Items.DataSize := SizeOf(Longint);
-        l_RejectedDocs.RecordsByKey;
-        l_RejIterator := L2RecAccessProc(@RejIterator);
-        try
-         l_RejectedDocs.IterateRecords(l_RejIterator, [fID_Fld]);
-        finally
-         FreeRecAccessProc(l_RejIterator);
-        end;
+        for I := 0 to pred(l_RejectedDocs.Count) do
+         AddToDenyList(Family, l_RejectedDocs[I], l_ErrWin.ItemList.Items, True);
+
         l_ErrWin.ShowModal;
        finally
         l3Free(l_ErrWin);
@@ -1637,12 +1635,7 @@ begin
      finally
       LockServer.BatchUnlockDoc(CurrentFamily, l_LockHandles);
      end;
-    finally
-     l3Free(l_LockHandles);
-    end;
    finally
-    l_AcceptedDocs := nil;
-    l_RejectedDocs := nil;
    end;
   end;
  finally
@@ -2153,7 +2146,6 @@ end;
 *)
 
 {begin
- GardocBridge.OutListToStageExchangeFile2('d:\11.stg', DocList.QueryProvider.MakeDocIDList);
 }
 
 (*

@@ -1,8 +1,14 @@
 unit rtGrinder;
 
-{ $Id: rtGrinder.pas,v 1.25 2015/12/22 12:22:04 lukyanets Exp $}
+{ $Id: rtGrinder.pas,v 1.26 2016/04/25 11:23:21 lukyanets Exp $}
 
 // $Log: rtGrinder.pas,v $
+// Revision 1.26  2016/04/25 11:23:21  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.25  2015/12/22 12:22:04  lukyanets
 // Убираем служебных пользователей
 //
@@ -283,7 +289,7 @@ begin
  try
   l_Sab := MakeSab(l_Table);
   try
-   if aFrom = usAdminReserved then
+   if aFrom >= usAdminReserved then
     l_Sab.SelectAll
    else
     l_Sab.Select(aFieldNo, aFrom, aTo);

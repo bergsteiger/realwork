@@ -165,23 +165,20 @@ begin
     SaveDialog.SelectedOnlyEnabled := false;
     SaveDialog.SelectedOnlyChecked := false;
    end;//if Text.HasSelection then
-   if not SaveDialog.Execute then
+   if not TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
     Exit;
    aExportSelection := SaveDialog.SelectedOnlyChecked;
    l_Output := TnsGetGenOutputStruct_Create(nsCStr(SaveDialog.FileName));
    l_F := SaveDialog.SelectedFileFormat;
    l_Ext := nsGetFileFormatExt(l_F);
    case l_F of
-    ns_ffRTF :
-     l_Format := CF_RTF;
-    ns_ffTxt:
-     l_Format := CF_TEXT;
-    ns_ffHTML:
-     l_Format := CF_HTML;
-    ns_ffEvd:
-     l_Format := CF_EverestTxt;
+    ns_ffRTF: l_Format := CF_RTF;
+    ns_ffTxt: l_Format := CF_TEXT;
+    ns_ffHTML: l_Format := CF_HTML;
+    ns_ffEvd: l_Format := CF_EverestTxt;
    end;//case SaveDialogFileFormat of
-   l_Output.rName := nsCStr(ChangeFileExt(l3PStr(l_Output.rName), l_Ext));
+   if not Tl3BatchService.Instance.IsBatchMode then
+    l_Output.rName := nsCStr(ChangeFileExt(l3PStr(l_Output.rName), l_Ext));
   end;
  end
  else

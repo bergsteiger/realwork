@@ -25,7 +25,7 @@ procedure AcSaveDocAs(const aFileName: AnsiString);
 procedure AcSaveTextAs(const aFileName: AnsiString);
 procedure ArClearTemplateStorage;
 procedure AcMainFormFormClose;
-procedure AcClearConfig;
+procedure AcClearConfig(aFileName, aDirname: AnsiString);
 {$IfEnd} //InsiderTest AND nsTest
 
 implementation
@@ -46,6 +46,8 @@ uses
  Main,
 
  VMailWin,
+
+ arDBUtils,
 
  l3Chars,
  l3FileUtils,
@@ -276,12 +278,17 @@ begin
 //#UC END# *53EB19C20101_4E4B5F29031C_impl*
 end;//AcMainFormFormClose
 
-procedure AcClearConfig;
+procedure AcClearConfig(aFileName, aDirname: AnsiString);
 //#UC START# *56A09EF601E1_4E4B5F29031C_var*
+const
+ csUserConfigFile = 'user.ini';
+var
+ l_Msg: AnsiString;
 //#UC END# *56A09EF601E1_4E4B5F29031C_var*
 begin
 //#UC START# *56A09EF601E1_4E4B5F29031C_impl*
- //arExtractUserIniFile;
+ if not arUnackFileFromArchive(aFileName, aDirname, l_Msg, csUserConfigFile) then
+  Assert(False, l_Msg);
 //#UC END# *56A09EF601E1_4E4B5F29031C_impl*
 end;//AcClearConfig
 {$IfEnd} //InsiderTest AND nsTest

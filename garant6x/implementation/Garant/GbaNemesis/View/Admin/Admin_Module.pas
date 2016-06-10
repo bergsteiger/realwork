@@ -33,35 +33,14 @@ uses
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
   ,
-  AdminInterfaces,
-  eeTreeView
+  AdminInterfaces
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  vtComboBoxQS,
   GroupProperty_Form,
   ForbidAutoregistration_Form,
-  UserList_Form,
-  UserProperty_Form,
-  GroupList_Form,
-  Admin_Form,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
   l3StringIDEx,
   PrimUserProperty_admUseProperties_UserType,
   PrimGroupList_admGroupList_UserType,
@@ -72,70 +51,18 @@ uses
   PrimForbidAutoregistrationOptions_Form,
   PrimGroupListOptions_Form,
   PrimGroupPropertyOptions_Form,
-  PrimUserPropertyOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
+  PrimUserPropertyOptions_Form,
   Admin_FormDefinitions_Controls
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsAdmin
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  GroupPropertyKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  ForbidAutoregistrationKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  UserListKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  UserPropertyKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  GroupListKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  
-  {$If defined(Admin) AND not defined(NoScripts)}
-  ,
-  AdminFormKeywordsPack
-  {$IfEnd} //Admin AND not NoScripts
-  ,
+  fsAdmin,
+  UserList_Form,
+  UserProperty_Form,
+  GroupList_Form,
+  Admin_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -165,25 +92,9 @@ uses
   sdsAdmin,
   DataAdapter,
   deNode,
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
+  l3String,
   PrimGroupProperty_admCreateGroup_UserType,
-  PrimGroupProperty_admRenameGroup_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  PrimGroupProperty_admRenameGroup_UserType,
   StdRes {a}
   ;
 {$IfEnd} //Admin

@@ -417,6 +417,7 @@ procedure TnsInternetAgentState.SetParams(const anURL: WideString;
 begin
 //#UC START# *49EDDC9F007A_49EDAA740295_impl*
  f_URL := anURL;
+ f_ScrollPos := aScrollPos;
 //#UC END# *49EDDC9F007A_49EDAA740295_impl*
 end;//TnsInternetAgentState.SetParams
 
@@ -543,7 +544,7 @@ var
 //#UC END# *5175422C03AF_49EC746B01E5_var*
 begin
 //#UC START# *5175422C03AF_49EC746B01E5_impl*
- if not nsIsGarantURL(URL) then
+ if (not nsIsGarantURL(URL)) and (f_NavigateErrorCode in [c_HTTP_OK, 0]) then
  begin
   Cancel := true;
   case MessageDlg(str_mtNotGarantDomain) of
@@ -559,7 +560,14 @@ begin
  if nsParseLocalDocumentURL(URL, l_DocID, l_SubID) then
  begin
   Cancel := true;
-  nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+  if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
+   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
+  Exit;
+ end;
+ if nsIsFileFromMobileGarant(URL) then
+ begin
+  Cancel := true;
+  nsDoShellExecute(l3CStr(URL));
   Exit;
  end;
 
@@ -603,8 +611,6 @@ procedure TPrimInternetAgentForm.NavigateCompleteXE(Sender: TObject;
  const pDisp: IDispatch;
  const URL: OleVariant);
 //#UC START# *517544400331_49EC746B01E5_var*
-const
- c_PageNotFoundError: HResult = 404;
 //#UC END# *517544400331_49EC746B01E5_var*
 begin
 //#UC START# *517544400331_49EC746B01E5_impl*
@@ -636,8 +642,6 @@ procedure TPrimInternetAgentForm.NavigateErrorXE(Sender: TObject;
  const StatusCode: OleVariant;
  var Cancel: WordBool);
 //#UC START# *517544E2036E_49EC746B01E5_var*
-const
- c_HTTP_OK: HResult = 200;
 //#UC END# *517544E2036E_49EC746B01E5_var*
 begin
 //#UC START# *517544E2036E_49EC746B01E5_impl*
@@ -1103,7 +1107,7 @@ begin
 //#UC START# *49806ED503D5_49EC746B01E5_impl*
  //if (aStateType = vcm_stPosition) then
  begin
-  theState := TnsInternetAgentState.Make(f_URL).As_IvcmBase;
+  theState := TnsInternetAgentState.Make(f_URL, f_Browser.ScrollPos).As_IvcmBase;
   Result := true;
   //inherited DoSaveState(theState, aStateType);
   Exit;
@@ -1152,11 +1156,15 @@ begin
     end;//try..except
    if f_InInit then
     if (l_State <> nil) then
+    begin
+     f_Browser.ScrollPos := l_State.ScrollPos;
      Navigate(l_State.URL);
+    end;
    Result := true;
    //inherited DoLoadState(aState, aStateType);
-   if (l_State <> nil) then
-    l_State.SetParams(l_URL);
+   // kost: кажись, ниже две строчки не нужны.
+   //if (l_State <> nil) then
+   // l_State.SetParams(l_URL);
    Exit;
   end;//f_Browser <> nil
  end;//aStateType = vcm_stPosition

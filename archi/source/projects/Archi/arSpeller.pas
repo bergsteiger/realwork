@@ -115,10 +115,10 @@ var
    FreeRGLStub(lIterFunc);
   end;
 
-  if not lHasIniData then // конфигурация "по-умолчанию" - mlmaru + 'en_US' если есть
+  if not lHasIniData then // конфигурация "по-умолчанию" - mlmaru + 'en_GB' если есть
   begin
    lAddSpellModule(lmMlmaru);
-   lAddSpellModule(lmHun, 'en_US');
+   lAddSpellModule(lmHun, 'en_GB');
   end;
 
   SetSpeller(lSpeller);

@@ -32,18 +32,8 @@ uses
   ,
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
   ,
   eeInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
@@ -56,57 +46,18 @@ uses
   RightEdition_Form,
   EditionsContainer_Form,
   PrimEditionsContainer_Form,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  vtFocusLabel,
   l3StringIDEx,
   bsTypesNew,
   PrimLeftEdition_utLeftEdition_UserType,
   PrimRightEdition_utRightEdition_UserType,
   PrimEditionsContainer_utEditionsContainer_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
   ,
-  CompareEditions_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsCompareEditions
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  LeftEditionKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  RightEditionKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  EditionsContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  CompareEditions_FormDefinitions_Controls,
+  fsCompareEditions,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -157,11 +108,6 @@ implementation
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
   Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(NoVCM)}
   ,
   StdRes
@@ -215,6 +161,8 @@ uses
   nsConst,
   nsQuestions,
   nsExternalObjectModelPart,
+  nsSaveDialogExecutor,
+  l3BatchService,
   bsDocumentContextSearcher,
   nsSearchInDocumentEvent,
   BaseTypesUnit,
@@ -246,24 +194,7 @@ uses
   evEditorWithOperations,
   sdsCompareEditions,
   nsCompareEditionsInfo,
-  l3MessageID,
-  vtComboBoxQS
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
+  l3MessageID
   ;
 {$IfEnd} //not Admin AND not Monitorings
 

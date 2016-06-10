@@ -42,13 +42,6 @@ uses
   ;
 
 type
- TnsBaseSearchOpenKind = (
-  {* Типы открытия базового поиска }
-   ns_bsokLocal // Локальный поиск контекста (Ctrl+F)
- , ns_bsokSpecify // Уточнить
- , ns_bsokGlobal // Глобальный поиск (F4)
- );//TnsBaseSearchOpenKind
-
  InsBaseSearchVisibleWatcher = interface(IUnknown)
    ['{E98658D8-1553-40D7-A6E1-840C705598C9}']
    procedure VisibleChanged(aNewVisible: Boolean);
@@ -117,6 +110,8 @@ type
  InsSearchWindow = interface(IUnknown)
    ['{793F257C-3520-4B48-AE36-4CB918875D2E}']
    function pm_GetIsActive: Boolean;
+   function pm_GetIsMainInUseCase: Boolean;
+   function pm_GetVisible: Boolean;
    function Get_Container: IvcmContainer;
    procedure ParamsChanged;
    procedure PresentationChanged;
@@ -129,6 +124,10 @@ type
    procedure ForceUpdateClassForHistory;
    property IsActive: Boolean
      read pm_GetIsActive;
+   property IsMainInUseCase: Boolean
+     read pm_GetIsMainInUseCase;
+   property Visible: Boolean
+     read pm_GetVisible;
    property Container: IvcmContainer
      read Get_Container;
  end;//InsSearchWindow
@@ -175,6 +174,16 @@ type
    rZone : TvcmZoneType;
  end;//TnsContainerForBaseSearchInfo
 
+ TnsBaseSearchOpenKind = (
+  {* Типы открытия базового поиска }
+   ns_bsokLocal // Локальный поиск контекста (Ctrl+F)
+ , ns_bsokSpecify // Уточнить
+ , ns_bsokGlobal // Глобальный поиск (F4)
+ );//TnsBaseSearchOpenKind
+
+ ETryToFindEmptyContext = class(Exception)
+ end;//ETryToFindEmptyContext
+
 (*
  MnsBaseSearchPresentationState = PureMixIn
   {* http://mdp.garant.ru/pages/viewpage.action?pageId=321989072
@@ -185,14 +194,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=321989072&focusedCommentId=330
 Скорее всего его нельзя запоминать в историю. Точнее не егго а форму БП, которая на него смотрит }
  end;//MnsBaseSearchPresentationState
 *)
-
- ETryToFindEmptyContext = class(Exception)
- end;//ETryToFindEmptyContext
-
- InsBaseSearchWindowOpener = interface(IUnknown)
-   ['{5D504A4A-A102-4393-A6E3-7B05893425C5}']
-   procedure OpenWindow(OpenKind: TnsBaseSearchOpenKind);
- end;//InsBaseSearchWindowOpener
 
  InsBaseSearchListSource = interface(IUnknown)
    ['{A3EE6B9E-5CDF-4D52-9384-3ADB2C60D102}']
@@ -372,44 +373,8 @@ type
      read pm_GetFirstClass;
  end;//InsBaseSearchClasses
 
- TnsBaseSearchWindowState = (
-   ns_wsClosed // Окно закрыто
- , ns_wsOpened // Окно открыто
- , ns_wsForce // Окно было открыто пользователем
- );//TnsBaseSearchWindowState
-
- InsBaseSearcherWindowDataState = interface(IUnknown)
-   ['{FEF02F60-B5AC-4322-B2AD-D71F9F0AC310}']
-   function pm_GetActiveClass: InsBaseSearchClass;
-   function pm_GetContext: Il3CString;
-   function pm_GetWindowState: TnsBaseSearchWindowState;
-   property ActiveClass: InsBaseSearchClass
-     read pm_GetActiveClass;
-   property Context: Il3CString
-     read pm_GetContext;
-   property WindowState: TnsBaseSearchWindowState
-     read pm_GetWindowState;
- end;//InsBaseSearcherWindowDataState
-
- TnsBaseSearcherChangeElement = (
-   ns_ceContext
- , ns_ceActiveClass
- , ns_ceSearchArea
- );//TnsBaseSearcherChangeElement
-
- TnsBaseSearcherChangeElements = set of TnsBaseSearcherChangeElement;
-
- InsBaseSearchWindowDataListener = interface(IUnknown)
-   ['{077A6E65-4EFE-4D18-B636-37CE23834A28}']
-   procedure NotifyBaseSearcherDataChanged(aChangedElements: TnsBaseSearcherChangeElements);
- end;//InsBaseSearchWindowDataListener
-
  InsBaseSearcherWindowData = interface(IUnknown)
    ['{DD7D1F2D-820E-444C-9DF2-8780A9B6256D}']
-//   function MakeState: InsBaseSearcherWindowDataState;
-//   procedure AssignState(const aState: InsBaseSearcherWindowDataState);
-//   procedure Subscribe(const aListener: InsBaseSearchWindowDataListener);
-//   procedure Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
    function pm_GetClassesAnywayDisabled: Boolean;
    function pm_GetAllowSearchInTitles: Boolean;
    function pm_GetFindEnabled: Boolean;
@@ -514,6 +479,38 @@ type
      write pm_SetPresentation;
  end;//InsBaseSearcher
 
+ TnsBaseSearchWindowState = (
+   ns_wsClosed // Окно закрыто
+ , ns_wsOpened // Окно открыто
+ , ns_wsForce // Окно было открыто пользователем
+ );//TnsBaseSearchWindowState
+
+ InsBaseSearcherWindowDataState = interface(IUnknown)
+   ['{FEF02F60-B5AC-4322-B2AD-D71F9F0AC310}']
+   function pm_GetActiveClass: InsBaseSearchClass;
+   function pm_GetContext: Il3CString;
+   function pm_GetWindowState: TnsBaseSearchWindowState;
+   property ActiveClass: InsBaseSearchClass
+     read pm_GetActiveClass;
+   property Context: Il3CString
+     read pm_GetContext;
+   property WindowState: TnsBaseSearchWindowState
+     read pm_GetWindowState;
+ end;//InsBaseSearcherWindowDataState
+
+ TnsBaseSearcherChangeElement = (
+   ns_ceContext
+ , ns_ceActiveClass
+ , ns_ceSearchArea
+ );//TnsBaseSearcherChangeElement
+
+ TnsBaseSearcherChangeElements = set of TnsBaseSearcherChangeElement;
+
+ InsBaseSearchWindowDataListener = interface(IUnknown)
+   ['{077A6E65-4EFE-4D18-B636-37CE23834A28}']
+   procedure NotifyBaseSearcherDataChanged(aChangedElements: TnsBaseSearcherChangeElements);
+ end;//InsBaseSearchWindowDataListener
+
  InsBaseSearcherProvider = interface(IUnknown)
    ['{75F17410-E8D4-42B9-84D5-DC1EA4486A12}']
    function Get_BaseSearcher: InsBaseSearcher;
@@ -524,6 +521,98 @@ type
 const
   { SearchStateElementConstants }
  ns_sseAll = [ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseActiveClass, ns_sseSearchArea];
+
+type
+ TnsSearchAreas = set of TnsSearchArea;
+
+ InsBaseSearchView = interface;
+ { - предварительное описание InsBaseSearchView. }
+
+ InsBaseSearchModelListener = interface;
+ { - предварительное описание InsBaseSearchModelListener. }
+
+ InsBaseSearchModel = interface(IUnknown)
+   ['{A177D497-27C7-44EC-AE4F-1F7E80356A8E}']
+   function pm_GetActiveClass: InsBaseSearchClass;
+   procedure pm_SetActiveClass(const aValue: InsBaseSearchClass);
+   function pm_GetContext: Il3CString;
+   procedure pm_SetContext(const aValue: Il3CString);
+   function pm_GetArea: TnsSearchArea;
+   procedure pm_SetArea(aValue: TnsSearchArea);
+   function pm_GetAvailableAreas: TnsSearchAreas;
+   function pm_GetFindBackSupported: Boolean;
+   function pm_GetFindBackEnabled: Boolean;
+   function pm_GetFindEnabled: Boolean;
+   function pm_GetIsLocalSearchArea: Boolean;
+   function pm_GetExampleText: Il3CString;
+   function Find(const aProcessor: InsBaseSearchResultProcessor): Boolean;
+   function FindBack(const aProcessor: InsBaseSearchResultProcessor): Boolean;
+   procedure AddView(const aVie: InsBaseSearchView);
+   procedure RemoveView(const aView: InsBaseSearchView);
+   procedure SubscribeListener(const aListener: InsBaseSearchModelListener);
+   procedure UnsubscribeListener(const aListener: InsBaseSearchModelListener);
+   property ActiveClass: InsBaseSearchClass
+     read pm_GetActiveClass
+     write pm_SetActiveClass;
+   property Context: Il3CString
+     read pm_GetContext
+     write pm_SetContext;
+   property Area: TnsSearchArea
+     read pm_GetArea
+     write pm_SetArea;
+   property AvailableAreas: TnsSearchAreas
+     read pm_GetAvailableAreas;
+   property FindBackSupported: Boolean
+     read pm_GetFindBackSupported;
+   property FindBackEnabled: Boolean
+     read pm_GetFindBackEnabled;
+   property FindEnabled: Boolean
+     read pm_GetFindEnabled;
+   property IsLocalSearchArea: Boolean
+     read pm_GetIsLocalSearchArea;
+   property ExampleText: Il3CString
+     read pm_GetExampleText;
+ end;//InsBaseSearchModel
+
+ InsBaseSearchController = interface;
+ { - предварительное описание InsBaseSearchController. }
+
+ InsBaseSearchView = interface(IUnknown)
+   ['{D7052746-10B0-4077-976C-EE5166E62B84}']
+   function pm_GetBaseSearchController: InsBaseSearchController;
+   procedure pm_SetBaseSearchController(const aValue: InsBaseSearchController);
+   procedure NotifyBaseSearchModelChanged(const aModel: InsBaseSearchModel);
+   property BaseSearchController: InsBaseSearchController
+     read pm_GetBaseSearchController
+     write pm_SetBaseSearchController;
+ end;//InsBaseSearchView
+
+ InsBaseSearchController = interface(InsBaseSearchPresentation)
+   ['{45CA43A1-2CEA-4D58-AF9A-3209F08E099A}']
+   function pm_GetBaseSearchModel: InsBaseSearchModel;
+   procedure pm_SetBaseSearchModel(const aValue: InsBaseSearchModel);
+   property BaseSearchModel: InsBaseSearchModel
+     read pm_GetBaseSearchModel
+     write pm_SetBaseSearchModel;
+ end;//InsBaseSearchController
+
+ InsBaseSearcherState = interface(IUnknown)
+   ['{2E299BC4-4889-4C2D-BFF6-E0F740D84E63}']
+   function pm_GetActiveClass: InsBaseSearchClass;
+   function pm_GetArea: TnsSearchArea;
+   function pm_GetContext: Il3CString;
+   property ActiveClass: InsBaseSearchClass
+     read pm_GetActiveClass;
+   property Area: TnsSearchArea
+     read pm_GetArea;
+   property Context: Il3CString
+     read pm_GetContext;
+ end;//InsBaseSearcherState
+
+ InsBaseSearchModelListener = interface(IUnknown)
+   ['{1DC524FF-884C-41F7-B466-84D4A3F890DB}']
+   procedure NotifyBaseSearchModelChanged(const aModel: InsBaseSearchModel);
+ end;//InsBaseSearchModelListener
 {$IfEnd} //not Admin
 
 implementation

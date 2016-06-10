@@ -1,8 +1,26 @@
 unit PrintDialog_Form;
 
-{ $Id: PrintDialog_Form.pas,v 1.20 2015/06/03 15:03:56 lulin Exp $ }
+{ $Id: PrintDialog_Form.pas,v 1.26 2016/05/26 01:08:38 lulin Exp $ }
 
 // $Log: PrintDialog_Form.pas,v $
+// Revision 1.26  2016/05/26 01:08:38  lulin
+// - перегенерация.
+//
+// Revision 1.25  2016/05/16 13:47:06  lulin
+// - так правильнее.
+//
+// Revision 1.24  2016/05/05 09:16:08  morozov
+// {RequestLink: 622825943}
+//
+// Revision 1.23  2016/05/05 06:56:55  lulin
+// - синхронизируем настройки из диалога с принтером.
+//
+// Revision 1.22  2016/05/04 16:54:49  lulin
+// {RequestLink:611828637}
+//
+// Revision 1.21  2016/04/28 15:53:50  lulin
+// {RequestLink:621474995} Заточка для хитровыделенных.
+//
 // Revision 1.20  2015/06/03 15:03:56  lulin
 // - правим зависимости.
 //
@@ -295,6 +313,8 @@ uses
   ;
 
 type
+  TvcmEntityFormRef = TPrimPrintDialogOptionsForm;
+  
   Ten_PrintDialog = class(TvcmEntityFormRef)
     FormPanel: TvtPanel;
     PrinterGroupBox: TvtGroupBox;
@@ -329,9 +349,8 @@ type
       var CanClose: Boolean);
     procedure poDocumentNamesClick(Sender: TObject);
     procedure poDocumentTextsClick(Sender: TObject);
-   private
-    procedure WndProc(var aMessage: TMessage);
-      override;
+   protected
+    procedure WMWinIniChange(var aMessage: TMessage); message WM_WININICHANGE;
       {-}
     procedure UpdateState; override;
       {-}
@@ -365,7 +384,10 @@ var
 begin
  if (f_Preview <> nil) then
  begin
-  f_Preview.Printer.PrinterIndex := cbPrinter.ItemIndex;
+  l_Printer := f_Preview.Printer;
+  l_Printer.PrinterIndex := cbPrinter.ItemIndex;
+  l_Printer.Copies := edCopyCount.AsInteger;
+  l_Printer.Collate := CollateCheckBox.Checked;
   {$If not defined(Admin) AND not defined(Monitorings)}
   TdmStdRes.ToPrinterSettings(f_Preview.Printer);
   {$IfEnd}
@@ -378,9 +400,9 @@ begin
 //Открываем принтер и получаем его дескриптор
    if OpenPrinter(l_Device, l_hPrinter, nil) then
     try
-     try
 //Получаем указатель на структуру DEVMODE}
-      l_pDM := GlobalLock(l_hDeviceMode);
+     l_pDM := GlobalLock(l_hDeviceMode);
+     try
 //Собственно вызываем диалоговое окно
       if (IDOK = DocumentProperties(
        Self.Handle,
@@ -403,6 +425,10 @@ begin
     end;//try..finally
     if l_NeedUpdate then
     begin
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=621474995
+     edCopyCount.AsInteger := l_Printer.Copies;
+     CollateCheckBox.Checked := l_Printer.Collate;
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=621474995
     {$If not defined(Admin) AND not defined(Monitorings)}
      TdmStdRes.FromPrinterSettings(f_Preview.Printer);
     {$IfEnd}
@@ -413,13 +439,11 @@ begin
  end;//f_Preview <> nil
 end;
 
-procedure Ten_PrintDialog.WndProc(var aMessage: TMessage);
+procedure Ten_PrintDialog.WMWinIniChange(var aMessage: TMessage);
 begin
  inherited;
- if (aMessage.Msg = WM_ACTIVATEAPP) then
-  with TWMActivateApp(aMessage) do
-   if Active then
-    UpdateState;
+ UpdateState;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=622825943
 end;
 
 procedure Ten_PrintDialog.UpdateState;
@@ -454,6 +478,12 @@ begin
  cbPrintInfo.Enabled := false;
  cbPrintInfo.Checked := false;
 
+ if (f_Preview <> nil) AND f_Preview.Printer.HasPrinter then
+ begin
+  edCopyCount.AsInteger := f_Preview.Printer.Copies;
+  CollateCheckBox.Checked := f_Preview.Printer.Collate;
+ end;//(f_Preview <> nil) AND f_Preview.Printer.HasPrinter
+ 
  l_OK := UpdatePrintersList;
  if l_Ok AND (f_Preview <> nil) AND f_Preview.Printer.HasPrinter then
  begin

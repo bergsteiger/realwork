@@ -20,70 +20,17 @@ interface
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  eeTreeView
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
+  l3Interfaces,
   ChatTypes,
   ChatInterfaces,
   ContactList_Form,
   ChatWindow_Form,
   ChatHistory_Form,
   BaseHistoryWindow_Form,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel
-  {$If defined(Nemesis)}
-  ,
-  nscChatMemo
-  {$IfEnd} //Nemesis
-  ,
   BaseChatWindowOptions_Form,
-  PrimContactListOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ContactListKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ChatWindowKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ChatHistoryKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  PrimContactListOptions_Form,
   vcmExternalInterfaces {a},
+  vcmInterfaces {a},
   vcmModule {a},
   vcmBase {a}
   ;
@@ -114,12 +61,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   bsChatDispatcher
   {$If not defined(NoVCM)}
   ,
@@ -136,17 +77,6 @@ uses
   PrimContactList_chatContacts_UserType,
   BaseHistoryWindow_utChatHistory_UserType,
   BaseChatWindow_cwChat_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Chat_opOpenContactList

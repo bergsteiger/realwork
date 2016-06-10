@@ -2,9 +2,27 @@ unit alcuConfig;
 
 { Модуль для хранения настроек программы }
 
-{ $Id: alcuConfig.pas,v 1.41 2016/03/16 09:15:34 lukyanets Exp $ }
+{ $Id: alcuConfig.pas,v 1.46 2016/06/03 09:28:30 fireton Exp $ }
 
 // $Log: alcuConfig.pas,v $
+// Revision 1.46  2016/06/03 09:28:30  fireton
+// - вычищаем старую интеграцию с Гардоком
+//
+// Revision 1.45  2016/06/02 15:28:03  fireton
+// - синхронизация с Гардоком журнала импортов
+//
+// Revision 1.44  2016/05/27 08:27:40  fireton
+// - синхронизация этапов в Гардок
+//
+// Revision 1.43  2016/04/15 11:54:29  lukyanets
+// Чистим протухший код
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.42  2016/03/29 13:10:37  lukyanets
+// Cleanup
+//
 // Revision 1.41  2016/03/16 09:15:34  lukyanets
 // Заменяем условную компиляцию на настройку
 //
@@ -747,6 +765,7 @@ procedure AddMDPSyncChild(aConfig: TddAppConfiguration);
 var
  l_Item: TddBaseConfigItem;
 begin
+ {$IFNDEF LUK}
  with aConfig do
  begin
   AddChild('mdpSync', 'Cинхронизация с Гардок');
@@ -757,7 +776,7 @@ begin
     AddItem(TalcuUserListComboItem.Make('mdpImportUser', 'Пользователь для импорта'));
      Hint := 'Пользователь от чьего имени будут импортированы документы';
    CloseGroup;
-   AddGroupItem('mdpDictSync', 'Cинхронизация словарей в Гардок');
+   AddGroupItem('mdpDictSync', 'Cинхронизация словарей, этапов и журнала импорта в Гардок');
     LabelTop:= False;
     AddStringItem('dsURL', 'URL синхронизации','http://gardoc.garant.ru/plugins/servlet/gar-rest/ogv-synonyms');
     l_Item := AddBooleanItem(l3CStr('dsUseProxy'), l3CStr('Использовать прокси'));
@@ -773,7 +792,8 @@ begin
      Hint := 'В этой папке хранятся временные файлы для передачи в Гардок';
      PathFill:= dd_ftFull;
    CloseGroup;
- end;
+ end; // with
+ {$ENDIF}
 end;
 
 procedure AddUserTasksChild(aConfig: TddAppConfiguration);
@@ -1020,53 +1040,6 @@ begin
  end;
 end;
 {$ENDIF Courts}
-
-procedure AddRemoteDictChild(aConfig: TddAppConfiguration);
-var
- l_Main: TddBaseConfigItem;
- l_Dict: TdaDictionaryType;
-begin
- with aConfig do
- begin
-  AddChild('Dictionary', 'Удаленное редактирование словарей');
-   { Информация об удаленном изменении словарей:
-      - куда класть (откуда забирать)
-      - список словарей
-      - переодичность обработки (?)
-   }
-   l_Main:= AddBooleanItem(l3CStr('Dict_Enabled'), l3CStr('Использовать удаленное редактирование'));
-    Hint:= 'Выбранные словари будут участвовать в удаленном редактировании';
-    AddRadioGroupItem('Dict_Mode', 'Режим работы', -1, l_Main);
-     Add('Сервер');
-     Add('Клиент');
-    AddFolderNameItem('Dict_Folder', 'Папка для хранения истории изменений словарей', '', l_Main, False);
-     LabelTop:= False;
-     Hint:= 'В этой папке будут храниться изменения словарей';
-    (*
-    AddItem(FTPParams('dict_', 'Параметры FTP'));
-    CloseGroup;
-    *)
-    (* *)
-    AddStringItem('Dict_FTPHost', 'FTP сервер', 'partner.garant.ru', l_Main);
-     LabelTop:= False;
-    //AddIntegerItem('Dict_FTPPort', '', )
-    // MinValue:= 1;
-    // MaxValue:= 65000;
-    AddStringItem('Dict_FTPUser', 'Имя пользователя', '', l_Main);
-     LabelTop:= False;
-    AddStringItem('Dict_FTPPassword', 'Пароль', '', l_Main);
-     PasswordChar:= '*';
-     LabelTop:= False;
-    AddStringItem('Dict_FTPFolder', 'Папка на сервере', '', l_Main);
-     LabelTop:= False;
-    (* *)
-    AddCheckListItem('Dict_List', 'Словари, редактируемые удаленно', -1, l_Main);
-     Columns:= 2;
-     for l_Dict:= da_dlSources to High(TdaDictionaryType) do
-      Add(cDLPassports[l_Dict].rName);
-  CloseChild;
- end;
-end;
 
 procedure AddAutoClassNode(aConfig: TddAppConfiguration);
 begin
@@ -1335,13 +1308,6 @@ begin
    AddNode('Everyday', 'Ежедневное обновление');
     LabelTop:= False;
     l_Main:= AddBooleanItem(l3CStr('DoEverydayUpdate'), l3CStr('Выполнять ежедневное обновление'));
-    {$IFNDEF LUK}
-    AddDivider('Синхронизация с Гардоком');
-    AddDateItem('dayGardocDate', 'Этапы с', 0, l_Main);
-     Hint:= 'Будут экспортированы этапы  обработки с указанной даты по сегодня';
-    AddFolderNameItem('GarDocDir', 'Записать в папку', '', l_Main, False);
-     Hint:= 'В эту папку будет записан файл с закрытыми этапами';
-    {$ENDIF}
     AddDivider('Резервное копирование');
      AddFolderNameItem('FamilyBackup', 'Папка для семейства', 'Yesterday', l_Main, False);
       Hint:= 'В указанную папку копируется только папка с документами и атрибутами';
@@ -1697,7 +1663,7 @@ begin
  end;
 *)
 end;
-
+(*
 procedure AddSectionMakerNode(aConfig: TddAppConfiguration);
 begin
  // TODO -cMM: AddSectionMakerNode необходимо написать реализацию
@@ -1715,7 +1681,7 @@ begin
   CloseChild;
  end;
 end;
-
+*)
 procedure AddHavanskyExportChild(aConfig: TddAppConfiguration);
 begin
  with aConfig do
@@ -1850,11 +1816,9 @@ begin
   AddHavanskyExportChild(Result);
   {$ENDIF}
   {$IFDEF MakeSections}
-  AddSectionMakerNode(Result);
+  Выкинуто как устаревшее
+//  AddSectionMakerNode(Result);
   {$ENDIF}
-  {$IFDEF RemoteDict}
-  AddRemoteDictChild(Result);
-  {$ENDIF RemoteDict}
   { Уведомления о событиях }
   AddNotifyConfig(Result);
   {$IFDEF MDPSyncIntegrated}

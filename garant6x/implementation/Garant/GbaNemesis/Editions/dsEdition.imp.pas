@@ -24,6 +24,7 @@
  _dsEdition_ = {abstract vac} class(_VScroll_, IdsEdition, InsVScrollListener {from IdsEdition})
   {* Базовая область ввода, для работы с редакциями }
  protected
+
   procedure InitRefs(const aDS: IvcmUseCaseController); override;
   procedure ClearRefs; override;
  protected

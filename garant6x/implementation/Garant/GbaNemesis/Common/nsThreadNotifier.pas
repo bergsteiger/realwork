@@ -4,8 +4,11 @@ unit nsThreadNotifier;
 { Модуль: nsThreadNotifier - объект для синхронизации нотификаций, приходящих с сервера в другой триаде}
 { Начат: 25.10.2005 13:00 }
 
-{ $Id: nsThreadNotifier.pas,v 1.9 2015/01/15 14:17:12 lulin Exp $ }
+{ $Id: nsThreadNotifier.pas,v 1.10 2016/03/31 11:52:55 lulin Exp $ }
 //$Log: nsThreadNotifier.pas,v $
+//Revision 1.10  2016/03/31 11:52:55  lulin
+//- перегенерация.
+//
 //Revision 1.9  2015/01/15 14:17:12  lulin
 //{RequestLink:585926571}. Используем Interlocked.
 //
@@ -54,6 +57,7 @@ uses
   Messages,
 
   l3Base,
+  l3CProtoObject,
   l3CacheableBase,
   
   vcmBase,

@@ -1,6 +1,6 @@
 unit d_SrchIncludeDoc;
 
-{ $Id: D_SRCHINCLUDEDOC.PAS,v 1.2 2005/05/30 10:28:39 lulin Exp $ }
+{ $Id: D_SRCHINCLUDEDOC.PAS,v 1.3 2016/04/18 08:39:30 lukyanets Exp $ }
 
 interface
 
@@ -41,7 +41,6 @@ Uses
 procedure TSrchIncludeDocDlg.FormCreate(Sender: TObject);
 begin
  UserManager.GetFiltredUserList(cbUser.Items);
- //UserManager.UserTbl.GetDictList(cbUser.Items, False);
  cbUser.Items.Insert(0, '[бяе]');
  cbUser.ItemIndex := 0;
 end;

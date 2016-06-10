@@ -33,6 +33,7 @@
    f_DocInfo : IdeDocInfo;
     {* Поле для свойства DocInfo}
  protected
+
   procedure InitRefs(const aDS: IvcmUseCaseController); override;
   procedure ClearRefs; override;
  private

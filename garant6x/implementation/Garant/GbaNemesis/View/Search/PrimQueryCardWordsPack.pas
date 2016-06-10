@@ -40,6 +40,7 @@ uses
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A23EE0196impl_uses*
+ , StdRes
  //#UC END# *571A23EE0196impl_uses*
 ;
 
@@ -108,7 +109,7 @@ procedure TkwOk.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4DAF1DD9017F_var*
 begin
 //#UC START# *4DAEEDE10285_4DAF1DD9017F_impl*
- !!! Needs to be implemented !!!
+ aCtx.rCaller.Check(vcmDispatcher.EntityOperation(TdmStdRes.opcode_Result_OkExt, vcmParams), 'Операция Result OkExt не выполнилась');
 //#UC END# *4DAEEDE10285_4DAF1DD9017F_impl*
 end;//TkwOk.DoDoIt
 

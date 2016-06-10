@@ -1023,22 +1023,12 @@ begin
   except
    on EOleSysError do
    begin
-    l_AppsName := CurrentJobFileName;
-    l_AppsPath := ExtractFileDir(l_AppsName);
     //
     l_NeedCID := CLSID_CTask;
     l_NeedIID := IID_ITask;
     //
     OleCheck(NewWorkItem(PWideChar(l_TaskName), l_NeedCID, l_NeedIID, l_Unknown));
     OleCheck(l_Unknown.QueryInterface(IID_ITask, Result));
-    //
-    with Result do
-    begin
-     OleCheck(SetApplicationName(PWideChar(l_AppsName)));
-     OleCheck(SetWorkingDirectory(PWideChar(l_AppsPath)));
-    end;
-    //
-    OleCheck(SavePersistTask(Result));
     //
     SetTaskEnabledStatus(Result, False);
     SetScheduleTime(
@@ -1053,6 +1043,17 @@ begin
     );
    end;
   end;
+  //
+  l_AppsName := CurrentJobFileName;
+  l_AppsPath := ExtractFileDir(l_AppsName);
+  //
+  with Result do
+  begin
+   OleCheck(SetApplicationName(PWideChar(l_AppsName)));
+   OleCheck(SetWorkingDirectory(PWideChar(l_AppsPath)));
+  end;
+  //
+  OleCheck(SavePersistTask(Result));
  end;
 end;
 

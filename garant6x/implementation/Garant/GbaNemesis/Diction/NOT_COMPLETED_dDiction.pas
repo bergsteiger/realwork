@@ -247,6 +247,7 @@ begin
  for l_Index := 0 to Pred(aData.refTranslationCount) do
   pm_GetRefTranslation(l_Index).Assign(aData.refTranslation[l_Index]);
  f_IsShowLiteratureList := aData.IsShowLiteratureList;
+ f_CurrentLanguage := aData.CurrentLanguage;
 //#UC END# *4B16B8CF0307_4936CCA700F0_impl*
 end;//TdDiction.AssignData
 {$IfEnd} // NOT Defined(NoVCM)

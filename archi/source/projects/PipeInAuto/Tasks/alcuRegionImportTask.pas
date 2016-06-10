@@ -66,7 +66,7 @@ uses
 
 function TalcuRegionImportTask.AllowSimultaneousRun: Boolean;
 begin
- Result := True;
+ Result := True;                             
 end;
 
 class function TalcuRegionImportTask.CanAsyncRun: Boolean;

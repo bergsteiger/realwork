@@ -1,33 +1,48 @@
 unit nsChangesBetweenEditionsDocumentContainer;
- {* Контейнер документа для ОИД }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\nsChangesBetweenEditionsDocumentContainer.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TnsChangesBetweenEditionsDocumentContainer" MUID: (4DDD0D92039C)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "ChangesBetweenEditions$Domain"
+// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ChangesBetweenEditions/nsChangesBetweenEditionsDocumentContainer.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions$Domain::ChangesBetweenEditionsImplementation::TnsChangesBetweenEditionsDocumentContainer
+//
+// Контейнер документа для ОИД
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3IntfUses
- {$If Defined(Nemesis)}
- , eeDocumentContainer
- {$IfEnd} // Defined(Nemesis)
- , DocumentUnit
- , ChangesBetweenEditionsInterfaces
- , nevTools
- , l3Variant
- , DocumentInterfaces
- , F1TagDataProviderInterface
- , afwInterfaces
- , nevPrintableDocumentContainer
- , l3IID
- , nevBase
- , l3Interfaces
-;
+  DocumentUnit
+  {$If defined(Nemesis)}
+  ,
+  eeDocumentContainer
+  {$IfEnd} //Nemesis
+  ,
+  nevTools,
+  ChangesBetweenEditionsInterfaces,
+  l3Variant,
+  DocumentInterfaces,
+  F1TagDataProviderInterface,
+  afwInterfaces,
+  l3Interfaces,
+  nevBase,
+  k2Base,
+  nevPrintableDocumentContainer,
+  l3IID
+  ;
+{$IfEnd} //not Admin AND not Monitorings
 
+{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
@@ -35,104 +50,93 @@ type
  {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
  TnsChangesBetweenEditionsDocumentContainer = class(_nsEditionsDecorationRules_)
   {* Контейнер документа для ОИД }
-  private
-   f_DiffProvider: IDiffDocDataProvider;
-   f_Data: InsChangesBetweenEditionsInfo;
-   f_GettingDocumentCount: Integer;
-  private
+ private
+ // private fields
+   f_DiffProvider : IDiffDocDataProvider;
+   f_Data : InsChangesBetweenEditionsInfo;
+   f_GettingDocumentCount : Integer;
+ private
+ // private methods
    function MakeDocument: Il3TagRef;
-    {* Создаёт документ из данных, которые приехали с адаптера }
-  protected
+     {* Создаёт документ из данных, которые приехали с адаптера }
+ protected
+ // overridden protected methods
    procedure FinishDataUpdate; override;
    function ReplaceContainerInOwner(const aDocumentContainer: InevDocumentContainer): Boolean; override;
    function CanBePlacedInDocumentsCache: Boolean; override;
    function GetDocument: Tl3Tag; override;
    procedure AfterCreate(const aDocInfo: IdeDocInfo); override;
    procedure ClearFields; override;
-  public
+     {* Сигнатура метода ClearFields }
+ public
+ // public methods
    constructor Create(const aData: InsChangesBetweenEditionsInfo); reintroduce;
    class function Make(const aData: InsChangesBetweenEditionsInfo): InevDocumentContainer; reintroduce;
+     {* Сигнатура фабрики TnsChangesBetweenEditionsDocumentContainer.Make }
  end;//TnsChangesBetweenEditionsDocumentContainer
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} //not Admin AND not Monitorings
 
 implementation
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3ImplUses
- , deDocInfo
- , Document_Const
- , TextPara_Const
- , k2Facade
- , k2Tags
- , nsTagString
- , Table_Const
- , TableRow_Const
- , TableCell_Const
- , l3MinMax
- , l3Defaults
- , nsStyleParser
- , evdStyles
- {$If Defined(Nemesis)}
- , f1TextStyle_Const
- {$IfEnd} // Defined(Nemesis)
- , BitmapPara_Const
- , l3Memory
- , l3Stream
- , Classes
- , SysUtils
- , nsIDocumentDataObject
- , nsDocumentPreview
- , nsHAFPainter
- , LoggingInterfaces
- , nsDocumentPrintEvent
- , DataAdapter
- , evdTypes
- , nsTypes
- , LeafPara_Const
- {$If Defined(k2ForEditor)}
- , evParaTools
- {$IfEnd} // Defined(k2ForEditor)
- , afwFacade
- , evTextStyle_Const
- , l3Base
- , k2SizedMemoryPool
- , l3BaseStream
- , k2RawData_Const
- , ComObj
- , l3Types
-;
+  l3Base,
+  k2SizedMemoryPool,
+  l3BaseStream,
+  k2RawData_Const,
+  ComObj,
+  l3Types,
+  deDocInfo,
+  Document_Const,
+  TextPara_Const,
+  k2Facade,
+  k2Tags,
+  nsTagString,
+  Table_Const,
+  TableRow_Const,
+  TableCell_Const,
+  l3MinMax,
+  l3Defaults,
+  nsStyleParser,
+  evdStyles
+  {$If defined(Nemesis)}
+  ,
+  f1TextStyle_Const
+  {$IfEnd} //Nemesis
+  ,
+  BitmapPara_Const,
+  l3Memory,
+  l3Stream,
+  Classes,
+  SysUtils,
+  nsIDocumentDataObject,
+  nsDocumentPreview,
+  nsHAFPainter,
+  LoggingInterfaces,
+  nsDocumentPrintEvent,
+  DataAdapter,
+  evdTypes,
+  nsTypes,
+  LeafPara_Const
+  {$If defined(k2ForEditor)}
+  ,
+  evParaTools
+  {$IfEnd} //k2ForEditor
+  ,
+  afwFacade,
+  evTextStyle_Const
+  ;
+{$IfEnd} //not Admin AND not Monitorings
 
-{$If Defined(Nemesis)}
+{$If not defined(Admin) AND not defined(Monitorings)}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
-constructor TnsChangesBetweenEditionsDocumentContainer.Create(const aData: InsChangesBetweenEditionsInfo);
-//#UC START# *4DDD0E080101_4DDD0D92039C_var*
-//#UC END# *4DDD0E080101_4DDD0D92039C_var*
-begin
-//#UC START# *4DDD0E080101_4DDD0D92039C_impl*
- f_Data := aData;
- f_DiffProvider := aData.DiffProvider;
- inherited Create(TdeDocInfo.Make(aData.RightEdition));
-//#UC END# *4DDD0E080101_4DDD0D92039C_impl*
-end;//TnsChangesBetweenEditionsDocumentContainer.Create
-
-class function TnsChangesBetweenEditionsDocumentContainer.Make(const aData: InsChangesBetweenEditionsInfo): InevDocumentContainer;
-var
- l_Inst : TnsChangesBetweenEditionsDocumentContainer;
-begin
- l_Inst := Create(aData);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//TnsChangesBetweenEditionsDocumentContainer.Make
+// start class TnsChangesBetweenEditionsDocumentContainer
 
 function TnsChangesBetweenEditionsDocumentContainer.MakeDocument: Il3TagRef;
- {* Создаёт документ из данных, которые приехали с адаптера }
 //#UC START# *4EA6BBFA01DF_4DDD0D92039C_var*
 
  function MakeLeafPara(const aData : TDiffDocPara; aStyleID : Integer): Il3TagRef;
@@ -320,7 +324,9 @@ begin
  Result := k2_typDocument.MakeTag;
  try
   l_D := Result.AsObject;
-  l_D.IntA[k2_tiExternalHandle] := f_DocumentInfo.Doc.GetInternalId;
+  l_D.IntA[k2_tiExternalHandle] := f_DocumentInfo.Doc.GetInternalId + 100000;
+  // Ога. Гы-гы.
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=570118754&focusedCommentId=620262032&#comment-620262032
   f_DiffProvider.GetHeaderParaList(l_L);
   try
    AddListToCont(l_D, l_L, [f1_saChanges1, ev_saTxtHeader1, f1_saChanges1, f1_saChanges2]);
@@ -404,6 +410,29 @@ begin
 //#UC END# *4EA6BBFA01DF_4DDD0D92039C_impl*
 end;//TnsChangesBetweenEditionsDocumentContainer.MakeDocument
 
+constructor TnsChangesBetweenEditionsDocumentContainer.Create(const aData: InsChangesBetweenEditionsInfo);
+//#UC START# *4DDD0E080101_4DDD0D92039C_var*
+//#UC END# *4DDD0E080101_4DDD0D92039C_var*
+begin
+//#UC START# *4DDD0E080101_4DDD0D92039C_impl*
+ f_Data := aData;
+ f_DiffProvider := aData.DiffProvider;
+ inherited Create(TdeDocInfo.Make(aData.RightEdition));
+//#UC END# *4DDD0E080101_4DDD0D92039C_impl*
+end;//TnsChangesBetweenEditionsDocumentContainer.Create
+
+class function TnsChangesBetweenEditionsDocumentContainer.Make(const aData: InsChangesBetweenEditionsInfo): InevDocumentContainer;
+var
+ l_Inst : TnsChangesBetweenEditionsDocumentContainer;
+begin
+ l_Inst := Create(aData);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;
+
 procedure TnsChangesBetweenEditionsDocumentContainer.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4DDD0D92039C_var*
 //#UC END# *47EA4E9002C6_4DDD0D92039C_var*
@@ -478,12 +507,17 @@ begin
 end;//TnsChangesBetweenEditionsDocumentContainer.AfterCreate
 
 procedure TnsChangesBetweenEditionsDocumentContainer.ClearFields;
+ {-}
 begin
+ {$If not defined(Admin) AND not defined(Monitorings)}
  f_DiffProvider := nil;
+ {$IfEnd} //not Admin AND not Monitorings
+ {$If not defined(Admin) AND not defined(Monitorings)}
  f_Data := nil;
+ {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsChangesBetweenEditionsDocumentContainer.ClearFields
-{$IfEnd} // Defined(Nemesis)
 
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} //not Admin AND not Monitorings
+
 end.

@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.120 2016/02/15 16:08:19 voba Exp $ }
+{ $Id: MAIN.PAS,v 1.126 2016/06/10 11:43:36 lukyanets Exp $ }
 
 {$I arDefine.inc }
 
@@ -75,7 +75,6 @@ type
     acDelAllHyperLinks               : TAction;
     acCascade                        : TAction;
     acChangeClassifier               : TAction;
-    acCheckIntegrity                 : TAction;
     acCloseActChildWin               : TAction;
     acDocImport                      : TAction;
     acDocOnStageStat                 : TAction;
@@ -416,7 +415,6 @@ type
     procedure LeftDockPanelResize(Sender: TObject);
     procedure BottomDockPanelResize(Sender: TObject);
     procedure acDocImportClick(Sender: TObject);
-    procedure acCheckIntegrityClick(Sender: TObject);
     procedure acMacroInsertDocChangesClick(Sender: TObject);
     procedure acDelAllHyperLinksClick(Sender: TObject);
     procedure acSetSpecBaseClick(Sender: TObject);
@@ -679,7 +677,7 @@ uses
      HelpCnst,
      //DocIntf,
      imageenio,
-     ArchiUserRequestManager, 
+     ArchiUserRequestManager,
      ddAutoImportClient,
      ClosingWin,
      WinList,
@@ -692,7 +690,6 @@ uses
      BaseSupport,
      evStandardActions,
      evStyleInterfaceEx,
-     GardocBridge,
      MissTypesList,
      evStyleTableTools, evOpProc,
      VersionSupport,
@@ -706,6 +703,8 @@ uses
      evCommonTypes,
      evFacadeCursor,
 
+
+     l3IDList,
      l3LongintList,
 
      DT_DocImages,
@@ -878,7 +877,7 @@ begin
     begin
      l_BiLingualGroup := BaseConfig.MagicNumber['MagicNumbers', 'BilingualGroupID'];
      if l_BiLingualGroup >= 0 then
-      IniRec.MultiLingual := UserManager.IsMemberOfGroup(l_BiLingualGroup)
+      IniRec.MultiLingual := GlobalDataProvider.UserManager.IsMemberOfGroup(l_BiLingualGroup, GlobalDataProvider.UserID)
      else
       IniRec.MultiLingual := False;
     end
@@ -1124,8 +1123,8 @@ end;
 procedure TMainForm.CheckLocalSavedDocs;
 
 var
- lHasInSaveDir : Tl3LongintList;
- lNeedOpen : Tl3LongintList;
+ lHasInSaveDir : Il3IDList;
+ lNeedOpen : Il3IDList;
 
  function DoFile(const aFileName: string): Boolean;
  var
@@ -1158,27 +1157,22 @@ var
  l_FPStub    : Pointer;
  I : Integer;
 begin
- lHasInSaveDir := Tl3LongintList.Create;
- lNeedOpen := Tl3LongintList.Create;
+ lHasInSaveDir := l3MakeIDList;
+ lNeedOpen := l3MakeIDList;
+ l_FPStub := l3LocalStub(@DoFile);
  try
-  l_FPStub := l3LocalStub(@DoFile);
-  try
-   ProcessFilesWithMask(IniRec.PathToLocalSaveDir, '*.sav'{cMask}, TFileProcessingFunc(l_FPStub));
-  finally
-   l3FreeLocalStub(l_FPStub);
-  end;
+  ProcessFilesWithMask(IniRec.PathToLocalSaveDir, '*.sav'{cMask}, TFileProcessingFunc(l_FPStub));
+ finally
+  l3FreeLocalStub(l_FPStub);
+ end;
 
-  LockServer.CheckMyLock(CurrentFamily, lHasInSaveDir, lNeedOpen);
+ LockServer.CheckMyLock(CurrentFamily, lHasInSaveDir, lNeedOpen);
 
-  for I := 0 to Pred(lHasInSaveDir.Count) do
-   DeleteLocalCopy(lHasInSaveDir[I]);
+ for I := 0 to Pred(lHasInSaveDir.Count) do
+  DeleteLocalCopy(lHasInSaveDir[I]);
 
-  for I := 0 to Pred(lNeedOpen.Count) do
-   RunTextEditor(CurrentFamily, lNeedOpen[I]);
-  finally
-   l3Free(lHasInSaveDir);
-   l3Free(lNeedOpen);
-  end;
+ for I := 0 to Pred(lNeedOpen.Count) do
+  RunTextEditor(CurrentFamily, lNeedOpen[I]);
 end;
 
 procedure TMainForm.FirstIdleHandler(Sender: TObject; var Done: Boolean);
@@ -1187,6 +1181,7 @@ procedure TMainForm.FirstIdleHandler(Sender: TObject; var Done: Boolean);
    begin
     Application.OnIdle := IdleHandler;
     try
+     ArchiRequestManager.RequestNextVersionDate;
      ArchiRequestManager.RequestResultsDelivery(True);
     except
      On E : Exception do l3System.Exception2Log(E);
@@ -3205,37 +3200,6 @@ begin
   ShowMessage('Не удалось отправить задачу на сервер.');
  end;
 end;
-
-procedure TMainForm.acCheckIntegrityClick(Sender: TObject);
-var
- lDelWrongTopic : Boolean;
- //lOldID, lNewID : Integer;
-begin
- //OutListToStageExchangeFile('d:\123.stage1NN',DateTimeToStDate(StrToDate('4.01.2010')), DateTimeToStDate(StrToDate('4.01.2010')));
-
- OutListToStageExchangeFile('d:\123.stageN2',DateTimeToStDate(StrToDate('1.01.2010')), DateTimeToStDate(StrToDate('31.01.2010')));
- exit;
-
- GlobalHtServer.VerifyFamily(CurrentFamily, vtDiction, false{WithFixErrors}); //настоящий
-
- //LinkServer.Family := CurrentFamily;
- //lOldID := 1238;
- //lNewID := 2941;
- //LinkServer[da_dlClasses].ModifyDictID(lOldID, lNewID);
-
- //lOldID := 2567;
- //LinkServer[da_dlClasses].DelAllNodesOnBody(lOldID);
-
- //RenumerateExtID;
-
-
- //lDelWrongTopic := (vtMessageDlg('Удалять информацию о несуществующих документах?', mtConfirmation, [mbYes, mbNo]) = mrYes);
- //GlobalHtServer.CheckNullDocuments(
- //                                  lDelWrongTopic, True {Report},
- //                                  ChangeFileExt(Application.ExeName,'.CHECK_NoBody'));
- //GlobalHtServer.CheckDocumentsWithOutGarantID(CurrentFamily, True, ChangeFileExt(Application.ExeName,'.CHECK_NoID'));
-
- end;
 
 procedure TMainForm.acMacroInsertDocChangesClick(Sender: TObject);
 begin

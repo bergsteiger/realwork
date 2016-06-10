@@ -1,8 +1,59 @@
 unit a2bUserGroupTree;
 
-{ $Id: a2bUserGroupTree.pas,v 1.71 2015/05/29 12:54:36 fireton Exp $}
+{ $Id: a2bUserGroupTree.pas,v 1.81 2016/06/10 11:43:34 lukyanets Exp $}
 
 // $Log: a2bUserGroupTree.pas,v $
+// Revision 1.81  2016/06/10 11:43:34  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.80  2016/06/08 13:04:59  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.79  2016/05/16 12:54:13  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.78  2016/05/04 06:51:59  lukyanets
+// Директива открывающая возможность удалять служебных пользователей
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.77  2016/04/29 10:27:05  lukyanets
+// Убираем зависимость от cs
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.76  2016/04/28 13:17:46  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.75  2016/04/25 12:36:56  lukyanets
+// Приведение типов
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.74  2016/04/25 11:23:20  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.73  2016/04/20 11:57:00  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.72  2016/04/18 13:36:25  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.71  2015/05/29 12:54:36  fireton
 // - "служебный" 255 регион: исключаем из интерфейса и экспорта пользователей
 //
@@ -240,6 +291,8 @@ uses
  l3Nodes,
 
  Dt_Types,
+ daInterfaces,
+ daTypes,
 
  vcmInterfaces,
  vcmFormDataSource,
@@ -249,7 +302,7 @@ uses
  a2Interfaces, k2TagGen;
 
 type
- Ta2UserGroupTree = class(TvcmFormDataSource, Ia2UserGroupTree)
+ Ta2UserGroupTree = class(TvcmFormDataSource, Ia2UserGroupTree, IdaUserStatusChangedSubscriber)
  private
   f_AllUsersGroupNode: Il3Node;
   f_Tree: Tl3Tree;
@@ -267,6 +320,8 @@ type
   function  pm_GetTree: Il3SimpleTree;
   function  pm_GetNeedReposition: Boolean;
   function  IsBigBrother: Boolean;
+  // IdaUserStatusChangedSubscriber
+  procedure UserStatusChanged(UserID: TdaUserID; Active: Boolean);
   // - visualization methods
   function  NeedSpecialDraw(aNode: Il3SimpleNode): Boolean;
   function GetNodeImage(aNode: Il3SimpleNode): Integer;
@@ -286,7 +341,7 @@ type
   function pm_GetSDS: Ia2sdsAdmin;
   procedure BigBrotherOnNode(aNode: Il3SimpleNode);
   procedure EditNode(aNode: Il3SimpleNode);
-  procedure UserStatusChange(UserId : TUserID; Active : Boolean);
+//  procedure UserStatusChange(UserId : TUserID; Active : Boolean);
   function Reposition(aRootNode: Il3SimpleNode): Il3SimpleNode;
   procedure SaveGroup(aGroup: Ia2UserGroupProfile; aGenerator: Ik2TagGenerator; aFormat: Ta2SaveFormat);
   procedure SaveUser(aUser: Ia2UserProfile; aGenerator: Ik2TagGenerator; aFormat: Ta2SaveFormat);
@@ -297,7 +352,7 @@ type
   function CurrentProfile: Ia2Profile;
  protected
   procedure Cleanup; override;
-  
+
  public
   procedure DoInit; override;
   procedure GotData; override;
@@ -382,7 +437,8 @@ uses
 
  ddRTFWriter,
 
- daInterfaces,
+ daDataProvider,
+ daUserManagerUtils,
 
  Dt_Const,
  DT_UserConst,
@@ -479,6 +535,7 @@ end;
 
 procedure Ta2UserGroupTree.Cleanup;
 begin
+ GlobalDataProvider.UserManager.UnRegisterUserStatusChangedSubscriber(Self);
  l3Free(f_Tree);
  inherited;
 end;
@@ -566,7 +623,7 @@ begin
  if Supports(aNode, Ia2ProfileNode, l_PNode) and not (nfGroup in l_PNode.Flags) then
  begin
   l_PNodeObj := Ta2ProfileNode((l_PNode as Il3NodeWrap).GetSelf);
-  UserManager.DelUser(l_PNodeObj.Handle);
+  UserManager.DelUser(TdaUserID(l_PNodeObj.Handle));
   Result := True;
  end
  else
@@ -770,12 +827,11 @@ end;
 
 procedure Ta2UserGroupTree.LoadGroupsAndUsers;
 var
- l_ID: Integer;
+ l_ID: TdaUserID;
  I: Integer;
- lAction : Tl3IteratorAction;
  l_GNode, l_Node : Il3Node;
 
- function lUserGroupIter(aData: Pointer; aIndex: Long): Bool;
+ function lUserGroupIter(const aName: AnsiString; aIndex: Long): Boolean;
  var
   l_ID: Integer;
   lCN : Il3Node;
@@ -783,7 +839,7 @@ var
   lCurUsList : Tl3StringDataList;
  begin
   Result := True;
-  lCN := MakeParamNode(aData, aIndex, Ta2ProfileNode);
+  lCN := MakeParamNode(PAnsiChar(aName), aIndex, Ta2ProfileNode);
   (lCN as Ia2ProfileNode).Flags := [nfGroup];
   with f_Tree do
    InsertNode(RootNode, lCN);
@@ -798,7 +854,7 @@ var
     begin
      l_Node := MakeParamNode(lCurUsList.Strings[I], l_ID, Ta2ProfileNode);
      {
-     if (l_ID = usSupervisor) or (l_ID = usAdminReserved) then
+     if (l_ID = usSupervisor) or (l_ID >= usAdminReserved) then
       (l_Node as Ia2ProfileNode).Flags := [nfSystem];
      }
      lCN.InsertChild(l_Node);
@@ -821,29 +877,24 @@ begin
    f_AllUsersGroupNode := MakeParamNode(PChar('Все пользователи'), a2cAllUsersGroup, Ta2ProfileNode);
    (f_AllUsersGroupNode as Ia2ProfileNode).Flags := [nfGroup, nfSystem];
    f_Tree.InsertNode(RootNode, f_AllUsersGroupNode);
-   UserManager.ReSortUserList;
-   for I := 0 to UserManager.Users.Count-1 do
+   GlobalDataProvider.UserManager.ReSortUserList;
+   for I := 0 to GlobalDataProvider.UserManager.AllUsers.Count-1 do
    begin
-    l_ID := UserManager.Users.DataInt[I];
+    l_ID := TdaUserID(GlobalDataProvider.UserManager.AllUsers.DataInt[I]);
     // (l_ID shr 24 < 255) - выкидываем "служебный" 255 регион из списка
-    if (l_ID <> usSupervisor) and (l_ID <> usServerService) and (l_ID shr 24 < 255) then
+    if (l_ID <> usSupervisor) and (l_ID <> usServerService) {$IFNDEF RepairReservedUsers} and (l_ID < usAdminReserved) {$ENDIF RepairReservedUsers} then
     begin
-     l_Node := MakeParamNode(UserManager.Users.Strings[I], l_ID, Ta2ProfileNode);
-     if (l_ID = usSupervisor) or (l_ID = usAdminReserved) then
+     l_Node := MakeParamNode(GlobalDataProvider.UserManager.AllUsers.Strings[I], Long(l_ID), Ta2ProfileNode);
+     if (l_ID = usSupervisor) {$IFNDEF RepairReservedUsers} or (l_ID >= usAdminReserved) {$ENDIF RepairReservedUsers} then
       (l_Node as Ia2ProfileNode).Flags := [nfSystem];
      f_AllUsersGroupNode.InsertChild(l_Node);
     end;
    end;
 
-
-   lAction := l3L2IA(@lUserGroupIter);
-   try
-    UserManager.IterateUserGroups(lAction);
-    UserManager.OnUserActiveChange := UserStatusChange;
-    UserManager.SetCurrentActiveUsers;
-   finally
-    l3FreeFA(Tl3FreeAction(lAction));
-   end;{try..finally}
+   GlobalDataProvider.UserManager.IterateUserGroupsF(L2ArchiUsersIteratorIterateUserGroupsFAction(@lUserGroupIter));
+//    UserManager.OnUserActiveChange := UserStatusChange;
+   GlobalDataProvider.UserManager.RegisterUserStatusChangedSubscriber(Self);
+   g_BaseEngine.SetCurrentActiveUsers;
   finally
    Changed;
   end;
@@ -1289,16 +1340,16 @@ var
      finally
       Finish;
      end; // конец шапки таблицы
-     UserManager.Users.Sort;
+     GlobalDataProvider.UserManager.AllUsers.Sort;
      N := 1;
-     with UserManager.Users do
+     with GlobalDataProvider.UserManager.AllUsers do
      begin
-      for i:= 0 to UserManager.Users.Count-1 do
+      for i:= 0 to GlobalDataProvider.UserManager.AllUsers.Count-1 do
       begin
        l_UserID := PUserID(Data[I])^;
        if (l_UserID <> usSupervisor) and (l_UserID <> usServerService) then
        begin
-        if (aGroupID = -1) or (UserManager.IsMemberOfGroup(aGroupID, l_UserID)) then
+        if (aGroupID = -1) or (GlobalDataProvider.UserManager.IsMemberOfGroup(aGroupID, l_UserID)) then
         begin
          StartChild(k2_typTableRow);
          try
@@ -1346,15 +1397,15 @@ var
            try
             AddIntegerAtom(k2_tiStyle, ev_saNormalTable);
             l_GrStr := '';
-            for J := 0 to UserManager.UGroups.Count-1 do
+            for J := 0 to GlobalDataProvider.UserManager.AllGroups.Count-1 do
             begin
-             l_UserGrID := PUserGrID(UserManager.UGroups.Data[J])^;
-             if UserManager.IsMemberOfGroup(l_UserGrID, l_UserID) then
+             l_UserGrID := PUserGrID(GlobalDataProvider.UserManager.AllGroups.Data[J])^;
+             if GlobalDataProvider.UserManager.IsMemberOfGroup(l_UserGrID, l_UserID) then
               if (aGroupID = -1) or (l_UserGrID <> aGroupID) then
               begin
                if l_GrStr <> '' then
                 l_GrStr := l_GrStr+', ';
-               l_GrStr := l_GrStr + UserManager.UGroups.Strings[J];
+               l_GrStr := l_GrStr + GlobalDataProvider.UserManager.AllGroups.Strings[J];
               end;
             end;
             AddIntegerAtom(k2_tiJustification, Ord(ev_itLeft));
@@ -1437,7 +1488,7 @@ begin
  l_GroupID := aGroup.ID;
  if l_GroupID = 0 then
   exit;
- l_GrIndexInUM := UserManager.UGroups.IndexOfData(l_GroupID, SizeOf(l_GroupID));
+ l_GrIndexInUM := GlobalDataProvider.UserManager.AllGroups.IndexOfData(l_GroupID, SizeOf(l_GroupID));
  l_IsPlainText := aFormat in [sfTextWin, sfTextDos];
  l_Rights := aGroup.GetRightsGroupList;
  with aGenerator do
@@ -1450,7 +1501,7 @@ begin
     AddIntegerAtom(k2_tiStyle, ev_saTxtHeader1);
     AddIntegerAtom(k2_tiSpaceAfter, 346);  // 12 pt
     AddIntegerAtom(k2_tiSpaceBefore, 173); //  6 pt
-    AddStringAtom(k2_tiText, Format('Группа'#10'"%s"', [UserManager.UGroups.Strings[l_GrIndexInUM]]));
+    AddStringAtom(k2_tiText, Format('Группа'#10'"%s"', [GlobalDataProvider.UserManager.AllGroups.Strings[l_GrIndexInUM]]));
    finally
     Finish;
    end;
@@ -1530,7 +1581,7 @@ begin
    AddIntegerAtom(k2_tiSpaceAfter, 346);  // 12 pt
    AddIntegerAtom(k2_tiSpaceBefore, 173); //  6 pt
    if l_GrIndexInUM <> -1 then
-    AddStringAtom(k2_tiText, Format('Состав группы'#10'"%s"', [UserManager.UGroups.Strings[l_GrIndexInUM]]))
+    AddStringAtom(k2_tiText, Format('Состав группы'#10'"%s"', [GlobalDataProvider.UserManager.AllGroups.Strings[l_GrIndexInUM]]))
    else
     AddStringAtom(k2_tiText, 'Все пользователи');
   finally
@@ -1755,7 +1806,7 @@ begin
  else
   BigBrotherOnNode(aNode); 
 end;
-
+(*
 procedure Ta2UserGroupTree.UserStatusChange(UserId : TUserID; Active : Boolean);
 
  function IterHandler(const CurNode: Il3Node): Boolean; far;
@@ -1786,7 +1837,7 @@ begin
   f_Tree.Changed;
  end;
 end;
-
+*)
 function Ta2ProfileNode.pm_GetHandle: Integer;
 begin
  Result := f_Handle;
@@ -1897,5 +1948,42 @@ begin
  f_Handle := Value;
 end;
 
+
+procedure Ta2UserGroupTree.UserStatusChanged(UserID: TdaUserID;
+  Active: Boolean);
+
+ function IterHandler(const CurNode: Il3Node): Boolean; far;
+ var
+  l_PNode: Ia2ProfileNode;
+  l_ProfileNodeObject: Ta2ProfileNode;
+ begin
+  Result := False;
+  if Supports(CurNode, Ia2ProfileNode, l_PNode) then
+  try
+   if not (nfGroup in l_PNode.Flags) then
+   begin
+    l_ProfileNodeObject := Ta2ProfileNode((l_PNode as Il3NodeWrap).GetSelf);
+    if l_ProfileNodeObject.Handle = UserId then
+    begin
+     if Active then
+      l_PNode.Flags := l_PNode.Flags + [nfActive]
+     else
+      l_PNode.Flags := l_PNode.Flags - [nfActive];
+    end;
+   end;
+  finally
+   l_PNode := nil;
+  end;
+ end;
+
+begin
+ // реакция на изменение состояния пользователя
+ f_Tree.Changing;
+ try
+  l3IterateSubTreeF(f_Tree.RootNode, l3L2NA(@IterHandler));
+ finally
+  f_Tree.Changed;
+ end;
+end;
 
 end.

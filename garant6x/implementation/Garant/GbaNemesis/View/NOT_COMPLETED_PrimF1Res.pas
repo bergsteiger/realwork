@@ -358,6 +358,7 @@ var
 //#UC END# *4F6AF5860291_4A92BBDF0126_var*
 begin
 //#UC START# *4F6AF5860291_4A92BBDF0126_impl*
+ l3ExceptionsLog.CheckOpenedLog;
  //l3SysUtils.ImmDisableIME;
  InitDefaults;
  if not RunOtherProcesses then

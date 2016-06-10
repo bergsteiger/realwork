@@ -1,6 +1,6 @@
 unit D_PaperWhere;
 
-{ $Id: D_PaperWhere.pas,v 1.12 2010/07/21 10:38:43 voba Exp $ }
+{ $Id: D_PaperWhere.pas,v 1.14 2016/04/18 11:47:31 lukyanets Exp $ }
 
 interface
 
@@ -11,7 +11,8 @@ uses
   DT_Types, DT_User, DT_Doc,
   BottomBtnDlg, evMultiSelectEditorWindow, evCustomEditor,
   evEditorWithOperations, afwControl, afwControlPrim, afwBaseControl,
-  nevControl, evCustomMemo;
+  nevControl, evCustomMemo, evCustomEditorWindowPrim, evCustomEditorWindow,
+  evCustomEditorWindowModelPart, evCustomEditorModelPart;
 
 type
   TPaperWhereDlg = class(TBottomBtnDlg)
@@ -42,7 +43,7 @@ uses
   begin
    Try
     Screen.Cursor:=crHourGlass;
-    UserManager.UserTbl.GetDictList(cbDocPlaceUser.Items, False);
+    UserManager.GetFiltredUserList(cbDocPlaceUser.Items, False);
     If aPaperUser = ArchivePlace
      then rbDocPlaceArchieve.Checked := True
      else

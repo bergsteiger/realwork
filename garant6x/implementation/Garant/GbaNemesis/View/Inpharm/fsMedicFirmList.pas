@@ -58,7 +58,7 @@ uses
   DocumentInterfaces,
   PreviewInterfaces,
   l3Interfaces,
-  nsTypes
+  nsTypesNew
   {$If defined(Nemesis)}
   ,
   nscNewInterfaces
@@ -73,6 +73,7 @@ uses
   DynamicDocListUnit,
   PrimPrimListInterfaces,
   FiltersUnit,
+  nsTypes,
   DynamicTreeUnit
   {$If not defined(NoVCM)}
   ,

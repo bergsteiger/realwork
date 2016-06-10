@@ -203,7 +203,7 @@ begin
      begin
       if (DocSab = nil) and (DiapasonType = tdNumList) then
        MakeSab;
-      Assert(DocSab <> nil, 'Список документов неопределён!');
+      Assert(DocSab <> nil, 'Список документов не определён!');
       if ToRegion <> cUndefDictID then
        _CorrectRegionSab(UserID, l_Locked); { TODO -oДмитрий Дудко -cРазвитие : На самом деле нельзя отправлять письма из процедуры проверки саба }
       f_OutPipe.DocSab:= DocSab;

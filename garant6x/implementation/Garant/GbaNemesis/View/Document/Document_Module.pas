@@ -29,66 +29,24 @@ uses
   ,
   vcmInterfaces
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
   ,
   DocumentAndListInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
   {$If not defined(NoVCM)}
   ,
   vcmContainerForm
   {$IfEnd} //not NoVCM
   ,
   PresentationInterfaces,
-  DocumentWithFlash_Form,
   DocumentDomainInterfaces
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  Text_Form,
-  vtPanel,
-  Redactions_Form,
-  Contents_Form,
   Picture_Form,
-  PictureInfo_Form,
   DocNumberQuery_Form,
-  Warning_Form,
-  Attributes_Form,
-  SynchroView_Form,
   TurnOnTimeMachine_Form,
-  eeMemoWithEditOperations,
-  vtDblClickDateEdit
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
   NavigationInterfaces,
-  vtLabel,
   DocumentUserTypes_dftDocument_UserType,
   nsLogEvent,
   DocumentInterfaces,
@@ -96,29 +54,17 @@ uses
   DocumentWithFlashUserTypes_dwftMain_UserType,
   Common_FormDefinitions_Controls,
   ExTextOptions_Form,
-  eeSubPanel,
   PrimSynchroViewOptions_Form,
   PrimRedactionsOptions_Form,
   PrimPictureInfoOptions_Form,
   PrimDocNumberQueryOptions_Form,
   PrimAttributesOptions_Form,
-  PrimPictureOptions_Form
-  {$If not defined(NoImageEn)}
-  ,
-  imageenproc
-  {$IfEnd} //not NoImageEn
-  ,
+  PrimPictureOptions_Form,
   PrimDocumentWithFlashOptions_Form,
   PrimContentsOptions_Form,
   PrimTurnOnTimeMachineOptions_Form,
-  vtLister,
   WorkWithDocumentInterfaces,
-  DocInfoInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanelView
-  {$IfEnd} //Nemesis
-  ,
+  DocInfoInterfaces,
   BaloonWarningUserTypes_WarnJuror_UserType,
   BaloonWarningUserTypes_WarnPreActive_UserType,
   BaloonWarningUserTypes_WarnIsAbolished_UserType,
@@ -127,142 +73,30 @@ uses
   BaloonWarningUserTypes_WarnTimeMachineOn_UserType,
   BaloonWarningUserTypes_WarnRedaction_UserType,
   BaloonWarningUserTypes_WarnTimeMachineWarning_UserType,
-  BaloonWarningUserTypes_WarnTimeMachineException_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
-  WarningBaloon_Form,
+  BaloonWarningUserTypes_WarnTimeMachineException_UserType,
   PrimWarningBaloonOptions_Form,
   PrimDockedWarning_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  SynchroView_WarningBaloon_Form,
-  Translation_WarningBaloon_Form,
-  UserCR1_WarningBaloon_Form,
-  UserCR2_WarningBaloon_Form
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
   ,
   fsAbstractDocument,
-  vtScrollBar
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtButton,
-  vtCheckBox,
-  vtRadioButton,
-  nscTreeViewWithAdapterDragDrop
-  {$If defined(Nemesis)}
-  ,
-  nscReminder
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscRemindersLine
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
+  DocumentWithFlash_Form,
+  Text_Form,
+  Redactions_Form,
+  Contents_Form,
   fsDocument,
-  fsDocumentWithFlash
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DocumentWithFlashKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TextKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  RedactionsKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ContentsKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  PictureKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  PictureInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DocNumberQueryKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  WarningKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AttributesKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  SynchroViewKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TurnOnTimeMachineKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  WarningBaloonKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  SynchroView_WarningBaloonKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  Translation_WarningBaloonKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  UserCR1_WarningBaloonKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  UserCR2_WarningBaloonKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsDocumentWithFlash,
+  PictureInfo_Form,
+  Warning_Form,
+  Attributes_Form,
+  SynchroView_Form,
+  WarningBaloon_Form,
+  SynchroView_WarningBaloon_Form,
+  Translation_WarningBaloon_Form,
+  UserCR1_WarningBaloon_Form,
+  UserCR2_WarningBaloon_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -315,12 +149,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   nsTypes,
   nsManagers,
   sdsDocument,
@@ -352,29 +180,13 @@ uses
   Base_Operations_Editions_Controls,
   DocumentShowChangesInfoSettingRes,
   stDocumentShowChangesInfoItem
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  StdRes {a}
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Document_opOpenDocOnNumber
   {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
   ,
   vcmFormSetFactory {a},
+  StdRes {a},
   vcmModuleDef {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings

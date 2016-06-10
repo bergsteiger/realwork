@@ -4,10 +4,13 @@ unit MainMenuNewRes;
 // Название   : MainMenuNewRes;
 // Автор      : М. Морозов;
 // Назначение : Ресурсы основного меню системы;
-// Версия     : $Id: MainMenuNewRes.pas,v 1.2 2013/09/20 17:51:12 kostitsin Exp $
+// Версия     : $Id: MainMenuNewRes.pas,v 1.3 2016/04/04 09:14:25 morozov Exp $
 
 {-------------------------------------------------------------------------------
   $Log: MainMenuNewRes.pas,v $
+  Revision 1.3  2016/04/04 09:14:25  morozov
+  Добавил иконы для Миши
+
   Revision 1.2  2013/09/20 17:51:12  kostitsin
   [$377169452] - MainMenu и InpharmMainMenu
 
@@ -57,6 +60,7 @@ type
     ilMainMenuNew: TvtPngImageList;
     ilSmallIcons: TvtPngImageList;
 	   ilButtons: TvtNonFixedPngImageList;
+    ilButtonsNew: TvtNonFixedPngImageList;
   end;
 
 var

@@ -32,64 +32,15 @@ uses
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
   ,
   nsTypes,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  TreeAttributeSelect_Form,
-  AttributeSelect_Form,
-  SelectedAttributes_Form
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
   PrimTreeAttributeSelectOptions_Form,
   PrimSelectedAttributesOptions_Form,
   PrimAttributeSelectOptions_Form,
-  SearchLite_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  TreeAttributeSelectKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  AttributeSelectKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  SelectedAttributesKeywordsPack
-  {$IfEnd} //not NoScripts
-  ,
+  SearchLite_FormDefinitions_Controls,
+  TreeAttributeSelect_Form,
+  AttributeSelect_Form,
+  SelectedAttributes_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -120,30 +71,11 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   l3String,
   SearchLite_Strange_Controls,
-  PrimAttributeSelect_utAttributeSelect_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base {a},
-  StdRes {a},
-  vcmFormSetFactory {a}
+  PrimAttributeSelect_utAttributeSelect_UserType,
+  vcmFormSetFactory {a},
+  StdRes {a}
   ;
 
 // start class TLiteSearchModule
@@ -161,7 +93,7 @@ begin
  try
 //#UC START# *4AAF48F502E7_4AA0EA76017F_impl*
  Assert(aRecursive);
- Result := TTreeAttributeSelectForm.MakeSingleChild(aParams.Container,
+ Result := TefTreeAttributeSelect.MakeSingleChild(aParams.Container,
                                              aParams,
                                              aZoneType,
                                              aUserType);
@@ -244,7 +176,7 @@ begin
   l_Params := vcmMakeParams(l_Params.Aggregate,
                         l_Container.AsContainer,
                         l_Params.Owner);
-  l_Form := TTreeAttributeSelectForm.Make(l_Params);
+  l_Form := TefTreeAttributeSelect.Make(l_Params);
   l_FilterType := anAdditionalFilter;
   {$IfDef Admin}
   Assert(l_FilterType = ns_ftNone);

@@ -43,12 +43,7 @@ uses
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
-  vtPanel,
-  ConsultationMark_Form,
   ConsultationDomainInterfaces,
-  eeMemoWithEditOperations,
-  vtGroupBox,
-  vtLabel,
   DocumentUserTypes_dftConsultation_UserType,
   l3StringIDEx,
   ListUserTypes_lftConsultation_UserType,
@@ -58,39 +53,14 @@ uses
   Search_FormDefinitions_Controls,
   PrimConsultationMarkOptions_Form,
   PrimConsultationMark_utcmMain_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtRadioButton
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
   ,
   fsSendConsultation,
-  fsConsultation
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ConsultationMarkKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsConsultation,
+  ConsultationMark_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -130,23 +100,7 @@ uses
   ,
   DataAdapter,
   l3Base {a},
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  l3MessageID,
   StdRes {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings

@@ -61,6 +61,8 @@ const
  imap_pi_BaseSearch_BuildShortList : TafwValueMapID = (rName: 'pi_BaseSearch_BuildShortList'; rID: 15);
  // Настройки - TvcmMainFormOpenKind - поведение при открытии документов и сылок
  imap_DocumentAndLinkOpenKind : TafwValueMapID = (rName: 'TvcmMainFormOpenKind'; rID: 16);
+ // Вид Основного меню
+ imap_MainMenuKind : TafwValueMapID = (rName: 'pi_MainMenuKind'; rID: 17);
 
 implementation
 

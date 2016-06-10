@@ -30,7 +30,7 @@ type
   {* Реализация тега, представляющего данные из адаптерной ноды }
   private
    f_TagDataProvider: DocTagNodeType;
-    {* Поле для свойства TagDataProvider }
+    {* Источник данных тега }
   protected
    f_State: TnsNodeStates;
   protected
@@ -85,6 +85,7 @@ uses
  , k2Tags
  , k2Facade
  , l3BitArr
+ , DocumentUnit
 ;
 
 type _Instance_R_ = TnsTagNodePrim;

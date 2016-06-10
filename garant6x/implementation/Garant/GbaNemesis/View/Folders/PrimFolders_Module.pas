@@ -49,27 +49,14 @@ uses
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
-  nsTypes,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  Folders_Form
+  nsTypes
   {$If not defined(NoVCM)}
   ,
   vcmModule
   {$IfEnd} //not NoVCM
   ,
   FoldersInfo_Form,
-  FoldersTree_Form,
-  FoldersElementInfo_Form,
   nsFormCoordinates,
-  eeMemoWithEditOperations,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBoxWithReadOnly
-  {$IfEnd} //Nemesis
-  ,
   nsLogEvent,
   l3StringIDEx,
   PrimFolders_utFolders_UserType,
@@ -80,54 +67,15 @@ uses
   PrimFoldersTreeOptions_Form,
   PrimFoldersInfoOptions_Form,
   PrimFoldersElementInfoOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsFolders
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  FoldersKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  FoldersInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  FoldersTreeKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  FoldersElementInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  Folders_Form,
+  fsFolders,
+  FoldersTree_Form,
+  FoldersElementInfo_Form,
   vcmBase {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings
@@ -214,12 +162,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   l3Base {a},
   l3MessageID,
   SysUtils,
@@ -254,17 +196,6 @@ uses
   LoggingWrapperInterfaces,
   Search_Strange_Controls,
   PrimFoldersTree_utSaveOpen_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Folders_opMyInformation
@@ -284,6 +215,11 @@ uses
   ,
   kw_Folders_opOpenFrmAct
   {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+  
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
   ,
   StdRes {a},
   vcmModuleDef {a}
@@ -817,5 +753,11 @@ begin
 end;
 
 {$IfEnd} //not Admin AND not Monitorings
+
+initialization
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация PrimFolders$UC
+ TtfwClassRef.Register(TPrimFoldersModule);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
 
 end.

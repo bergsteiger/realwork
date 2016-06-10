@@ -209,6 +209,7 @@ procedure TnsWebBrowser.DocumentCompleteXE(Sender: TObject;
 begin
 //#UC START# *5175412302EE_49ECB8E002B0_impl*
  ApplyZoom;
+ ApplyScroll;
 //#UC END# *5175412302EE_49ECB8E002B0_impl*
 end;//TnsWebBrowser.DocumentCompleteXE
 
@@ -217,6 +218,7 @@ procedure TnsWebBrowser.ApplyScroll;
 //#UC END# *5742C17A0340_49ECB8E002B0_var*
 begin
 //#UC START# *5742C17A0340_49ECB8E002B0_impl*
+ if (f_ScrollPos <> -1) then //если значение по умолчанию, то не надо ничего делать
  try
   if not VarIsClear(OleObject) then
    if not VarIsClear(OleObject.Document) then
@@ -321,6 +323,7 @@ begin
 //#UC START# *49F0577C02ED_49ECB8E002B0_impl*
  inherited;
  f_Scale := 100;
+ f_ScrollPos := -1;
 //#UC END# *49F0577C02ED_49ECB8E002B0_impl*
 end;//TnsWebBrowser.InitFields
 

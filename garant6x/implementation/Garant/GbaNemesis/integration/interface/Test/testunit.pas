@@ -47,8 +47,6 @@ type
     procedure GarantShowLinkButtonClick(Sender: TObject);
     procedure GarantDemoProcessCommandButtonClick(Sender: TObject);
     procedure GarantDemoShowLinkButtonClick(Sender: TObject);
-    procedure XMLFileEditAfterDialog(Sender: TObject; var Name: String;
-      var Action: Boolean);
     procedure FromFileCheckBoxClick(Sender: TObject);
     procedure XMLFileEditChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -205,13 +203,6 @@ begin
  end;
 end;
 
-procedure TForm1.XMLFileEditAfterDialog(Sender: TObject; var Name: String;
-  var Action: Boolean);
-begin
- if Action then
-  LinkMemo.Lines.LoadFromFile(Name);
-end;
-
 procedure TForm1.FromFileCheckBoxClick(Sender: TObject);
 begin
  XMLFileEdit.Enabled := FromFileCheckBox.Checked;
@@ -245,7 +236,10 @@ end;
 procedure TForm1.XMLFileButtonClick(Sender: TObject);
 begin
  if OpenDialog1.Execute then
+ begin
   XMLFileEdit.Text := OpenDialog1.FileName;
+  LinkMemo.Lines.LoadFromFile(OpenDialog1.FileName);
+ end;
 end;
 
 procedure TForm1.CommandDirectoryButtonClick(Sender: TObject);

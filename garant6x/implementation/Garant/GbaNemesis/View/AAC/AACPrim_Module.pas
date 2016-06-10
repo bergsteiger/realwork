@@ -33,36 +33,16 @@ uses
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
   
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  vtLabel,
   DocumentInterfaces,
   l3StringIDEx,
   Common_FormDefinitions_Controls,
   WorkWithDocumentInterfaces,
-  nscSimpleEditorForDialogs,
-  BaloonWarningUserTypes_WarnJuror_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
+  BaloonWarningUserTypes_WarnJuror_UserType,
   AACContainerPrim_Form,
   AACContainer_Form,
   AACContainerPrim_AACContainer_UserType,
@@ -78,30 +58,9 @@ uses
   ,
   AACTextContainerPrim_Form,
   fsAbstractDocument,
-  vtScrollBar,
-  AACContainerPrim_AACContentsContainer_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
+  AACContainerPrim_AACContentsContainer_UserType,
   fsAACContents,
-  fsAAC
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AACContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AACContentsContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsAAC,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -129,28 +88,12 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   sdsAAC,
   l3Base {a},
   DocumentUnit,
+  SysUtils,
   l3String,
-  l3MessageID
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  l3MessageID,
   StdRes {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings

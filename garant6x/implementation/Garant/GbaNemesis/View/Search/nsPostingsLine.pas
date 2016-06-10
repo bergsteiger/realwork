@@ -615,7 +615,7 @@ begin
  begin
   if (EditNodeIndex <> -1) then
   begin
-   Result := False;
+   //Result := False;
    try
     CheckAndChangeCaption(True);
    except

@@ -35,52 +35,22 @@ uses
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
   
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
   ,
   PrimChangesBetweenEditons_Form,
   ChangesBetweenEditons_Form,
   ChangesBetweenEditionsInterfaces,
   PrimChangesBetweenEditons_DocumentChanges_UserType,
   l3MessageID
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsViewChangedFragments
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ChangesBetweenEditonsKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsViewChangedFragments,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -113,30 +83,9 @@ uses
   ,
   vcmMessagesSupport
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
   ,
   l3Base {a},
-  SysUtils
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  SysUtils,
   l3StringIDEx
   {$If not defined(NoVCL)}
   ,

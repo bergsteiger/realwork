@@ -32,35 +32,9 @@ uses
   ,
   Messages,
   Classes,
-  eeTreeView,
+  PostingOrder_FormDefinitions_Controls,
+  PrimPostingsListOptions_Form,
   PostingsList_Form,
-  PostingOrder_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
-  PrimPostingsListOptions_Form
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PostingsListKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  ,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -138,12 +112,7 @@ uses
   PrimeUnit,
   nsTypes,
   Windows,
-  nsFindSelectDialog
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
+  nsFindSelectDialog,
   PostingOrder_Strange_Controls
   {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
   ,
@@ -155,17 +124,6 @@ uses
   PrimSaveLoadUserTypes_slqtPostingOrder_UserType,
   PrimQueryCard_utqcPostingOrder_UserType,
   Search_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(NoScripts)}
   ,
   kw_CommonPost_opSavePostList

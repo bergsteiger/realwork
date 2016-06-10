@@ -61,11 +61,11 @@ end;
 
 function dsGetCurrentUserName : String;
  var
-  ltmpLoginName : ShortString;
+  ltmpLoginName : String;
   ltmpActFlag   : Byte;
-  lUserName     : ShortString;
+  lUserName     : String;
  begin
-  UserManager.GetUserInfo(GlobalDataProvider.UserID, lUserName, ltmpLoginName, ltmpActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(GlobalDataProvider.UserID, lUserName, ltmpLoginName, ltmpActFlag);
   Result := lUserName;
  end;
 

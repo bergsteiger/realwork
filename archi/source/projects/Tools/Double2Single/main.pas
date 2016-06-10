@@ -1,8 +1,11 @@
 unit Main;
 
-{ $Id: main.pas,v 1.5 2015/07/02 11:41:06 lukyanets Exp $ }
+{ $Id: main.pas,v 1.6 2016/05/18 06:02:42 lukyanets Exp $ }
 
 // $Log: main.pas,v $
+// Revision 1.6  2016/05/18 06:02:42  lukyanets
+// Выключаем удаленную отладку
+//
 // Revision 1.5  2015/07/02 11:41:06  lukyanets
 // Описываем словари
 //
@@ -132,7 +135,7 @@ uses
   evEvdRd,
 
   ddUtils, L3Math, d2sFilter, ddLawCaseNameGenerator, dt_LinkServ, DT_const, ddHtInit, SewerPipe,
-  ddImportPipe, ddImportPipeKernel, dt_IFltr, daInterfaces, DT_User, DT_Renum, DT_Doc,
+  ddImportPipe, ddImportPipeKernel, dt_IFltr, daInterfaces, daDataProvider, DT_User, DT_Renum, DT_Doc,
   ddKTExtractor, l3LongintList;
 
 
@@ -500,7 +503,7 @@ var
  l_Msg: String;
 begin
  if UserID > -1 then
-  UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
   { Накапливаем сообщения о пропущенных документах }
  case WhyFlag of
   srUnknown       : l_Msg:= 'Причина неизвестна';

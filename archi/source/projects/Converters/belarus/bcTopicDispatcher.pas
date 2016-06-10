@@ -1,6 +1,6 @@
 unit bcTopicDispatcher;
 
-{ $Id: bcTopicDispatcher.pas,v 1.6 2016/02/05 12:13:45 fireton Exp $ }
+{ $Id: bcTopicDispatcher.pas,v 1.7 2016/04/12 12:44:21 fireton Exp $ }
 
 interface
 uses
@@ -19,7 +19,7 @@ type
   procedure CreateTable(const aTablePath: AnsiString);
  protected
   procedure Cleanup; override;
-  function GetTopic(const aBelNum: Tl3WString; aAddNum: Integer = 0): Longword;
+  function GetTopic(const aBelNum: Tl3WString; aAddNum: Integer = 0; aOnlyIfExists: Boolean = True): Longword;
  public
   constructor Create(const aPath: AnsiString);
   class function Make(const aTablePath: AnsiString): IbcTopicDispatcher;
@@ -105,7 +105,8 @@ begin
  htTableClose(l_H);
 end;
 
-function TbcTopicDispatcher.GetTopic(const aBelNum: Tl3WString; aAddNum: Integer = 0): Longword;
+function TbcTopicDispatcher.GetTopic(const aBelNum: Tl3WString; aAddNum: Integer = 0; aOnlyIfExists: Boolean = True):
+ Longword;
 var
  l_Str: Il3CString;
  l_BelNum: TbcBelNumArr;
@@ -117,6 +118,15 @@ begin
  l_Str := l3Upper(aBelNum);
  l3PCharLenToArray(l_BelNum, cBelNumLen, l_Str.AsWStr);
  l_Sab := MakeSab(f_Table);
+ if aOnlyIfExists then
+ begin
+  l_Sab.Select(dtfBelNum, l_BelNum);
+  if l_Sab.Count = 0 then
+  begin
+   Result := 0;
+   Exit;
+  end;
+ end;
  l_Rec.rBelNum := l_BelNum;
  l_Rec.rAdditional := aAddNum;
  l_Sab.Select(dtfUnikey, l_Rec);

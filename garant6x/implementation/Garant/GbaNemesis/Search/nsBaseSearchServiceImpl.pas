@@ -184,7 +184,7 @@ procedure TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider(const aContainer
 //#UC END# *B86FD3ED4532_563208C60299_var*
 begin
 //#UC START# *B86FD3ED4532_563208C60299_impl*
-f_SearcherMap.Add(Pointer(aContainer), Pointer(aProvider));
+ f_SearcherMap.Add(Pointer(aContainer), Pointer(aProvider));
 //#UC END# *B86FD3ED4532_563208C60299_impl*
 end;//TnsBaseSearchServiceImpl.RegisterBaseSearcherProvider
 

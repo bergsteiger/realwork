@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, imageenio, ieview, imageenview;
+  Dialogs, imageenio, ieview, imageenview, l3InterfacedComponent;
 
 type
   TForm1 = class(TForm)
@@ -28,15 +28,15 @@ procedure TForm1.FormShow(Sender: TObject);
 var
  l_FS: TFileStream;
 begin
- 
- l_FS := TFileStream.Create('c:\temp\Pict0.emf', fmOpenRead);
+
+ l_FS := TFileStream.Create('c:\temp\pict3.wmf', fmOpenRead);
  try
   IO.LoadFromStream(l_FS);
  finally
   FreeAndNil(l_FS);
  end;
-
- //IO.LoadFromFile('c:\temp\Pict0.emf');
+ {}
+ //IO.LoadFromFile('c:\temp\pict1.wmf');
 end;
 
 end.

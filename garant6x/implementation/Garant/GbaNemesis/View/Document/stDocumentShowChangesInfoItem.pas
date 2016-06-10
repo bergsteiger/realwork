@@ -1,46 +1,68 @@
 unit stDocumentShowChangesInfoItem;
- {* Визуализатор для настройки "Показывать историю изменений в документе" }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\stDocumentShowChangesInfoItem.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TstDocumentShowChangesInfoItem" MUID: (A8C41C353B7D)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "View"
+// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Document/stDocumentShowChangesInfoItem.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> F1 Работа с документом и списком документов::Document::View::Document::TstDocumentShowChangesInfoItem
+//
+// Визуализатор для настройки "Показывать историю изменений в документе"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3IntfUses
- , ddAppConfigTypes
-;
+  ddAppConfigTypes
+  ;
+{$IfEnd} //not Admin AND not Monitorings
 
+{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TstDocumentShowChangesInfoItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Показывать историю изменений в документе" }
-  public
+ public
+ // public methods
    constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
+     {* undefined }
  end;//TstDocumentShowChangesInfoItem
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} //not Admin AND not Monitorings
 
 implementation
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3ImplUses
- , DocumentShowChangesInfoSettingRes
- , l3Base
- , ddAppConfigConst
-;
+  DocumentShowChangesInfoSettingRes,
+  l3Base,
+  ddAppConfigConst
+  ;
+{$IfEnd} //not Admin AND not Monitorings
+
+{$If not defined(Admin) AND not defined(Monitorings)}
+
+// start class TstDocumentShowChangesInfoItem
 
 constructor TstDocumentShowChangesInfoItem.Create(aMasterItem: TddBaseConfigItem = nil);
-//#UC START# *5A0AB6F96B6F_A8C41C353B7D_var*
-//#UC END# *5A0AB6F96B6F_A8C41C353B7D_var*
+var
+ l_Value : TddConfigValue;
 begin
-//#UC START# *5A0AB6F96B6F_A8C41C353B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5A0AB6F96B6F_A8C41C353B7D_impl*
+ l3FillChar(l_Value, SizeOf(l_Value));
+ l_Value.Kind := dd_vkBoolean;
+ l_Value.AsBoolean := dv_Document_ShowChangesInfo;
+ inherited Create(pi_Document_ShowChangesInfo,
+  str_ShowChangesInfo.AsStr,
+  l_Value, TShowChangesInfoValuesMapImpl.Make, aMasterItem);
 end;//TstDocumentShowChangesInfoItem.Create
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+{$IfEnd} //not Admin AND not Monitorings
 
 end.

@@ -1,39 +1,56 @@
 unit nsFindIteratorNewFindPositionList;
- {* Фасадная реализация IFindPositionList }
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindIteratorNewFindPositionList.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TnsFindIteratorNewFindPositionList" MUID: (4D18F1F2033A)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "View"
+// Автор: Люлин А.В.
+// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/nsFindIteratorNewFindPositionList.pas"
+// Начат: 27.10.2010 23:07
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Base Operations::View::ContextSearchInEVDDocument::TnsFindIteratorNewFindPositionList
+//
+// Фасадная реализация IFindPositionList
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3IntfUses
- , l3ProtoObjectForTie
- , DynamicTreeUnit
- , DocumentUnit
- //#UC START# *4D18F1F2033Aintf_uses*
- //#UC END# *4D18F1F2033Aintf_uses*
-;
+  DocumentUnit,
+  DynamicTreeUnit,
+  l3ProtoObjectForTie
+  ;
+{$IfEnd} //not Admin AND not Monitorings
 
+{$If not defined(Admin) AND not defined(Monitorings)}
 type
- //#UC START# *4D18F1F2033Aci*
- //#UC END# *4D18F1F2033Aci*
- //#UC START# *4D18F1F2033Acit*
- //#UC END# *4D18F1F2033Acit*
+//#UC START# *4D18F1F2033Aci*
+//#UC END# *4D18F1F2033Aci*
+//#UC START# *4D18F1F2033Acit*
+//#UC END# *4D18F1F2033Acit*
  TnsFindIteratorNewFindPositionList = class(Tl3ProtoObjectForTie, IFindPositionList)
   {* Фасадная реализация IFindPositionList }
-  private
-   f_GotList: IFragmentList;
-  protected
+ private
+ // private fields
+   f_GotList : IFragmentList;
+ protected
+ // overridden protected methods
    procedure ClearFields; override;
-  public
+     {* Сигнатура метода ClearFields }
+ public
+ // public methods
    constructor Create(const aGotList: IFragmentList); reintroduce;
    class function Make(const aGotList: IFragmentList): IFindPositionList; reintroduce;
- //#UC START# *4D18F1F2033Apubl*
+     {* Сигнатура фабрики TnsFindIteratorNewFindPositionList.Make }
+//#UC START# *4D18F1F2033Apubl*
  private
    // IFindPositionList
     function  pm_GetCount: Integer; stdcall;
@@ -51,18 +68,15 @@ type
       {* - добавляет элемент Item в конец. }
     procedure Insert(anIndex: Integer; const anItem: TFindPosition); stdcall;
       {* - вставляет элемент Item по индексу Index. }
- //#UC END# *4D18F1F2033Apubl*
+//#UC END# *4D18F1F2033Apubl*
  end;//TnsFindIteratorNewFindPositionList
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} //not Admin AND not Monitorings
 
 implementation
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-uses
- l3ImplUses
- //#UC START# *4D18F1F2033Aimpl_uses*
- //#UC END# *4D18F1F2033Aimpl_uses*
-;
+{$If not defined(Admin) AND not defined(Monitorings)}
+
+// start class TnsFindIteratorNewFindPositionList
 
 constructor TnsFindIteratorNewFindPositionList.Create(const aGotList: IFragmentList);
 //#UC START# *4D18F2830080_4D18F1F2033A_var*
@@ -84,11 +98,14 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;//TnsFindIteratorNewFindPositionList.Make
+end;
 
 procedure TnsFindIteratorNewFindPositionList.ClearFields;
+ {-}
 begin
- Finalize(f_GotList);
+ {$If not defined(Admin) AND not defined(Monitorings)}
+ f_GotList := nil;
+ {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TnsFindIteratorNewFindPositionList.ClearFields
 
@@ -142,6 +159,7 @@ begin
  Assert(false);
 end;
 //#UC END# *4D18F1F2033Aimpl*
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+{$IfEnd} //not Admin AND not Monitorings
 
 end.

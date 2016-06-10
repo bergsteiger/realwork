@@ -2,7 +2,7 @@ unit arSearch;
 
 {$Include l3Define.inc}
 
-{ $Id: arSearch.pas,v 1.46 2013/05/31 07:20:24 lulin Exp $ }
+{ $Id: arSearch.pas,v 1.48 2016/05/16 13:10:51 dinishev Exp $ }
 
 interface
 
@@ -86,33 +86,6 @@ type
         {-}
  end;{TarSubReplacer}
 
- (*
- TarRegularExpressionSearcher = class(TevTextSearcher)
-   {*  ласс инструментов дл€ поиска регул€рного выражени€. }
-    private
-      f_SrchMashine : Tl3RegularSearch;
-    protected
-      procedure DoSetText(const Value: AnsiString);
-        override;
-        {-}
-      //function CheckError(aError : Integer) : Bool;
-        {-}
-      procedure Release;
-        override;
-        {-}
-    public
-      constructor Create(aOwner: TComponent);
-       override;
-      function Search(const Sender : Tk2AtomR;
-                      S            : Tl3CustomString;
-                      Start,
-                      Finish       : Long;
-                      var SP, FP   : Long): Bool;
-        override;
-        {-}
-  end;{TevNormalWordSearcher}
-*)
-
  TarHLinkTNVEDSearcher = class(TevRegularExpressionSearcher)
   public
    constructor Create(aOwner: TComponent); override;
@@ -162,10 +135,6 @@ var
  lCurAddr : TevAddress;
  l_Index  : Integer;
 begin
- //if Assigned(f_OnHyperlinkSearch) then
- // Result := f_OnHyperlinkSearch(Self, aHLink)
- //else
- //begin
  Result := false;
  if (aHLink.AddressList.Count = 0) then Exit;
  for l_Index := 0 to Pred(aHLink.AddressList.Count) do
@@ -178,96 +147,88 @@ begin
    Break;
   end;//(lCurAddr.DocID = DocID) or (DocID < 0)
  end;//for I
-// end;//Assigned(f_OnHyperlinkSearch)
 end;
 
 {TarHyperlinkSearcher}
 procedure TarHyperlinkSearcher.DoSetText(const Value: AnsiString);
+
+ function lp_FindSubOnly: Boolean;
  begin
-  If StrToHlinkSpecValue(Value, fSearchAddr.Doc, fSearchAddr.Sub) then
-   begin
-    //TEditorWindow(GetParentForm(fEditor)).CurDocument.InitWrongHlinkList;
-   end
+  Result := (fSearchAddr.Doc = -1) and (fSearchAddr.Sub <> -1);
+ end;
+
+begin
+ if not StrToHlinkSpecValue(Value, fSearchAddr.Doc, fSearchAddr.Sub) then
+ begin
+  StrToDocAddr(Value, fSearchAddr.Doc, fSearchAddr.Sub);
+  if fSearchAddr.Doc = 0 then
+   fSearchAddr.Doc := fCurrentDoc.DocID
   else
    begin
-    StrToDocAddr(Value, fSearchAddr.Doc, fSearchAddr.Sub);
-    If fSearchAddr.Doc = 0 then
-     fSearchAddr.Doc := fCurrentDoc.DocID
-    else
-     begin
-      fSearchAddr.Doc := LinkServer(fCurrentDoc.FamID).Renum.ConvertToRealNumber(fSearchAddr.Doc);
-      If (fSearchAddr.Doc <= 0) then
-       raise Exception.Create(Format(sidNoDocPresent,[fSearchAddr.Doc]));
-     end;
+    fSearchAddr.Doc := LinkServer(fCurrentDoc.FamID).Renum.ConvertToRealNumber(fSearchAddr.Doc);
+    if not lp_FindSubOnly then
+     if (fSearchAddr.Doc <= 0) then
+      raise Exception.Create(Format(sidNoDocPresent, [fSearchAddr.Doc]));
    end;
+ end; // if not StrToHlinkSpecValue(Value, fSearchAddr.Doc, fSearchAddr.Sub) then
 
-  inherited DoSetText(Value);
- end;
+ inherited DoSetText(Value);
+end;
 
 {TarHyperLinkReplacer}
 
 procedure TarHyperLinkReplacer.DoSetText(const Value: AnsiString);
- var
-  lRelFlag : Boolean;
-  lDocID   : TDocID;
-  lDocIsPresent : Boolean;
-
+var
+ lRelFlag      : Boolean;
+ lDocID        : TDocID;
+ lDocIsPresent : Boolean;
+begin
+ fAbsentDoc := false;
+ StrToDocAddr(Value, fReplaceAddr.Doc, fReplaceAddr.Sub);
+ if fReplaceAddr.Doc = -1 then
  begin
-  fAbsentDoc := false;
-  StrToDocAddr(Value, fReplaceAddr.Doc, fReplaceAddr.Sub);
-  If fReplaceAddr.Doc = -1 then
-  begin
-   If fReplaceAddr.Sub = -1 then
-    raise Exception.Create(sidEmptyHyperAddress);
-  end
+  if fReplaceAddr.Sub = -1 then
+   raise Exception.Create(sidEmptyHyperAddress);
+ end // if fReplaceAddr.Doc = -1 then
+ else
+  if fReplaceAddr.Doc = 0 then
+   fReplaceAddr.Doc := fCurrentDoc.DocID
   else
-   If fReplaceAddr.Doc = 0 then
-    fReplaceAddr.Doc := fCurrentDoc.DocID
+  begin
+   lDocID := LinkServer(fCurrentDoc.FamID).Renum.ConvertToRealNumber(fReplaceAddr.Doc);
+
+   if (lDocID = 0) then
+   begin
+    fReplaceAddr.Doc := 0;
+    raise Exception.Create(Format(sidWrongDocID, [lDocID]));
+   end; // if (lDocID = 0) then
+
+   lDocIsPresent := (lDocID > -1) and DocumentServer(fCurrentDoc.FamID).CheckDoc(lDocID, True, lRelFlag);
+
+   if lDocIsPresent or (EnableAbsentDoc and
+      (vtMessageDlg(l3Fmt(sidNoDocPresent + ^M + sidQstContinue,
+      [fReplaceAddr.Doc]), mtWarning, [mbYes, mbNo]) = mrYes)) then
+   begin
+    fAbsentDoc := not lDocIsPresent;
+    if (lDocID = -1) then
+    begin
+     lDocID := fReplaceAddr.Doc;
+     LinkServer(fCurrentDoc.FamID).Renum.GetRNumber(lDocID);
+    end; // if (lDocID = -1) then
+   end // if lDocIsPresent or (EnableAbsentDoc and
    else
    begin
-    lDocID := LinkServer(fCurrentDoc.FamID).Renum.ConvertToRealNumber(fReplaceAddr.Doc);
-
-    if (lDocID = 0) then
-    begin
-     fReplaceAddr.Doc := 0;
-     raise Exception.Create(Format(sidWrongDocID,[lDocID]));
-    end;
-
-    lDocIsPresent := (lDocID > -1) and DocumentServer(fCurrentDoc.FamID).CheckDoc(lDocID, True, lRelFlag);
-
-    if lDocIsPresent or (EnableAbsentDoc and
-       (vtMessageDlg(l3Fmt(sidNoDocPresent + ^M + sidQstContinue,
-       [fReplaceAddr.Doc]), mtWarning, [mbYes, mbNo]) = mrYes)) then
-    begin
-     fAbsentDoc := Not lDocIsPresent;
-     if (lDocID = -1) then
-     begin
-      lDocID := fReplaceAddr.Doc;
-      LinkServer(fCurrentDoc.FamID).Renum.GetRNumber(lDocID);
-     end;
-    end
+    fReplaceAddr.Doc := 0;
+    if EnableAbsentDoc then
+     raise EarSilent.Create(Format(sidNoDocPresent,[fReplaceAddr.Doc]))
     else
-    begin
-     fReplaceAddr.Doc := 0;
-     if EnableAbsentDoc then
-      raise EarSilent.Create(Format(sidNoDocPresent,[fReplaceAddr.Doc]))
-     else
-      raise Exception.Create(Format(sidNoDocPresent,[fReplaceAddr.Doc]));
-    end;
-
-    fReplaceAddr.Doc := lDocID;
-
-    {if (lDocID <= 0) or
-       not DocumentServer.CheckDoc(fReplaceAddr.Doc, True, lRelFlag) then
-    begin
-     fReplaceAddr.Doc := 0;
-     raise Exception.Create(Format(sidNoDocPresent,[lDocID]));
-    end;}
-
+     raise Exception.Create(Format(sidNoDocPresent,[fReplaceAddr.Doc]));
    end;
 
-  inherited DoSetText(Value);
- end;
+   fReplaceAddr.Doc := lDocID;
+  end;
+ inherited DoSetText(Value);
+end;
 
 {TarSubReplacer}
 
@@ -279,96 +240,52 @@ end;
 {TarHLinkTNVEDSearcher}
 
 constructor TarHLinkTNVEDSearcher.Create(aOwner: TComponent);
- Begin
-  inherited Create(aOwner);
-  //Text := '[0-9][0-9]([0-9][0-9](( )?[0-9][0-9]([^0-9][0-9][0-9][0-9])?)?)?';
-  Text := '\d\d(\d\d(( )?\d\d([^0-9]\d\d\d)?)?)?';
- end;
+begin
+ inherited Create(aOwner);
+ Text := '\d\d(\d\d(( )?\d\d([^0-9]\d\d\d)?)?)?';
+end;
 
 {TarHLinkTNVEDReplacer}
 
 function TarHLinkTNVEDReplacer.ReplaceFunc(const aView : InevView;
                                            const Container : InevOp;
                                            const aBlock    : InevRange): Bool;
- var
-  FndLen     : Integer;
-  SubCoord   :  TGlobalCoordinateRec;
-  {FndDoc     : Longint;}
-  {FndSub     : Longint;}
-  HLId       : Long;
-  S          : AnsiString;
-  HL         : IevHyperlink;
+var
+ FndLen   : Integer;
+ SubCoord : TGlobalCoordinateRec;
+ HLId     : Long;
+ S        : AnsiString;
+ HL       : IevHyperlink;
+begin
+ Result := True;
+ S := l3Str(evAsString(aBlock.Data, cf_Text));
+ FndLen := Length(S);
+ SubCoord.Family := TDocEditorWindow(Owner).DocFamily;
+ SubCoord.Doc := 650000 + StrToInt(Copy(S, 1, 2));
+ SubCoord.Doc := LinkServer(TDocEditorWindow(Owner).DocFamily).Renum.ConvertToRealNumber(SubCoord.Doc);
+ if SubCoord.Doc = -1 then
  begin
-  Result := True;
-  S := l3Str(evAsString(aBlock.Data, cf_Text));
-  FndLen := Length(S);
-  SubCoord.Family := TDocEditorWindow(Owner).DocFamily;
-  SubCoord.Doc := 650000 + StrToInt(Copy(S, 1, 2));
-  SubCoord.Doc := LinkServer(TDocEditorWindow(Owner).DocFamily).Renum.ConvertToRealNumber(SubCoord.Doc);
-  //TDocEditorWindow(Owner).DocData.ReNumTbl.ConvertToRealNumber(SubCoord.Doc);
-  If SubCoord.Doc = -1 then
-   Begin
-    Result := False;
-    Exit;
-   end;
-
-  If FndLen >= 4
-   then SubCoord.Sub := StrToInt(Copy(S, 3, 2))
-   else SubCoord.Sub := 0;
-  Try
-   If Supports(aBlock, IevHyperlink, HL) then
-    try
-     if not HL.Exists then HL.Insert;
-     HL.AddressList.Add(TevAddress_C(SubCoord.Doc, SubCoord.Sub));
-    finally
-     HL := nil;
-    end//try..finally
-   else
-    Raise Exception.Create('');
-  except
-   Result := False;
-  end;
+  Result := False;
+  Exit;
  end;
 
-{TarRegularExpressionSearcher}
-(*
-constructor TarRegularExpressionSearcher.Create(aOwner: TComponent);
- begin
-  inherited Create(aOwner);
-  f_SrchMashine := Tl3RegularSearch.Create;
+ if FndLen >= 4 then
+  SubCoord.Sub := StrToInt(Copy(S, 3, 2))
+ else
+  SubCoord.Sub := 0;
+ try
+  if Supports(aBlock, IevHyperlink, HL) then
+   try
+    if not HL.Exists then HL.Insert;
+    HL.AddressList.Add(TevAddress_C(SubCoord.Doc, SubCoord.Sub));
+   finally
+    HL := nil;
+   end//try..finally
+  else
+   raise Exception.Create('');
+ except
+  Result := False;
  end;
+end;
 
-procedure TarRegularExpressionSearcher.Release;
- begin
-  l3Free(f_SrchMashine);
-  inherited Release;
- end;
-
-procedure TarRegularExpressionSearcher.DoSetText(const Value: AnsiString);
- begin
-  Inherited DoSetText(Value);
-  f_SrchMashine.SearchPattern := Value;
- end;
-
-//function TarRegularExpressionSearcher.CheckError(aError : Integer) : Bool;
-
-function TarRegularExpressionSearcher.Search(const Sender : Tk2AtomR;
-                                                   S            : Tl3CustomString;
-                                                   Start,
-                                                   Finish       : Long;
-                                               var SP, FP   : Long): Bool;
- var
-  REPosition: TMatchPosition;
- begin
-  f_SrchMashine.IgnoreCase :=  not (ev_soMatchCase in Options);
-
-  Result := (S <> nil) and
-            f_SrchMashine.SearchInString(S.St, Start, Finish, REPosition, S.CodePage);
-  with REPosition do
-   begin
-    SP := StartPos;
-    FP := EndPos;
-   end;
- end;
-*)
 end.

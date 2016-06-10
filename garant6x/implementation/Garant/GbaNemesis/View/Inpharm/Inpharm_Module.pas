@@ -42,22 +42,8 @@ uses
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
-  MedicMainMenu_Form,
-  MedicFirmList_Form,
-  MedicListSynchroView_Form,
-  InpharmInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  ,
+  InpharmInterfaces,
   DocumentUserTypes_dftMedDictEntry_UserType,
   DocumentUserTypes_dftDrug_UserType,
   DocumentUserTypes_dftMedicFirm_UserType,
@@ -66,12 +52,7 @@ uses
   nsLogEvent,
   PrimPrimListInterfaces,
   DocumentInterfaces,
-  l3StringIDEx
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
+  l3StringIDEx,
   ListUserTypes_lftDrugList_UserType,
   ListUserTypes_lftDrugInternationalNameSynonyms_UserType,
   ListUserTypes_lftProducedDrugs_UserType,
@@ -91,58 +72,25 @@ uses
   PrimMedicFirmListOptions_Form,
   WorkWithDocumentInterfaces,
   BaseDocumentWithAttributesInterfaces,
-  DictionContainerUserTypes_slqtMedicDiction_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
+  DictionContainerUserTypes_slqtMedicDiction_UserType,
   BaloonWarningUserTypes_remListModified_UserType,
   BaloonWarningUserTypes_remListFiltered_UserType,
-  BaloonWarningUserTypes_remTimeMachineWarning_UserType
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
+  BaloonWarningUserTypes_remTimeMachineWarning_UserType,
   F1Like_FormDefinitions_Controls
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
   ,
   fsMedicDiction,
   fsMedicFirmDocument,
   fsDrugDocument,
   fsDrugList,
   fsMedicFirmList,
-  fsInpharmMainMenu
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  MedicMainMenuKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  MedicFirmListKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  MedicListSynchroViewKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  MedicMainMenu_Form,
+  MedicFirmList_Form,
+  MedicListSynchroView_Form,
+  fsInpharmMainMenu,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -224,11 +172,6 @@ uses
   l3MessageID,
   SysUtils,
   sdsDrugList
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
   ,
   vcmTabbedContainerFormDispatcher
@@ -249,17 +192,6 @@ uses
   nsLogManager,
   LoggingWrapperInterfaces,
   sdsInpharmMainMenu
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Inpharm_opMedicDiction

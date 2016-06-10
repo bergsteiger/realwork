@@ -133,11 +133,11 @@ procedure TalcuAsyncSubmitterManager.GetUserAccountByID(anID: TUserID;
  {* Получить логин/пароль по ID }
 //#UC START# *53CCBA3D0104_53CCC324034B_var*
 var
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 //#UC END# *53CCBA3D0104_53CCC324034B_var*
 begin
 //#UC START# *53CCBA3D0104_53CCC324034B_impl*
- l_User := UserManager.UserByID(anID);
+ l_User := GlobalDataProvider.UserManager.UserByID(anID);
  Assert(Assigned(l_User));
  theName := l_User.LoginName;
  thePassword := l_User.Password;

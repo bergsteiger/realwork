@@ -20,42 +20,11 @@ interface
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
   WorkJournal_Form,
   WorkJournalInterfaces,
-  PrimWorkJournalOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  WorkJournalKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  PrimWorkJournalOptions_Form,
   vcmExternalInterfaces {a},
+  vcmInterfaces {a},
   vcmModule {a},
   vcmBase {a}
   ;
@@ -81,25 +50,8 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   bsWorkJournal,
   PrimWorkJournal_utWorkJournal_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_WorkJournal_opOpenJournal

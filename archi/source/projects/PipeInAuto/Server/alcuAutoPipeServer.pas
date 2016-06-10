@@ -917,14 +917,14 @@ uses
   l3Base, l3Types, l3LongintList,
   daInterfaces,
   daTypes,
-  dt_Types, dt_Serv, dt_UserTypes, dt_UserConst,
+  dt_Types, dt_Serv, dt_UserConst,
   ddProgressObj, ddScheduler, alcuBaseEngine,
   ddCalendarEvents, alcuTaskManager, ddAppConfigTypes,
   Classes, {$IFDEF Service}SvcMgr{$ELSE}Forms{$ENDIF}, SysUtils,
   Graphics, ExtCtrls, SyncObjs,
   m4DBInterfaces, alcuMessageDlg, alcuShowMessage,
   csServerCommandsManager, CsDataPipe, csMessageManager, csActiveClients,
-  csTaskTypes, csProcessTask,
+  csProcessTask,
 
   ddServerTask,
 
@@ -940,7 +940,7 @@ uses
 type
  TalcuShutdownMode = (alcu_smUnknown, alcu_smWait, alcu_smTerminate);
 
- TalcuServerPrim = class(Tl3ProtoObject, IdaLongProcessSubscriber)
+ TalcuServerPrim = class(Tl3ProtoObject, IdaLongProcessSubscriber, IdaUserStatusChangedSubscriber)
  private
     f_Stopped : Boolean;
     f_ShutdownMode: TalcuShutdownMode;
@@ -1004,11 +1004,12 @@ type
     function CorrectMessageFileName(aFileName: string): string;
     procedure CreateActionList; // создает список указателей на методы обработки заданий сервера
     procedure CreateTaskProcessor; // создает объект f_TaskProcessor
-    procedure CSServerEvent(aEventId: Integer; aData: Integer); // событие при входе и выходе польз.(вызывает UserStatusChange)
+    procedure CSServerEvent(aEventId: Integer; aData: Integer); // событие при входе и выходе польз.(вызывает UserStatusChanged)
     procedure cs_GetAEParamsReply(aPipe: TCsDataPipe);
     procedure cs_GetLogoReply(aPipe: TCsDataPipe);
     procedure cs_ServerStatusReply(aPipe: TCsDataPipe);
     procedure cs_GetServerUser(aPipe: TCsDataPipe);
+    procedure cs_GetUsersList(aPipe: TcsDataPipe);
     function WaitForFreeBase(aTimeOut: Integer = 60000): Boolean;
     procedure DestroyActionList; // уничтожает список указателей на методы обработки заданий
     function GetAnnoExportEnabled: Boolean;
@@ -1045,9 +1046,13 @@ type
     procedure ScheduledPreventiveTask(const aTask: TddSchedulerTask);
     procedure ScheduledUploadRegionsTask(const aTask: TddSchedulerTask);
     procedure SchedulerDefaultTask(const aTask: TddSchedulerTask);
-    procedure SchedulerMakeDivisions(const aTask: TddSchedulerTask);
+//    procedure SchedulerMakeDivisions(const aTask: TddSchedulerTask); deprecated;
+{$IFNDEF RunSchedulerAsTask}
     procedure SchedulerCanRunWithoutRunningTask(const aTask: TddSchedulerTask; var CanRunTask: Boolean);
+{$ENDIF RunSchedulerAsTask}
     procedure SendBirthdayGreeting(const UserName: String);
+    procedure SchedulerClientNotify(const aTask: TddSchedulerTask);
+    procedure SchedulerTaskExecutor(const aTask: TddSchedulerTask);
     procedure sendErrorReport(Missed: TalcuMissedTasks);
     procedure SetAnnoExportEnabled(const Value: Boolean);
     procedure SetAutoClassEnabled(const Value: Boolean);
@@ -1067,8 +1072,7 @@ type
     procedure ScheduledRelPublish(const aTask: TddSchedulerTask);
     procedure ScheduledMdpSyncDicts(const aTask: TddSchedulerTask);
     procedure ScheduledMdpSyncDocs(const aTask: TddSchedulerTask);
-    procedure UpdateExternalDictionaries;
-    procedure UserStatusChange(UserId : TUserID; Active : Boolean); // событие при входе и выходе польз.
+//    procedure UserStatusChange(UserId : TUserID; Active : Boolean); // событие при входе и выходе польз.
     function ValidTime: Boolean;
     procedure _PrepareTimer(Sender: TObject);
     procedure _TaskManagerStatusChange(aStatus: TalcuStatus{; aQueryLen: Integer});
@@ -1085,9 +1089,16 @@ type
     procedure DoExecuteCommand(aCommandID: Integer);
     procedure CheckReportMemoryUsage;
     procedure InitAutoLinkEnabled;
+    function CreateSchedulerTask(aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TUserID = usServerService): Boolean;
+    function MakeLoadRegionsTask: TddProcessTask;
+    function MakeUpLoadRegionsTask: TddProcessTask;
+    function MakeOvgaExportTask: TddProcessTask;
+    function MakeAutomaticAnoncedExportTask(anOnThursdayMode: Boolean; aUserID: TUserID = usServerService): TddProcessTask;
  protected
     // IdaLongProcessSubscriber
     function DoLongProcessNotify(aState: TdaProcessState): Boolean;
+    // IdaUserStatusChangedSubscriber
+    procedure UserStatusChanged(UserID: TdaUserID; Active: Boolean);
 
     procedure Cleanup; override;
     procedure DoYeld;
@@ -1157,7 +1168,7 @@ type
     procedure LockBase(const aMsg: String); overload;
     procedure LockBase(const aMsg: String; const aLockTime, aUnlockTime:
             TDateTime); overload;
-    procedure LogoffUsers(aManual: Boolean; theUser: TArchiUser = nil);
+    procedure LogoffUsers(aManual: Boolean; theUser: IdaArchiUser = nil);
     function MakeAndLoadDelta(aManual: Boolean): TddDeltaResult;
     procedure MakeRelPublishTask;
 (*    function Pause: Boolean;*)
@@ -1166,13 +1177,12 @@ type
     function RestartBaseEngine: Boolean;
     procedure SendEmailNotify;
     function SendKWToRegions: Boolean;
-    procedure SendMessage(theUser: TArchiUser; theMessage: String; theLockBase:
+    procedure SendMessage(theUser: IdaArchiUser; theMessage: String; theLockBase:
         Boolean; theStartLock, theStopLock: TDateTime);
     function Start: Boolean; // доступ к БД и запуск планеровщика
     function StartBaseEngine: Boolean; // Запуск механизма доступа к БД и прочие
  private
     function Stop: Boolean;
-    function Scheduler: TddScheduler;
  public
     procedure InitiateShutdownWithWait;
     procedure InitiateShutdownWithAbort;
@@ -1197,8 +1207,11 @@ type
     function CopyBackupToVersion: TddSchedulerTaskResult;
     procedure DisableProcessing;
     procedure DoAnnoExport;
+    function DoCommitImgCache: Boolean;
     procedure EnableProcessing;
+    function IsImgCacheCommitable: Boolean;
     function ProcessingEnabled: Boolean;
+    function Scheduler: TddScheduler;
     procedure LockTaskExecution;
     procedure UnlockTaskExecution;
     procedure ReportMemoryUsage;
@@ -1246,6 +1259,7 @@ type
 implementation
 
 uses
+  TypInfo,
   l3MemoryUtils,
   daDataProvider,
   daProgressProcHolder,
@@ -1255,7 +1269,7 @@ uses
   {GarDocBridge,}  Base_Cfg, m3DB,
   ddConst, ddUtils, ddProgressTypes, ddKW_r,
   ddUNC2Local, alcuUtils, alcuMailServer, ddAppConfig, ddImportPipe, ddAutolinkServer,
-  alcuConfig, alcuEmailMessage, alcuRegionImportTask,
+  alcuConfig, alcuEmailMessage, alcuRegionImportTask, alcuSchedulerProxyTask,
   {$IFDEF Courts}
   alcuCourtDecision,
   {$ENDIF}
@@ -1273,12 +1287,8 @@ uses
   CsQueryTypes, CSEventsProcessor, CsServer, CSCommon, csNotifier, csNotification, csConst,
   l3ShellUtils, ddAppConfigDataAdapters, alcuRegionAutoExportTask, ddProcessDlg, dt_DictModifier,
   dt_DictSup, dt_DictImport, dt_DictConst, dt_User, alcuAutoClassifier,
-  {$IFDEF AAC}alcuCourtDecisionSubChecker, csCourtDecisionSabCheckerParams, {$ENDIF}csServerTaskTypes,
-  //ddServerTask,
-  alcuExport, alcuSectionMaker, 
-  {$IFNDEF LUK}
-  alcuStages,
-  {$ENDIF}
+  {$IFDEF AAC}alcuCourtDecisionSubChecker, csCourtDecisionSabCheckerParams, {$ENDIF}
+  csServerTaskTypes, alcuExport, {alcuSectionMaker,}
   alcuBackup, alcuZipUtils, csCommandsConst,
   csCommandsTypes,
   ncsDataAccessServices, htDataProviderParams,
@@ -1290,7 +1300,7 @@ uses
   dtSubTableMiscUpdate, m3Endings,
   alcuImport, ddFileIterator, csImport,
   csNetSupport, l3Memory, ddMailTools, ddAutolinkCache, alcuAnoncedExport,
-  alcuAutoExportTask,
+  alcuAutoExportTask, alcuContainerTask, csTasksHelpers, 
 
 {$IFDEF AAC}
   alcuAACImport,
@@ -1306,10 +1316,14 @@ uses
   csReplyProcedures,
   csClientInfo,
   m3StorageHolderList
-  ;
+{$IFDEF MDPSyncIntegrated}
+  , alcuMdpSyncStages
+  , alcuMdpSyncImport
+{$ENDIF MDPSyncIntegrated}
+  , csTaskTypes;
 
 const
- cExternalDeltaMaxAge = 31;  
+ cExternalDeltaMaxAge = 31;
 
 function _CheckDir(aDir: String): String;
 begin
@@ -1377,35 +1391,15 @@ begin
 end;
 
 procedure TalcuServerPrim.MakeOvgaExport;
-{$IFDEF ManualExchangeDocs}
 var
- l_Item: TddVisualConfigItem;
- i, l_Index: Integer;
- l_Task: TalcuRegionAutoExportTask;
-{$ENDIF}
+ l_Task: TddProcessTask;
 begin
- {$IFDEF ManualExchangeDocs}
- l_Index:= -1;
- for i:= 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Count-1 do
-  if AnsiSameText(TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[i, 'Caption'].AsString, 'ovga') then
-  begin
-   l_Index:= i;
-   break;
-  end;
-
-  if l_Index <> -1 then
-  begin
-   l_Task:= TalcuRegionAutoExportTask.Create(usServerService);
-   try
-    l_Task.RegionIndex:= l_Index;
-    l_Task.Today:= Now;
-    l_Task.CompileDate:= Yesterday;
-    TaskProcessor.AddActiveTask(l_Task);
-   finally
-    l3Free(l_Task);
-   end;
-  end; // ExecuteNodeDialog
- {$ENDIF}
+ if CreateSchedulerTask(ctCloneBase, l_Task) then
+ try
+  TaskProcessor.AddActiveTask(l_Task);
+ finally
+  FreeAndNil(l_Task);
+ end;
 end;
 
 procedure TalcuServerPrim.AppException(Sender: TObject; E: Exception);
@@ -1875,7 +1869,7 @@ begin
    Exit;
  DestroyActionList;
  if (f_TaskProcessor <> nil) then
-   f_TaskProcessor.FreezeQueryQueue;
+   f_TaskProcessor.FreezeQueryQueue(True);
  {$IFNDEF Service}
  Application.OnException:= f_OriginalOnException;
  {$ENDIF}
@@ -2119,13 +2113,13 @@ end;
 
 procedure TalcuServerPrim.csDoPrepareGarant(Sender: TddTaskItem);
 var
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
  {$IF Defined(LUK) or Defined(SGC)}
  DoAutomaticExport;
  {$ELSE}
  {$IfNDef InsiderTest}
- l_User := UserManager.UserByID(Sender.UserID);
+ l_User := GlobalDataProvider.UserManager.UserByID(Sender.UserID);
  Assert(Assigned(l_User));
  if (Sender.UserID = usServerService) or l_User.HasAdminRights then
   DoAutomaticExport
@@ -2176,8 +2170,8 @@ end;
 procedure TalcuServerPrim.CSServerEvent(aEventId: Integer; aData: Integer);
 begin
  case aEventID of
-  c_ClientLogedInEvent : UserStatusChange(TUserID(aData), True);
-  c_ClientLogedOutEvent: UserStatusChange(TUserID(aData), False);
+  c_ClientLogedInEvent : UserStatusChanged(TUserID(aData), True);
+  c_ClientLogedOutEvent: UserStatusChanged(TUserID(aData), False);
  end;
 end;
 
@@ -2261,7 +2255,7 @@ var
 {$ENDIF}
 begin
  {$IFDEF AutoClass}
- l_Task:= TalcuAutoClassTask.Create(aUserID);
+ if CreateSchedulerTask(ctAutoclassify, l_Task, aUserID) then
  try
   TaskProcessor.AddActiveTask(l_Task);
  finally
@@ -2272,11 +2266,10 @@ end;
 
 procedure TalcuServerPrim.DoAutomaticExport;
 var
- l_Task: TalcuAutoExportTask;
+ l_Task: TddProcessTask;
 begin
- l_Task:= TalcuAutoExportTask.Create(usServerService);
+ if CreateSchedulerTask(ctAutoExportTask, l_Task) then
  try
-  l_Task.Priority:= dd_tpHighest;
   TaskProcessor.AddActiveTask(l_Task);
  finally
   l3Free(l_Task);
@@ -2307,38 +2300,50 @@ end;
 
 function TalcuServerPrim.DoEveryDayUpdate(theManual: Boolean = False): TddSchedulerTaskResult;
 var
-  l_StartCopy: TDateTime;
-  l_S: string;
-  l_Error, l_UnlockBase: Boolean;
-  i: Integer;
-  l_Task: TddTaskItem;
-  //l_Params: TExpQueryRec;
-  l_Missed: TalcuMissedTasks;
+ l_StartCopy: TDateTime;
+ l_S: string;
+ l_Error, l_UnlockBase: Boolean;
+ i: Integer;
+ l_Task: TddTaskItem;
+ //l_Params: TExpQueryRec;
+ l_Missed: TalcuMissedTasks;
+ l_NeedCommitImages: Boolean;
 begin
- if TaskProcessor.Processing then
+{ if TaskProcessor.Processing then
  begin
   Result:= strRequestDelay;
   l3System.Msg2Log('Ежедневное обновление не может быть запущено - выполняется другая задача');
   Exit;
- end;
+ end;}
+
+ l3System.Msg2Log('EO - starting', l3_msgLevel10);
  Result := strFailed;
  l_Error := False;
  TaskProcessor.LockAsyncRun;
  try
+  l3System.Msg2Log('EO - Async run locked', l3_msgLevel10);
   DisableProcessing;
   try
+   l3System.Msg2Log('EO - Processing disabled', l3_msgLevel10);
    TaskProcessor.LockProcessing;
    try
+    l3System.Msg2Log('EO - Processing locked', l3_msgLevel10);
     if ddAppConfiguration.AsBoolean[SalcuAutoPipeServer_DoEverydayUpdate] or theManual{and not IsBaseLocked} then
     begin
      LockBase(rsEveryDayUpdate);
+     l3System.Msg2Log('EO - base locked', l3_msgLevel10);
      l_UnlockBase:= True;
      //CheckImagesBase; // <- занимает полтора часа, а ценность сомнительна
-     l_Missed := [taskBackup, taskStages];
+     l_Missed := [taskBackup];
      {$IFDEF DailyImportKW}
      if ddAppConfiguration.AsBoolean[SalcuAutoPipeServer_DoImportKW] then
       Include(l_Missed, taskKW);
      {$ENDIF}
+
+     l_NeedCommitImages := IsImgCacheCommitable;
+     if l_NeedCommitImages then
+      Include(l_Missed, taskCommitImg);
+
      if ddAppConfiguration.AsBoolean[SalcuAutoPipeServer_DoUpdateBase] then
       Include(l_Missed, taskUpdateBase);
      if ddAppConfiguration.AsBoolean[SalcuAutoPipeServer_DoHeaderIndex] then
@@ -2381,7 +2386,11 @@ begin
    {$ENDIF MDPSyncStandAlone}
            ResetExecutorLog(AsInteger[SalcuAutoPipeServer_MaxArchiLogFileSize]*dd_SizeMulti[dd_stMega], AsBoolean['ZipLogFiles']);
           end; // with ddAppConfiguration
-          Exclude(l_Missed, taskStages);
+          if l_NeedCommitImages then
+          begin
+           if DoCommitImgCache then
+            Exclude(l_Missed, taskCommitImg);
+          end;
           l3System.Msg2Log('* очистка папок экспорта');
           ClearExportFolders;
           l3System.Msg2Log('* очистка импортированных данных');
@@ -2406,8 +2415,6 @@ begin
             // Не забыть потом удалить (когда все регионы перейдут)
             l3System.Msg2Log('* проверка таблицы SUB');
             CheckSubTable;
-            l3System.Msg2Log('* апдейт внешних словарей');
-            UpdateExternalDictionaries;
             l_Error:= False;
             SetRealStopTime(1);
             if ValidTime then
@@ -2438,8 +2445,6 @@ begin
               Exclude(l_Missed, taskHeaderIndex);
              end;
              {$IFNDEF LUK}
-             if ValidTime then
-              CopyStages;
              if ValidTime and ddAppConfiguration.AsBoolean[SalcuAutoPipeServer_DoDictEntryIndex] and not l_Error then
              begin
               DoUpdateDictEntryIndex;
@@ -2518,12 +2523,14 @@ var
 {$ENDIF}
 begin
 {$IFDEF EveryWeek}
+{
  if TaskProcessor.Processing then
  begin
   Result:= drDelayed;
   l3System.Msg2Log('Еженедельное обновление не может быть запущено - выполняется другая задача');
   exit;
  end; // TaskProcessor.Processing
+} 
  TaskProcessor.LockAsyncRun;
  DisableProcessing;
  try
@@ -2556,7 +2563,6 @@ begin
            l3System.Msg2Log('Выполняем действия, не связанные с импортом документов', l3_msgLevel1);
            Status:= dd_apsLoadDelta;
            f_Report.Clear;
-           //CopyStages;
            SwitchToTemporaryBase;
            ClearOldBackup;
            l_CanWork := DoMakeFullBackup(ConcatDirName(ddAppConfiguration.AsString[SalcuAutoPipeServer_BackupRoot],
@@ -2689,29 +2695,34 @@ begin
 end;
 
 procedure TalcuServerPrim.DoLoadRegions;
-{$IFDEF ExchangeDocs}
 var
- l_Task: TalcuRegionImportTask;
+ l_Task: TddProcessTask;
+ l_TasksList: TasksListHelper;
  l_IDX: Integer;
-{$ENDIF}
+ l_InnerTask: TddProcessTask;
 begin
-{$IFDEF ExchangeDocs}
- ImportEnabled:= False;
+ l_Task := MakeLoadRegionsTask;
  try
-  for l_IDX := 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regSources']).Count - 1 do
+  if l_Task is TalcuContainerTask then
   begin
-   l_Task := TalcuRegionImportTask.Create(usServerService);
+   l_TasksList := TalcuContainerTask(l_Task).TasksList;
    try
-    l_Task.RegionIndex := l_IDX;
-    TaskProcessor.AddActiveTask(l_Task);
+    for l_IDX := 0 to l_TasksList.Count - 1 do
+    begin
+     l_InnerTask := l_TasksList.MakeTask(l_IDX, '');
+     try
+      TaskProcessor.AddActiveTask(l_InnerTask);
+     finally
+      FreeAndNil(l_InnerTask);
+     end;
+    end;
    finally
-    FreeAndNil(l_Task);
+    l_TasksList := nil;
    end;
   end;
  finally
-  ImportEnabled:= True;
+  FreeAndNil(l_Task);
  end;
-{$ENDIF}
 end;
 
 function TalcuServerPrim.DoMakeFamilyBackup: Boolean;
@@ -3006,7 +3017,6 @@ begin
     DisableProcessing;
     try
      l3System.Msg2Log(SalcuAutoPipeServer_Naaloobnovleniyabazy);
-     Result:= False;
      try
        l_Locked:= IsBaseLocked;
        try
@@ -3193,31 +3203,34 @@ begin
 end;
 
 procedure TalcuServerPrim.DoUploadRegions;
-{$IFDEF ExchangeDocs}
 var
- l_Task: TalcuRegionAutoExportTask;
- i: Integer;
-{$ENDIF}
+ l_Task: TddProcessTask;
+ l_TasksList: TasksListHelper;
+ l_IDX: Integer;
+ l_InnerTask: TddProcessTask;
 begin
-{$IFDEF ExchangeDocs}
- for i:= 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Count-1 do
- begin
-  {$IFDEF OvgaExport}
-  if not AnsiSameText(TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[i, 'Caption'].AsString, 'ovga') then
-  {$ENDIF}
+ l_Task := MakeUpLoadRegionsTask;
+ try
+  if l_Task is TalcuContainerTask then
   begin
-   l_Task:= TalcuRegionAutoExportTask.Create(usServerService);
+   l_TasksList := TalcuContainerTask(l_Task).TasksList;
    try
-    l_Task.RegionIndex:= i;
-    l_Task.Description:= Format('Экспорт документов  для %s',
-                    [TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[i, 'Caption'].AsString]);
-    TaskProcessor.AddActiveTask(l_Task);
+    for l_IDX := 0 to l_TasksList.Count - 1 do
+    begin
+     l_InnerTask := l_TasksList.MakeTask(l_IDX, '');
+     try
+      TaskProcessor.AddActiveTask(l_InnerTask);
+     finally
+      FreeAndNil(l_InnerTask);
+     end;
+    end;
    finally
-    l3Free(l_Task);
+    l_TasksList := nil;
    end;
   end;
+ finally
+  FreeAndNil(l_Task);
  end;
-{$ENDIF}
 end;
 
 function TalcuServerPrim.ExecuteConfigDialog: Boolean;
@@ -3521,7 +3534,7 @@ begin
   f_BaseEngineHolder.BaseEngine.LockBase(aMsg, aLockTime, aUnlockTime);
 end;
 
-procedure TalcuServerPrim.LogoffUsers(aManual: Boolean; theUser: TArchiUser = nil);
+procedure TalcuServerPrim.LogoffUsers(aManual: Boolean; theUser: IdaArchiUser = nil);
 begin
  f_BaseEngineHolder.BaseEngine.LogoffUsers(theUser);
  if not aManual then
@@ -3549,7 +3562,7 @@ begin
    l_CanWork:= alcuMsgDialog(SalcuAutoPipeServer_Logfaylraznicydokumentovetsheneg,
                           mtWarning, mbOkCancel, 0) = mrOk
   else // aManual
-  {$ENDIF}                                          
+  {$ENDIF}
   begin
    l3System.Msg2Log(SalcuAutoPipeServer_Logfaylraznicydokumentovetsheneg1);
    Result := drDelayed;
@@ -3643,8 +3656,13 @@ end;
 
 procedure TalcuServerPrim.ProcessDelayedTasks;
 begin
- TaskProcessor.WorkupDelayed;
- while TaskProcessor.Processing do;
+ if TaskProcessor.Processing then
+  TaskProcessor.WorkupDelayed(True)
+ else
+ begin
+  TaskProcessor.WorkupDelayed(False);
+  while TaskProcessor.Processing do;
+ end;
 end;
 
 procedure TalcuServerPrim.ProgressorUpdate(Sender: TObject; aPercent: Integer);
@@ -3675,7 +3693,6 @@ begin
   RegisterReplyProcedure(qtTask, TaskProcessor.cs_ServerTaskReply);
   RegisterReplyProcedure(qtServerStatus, cs_ServerStatusReply);
   RegisterReplyProcedure(qtAllLine, TaskProcessor.cs_LineRequestReply);
-//  RegisterReplyProcedure(qtTaskResult, TaskProcessor.cs_ReturnResult);
   RegisterReplyProcedure(qtStartMonitoring, TaskProcessor.cs_StartMonitoringReply);
   RegisterReplyProcedure(qtStartMyMonitoring, TaskProcessor.cs_StartMyMonitoringReply);
   RegisterReplyProcedure(qtEndMonitoring, TaskProcessor.cs_StopMonitoringReply);
@@ -3690,16 +3707,13 @@ begin
   RegisterReplyProcedure(qtGetVersionDate, TaskProcessor.cs_GetNextVersionDate);
   RegisterReplyProcedure(qtGetAnouncedDate, cs_GetAnouncedDate);
   RegisterReplyProcedure(qtGetBaseStatus, cs_GetBaseStatus);
-  RegisterReplyProcedure(qtGetAllUsersList, UserManager.cs_GetUsersList);
+  RegisterReplyProcedure(qtGetAllUsersList, cs_GetUsersList);
   RegisterReplyProcedure(qtGetExecuteStatus, TaskProcessor.cs_GetExecuteStatus);
   RegisterReplyProcedure(qtGetToRegionList, TaskProcessor.cs_GetToRegionList);
   {$IFDEF SubDeletedNotify}
   RegisterReplyProcedure(qtGetDictChangeFileName, TaskProcessor.cs_GetDictChangeFileName);
   {$ENDIF}
   RegisterReplyProcedure(qtGetLogo, cs_GetLogoReply);
-  {$IFDEF RemoteDict}
-  RegisterReplyProcedure(qtGetNonEditableDicts, TaskProcessor.DictManager.cs_GetNonEditableDicts);
-  {$ENDIF}
   RegisterReplyProcedure(qtGetAEParams, cs_GetAEParamsReply);
   RegisterReplyProcedure(qtGetCompileDate, TaskProcessor.cs_GetCompileDate);
   RegisterReplyProcedure(qtAsyncProgress, TaskProcessor.cs_AsyncProgress);
@@ -3721,35 +3735,41 @@ procedure TalcuServerPrim.RegisterSchedulerTasks;
 begin
  with Scheduler do
  begin
-  AddExecuteHandler(ctDeltaTask, ScheduledDeltaTask);
-  AddExecuteHandler(ctUpdateTask, ScheduledUpdateTask);
-  AddExecuteHandler(ctBirthdayTask, ScheduledBirthdayTask);
-  AddExecuteHandler(ctHolidayTask, ScheduledHolidayTask);
-  AddExecuteHandler(ctPreventiveTask, ScheduledPreventiveTask);
-  AddExecuteHandler(ctAutoExportTask, ScheduledAutoExportTask);
-  AddExecuteHandler(ctLoadRegions, ScheduledLoadRegionsTask);
+  SetExecuteHandler(ctDeltaTask, ScheduledDeltaTask);
+  SetExecuteHandler(ctUpdateTask, ScheduledUpdateTask);
+  SetExecuteHandler(ctBirthdayTask, ScheduledBirthdayTask);
+  SetExecuteHandler(ctHolidayTask, ScheduledHolidayTask);
+  SetExecuteHandler(ctPreventiveTask, ScheduledPreventiveTask);
+  SetExecuteHandler(ctAutoExportTask, ScheduledAutoExportTask);
+  SetExecuteHandler(ctLoadRegions, ScheduledLoadRegionsTask);
   {$IFDEF AAC}
-  AddExecuteHandler(ctAutoSubs, ScheduledAutoSubsTask);
+  SetExecuteHandler(ctAutoSubs, ScheduledAutoSubsTask);
   {$ENDIF}
-  AddExecuteHandler(ctAutoclassify, ScheduledAutoClassifyTask);
-  AddExecuteHandler(ctCompilation, SchedulerDefaultTask);
-  AddExecuteHandler(ctVersion, SchedulerDefaultTask);
-  AddExecuteHandler(ctUploadRegions, ScheduledUploadRegionsTask);
-  AddExecuteHandler(ctMakeDivisions, SchedulerMakeDivisions);
-  AddExecuteHandler(ctRelPublish, ScheduledRelPublish);
-  AddExecuteHandler(ctHavansky, ScheduledHavansky);
-  AddExecuteHandler(ctCloneBase, ScheduledCloneBase);
-  AddExecuteHandler(ctExportAnonced, ScheduledExportAnonced);
-  AddExecuteHandler(ctExportAnoncedEx, ScheduledExportAnoncedEx);
-  AddExecuteHandler(ctAnnoExport, ScheduledAnnoExport);
-  {$IFDEF MDPSyncIntegrated}
-  AddExecuteHandler(ctMdpSyncDicts, ScheduledMdpSyncDicts);
-  AddExecuteHandler(ctMdpSyncDocs, ScheduledMdpSyncDocs);
-  {$ENDIF MDPSyncIntegrated}
-  AddExecuteHandler(ctContainer, SchedulerDefaultTask);
+  SetExecuteHandler(ctAutoclassify, ScheduledAutoClassifyTask);
+  SetExecuteHandler(ctCompilation, SchedulerClientNotify);
+  SetExecuteHandler(ctVersion, SchedulerClientNotify);
+  SetChangeHandler(ctVersion, SchedulerClientNotify);
 
-  AddCanRunHandler(ctUpdateTask, SchedulerCanRunWithoutRunningTask);
-  AddCanRunHandler(ctDeltaTask, SchedulerCanRunWithoutRunningTask);
+  SetExecuteHandler(ctUploadRegions, ScheduledUploadRegionsTask);
+//  SetExecuteHandler(ctMakeDivisions_DEPRECATED, SchedulerMakeDivisions);
+  SetExecuteHandler(ctRelPublish, ScheduledRelPublish);
+  SetExecuteHandler(ctHavansky, ScheduledHavansky);
+  SetExecuteHandler(ctCloneBase, ScheduledCloneBase);
+  SetExecuteHandler(ctExportAnonced, ScheduledExportAnonced);
+  SetExecuteHandler(ctExportAnoncedEx, ScheduledExportAnoncedEx);
+  SetExecuteHandler(ctAnnoExport, ScheduledAnnoExport);
+  {$IFDEF MDPSyncIntegrated}
+  SetExecuteHandler(ctMdpSyncDicts, ScheduledMdpSyncDicts);
+  SetExecuteHandler(ctMdpSyncDocs, ScheduledMdpSyncDocs);
+  {$ENDIF MDPSyncIntegrated}
+  SetExecuteHandler(ctContainer, SchedulerDefaultTask);
+
+{$IFDEF RunSchedulerAsTask}
+  OnTaskExecute := SchedulerTaskExecutor;
+{$ELSE  RunSchedulerAsTask}
+  SetCanRunHandler(ctUpdateTask, SchedulerCanRunWithoutRunningTask);
+  SetCanRunHandler(ctDeltaTask, SchedulerCanRunWithoutRunningTask);
+{$ENDIF RunSchedulerAsTask}
  end; // with Scheduler;
 end;
 
@@ -3767,7 +3787,7 @@ begin
   Resolved:= True;
   l_S:= TddScheduler(aNode.Value.AsObject);
   // Ежедневное обновление
-  if l_S.GetTaskByTaskType(ctUpdateTask) = nil then
+  if not l_S.HasTaskByType(ctUpdateTask) then
   begin
    l_T:= TddSchedulerTask.Create;
    try
@@ -3780,7 +3800,7 @@ begin
    end;
   end;
   // Компиляция
-  if l_S.GetTaskByTaskType(ctCompilation) = nil then
+  if not l_S.HasTaskByType(ctCompilation) then
   begin
    l_T:= TddSchedulerTask.Create;
    try
@@ -3794,7 +3814,7 @@ begin
    end;
   end;
   // Версия
-  if l_S.GetTaskByTaskType(ctVersion) = nil then
+  if not l_S.HasTaskByType(ctVersion) then
   begin
    l_T:= TddSchedulerTask.Create;
    try
@@ -3862,7 +3882,7 @@ procedure TalcuServerPrim.ScheduledDeltaTask(const aTask: TddSchedulerTask);
 begin
  case DoEveryWeekUpdate of
   drOk: aTask.ExecuteResult := strOk;
-  drDelayed: aTask.ExecuteResult := strRequestDelay;
+  drDelayed: aTask.ExecuteResult := strOk;
  else
   aTask.ExecuteResult := strFailed;
  end;
@@ -3901,7 +3921,7 @@ procedure TalcuServerPrim.SchedulerDefaultTask(const aTask: TddSchedulerTask);
 begin
  aTask.ExecuteResult := strOk;
 end;
-
+(*
 procedure TalcuServerPrim.SchedulerMakeDivisions(const aTask: TddSchedulerTask);
 begin
  with TalcuSectionMaker.Create do
@@ -3912,7 +3932,7 @@ begin
  end;
  aTask.ExecuteResult := strOk;
 end;
-
+*)
 procedure TalcuServerPrim.SendBirthdayGreeting(const UserName: String);
 begin
  // Послать всем пользователям сообщение о том, что сегодня день рождения UserName
@@ -3976,13 +3996,12 @@ begin
    alcuMail.SendEmailNotify(eventTextIndex, True, l_S, Status);
   end; // UpdateIndex
 
-  //   Копирование файла этапов
-  if taskStages in Missed then
+  if (taskCommitImg in Missed) then
   begin
-   l_S:= SalcuAutoPipeServer_StageNotCopied;
+   l_S:= SalcuAutoPipeServer_NoImgCacheIsUpdated;
    f_Report.Add(l_S);
-   alcuMail.SendEmailNotify(eventCopyStages, True, l_S, Status);
-  end;
+   alcuMail.SendEmailNotify(eventEveryDay, True, l_S, Status);
+  end; // UpdateIndex
  end; // Missed <> []
 end;
 
@@ -4039,7 +4058,7 @@ begin
 {$ENDIF}
 end;
 
-procedure TalcuServerPrim.SendMessage(theUser: TArchiUser; theMessage:
+procedure TalcuServerPrim.SendMessage(theUser: IdaArchiUser; theMessage:
     String; theLockBase: Boolean; theStartLock, theStopLock: TDateTime);
 var
   l_ID: TcsClientID;
@@ -4069,7 +4088,7 @@ begin
  begin
   l3System.Msg2Log(SalcuAutoPipeServer_AbortProcessing);
   TaskExecutionEnabled := False;
-  f_TaskProcessor.FreezeQueryQueue;
+  f_TaskProcessor.FreezeQueryQueue(False);
   Scheduler.DisableSchedule;
   if (f_DB <> nil) then
   begin
@@ -4197,7 +4216,8 @@ begin
   if CheckAtStartup then CheckBases(False);
   CheckAtStartup:= False;
   InitEndings(f_BaseEngineHolder.BaseEngine.GetFamilyPath(CurrentFamily));
-  UserManager.OnUserActiveChange := UserStatusChange;
+//  UserManager.OnUserActiveChange := UserStatusChange;
+  GlobalDataProvider.UserManager.RegisterUserStatusChangedSubscriber(Self);
   f_BaseEngineHolder.BaseEngine.CSServer.OnEvent := CSServerEvent;
   RegisterReplyProcedures;
 
@@ -4211,12 +4231,10 @@ begin
 
   f_MessageManager.CSServer := f_BaseEngineHolder.BaseEngine.CSServer;
   TaskProcessor.MessageManager := f_MessageManager;
-  UserManager.MakeFullUsersList;
+  GlobalDataProvider.UserManager.MakeFullArchiUsersList;
   TaskProcessor.WorkThreadCount := ddAppConfiguration.AsInteger['WorkThreadCount'];
-  //SetExchangeFileName(ConcatDirName(GlobalDataProvider.GlobalHomePath, StagesFileName));
   DictServer(CurrentFamily).MessageManager := f_MessageManager;
   DictServer(CurrentFamily).BiLingual := ddAppConfiguration.AsBoolean['DictEnglish'];
-  //f_TaskProcessor.CreatePipes;
   // Запуск сервера после того, как все процедуры зарегистрированы
   f_BaseEngineHolder.BaseEngine.CSServer.Start(ddAppConfiguration.AsString['ServerName'], ddAppConfiguration.AsInteger['ServerPort']);
   f_TaskProcessor.LoadQuery;
@@ -4234,6 +4252,7 @@ begin
  begin
   f_CS.Acquire;
   try
+   GlobalDataProvider.UserManager.UnRegisterUserStatusChangedSubscriber(Self);
    Scheduler.Stop;
 {$IFDEF MDPSyncIntegrated}
    f_DictSynchronizator.Stop;
@@ -4536,26 +4555,20 @@ procedure TalcuServerPrim.MakeRelPublishTask;
 var
  l_Task: TddProcessTask;
 begin
- {$IFDEF AutoSP}
- if TaskProcessor.ActiveTaskList.Findtask(cs_ttRelPublish) = nil then
- begin
-  l_Task:= TalcuRelPublishTask.Create(usServerService);
-  try
-   TalcuRelPublishTask(l_Task).SourceFiles.Add(FindPublInfoFile);
-   TaskProcessor.AddActiveTask(l_Task);
-  finally
-   FreeAndNil(l_Task);
-  end;
+ if CreateSchedulerTask(ctRelPublish, l_Task) then
+ try
+  TaskProcessor.AddActiveTask(l_Task);
+ finally
+  FreeAndNil(l_Task);
  end;
- {$ENDIF}
 end;
 
 procedure TalcuServerPrim.ScheduledHavansky(const aTask: TddSchedulerTask);
 var
- l_Task: TalcuExport;
+ l_Task : TddProcessTask;
 begin
  {$IFDEF HavanskyExport}
- l_Task:= TalcuHavanskyExportTask.Create;
+ if CreateSchedulerTask(ctHavansky, l_Task) then
  try
   TaskProcessor.AddActiveTask(l_Task);
  finally
@@ -4609,16 +4622,10 @@ end;
 
 procedure TalcuServerPrim.DoAutomaticAnoncedExport(anOnThursdayMode: Boolean; aUserID: TUserID = usServerService);
 var
- l_Task: TalcuAnoncedExport;
+ l_Task: TddProcessTask;
 begin
- l_Task:= TalcuAnoncedExport.Create(aUserID);
+ l_Task:= MakeAutomaticAnoncedExportTask(anOnThursdayMode, aUserID);
  try
-  l_Task.Priority:= dd_tpHighest;
-  l_Task.OnThursdayMode := anOnThursdayMode;
-  if DayOfTheWeek(Today) = DayFriday then
-   l_Task.AnoncedDate:= DateTimeToStDate(GetNearestDay(Today, DaySunday))
-  else
-   l_Task.AnoncedDate:= l3Date.CurrentDate;
   TaskProcessor.AddActiveTask(l_Task);
  finally
   l3Free(l_Task);
@@ -4658,18 +4665,6 @@ begin
  end;
 end;
 
-procedure TalcuServerPrim.UpdateExternalDictionaries;
-begin
-{$IFDEF RemoteDict}
- if ddAppConfiguration.AsBoolean['Dict_Enabled'] then
- begin
-  l3System.Msg2Log('Обработка внешних словарей...');
-  TaskProcessor.DictManager.Execute;
-  l3System.Msg2Log('Обработка внешних словарей завершена');
- end;
-{$ENDIF RemoteDict}
-end;
-
 procedure TalcuServerPrim.UpdateRequestLists;
 begin
  Inc(f_UpdateRequestListCounter);
@@ -4688,16 +4683,16 @@ begin
  if f_BaseEngineHolder.BaseEngine <> nil then
   f_BaseEngineHolder.BaseEngine.UpdateUserList;
 end;
-
+(*
 procedure TalcuServerPrim.UserStatusChange(UserId : TUserID; Active : Boolean);
 var
   l_Index: Integer;
-  l_User: TArchiUser;
+  l_User: IdaArchiUser;
   l_Info: TcsClientInfo;
 begin
  if UserID <> usServerService then
  begin
-  l_User:= UserManager.UserByID(UserID);
+  l_User := GlobalDataProvider.UserManager.UserByID(UserID);
   if l_User <> nil then
   begin
    f_MessageManager.DropAllMessagesForUser(UserId);
@@ -4723,7 +4718,7 @@ begin
   end;
  end;
 end;
-
+*)
 function TalcuServerPrim.ValidTime: Boolean;
 begin
   Result:= CompareDateTime(Now, f_RealStopTime) = LessThanValue;
@@ -4832,7 +4827,7 @@ function TalcuServerPrim.CanCloseWithWait: Boolean;
 begin
  Result := CanClose;
  if Assigned(f_TaskProcessor) then
-  Result := Result and not f_TaskProcessor.ExecutingTask;
+  Result := Result and not f_TaskProcessor.ExecutingTask(True);
 end;
 
 function TalcuServerPrim.CopyBackupToVersion: TddSchedulerTaskResult;
@@ -4956,11 +4951,10 @@ end;
 
 procedure TalcuServerPrim.DoAnnoExport;
 var
- l_Task: TalcuAutoAnnoExportTask;
+ l_Task: TddProcessTask;
 begin
- l_Task:= TalcuAutoAnnoExportTask.Create(usServerService);
+ if CreateSchedulerTask(ctAnnoExport, l_Task) then
  try
-  l_Task.Priority:= dd_tpHighest;
   TaskProcessor.AddActiveTask(l_Task);
  finally
   l3Free(l_Task);
@@ -5004,20 +4998,28 @@ begin
 end;
 
 procedure TalcuServerPrim.ScheduledMdpSyncDicts(const aTask: TddSchedulerTask);
+var
+ l_Task: TddProcessTask;
 begin
-{$IFDEF MDPSyncIntegrated}
- if Scheduler.ScheduleEnabled then
-  f_DictSynchronizator.SendDataThenReady(TaskProcessor);
-{$ENDIF MDPSyncIntegrated}
+ if CreateSchedulerTask(ctMdpSyncDicts, l_Task) then
+ try
+  TaskProcessor.AddActiveTask(l_Task);
+ finally
+  FreeAndNil(l_Task);
+ end;
  aTask.ExecuteResult := strOk;
 end;
 
 procedure TalcuServerPrim.ScheduledMdpSyncDocs(const aTask: TddSchedulerTask);
+var
+ l_Task: TddProcessTask;
 begin
-{$IFDEF MDPSyncIntegrated}
- if Scheduler.ScheduleEnabled then
-  f_MDPImporter.CheckRunImport(TaskProcessor);
-{$ENDIF MDPSyncIntegrated}
+ if CreateSchedulerTask(ctMdpSyncDocs, l_Task) then
+ try
+  TaskProcessor.AddActiveTask(l_Task);
+ finally
+  FreeAndNil(l_Task);
+ end;
  aTask.ExecuteResult := strOk;
 end;
 
@@ -5088,12 +5090,14 @@ begin
  l3System.Msg2Log('Reserved mem avail %s / %s', [FormatFloat('#,###', l_Max), FormatFloat('#,###', l_All)], l3_msgLevel3);
 end;
 
+{$IFNDEF RunSchedulerAsTask}
 procedure TalcuServerPrim.SchedulerCanRunWithoutRunningTask(
   const aTask: TddSchedulerTask; var CanRunTask: Boolean);
 begin
  if TaskProcessor.Processing then
   CanRunTask := False;
 end;
+{$ENDIF RunSchedulerAsTask}
 
 procedure TalcuServerPrim.cs_GetBaseStatus(aPipe: TCSDataPipe);
 begin
@@ -5111,6 +5115,457 @@ begin
   f_AutolinkEnabled := l_Ini.ReadParamBoolDef(sEnableAutolinkParam, False);
  finally
   FreeAndNil(l_Ini);
+ end;
+end;
+
+procedure TalcuServerPrim.SchedulerClientNotify(
+  const aTask: TddSchedulerTask);
+begin
+ f_MessageManager.SendNotify(c_AllClients, ntCalendar, Ord(aTask.TaskType), '', usServerService);
+ aTask.ExecuteResult := strOk;
+end;
+
+procedure TalcuServerPrim.SchedulerTaskExecutor(
+  const aTask: TddSchedulerTask);
+
+ procedure lp_AddProxyTaskToExecute(aTaskType: TddCalendarTaskType);
+ var
+  l_Task: TalcuSchedulerProxyTask;
+ begin
+  l_Task := TalcuSchedulerProxyTask.Create(usServerService);
+  try
+   l_Task.SchedulerTaskType := Ord(aTaskType);
+   l_Task.Description := ddCalendarEventArray[aTaskType].Caption;
+   l_Task.ParentTask := aTask;
+   TaskProcessor.AddActiveTask(l_Task);
+  finally
+   FreeAndNil(l_Task);
+  end;
+ end;
+
+ procedure lp_AddProxyTaskToList(const aList: TasksListHelper; aTaskType: TddCalendarTaskType);
+ var
+  l_Task: TalcuSchedulerProxyTask;
+ begin
+  l_Task := TalcuSchedulerProxyTask.Create(usServerService);
+  try
+   l_Task.SchedulerTaskType := Ord(aTaskType);
+   l_Task.ParentTask := aTask;
+   l_Task.Description := ddCalendarEventArray[aTaskType].Caption;
+   l_Task.RequestQuery;
+   aList.Add(l_Task);
+  finally
+   FreeAndNil(l_Task);
+  end;
+ end;
+
+var
+ l_Task: TddProcessTask;
+ l_Container: TalcuContainerTask;
+ l_TaskList: TasksListHelper;
+ l_IDX: Integer;
+begin
+ if aTask.SubTaskCount = 0 then
+ begin
+  if CreateSchedulerTask(aTask.TaskType, l_Task) then
+  try
+   if Assigned(l_Task) then
+   begin
+    l_Task.Description := Format('Задание планировщика: %s', [aTask.Caption]);
+    l_Task.Priority := dd_tpHighest;
+    TaskProcessor.AddActiveTask(l_Task);
+   end;
+   aTask.ExecuteResult := strOk;
+  finally
+   FreeAndNil(l_Task);
+  end
+  else
+   lp_AddProxyTaskToExecute(aTask.TaskType);
+ end
+ else
+ begin
+  if TaskProcessor.Processing then
+  begin
+   aTask.ExecuteResult := strRequestDelay;
+   Exit;
+  end;
+  l_Container := TalcuContainerTask.Create(usServerService);
+  try
+   l_Container.Description := Format('Задание планировщика: %s', [aTask.Caption]);
+   l_Container.ParallelExecutionMode := False;
+   l_Container.Priority := dd_tpHighest;
+   l_TaskList := l_Container.TasksList;
+   try
+    if CreateSchedulerTask(aTask.TaskType, l_Task) then
+    try
+     if Assigned(l_Task) then
+     begin
+       l_Task.RequestQuery;
+       l_TaskList.Add(l_Task);
+     end;
+    finally
+     FreeAndNil(l_Task);
+    end
+    else
+     lp_AddProxyTaskToList(l_TaskList, aTask.TaskType);
+    for l_IDX := 0 to aTask.SubTaskCount - 1 do
+    begin
+     if CreateSchedulerTask(aTask.SubTaskType[l_IDX], l_Task) then
+     try
+      if Assigned(l_Task) then
+      begin
+       l_Task.RequestQuery;
+       l_TaskList.Add(l_Task);
+      end;
+     finally
+      FreeAndNil(l_Task);
+     end
+     else
+      lp_AddProxyTaskToList(l_TaskList, aTask.SubTaskType[l_IDX]);
+    end;
+   finally
+    l_TaskList := nil;
+   end;
+   TaskProcessor.AddActiveTask(l_Container);
+   aTask.ExecuteResult := strOk;
+   aTask.ExecuteSubTasks := False;
+  finally
+   FreeAndNil(l_Container);
+  end;
+ end;
+end;
+
+function TalcuServerPrim.CreateSchedulerTask(
+  aType: TddCalendarTaskType; out theTask: TddProcessTask; aUserID: TUserID = usServerService): Boolean;
+begin
+ Result := True;
+ theTask := nil;
+ case aType of
+(*
+  ctDeltaTask: Assert(False);
+  ctUpdateTask: Assert(False);
+  ctBirthdayTask: Assert(False);
+  ctHolidayTask: Assert(False);
+  ctPreventiveTask: Assert(False);
+*)
+  ctAutoExportTask:
+   begin
+    theTask := TalcuAutoExportTask.Create(usServerService);
+    theTask.Priority:= dd_tpHighest;
+    theTask.Description := ddCalendarEventArray[aType].Caption;
+   end;
+  ctLoadRegions:
+   theTask := MakeLoadRegionsTask;
+//  ctAutoSubs: ;
+  ctAutoclassify:
+   begin
+{$IFDEF AutoClass}
+    theTask := TalcuAutoClassTask.Create(aUserID);
+    theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF AutoClass}
+   end;
+//  ctVersion: ;
+//  ctCompilation: ;
+  ctUploadRegions:
+   theTask := MakeUpLoadRegionsTask;
+  ctRelPublish:
+{$IFDEF AutoSP}
+    if not TaskProcessor.HasActiveTask(cs_ttRelPublish) then
+    begin
+     theTask := TalcuRelPublishTask.Create(usServerService);
+     TalcuRelPublishTask(theTask).SourceFiles.Add(FindPublInfoFile);
+    end
+{$ENDIF}
+    ;
+  ctHavansky:
+   begin
+{$IFDEF HavanskyExport}
+    theTask := TalcuHavanskyExportTask.Create;
+    theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF}
+   end;
+  ctCloneBase:
+   begin
+    theTask := MakeOvgaExportTask;
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+   end;
+  ctExportAnonced:
+   begin
+    theTask := MakeAutomaticAnoncedExportTask(False);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+   end;
+  ctExportAnoncedEx:
+   begin
+    theTask := MakeAutomaticAnoncedExportTask(True);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+   end;
+  ctAnnoExport:
+   begin
+    theTask := TalcuAutoAnnoExportTask.Create(usServerService);
+    if Assigned(theTask) then
+    begin
+     theTask.Priority:= dd_tpHighest;
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+    end;
+   end;
+  ctMdpSyncDicts:
+   begin
+{$IFDEF MDPSyncIntegrated}
+    theTask := f_DictSynchronizator.MakeTask;
+    if Assigned(theTask) and TaskProcessor.HasActiveTask(theTask.TaskType) then
+     FreeAndNil(theTask);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF MDPSyncIntegrated}
+   end;
+  ctMdpSyncDocs:
+   begin
+{$IFDEF MDPSyncIntegrated}
+    theTask := f_MDPImporter.MakeTask;
+    if Assigned(theTask) and TaskProcessor.HasActiveTask(theTask.TaskType) then
+     FreeAndNil(theTask);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF MDPSyncIntegrated}
+   end;
+  ctMdpSyncStages:
+   begin
+{$IFDEF MDPSyncIntegrated}
+    theTask := TalcuMdpSyncStages.Create(TdaUserID(ddAppConfiguration.asInteger['mdpImportUser']));
+    if Assigned(theTask) and TaskProcessor.HasActiveTask(theTask.TaskType) then
+     FreeAndNil(theTask);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF MDPSyncIntegrated}
+   end;
+    ctMdpSyncImport:
+   begin
+{$IFDEF MDPSyncIntegrated}
+    theTask := TalcuMdpSyncImport.Create(TdaUserID(ddAppConfiguration.asInteger['mdpImportUser']));
+    if Assigned(theTask) and TaskProcessor.HasActiveTask(theTask.TaskType) then
+     FreeAndNil(theTask);
+    if Assigned(theTask) then
+     theTask.Description := ddCalendarEventArray[aType].Caption;
+{$ENDIF MDPSyncIntegrated}
+   end;
+
+  ctContainer:
+  { Do nothing };
+ else
+  Result := False;
+ end;
+ if not Result then
+  l3System.Msg2Log('ERROR - не найдена задача для задания типа %s', [GetEnumName(TypeInfo(TddCalendarTaskType), Ord(aType))]);
+end;
+
+function TalcuServerPrim.MakeLoadRegionsTask: TddProcessTask;
+{$IFDEF ExchangeDocs}
+var
+ l_TaskList: TasksListHelper;
+ l_IDX: Integer;
+ l_Task: TalcuRegionImportTask;
+{$ENDIF ExchangeDocs}
+begin
+{$IFDEF ExchangeDocs}
+ Result := TalcuContainerTask.Create(usServerService);
+ TalcuContainerTask(Result).ParallelExecutionMode := True;
+ l_TaskList := TalcuContainerTask(Result).TasksList;
+ try
+  for l_IDX := 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regSources']).Count - 1 do
+  begin
+   l_Task := TalcuRegionImportTask.Create(usServerService);
+   try
+    l_Task.RegionIndex := l_IDX;
+    l_Task.Description:= Format('Импорт документов из %s',
+                    [TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regSources']).Values[l_IDX, 'Caption'].AsString]);
+    l_TaskList.Add(l_Task);
+   finally
+    FreeAndNil(l_Task);
+   end;
+  end;
+ finally
+  l_TaskList := nil;
+ end;
+{$ELSE ExchangeDocs}
+ Result := nil;
+{$ENDIF ExchangeDocs}
+end;
+
+function TalcuServerPrim.MakeUpLoadRegionsTask: TddProcessTask;
+{$IFDEF ExchangeDocs}
+var
+ l_TaskList: TasksListHelper;
+ l_IDX: Integer;
+ l_Task: TalcuRegionAutoExportTask;
+{$ENDIF ExchangeDocs}
+begin
+{$IFDEF ExchangeDocs}
+ Result := TalcuContainerTask.Create(usServerService);
+ TalcuContainerTask(Result).ParallelExecutionMode := True;
+ l_TaskList := TalcuContainerTask(Result).TasksList;
+ try
+  for l_IDX := 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Count-1 do
+  begin
+   {$IFDEF OvgaExport}
+   if not AnsiSameText(TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[l_IDX, 'Caption'].AsString, 'ovga') then
+   {$ENDIF}
+   begin
+    l_Task:= TalcuRegionAutoExportTask.Create(usServerService);
+    try
+     l_Task.RegionIndex:= l_IDX;
+     l_Task.Description:= Format('Экспорт документов для %s',
+                     [TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[l_IDX, 'Caption'].AsString]);
+     l_TaskList.Add(l_Task);
+    finally
+     l3Free(l_Task);
+    end;
+   end;
+  end;
+ finally
+  l_TaskList := nil;
+ end;
+{$ELSE ExchangeDocs}
+ Result := nil;
+{$ENDIF ExchangeDocs}
+end;
+
+function TalcuServerPrim.MakeOvgaExportTask: TddProcessTask;
+{$IFDEF ManualExchangeDocs}
+var
+ l_Item: TddVisualConfigItem;
+ i, l_Index: Integer;
+ l_Task: TalcuRegionAutoExportTask;
+{$ENDIF}
+begin
+ Result := nil;
+ {$IFDEF ManualExchangeDocs}
+ l_Index:= -1;
+ for i:= 0 to TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Count-1 do
+  if AnsiSameText(TddSimpleListDataAdapter(ddAppConfiguration.AsObject['regDestinations']).Values[i, 'Caption'].AsString, 'ovga') then
+  begin
+   l_Index:= i;
+   break;
+  end;
+
+ if l_Index <> -1 then
+ begin
+  l_Task:= TalcuRegionAutoExportTask.Create(usServerService);
+  l_Task.RegionIndex:= l_Index;
+  l_Task.Today:= Now;
+  l_Task.CompileDate:= Yesterday;
+ end; // ExecuteNodeDialog
+ Result := l_Task;
+ {$ENDIF}
+end;
+
+function TalcuServerPrim.MakeAutomaticAnoncedExportTask(
+  anOnThursdayMode: Boolean; aUserID: TUserID): TddProcessTask;
+var
+ l_Task: TalcuAnoncedExport;
+begin
+ l_Task:= TalcuAnoncedExport.Create(aUserID);
+ l_Task.Priority:= dd_tpHighest;
+ l_Task.OnThursdayMode := anOnThursdayMode;
+ if DayOfTheWeek(Today) = DayFriday then
+  l_Task.AnoncedDate:= DateTimeToStDate(GetNearestDay(Today, DaySunday))
+ else
+  l_Task.AnoncedDate:= l3Date.CurrentDate;
+ Result := l_Task;
+end;
+
+procedure TalcuServerPrim.cs_GetUsersList(aPipe: TcsDataPipe);
+
+var
+ l_Stream: Tstream;
+
+ function DoSave(const anUser: IdaArchiUser): Boolean;
+ begin
+  Result := True;
+  anUser.Save(l_Stream);
+ end;
+
+begin
+ aPipe.WriteInteger(GlobalDataProvider.UserManager.ArchiUsersCount);
+ l_Stream:= Tl3MemoryStream.Make;
+ try
+  GlobalDataProvider.UserManager.IterateArchiUsersF(L2ArchiUsersIteratorIterateArchiUsersFAction(@DoSave));
+  aPipe.WriteStream(l_Stream);
+ finally
+  l3Free(l_Stream);
+ end
+end;
+
+function TalcuServerPrim.DoCommitImgCache: Boolean;
+begin
+ Result := False;
+ TaskProcessor.LockProcessing;
+ try
+  DisableProcessing;
+  try
+   l3System.Msg2Log('* переливка кэша образов в постоянное хранилище');
+   try
+    Result := DocImageServer.CommitImageCache(f_Progressor.ProcessUpdate);
+   except
+    on E: Exception do
+    begin
+     l3System.Msg2Log('ОШИБКА при переливке кэша образов!');
+     Exception2Log(E);
+    end;
+   end; // try..except
+  finally
+   EnableProcessing;
+  end;
+ finally
+  TaskProcessor.UnLockProcessing;
+ end;
+end;
+
+function TalcuServerPrim.IsImgCacheCommitable: Boolean;
+var
+ l_ImgCachePath: AnsiString;
+ l_ImgStoragePath: AnsiString;
+begin
+ l_ImgStoragePath := UpperCase(ExcludeTrailingPathDelimiter(ddAppConfiguration.AsString['ImageStoragePath']));
+ l_ImgCachePath   := UpperCase(ExcludeTrailingPathDelimiter(ddAppConfiguration.AsString['ImageCachePath']));
+ Result := (l_ImgStoragePath <> '') and (l_ImgCachePath <> '') and (l_ImgCachePath <> l_ImgStoragePath);
+end;
+
+procedure TalcuServerPrim.UserStatusChanged(UserID: TdaUserID;
+  Active: Boolean);
+var
+  l_Index: Integer;
+  l_User: IdaArchiUser;
+  l_Info: TcsClientInfo;
+begin
+ if UserID <> usServerService then
+ begin
+  l_User := GlobalDataProvider.UserManager.UserByID(UserID);
+  if l_User <> nil then
+  begin
+   f_MessageManager.DropAllMessagesForUser(UserId);
+   if Active then
+   begin
+    f_Updated:= False;
+    l_Info := f_BaseEngineHolder.BaseEngine.CSServer.ActiveClients.ClientInfoOf(UserID);
+    if Assigned(l_Info) then
+    begin
+      l_User.IP:= l_Info.ListenIp;
+      f_MessageManager.SendNotify(UserID, ntAnouncedDateChanged, 0, 'Обновление даты анонсирования');
+      f_MessageManager.SendNotify(UserID, ntCalendar, Ord(ctVersion), 'Обновление даты версии');
+    end;
+   end;
+   {$IFNDEF Service}
+   if not f_LockLog then // Индикация входа-выхода
+   begin
+    if Assigned(f_OnUserListUpdated) then
+     f_OnUserListUpdated(l_User, Active);
+    Application.ProcessMessages;
+   end; // if not f_LockLog
+   {$ENDIF}
+  end;
  end;
 end;
 

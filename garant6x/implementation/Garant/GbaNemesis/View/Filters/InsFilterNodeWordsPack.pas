@@ -175,7 +175,7 @@ function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
 //#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_var*
 begin
 //#UC START# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFilterNode.UsedStatus;
 //#UC END# *54F9DEB20204_54F9DEB20204_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsUsed.IsUsed
 
@@ -227,7 +227,7 @@ function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
 //#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_var*
 begin
 //#UC START# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFilterNode.DeletedStatus;
 //#UC END# *54F9DEC402CD_54F9DEC402CD_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsDeleted.IsDeleted
 
@@ -276,10 +276,18 @@ function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
  const aFilterNode: InsFilterNode): Boolean;
  {* Реализация слова скрипта FilterNode:IsChangeable }
 //#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*
+var
+ l_F: IFilterFromQuery;
 //#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_var*
 begin
 //#UC START# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
- !!! Needs to be implemented !!!
+ Supports(aFilterNode, IFilterFromQuery, l_F);
+ RunnerAssert(Assigned(l_F), 'Что-то не так с фильтром.', aCtx);
+ try
+  Result := l_F.GetChangeable;
+ finally
+  l_F := nil;
+ end;//try..finally
 //#UC END# *54F9DEE200D2_54F9DEE200D2_4991887A031F_Word_impl*
 end;//TkwFilterNodeIsChangeable.IsChangeable
 

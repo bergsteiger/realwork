@@ -1,8 +1,11 @@
 unit nsQuery;
 
-// $Id: nsQuery.pas,v 1.16 2015/05/14 15:15:14 morozov Exp $
+// $Id: nsQuery.pas,v 1.17 2016/05/11 15:43:49 lulin Exp $
 
 // $Log: nsQuery.pas,v $
+// Revision 1.17  2016/05/11 15:43:49  lulin
+// - перегенерация.
+//
 // Revision 1.16  2015/05/14 15:15:14  morozov
 // {RequestLink: 597354916}
 //
@@ -327,7 +330,7 @@ unit nsQuery;
 // delete: старая реализация SaveAttribute;
 //
 // Revision 1.66  2004/06/15 14:57:57  mmorozov
-// - замена TLogicSelection на TLogicOperation;
+// - замена _TLogicSelection на TLogicOperation;
 //
 // Revision 1.65  2004/06/15 13:07:48  mmorozov
 // delete: todo;

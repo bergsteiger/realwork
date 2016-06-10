@@ -2,7 +2,7 @@ unit VMailWin;
 
 {$Include l3Define.inc}
 
-{ $Id: VMAILWIN.PAS,v 1.2 2015/11/26 08:45:28 lukyanets Exp $ }
+{ $Id: VMAILWIN.PAS,v 1.5 2016/04/22 12:35:17 lukyanets Exp $ }
 
 interface
 
@@ -122,6 +122,7 @@ uses
   l3Stream,
 
   daSchemeConsts,
+  daDataProvider,
 
   ResShop,
   DT_User, 
@@ -242,7 +243,7 @@ begin
   end;
  end;
 
- edtFrom.Text := UserManager.UserTbl.GetNameStr(fFromUserID);
+ edtFrom.Text := GlobalDataProvider.UserManager.GetUserName(fFromUserID);
  edtName.Text := l3PCharLen2String(lMailData.rName.AsWStr);
  memMessage.Buffer := l3PCharLen(aMessage);
  l3StrDispose(aMessage);

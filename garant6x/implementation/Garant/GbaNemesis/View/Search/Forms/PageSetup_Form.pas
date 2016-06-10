@@ -2,9 +2,12 @@ unit PageSetup_Form;
 
 { Окно настроек страницы }
 
-// $Id: PageSetup_Form.pas,v 1.11 2015/06/03 15:01:02 lulin Exp $
+// $Id: PageSetup_Form.pas,v 1.12 2016/05/26 01:01:24 lulin Exp $
 
 // $Log: PageSetup_Form.pas,v $
+// Revision 1.12  2016/05/26 01:01:24  lulin
+// - перегенерация.
+//
 // Revision 1.11  2015/06/03 15:01:02  lulin
 // - правим зависимости.
 //
@@ -322,6 +325,8 @@ type
    rmDownRightColontitul
   );
 
+  TvcmEntityFormRef = TPrimPageSetupOptionsForm;
+  
   Ten_PageSetup = class(TvcmEntityFormRef)
     Entities: TvcmEntities;
     PortraitLadscapeImageList: TvtNonFixedPngImageList;

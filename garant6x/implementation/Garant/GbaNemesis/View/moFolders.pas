@@ -37,7 +37,25 @@ end;//Tmo_Folders
 implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
+uses
+  Classes
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
+  
+  ;
+{$IfEnd} //not Admin AND not Monitorings
+
+{$If not defined(Admin) AND not defined(Monitorings)}
 
 
 {$IfEnd} //not Admin AND not Monitorings
+
+initialization
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация Folders$UC
+ TtfwClassRef.Register(Tmo_Folders);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+
 end.

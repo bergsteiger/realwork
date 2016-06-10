@@ -21,88 +21,14 @@ unit PrimCommon_Module;
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
   ShutDown_Form,
   PrimShutDown_Form,
   PrimLogin_Form,
   Login_Form,
   PrimLongProcess_Form,
   LongProcess_Form,
-  vtFocusLabel,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel
-  {$If defined(Nemesis)}
-  ,
-  nscComboBoxWithReadOnly
-  {$IfEnd} //Nemesis
-  ,
-  l3StringIDEx
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtButton,
-  vtCheckBox,
-  ElPopBtn,
-  vtGradientWaitbar
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  ShutDownKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  LoginKeywordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  LongProcessKeywordsPack
-  {$IfEnd} //not NoScripts
-  ,
   vcmExternalInterfaces {a},
+  vcmInterfaces {a},
   vcmModule {a},
   vcmBase {a}
   ;
@@ -129,13 +55,6 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
   nsTypes,
   afwFacade
   {$If not defined(NoVCL)}
@@ -143,18 +62,7 @@ uses
   Forms
   {$IfEnd} //not NoVCL
   ,
-  F1_Application_Template_InternalOperations_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  F1_Application_Template_InternalOperations_Controls,
   vcmFormSetFactory {a},
   StdRes {a}
   ;

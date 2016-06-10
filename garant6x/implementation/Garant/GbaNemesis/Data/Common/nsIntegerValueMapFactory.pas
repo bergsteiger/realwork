@@ -58,6 +58,7 @@ uses
  SystemStr,
  bsTypes,
  nsTypes,
+ nsConst,
 
  {$If not (defined(Monitorings) or defined(Admin))}
  vtNavigator,
@@ -147,6 +148,11 @@ const
   @str_pi_InNewWindow     // okInNewWindow
  );
  {$IfEnd}
+
+ map_MainMenuKind: array [TnsMainMenuKind] of AnsiString = (
+  li_mmkProfNews,
+  li_mmkDefault
+ );
 
 class function TnsIntegerValueMapFactory.Make: InsIntegerValueMapFactory;
 var
@@ -248,6 +254,10 @@ begin
    TypeInfo(TvcmMainFormOpenKind), map_DocumentAndLinkOpenKind)
  else
  {$IfEnd}
+ if aID.rID = imap_MainMenuKind.rID then
+  Result := TnsInternalTypedIntegerValueMap.Make(imap_MainMenuKind,
+   TypeInfo(TnsMainMenuKind), map_MainMenuKind)
+ else
   Result := nil;
 end;
 

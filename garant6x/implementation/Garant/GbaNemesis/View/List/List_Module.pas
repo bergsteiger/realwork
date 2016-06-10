@@ -35,31 +35,12 @@ uses
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
   ,
-  DocumentAndListInterfaces,
-  eeTreeView
-  {$If defined(Nemesis)}
-  ,
-  nscEditor
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTextSource
-  {$IfEnd} //Nemesis
-  
+  DocumentAndListInterfaces
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
-  List_Form,
-  ListInfo_Form,
   ListAnalizer_Form,
   PrimListAnalizer_Form,
   bsOpenListInfo,
@@ -91,70 +72,21 @@ uses
   BaloonWarningUserTypes_WarnIsAbolished_UserType,
   BaloonWarningUserTypes_WarnOnControl_UserType,
   BaloonWarningUserTypes_WarnInactualDocument_UserType,
-  BaloonWarningUserTypes_WarnRedaction_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
+  BaloonWarningUserTypes_WarnRedaction_UserType,
   BaloonWarningUserTypes_remListModified_UserType,
   BaloonWarningUserTypes_remListFiltered_UserType,
   BaloonWarningUserTypes_remTimeMachineWarning_UserType,
   PrimListAnalize_Form,
-  ListAnalize_Form,
   ListAnalizeUserTypes_Analize_UserType
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscDocumentListTreeView
-  {$If defined(Nemesis)}
-  ,
-  nscReminder
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscRemindersLine
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsList
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ListKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ListInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ListAnalizerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ListAnalizeKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  List_Form,
+  ListInfo_Form,
+  fsList,
+  ListAnalize_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -192,12 +124,7 @@ uses
   Base_Operations_Strange_Controls,
   Base_Operations_Editions_Controls,
   Search_Strange_Controls,
-  WorkWithList_ListOperations_Controls
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
+  WorkWithList_ListOperations_Controls,
   l3Base {a},
   DocumentUnit,
   l3MessageID,
@@ -223,18 +150,7 @@ uses
   Dialogs
   {$IfEnd} //not NoVCL
   ,
-  nsListEvents
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  nsListEvents,
   StdRes {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings

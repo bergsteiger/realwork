@@ -1043,7 +1043,7 @@ begin
    GC_OPEN_CONSULT:
     Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_Search_OpenConsult);
    GC_PRIME:
-    TdmStdRes.OpenNewsLine(True)
+    TdmStdRes.OpenNewsLine(True);
    else
     TdmStdRes.OpenMainMenuIfNeeded(aContainer);
   end;//case aCommand

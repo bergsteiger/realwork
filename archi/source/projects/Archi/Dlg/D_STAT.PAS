@@ -1,6 +1,6 @@
 unit D_stat;
 
-{ $Id: D_STAT.PAS,v 1.9 2015/11/26 08:45:28 lukyanets Exp $ }
+{ $Id: D_STAT.PAS,v 1.10 2016/04/18 08:39:30 lukyanets Exp $ }
 
 interface
 
@@ -53,24 +53,11 @@ uses
 
 
 Procedure TStatisticDlg.FormCreate(Sender: TObject);
- {Var
-  I : TStageType;}
- begin
-  {UserManager.UserTbl.GetDictList(cbUser.Items, False);
-  cbUser.Items.Insert(0, '[бяе]');
-  cbStage.Items.Insert(0, '[бяе]');
-  For I := Succ(Succ(Low(TStageType))) to High(TStageType) do
-   cbStage.Items.AddObject(StageStringConst[I],TObject(I));
-  }
-
-  DictServer(CurrentFamily).DictTbl[da_dlBases].GetDictList(cbDocGroupD.Items, False);
-  cbDocGroupD.Items.Insert(0, '[бяе]');
-  cbDocGroupD.ItemIndex := 0;
-  {cbUser     .ItemIndex := 0;
-  cbStage    .ItemIndex := 0;
-  cbStageType.ItemIndex := 0;
-  cbDocGroupD.ItemIndex := 0;   }
- end;
+begin
+ DictServer(CurrentFamily).DictTbl[da_dlBases].GetDictList(cbDocGroupD.Items, False);
+ cbDocGroupD.Items.Insert(0, '[бяе]');
+ cbDocGroupD.ItemIndex := 0;
+end;
 
 procedure GetStatistic;
 begin

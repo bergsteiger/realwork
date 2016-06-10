@@ -63,7 +63,7 @@ uses
   ,
   DocumentInterfaces,
   PreviewInterfaces,
-  nsTypes,
+  nsTypesNew,
   vcmControllers {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings

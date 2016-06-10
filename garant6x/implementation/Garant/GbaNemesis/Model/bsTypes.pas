@@ -8,8 +8,11 @@ unit bsTypes;
 { Описание   : Модуль содержит типы используемые бизнес слоем;                 }
 {------------------------------------------------------------------------------}
 
-// $Id: bsTypes.pas,v 1.85 2015/03/12 09:39:27 morozov Exp $
+// $Id: bsTypes.pas,v 1.86 2016/05/31 16:13:23 kostitsin Exp $
 // $Log: bsTypes.pas,v $
+// Revision 1.86  2016/05/31 16:13:23  kostitsin
+// {requestlink: 623926949 }
+//
 // Revision 1.85  2015/03/12 09:39:27  morozov
 // {RequestLink: 590745386}
 //
@@ -376,6 +379,7 @@ type
    lofMultilink,   // открытие мультиссылки
    lofFullScreenCR, // СКР открытый на весь экран
    lofBaseSearch,   // после базового поиска
+   lofBaseSearchEx, // после вторичного поиска
    lofAttributeSearch // После ППР
   );//TbsListOpenFrom
 

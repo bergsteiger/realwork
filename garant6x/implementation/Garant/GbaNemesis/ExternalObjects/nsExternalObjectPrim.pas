@@ -1,8 +1,26 @@
 unit nsExternalObjectPrim;
 
-{ $Id: nsExternalObjectPrim.pas,v 1.28 2016/03/11 12:04:15 morozov Exp $ }
+{ $Id: nsExternalObjectPrim.pas,v 1.34 2016/05/31 07:09:15 morozov Exp $ }
 
 // $Log: nsExternalObjectPrim.pas,v $
+// Revision 1.34  2016/05/31 07:09:15  morozov
+// {RequestLink: 623922790}
+//
+// Revision 1.33  2016/04/25 22:09:25  lulin
+// - перегенерация.
+//
+// Revision 1.32  2016/04/25 22:01:11  lulin
+// - перегенерация.
+//
+// Revision 1.31  2016/04/25 21:58:10  lulin
+// - перегенерация.
+//
+// Revision 1.30  2016/03/24 18:26:15  kostitsin
+// {requestlink: 610093358 }
+//
+// Revision 1.29  2016/03/24 07:35:25  morozov
+// {RequestLink: 619559253}
+//
 // Revision 1.28  2016/03/11 12:04:15  morozov
 // {RequestLink: 619559253}
 //
@@ -669,6 +687,7 @@ procedure nsSaveMultiplyDocuments(const aList: TnsDocumentStreamList;
   {* - Сохраняет множество документов в один файл.
        топики разделяются фразой "Топик: <внутренний номер документа>"
        aSourceTree итерируется по флагу }
+function RunValidBrowser(const anURL: Il3CString): Boolean;
 
 implementation
 
@@ -730,9 +749,13 @@ uses
   evStyleHeaderAdder,
   evPDFWriter,
 
-  nsBrowserInfo,
+  nsBrowserInfo
 
-  vcmTabbedContainerFormDispatcher
+  {$IfNDef Admin}
+  {$IfNDef Monitorings}
+  , vcmTabbedContainerFormDispatcher
+  {$EndIf  Monitorings}
+  {$EndIf  Admin}
   ;
 
 const
@@ -1178,10 +1201,38 @@ function nsDoShellExecuteEx(const aFile: Il3CString; SetReadOnlyToFile: Boolean;
   end;
  end;
 
+ function lp_CallShellExecute: Boolean;
+ var
+  l_ShellExecuteInfo: {$IfDef XE}TShellExecuteInfoA{$Else}TShellExecuteInfo{$EndIf};
+  l_Handle: THandle;
+  l_FindData: {$IfDef XE}TWin32FindDataA{$Else}TWin32FindData{$EndIf};
+ begin
+  l3FillChar(l_ShellExecuteInfo, SizeOf(l_ShellExecuteInfo), 0);
+  //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
+  afw.BeginOp;
+  try
+   with l_ShellExecuteInfo do
+   begin
+    cbSize := SizeOf(l_ShellExecuteInfo);
+    lpFile := PChar(nsAStr(aFile).S);
+    if SetReadOnlyToFile then
+    begin
+     l_Handle := Windows.FindFirstFileA(lpFile, l_FindData);
+     if l_Handle <> INVALID_HANDLE_VALUE then
+     begin
+      Windows.FindClose(l_Handle);
+      SetFileAttributesA(lpFile, GetFileAttributesA(lpFile) or faReadOnly);
+     end;
+    end;
+    nShow := SW_SHOWNORMAL;
+   end;//with l_ShellExecuteInfo
+   Result := ShellExecuteExA(@l_ShellExecuteInfo);
+  finally
+   afw.EndOp;
+  end;
+ end;
+
 var
- l_ShellExecuteInfo: {$IfDef XE}TShellExecuteInfoA{$Else}TShellExecuteInfo{$EndIf};
- l_Handle: THandle;
- l_FindData: {$IfDef XE}TWin32FindDataA{$Else}TWin32FindData{$EndIf};
  l_File: Il3CString;
  l_ArchiveUrl : IString;
  l_URL: WideString;
@@ -1192,12 +1243,17 @@ begin
  {$If not defined(Admin) AND not defined(Monitorings)}
  Result := False;
  l_URL := l3WideString(aFile);
- l_NeedOpenInternal :=nsNeedOpenLinkInInternalBrowser(l_URL); 
+ l_NeedOpenInternal := not nsNeedOpenLinkInExternalBrowser(l_URL); 
  //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
  if (not lp_IsLocalFile(aFile)) then
  begin
   afw.BeginOp;
   try
+   if nsIsMailtoURL(l_URL) then
+   begin
+    Result := lp_CallShellExecute;
+    Exit;
+   end; 
    // Ссылки на документы в архиве судебных решений открываем в браузере всегда
    // http://mdp.garant.ru/pages/viewpage.action?pageId=475468995
    // Ссылки на конструктор договоров открываем в браузере
@@ -1228,29 +1284,7 @@ begin
   end;
  end;
  {$IfEnd} //not Admin AND not Monitorings
- l3FillChar(l_ShellExecuteInfo, SizeOf(l_ShellExecuteInfo), 0);
- //http://mdp.garant.ru/pages/viewpage.action?pageId=431371899
- afw.BeginOp;
- try
-  with l_ShellExecuteInfo do
-  begin
-   cbSize := SizeOf(l_ShellExecuteInfo);
-   lpFile := PChar(nsAStr(aFile).S);
-   if SetReadOnlyToFile then
-   begin
-    l_Handle := Windows.FindFirstFileA(lpFile, l_FindData);
-    if l_Handle <> INVALID_HANDLE_VALUE then
-    begin
-     Windows.FindClose(l_Handle);
-     SetFileAttributesA(lpFile, GetFileAttributesA(lpFile) or faReadOnly);
-    end;
-   end;
-   nShow := SW_SHOWNORMAL;
-  end;//with l_ShellExecuteInfo
-  Result := ShellExecuteExA(@l_ShellExecuteInfo);
- finally
-  afw.EndOp;
- end;
+ Result := lp_CallShellExecute;
 end;
 
 type
@@ -1275,6 +1309,8 @@ begin
  begin
   l_CurrentContainer := IvcmContainer(f_Container);
   try
+   {$IfNDef Admin}
+   {$IfNDef Monitorings}
    if Supports(l_CurrentContainer.NativeMainForm, IvcmContainerMaker, l_ContainerMaker) then
    try
    with TvcmTabbedContainerFormDispatcher.Instance do
@@ -1288,6 +1324,12 @@ begin
    end
    else
     Assert(False);
+   {$Else  Monitorings}
+   Result := l_CurrentContainer;
+   {$EndIf Monitorings}
+   {$Else  Admin}
+   Result := l_CurrentContainer;
+   {$EndIf Admin}
   finally
    l_CurrentContainer := nil;
   end;

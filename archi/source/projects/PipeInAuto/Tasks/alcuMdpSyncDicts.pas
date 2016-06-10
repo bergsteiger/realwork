@@ -67,7 +67,7 @@ uses
 
  csTaskTypes,
 
- {$If defined(AppServerSide)} ddAppConfig, {$IfEnd defined(AppServerSide)}
+ {$If defined(AppServerSide)} alcuMdpSyncParamUtils, {$IfEnd defined(AppServerSide)}
  ddServerTask,
  ddFileIterator
  ;
@@ -123,10 +123,10 @@ begin
       // настраиваем тут прокси
       with f_HTTP.ProxyParams do
       begin
-       ProxyServer := ProxyServer;
-       ProxyPort   := ProxyPort;
-       ProxyUsername := ProxyLogin;
-       ProxyPassword := ProxyPassword;
+       ProxyServer := Self.ProxyServer;
+       ProxyPort   := Self.ProxyPort;
+       ProxyUsername := Self.ProxyLogin;
+       ProxyPassword := Self.ProxyPassword;
        BasicAuthentication := True;
       end;
      end;
@@ -220,15 +220,7 @@ end;
 procedure TalcuMdpSyncDicts.SetupServerSideConfigParams;
 begin
  inherited;
- with ddAppCOnfiguration do
- begin
-  SyncURL := asString['dsURL'];
-  UseProxy := asBoolean['dsUseProxy'];
-  ProxyServer := asString['dsProxyServer'];
-  ProxyPort := asInteger['dsProxyPort'];
-  ProxyLogin := asString['dsProxyLogin'];
-  ProxyPassword := asString['dsProxyPassword'];
- end;
+ SetupMdpSyncParams(Self);
 end;
 {$IfEnd defined(AppServerSide)}
 

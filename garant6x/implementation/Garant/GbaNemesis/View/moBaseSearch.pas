@@ -34,4 +34,26 @@ end;//Tmo_BaseSearch
 
 implementation
 
+{$If not defined(Admin) AND not defined(Monitorings)}
+uses
+  Classes
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
+  
+  ;
+{$IfEnd} //not Admin AND not Monitorings
+
+{$If not defined(Admin) AND not defined(Monitorings)}
+
+
+{$IfEnd} //not Admin AND not Monitorings
+
+initialization
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация BaseSearch$UC
+ TtfwClassRef.Register(Tmo_BaseSearch);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+
 end.

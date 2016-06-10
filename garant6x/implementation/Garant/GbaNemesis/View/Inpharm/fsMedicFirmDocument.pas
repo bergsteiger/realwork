@@ -63,6 +63,7 @@ uses
   PrimPrimListInterfaces,
   l3TreeInterfaces,
   FiltersUnit,
+  nsTypesNew,
   nsTypes,
   DynamicTreeUnit,
   PreviewInterfaces,

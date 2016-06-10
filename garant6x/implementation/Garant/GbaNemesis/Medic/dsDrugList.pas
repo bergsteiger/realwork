@@ -65,6 +65,7 @@ uses
   l3NotifyPtrList,
   WorkWithDocumentInterfaces,
   vcmControllers {a},
+  nsTypesNew,
   PreviewInterfaces
   ;
 {$IfEnd} //not Admin AND not Monitorings

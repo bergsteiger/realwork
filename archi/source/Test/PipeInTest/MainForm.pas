@@ -157,6 +157,7 @@ Uses
   vtVerInf,
   daInterfaces,
   daProgressProcHolder,
+  daDataProvider,
   DT_Serv, dt_Const, dt_IFltr, {dt_Conn,} dt_User, dt_Prior, dt_Doc,
   mgJouSrv, l3FileUtils, m4DB, m4DBInterfaces, m3StorageInterfaces,
   D_Pass, D_ImpPrg, ddHTInit, ht_Const, l3Types,
@@ -335,7 +336,7 @@ begin
    {$ENDIF}
    // Заполняем список пользователей и позиционируемся на Autoload
    comboUserList.Items.Assign(UserManager.Users);
-   UserManager.GetUserInfo(usServerService, aName, aLoginName, aActiveFlag);
+   GlobalDataProvider.UserManager.GetUserInfo(usServerService, aName, aLoginName, aActiveFlag);
    comboUserList.ItemIndex:= comboUserList.Items.IndexOf(aName);
 
    f_ImportErrors:= TStringList.Create;

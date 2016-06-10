@@ -1,8 +1,17 @@
 unit MainEditor;
 
-{ $Id: MainEditor.pas,v 1.21 2015/06/25 11:03:33 dinishev Exp $ }
+{ $Id: MainEditor.pas,v 1.23 2016/04/26 12:46:14 lukyanets Exp $ }
 
 // $Log: MainEditor.pas,v $
+// Revision 1.23  2016/04/26 12:46:14  lukyanets
+// Выключаем переключения текущего каталога
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.22  2016/03/26 00:46:20  lulin
+// - запускаем тесты.
+//
 // Revision 1.21  2015/06/25 11:03:33  dinishev
 // Вычистил лишнее.
 //
@@ -953,7 +962,7 @@ begin
   l_Filter := OpenDialog.Filter;
   try
    OpenDialog.Filter := evPirctureFilter;
-   if OpenDialog.Execute then begin
+   if ExecuteOpenDialog(OpenDialog) then begin
     l_Stream := Tl3FileStream.Create(OpenDialog.FileName, l3_fmRead);
     try
      ActiveEditor.Editor.InsertPicture(l_Stream);
@@ -2164,7 +2173,7 @@ end;
 procedure TMainEditorForm.acAjustColumnWidthExecute(Sender: TObject);
 begin
  if CheckActiveEditor then
-  evTableFixNSRCWidth(ActiveEditor.Editor.Range);
+  evTable_FixNSRCWidth(ActiveEditor.Editor.Range);
 end;
 
 procedure TMainEditorForm.acSetCellWidthExecute(Sender: TObject);
@@ -2176,7 +2185,7 @@ begin
   l_CellWidth := 0;
   if RequestIntegerValue(l_CellWidth, Self,
     'Задание ширины ячеек', 'Ширина ячеек(в символах)') then
-   evTableFixNSRCWidth(ActiveEditor.Editor.Range, l_CellWidth);
+   evTable_FixNSRCWidth(ActiveEditor.Editor.Range, l_CellWidth);
  end;
 end;
 

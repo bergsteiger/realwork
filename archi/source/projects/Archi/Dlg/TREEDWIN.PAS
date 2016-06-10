@@ -12,7 +12,10 @@ uses
 
   vtDialogs, vtCtrls, vtlister, vtOutliner, vtStatusBar,
 
-  l3LongintList, l3DatLst, l3Nodes, l3Tree_TLB, l3Types, l3InternalInterfaces, l3TreeInterfaces, l3Interfaces,
+  l3LongintList,
+  l3DatLst,
+  l3IDList,
+  l3Nodes, l3Tree_TLB, l3Types, l3InternalInterfaces, l3TreeInterfaces, l3Interfaces,
 
   OvcBase,
 
@@ -68,7 +71,7 @@ type
    private
     Family   : TFamilyID;
     //fShowMode : TDictShowMode;
-    fLeafIDList : Tl3LongintList;
+    fLeafIDList : Il3IDList;
 
     function  GetDictServ : TDictionaryServer;
     //procedure ChangeJourNodeOperation(aNode : IDictItemJour; aOperation : TOperActionType);
@@ -79,7 +82,6 @@ type
     procedure evntNodeMoveEnd(aSender : TObject; const aNode : Il3SimpleNode; aParentWasChange : Boolean);
 
     procedure LoadFromFile(FName : TFileName);
-    procedure WaitDlgCanClose(var aCanClose: Boolean);
    protected
     procedure Cleanup; override;
 
@@ -576,7 +578,7 @@ constructor TTreeDesignerForm.Create(aOwner : TComponent; aFamily   : TFamilyID;
 
 procedure TTreeDesignerForm.Cleanup;
 begin
- l3Free(fLeafIDList);
+ fLeafIDList := nil;
  Inherited;
 end;
 
@@ -918,10 +920,6 @@ procedure TTreeDesignerForm.AddItem;
                Min(ll3Str.SLen, SizeOf(l_pSourDictRec^.Sinon)));
          lID := cUndefDictID;
          CN := DictServ.Dict[DictID].AddDictFullDataNode(lID, PAnsiChar(l_pSourDictRec), CN);
-         {$IFDEF RemoteDict}
-         vtShowWaitMessage('Пожалуйста, подождите', WaitDlgCanClose);
-         CN:= DictServer.Dict[DictID].FindNodeByID(DictServer.LastEditedID);
-         {$ENDIF}
         finally
          Dispose(l_pSourDictRec);
         end;
@@ -934,60 +932,6 @@ procedure TTreeDesignerForm.AddItem;
    da_dlNewClasses_Deprecated :
     begin
      Assert(False, 'Deprecated dlNewClasses');
-(*     with TNewClassNameEditDlg.Create(Self) do
-     try
-      BiLingual := DictServ.BiLingual;
-      pnlRelinkID.Visible := False;
-      pnlJuristicChanges.Visible := False;
-      if Execute(GetDictNameLength(DictID)) then
-      begin
-       New(l_pNewClassDictRec);
-       try
-        l3FillChar(l_pNewClassDictRec^, SizeOf(TNewClassDictRec));
-        l_pNewClassDictRec.FNameE[1] := cWrongEnglishMark;
-
-        l_StrR := Tl3String.Make(EditTextR);
-        try
-         l_StrR.ReplaceNonReadable.TrimAll;
-         l_StrR.CodePage := GlobalDataProvider.BaseLanguage[Family].AnsiCodePage; //cp_ANSI;
-         l3Move(l_StrR.St^, l_pNewClassDictRec^.FNameR, l_StrR.Len);
-        finally
-         l_StrR.Free;
-        end;
-
-        if BiLingual then
-         ll3Str := NormPCharLen(mNameEng.Buffer)
-        else
-         ll3Str := l3PCharLen;
-
-        if ll3Str.SLen > 0 then
-         l3Move(ll3Str.S^,
-              l_pNewClassDictRec^.FNameE,
-              Min(ll3Str.SLen, SizeOf(l_pNewClassDictRec^.FNameE)));
-
-        if CommentText.SLen > 0 then
-         l3Move(CommentText.S^, l_pNewClassDictRec^.Comment, CommentText.SLen);
-
-        l_pNewClassDictRec^.Flag := Ord(atAdd);      //TOperActionType = (atAdd,atDelete,atEdit,atMove);
-
-        lID := cUndefDictID;
-        CN := DictServ.Dict[DictID].AddDictFullDataNode(lID, PAnsiChar(l_pNewClassDictRec), CN);
-        {$IFDEF RemoteDict}
-         vtShowWaitMessage('Пожалуйста, подождите', WaitDlgCanClose);
-         CN:= DictServer.Dict[DictID].FindNodeByID(DictServer.LastEditedID);
-        {$ENDIF}
-        with (CN as IDictItemJour) do
-        begin
-         Comment := l3PCharLen2String(CommentText) + SysUtils.Format(' (add: %s)',[dsGetCurrentUserName]);
-         Operation := TOperActionType(l_pNewClassDictRec^.Flag);
-        end;
-       finally
-        Dispose(l_pNewClassDictRec);
-       end;
-      end;
-     finally
-      Free;
-     end;*)
     end;
 
    else {case}
@@ -1038,10 +982,6 @@ procedure TTreeDesignerForm.AddItem;
            if ElemID <> cUndefDictID then
             DictServ.Dict[DictID].Tbl.ClaimFreeNum(ElemID);
            CN := DictServ.Dict[DictID].AddDictNode(ElemID, l_StrR.AsWStr, l_StrE.AsWStr, l3PCharLen(Code), CN, IsPrivate, IsNonPeriodic);
-           {$IFDEF RemoteDict}
-           vtShowWaitMessage('Пожалуйста, подождите', WaitDlgCanClose);
-           CN := DictServer.Dict[DictID].FindNodeByID(DictServer.LastEditedID);
-           {$ENDIF}
           finally
            l3Free(l_StrE);
           end;
@@ -1170,16 +1110,7 @@ begin
  if (DictID = da_dlNewClasses_Deprecated) and
      l3TestMask(DictOutliner.TreeStruct.Nodes[DictOutliner.Current].Flags, cEqualNode) then
   Assert(False, 'Deprecated dlNewClasses')
-//  l_Ok:= IsPositiveResult(vtMessageDlg(l3Fmt(sidDelQst, [l3PCharLen2String(CNode.Text)]),
-//                  mtConfirmation, [mbYes, mbNo], 0, mbNo, mbNo))
  else
- {$IFDEF RemoteDict}
- if DictID = da_dlKeywords then
-  l_Ok:= DictItemRequest(Self, DictID, lHeirID, l_DateDeleted,
-                          'Элемент-приемник (ID)', 'Подтвердите',
-                          SysUtils.Format(sidDelQst,[l3PCharLen2String(CNode.Text)]))
- else
- {$ENDIF}
   l_Ok:= DictItemRequest(Self, DictID, lHeirID,
                           'Элемент-приемник (ID)', 'Подтвердите',
                           SysUtils.Format(sidDelQst,[l3PCharLen2String(CNode.Text)]));
@@ -1191,35 +1122,6 @@ begin
   if (DictID = da_dlNewClasses_Deprecated) then
   begin
    Assert(False, 'Deprecated dlNewClasses');
-(*   if l3IOk(CNode.QueryInterface(IDictItemJour, lHNode)) then
-   begin
-    with lHNode do
-    begin
-     if (Operation = atAdd) or
-        //люк для удаления "левых"
-        (l3System.Keyboard.Key[VK_LMENU].Down and
-         l3System.Keyboard.Key[VK_RMENU].Down) then
-     begin
-       if CNode.HasChild and not l3TestMask(CNode.Flags, cNodeHasEquals) and HasNonDeletedChild then
-        raise Exception.Create(SysUtils.Format(sidDeleteDenied,[sidDictItemNotLeaf]));
-
-       if lHeirID = 0 then lHeirID := cUndefDictID;
-       //CNode := FindTreeNodeByID(DictID, lDelID);
-       (CNode as IPersistentNode).DeleteEx(lHeirID);
-       //DictServ.DelDictItem(DictID, lDelID, lHeirID);
-       //DictServ.DictEqualObj[DictID].DelAllEqualOnID(lDelID);
-      end
-      else
-      begin
-       Operation := atDelete;
-       NewID     := Max(lHeirID, 0);
-       Comment   := Comment + SysUtils.Format(' (del: %s)',[dsGetCurrentUserName]);
-      end;
-    end
-   end
-   else
-    CNode.Delete;
-*)
   end
   else // (DictID = da_dlNewClasses_Deprecated)
   begin
@@ -1329,13 +1231,6 @@ begin
         l_IsChanged := EditItemOfUsualDict(lCNode as Il3HandleNode);
       end;
      end;
-     {$IFDEF RemoteDict}
-     if l_IsChanged then
-     begin
-      vtShowWaitMessage('Пожалуйста, подождите', WaitDlgCanClose);
-      lCNode:= DictServer.Dict[DictID].FindNodeByID(DictServer.LastEditedID);
-     end;
-     {$ENDIF}
      if l_IsChanged and (lCNode <> nil) then
      begin
       lCNode.Sort;
@@ -2072,12 +1967,6 @@ begin
  if not Result then Exit;
 
  aNode := DictServ.Dict[DictID].AddExtItem(aParentNode, @lData) as Il3Node;
- {$IFDEF RemoteDict}
- vtShowWaitMessage('Пожалуйста, подождите', WaitDlgCanClose);
- aNode:= DictServer.Dict[DictID].FindNodeByID(DictServer.LastEditedID);
- lData.ID := DictServer.LastEditedID; //возвращаем lID в рекорд
- DictServ.Dict[DictID].CreateExtNode(aParentNode, @lData);
- {$ENDIF}
 end;
 
 function TTreeDesignerForm.EditItemOfPublishedlDict(const aNode : Il3ExtItemNode): Boolean;
@@ -2119,15 +2008,10 @@ begin
  end;
 end;
 
-procedure TTreeDesignerForm.WaitDlgCanClose(var aCanClose: Boolean);
-begin
- aCanClose:= not DictServ.Busy;
-end;
-
 procedure TTreeDesignerForm.miEmptyItemsClick(Sender: TObject);
 var
  lSab : ISab;
- lUsedIDList : Tl3LongintList;
+ lUsedIDList : Il3IDList;
 
  function IterHandler(const aCurNode : Il3Node) : Boolean; far;
  var
@@ -2148,14 +2032,13 @@ begin
   lSab := nil;
 
   {MakeLeafDocIDList}
-  l3Free(fLeafIDList);
-  fLeafIDList := Tl3LongintList.Create;
+  fLeafIDList := l3MakeIDList;
   l3IterateSubTreeF(DictServer(Family).DictRootNode[DictID], l3L2NA(@IterHandler){, imCheckResult});
-  fLeafIDList.Sort;
 
-  fLeafIDList.DeleteList(lUsedIDList);
+
+  fLeafIDList.SubtractList(lUsedIDList);
  finally
-  l3Free(lUsedIDList);
+  lUsedIDList := nil;
  end;
 
  DictOutliner.Invalidate;

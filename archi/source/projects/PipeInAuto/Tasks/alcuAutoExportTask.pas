@@ -82,8 +82,7 @@ end;
   {$If defined(AppServerSide)}
 procedure TalcuAutoExportTask.CalcDates;
 var
- l_NextCompilation: TDateTime;
- l_TaskVer, l_TaskCom: TddSchedulerTask;
+ l_NextCompilation, l_VersionDate: TDateTime;
 begin
  Today:= Now;
  CompileDate:= IncDay(Today, -1);
@@ -92,9 +91,13 @@ begin
  case ddAppConfiguration.AsInteger['aeStartDate'] of
   0:
    begin
+    if TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetPrevFullDateTime(ctCompilation, Today, l_NextCompilation) then
+     CompileDate := l_NextCompilation;
+(*
     l_TaskCom:= TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetTaskByTaskType(ctCompilation);
     if l_TaskCom <> nil then
      CompileDate:= l_TaskCom.PrevFullDateTime[Today];
+*)
    end; // с даты предыдущей компил€ции
   1: CompileDate:= IncDay(Today, -1); // со вчера
   2: CompileDate:= ddAppConfiguration.AsDateTime['aeLastDate'];
@@ -102,6 +105,11 @@ begin
   4: CompileDate:= ddAppConfiguration.AsDateTime['aeCustomStartDate'];
  end; // ddAppConfiguration.AsInteger['aeStartDate']
 
+ l_NextCompilation := Today;
+ TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetFullDateTime(ctCompilation, Today, l_NextCompilation);
+ if TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetFullDateTime(ctVersion, l_NextCompilation, l_VersionDate) then
+  VersionDate := l_VersionDate;
+(*
  //ctVersion, ctCompilation
  l_TaskVer:= TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetTaskByTaskType(ctVersion);
  if l_TaskVer <> nil then
@@ -113,6 +121,7 @@ begin
    l_NextCompilation:= Today;
   VersionDate:= l_TaskVer.FullDateTime[l_NextCompilation];
  end; // l_TaskVer <> nil
+*)
 end;
   {$IfEnd defined(AppServerSide)}
 

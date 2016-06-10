@@ -1,8 +1,14 @@
 unit MainLite;
 
-{ $Id: MainLite.pas,v 1.79 2015/06/25 11:03:34 dinishev Exp $ }
+{ $Id: MainLite.pas,v 1.80 2016/04/26 12:46:09 lukyanets Exp $ }
 
 // $Log: MainLite.pas,v $
+// Revision 1.80  2016/04/26 12:46:09  lukyanets
+// Выключаем переключения текущего каталога
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.79  2015/06/25 11:03:34  dinishev
 // Вычистил лишнее.
 //
@@ -1294,8 +1300,8 @@ begin
  end
  else
  begin
-  if OpenDialog.Execute then begin
-   IniRec^.OpenIniPath := ExtractFilePath(OpenDialog.FileName);
+  if ExecuteOpenDialog(OpenDialog) then
+  begin
    miFileBatchPrint.Caption := 'Прервать фоновую печать';
    try
     PrintFile(OpenDialog.FileName);

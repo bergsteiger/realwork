@@ -255,14 +255,16 @@ begin
 //#UC START# *4AC9B6A80163_4958DD7002B6_impl*
  f_Grid := nil;
  f_Grid := DoBuildGrid;
- Assert(f_Grid <> nil);
- f_Grid.OnSizeChanged := GridSizeChanged;
- RecalcGrid;
- if f_Grid.TwoStageBuild then
+ if (f_Grid <> nil) then
+ begin
+  f_Grid.OnSizeChanged := GridSizeChanged;
   RecalcGrid;
- // - это специально иначе старое ОМ и ОМ Инфарма неправильно считает высоты деревьев
- //   т.к. неправильно трактуются ширины. И процесс сходится только после второго раза.
- //   Как раньше собственно и было. 
+  if f_Grid.TwoStageBuild then
+   RecalcGrid;
+  // - это специально иначе старое ОМ и ОМ Инфарма неправильно считает высоты деревьев
+  //   т.к. неправильно трактуются ширины. И процесс сходится только после второго раза.
+  //   Как раньше собственно и было.
+ end;
 //#UC END# *4AC9B6A80163_4958DD7002B6_impl*
 end;//TPrimMainMenuForm.BuildGrid
 

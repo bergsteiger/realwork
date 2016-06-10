@@ -55,6 +55,7 @@ type
    f_IsShowLiteratureList : Boolean;
    f_Languages : TbsLanguages;
    f_ContextMap : InsLangToContextMap;
+   f_CurrentLanguage : TbsLanguage;
    f_refTranslationList : Tl3InterfaceList;
     {* Поле для свойства refTranslationList}
  private
@@ -73,6 +74,8 @@ type
    procedure pm_SetIsShowLiteratureList(aValue: Boolean);
    function pm_GetContextMap: InsLangToContextMap;
    procedure pm_SetContextMap(const aValue: InsLangToContextMap);
+   function pm_GetCurrentLanguage: TbsLanguage;
+   procedure pm_SetCurrentLanguage(aValue: TbsLanguage);
  protected
  // overridden protected methods
    procedure Cleanup; override;
@@ -223,6 +226,24 @@ begin
 //#UC END# *52D7CF420184_4936CCA700F0set_impl*
 end;//TdDiction.pm_SetContextMap
 
+function TdDiction.pm_GetCurrentLanguage: TbsLanguage;
+//#UC START# *56FB811400FB_4936CCA700F0get_var*
+//#UC END# *56FB811400FB_4936CCA700F0get_var*
+begin
+//#UC START# *56FB811400FB_4936CCA700F0get_impl*
+ Result := f_CurrentLanguage;
+//#UC END# *56FB811400FB_4936CCA700F0get_impl*
+end;//TdDiction.pm_GetCurrentLanguage
+
+procedure TdDiction.pm_SetCurrentLanguage(aValue: TbsLanguage);
+//#UC START# *56FB811400FB_4936CCA700F0set_var*
+//#UC END# *56FB811400FB_4936CCA700F0set_var*
+begin
+//#UC START# *56FB811400FB_4936CCA700F0set_impl*
+ f_CurrentLanguage := aValue;
+//#UC END# *56FB811400FB_4936CCA700F0set_impl*
+end;//TdDiction.pm_SetCurrentLanguage
+
 procedure TdDiction.Cleanup;
 //#UC START# *479731C50290_4936CCA700F0_var*
 //#UC END# *479731C50290_4936CCA700F0_var*
@@ -259,6 +280,7 @@ begin
  for l_Index := 0 to Pred(aData.refTranslationCount) do
   pm_GetRefTranslation(l_Index).Assign(aData.refTranslation[l_Index]);
  f_IsShowLiteratureList := aData.IsShowLiteratureList;
+ f_CurrentLanguage := aData.CurrentLanguage;
 //#UC END# *4B16B8CF0307_4936CCA700F0_impl*
 end;//TdDiction.AssignData
 {$IfEnd} //not NoVCM

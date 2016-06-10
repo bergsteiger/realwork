@@ -126,9 +126,10 @@ function TAACContainerPrimForm.DoGetVScrollBar(aLeft: Boolean): TvtScrollBar;
 //#UC END# *503CE2E2021B_4FF2E935019A_var*
 begin
 //#UC START# *503CE2E2021B_4FF2E935019A_impl*
- if aLeft
-  then Result := scrLeft
-  else Result := scrRight;
+ if aLeft then
+  Result := scrLeft
+ else
+  Result := scrRight;
 //#UC END# *503CE2E2021B_4FF2E935019A_impl*
 end;//TAACContainerPrimForm.DoGetVScrollBar
 

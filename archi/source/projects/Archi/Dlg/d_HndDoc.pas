@@ -1,6 +1,6 @@
 unit D_HndDoc;
 
-{ $Id: d_HndDoc.pas,v 1.7 2013/01/16 09:52:15 voba Exp $ }
+{ $Id: d_HndDoc.pas,v 1.8 2016/04/18 08:39:30 lukyanets Exp $ }
 
 interface
 
@@ -53,7 +53,6 @@ procedure THandlingDocDlg.FormCreate(Sender: TObject);
 
  begin
   UserManager.GetFiltredUserList(cbUser.Items);
-  //UserManager.UserTbl.GetDictList(cbUser.Items, False);
   cbUser.Items.Insert(0, '[бяе]');
   cbStage.Items.Insert(0, '[бяе]');
   for I := Low(cStagesStringUserOrder) to High(cStagesStringUserOrder) do

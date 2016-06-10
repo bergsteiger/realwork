@@ -27,67 +27,13 @@ uses
   ,
   vcmInterfaces
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
   ,
   PrimMainMenuNew_Form,
-  vtPanel,
-  MainMenuNew_Form
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  nsLogEvent
-  {$If defined(Nemesis)}
-  ,
-  nscFocusLabel
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscTreeViewHotTruck
-  {$IfEnd} //Nemesis
-  ,
-  Common_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  MainMenuNewKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  nsLogEvent,
+  Common_FormDefinitions_Controls,
+  PrimMainMenuWithProfNews_Form,
+  MainMenuNew_Form,
+  MainMenuWithProfNews_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -114,10 +60,10 @@ implementation
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
   SysUtils
-  {$If not defined(NoScripts)}
+  {$If not defined(NoVCM)}
   ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
+  vcmHistoryService
+  {$IfEnd} //not NoVCM
   
   {$If not defined(DesignTimeLibrary)}
   ,
@@ -128,23 +74,22 @@ uses
   nsConst,
   nsTypes,
   DataAdapter,
-  nsManagers,
+  nsManagers
+  {$If not defined(NoVCM)}
+  ,
+  vcmEntityForm
+  {$IfEnd} //not NoVCM
+  ,
   LoggingUnit,
   nsLogEventData,
   nsLogManager,
   LoggingWrapperInterfaces,
   MainMenuChangeableMainMenuTypeSettingRes,
   stMainMenuChangeableMainMenuTypeItem
-  {$If not defined(NoScripts)}
+  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
+  MainMenuProcessingWordsPack
+  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
   ,
   vcmFormSetFactory {a},
   StdRes {a}
@@ -176,13 +121,33 @@ var
  __WasEnter : Boolean;
 //#UC START# *4ABB94DE033F_4AA7A1F80027_var*
  l_Params: IvcmMakeParams;
+ l_MainMenuKind: TnsMainMenuKind;
+ l_FormId: TvcmFormID;
+ l_FormClass: RvcmEntityForm;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4ABB94DE033F_4AA7A1F80027_impl*
- if CheckContainer(aContainer).NativeMainForm.HasForm(fm_en_MainMenuNew.rFormID,
-  vcm_ztParent) then
+ l_MainMenuKind := TnsMainMenuKind(afw.Settings.LoadInteger(pi_MainMenuKind, dv_MainMenuKind));
+ case l_MainMenuKind of
+  mmk_ProfNews:
+   begin
+    l_FormId := fm_en_MainMenuWithProfNews.rFormID;
+    l_FormClass := Ten_MainMenuWithProfNews;
+   end;
+  mmk_Default:
+   begin
+    l_FormId := fm_en_MainMenuNew.rFormID;
+    l_FormClass := Ten_MainMenuNew;
+   end;
+ else
+  Assert(False);
+  l_FormId := fm_en_MainMenuNew.rFormID;
+  l_FormClass := TvcmEntityForm;
+ end;
+
+ if CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
   Exit;
 {$If not (defined(Monitorings) or defined(Admin))}
  {$IfDef vcmUseProfilers}
@@ -192,7 +157,7 @@ begin
 
  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
 
- Ten_MainMenuNew.Make(l_Params);
+ l_FormClass.Make(l_Params);
 {$IfEnd not (defined(Monitorings) or defined(Admin))}
  TnsOpenMainMenuEvent.Log;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_impl*
@@ -222,6 +187,7 @@ class procedure TMainMenuModule.GetEntityForms(aList : TvcmClassList);
 begin
  inherited;
  aList.Add(Ten_MainMenuNew);
+ aList.Add(Ten_MainMenuWithProfNews);
 end;
 
 {$IfEnd} //not Admin AND not Monitorings

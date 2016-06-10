@@ -1,8 +1,17 @@
 unit nsTypes;
 
-// $Id: nsTypes.pas,v 1.54 2014/11/19 06:50:56 kostitsin Exp $
+// $Id: nsTypes.pas,v 1.57 2016/05/11 20:42:52 lulin Exp $
 
 // $Log: nsTypes.pas,v $
+// Revision 1.57  2016/05/11 20:42:52  lulin
+// - перегенерация.
+//
+// Revision 1.56  2016/05/11 15:43:44  lulin
+// - перегенерация.
+//
+// Revision 1.55  2016/03/29 11:02:06  kostitsin
+// {requestlink: 620672440 } - Настройки
+//
 // Revision 1.54  2014/11/19 06:50:56  kostitsin
 // {requestlink: 564248678 } - впаял обратно
 //
@@ -962,9 +971,17 @@ type
      // - до какого уровня вложенности искать;
   end;//TnsNavigatorItemParams
 
-  TnsFileFormat = (ns_ffRTF, ns_ffTxt, ns_ffHTML, ns_ffXML, ns_ffEvd, ns_ffNull, ns_ffPDF);
+  TnsFileFormat = nsTypesNew.TnsFileFormat;
+const
+  ns_ffRTF = nsTypesNew.ns_ffRTF;
+  ns_ffTxt = nsTypesNew.ns_ffTxt;
+  ns_ffHTML = nsTypesNew.ns_ffHTML;
+  ns_ffXML = nsTypesNew.ns_ffXML;
+  ns_ffEvd = nsTypesNew.ns_ffEvd;
+  ns_ffNull = nsTypesNew.ns_ffNull;
+  ns_ffPDF = nsTypesNew.ns_ffPDF;
   {* - Тип формата файла }
-
+type
   TnsFilterType = (
   {* - дополнительный тип фильтрации для деревьев атрибутов. }
     ns_ftNone,    // никаких дополнительных фильтров
@@ -989,13 +1006,14 @@ type
 
   TnsLongProcessType = (lptUpdate, lptProcessWithExit, lptProcessWithoutExit);
 
-  TListLogicOperation = (
+  TListLogicOperation = nsTypesNew.TListLogicOperation;
+const
   {* Логические операции со списками. }
-    LLO_AND,
-    LLO_OR,
-    LLO_AND_NOT,
-    LLO_NONE);
-
+    LLO_AND = nsTypesNew.LLO_AND;
+    LLO_OR = nsTypesNew.LLO_OR;
+    LLO_AND_NOT = nsTypesNew.LLO_AND_NOT;
+    LLO_NONE = nsTypesNew.LLO_NONE;
+type
   TnsShowSynchroForm = (
     ssfNone,
     ssfText,
@@ -1004,8 +1022,6 @@ type
     ssfAnnotation,
     ssfSimilarDocuments
   );//TnsShowSynchroForm
-
-  // TLogicSelection, TLogicOperation - два одинаковых типа, временно
 
   TDocumentBookmarkTypes = (
     dbtUsual,
@@ -1073,6 +1089,12 @@ type
    ekShell,
    ekEMail,
    ekActiveWord
+  );
+
+  TnsMainMenuKind = (
+  // Вид основного меню
+   mmk_ProfNews, // С профессиональными новостями (необходим постоянный доступ в Интернет)
+   mmk_Default   // Стандартный вид
   );
 
   ETryOpenMissingDocument = class(Exception);

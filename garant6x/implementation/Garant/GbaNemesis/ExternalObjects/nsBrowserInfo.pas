@@ -120,6 +120,7 @@ const
 function CallAssocStr(out aBrowserStr: String): boolean;
 var
  l_PBrowser: PChar;
+ l_BrowserStr: String;
  l_BrowserLen: DWORD;
 begin
  l_PBrowser := nil;
@@ -127,10 +128,11 @@ begin
  AssocQueryString(ASSOCF_NOTRUNCATE or ASSOCF_VERIFY or ASSOCF_IS_PROTOCOL,
   ASSOCSTR_EXECUTABLE, PChar('http'), PChar('open'), l_PBrowser, l_BrowserLen);
 
- SetLength(aBrowserStr, l_BrowserLen);
+ SetLength(l_BrowserStr, l_BrowserLen);
 
  Result := Succeeded(AssocQueryString(ASSOCF_NOTRUNCATE or ASSOCF_VERIFY or ASSOCF_IS_PROTOCOL,
-  ASSOCSTR_EXECUTABLE, PChar('http'), PChar('open'), PChar(aBrowserStr), l_BrowserLen));
+  ASSOCSTR_EXECUTABLE, PChar('http'), PChar('open'), PChar(l_BrowserStr), l_BrowserLen));
+ aBrowserStr := PChar(l_BrowserStr);
 end;
 
 
@@ -427,6 +429,19 @@ const
  cIEVersionValueName = 'svcVersion';
  // -http://mdp.garant.ru/pages/viewpage.action?pageId=564249113,
  // http://support.microsoft.com/kb/969393/ru
+ cIEStartMenuKeyName = 'SOFTWARE\Microsoft\Internet Explorer\Capabilities\Startmenu';
+ cIEStartMenuValueName = 'StartmenuInternet';
+
+ function lp_IsIEEnabled: Boolean;
+ begin
+  ARegistry.RootKey := HKEY_LOCAL_MACHINE;
+  if ARegistry.KeyExists(cIEStartMenuKeyName) and
+    ARegistry.OpenKeyReadOnly(cIEStartMenuKeyName) then
+    Result := (ARegistry.ReadString(cIEStartMenuValueName) <> '')
+  else
+   Result := False;
+ end;
+
 var
  l_Browser: String;
  l_VersionStr: String;
@@ -438,7 +453,8 @@ begin
  if Tl3WinVersionHelper.IsWindows10OrGreater then
  begin
   if CallAssocStr(l_Browser) then
-   if FileExists(l_Browser) then
+   if FileExists(l_Browser) and
+      (AnsiSameText(ExtractFileName(l_Browser), 'iexplore.exe')) then
    begin
     Result.rExists := True;
     Result.rVersion := nsGetProductVersionMajor(l_Browser);
@@ -457,7 +473,7 @@ begin
   l_Version := nsExtractVersionMajor(l_VersionStr);
   if (l_Version <> 0) then
   begin
-   Result.rExists := True;
+   Result.rExists := lp_IsIEEnabled;
    Result.rVersion := l_Version;
   end;
  end;
@@ -514,9 +530,8 @@ begin
  l_Reg.RootKey := HKEY_CURRENT_USER;
  l_Browser := '';
  try
-  if (Win32Platform = VER_PLATFORM_WIN32_NT) and ((Win32MajorVersion < 5) or
-   ((Win32MajorVersion = 5) and (Win32MinorVersion <= 1))) then
-  // XP--
+  if not Tl3WinVersionHelper.IsWindows7OrGreater then
+  // - http://mdp.garant.ru/pages/viewpage.action?pageId=620665143
   begin
    if l_Reg.KeyExists('\Software\Classes\http\shell\open\command') and
     l_Reg.OpenKeyReadOnly('\Software\Classes\http\shell\open\command') then

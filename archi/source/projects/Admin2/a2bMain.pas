@@ -1,8 +1,20 @@
 unit a2bMain;
 // реализация бизнес-объекта главной формы
-{ $Id: a2bMain.pas,v 1.8 2015/09/01 12:31:12 lukyanets Exp $ }
+{ $Id: a2bMain.pas,v 1.11 2016/05/18 06:02:39 lukyanets Exp $ }
 
 // $Log: a2bMain.pas,v $
+// Revision 1.11  2016/05/18 06:02:39  lukyanets
+// Выключаем удаленную отладку
+//
+// Revision 1.10  2016/05/16 12:54:13  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.9  2016/04/20 11:57:00  lukyanets
+// Пересаживаем UserManager на новые рельсы
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.8  2015/09/01 12:31:12  lukyanets
 // Заготовки к Postgress
 //
@@ -92,8 +104,8 @@ var
  lActive: string;
  lFlag: Byte;
  I,J: Integer;
- lID: TUserID;
- lName,l_Login: ShortString;
+ lID: TdaUserID;
+ lName,l_Login: String;
  lGroups: string;
  lGList: Tl3StringDataList;
  F: TextFile;
@@ -103,17 +115,17 @@ begin
  AssignFile(F, aFileName);
  Rewrite(F);
  try
-  lOldCompareProc := UserManager.Users.OnCompareItems;
-  UserManager.Users.OnCompareItems := SortUsersProc;
-  UserManager.Users.Sort;
+  lOldCompareProc := GlobalDataProvider.UserManager.AllUsers.OnCompareItems;
+  GlobalDataProvider.UserManager.AllUsers.OnCompareItems := SortUsersProc;
+  GlobalDataProvider.UserManager.AllUsers.Sort;
   try
-   for I := 0 to Pred(UserManager.Users.Count) do
+   for I := 0 to Pred(GlobalDataProvider.UserManager.AllUsers.Count) do
    begin
-    lID  := TUserID(UserManager.Users.DataInt[I]);
+    lID  := TdaUserID(GlobalDataProvider.UserManager.AllUsers.DataInt[I]);
     l_Region := lID shr 24;
     if ((aRegion = regAllRegions) and (l_Region < 255)) or (l_Region = aRegion) then // исключаем "служебный" 255 регион
     begin
-     UserManager.GetUserInfo(lID, lName, l_Login, lFlag);
+     GlobalDataProvider.UserManager.GetUserInfo(lID, lName, l_Login, lFlag);
      lGList := Tl3StringDataList.Create;
      try
       UserManager.GetUserGroupList(lID, lGList);
@@ -142,7 +154,7 @@ begin
     end;
    end;
   finally
-   UserManager.Users.OnCompareItems := lOldCompareProc;
+   GlobalDataProvider.UserManager.AllUsers.OnCompareItems := lOldCompareProc;
   end; {try..finally}
  finally
   CloseFile(F);
@@ -152,8 +164,8 @@ end;
 procedure Ta2bMain.ImportUsers(const aFileName: string; const aRegion: Integer; out theAddedCount, theChangedCount: Integer);
 var
  lOldFlag: Byte;
- lOldLogin: ShortString;
- lOldUserName: ShortString;
+ lOldLogin: String;
+ lOldUserName: String;
  lExactUserID: Integer;
  l_Idx: Integer;
  lGrStr: Tl3String;
@@ -238,13 +250,13 @@ begin
 
          l_Region := l_UserID shr 24;
          l_IsLocalUser := (l_UserID = 0) or (l_Region = GlobalDataProvider.RegionID);
-         l_IsNewUser := not UserManager.IsUserExists(l_UserID);
+         l_IsNewUser := not GlobalDataProvider.UserManager.IsUserExists(l_UserID);
          if (l_UserID = 0) or (aRegion = regAllRegions) or (aRegion = l_Region) then
          begin
           if not l_IsNewUser then
           begin
            try
-            UserManager.GetUserInfo(l_UserID, lOldUserName, lOldLogin, lOldFlag);
+            GlobalDataProvider.UserManager.GetUserInfo(l_UserID, lOldUserName, lOldLogin, lOldFlag);
            except
             l_TmpStr := Format('Невозможно получить данные пользователя (строка %d)', [LineNum]);
             l3System.Stack2Log(l_TmpStr);
@@ -317,9 +329,9 @@ begin
                if l_TmpStr <> '' then
                begin
                 l_Idx := 0;
-                if UserManager.UGroups.FindStr(PAnsiChar(l_TmpStr), l_Idx) then
+                if GlobalDataProvider.UserManager.AllGroups.FindStr(PAnsiChar(l_TmpStr), l_Idx) then
                 begin
-                 l_GroupID := UserManager.UGroups.DataInt[l_Idx];
+                 l_GroupID := GlobalDataProvider.UserManager.AllGroups.DataInt[l_Idx];
                  UserManager.SetUserGroup(l_UserID, l_GroupID, True);
                  if (not l_IsNewUser) and (not l_Edited) then
                  begin
@@ -397,12 +409,12 @@ end;
 
 function Ta2bMain.SortUsersProc(I,J: Longint): LongInt;
 begin
- with UserManager.Users do
+ with GlobalDataProvider.UserManager.AllUsers do
  begin
-  if DataInt[I] > DataInt[J] then
+  if TdaUserID(DataInt[I]) > TdaUserID(DataInt[J]) then
    Result := 1
   else
-   if DataInt[I] < DataInt[J] then
+   if TdaUserID(DataInt[I]) < TdaUserID(DataInt[J]) then
     Result := -1
    else
     Result := 0;

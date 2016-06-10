@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.182 2016/03/15 12:40:08 lukyanets Exp $ }
+{ $Id: Editwin.pas,v 1.186 2016/06/03 09:24:38 fireton Exp $ }
 
 {$I arDefine.inc}
 
@@ -1182,8 +1182,7 @@ uses
  vtDialogs,
 
  BrdDlg,
- GardocBridge,
-
+ 
  m4DocumentAddress,
 
  ddDocumentCopy,
@@ -4938,7 +4937,7 @@ begin
      begin
       tmpValue.AsComboBoxData.Index := tcStageCheckUser.Items.IndexOfObject(TObject(lAuthor));
       if tmpValue.AsComboBoxData.Index = -1 then
-       tmpValue.AsComboBoxData.St := UserManager.GetUserDisplayName(lAuthor);
+       tmpValue.AsComboBoxData.St := GlobalDataProvider.UserManager.GetUserDisplayName(lAuthor);
      end;
     end;
    end;
@@ -7279,7 +7278,7 @@ end;
 
 procedure TDocEditorWindow.acTblAdjustNumberCellExecute(Sender: TObject);
 begin
- evTableFixNSRCWidth(CurEditor.Range);
+ evTable_FixNSRCWidth(CurEditor.Range);
 end;
 
 procedure TDocEditorWindow.acTblSetCellWidthExecute(Sender: TObject);
@@ -7288,7 +7287,7 @@ var
 begin
  lCellWidth := 0;
  if RequestIntegerValue(lCellWidth, Self, '«адание ширины €чеек', 'Ўирина €чеек(в символах)') then
-  evTableFixNSRCWidth(CurEditor.Range, lCellWidth);
+  evTable_FixNSRCWidth(CurEditor.Range, lCellWidth);
 end;
 
 procedure TDocEditorWindow.acLinkSetExecute(Sender: TObject);
@@ -8274,7 +8273,7 @@ procedure TDocEditorWindow.btnReplaceObjClick(Sender: TObject);
 var
  l_Filename: AnsiString;
 begin
- if dlgOpenObjectFile.Execute then
+ if IniRec.ExecuteOpenDialog(dlgOpenObjectFile) then
  begin
   l_Filename := ExtractFileName(dlgOpenObjectFile.FileName);
   edtObjectFilePath.Text := l_Filename;
@@ -8328,7 +8327,7 @@ end;
 procedure TDocEditorWindow.btnExportObjClick(Sender: TObject);
 begin
  dlgSaveObjectFile.FileName := Document.ObjAccess.FilePath;
- if dlgSaveObjectFile.Execute then
+ if IniRec.ExecuteSaveDialog(dlgSaveObjectFile) then
  begin
   Document.ObjAccess.ExportToFile(dlgSaveObjectFile.Filename);
  end;

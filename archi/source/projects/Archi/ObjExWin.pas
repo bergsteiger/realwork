@@ -1,6 +1,6 @@
 unit ObjExWin;
 
-{ $Id: ObjExWin.pas,v 1.77 2016/02/26 16:16:33 voba Exp $ }
+{ $Id: ObjExWin.pas,v 1.81 2016/06/08 13:05:00 lukyanets Exp $ }
 
 interface
 
@@ -8,7 +8,7 @@ uses
   SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls,
   Forms, Dialogs, ExtCtrls, ImgList,
   OvcBase,
-  DragData, DT_Const, DT_Types,
+  DragData, DT_Const, DT_Types, daTypes, daInterfaces,
   l3Types, l3Base, l3DatLst, l3Tree, l3Nodes, l3Tree_TLB,
   vtlister, vtOutliner, Menus, AdvMenus,
   ObjExpl,  Buttons, afwControl, afwInputControl, afwControlPrim,
@@ -18,7 +18,7 @@ type
   TExplorerObjType = (eotDocSet, eotSaveDocSet, eotMRUDocument, eotDocument, eotUser, eotMail);
   TExplorerNodeArray = Array[Low(TExplorerObjType)..High(TExplorerObjType)] of Il3Node;
 
-  TObjectExplorerWin = class(TForm)
+  TObjectExplorerWin = class(TForm, IdaUserStatusChangedSubscriber)
     ObjectExplorer: TvtOutliner;
     pmExtendExplorer: TPopUpMenu;
     piDeleteSaveDocSet: TMenuItem;
@@ -47,6 +47,9 @@ type
         aOldCurrent: Integer);
     //procedure SpeedButton1Click(Sender: TObject);
 
+   protected
+    // IdaUserStatusChangedSubscriber
+    procedure UserStatusChanged(UserID: TdaUserID; Active: Boolean);
    private
     DDHLink   : TGlobalCoordinateRec;
     fInMailArrivedShowing : Boolean;
@@ -54,7 +57,7 @@ type
     procedure SaveMRU;
     procedure LoadMRU(aList : Tl3StringDataList);
     procedure ShowMailArrived(Sender: TObject; aMailID : LongInt);
-    procedure UserStatusChange(UserId : TUserID; Active : Boolean);
+//    procedure UserStatusChange(UserId : TUserID; Active : Boolean);
     function  GetNodeType(aNode : Il3Node): Byte;
     function  ChildNodeClass(aObjectType : TExplorerObjType) : Tl3NodeClass;
    public
@@ -78,13 +81,16 @@ Uses
      l3Interfaces, l3TreeInterfaces, l3InternalInterfaces,
      l3IniFile, ResShop, IniShop,
      l3LongintList,
+     l3IDList,
      l3Except,
      daSchemeConsts,
+     daDataProvider,
      dtIntf, DT_Sab,
      DT_Doc, DT_AskList, DT_User, DT_Mail,
      VConst, ObjList, l3String, l3Date, l3Languages,
      vtDialogs, vtMenus,
      DocIntf,
+     ddClientBaseEngine,
      ArchiUserRequestManager,
      Main, SrchWin, CustEditWin, {EditWin,} MailWin, VMailWin;
 
@@ -117,16 +123,15 @@ procedure TObjectExplorerWin.LoadStruct;
  var
   //PN      : Pointer;
   DT      : TStDateTimeRec;
-  lAction : Tl3IteratorAction;
   lGrAction : Tl3IteratorAction;
   lCurUsList : Tl3StringDataList;
 
- function lUserGroupIter(aData: Pointer; aIndex: Long): Bool;
+ function lUserGroupIter(const aName: AnsiString; aIndex: Long): Boolean;
   var
    lCN : Il3Node;
   begin
    Result := True;
-   lCN := MakeParamNode(aData, aIndex, TUsersListNode);
+   lCN := MakeParamNode(PAnsiChar(aName), aIndex, TUsersListNode);
    ObjectExplorer.CTree.InsertNode(BaseExplorerNode[eotUser], lCN);
 
    With TUsersListNode((lCN as Il3NodeWrap).GetSelf) do
@@ -149,33 +154,24 @@ procedure TObjectExplorerWin.LoadStruct;
 
  procedure lCheckExists(aItems : Tl3StringDataList);
  var
-  lIDList : Tl3LongintList;
+  lIDList : Il3IDList;
   I       : Integer;
   lSab    : ISab;
  begin
   if aItems.Count = 0 then Exit;
-  lIDList := Tl3LongintList.Create;
-  try
-   lIDList.Count := aItems.Count;
-   for I := 0 to Pred(aItems.Count) do
-    lIDList[I] := PDocID(aItems.Data[I])^;
-   lSab := MakeValueSet(DocumentServer(CurrentFamily).FileTbl, docIdFld, lIDList.ItemSlot(0), lIDList.Count);
-  finally
-   l3Free(lIDList);
-  end;
+  lIDList := l3MakeIDList;
+  for I := 0 to Pred(aItems.Count) do
+   lIDList.Add(PDocID(aItems.Data[I])^);
+  lSab := MakeValueSet(DocumentServer(CurrentFamily).FileTbl, docIdFld, lIDList);
 
   lSab.RecordsByKey;
   lSab.ValuesOfKey(docIdFld);
   if lSab.Count =  aItems.Count then Exit;
 
   lIDList := dtMakeSortedIDListBySab(lSab);
-  try
-   for I := Pred(aItems.Count) downto 0 do
-    if lIDList.IndexOf(PDocID(aItems.Data[I])^) < 0 then
-     aItems.Delete(I);
-  finally
-   l3Free(lIDList);
-  end;
+  for I := Pred(aItems.Count) downto 0 do
+   if lIDList.IndexOf(PDocID(aItems.Data[I])^) < 0 then
+   aItems.Delete(I);
  end;
 
  var
@@ -215,14 +211,10 @@ procedure TObjectExplorerWin.LoadStruct;
        end;
       end;
 
-     lAction := l3L2IA(@lUserGroupIter);
-     try
-      UserManager.IterateUserGroups(lAction);
-      UserManager.OnUserActiveChange := UserStatusChange;
-      UserManager.SetCurrentActiveUsers;
-     finally
-      l3FreeFA(Tl3FreeAction(lAction));
-     end;{try..finally}
+     GlobalDataProvider.UserManager.IterateUserGroupsF(L2ArchiUsersIteratorIterateUserGroupsFAction(@lUserGroupIter));
+     GlobalDataProvider.UserManager.RegisterUserStatusChangedSubscriber(Self);
+//      UserManager.OnUserActiveChange := UserStatusChange;
+     g_BaseEngine.SetCurrentActiveUsers;
 
      With TMailListNode((BaseExplorerNode[eotMail] as Il3NodeWrap).GetSelf) do
       begin
@@ -248,6 +240,7 @@ procedure TObjectExplorerWin.LoadStruct;
 
 destructor TObjectExplorerWin.Destroy;
 begin
+ GlobalDataProvider.UserManager.UnRegisterUserStatusChangedSubscriber(Self);
  SaveMRU;
  inherited Destroy;
 end;
@@ -734,7 +727,7 @@ procedure TObjectExplorerWin.FormClose(Sender: TObject; var Action: TCloseAction
     MainForm.ShowExplorer(False);
     //ShowDockPanel(HostDockSite as TPanel, False, nil);
  end;
-
+(*
 procedure TObjectExplorerWin.UserStatusChange(UserId : TUserID; Active : Boolean);
  var
   lCN  : Il3Node;
@@ -769,7 +762,7 @@ procedure TObjectExplorerWin.UserStatusChange(UserId : TUserID; Active : Boolean
    lCN := lCN.NextNode;
   until lCN.IsFirst;
  end;
-
+*)
 procedure TObjectExplorerWin.ShowMailArrived(Sender: TObject; aMailID : LongInt);
 
  function lp_NeedShowDialog: Boolean;
@@ -793,6 +786,42 @@ begin
  finally
   fInMailArrivedShowing := False;
  end;
+end;
+
+procedure TObjectExplorerWin.UserStatusChanged(UserID: TdaUserID;
+  Active: Boolean);
+var
+ lCN  : Il3Node;
+ lCN2 : Il3Node;
+ I    : Integer;
+ lChangeIndex : Integer;
+ l_ULN: TUsersListNode;
+
+begin
+ lCN := BaseExplorerNode[eotUser].ChildNode;
+ Repeat
+  l_ULN := TUsersListNode((lCN as Il3NodeWrap).GetSelf);
+  With l_ULN do
+   For I := 0 to Pred(Items.Count) do
+    begin
+     lCN2 := Il3Node(l_ULN).GetChildByNumber(I);
+     With lCN2, (lCN2 as Il3HandleNode) do
+      If Handle = UserID then
+       begin
+        ObjectExplorer.ChangeNotifyOff;
+        try
+         If Active
+          then Flags := Flags or $8000
+          else Flags := Flags and not $8000;
+          lChangeIndex := ObjectExplorer.TreeStruct.GetIndex(lCN2);
+          If lChangeIndex >= 0 then ObjectExplorer.InvalidateItem(lChangeIndex);
+        finally
+         ObjectExplorer.ChangeNotifyOn(False);
+        end;
+       end;
+    end;
+  lCN := lCN.NextNode;
+ until lCN.IsFirst;
 end;
 
 end.

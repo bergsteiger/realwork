@@ -29,7 +29,6 @@
    f_Current : INodeBase;
     {* Поле для свойства Current}
  protected
-
   procedure InitRefs(const aDS: IvcmUseCaseController); override;
   procedure ClearRefs; override;
  protected

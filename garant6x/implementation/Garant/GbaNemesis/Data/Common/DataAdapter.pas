@@ -1,8 +1,14 @@
 unit DataAdapter;
 
-// $Id: DataAdapter.pas,v 1.85 2016/01/13 06:43:03 morozov Exp $
+// $Id: DataAdapter.pas,v 1.87 2016/05/26 14:19:52 lulin Exp $
 
 // $Log: DataAdapter.pas,v $
+// Revision 1.87  2016/05/26 14:19:52  lulin
+// - нафиг не нужно, да и падает оно.
+//
+// Revision 1.86  2016/05/06 15:20:04  lulin
+// - подтачиваем.
+//
 // Revision 1.85  2016/01/13 06:43:03  morozov
 // не собралось
 //
@@ -2804,10 +2810,15 @@ var
 begin
  {$If not (defined(Monitorings) or defined(Admin))}
  // ѕоказываем финальный Splash
- if g_ShowFinalSplash and Assigned(DefDataAdapter) then
-  l_Splash := DefDataAdapter.MakeSplashData(False)
+(* if g_ShowFinalSplash and Assigned(DefDataAdapter) then
+ begin
+  if (Forms.Screen <> nil) then
+   l_Splash := DefDataAdapter.MakeSplashData(False)
+  else
+   l_Splash := nil;
+ end//g_ShowFinalSplash and Assigned(DefDataAdapter)
  else
-  l_Splash := nil;
+  l_Splash := nil;*)
  {$IfEnd not (defined(Monitorings) or defined(Admin))}
 
  Tk2TypeTable.CheckAndCleanupReferences;

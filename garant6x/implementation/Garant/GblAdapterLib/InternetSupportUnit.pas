@@ -67,6 +67,14 @@ IDecisionsArchiveSupport = interface (IInterface) ['{CD81011E-549D-406A-964C-9FE
 	procedure GetArchiveUrl (
 		out aRet {: IString}
 	); stdcall;
+
+	procedure GetSearchServerUrl (
+		const aQuery: IString;
+		out aRet {: IString}
+	); stdcall;
+
+	// проверка доступности сервера поиска в архивах
+	function SearchServerAvailable (): Bytebool; stdcall;
 end;
 
 implementation

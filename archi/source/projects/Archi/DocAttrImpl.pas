@@ -1,6 +1,6 @@
 unit DocAttrImpl;
 
-{ $Id: DocAttrImpl.pas,v 1.84 2015/10/09 13:01:54 lukyanets Exp $ }
+{ $Id: DocAttrImpl.pas,v 1.86 2016/04/22 10:59:49 lukyanets Exp $ }
 
 {$I l3Define.inc}
 {$R-}
@@ -795,7 +795,7 @@ begin
    Date := CurrentDate;
 
   Time := CurrentTime;
-  Author := UserManager.UserTbl.GetNameStr(GlobalDataProvider.ImpersonatedUserID);
+  Author := GlobalDataProvider.UserManager.GetUserName(GlobalDataProvider.ImpersonatedUserID);
  end;
  List.Add(@lRec);
 

@@ -82,12 +82,24 @@ end;
   {$If defined(AppServerSide)}
 procedure TalcuRegionAutoExportTask.CalcDates;
 var
- l_TaskVer, l_TaskCom: TddSchedulerTask;
- l_Compilation, l_Version: TDateTime;
+ l_Compilation, l_Compilation2, l_Version: TDateTime;
 begin
  if Today = 0 then
   Today := Now;
  // Задачи Версия и Компиляция
+
+
+ with TddScheduler(ddAppConfiguration.AsObject['Scheduler']) do
+ begin
+  if not GetPrevFullDateTime(ctCompilation, Today, l_Compilation2) then
+   Assert(False);
+  if not GetFullDateTime(ctVersion, l_Compilation2, l_Version) then
+   Assert(False);
+  if not GetPrevFullDateTime(ctCompilation, l_Compilation2, l_Compilation) then
+   Assert(False);
+ end; // with TddScheduler(ddAppConfiguration.AsObject['Scheduler'])
+
+(*
  with TddScheduler(ddAppConfiguration.AsObject['Scheduler']) do
  begin
   l_TaskVer:= GetTaskByTaskType(ctVersion);
@@ -100,6 +112,7 @@ begin
   l_Version:= l_TaskVer.FullDateTime[l_Compilation];
   l_Compilation:= l_TaskCom.PrevFullDateTime[l_Compilation];
  end; // (l_TaskVer <> nil) and (l_TaskCom <> nil)
+*)
  if VersionDate = 0 then
   VersionDate := l_Version;
  if CompileDate = 0 then
@@ -172,14 +185,16 @@ end;
 
   {$If defined(AppServerSide)}
 function TalcuRegionAutoExportTask.GetPrevCompilation: TDateTime;
-var
- l_Task: TddSchedulerTask;
 begin
+ Result := Now;
+ TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetPrevFullDateTime(ctCompilation, Now, Result);
+(*
  l_Task:= TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetTaskByTaskType(ctCompilation);
  if l_Task <> nil then
   Result:= l_Task.PrevFullDateTime[Now]
  else
   Result := Now;
+*)
 end;
   {$IfEnd defined(AppServerSide)}
 

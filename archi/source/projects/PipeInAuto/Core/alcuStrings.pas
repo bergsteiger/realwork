@@ -2,9 +2,12 @@ unit alcuStrings;
 
 { Ресурс строковых констант }
 
-{ $Id: alcuStrings.pas,v 1.9 2015/10/01 12:56:31 lukyanets Exp $ }
+{ $Id: alcuStrings.pas,v 1.10 2016/06/09 15:16:06 fireton Exp $ }
 
 // $Log: alcuStrings.pas,v $
+// Revision 1.10  2016/06/09 15:16:06  fireton
+// - кеширование образов документов
+//
 // Revision 1.9  2015/10/01 12:56:31  lukyanets
 // Разделяем логи
 //
@@ -454,6 +457,7 @@ resourcestring
   SalcuAutoPipeServer_Zabytyepol_zovateli = '"Забытые" пользователи:';
   SalcuAutoPipeServer_Zamkisbazysnyatyuspeshno = '"Замки" с базы сняты успешно';
   SalcuAutoPipeServer_Zapuskmehanizmadostupakbazedanny = 'Запуск механизма доступа к базе данных';
+  SalcuAutoPipeServer_NoImgCacheIsUpdated = 'Кэш образов не перенесён в постоянную часть';
 
 // END resource string wizard section
 
@@ -462,7 +466,6 @@ resourcestring
   rsCheckStorage = 'Сравнение хранилищ';
   rsHolidayMask = '"Архивариус сердечно поздравляет своих пользователей с праздником %s';
   SalcuAutoPipeServer_DeltaNotStarted = 'Процедура подготовки и импорта "Дельты" не началась!'#10'На базе работают пользователи';
-  SalcuAutoPipeServer_StageNotCopied = 'Файл этапов не скопирован, так как не все пользователи покинули "Архивариус"';
   SalcuAutoPipeServer_IndexNotUpdate = 'Текстовый индекс не обновлен, так как не все пользователи покинули "Архивариус"';
   SalcuAutoPipeServer_KWNotLoaded = 'Ключевые слова не импортированы, так как не все пользователи покинули "Архивариус"';
   rsNotEnoughSpace = 'На диске свободно %s';

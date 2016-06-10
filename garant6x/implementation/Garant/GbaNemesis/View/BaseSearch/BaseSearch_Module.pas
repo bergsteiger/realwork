@@ -27,18 +27,7 @@ uses
   ,
   vcmInterfaces
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
   ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  ,
-  vtPanel,
   BaseSearchInterfaces
   {$If not defined(NoVCM)}
   ,
@@ -46,96 +35,13 @@ uses
   {$IfEnd} //not NoVCM
   ,
   PrimBaseSearchCard_Form,
-  BaseSearchCard_Form
-  {$If defined(Nemesis)}
-  ,
-  nscHideField
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx,
+  BaseSearchCard_Form,
   Common_FormDefinitions_Controls,
-  NewBaseSearch_Form
-  {$If defined(Nemesis)}
-  ,
-  nscTreeComboWithHistoryAndOperations
-  {$IfEnd} //Nemesis
-  ,
-  NewBaseSearchForDFM_Form
-  {$If not defined(NoVGScene)}
-  ,
-  vg_controls
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_listbox
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_objects
-  {$IfEnd} //not NoVGScene
-  
-  {$If not defined(NoVGScene)}
-  ,
-  vg_scene
-  {$IfEnd} //not NoVGScene
-  ,
-  nscSimpleEditor
-  {$If not defined(NoVGScene)}
-  ,
-  vg_layouts
-  {$IfEnd} //not NoVGScene
-  ,
+  NewBaseSearchForDFM_Form,
   PrimBaseSearchInterfaces,
   PrimBaseSearchContainer_Form,
-  BaseSearchContainer_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If defined(Nemesis)}
-  ,
-  nscLister
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  BaseSearchCardKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  NewBaseSearchKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  BaseSearchContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  NewBaseSearch_Form,
+  BaseSearchContainer_Form,
   vcmExternalInterfaces {a},
   vcmBase {a}
   ;
@@ -168,26 +74,14 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
   SysUtils,
   Search_Strange_Controls,
   SearchLite_Strange_Controls,
+  nsBaseSearchService,
   PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
   {$If not defined(NoScripts)}
   ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
+  TtfwClassRef_Proxy
   {$IfEnd} //not NoScripts
   ,
   vcmFormSetFactory {a},
@@ -234,15 +128,15 @@ var
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
 var
  l_Container : IvcmContainer;
- l_Opener : InsBaseSearchWindowOpener;
  l_Processor : InsBaseSearchQueryDataProcessor;
 begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AB7881B00EA_4CC97D020011_impl*
  l_Container := CheckContainer(nil).NativeMainForm;
- if Supports(l_Container, InsBaseSearchWindowOpener, l_Opener) then
-  l_Opener.OpenWindow(OpenKind);
+
+ TnsBaseSearchService.Instance.OpenBaseSearch(l_Container, OpenKind);
+
  if (aQuery <> nil) and
     Supports(l_Container, InsBaseSearchQueryDataProcessor, l_Processor) then
   l_Processor.SetDataFromQuery(aQuery);
@@ -384,5 +278,9 @@ initialization
 // Регистрация фабрики формы NewBaseSearch
  fm_NewBaseSearchForm.SetFactory(TNewBaseSearchForm.Make);
 {$IfEnd} //not Admin AND not Monitorings
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация BaseSearch
+ TtfwClassRef.Register(TBaseSearchModule);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
 
 end.

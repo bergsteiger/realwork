@@ -1,7 +1,12 @@
 unit Main;
 
-{ $Id: Main.pas,v 1.17 2014/12/25 15:43:51 voba Exp $ }
+{ $Id: Main.pas,v 1.18 2016/04/18 12:55:15 fireton Exp $ }
 // $Log: Main.pas,v $
+// Revision 1.18  2016/04/18 12:55:15  fireton
+// - переводим исправление таблицы FREE на Tl3CardinalList
+// - выводим исключения в лог
+// - дублируем сообщения в лог
+//
 // Revision 1.17  2014/12/25 15:43:51  voba
 // - функции восстановления Priority и SortDate
 //
@@ -59,7 +64,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, ActnList, Menus, ComCtrls,
-  DbService, Mask, ToolEdit, dt_Const, AppEvnts, ddProcessDlg, XPMan;
+  DbService, Mask, ToolEdit, dt_Const, ddProcessDlg, XPMan,
+  l3ExceptionsLog;
 
 type
 
@@ -96,7 +102,6 @@ type
     actUpdateFreeTable: TAction;
     actMakeBaseCopy: TAction;
     FREE1: TMenuItem;
-    ApplicationEvents1: TApplicationEvents;
     actReplaceLinks: TAction;
     N1: TMenuItem;
     XPManifest1: TXPManifest;
@@ -124,7 +129,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure actUpdateFreeTableExecute(Sender: TObject);
     procedure actMakeBaseCopyExecute(Sender: TObject);
-    procedure ApplicationEvents1Hint(Sender: TObject);
+    procedure ApplicationHint(Sender: TObject);
     procedure actReplaceLinksExecute(Sender: TObject);
     procedure actDeleteBadLinkToDictExecute(Sender: TObject);
     procedure actJrnlUnpackExecute(Sender: TObject);
@@ -160,7 +165,7 @@ implementation
 uses
  DT_DbInfo, FileCtrl,
  l3Types, l3Interfaces,
- l3Math,
+ l3Math, l3Base,
  BaseCopyDialog, ChooseLinkTableDialog, dt_Types, l3FileUtils;
 
 {$R *.dfm}
@@ -249,6 +254,7 @@ end;
 procedure TMainForm.AddToLog(const aStr: string);
 begin
  mInfo.Lines.Add(aStr);
+ l3System.Msg2Log(aStr);
  Application.ProcessMessages;
 end;
 
@@ -328,6 +334,7 @@ begin
  f_DbService.WriteToLogProc := MainForm.AddToLog;
  f_DbService.ProgressProc := DoProgressProc;
  mInfo.Text := f_DbService.Information;
+ Application.OnHint := ApplicationHint;
 
  EditProgressData(fProgressData, piClear); // clear
 end;
@@ -533,7 +540,7 @@ begin
  end;
 end;
 
-procedure TMainForm.ApplicationEvents1Hint(Sender: TObject);
+procedure TMainForm.ApplicationHint(Sender: TObject);
 begin
  StatusBar.SimpleText := Application.Hint;
 end;

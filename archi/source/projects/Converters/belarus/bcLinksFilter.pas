@@ -37,10 +37,10 @@ uses
  SysUtils,
  k2Tags,
  Address_Const,
- Hyperlink_Const;
+ Hyperlink_Const, l3StringListPrim;
 
 const
- cNumSearchPattern = '(text\.asp((\?)|(\%3f))RN\=(\%3c)?{\c(\d|\c|_)+})|({\c(\d|\c|_)+}\.htm)';
+ cNumSearchPattern = '(text\.asp((\?)|(\%3f))RN\=(\%3c)?{\c(\d|\c|_)+})|({\c(\d|\c|_)+}\.htm)|(^BCLINK\:({[\d\c]+}\s)+)';
 
 constructor TbcLinksFilter.Create;
 begin
@@ -58,20 +58,35 @@ end;
 
 procedure TbcLinksFilter.DoFlushBuffer(aLeaf: Tl3Variant; aTagId: Integer; aNeedCloseBracket : Boolean);
 var
+ I: Integer;
  l_MP: Tl3MatchPosition;
  l_URL: Tl3WString;
  l_Addr: Tl3Variant;
  l_DocID: Longword;
+ l_LinkIsValid: Boolean;
 begin
  if aLeaf.Attr[k2_tiUrl].IsValid then
  begin
   l_URL := aLeaf.Attr[k2_tiURL].AsWStr;
-  if f_RE.SearchInString(l_URL, l_MP) and (f_RE.TagParts.ItemW[0].SLen in [8..15]) then
+  if f_RE.SearchInString(l_URL, l_MP) then
   begin
-   l_DocID := f_TD.GetTopic(f_RE.TagParts.ItemW[0]);
-   l_Addr := k2_typAddress.MakeTag.AsObject;
-   l_Addr.IntA[k2_tiDocID] := l_DocID;
-   aLeaf.AddChild(l_Addr);
+   l_LinkIsValid := False;
+   for I := 0 to f_RE.TagParts.Count - 1 do
+   begin
+    if (f_RE.TagParts.ItemW[0].SLen in [8..15]) then
+     l_DocID := f_TD.GetTopic(f_RE.TagParts.ItemW[I]) // получаем только те топики, что есть в базе
+    else
+     l_DocID := 0;
+    if l_DocID <> 0 then
+    begin
+     l_Addr := k2_typAddress.MakeTag.AsObject;
+     l_Addr.IntA[k2_tiDocID] := l_DocID;
+     aLeaf.AddChild(l_Addr);
+     l_LinkIsValid := True;
+    end;
+   end;
+   if not l_LinkIsValid then
+    Exit; // если среди топиков не было ни одного валидного
   end
   else
   begin

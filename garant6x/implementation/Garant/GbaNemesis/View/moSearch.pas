@@ -37,7 +37,25 @@ end;//Tmo_Search
 implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
+uses
+  Classes
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
+  
+  ;
+{$IfEnd} //not Admin AND not Monitorings
+
+{$If not defined(Admin) AND not defined(Monitorings)}
 
 
 {$IfEnd} //not Admin AND not Monitorings
+
+initialization
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация Search$UC
+ TtfwClassRef.Register(Tmo_Search);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+
 end.

@@ -393,7 +393,8 @@ begin
     l_pDM := GlobalLock(l_hDeviceMode);
 //orientation apply
     if (l_pDM.dmOrientation <> f_Orientation) then begin
-     l_pDM.dmFields := DM_ORIENTATION or DM_PAPERSIZE;
+     l_pDM.dmFields := DM_ORIENTATION or DM_PAPERSIZE or DM_COPIES;
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=623080643
      l_pDM.dmOrientation := f_Orientation;
      DocumentProperties(
       0{Self.Handle},

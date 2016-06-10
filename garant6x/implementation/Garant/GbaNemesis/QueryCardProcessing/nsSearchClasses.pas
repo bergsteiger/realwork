@@ -1,8 +1,11 @@
 unit nsSearchClasses;
 
-// $Id: nsSearchClasses.pas,v 1.3 2014/09/24 12:59:26 kostitsin Exp $
+// $Id: nsSearchClasses.pas,v 1.4 2016/05/11 15:43:46 lulin Exp $
 
 // $Log: nsSearchClasses.pas,v $
+// Revision 1.4  2016/05/11 15:43:46  lulin
+// - перегенерация.
+//
 // Revision 1.3  2014/09/24 12:59:26  kostitsin
 // {requestlink: 235046973 }
 //
@@ -79,7 +82,7 @@ unit nsSearchClasses;
 // new: TAvailableTag список всех доступных поисковых атрибутов (Name, _Caption);
 //
 // Revision 1.4  2004/06/16 10:32:37  am
-// change: TLogicSelection -> TLogicOperation
+// change: _TLogicSelection -> TLogicOperation
 //
 // Revision 1.3  2004/06/15 14:58:01  mmorozov
 // - замена TLogicOperation на TLogicOperation;

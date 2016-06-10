@@ -50,15 +50,7 @@ uses
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
   QueryCardInterfaces
   {$If not defined(NoVCM)}
   ,
@@ -66,11 +58,8 @@ uses
   {$IfEnd} //not NoVCM
   ,
   DefineSearchDate_Form,
-  TreeAttributeFirstLevel_Form,
   OldSituationSearch_Form,
-  vtDblClickDateEdit,
   PrimDefineSearchDate_Form,
-  vtLabel,
   PrimPrimListInterfaces,
   l3StringIDEx,
   PrimSaveLoadUserTypes_slqtKW_UserType,
@@ -84,55 +73,14 @@ uses
   PrimOldSituationSearchOptions_Form,
   PrimSelectedAttributes_utSelectedAttributes_UserType,
   SearchLite_FormDefinitions_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtRadioButton,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
   ,
   fsSituationSearch,
-  fsSituationFilter
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DefineSearchDateKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  OldSituationSearchKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TreeAttributeFirstLevelKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsSituationFilter,
+  TreeAttributeFirstLevel_Form,
   vcmBase {a}
   ;
 {$IfEnd} //not Admin AND not Monitorings
@@ -282,11 +230,6 @@ uses
   ,
   vcmItems
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
   ,
   deSearch,
   sdsSituation,
@@ -361,17 +304,6 @@ uses
   kw_Search_opAllSearch
   {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
   
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Search_opOpenKeyWordSearch
@@ -380,6 +312,16 @@ uses
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Search_opAttributeSearch
+  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+  
+  {$If not defined(NoScripts)}
+  ,
+  TtfwClassRef_Proxy
+  {$IfEnd} //not NoScripts
+  
+  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+  ,
+  SearchModuleWordsPack
   {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
   ,
   StdRes {a},
@@ -1576,5 +1518,11 @@ begin
 end;
 
 {$IfEnd} //not Admin AND not Monitorings
+
+initialization
+{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+// Регистрация Search
+ TtfwClassRef.Register(TSearchModule);
+{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
 
 end.

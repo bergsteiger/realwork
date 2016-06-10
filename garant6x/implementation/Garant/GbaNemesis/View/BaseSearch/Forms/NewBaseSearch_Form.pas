@@ -19,6 +19,7 @@ uses
   ;
 
 type
+  TvcmEntityFormRef = TNewBaseSearchForDFMForm;
   TNewBaseSearchForm = class(TvcmEntityFormRef)
     vgScene1: TvgScene;
     Root1: TvgBackground;

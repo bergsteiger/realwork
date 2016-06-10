@@ -6,9 +6,21 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.329 2016/01/19 11:22:33 kostitsin Exp $
+ $Id: nsAppConfig.pas,v 1.333 2016/05/30 13:49:34 kostitsin Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.333  2016/05/30 13:49:34  kostitsin
+ {requestlink: 623926944 }
+
+ Revision 1.332  2016/04/05 15:38:32  kostitsin
+ {requestlink: 620672440 } - По умолчанию - старое основное меню
+
+ Revision 1.331  2016/04/05 11:06:42  kostitsin
+ {requestlink: 620672440 } - Переосмыслили позицию настройки в диалоге
+
+ Revision 1.330  2016/03/29 11:02:00  kostitsin
+ {requestlink: 620672440 } - Настройки
+
  Revision 1.329  2016/01/19 11:22:33  kostitsin
  {requestlink: 615698409 }
 
@@ -3020,6 +3032,9 @@ var
    CloseGroup;
 
    AddGroupItem(GetAliasName, vcmConstString(str_pui_MainManu));
+    // Вид основного меню
+    AddComboBoxItem(nsCStr(pi_MainMenuKind), nsCStr(pui_MainPenuKind + ':'),
+     dv_MainMenuKind, nsIntegerMapManager.Map[imap_MainMenuKind]);
     // Последние открытые документы
     AddIntegerItem(nsCStr(pi_RecentlyOpenDocumentsCount), l_Map.ValueToDisplayName(nsCStr(pi_RecentlyOpenDocumentsCount)),
      dv_RecentlyOpenDocumentsCount);
@@ -3036,6 +3051,7 @@ var
     dv_WorkJournalSize);
      MinValue := 1;
      MaxValue := max_WorkJournalSize;
+
    //
    AddButtonItem(vcmConstString(str_pui_PageSetupButton), PageSetupNotify, nil);
      ButtonPlace := dd_bpBottomRight;

@@ -32,11 +32,6 @@ uses
   ,
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
   ,
   DocumentAndListInterfaces,
   CommonDictionInterfaces,
@@ -46,11 +41,8 @@ uses
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
-  vtPanel,
-  vtFocusLabel,
   StartupTips_Form,
   PrimStartupTips_Form,
-  vtLabel,
   DocumentUserTypes_dftTips_UserType,
   DocumentInterfaces,
   l3StringIDEx,
@@ -58,44 +50,12 @@ uses
   PrimCommonDiction_utTips_UserType,
   Common_FormDefinitions_Controls,
   BaseDocumentWithAttributesInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox,
-  ElPopBtn
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsTips
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  StartupTipsKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsTips,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -131,12 +91,7 @@ uses
   l3Base {a},
   DocumentUnit,
   l3MessageID,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
+  SysUtils,
   nsStartupTips
   {$If not defined(NoVCL)}
   ,
@@ -144,17 +99,6 @@ uses
   {$IfEnd} //not NoVCL
   ,
   DataAdapter
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Tips_opShowDayTips

@@ -1647,7 +1647,7 @@ begin
    if Assigned(l_Document) then
    begin
     SaveDialog.FileName := nsEStr(CreateFileName(l_Document));
-    if SaveDialog.Execute then
+    if TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
     begin
      afw.ProcessMessages;
      try
@@ -1712,6 +1712,7 @@ procedure TPrimListOptionsForm.Reminder_RemListModified_Test(const aParams: Ivcm
 begin
 //#UC START# *4C52914202E1_4C46AA3401DBtest_impl*
  aParams.Op.Flag[vcm_ofVisible] := Assigned(dsList) and dsList.IsChanged;
+ CheckExSearchPanelVisibility;
 //#UC END# *4C52914202E1_4C46AA3401DBtest_impl*
 end;//TPrimListOptionsForm.Reminder_RemListModified_Test
 

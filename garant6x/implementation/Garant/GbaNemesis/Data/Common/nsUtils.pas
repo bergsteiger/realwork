@@ -8,8 +8,11 @@ unit nsUtils;
 { Описание   : Общие функции проекта Немезис.                                  }
 {------------------------------------------------------------------------------}
 
-// $Id: nsUtils.pas,v 1.44 2015/07/30 10:11:21 kostitsin Exp $
+// $Id: nsUtils.pas,v 1.45 2016/04/14 12:13:34 morozov Exp $
 // $Log: nsUtils.pas,v $
+// Revision 1.45  2016/04/14 12:13:34  morozov
+// {RequestLink: 621277863}
+//
 // Revision 1.44  2015/07/30 10:11:21  kostitsin
 // {requestlink: 604032841 } - вынес логирование в отдельный пакет из помойки "data"
 //
@@ -1445,7 +1448,9 @@ begin
     if (Filter <> '') then
      Filter := Filter+'|';
     Filter := Filter + vcmConstString(str_AllFileFilter);
-    if (DefaultExt <> '') then
+    if (DefaultExt <> '') and
+       (not AnsiSameText(ExtractFileExt(dmStdRes.sdExternalObject.FileName), '.' + DefaultExt)) then
+       // - http://mdp.garant.ru/pages/viewpage.action?pageId=621277863
      FileName := FileName+'.'+DefaultExt;
     if Execute then
      l_ExternalObjectStream.SaveToFile(FileName);

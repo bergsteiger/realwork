@@ -1,7 +1,16 @@
 unit Main;
 
-{ $Id: Main.pas,v 1.23 2015/04/27 09:20:17 fireton Exp $ }
+{ $Id: Main.pas,v 1.25 2016/06/10 11:43:37 lukyanets Exp $ }
 // $Log: Main.pas,v $
+// Revision 1.25  2016/06/10 11:43:37  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.24  2016/04/18 11:47:33  lukyanets
+// Готовимся переводить UserManager
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.23  2015/04/27 09:20:17  fireton
 // - bugfix
 //
@@ -261,7 +270,7 @@ begin
   IniRec.SetIniRecord;
 
   //IniRec.MultiLingual := True;
-  IniRec.MultiLingual := UserManager.IsMemberOfGroup(ugBiLingualGroup);
+  IniRec.MultiLingual := GlobalDataProvider.UserManager.IsMemberOfGroup(ugBiLingualGroup, GlobalDataProvider.UserID);
   DictServer.BiLingual := IniRec.MultiLingual;
 
   IniRec.PathToLogFile := l_LogPathStr;
@@ -535,7 +544,6 @@ begin
  end;
 
  UserManager.GetFiltredUserList(cbUser.Items);
- //UserManager.UserTbl.GetDictList(cbUser.Items, False);
  cbUser.Items.Insert(0, '[ВСЕ]');
  cbStage.Items.Insert(0, '[ВСЕ]');
  For I := Succ(Succ(Low(TStageType))) to High(TStageType) do

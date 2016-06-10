@@ -1,6 +1,6 @@
 unit bcCmdLine;
 
-{ $Id: bcCmdLine.pas,v 1.1 2016/03/17 16:04:12 fireton Exp $ }
+{ $Id: bcCmdLine.pas,v 1.2 2016/04/12 12:44:21 fireton Exp $ }
 
 interface
 uses
@@ -29,7 +29,7 @@ begin
  AddFolder('I', 'Входная папка (обязательный параметр)', '<путь>', f_InFolder);
  AddFolder('O', 'Папка для результата (обязательный параметр)', '<путь>', f_OutFolder);
  AddString('F', 'Формат выходных данных (N (по умолчанию) - NSRC, E - Everest)', '[N|E]', f_Format);
- AddBool('A', 'Дополнять документы в папке результата (будут вылиты только новые документы)', '', f_Add);
+ //AddBool('A', 'Дополнять документы в папке результата (будут вылиты только новые документы)', '', f_Add);
 end;
 
 end.

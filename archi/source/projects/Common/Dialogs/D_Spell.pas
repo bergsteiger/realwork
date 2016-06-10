@@ -1,8 +1,23 @@
 unit D_spell;
 
-{ $Id: D_Spell.pas,v 1.49 2016/02/16 10:17:28 voba Exp $ }
+{ $Id: D_Spell.pas,v 1.53 2016/05/24 08:16:55 dinishev Exp $ }
 
 // $Log: D_Spell.pas,v $
+// Revision 1.53  2016/05/24 08:16:55  dinishev
+// MODAL в окне поиска.
+//
+// Revision 1.52  2016/04/27 20:32:27  lulin
+// - перегенерация.
+//
+// Revision 1.51  2016/04/26 06:01:51  lukyanets
+// Не собиралось
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.50  2016/04/21 12:25:24  dinishev
+// Перевел диалог на vtMessageDlg
+//
 // Revision 1.49  2016/02/16 10:17:28  voba
 // no message
 //
@@ -307,9 +322,12 @@ uses
 
   IniShop
   ,
-  l3PrimString,
+  l3PrimString
+  {$IFDEF InsiderTest}
+  ,
   l3BatchService,
   l3ModalService
+  {$ENDIF InsiderTest}
   ;
 
 {$IFDEF Archi}
@@ -720,7 +738,7 @@ begin
   try
    l_Options := [ev_soReplaceAll, ev_soConfirm]; // проверяем с текущей позиции
    if (not CurEditor.Selection.Collapsed) and
-      (MessageDlg('Проверить правописание только в выделенном фрагменте?',
+        (vtMessageDlg(str_sidSpellCheckFragmentAsk.AsCStr,
         mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     l_Options := l_Options + [ev_soSelText, ev_soGlobal];
    if IniRec.DontCheckThreeLetterWords then

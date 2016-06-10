@@ -1,10 +1,11 @@
 unit IniShop;
 
-{ $Id: IniShop.pas,v 1.55 2015/12/25 12:48:49 voba Exp $ }
+{ $Id: IniShop.pas,v 1.57 2016/04/27 09:33:30 lukyanets Exp $ }
 
 interface
 
  uses
+      Dialogs,
       l3Base,
       l3Date,
       l3IniFile,
@@ -18,6 +19,8 @@ interface
      fIsLoaded : boolean;
      fSecondVersionDate: TDateTime;
     f_MailNotifyByModalDialog: Boolean;
+    f_OpenIniPath: string;
+    f_SaveIniPath: string;
    public
     {System of windows}
      fMaxOnStart           : Boolean;
@@ -109,6 +112,9 @@ interface
     procedure SetIniRecord;
     procedure SaveIniRecord;
     constructor Create; override;
+
+    function ExecuteSaveDialog(const aDialog: TSaveDialog): Boolean;
+    function ExecuteOpenDialog(const aDialog: TOpenDialog): Boolean;
 
    {System of windows}
     property MaxOnStart         : Boolean
@@ -344,8 +350,14 @@ interface
     property MailNotifyByModalDialog: Boolean
       read f_MailNotifyByModalDialog
       write f_MailNotifyByModalDialog;
-   end;
 
+    property SaveIniPath: string
+      read f_SaveIniPath
+      write f_SaveIniPath;
+    property OpenIniPath: string
+      read f_OpenIniPath
+      write f_OpenIniPath;
+   end;
 
  Const
   PrefSectName         = 'Preferences';
@@ -377,7 +389,7 @@ uses
  //DictsSup,
  DocAttrUtils,
  daSchemeConsts,
- DT_Const, DT_Serv;
+ DT_Const, DT_Serv, vtDialogs;
 
 var
  gIniRec : TIniRecord = nil;
@@ -450,6 +462,9 @@ procedure TIniRecord.SetIniRecord;
   If UserConfig = Nil then Exit;
 
   UserConfig.Section := PrefSectName;
+
+  SaveIniPath := UserConfig.ReadParamStrDef ('SaveIniPath', GetCurrentDir);
+  OpenIniPath := UserConfig.ReadParamStrDef ('OpenIniPath', GetCurrentDir);
 
   MaxOnStart        := UserConfig.ReadParamBoolDef('MaxOnStart', False);
   ShowSpecSymbol    := UserConfig.ReadParamBoolDef('EdShowSpecSymbol', False);
@@ -549,6 +564,10 @@ procedure TIniRecord.SaveIniRecord;
   If (UserConfig = Nil) or not fIsLoaded then Exit;
 
   UserConfig.Section := PrefSectName;
+
+  UserConfig.WriteParamStr ('OpenIniPath', OpenIniPath);
+  UserConfig.WriteParamStr ('SaveIniPath', SaveIniPath);
+
   UserConfig.WriteParamBool('MaxOnStart' ,      MaxOnStart);
   UserConfig.WriteParamBool('NewSrchOnly',      NewSrchOnly);
   UserConfig.WriteParamInt ('PrefDNType',       PrefDNType);
@@ -620,7 +639,45 @@ procedure TIniRecord.SaveIniRecord;
   SaveHiddenAttr;
  end;
 
+function TIniRecord.ExecuteOpenDialog(const aDialog: TOpenDialog): Boolean;
+begin
+ if aDialog.InitialDir = '' then
+  aDialog.InitialDir := OpenIniPath;
+ Result := aDialog.Execute;
+ if Result then
+ begin
+  OpenIniPath := ExtractFileDir(aDialog.Files[aDialog.Files.Count - 1]);
+  aDialog.InitialDir := '';
+ end;
+end;
+
+function TIniRecord.ExecuteSaveDialog(const aDialog: TSaveDialog): Boolean;
+begin
+ if aDialog.InitialDir = '' then
+  aDialog.InitialDir := SaveIniPath;
+ Result := aDialog.Execute;
+ if Result then
+ begin
+  SaveIniPath := ExtractFileDir(aDialog.Files[aDialog.Files.Count - 1]);
+  aDialog.InitialDir := '';
+ end;
+end;
+
+function IniSaveOpenDialogExecutor(const aDlg : TOpenDialog; aFileDlgMode : TFileDlgMode): Boolean;
+begin
+ aDlg.Options := aDlg.Options + [ofNoChangeDir];
+ case aFileDlgMode of
+  fdmSave: Result := IniRec.ExecuteSaveDialog(aDlg as TSaveDialog);
+  fdmOpen: Result := IniRec.ExecuteOpenDialog(aDlg);
+ else
+  Result := False;
+  Assert(False);
+ end;
+end;
+
 initialization
+ vtSetSaveOpenDialogExecutor(IniSaveOpenDialogExecutor);
+
 finalization
  if gIniRec <> nil then
   l3Free(gIniRec);

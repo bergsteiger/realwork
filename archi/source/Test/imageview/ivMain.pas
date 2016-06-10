@@ -25,7 +25,9 @@ implementation
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
- ImgViewer.LoadFileNew('c:\temp\Pict0.emf', '');
+ //ImgViewer.LoadFileNew('c:\temp\123.tif', '');
+ ImgViewer.LoadFileNew('c:\temp\091089a.TIF', '');
+ //ImgViewer.LoadFileNew('c:\temp\concept2015.tif', '');
 end;
 
 end.

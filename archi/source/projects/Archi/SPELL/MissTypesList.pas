@@ -112,7 +112,8 @@ uses
 
  Dt_err,
 
- TypeShop, 
+ TypeShop,
+ IniShop, 
  Main;
  
 {$R *.dfm}
@@ -138,7 +139,7 @@ var
  l_Path : string;
  l_File : TextFile;
 begin
- if OpenDialog.Execute then
+ if IniRec.ExecuteOpenDialog(OpenDialog) then
  begin
   f_Filename := OpenDialog.FileName;
   AssignFile(l_File, f_Filename);
@@ -170,7 +171,7 @@ end;
 
 procedure TMissTypesListForm.FileSave1Execute(Sender: TObject);
 begin
- if SaveDialog.Execute then
+ if IniRec.ExecuteSaveDialog(SaveDialog) then
   VLister1.items.SaveToFile(SaveDialog.FileName);
 end;
 

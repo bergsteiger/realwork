@@ -24,9 +24,6 @@ type
  TbcRelatedDocTypes = (rdAffirm, rdChange, rdStop, rdExtend, rdContinue, rdExpand, rdSuccession, rdRatify, rdJoin);
 
 type
- TbcCurTopicReportEvent = procedure (const aTopic: Il3CString) of object;
-
-type
  TbcReader = class(Tk2CustomFileReader)
  private
   f_ActiveEnd: TStDate;
@@ -93,6 +90,8 @@ type
   procedure FlushTechInfo;
   procedure FlushTextWithLinks(const aText: Il3CString; const aHyperlinks: Tl3Variant; aStyle: Integer = 0);
   procedure GenerateName(const aDNList: TarBelaDateNumList);
+  function pm_GetTopicList: Tl3LongintList;
+  procedure pm_SetTopicList(const Value: Tl3LongintList);
   procedure RemoveNumID(var theStr: Il3CString);
   procedure Report(const aMsg: string; const anArgs: array of const);
   procedure SaveErroneousTopic(const aTopicNo: Il3CString; const aErrorDesc: AnsiString);
@@ -105,11 +104,11 @@ type
   class function SetTo(var theGenerator : Tk2TagGenerator;
                      const aSettingsFilename: AnsiString;
                      const aTopicDispatcher: IbcTopicDispatcher;
-                     const aTopicList: Tl3LongintList = nil;
                      const aOnError: TddErrorEvent = nil): Tk2TagGenerator; overload;
   property CurrentFile: AnsiString read f_CurrentFile write f_CurrentFile;
   property ErrorFolder: AnsiString read f_ErrorFolder write f_ErrorFolder;
   property TopicCount: Integer read f_TopicCount write f_TopicCount;
+  property TopicList: Tl3LongintList read pm_GetTopicList write pm_SetTopicList;
   property OnCurTopic: TbcCurTopicReportEvent read f_OnCurTopic write f_OnCurTopic;
   property OnError: TddErrorEvent read f_OnError write f_OnError;
  end;
@@ -171,6 +170,8 @@ const
  cRelDocNames: array[TNumForm, TbcRelatedDocTypes] of AnsiString = (
    ('об утверждении', 'изменяющий (дополняющий) действие', 'приостанавливающий действие', 'продлевающий действие', 'возобновляющий действие', 'распространивший действие', 'о правопреемстве в отношении', 'о ратификации', 'о присоединении к'),
    ('об утверждении', 'изменяющие (дополняющие) действие', 'приостанавливающие действие', 'продлевающие действие', 'возобновляющие действие', 'распространившие действие', 'о правопреемстве в отношении', 'о ратификации', 'о присоединении к'));
+
+ cRDTWithComma: set of TbcRelatedDocTypes = [rdChange, rdStop, rdExtend, rdContinue, rdExpand];
 
 const
  cMaxNameLength = 730;
@@ -406,9 +407,9 @@ begin
   if f_Text <> nil then
   begin
    l_TopicNo := GetDocNum(f_TopicNo.AsWStr);
-   if f_TopicList.IndexOf(l_TopicNo) < 0 then
+   if TopicList.IndexOf(l_TopicNo) < 0 then
    begin
-    f_TopicList.Add(l_TopicNo);
+    TopicList.Add(l_TopicNo);
     if (Assigned(f_Dates) and not Assigned(f_Nums)) or
        (not Assigned(f_Dates) and Assigned(f_Nums)) or
        ((Assigned(f_Dates) and Assigned(f_Nums)) and (f_Nums.Count <> f_Dates.Count)) then
@@ -518,9 +519,9 @@ begin
  if l_TotalCount > 0 then
  begin
   if l_TotalCount > 1 then
-   l_Str := l3CStr('См. правовые акты ')
+   l_Str := l3CStr('См. правовые акты')
   else
-   l_Str := l3CStr('См. правовой акт ');
+   l_Str := l3CStr('См. правовой акт');
   l_IsFirst := True;
   l_Hyperlinks := nil;
   try
@@ -536,7 +537,13 @@ begin
      for I := 0 to RelDocsList(l_Type).Hi do
       l_Topics[I] := RelDocsList(l_Type).ItemC[I];
      if l_IsFirst then
-      l_IsFirst := False
+     begin
+      l_IsFirst := False;
+      if l_Type in cRDTWithComma then
+       l_Str := l3Cat(l_Str, ', ')
+      else
+       l_Str := l3Cat(l_Str, ' ');
+     end
      else
       l_Str := l3Cat(l_Str, ', ');
      AddLink(l_Str, l3CStr(cRelDocNames[l_NumForm, l_Type]), l_Hyperlinks, l_Topics);
@@ -633,6 +640,7 @@ begin
         FreeAndNil(l_StreamToRead);
         l_StreamToRead := Tl3FileStream.Create(l_FN, l3_fmRead);
         l_TextGen := TddRTFReader.Create(nil);
+        TddRTFReader(l_TextGen).LiteVersion := False;
         TddRTFReader(l_TextGen).ReadURL := True;
         TddRTFReader(l_TextGen).EnablePictures := True;
        end
@@ -715,12 +723,12 @@ end;
 
 function TbcReader.GetDocNum(const aStr: Tl3Wstring): Integer;
 begin
- Result := f_TopicDispatcher.GetTopic(aStr);
+ Result := f_TopicDispatcher.GetTopic(aStr, 0, False);
 end;
 
 function TbcReader.GetRelNum(const aStr: Tl3Wstring): Integer;
 begin
- Result := f_TopicDispatcher.GetTopic(aStr, cAddNum4Rel);
+ Result := f_TopicDispatcher.GetTopic(aStr, cAddNum4Rel, False);
 end;
 
 function TbcReader.IsBelorussianLettersInText: Boolean;
@@ -847,6 +855,7 @@ var
  l_Link: Tl3Variant;
  l_Addr: Tl3Variant;
  l_DocID: Longword;
+ l_URL: Il3CString;
 begin
  if theHyperlinks = nil then
  begin
@@ -856,13 +865,10 @@ begin
  l_Link := k2_typHyperlink.MakeTag.AsObject;
  l_Link.IntW[k2_tiStart, nil] := theText.AsWStr.SLen;
  l_Link.IntW[k2_tiFinish, nil] := theText.AsWStr.SLen + aLinkText.AsWStr.SLen;
+ l_URL := l3CStr('BCLINK:');
  for I := 0 to Length(aTopics) - 1 do
- begin
-  l_DocID := f_TopicDispatcher.GetTopic(aTopics[I].AsWStr);
-  l_Addr := k2_typAddress.MakeTag.AsObject;
-  l_Addr.IntW[k2_tiDocID, nil] := l_DocID;
-  l_Link.AddChild(l_Addr);
- end;
+  l_URL := l3Cat([l_URL, aTopics[I], l3CStr(' ')]);
+ l_Link.PCharLenW[k2_tiURL, nil] := l_URL.AsWStr;
  theHyperlinks.AddChild(l_Link);
  theText := l3Cat([theText, aLinkText]);
 end;
@@ -1229,6 +1235,20 @@ begin
   f_GenName := l3Cat([f_GenName, l_DateStr, l_NumStr]);
   AppendName;
  end;
+end;
+
+function TbcReader.pm_GetTopicList: Tl3LongintList;
+begin
+ if f_TopicList = nil then
+  f_TopicList := Tl3LongintList.MakeSorted;
+ Result := f_TopicList;
+end;
+
+procedure TbcReader.pm_SetTopicList(const Value: Tl3LongintList);
+begin
+ FreeAndNil(f_TopicList);
+ if Value <> nil then
+  f_TopicList := Value.Use;
 end;
 
 procedure TbcReader.Read;
@@ -1749,7 +1769,6 @@ end;
 class function TbcReader.SetTo(var theGenerator : Tk2TagGenerator;
                              const aSettingsFilename: AnsiString;
                              const aTopicDispatcher: IbcTopicDispatcher;
-                             const aTopicList: Tl3LongintList = nil;
                              const aOnError: TddErrorEvent = nil): Tk2TagGenerator;
 begin
  Result := TbcReader.SetTo(theGenerator);
@@ -1758,10 +1777,6 @@ begin
  if FileExists(aSettingsFilename) then
   TbcReader(Result).f_Settings.Process;
  TbcReader(Result).f_OnError := aOnError;
- if aTopicList <> nil then
-  TbcReader(Result).f_TopicList := aTopicList.Use
- else
-  TbcReader(Result).f_TopicList := Tl3LongintList.MakeSorted;
 end;
 
 

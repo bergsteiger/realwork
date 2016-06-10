@@ -1,6 +1,6 @@
 unit bcCutLongParaFilter;
 
-{ $Id: bcCutLongParaFilter.pas,v 1.4 2016/03/16 11:37:25 fireton Exp $ }
+{ $Id: bcCutLongParaFilter.pas,v 1.5 2016/04/12 12:44:21 fireton Exp $ }
 
 interface
 uses
@@ -9,7 +9,7 @@ uses
 
 type
  TbcCutLongParaFilter = class(TevdBufferedFilter)
- protected
+ protected                                                                                                         
         {* - Определяет нужно ли сбрасывать Тег в трубу.  }
   procedure DoFlushBuffer(aLeaf: Tl3Variant; aTagId: Integer; aNeedCloseBracket : Boolean); override;
     // internal methods

@@ -39,12 +39,7 @@ uses
   vcmFormSetFactory
   {$IfEnd} //not NoVCM
   ,
-  bsTypes
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
+  bsTypes,
   DocumentAndListInterfaces,
   DictionInterfaces,
   CommonDictionInterfaces
@@ -52,18 +47,7 @@ uses
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
   ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtSizeablePanel,
-  vtPanel,
-  vtProportionalPanel,
-  Diction_Form,
-  CommonDiction_Form,
-  vtLabel,
   DocumentUserTypes_dftDictEntry_UserType,
   DocumentUserTypes_dftDictSubEntry_UserType,
   nsLogEvent,
@@ -76,52 +60,18 @@ uses
   BaseDocumentWithAttributesInterfaces,
   DictionContainerUserTypes_slqtDiction_UserType,
   PrimDictionContainer_Form,
-  DictionContainer_Form,
-  PrimChild_cutForDiction_UserType
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
+  PrimChild_cutForDiction_UserType,
   F1Like_FormDefinitions_Controls
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
   ,
   PrimDictionOptions_Form,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
-  fsDiction
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DictionKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  DictionContainerKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CommonDictionKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  Diction_Form,
+  fsDiction,
+  DictionContainer_Form,
+  CommonDiction_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -162,12 +112,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   l3String
   {$If not defined(NoVCM)}
   ,
@@ -195,17 +139,6 @@ uses
   ,
   nscContextFilterState
   {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
   
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,

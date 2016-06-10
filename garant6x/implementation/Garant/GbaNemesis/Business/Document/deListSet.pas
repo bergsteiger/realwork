@@ -1,70 +1,87 @@
 unit deListSet;
 
-// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\deListSet.pas"
-// Стереотип: "SimpleClass"
-// Элемент модели: "TdeListSet" MUID: (4926AE3900B9)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "Business"
+// Автор: Люлин А.В.
+// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/deListSet.pas"
+// Начат: 09.12.2009 14:04
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> F1 Core::Common::Business::BaseDocument::TdeListSet
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not defined(Admin) AND not defined(Monitorings)}
 uses
- l3IntfUses
- , deDocumentList
- , WorkWithListInterfaces
- , DynamicDocListUnit
- , bsTypes
- , l3TreeInterfaces
- , PrimPrimListInterfaces
-;
+  DynamicDocListUnit,
+  l3TreeInterfaces,
+  bsTypes,
+  deDocumentList,
+  PrimPrimListInterfaces,
+  WorkWithListInterfaces
+  ;
+{$IfEnd} //not Admin AND not Monitorings
 
+{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TdeListSet = class(TdeDocumentList, IdeDocumentListSet)
-  private
-   f_List_SynchroView_Form: TList_SynchroView_Areas;
-    {* Поле для свойства List_SynchroView_Form }
-  protected
-   function pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
+ private
+ // private fields
+   f_List_SynchroView_Form : TList_SynchroView_Areas;
+    {* Поле для свойства List_SynchroView_Form}
+ protected
+ // realized methods
+   function pm_GetListSynchroViewForm: TList_SynchroView_Areas;
+ protected
+ // overridden protected methods
    procedure AssignClonned(aClone: TdeDocumentList); override;
-  public
+ public
+ // public methods
    constructor Create(const aList: IDynList;
-    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
-    aOpenFrom: TbsListOpenFrom;
-    aTimeMachineOff: Boolean;
-    const aNodeForPositioning: Il3SimpleNode;
-    const aSearchInfo: IdeSearchInfo;
-    aAllDocumentsFiltered: Boolean;
-    aNeedApplyPermanentFilters: Boolean;
-    aIsChanged: Boolean); reintroduce;
+     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+     aOpenFrom: TbsListOpenFrom;
+     aTimeMachineOff: Boolean;
+     const aNodeForPositioning: Il3SimpleNode;
+     const aSearchInfo: IdeSearchInfo;
+     aAllDocumentsFiltered: Boolean;
+     aNeedApplyPermanentFilters: Boolean;
+     aIsChanged: Boolean); reintroduce;
    class function Make(const aList: IDynList;
-    aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
-    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
-    aTimeMachineOff: Boolean = True;
-    const aNodeForPositioning: Il3SimpleNode = nil;
-    const aSearchInfo: IdeSearchInfo = nil;
-    aAllDocumentsFiltered: Boolean = False;
-    aNeedApplyPermanentFilters: Boolean = True;
-    aIsChanged: Boolean = False): IdeDocumentListSet; reintroduce;
+     aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+     aOpenFrom: TbsListOpenFrom = lofNone;
+     aTimeMachineOff: Boolean = True;
+     const aNodeForPositioning: Il3SimpleNode = nil;
+     const aSearchInfo: IdeSearchInfo = nil;
+     aAllDocumentsFiltered: Boolean = False;
+     aNeedApplyPermanentFilters: Boolean = True;
+     aIsChanged: Boolean = False): IdeDocumentListSet; reintroduce;
  end;//TdeListSet
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$IfEnd} //not Admin AND not Monitorings
 
 implementation
 
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-uses
- l3ImplUses
-;
+{$If not defined(Admin) AND not defined(Monitorings)}
+
+// start class TdeListSet
 
 constructor TdeListSet.Create(const aList: IDynList;
- aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
- aOpenFrom: TbsListOpenFrom;
- aTimeMachineOff: Boolean;
- const aNodeForPositioning: Il3SimpleNode;
- const aSearchInfo: IdeSearchInfo;
- aAllDocumentsFiltered: Boolean;
- aNeedApplyPermanentFilters: Boolean;
- aIsChanged: Boolean);
+  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc;
+  aOpenFrom: TbsListOpenFrom;
+  aTimeMachineOff: Boolean;
+  const aNodeForPositioning: Il3SimpleNode;
+  const aSearchInfo: IdeSearchInfo;
+  aAllDocumentsFiltered: Boolean;
+  aNeedApplyPermanentFilters: Boolean;
+  aIsChanged: Boolean);
 //#UC START# *4B1F7C63023F_4926AE3900B9_var*
 //#UC END# *4B1F7C63023F_4926AE3900B9_var*
 begin
@@ -83,14 +100,14 @@ begin
 end;//TdeListSet.Create
 
 class function TdeListSet.Make(const aList: IDynList;
- aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = bsTypes.wdAlwaysOpen;
- aOpenFrom: TbsListOpenFrom = bsTypes.lofNone;
- aTimeMachineOff: Boolean = True;
- const aNodeForPositioning: Il3SimpleNode = nil;
- const aSearchInfo: IdeSearchInfo = nil;
- aAllDocumentsFiltered: Boolean = False;
- aNeedApplyPermanentFilters: Boolean = True;
- aIsChanged: Boolean = False): IdeDocumentListSet;
+  aWhatDoingIfOneDoc: TbsWhatDoingIfOneDoc = wdAlwaysOpen;
+  aOpenFrom: TbsListOpenFrom = lofNone;
+  aTimeMachineOff: Boolean = True;
+  const aNodeForPositioning: Il3SimpleNode = nil;
+  const aSearchInfo: IdeSearchInfo = nil;
+  aAllDocumentsFiltered: Boolean = False;
+  aNeedApplyPermanentFilters: Boolean = True;
+  aIsChanged: Boolean = False): IdeDocumentListSet;
 var
  l_Inst : TdeListSet;
 begin
@@ -100,16 +117,13 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;//TdeListSet.Make
+end;
 
-function TdeListSet.pm_GetList_SynchroView_Form: TList_SynchroView_Areas;
-//#UC START# *715D27A37B98_4926AE3900B9get_var*
-//#UC END# *715D27A37B98_4926AE3900B9get_var*
+function TdeListSet.pm_GetListSynchroViewForm: TList_SynchroView_Areas;
+ {-}
 begin
-//#UC START# *715D27A37B98_4926AE3900B9get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *715D27A37B98_4926AE3900B9get_impl*
-end;//TdeListSet.pm_GetList_SynchroView_Form
+ Result := f_List_SynchroView_Form;
+end;//TdeListSet.pm_GetListSynchroViewForm
 
 procedure TdeListSet.AssignClonned(aClone: TdeDocumentList);
 //#UC START# *4B1F7AE80158_4926AE3900B9_var*
@@ -123,6 +137,7 @@ begin
  end;//aClone is TdeListSet
 //#UC END# *4B1F7AE80158_4926AE3900B9_impl*
 end;//TdeListSet.AssignClonned
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+{$IfEnd} //not Admin AND not Monitorings
 
 end.

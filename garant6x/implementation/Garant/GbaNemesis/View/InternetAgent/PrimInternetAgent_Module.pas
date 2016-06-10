@@ -48,18 +48,8 @@ uses
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  fsInternetAgent
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  InternetAgentKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsInternetAgent,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -97,12 +87,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   l3Base {a},
   l3MessageID,
   SysUtils,
@@ -121,11 +105,6 @@ uses
   afwFacade,
   afwInterfaces,
   nsConst
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_InternetAgent_opInternetAgent

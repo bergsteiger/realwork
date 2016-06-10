@@ -809,7 +809,7 @@ begin
  if (f_DocumentListType <> crtNone) then
   l_OpenFrom := lofFullScreenCR
  else
- l_OpenFrom := lofNone;
+  l_OpenFrom := f_OpenFrom;
  Result := TdeListSet.Make(aNewList,
                            wdOpenIfUserDefine,
                            l_OpenFrom,
@@ -877,14 +877,17 @@ begin
    lntDocActive,
    lntDocPreActive,
    lntDocAbolished,
-   lntRedaction:
-   begin
-    l_Level := aNode.GetLevelFor(pm_GetSimpleTree.RootNode);
-    if (not aOnlyFirstLevel or (l_Level = 1)) and Supports(aNode, INodeBase, l_Node) then
-     l_Node.SetFlag(cExportFlag, True);
-    if l_Level > 1 then
-     MarkNodeForExport(FindParentDocNode(aNode), aOnlyFirstLevel);
-   end;
+   lntRedaction,
+   lntAAC:
+    begin
+     l_Level := aNode.GetLevelFor(pm_GetSimpleTree.RootNode);
+     if (not aOnlyFirstLevel or (l_Level = 1)) and Supports(aNode, INodeBase, l_Node) then
+      l_Node.SetFlag(cExportFlag, True);
+     if l_Level > 1 then
+      MarkNodeForExport(FindParentDocNode(aNode), aOnlyFirstLevel);
+    end;
+   else
+    Assert(False);
   end;//case ListNodeType(aNode) of
  end;//if Assigned(aNode) then
 //#UC END# *47F9BFED004F_47E9EDC602B2_impl*

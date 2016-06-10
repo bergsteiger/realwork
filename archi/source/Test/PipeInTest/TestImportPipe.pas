@@ -1,6 +1,6 @@
 unit TestImportPipe;
 { Верхний слой трубы для импорта - знает про входные форматы и цикл }
-{ $Id: TestImportPipe.pas,v 1.6 2015/07/02 11:41:08 lukyanets Exp $ }
+{ $Id: TestImportPipe.pas,v 1.7 2016/05/18 06:02:44 lukyanets Exp $ }
 
 // copy from ddImportPipe.pas,v 1.49 2009/02/05
 
@@ -393,7 +393,7 @@ begin
   StationConfig:=TCfgList.Create('');
  if UserID > 0 then
  begin
-  UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
   l3System.Msg2Log(Format('Начало выполнения импорта от имени %s (ID %d)', [aUserName, UserID]));
  end // UserID > 0
  else
@@ -529,7 +529,7 @@ var
  l_Msg: String;
 begin
  if UserID > -1 then
-  UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(UserID, aUserName, aLoginName, aActFlag);
   { Накапливаем сообщения о пропущенных документах }
  case WhyFlag of
   srUnknown       : l_Msg:= 'Причина неизвестна';

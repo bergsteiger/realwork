@@ -52,12 +52,12 @@ uses
 	, InternetSupportUnit
 	, MonitoringUnit
 	, ChatInterfacesUnit
+	, MainMenuUnit
 	, IntegrationProjectUnit
 	, TipsUnit
 	, PrimeUnit
 	, PharmFirmListUnit
-	, UserJournalUnit
-	, MainMenuUnit;
+	, UserJournalUnit;
 
 const
 	CLibraryVersion: LongWord = 212;
@@ -311,6 +311,8 @@ type
 		procedure MakeMainMenu (
 			out aRet {: IMainMenu}
 		); stdcall; overload;
+
+		procedure MakeMainMenuSectionList (out aRet {: IMainMenuSectionList}); stdcall;
 
 		procedure MakeMessages (out aRet {: IMessages}); stdcall;
 
@@ -716,6 +718,8 @@ type
 		function MakeMainMenu (
 		) : IMainMenu; overload;
 
+		function MakeMainMenuSectionList () : IMainMenuSectionList;
+
 		function MakeMessages () : IMessages;
 
 		function MakeMessagesManager (
@@ -1105,6 +1109,8 @@ type
 
 		function MakeMainMenu (
 		) : IMainMenu; overload;
+
+		function MakeMainMenuSectionList () : IMainMenuSectionList;
 
 		function MakeMessages () : IMessages;
 
@@ -1869,6 +1875,14 @@ var
 		aRes: IMainMenu;
 	begin
 		GetRoot().MakeMainMenu(aRes);
+		Result := aRes;
+	end;
+
+	function TGblAdapterDll.MakeMainMenuSectionList () : IMainMenuSectionList;
+	var
+		aRes: IMainMenuSectionList;
+	begin
+		GetRoot().MakeMainMenuSectionList(aRes);
 		Result := aRes;
 	end;
 

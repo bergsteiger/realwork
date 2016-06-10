@@ -37,8 +37,10 @@ const
  cs_ContentText: Tl3WString = (S:'CONTENTTEXT';    SLen:11; SCodePage:0);
  cs_Comment    : Tl3WString = (S:'COMMENT';        SLen:7;  SCodePage:0);
  cs_Article    : Tl3WString = (S:'ARTICLE';        SLen:7;  SCodePage:0);
+ cs_Prinyat    : Tl3WString = (S:'PRINODOBREN';    SLen:11; SCodePage:0);
+ cs_ChangeAdd  : Tl3WString = (S:'CHANGEADD';      SLen:9; SCodePage:0);
 
- cs_TitleList : array [1..10] of Tl3WString = (
+ cs_TitleList : array [1..11] of Tl3WString = (
   (S:'TITLEK';         SLen:6;  SCodePage:0),
   (S:'TITLEU';         SLen:6;  SCodePage:0),
   (S:'TITLE';          SLen:5;  SCodePage:0),
@@ -48,6 +50,7 @@ const
   (S:'PROMULGATOR';    SLen:11; SCodePage:0),
   (S:'NAME';           SLen:4;  SCodePage:0),
   (S:'NONUMHEADER';    SLen:11; SCodePage:0),
+  (S:'TITLENCPI';      SLen:9;  SCodePage:0),
   (S:'ARTICLECT';      SLen:9;  SCodePage:0)
  );
 
@@ -99,7 +102,7 @@ begin
     begin
      if not f_IsComment then
      begin
-      l_Para.PAP.Style := ev_saTxtComment; // первый комментарий пропускаем
+      l_Para.PAP.Style := ev_saVersionInfo; // первый комментарий пропускаем
       f_IsComment := True;
      end
      else
@@ -125,6 +128,23 @@ begin
       l_Para.PAP.Style := ev_saTxtHeader1
      else
       l_Para.PAP.Style := ev_saArticleHeader;
+    end
+    else
+
+    if l3Same(cs_Prinyat, l_ClassName, True) then
+     l_Para.PAP.Style := ev_saToLeft
+    else
+
+    if l3Same(cs_ChangeAdd, l_ClassName, True) then
+    begin
+     if not l_Para.HaveHyperlinks then
+      l_Para.ClearSegments
+     else
+     begin
+      for I := l_Para.SegmentCount-1 downto 0 do
+       if not l_Para.Segments[I].IsHyperlink then
+        l_Para.RemoveSegment(l_Para.Segments[I]); // удаляем всё оформление, оставляем гиперссылки
+     end;
     end
     else
 

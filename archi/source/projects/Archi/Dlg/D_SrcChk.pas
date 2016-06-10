@@ -1,6 +1,6 @@
 unit D_SrcChk;
 
-{ $Id: D_SrcChk.pas,v 1.16 2015/10/02 09:23:33 lukyanets Exp $ }
+{ $Id: D_SrcChk.pas,v 1.17 2016/04/18 11:47:31 lukyanets Exp $ }
 
 interface
 
@@ -67,7 +67,7 @@ function TSrcCheckDlg.Execute(aDocFam : TFamilyID;
                               aRec : Tl3Tag; WasEmpty : Boolean) : Boolean;
  begin
   fDocFam := aDocFam;
-  UserManager.UserTbl.GetDictList(cbUser.Items, False);
+  UserManager.GetFiltredUserList(cbUser.Items, False);
   if WasEmpty then
   begin
    //aRec.ID := cUndefDictID;

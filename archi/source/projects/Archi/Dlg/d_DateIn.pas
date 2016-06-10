@@ -1,6 +1,6 @@
 unit d_DateIn;
 
-{ $Id: d_DateIn.pas,v 1.9 2005/10/21 11:13:30 voba Exp $ }
+{ $Id: d_DateIn.pas,v 1.10 2016/04/18 08:39:30 lukyanets Exp $ }
 
 interface
 
@@ -46,7 +46,6 @@ Uses
 procedure TFindByJournalDlg.FormCreate(Sender: TObject);
 begin
  UserManager.GetFiltredUserList(cbUser.Items);
- //UserManager.UserTbl.GetDictList(cbUser.Items, False);
  cbUser.Items.Insert(0, '[бяе]');
  cbUser.ItemIndex := 0;
 end;

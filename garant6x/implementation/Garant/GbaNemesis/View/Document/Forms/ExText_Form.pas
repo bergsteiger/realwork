@@ -1012,6 +1012,7 @@ uses
  , evSubImplementation
  , Document_Const
  //#UC START# *49539DBA029Dimpl_uses*
+ , vcmEntityForm
  //#UC END# *49539DBA029Dimpl_uses*
 ;
 
@@ -1119,11 +1120,13 @@ begin
       l_SubHandle := l_Para.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub),
        k2_tiChildren, k2_tiByIndex, 0]).IntA[k2_tiHandle];
       if (l_SubHandle <= 0) then
-       if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      begin
+       if evInBlock(l_Para.AsObject, ev_bvkRight, l_Block) then
        begin
         l_SubHandle := l_Block.IntA[k2_tiHandle];
         l_Block.BoolA[k2_tiCollapsed] := False;
        end; // if evInPara(l_Para.AsObject, k2_typBlock, l_Block) then
+      end; // if (l_SubHandle <= 0) then
       if (l_SubHandle > 0) then
       begin
        l_Addr := TevAddress_C(-1, l_SubHandle);
@@ -1654,7 +1657,8 @@ begin
   Result := Assigned(Document)
  else
  {$EndIf nsTest}
-  Result := defDataAdapter.RevisionCheckEnabled and
+  Result := not (UserType in [dftAACContentsRight, dftAACRight]) and
+            defDataAdapter.RevisionCheckEnabled and
             Assigned(Document) and
             {Document.GetNewRevisionAvailable}
             (Document.GetChangeStatus <> 0)
@@ -1744,6 +1748,7 @@ procedure TExTextForm.RequiestCheckForcedQueryForInternet;
 begin
 //#UC START# *4C931477005F_49539DBA029D_impl*
  f_NeedAnnoingCheck := not f_InGoToInternet and
+                       not (UserType in [dftAACContentsRight, dftAACRight]) and 
                        afw.Application.Settings.LoadBoolean(pi_Document_ForceAskForIntranet,
                                                             dv_Document_ForceAskForIntranet);
 //#UC END# *4C931477005F_49539DBA029D_impl*
@@ -1992,7 +1997,7 @@ begin
    l_DocName := MakeCaption(l_Document, False);
    Container.SetTabCaption(l_DocName);
    CCaption := l_DocName;
-   TvcmEntityForm(Container.AsForm.VCLWinControl).CCaption := CCaption;
+   (Container.AsForm.VCLWinControl As TvcmEntityForm).CCaption := CCaption;
   end;
 
   if (UserType in [dftAutoreferat, dftAutoreferatAfterSearch, dftAACLeft, dftAACContentsRight]) then
@@ -4185,8 +4190,9 @@ begin
  if aParams.Op.Flag[vcm_ofChecked] then
  begin
   l_eeSub := ExtractSubFromSubPanel(aParams.Target);
-  if l_eeSub.ID <> f_eeSubIdForTypedCorrespondentList then
-   aParams.Op.Flag[vcm_ofChecked] := False;
+  if Assigned(l_eeSub) then
+   if (l_eeSub.ID <> f_eeSubIdForTypedCorrespondentList) then
+    aParams.Op.Flag[vcm_ofChecked] := False;
  end;
 //#UC END# *4C2AEDDA0335_49539DBA029Dtest_impl*
 end;//TExTextForm.DocumentBlock_GetTypedCorrespondentList_Test

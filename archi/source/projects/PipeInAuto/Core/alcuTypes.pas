@@ -5,12 +5,13 @@ interface
 
 Uses
   l3Base, l3LongintList,
+  daInterfaces,
   dt_Types,
   Graphics, l3Types,
   ddCalendarEvents,
   Classes
   ,ddServerTask
-  , dt_UserTypes, csProcessTask;
+  , csProcessTask;
 
 type
  TalcuStatus       = (dd_apsRevert,  // сброс статуса на предыдущий
@@ -65,7 +66,7 @@ type
     procedure Push(aStatus: TalcuStatus);
   end;
 
-  TddUserListNotify = procedure(theUserName: TArchiUser; Active: Boolean) of object;
+  TddUserListNotify = procedure(theUserName: IdaArchiUser; Active: Boolean) of object;
   TalcuStatusNotify = procedure (Status: TalcuStatus{; QueryLen: Integer}) of
           object;
   TddSendSMSNotify = procedure (aMessage, aPhoneNumber: String) of object;
@@ -143,7 +144,7 @@ const
  alcuSilentUser = 68;
 type
  TalcuMissedTask = (taskBackup, taskKW, taskUpdateBase, taskHeaderIndex,
-                     taskTextIndex, taskStages);
+                     taskTextIndex, taskCommitImg);
  TalcuMissedTasks = set of TalcuMissedTask;
 
 const
@@ -185,20 +186,23 @@ begin
 end;
 
 initialization
-{$IF Defined(Region)}                               
- ddEnabledTasks := [ctDeltaTask, ctUpdateTask, ctPreventiveTask, ctAutoExportTask, ctLoadRegions,
-                     ctAutoSubs, ctAutoclassify, ctVersion, ctCompilation, ctUploadRegions, ctAnnoExport, ctContainer];
-{$ELSEIF Defined(LUK) or Defined(SGC)}
+{$IF Defined(LUK) or Defined(SGC)}
  ddEnabledTasks := [ctUpdateTask, ctPreventiveTask, ctAutoExportTask, ctVersion, ctCompilation, ctContainer];
 {$ELSE}
+ {$IF Defined(Region)}
+ ddEnabledTasks := [ctDeltaTask, ctUpdateTask, ctPreventiveTask, ctAutoExportTask, ctLoadRegions,
+                     ctAutoSubs, ctAutoclassify, ctVersion, ctCompilation, ctUploadRegions, ctAnnoExport, ctContainer];
+
+ {$ELSE}
  ddEnabledTasks := [ctDeltaTask, ctUpdateTask, ctBirthdayTask, ctHolidayTask, ctPreventiveTask,
                      ctAutoExportTask, ctLoadRegions, ctAutoSubs, ctAutoclassify,
                      ctVersion, ctCompilation, ctUploadRegions, ctRelPublish, ctHavansky, ctCloneBase,
                      ctExportAnonced, ctExportAnoncedEx, ctAnnoExport, ctContainer];
+ {$IFEND}
+ {$IFDEF MDPSyncIntegrated}
+ ddEnabledTasks := ddEnabledTasks + [ctMdpSyncDicts, ctMdpSyncDocs, ctMdpSyncStages, ctMdpSyncImport];
+ {$ENDIF MDPSyncIntegrated}
 {$IFEND}
-{$IFDEF MDPSyncIntegrated}
- ddEnabledTasks := ddEnabledTasks + [ctMdpSyncDicts, ctMdpSyncDocs];
-{$ENDIF MDPSyncIntegrated}
 
 finalization
  (*

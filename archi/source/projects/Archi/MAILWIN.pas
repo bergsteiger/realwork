@@ -1,6 +1,6 @@
 unit MailWin;
 
-{ $Id: MAILWIN.pas,v 1.32 2015/04/17 10:40:08 kostitsin Exp $ }
+{ $Id: MAILWIN.pas,v 1.33 2016/05/18 06:02:40 lukyanets Exp $ }
 
 interface
 
@@ -106,7 +106,7 @@ procedure TSendMailWin.SetReceiverID(aValue : Longint);
   edtTo.ItemIndex := lReceiverIndex;
 
   //fReceiverID := aValue;
-  //UserManager.GetUserInfo(fReceiverID, lUserName, lLoginName, lActFlag);
+  //GlobalDataProvider.UserManager.GetUserInfo(fReceiverID, lUserName, lLoginName, lActFlag);
   //edtTo.Text := lUserName;
  end;
 
@@ -118,7 +118,7 @@ procedure TSendMailWin.SetReceiverID(aValue : Longint);
  begin
   IndexOfObject()
   fReceiverID := aValue;
-  UserManager.GetUserInfo(fReceiverID, lUserName, lLoginName, lActFlag);
+  GlobalDataProvider.UserManager.GetUserInfo(fReceiverID, lUserName, lLoginName, lActFlag);
   edtTo.Text := lUserName;
  end;}
 

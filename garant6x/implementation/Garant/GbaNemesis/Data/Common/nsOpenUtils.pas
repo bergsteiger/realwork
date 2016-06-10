@@ -1,8 +1,11 @@
 unit nsOpenUtils;
 
-// $Id: nsOpenUtils.pas,v 1.67 2016/03/17 09:09:58 kostitsin Exp $
+// $Id: nsOpenUtils.pas,v 1.68 2016/04/12 14:42:30 kostitsin Exp $
 
 // $Log: nsOpenUtils.pas,v $
+// Revision 1.68  2016/04/12 14:42:30  kostitsin
+// {requestlink: 620672440 } - Поддержка букмарков в новостях ОМ
+//
 // Revision 1.67  2016/03/17 09:09:58  kostitsin
 // {requestlink: 619725742 }
 //
@@ -968,6 +971,7 @@ var
  l_S1 : Il3CString;
  l_EL : IExternalLink;
  l_Proc : TbsHyperLinkProcessorPrim;
+ l_Bookmark: IBookmark; 
 begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=294597372
  try
@@ -1025,6 +1029,9 @@ begin
     FreeAndNil(l_Proc);
    end;//try..finally
   end//Supports(l_Ent, IExternalLink, l_E)
+  else
+  if Supports(l_Ent, IBookmark, l_Bookmark) then
+   TdmStdRes.OpenEntityAsDocument(l_Ent, aContainer)
   else
    Assert(false);
  finally

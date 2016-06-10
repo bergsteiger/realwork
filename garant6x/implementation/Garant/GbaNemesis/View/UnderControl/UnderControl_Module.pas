@@ -28,24 +28,9 @@ uses
   vcmInterfaces
   {$IfEnd} //not NoVCM
   ,
-  UnderControl_Form,
   Common_FormDefinitions_Controls,
-  PrimUnderControlOptions_Form
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  UnderControlKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  PrimUnderControlOptions_Form,
+  UnderControl_Form,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -77,12 +62,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   DynamicTreeUnit,
   DynamicDocListUnit,
   deListSet,
@@ -96,12 +75,6 @@ uses
   ,
   nsFolders,
   FoldersDomainInterfaces,
-  nscTreeViewWithAdapterDragDrop
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
   vcmFormSetFactory {a},
   StdRes {a}
   ;

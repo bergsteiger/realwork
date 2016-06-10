@@ -16,8 +16,8 @@ uses
   {$ENDIF}
   l3InterfacedComponent, dt_User, ActnMenus, ToolWin, ActnMan,
   ActnCtrls, XPStyleActnCtrls, vtStatusBar, IdBaseComponent,
-  daTypes,
-  Dialogs, IdAntiFreezeBase, IdAntiFreeze, dt_UserTypes, csTaskTypes, csProcessTask,
+  daTypes, daInterfaces,
+  Dialogs, IdAntiFreezeBase, IdAntiFreeze, csTaskTypes, csProcessTask,
   alcuShowMessage, alcuServer, SPHTMLHelp, vtLabel;
 
 type
@@ -208,6 +208,16 @@ type
     menuCommands: TMenuItem;
     actPack: TAction;
     menuDelOldTasks: TMenuItem;
+    menuScheduler: TMenuItem;
+    actStopNGoResetAll: TAction;
+    N85: TMenuItem;
+    N86: TMenuItem;
+    actSchedulerDump: TAction;
+    Schedulerdump1: TMenuItem;
+    actTasksDump: TAction;
+    asksdump1: TMenuItem;
+    actCommitImgCache: TAction;
+    N87: TMenuItem;
     procedure actImportAACExecute(Sender: TObject);
     procedure actAbortExecute(Sender: TObject);
     procedure actAutoLogoffExecute(Sender: TObject);
@@ -220,7 +230,6 @@ type
     procedure actEmailNotifyExecute(Sender: TObject);
     procedure actEQClassesExecute(Sender: TObject);
     procedure actFullBackupExecute(Sender: TObject);
-    //procedure actGardocBridgeExecute(Sender: TObject);
     procedure ActionsUpdate(Action: TBasicAction; var Handled: Boolean);
     procedure actIsDeltaReadyExecute(Sender: TObject);
     procedure actLoadDeltaExecute(Sender: TObject);
@@ -276,6 +285,7 @@ type
     procedure actACInfoExecute(Sender: TObject);
     procedure actAutoExportExecute(Sender: TObject);
     procedure actCalcCaseCodeExecute(Sender: TObject);
+    procedure actCommitImgCacheExecute(Sender: TObject);
     procedure actExportDeltaExecute(Sender: TObject);
     procedure actHavanskyExecute(Sender: TObject);
     procedure actLoadAKResultsExecute(Sender: TObject);
@@ -295,6 +305,9 @@ type
     procedure actSortByDateExecute(Sender: TObject);
     procedure lblSMTPStatusClick(Sender: TObject);
     procedure menuDelOldTasksClick(Sender: TObject);
+    procedure actStopNGoResetAllExecute(Sender: TObject);
+    procedure actSchedulerDumpExecute(Sender: TObject);
+    procedure actTasksDumpExecute(Sender: TObject);
  private
     CancelAutoImport: Boolean;
     f_AutoServer: TalcuServer;
@@ -329,12 +342,14 @@ type
     procedure UpdateTaskList; // полностью обновить список задач
     procedure UpdateUserLIst;
     function UserItemIndex: Integer;
-    procedure UserListUpdated(theUser: TArchiUser; Active: Boolean);
+    procedure UserListUpdated(theUser: IdaArchiUser; Active: Boolean);
     procedure YeldProc(Sender: TObject);
     procedure pm_SetCompareKind(const Value: TcsTaskCompareKind);
     procedure DoProcessMessages;
     procedure DoSmtpStatusChanged(Sender: TObject);
     procedure UpdateSMTPStatus;
+    procedure UpdateSchedulerMenu;
+    procedure ExecuteSchedulrTask(Sender: TObject);
  protected
     procedure WndProc(var Message: TMessage); override;
  public
@@ -351,21 +366,23 @@ implementation
 {$R *.DFM}
 
 Uses
+  TypInfo,
   afwFacade,
-  daInterfaces,
   ddUtils, l3IniFile, PrevInst,
   l3Base,  dt_Const, l3String, l3Types, l3Filer,
   l3Stream, SysUtils, l3ExceptionsLog, l3Utils,
   DateUtils, Types,
+  daDataProvider,
   stDate, stDateSt, l3FileUtils,
   alcuMailserver, IdSSLOpenSSL, alcuUtils, alcuMessageDlg,
-  alcuConfig, ddAppConfig, Dt_IndexSupport, ddAppConfigTypes, ddScheduler,
+  alcuConfig, ddAppConfig, Dt_IndexSupport, ddAppConfigTypes,
+  ddScheduler, ddCalendarEvents,
   alcuSMSDialog, Math,
   FileCtrl,
   alcuStrings,
   ddAboutDlg, StrUtils, alcuStat, csExport
   {$IFDEF Debug}
-  , dt_Mail, alcuSectionMaker, dt_Sab, l3LongintList, alcuSpellChecker,
+  , dt_Mail, dt_Sab, l3LongintList, alcuSpellChecker,
   m3StorageElementIDList, m3StorageInterfaces
   {$ENDIF}
   {$IFDEF HavanskyExport}
@@ -431,7 +448,7 @@ var
 begin
   Res:= alcuMsgDialog(rsDannayaoperaciyaotklitVSEHpolzov, mtConfirmation, [mbYes, mbYesToAll, mbNo], 0);
   if Res =  mrYes then
-   f_AutoServer.LogoffUsers(True, TArchiUser(ActiveUserList.Items.Objects[UserItemIndex]))
+   f_AutoServer.LogoffUsers(True, IdaArchiUser(Pointer(ActiveUserList.Items.Objects[UserItemIndex])))
   else
   if Res =  mrYesToAll then
    f_AutoServer.LogoffUsers(True);
@@ -503,11 +520,6 @@ begin
   f_AutoServer.DoMakeFullBackup(ConcatDirName(l_Folder,
                                           StDateToDateString(SAutoPipeServerForm_YyyyMmDd, CurrentDate, True)));
 end;
-
-//procedure TArchiServerForm.actGardocBridgeExecute(Sender: TObject);
-//begin
-//  f_AutoServer.CopyStages;
-//end;
 
 procedure TArchiServerForm.ActionsUpdate(Action: TBasicAction; var Handled:
         Boolean);
@@ -588,9 +600,9 @@ var
   l_ToAll: Boolean;
   l_Lock: Boolean;
   l_LockDateTime, l_StartLock: TDateTime;
-  l_User: TArchiUser;
+  l_User: IdaArchiUser;
 begin
- l_User:= TArchiUser(ActiveUserList.Items.Objects[UserItemIndex]);
+ l_User:= IdaArchiUser(Pointer(ActiveUserList.Items.Objects[UserItemIndex]));
  l_ToAll:= False;
  l_Lock:= False;
  if GetUserMessage(l_User.UserName, S, l_ToAll, l_Lock, l_LockDateTime, l_StartLock) then
@@ -721,6 +733,10 @@ begin
    actSendMessage.Enabled:= l_UPEnabled;
    actAutoLogoff.Enabled:= l_UPEnabled;
    actUserInfo.Enabled := l_UPEnabled;
+   actSchedulerDump.Enabled := l3System.MessageLevel = l3_msgLevel10;
+   actSchedulerDump.Visible := l3System.MessageLevel = l3_msgLevel10;
+   actTasksDump.Enabled := l3System.MessageLevel = l3_msgLevel10;
+   actTasksDump.Visible := l3System.MessageLevel = l3_msgLevel10;
 
    actDeleteTask.Enabled := l_TPEnabled and (CurrentTask.Status in cs_tsCanDeleteStatuses);
    actRunTask.Enabled := l_TPEnabled and (CurrentTask.Status in cs_tsCanRunStatuses);
@@ -731,6 +747,7 @@ begin
    actStopNGoExport.Checked := f_AutoServer.ExportEnabled;
    actStopNGoImport.Checked := f_AutoServer.ImportEnabled;
    actStopNGoAnnoExport.Checked := f_AutoServer.AnnoExportEnabled;
+   actCommitImgCache.Enabled := f_AutoServer.IsImgCacheCommitable and (ActiveUserList.Count = 0);
 (*
    actRunTask.Enabled:= False;
    actPauseTask.Enabled:= False;
@@ -872,7 +889,7 @@ var
 begin
  l_DialogResult := mrNo;
  if f_ManualClose then
-  if f_AutoServer.TaskProcessor.ExecutingTask then
+  if f_AutoServer.TaskProcessor.ExecutingTask(False) then
   begin
    l_Dlg := TalcuCloseQueryDlgForm.Create(nil);
    try
@@ -1085,7 +1102,11 @@ end;
 
 procedure TArchiServerForm.N3Click(Sender: TObject);
 begin
-  f_AutoServer.ExecuteConfigDialog;
+ if f_AutoServer.ExecuteConfigDialog then
+ begin
+  UpdateSchedulerMenu;
+  CheckActions;
+ end;
 end;
 
 procedure TArchiServerForm.RefreshButtonClick(Sender: TObject);
@@ -1132,7 +1153,9 @@ begin
    cs_tsRun,
    cs_tsAsyncRun  : aItem.SubItemImages[colStatus] := 9;//21;
    cs_tsDeleted   : aItem.SubItemImages[colStatus] := 16;
+   cs_tsFrozenRun,
    cs_tsFrozen    : aItem.SubItemImages[colStatus] := 19;
+   cs_tsAborting,
    cs_tsError,
    cs_tsAsyncError: aItem.SubItemImages[colStatus] := 18;
    cs_tsReadyToDelivery,
@@ -1274,6 +1297,7 @@ begin
   f_AutoServer.ChecksSetup;
   UpdateTaskList;
   f_AutoServer.Actions.UpdateServerMenu(menuCommands);
+  UpdateSchedulerMenu;
 end;
 
 procedure TArchiServerForm.StopAutoImport;
@@ -1285,14 +1309,14 @@ procedure TArchiServerForm.Task2Item(aTask: TddProcessTask; aItem: TListItem);
 var
   l_UserName: ShortString;
   l_ActFlag: Byte;
-  l_User: TArchiUser;
+  l_User: IdaArchiUser;
 begin
   // aitem.Caption:= IntToStr(Succ(aTask.Index));
   aItem.ImageIndex:= GetTaskImageIndex(aTask);
   aitem.Data:= aTask;
   with aitem.SubItems do
   begin
-   l_User:= UserManager.UserByID(aTask.UserID);
+   l_User:= GlobalDataProvider.UserManager.UserByID(aTask.UserID);
    if l_User = nil then
     l_UserName := rsInkognito
    else
@@ -1499,7 +1523,7 @@ begin
   Result := ActiveUserList.ItemIndex;
 end;
 
-procedure TArchiServerForm.UserListUpdated(theUser: TArchiUser; Active: Boolean);
+procedure TArchiServerForm.UserListUpdated(theUser: IdaArchiUser; Active: Boolean);
 var
   l_NowString: string;
 begin
@@ -1507,7 +1531,7 @@ begin
   if Active then
   begin
     if ActiveUserList.Items.IndexOf(theUser.UserName) = -1 then
-      ActiveUserList.Items.AddObject(theUser.UserName, theUser)
+      ActiveUserList.Items.AddObject(theUser.UserName, Pointer(theUser))
     else
     begin
       ListLog.Items.Add(Format(rs1, [theUser.UserName]));
@@ -1577,9 +1601,6 @@ begin
  {$IFDEF Autoclass}
  + #10'Модуль автоклассификации документов'
  {$ENDIF}
- {$IFDEF RemoteDict}
- + #10'Дистанционное редактирование словарей'
- {$ENDIF RemoteDict}
  + #10'Поддержка формата NSRC+'
  ;
 
@@ -1645,6 +1666,11 @@ end;
 procedure TArchiServerForm.actCalcCaseCodeExecute(Sender: TObject);
 begin
  f_AutoServer.TaskProcessor.MakeCaseCodeGenerateTask;
+end;
+
+procedure TArchiServerForm.actCommitImgCacheExecute(Sender: TObject);
+begin
+ f_AutoServer.DoCommitImgCache;
 end;
 
 procedure TArchiServerForm.actExportDeltaExecute(Sender: TObject);
@@ -1991,6 +2017,73 @@ begin
  l3System.Msg2Log('Compacting Heap');
  HeapCompact(GetProcessHeap, 0);
  f_AutoServer.ReportMemoryUsage;
+end;
+
+procedure TArchiServerForm.UpdateSchedulerMenu;
+var
+ l_MenuItem: TMenuItem;
+ l_IDX: Integer;
+begin
+ menuScheduler.Clear;
+ for l_IDX := 0 to f_AutoServer.Scheduler.Count - 1 do
+  if not f_AutoServer.Scheduler.Tasks[l_IDX].Deleted then
+  begin
+   l_MenuItem := TMenuItem.Create(Application);
+   l_MenuItem.Tag := f_AutoServer.Scheduler.Tasks[l_IDX].UID;
+   l_MenuItem.Caption := Format('%s: %s', [ddCalendarEventArray[f_AutoServer.Scheduler.Tasks[l_IDX].TaskType].Caption, f_AutoServer.Scheduler.Tasks[l_IDX].Caption]);
+   l_MenuItem.OnClick := ExecuteSchedulrTask;
+   menuScheduler.Add(l_MenuItem);
+  end;
+end;
+
+procedure TArchiServerForm.ExecuteSchedulrTask(Sender: TObject);
+begin
+ if f_AutoServer.Scheduler.ScheduleEnabled then
+  f_AutoServer.Scheduler.ManualExecuteTask(f_AutoServer.Scheduler.GetTaskByUID((Sender as TMenuItem).Tag));
+end;
+
+procedure TArchiServerForm.actStopNGoResetAllExecute(Sender: TObject);
+begin
+ f_AutoServer.TaskProcessor.EnabledTaskTypes := alcuAllTaskTypes;
+end;
+
+procedure TArchiServerForm.actSchedulerDumpExecute(Sender: TObject);
+var
+ l_Str: String;
+ l_IDX: Integer;
+ l_Now: TDateTime;
+
+ procedure lp_ProcessTask(aTask: TddSchedulerTask);
+ begin
+  l_Str := Format('%s %s: %s', [l_Str, ddCalendarEventArray[aTask.TaskType].Caption, aTask.Caption]);
+  if aTask.Deleted then
+   l_Str := l_Str + ' DELETED';
+  l_Str := l_Str + #13#10;
+  l_Str := Format('%s   %s'#13#10, [l_Str, GetEnumName(TypeInfo(TddSchedulerTaskPeriodicity), Ord(aTask.Periodicity))]);
+  l_Str := Format('%s   Date = %s'#13#10, [l_Str, FormatDateTime('dd/mm/yyyy hh:nn:ss', aTask.TaskDate)]);
+  l_Str := Format('%s   Time = %s'#13#10, [l_Str, FormatDateTime('dd/mm/yyyy hh:nn:ss', aTask.TaskTime)]);
+  l_Str := Format('%s   NetRun = %s'#13#10, [l_Str, FormatDateTime('dd/mm/yyyy hh:nn:ss', aTask.FullDateTime[l_Now])]);
+ end;
+
+begin
+  l_Now := Now;
+  l_Str := '';
+  for l_IDX := 0 to f_AutoServer.Scheduler.Count - 1 do
+   lp_ProcessTask(f_AutoServer.Scheduler.Tasks[l_IDX]);
+  vtShowMemoBox('Scheduler dump', l_Str);
+end;
+
+procedure TArchiServerForm.actTasksDumpExecute(Sender: TObject);
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+ begin
+  Result := True;
+  l3System.Msg2Log('TASK - %s (%s) %s', [anItem.TaskID, anItem.Description, GetEnumName(TypeInfo(TcsTaskStatus), Ord(anItem.Status))]);
+ end;
+
+begin
+ l3System.Stack2Log('CRASH DUMP');
+ f_AutoServer.TaskProcessor.ActiveTaskList.ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;
 
 initialization

@@ -1,8 +1,17 @@
 unit nsConst;
 
-// $Id: nsConst.pas,v 1.45 2015/11/06 12:42:26 kostitsin Exp $
+// $Id: nsConst.pas,v 1.48 2016/05/11 15:43:41 lulin Exp $
 
 // $Log: nsConst.pas,v $
+// Revision 1.48  2016/05/11 15:43:41  lulin
+// - перегенерация.
+//
+// Revision 1.47  2016/04/11 14:55:56  kostitsin
+// {requestlink: 620672440 } - Заканчиваем потихоньку
+//
+// Revision 1.46  2016/03/29 11:02:03  kostitsin
+// {requestlink: 620672440 } - Настройки
+//
 // Revision 1.45  2015/11/06 12:42:26  kostitsin
 // опечатка
 //
@@ -475,7 +484,7 @@ unit nsConst;
 // - new behavior: увеличили константу cDocumentFrame до MaxLongInt, пока не закончена отладка кусочной загрузки.
 //
 // Revision 1.12  2004/06/16 10:32:54  am
-// change: TLogicSelection -> TLogicOperation
+// change: _TLogicSelection -> TLogicOperation
 //
 // Revision 1.11  2004/06/09 15:31:20  law
 // - дотачиваем догрузку документа.
@@ -696,6 +705,12 @@ const
     pi_OpenLinksFromDocument = gi_MainWindowTabs + '/Открывать ссылки из документов';
 
   gi_Behaviour = 'Поведение системы';
+
+  pui_MainPenuKind = 'Вид Основного меню';
+  pi_MainMenuKind = gi_Behaviour + '/' + pui_MainPenuKind;
+   li_mmkProfNews = 'С профессиональными новостями (необходим постоянный доступ в Интернет)';
+   li_mmkDefault = 'Стандартный вид';
+   dv_MainMenuKind = Ord(mmk_ProfNews);
 
    pi_OpenOnStart = gi_Behaviour + '/Начало работы';
     li_OpenOnStartAttributeSearch = 'Поиск по реквизитам';
@@ -1030,6 +1045,10 @@ const
     pi_ConfigurationExpandedItems = 'Configuration/ExpandedItems/%s';
       {* - развернутые в конфигурации узлы. В качестве "%s" подставляется
             конкретное имя конфигурации. }
+  pi_MainMenu_ProfNewsSection = '/Секция профессиональных новостей'; // like MainMenuChangeableMainMenuTypeSettingRes.pi_MainMenu_ChangeableMainMenuType
+  dv_MainMenu_ProfNewsSection = 0;
+  pi_MainMenu_TaxesSection = '/Секция профессионального меню';
+  dv_MainMenu_TaxesSection = 0;
 {------------------------------------------------------------------------------}
 { Прочие константы.                                                            }
 {------------------------------------------------------------------------------}

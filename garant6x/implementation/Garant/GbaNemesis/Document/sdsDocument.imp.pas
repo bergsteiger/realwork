@@ -450,10 +450,13 @@ end;//_sdsDocument_.MakeData
 
 function _sdsDocument_.BaseDocumentClass: IdsBaseDocument;
 //#UC START# *4925B1EC0100_493E5C580280_var*
+var
+ l_DocData: IdeDocInfo;
 //#UC END# *4925B1EC0100_493E5C580280_var*
 begin
 //#UC START# *4925B1EC0100_493E5C580280_impl*
- Result := TdsDocument.Make(Self, DocumentData);
+ l_DocData := DocumentData.Clone;
+ Result := TdsDocument.Make(Self, l_DocData);
 //#UC END# *4925B1EC0100_493E5C580280_impl*
 end;//_sdsDocument_.BaseDocumentClass
 
@@ -636,7 +639,11 @@ begin
    try
     Result := aChangeWorker.Change(l_DocInfo);
     if Result then
+    begin
+     f_ChangeWorker := aChangeWorker;
+     f_ChangeRedactionPos := aPos;
      DoDoChangeDocument(l_DocInfo, aPos, True, l_Data);
+    end;
    finally
     l_DocInfo := nil;
    end;//try..finally
@@ -915,7 +922,7 @@ begin
   if IsEmpty
   //#UC START# *500CEDBC03A5_493E5C580280get_need*
      AND (NeedMake <> vcm_nmNo)
-     AND HasAnyRedaction   
+     AND HasAnyRedaction
    // - условие создания ViewArea
   //#UC END# *500CEDBC03A5_493E5C580280get_need*
    then

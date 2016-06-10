@@ -267,7 +267,7 @@ procedure TalcuSubmitterWorkThread.CheckExecution(const aServices: IcsRunTaskSer
 //#UC END# *53CDF9B0012E_53C92B390005_var*
 begin
 //#UC START# *53CDF9B0012E_53C92B390005_impl*
-  if (f_CheckExecutionGuard = 0) and (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted]) then
+  if (f_CheckExecutionGuard = 0) and (f_SubmitGuard = 0) and Assigned(f_ActiveTask) and (f_ActiveTask.Status in [cs_tsAsyncRun, cs_tsFrozen, cs_tsFrozenRun, cs_tsDeleted, cs_tsAborting]) then
   begin
    l3InterlockedIncrement(f_CheckExecutionGuard);
    try
@@ -351,10 +351,15 @@ end;//TalcuSubmitterWorkThread.AssistantExists
 
 function TalcuSubmitterWorkThread.StillRunning(CountAbortingTask: Boolean): Boolean;
 //#UC START# *573EC2C80226_53C92B390005_var*
+const
+ cSet = [cs_tsAsyncRun, cs_tsFrozenRun, cs_tsDeleted];
 //#UC END# *573EC2C80226_53C92B390005_var*
 begin
 //#UC START# *573EC2C80226_53C92B390005_impl*
- !!! Needs to be implemented !!!
+ if CountAbortingTask then
+  Result := Assigned(f_ActiveTask) and (ActiveTask.Status in (cSet + [cs_tsAborting]))
+ else
+  Result := Assigned(f_ActiveTask) and (ActiveTask.Status in cSet)
 //#UC END# *573EC2C80226_53C92B390005_impl*
 end;//TalcuSubmitterWorkThread.StillRunning
 

@@ -4,9 +4,12 @@ unit ddNativeSpell;
 { Автор: Люлин А.В. ©     }
 { Модуль: ddNativeSpell - }
 { Начат: 29.10.2002 13:11 }
-{ $Id: ddNativeSpell.pas,v 1.35 2016/02/16 10:17:41 voba Exp $ }
+{ $Id: ddNativeSpell.pas,v 1.36 2016/04/12 12:45:04 voba Exp $ }
 
 // $Log: ddNativeSpell.pas,v $
+// Revision 1.36  2016/04/12 12:45:04  voba
+// no message
+//
 // Revision 1.35  2016/02/16 10:17:41  voba
 // no message
 //
@@ -303,11 +306,26 @@ var
  l_BadWordFound: Boolean;
  l_IsInitials: Boolean;
 
- function CheckOneWord(const aStr: Tl3PCharLen; IsLast: Bool): Bool;
+ function HasSymbolOnly(const aStr: Tl3PCharLen) : boolean; // в строке только всякий мусор вроде _ и .
+ //Большинство спецсимволов убили когда на слова резали, поэтому на них не проверяем
+
  var
-  l_DotAddition: Integer;
+   I : integer;
+ begin
+  for I := 0 to pred(aStr.SLen) do
+   if not (aStr.S[I] in [cc_Dot, cc_Underline]) then
+   begin
+    Result := False;
+    Exit;
+   end;
+  Result := True;
+ end;
+
+ function CheckOneWord(aStr: Tl3PCharLen; IsLast: Bool): Bool;
  begin
   Result := True;
+  if HasSymbolOnly(aStr) then Exit;
+
   if (aStr.S[0] = cc_Dot) or // Проверка на строку из одной точки и инициалы
      ((aStr.SLen = 2) and (aStr.S[1] = cc_Dot)) or
      ((aStr.SLen = 4) and (aStr.S[1] = cc_Dot) and (aStr.S[3] = cc_Dot)) then
@@ -320,13 +338,10 @@ var
   f_NormFormFound := False;
   // Если на конце точка, то надо об этом сказать движку спеллчекера
   if aStr.S[aStr.SLen-1] = cc_Dot then
-   l_DotAddition := 1
-  else
-   l_DotAddition := 0;
+   aStr.SLen := aStr.SLen -1;
 
   // собственно, проверка правописания
-  f_NormFormFound := gSpeller.CheckSpell(l3PCharLen(aStr.S, aStr.SLen-l_DotAddition, aStr.SCodePage));
-  //m0LNGNormalBuff(Cm0LNGLibFlagORIG_FORM, CFlags, aStr.S, aStr.SLen-l_DotAddition, aStr.SCodePage = CP_OEM, CheckNormForm, l_DotAddition > 0);
+  f_NormFormFound := gSpeller.CheckSpell(aStr);
   if (not f_NormFormFound) and
      not ((IsIgnoreForm(aStr) or (Assigned(FFilter) and FFilter(aStr)))) then
   begin

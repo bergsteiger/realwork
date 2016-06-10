@@ -1,8 +1,20 @@
 unit IniShop;
 
-{ $Id: Inishop.pas,v 1.24 2011/05/21 06:20:52 dinishev Exp $ }
+{ $Id: Inishop.pas,v 1.26 2016/04/27 09:33:31 lukyanets Exp $ }
 
 // $Log: Inishop.pas,v $
+// Revision 1.26  2016/04/27 09:33:31  lukyanets
+// Запоминаем текущий каталог сбоку
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.25  2016/04/26 12:46:13  lukyanets
+// Выключаем переключения текущего каталога
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.24  2011/05/21 06:20:52  dinishev
 // Bug fix: не компилировался Эверест.
 //
@@ -129,11 +141,16 @@ const
  procedure SetIniRecord;
  procedure SaveIniRecord;
 
+ function ExecuteSaveDialog(const aDialog: TSaveDialog): Boolean;
+ function ExecuteOpenDialog(const aDialog: TOpenDialog): Boolean;
+
 implementation
 
 uses
     SysUtils,
-    l3IniFile
+    l3IniFile,
+
+    vtDialogs
     ;
 
 const
@@ -178,9 +195,9 @@ begin
   {$EndIf  evExternalProduct}
   AdjustMargin := UserConfig.ReadParamBoolDef('AdjustMargin', true);
   if (OpenDialog <> nil) then
-   OpenDialog.InitialDir := UserConfig.ReadParamStrDef ('OpenIniPath', '');
+   OpenDialog.InitialDir := UserConfig.ReadParamStrDef ('OpenIniPath', GetCurrentDir);
   if (SaveDialog <> nil) then
-   SaveDialog.InitialDir := UserConfig.ReadParamStrDef ('SaveIniPath', '');
+   SaveDialog.InitialDir := UserConfig.ReadParamStrDef ('SaveIniPath', GetCurrentDir);
 
   DontCheckThreeLetterWords := UserConfig.ReadParamBoolDef('DontCheckThreeLetterWords', False);
   OrphoDotIsSeparator := UserConfig.ReadParamBoolDef('OrphoDotIsSeparator', False);
@@ -290,5 +307,44 @@ begin
  Dispose(IniRec);
  IniRec := nil;
 end;
+
+function ExecuteOpenDialog(const aDialog: TOpenDialog): Boolean;
+begin
+ if aDialog.InitialDir = '' then
+  aDialog.InitialDir := IniRec.OpenIniPath;
+ Result := aDialog.Execute;
+ if Result then
+ begin
+  IniRec.OpenIniPath := ExtractFileDir(aDialog.Files[aDialog.Files.Count - 1]);
+  aDialog.InitialDir := '';
+ end;
+end;
+
+function ExecuteSaveDialog(const aDialog: TSaveDialog): Boolean;
+begin
+ if aDialog.InitialDir = '' then
+  aDialog.InitialDir := IniRec.SaveIniPath;
+ Result := aDialog.Execute;
+ if Result then
+ begin
+  IniRec.SaveIniPath := ExtractFileDir(aDialog.Files[aDialog.Files.Count - 1]);
+  aDialog.InitialDir := '';
+ end;
+end;
+
+function IniSaveOpenDialogExecutor(const aDlg : TOpenDialog; aFileDlgMode : TFileDlgMode): Boolean;
+begin
+ aDlg.Options := aDlg.Options + [ofNoChangeDir];
+ case aFileDlgMode of
+  fdmSave: Result := ExecuteSaveDialog(aDlg as TSaveDialog);
+  fdmOpen: Result := ExecuteOpenDialog(aDlg);
+ else
+  Result := False;
+  Assert(False);
+ end;
+end;
+
+initialization
+ vtSetSaveOpenDialogExecutor(IniSaveOpenDialogExecutor);
 
 end.

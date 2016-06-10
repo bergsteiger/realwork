@@ -28,103 +28,23 @@ uses
   vcmInterfaces
   {$IfEnd} //not NoVCM
   ,
-  evTextSource
-  {$If not defined(NoVCL)}
-  ,
-  ExtCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  evQueryCardEditor,
   ConfigInterfaces
   {$If not defined(NoVCM)}
   ,
   vcmUserControls
   {$IfEnd} //not NoVCM
   ,
-  vtPanel,
-  vtComboBoxQS,
+  PrimPreview_Form,
+  Search_FormDefinitions_Controls,
+  PrimPrintDialogOptions_Form,
+  PrimQueryCardOptions_Form,
+  PrimPageSetupOptions_Form,
+  PrimSaveLoadOptionsWithUserTypes_Form,
   SaveLoad_Form,
   QueryCard_Form,
-  PrimPreview_Form,
   Preview_Form,
   PageSetup_Form,
   PrintDialog_Form,
-  vtGroupBox
-  {$If defined(Nemesis)}
-  ,
-  nscPageControl
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscPreviewPanel
-  {$IfEnd} //Nemesis
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
-  vtLabel,
-  l3StringIDEx,
-  Search_FormDefinitions_Controls,
-  PrimPrintDialogOptions_Form,
-  vtSpinEdit,
-  PrimQueryCardOptions_Form,
-  PrimPageSetupOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
-  PrimSaveLoadOptionsWithUserTypes_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  vtCheckBox,
-  vtRadioButton
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  SaveLoadKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  QueryCardKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PreviewFormKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PageSetupKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(NoScripts)}
-  ,
-  PrintDialogKeywordsPack
-  {$IfEnd} //not Admin AND not NoScripts
-  ,
   Classes,
   l3Interfaces,
   vcmExternalInterfaces {a},
@@ -172,36 +92,14 @@ implementation
 
 {$If not defined(Admin)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmTabbedContainerFormDispatcher
-  {$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-  ,
   l3RangeManager,
-  l3MessageID,
   nsUtils,
   evConst,
   DataAdapter,
   nsConst,
   Windows,
-  afwFacade
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  ,
+  afwFacade,
+  SysUtils,
   vcmFormSetFactory {a},
   StdRes {a}
   ;
@@ -273,7 +171,7 @@ begin
 //#UC START# *4AAF73E6039E_4AA931390118_impl*
  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
- Result := TPreviewForm.Make(aPreview, l_Params);
+ Result := TefPreviewForm.Make(aPreview, l_Params);
 //#UC END# *4AAF73E6039E_4AA931390118_impl*
  finally
   if __WasEnter then

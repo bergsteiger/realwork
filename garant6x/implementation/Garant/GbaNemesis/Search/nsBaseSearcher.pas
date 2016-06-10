@@ -1,8 +1,29 @@
 unit nsBaseSearcher;
 
-// $Id: nsBaseSearcher.pas,v 1.187 2015/12/22 12:14:20 morozov Exp $
+// $Id: nsBaseSearcher.pas,v 1.194 2016/05/19 09:16:46 morozov Exp $
 
 // $Log: nsBaseSearcher.pas,v $
+// Revision 1.194  2016/05/19 09:16:46  morozov
+// {RequestLink: 607262792}
+//
+// Revision 1.193  2016/05/11 10:17:55  morozov
+// {RequestLink: 623065673}
+//
+// Revision 1.192  2016/05/05 08:31:02  morozov
+// {RequestLink: 622656003}
+//
+// Revision 1.191  2016/05/04 09:35:00  morozov
+// {RequestLink: 607262792}
+//
+// Revision 1.190  2016/04/29 08:43:20  morozov
+// {RequestLink: 622413531}
+//
+// Revision 1.189  2016/03/28 10:10:09  kostitsin
+// {requestlink: 610093358 }
+//
+// Revision 1.188  2016/03/25 08:29:29  morozov
+// {RequestLink: 619725581}
+//
 // Revision 1.187  2015/12/22 12:14:20  morozov
 // {RequestLink: 609899254}
 //
@@ -783,6 +804,8 @@ type
    f_InitialOpenKind: TnsBaseSearchOpenKind;
    f_IsWindowOpened: Boolean;
    f_ClassSetFromState: Boolean;
+   f_AreaSetFromState: Boolean;
+   f_AreaFromState: TnsSearchArea;
    f_NeedActivate: Boolean;
   private
    procedure pm_SetExampleText(const aValue: Il3CString);
@@ -849,7 +872,7 @@ type
       write pm_SetArea;
    property ExampleText: Il3CString
        read pm_GetExampleText
-      write pm_SetExampleText;    
+      write pm_SetExampleText;
   public
    constructor Create(const aContainer: IvcmContainer; const aContextHistory: InsContextSearchHistory);
     reintroduce;
@@ -1278,11 +1301,17 @@ begin
  if not l3IEQ(InsBaseSearchPresentation(f_Presentation), aPresentation) then
  begin
   if Assigned(aPresentation) AND (aPresentation.ContextSearcher <> nil) then
+  begin
+   // Если область поиска задана на основании состояния при AssignState - умничать не нужно.
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=607262792 
+   if f_AreaSetFromState then
+    aPresentation.ContextSearcher.Area := f_AreaFromState
+   else
    if aPresentation.ContextSearcher.SwitchToTextIfPossible then
     aPresentation.ContextSearcher.Area := ns_saText
    else
     aPresentation.ContextSearcher.Area := ns_saEverywere;
-
+  end;
   NotifyVisibleWatcher(False);
 
   f_Presentation := Pointer(aPresentation);
@@ -1386,7 +1415,8 @@ begin
    ns_bsokGlobal:
     ContextSearcher.Area := ns_saEverywere;
    ns_bsokLocal:
-    ContextSearcher.Area := CalcDefaultLocalArea(ContextSearcher.AllowSearchInTitles);
+    if not f_AreaSetFromState then
+     ContextSearcher.Area := CalcDefaultLocalArea(ContextSearcher.AllowSearchInTitles);
    ns_bsokSpecify:
     ContextSearcher.Area := ns_saText;
   end;//case OpenKind of
@@ -1622,6 +1652,7 @@ procedure TnsBaseSearcher.pm_SetArea(aValue: TnsSearchArea);
 begin
  if Area <> aValue then
  begin
+  f_AreaSetFromState := False;
   if Assigned(ContextSearcher) then
    ContextSearcher.Area := aValue;
   NotifyVisibleWatcher;
@@ -1952,7 +1983,7 @@ end;
 
 function TnsBaseSearcher.MakeState: InsBaseSearcherInitialState;
 begin
- Result := MakeStateParams([ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind], False);
+ Result := MakeStateParams([ns_sseContext, ns_sseNeedShowWindow, ns_sseOpenKind, ns_sseSearchArea], False);
 end;
 
 function TnsBaseSearcher.MakeStateParams(aStateElements: TnsBaseSearchStateElements;
@@ -1963,13 +1994,19 @@ var
  l_NeedActivate: Boolean;
 begin
  l_StateElements := aStateElements;
- l_NeedOpenWindow := (aForClone and f_IsWindowOpened and (f_SearchWindow <> nil)) or
-   (not l3IsNil(f_Context)) and (f_Searched or aForClone) and (f_WindowOpenedByUser or aForClone);
+ l_NeedOpenWindow := ((aForClone or f_WindowOpenedByUser)
+                       and f_IsWindowOpened and Assigned(f_SearchWindow))
+                     or
+                     (not l3IsNil(f_Context))
+                  and (f_Searched or aForClone or f_WindowOpenedByUser)
+                  and (not (    Assigned(f_SearchWindow)
+                            and InsSearchWindow(f_SearchWindow).IsMainInUseCase
+                            and aForClone));
  l_NeedActivate := f_IsWindowOpened and (f_SearchWindow <> nil) and InsSearchWindow(f_SearchWindow).IsActive;
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566792807,
  // http://mdp.garant.ru/pages/viewpage.action?pageId=567573990
  if aForClone then
-  l_StateElements := l_StateElements + [ns_sseActiveClass];
+  l_StateElements := l_StateElements + [ns_sseActiveClass, ns_sseSearchArea];
  Result := TnsBaseSearcherInitialState.Make(l_StateElements, f_Context,
   l_NeedOpenWindow, f_OpenKind, pm_GetActiveClass, pm_GetArea, l_NeedActivate);
 end;
@@ -1989,10 +2026,18 @@ begin
   if (ns_sseOpenKind in aState.Elements) then
    f_InitialOpenKind := aState.OpenKind;
   if (ns_sseActiveClass in aState.Elements) then
-   ActiveClass := aState.CurrentSearchClass;
+  begin
+   f_ActiveClass := aState.CurrentSearchClass;
+   f_ClassSetFromState := True;
+  end;
   if (ns_sseSearchArea in aState.Elements) then
-   pm_SetArea(aState.SearchArea);
-  f_ClassSetFromState := (ns_sseActiveClass in aState.Elements);
+  begin
+   f_AreaSetFromState := True;
+   if Assigned(ContextSearcher) then
+    ContextSearcher.Area := aState.SearchArea
+   else
+    f_AreaFromState := aState.SearchArea;
+  end; 
   f_NeedActivate := aState.NeedActivate;
  end;
 end;

@@ -1,9 +1,15 @@
 unit F_ImageView;
 { Фрейм для просмотра многостраничных TIFF }
 
-{ $Id: F_ImageView.pas,v 1.23 2014/11/14 08:49:11 fireton Exp $ }
+{ $Id: F_ImageView.pas,v 1.24 2016/04/26 12:45:58 lukyanets Exp $ }
 
 // $Log: F_ImageView.pas,v $
+// Revision 1.24  2016/04/26 12:45:58  lukyanets
+// Выключаем переключения текущего каталога
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.23  2014/11/14 08:49:11  fireton
 // - определяем формат файла не по расширению
 //
@@ -167,7 +173,7 @@ implementation
 
 uses
  l3Base, l3Except,
- StrShop,
+ StrShop, IniShop,
  TIFLZW, GIFLZW,
  hyiedefs,
  hyieutils, Printers,
@@ -695,7 +701,7 @@ end;
 
 procedure TfrmImgViewer.btnSaveImageClick(Sender: TObject);
 begin
- if SaveDialog.Execute then
+ if IniRec.ExecuteSaveDialog(SaveDialog) then
   SaveAllToSingleTIFF(SaveDialog.FileName);
 end;
 

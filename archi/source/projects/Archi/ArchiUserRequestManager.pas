@@ -1,7 +1,40 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.101 2015/11/24 11:46:22 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.109 2016/06/03 07:51:36 fireton Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.109  2016/06/03 07:51:36  fireton
+// - недокоммит
+//
+// Revision 1.108  2016/06/02 13:25:22  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.107  2016/05/12 11:34:17  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.106  2016/05/11 10:16:26  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.105  2016/05/05 12:58:34  lukyanets
+// Пересаживаем UserManager на новые рельсы
+//
+// Revision 1.104  2016/04/07 13:56:40  lukyanets
+// Заготовки прокси задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.103  2016/04/05 08:51:30  lukyanets
+// Заготовки контейнерной задачи для шедулера
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
+// Revision 1.102  2016/04/01 12:06:32  lukyanets
+// Заготовки контейнерной задачи
+// Committed on the Free edition of March Hare Software CVSNT Server.
+// Upgrade to CVS Suite for more features and support:
+// http://march-hare.com/cvsnt/
+//
 // Revision 1.101  2015/11/24 11:46:22  lukyanets
 // Отладочные логи
 //
@@ -482,7 +515,9 @@ uses
   SysUtils, Windows, Messages, Classes, Graphics, Controls,
   Forms, Dialogs,
   l3Base,
-  dt_Types, dt_UserTypes,
+  daArchiUser,
+  daArchiUserList,
+  dt_Types,
   CSClient, CSNotification, CsQueryTypes,
   csProcessTask, CsDataPipe, l3Types,
   l3ObjectRefList, ddCalendarEvents,
@@ -492,7 +527,6 @@ uses
 
   ddServerTaskListPrim,
   ddTaskItemList,
-  ArchiUserList,
   SyncObjs,
 
   l3MultiThreadIntegerList,
@@ -508,7 +542,7 @@ type
   private
    f_MyTaskList: TddTaskItemList;
    f_TaskList: TddTaskItemList;
-   f_UserList: TArchiUserList;
+   f_UserList: TdaArchiUserList;
    f_EnabledTasks: TcsTaskTypes;
    f_ExecuteEnabled: Boolean;
    f_OnAnouncedDateChanged: TOnAnouncedDateChanged;
@@ -585,6 +619,8 @@ implementation
 
 Uses
  Math, StrUtils,
+ daInterfaces,
+ daDataProvider,
  ddTaskListDlg, ddUtils,
  csMessageManager,
  dt_Dict, dt_Mail,
@@ -595,6 +631,7 @@ Uses
  l3FileUtils, csSpellCorrectTask, CsExport,
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
+  csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
 
  AutoClassTask_Const,
  k2Base,
@@ -662,7 +699,7 @@ begin
  f_DeliveryGuard := TCriticalSection.Create;
  f_TaskList := TddTaskItemList.Make;
  f_MyTaskList := TddTaskItemList.Make;
- f_UserList := TArchiUserList.Make;
+ f_UserList := TdaArchiUserList.Make;
 // f_ActiveUserList := TArchiUserList.Make;
  f_ToRegionList:= Tl3MultiThreadIntegerList.Create;
  RegisterTaskTypes;
@@ -962,7 +999,11 @@ begin
  RegisterTaskClass(cs_ttRelPublish, TcsRelPublishTask, 'Дополнение справок');
  RegisterTaskClass(cs_ttAnoncedExport, TcsExport, 'Экспорт анонсированных');
  RegisterTaskClass(cs_ttMdpSyncDicts, TcsMdpSyncDicts, 'Синхронизация словарей в Гардок');
+ RegisterTaskClass(cs_ttMdpSyncStages, TcsMdpSyncStages, 'Синхронизация этапов в Гардок');
+ RegisterTaskClass(cs_ttMdpSyncImport, TcsMdpSyncImport, 'Синхронизация журнала импорта в Гардок');
  RegisterTaskClass(cs_ttMdpImportDocs, TcsMdpImportDocs, 'Импорт документов из Гардока');
+ RegisterTaskClass(cs_ttContainer, TcsContainerTask, 'Групповая задача');
+ RegisterTaskClass(cs_ttSchedulerProxy, TcsSchedulerProxyTask, 'Задание планировщика');
 end;
 
 procedure TArchiUserRequestManager.RequestUsersList;
@@ -1060,7 +1101,7 @@ procedure TArchiUserRequestManager.pipe_ReadAllUsersList(aPipe: TcsDataPipe);
 var
  l_Count, i: Integer;
  l_Stream: TStream;
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
  f_UserList.Clear;
  l_Count:= aPipe.ReadInteger;
@@ -1071,12 +1112,12 @@ begin
   l_Stream.Seek(0, 0);
   for i:= 0 to Pred(l_Count) do
   begin
-   l_User:= TArchiUser.Create;
+   l_User := TdaArchiUser.Make(GlobalDataProvider.UserManager.PriorityCalculator);
    try
     l_User.Load(l_Stream);
     f_UserList.Add(l_User);
    finally
-    FreeAndNil(l_user);
+    l_user := nil;
    end;
   end; // for i
  finally

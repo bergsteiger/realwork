@@ -3,7 +3,7 @@ unit alcuBaseEngine;
 interface
 
 uses
- ddServerBaseEngine, CsActiveClients, dt_UserTypes,
+ ddServerBaseEngine, CsActiveClients, daInterfaces,
 
  csClientInfo
  ;
@@ -15,8 +15,8 @@ type
   function _CloseSession(aClient: TcsClientInfo): Boolean;
  public
   function IsBaseFree(out aMessage: String): Boolean;
-  procedure LogoffUsers(theUser: TArchiUser);
-  procedure LogoffUsersEx(theUser: TArchiUser);
+  procedure LogoffUsers(theUser: IdaArchiUser);
+  procedure LogoffUsersEx(theUser: IdaArchiUser);
   procedure UpdateUserlist;
   function HasActiveUsers: Boolean;
  end;
@@ -59,7 +59,7 @@ begin
   aMessage:= IfThen(Result, 'База доступна', 'Не удалось получить контроль над базой');
 end;
 
-procedure TalcuBaseEngine.LogoffUsers(theUser: TArchiUser);
+procedure TalcuBaseEngine.LogoffUsers(theUser: IdaArchiUser);
 var
  l_UserID: TCsClientId;
 begin
@@ -81,7 +81,7 @@ begin
  end; // f_BaseEngine.CSServer.ActiveClients.ClientsCount > 0
 end;
 
-procedure TalcuBaseEngine.LogoffUsersEx(theUser: TArchiUser);
+procedure TalcuBaseEngine.LogoffUsersEx(theUser: IdaArchiUser);
 begin
  if CSServer.ActiveClients.ClientsCount > 0 then
  begin

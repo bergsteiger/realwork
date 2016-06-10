@@ -1,6 +1,6 @@
 unit DocAttrUtils;
 
-{ $Id: DocAttrUtils.pas,v 1.25 2015/11/25 14:01:28 lukyanets Exp $ }
+{ $Id: DocAttrUtils.pas,v 1.26 2016/05/13 12:54:31 lukyanets Exp $ }
 {$I arDefine.inc}
 interface
  Uses
@@ -82,6 +82,7 @@ uses
   Com_Cnst,
   daTypes,
   daSchemeConsts,
+  daDataProvider,
   dt_DictConst,
   dt_LinkServ;
 
@@ -206,7 +207,7 @@ begin
 
    with aItem.Attr[k2_tiUser] do
    if IsValid and (IntA[k2_tiHandle] <> 0) then
-    Append(l3PCharLen(UserManager.GetUserDisplayName(TdaUserID(IntA[k2_tiHandle]))));
+    Append(l3PCharLen(GlobalDataProvider.UserManager.GetUserDisplayName(TdaUserID(IntA[k2_tiHandle]))));
  end;
 end;
 
@@ -248,7 +249,7 @@ begin
    if IsValid and (IntA[k2_tiHandle] <> 0) then
   begin
    Append(l3PCharLen(', корректор : '));
-    Append(l3PCharLen(UserManager.GetUserDisplayName(TdaUserID(IntA[k2_tiHandle]))));
+    Append(l3PCharLen(GlobalDataProvider.UserManager.GetUserDisplayName(TdaUserID(IntA[k2_tiHandle]))));
   end;
 
   if aItem.PCharLenA[k2_tiComment].SLen > 0 then

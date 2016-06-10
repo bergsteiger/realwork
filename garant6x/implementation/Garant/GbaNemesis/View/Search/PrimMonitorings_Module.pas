@@ -41,49 +41,23 @@ uses
   {$IfEnd} //not NoVCM
   ,
   l3ProtoObject,
-  NewsLine_Form,
   DocumentUserTypes_dftAutoreferatAfterSearch_UserType,
   DocumentUserTypes_dftAutoreferat_UserType,
   nsLogEvent,
   l3StringIDEx,
   PrimNewsLine_nltMain_UserType,
   Common_FormDefinitions_Controls,
-  PrimNewsLineOptions_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  ,
+  PrimNewsLineOptions_Form,
   l3MessageID
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
   {$If not defined(NoVCM)}
   ,
   vcmFormSetFormsCollectionItemPrim
   {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoScripts)}
   ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
-  nscTreeViewForNewsLine,
-  f1StartupCompletedService
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  ,
+  f1StartupCompletedService,
+  NewsLine_Form,
   fsAutoreferat,
-  fsAutoreferatAfterSearch
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  NewsLineKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  fsAutoreferatAfterSearch,
   vcmExternalInterfaces {a},
   vcmModule {a},
   vcmBase {a}
@@ -143,12 +117,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
   l3Base {a},
   SysUtils,
   sdsAutoreferat,
@@ -171,6 +139,7 @@ uses
   Controls
   {$IfEnd} //not NoVCL
   ,
+  Windows,
   LoggingUnit,
   nsLogEventData,
   nsLogManager,
@@ -186,17 +155,6 @@ uses
   ,
   nsPostingsTreeSingle,
   PostingOrder_Strange_Controls
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
-  
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,
   kw_Monitorings_opOpenNewsLine
@@ -298,9 +256,17 @@ var
  l_HasConnection: Boolean;
 
  function lp_IsContainerEmpty(const aContainer: IvcmContainer): Boolean;
+ var
+  l_ContainedForm: IvcmContainedForm;
  begin
-  with TvcmTabbedContainerFormDispatcher.Instance do
-   Result := IsTabEmpty(GetFormTab(TForm(aContainer.AsForm.VCLWinControl)));
+  if Supports(aContainer, IvcmContainedForm, l_ContainedForm) then
+  try
+   Result := l_ContainedForm.IsEmpty;
+  finally
+   l_ContainedForm := nil; 
+  end
+  else
+   Assert(False);
  end;//lp_IsContainerEmpty
 
  procedure lp_OpenMainMenuIfNeeded;
@@ -314,6 +280,7 @@ var
    try
     dmStdRes.OpenMainMenuIfNeeded(l_ContainerForMainMenu);
     afw.ProcessMessages;
+    UpdateWindow(l_ContainerForMainMenu.AsForm.VCLWinControl.Handle);
    finally
     l_ContainerForMainMenu := nil;
    end;
@@ -335,26 +302,39 @@ var
     l_Container := nsOpenNewWindowTabbed(l_Container, vcm_okInCurrentTab);
   end;
  end;
+var
+ l_NeedShowMainMenu: Boolean;
 //#UC END# *4AB76AD20100_4A8ECF3001D2_var*
 begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AB76AD20100_4A8ECF3001D2_impl*
-  l_IsDefined := defDataAdapter.Monitoring.IsNewsLineDefined;
-  l_IsOnline := defDataAdapter.PrimeManager.GetHasOnlineAccess;
-  l_HasConnection := l_IsOnline and defDataAdapter.PrimeManager.CheckConnectionToOnlineServer;
-  if (not l_IsDefined) and l_HasConnection then
-  begin
-   lp_OpenMainMenuIfNeeded;
-   // - http://mdp.garant.ru/pages/viewpage.action?pageId=565016076,
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=568141568
-   l_FillFormAnswer := vcmMessageDlg(str_NewsLineIsNotSetup, [])
-  end
-  else
-   l_FillFormAnswer := -2;
+  l_NeedShowMainMenu := lp_IsContainerEmpty(TvcmTabbedContainerFormDispatcher.Instance.ActiveVCMContainer);
 
-  if l_FillFormAnswer = mrCancel then
-   Exit;
+  if l_NeedShowMainMenu then
+  begin
+   lp_CreateContainer(not aDenyNewTab);
+   lp_OpenMainMenuIfNeeded;
+  end;
+  
+  l_FillFormAnswer := -2;
+  l_IsDefined := defDataAdapter.Monitoring.IsNewsLineDefined;
+  l_IsOnline := False;
+  l_HasConnection := False;
+
+  afw.ProcessMessages;
+
+  if not l_IsDefined then
+  begin
+   l_IsOnline := defDataAdapter.PrimeManager.GetHasOnlineAccess;
+   l_HasConnection := l_IsOnline and defDataAdapter.PrimeManager.CheckConnectionToOnlineServer;
+   if l_HasConnection then
+   begin
+    l_FillFormAnswer := vcmMessageDlg(str_NewsLineIsNotSetup, []);
+    if l_FillFormAnswer = mrCancel then
+     Exit;
+   end
+  end;
 
   if l_IsOnline and (l_FillFormAnswer = -1) then
   begin
@@ -362,15 +342,13 @@ begin
    begin
     if not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch) then
     begin
-     lp_CreateContainer(False);
+     if (l_Container = nil) then
+      lp_CreateContainer(False);
      TCommonPostModule.StartOpen(l_Container, False);
     end else
      Op_SearchSupport_ActivatePostingsListForm.Broadcast;
    end else
    begin
-    lp_OpenMainMenuIfNeeded;
-    // - http://mdp.garant.ru/pages/viewpage.action?pageId=565016076,
-    // http://mdp.garant.ru/pages/viewpage.action?pageId=568141568
     if vcmAsk(str_PrimeIsOffline, []) then
      // ничего не делаем
     else

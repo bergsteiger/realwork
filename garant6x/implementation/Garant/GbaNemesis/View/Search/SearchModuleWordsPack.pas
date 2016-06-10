@@ -33,6 +33,7 @@ uses
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *571A254F038Aimpl_uses*
+ , nsQueryInterfaces
  //#UC END# *571A254F038Aimpl_uses*
 ;
 
@@ -113,7 +114,7 @@ procedure TkwAttributeSearch.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_4DAF069D0072_var*
 begin
 //#UC START# *4DAEEDE10285_4DAF069D0072_impl*
- !!! Needs to be implemented !!!
+ TdmStdRes.OpenQuery(lg_qtAttribute, nil, nil);
 //#UC END# *4DAEEDE10285_4DAF069D0072_impl*
 end;//TkwAttributeSearch.DoDoIt
 
@@ -122,7 +123,7 @@ procedure TkwClearContextSearchHistory.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_53B12A56032C_var*
 begin
 //#UC START# *4DAEEDE10285_53B12A56032C_impl*
- !!! Needs to be implemented !!!
+ NsGetContextHistory(GetContextHistoryKind).Clear;
 //#UC END# *4DAEEDE10285_53B12A56032C_impl*
 end;//TkwClearContextSearchHistory.DoDoIt
 
@@ -131,7 +132,7 @@ function TkwClearDocumentContextSearchHistory.GetContextHistoryKind: TnsContextH
 //#UC END# *53B12AEE01A2_53B12B8A03DC_var*
 begin
 //#UC START# *53B12AEE01A2_53B12B8A03DC_impl*
- !!! Needs to be implemented !!!
+ Result := ns_chkDocument;
 //#UC END# *53B12AEE01A2_53B12B8A03DC_impl*
 end;//TkwClearDocumentContextSearchHistory.GetContextHistoryKind
 
@@ -145,7 +146,7 @@ function TkwClearPharmContextSearchHistory.GetContextHistoryKind: TnsContextHist
 //#UC END# *53B12AEE01A2_53B12BB200FE_var*
 begin
 //#UC START# *53B12AEE01A2_53B12BB200FE_impl*
- !!! Needs to be implemented !!!
+ Result := ns_chkInpharm;
 //#UC END# *53B12AEE01A2_53B12BB200FE_impl*
 end;//TkwClearPharmContextSearchHistory.GetContextHistoryKind
 

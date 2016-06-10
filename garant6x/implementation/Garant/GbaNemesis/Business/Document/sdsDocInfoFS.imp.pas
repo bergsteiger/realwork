@@ -25,7 +25,7 @@
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  _nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
- _sdsDocInfo_ = {abstract ucc} class(_nsUserSettingsListener_, IsdsDocInfo, IbsFlash {from IsdsDocInfo})
+ _sdsDocInfoFS_ = {abstract ucc} class(_nsUserSettingsListener_, IsdsDocInfo, IbsFlash {from IsdsDocInfo})
   {* Общий объект сборки для списка и документа }
  private
  // private methods
@@ -154,7 +154,7 @@
  protected
  // Методы преобразования к реализуемым интерфейсам
    function As_IbsFlash: IbsFlash;
- end;//_sdsDocInfo_
+ end;//_sdsDocInfoFS_
 {$IfEnd} //not Admin AND not Monitorings
 
 {$Else sdsDocInfo_imp}
@@ -170,54 +170,54 @@
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
-// start class _sdsDocInfo_
+// start class _sdsDocInfoFS_
 
-function _sdsDocInfo_.NeedMakeDSUserCRList1: Boolean;
+function _sdsDocInfoFS_.NeedMakeDSUserCRList1: Boolean;
 //#UC START# *493D51B00058_493D2F7B031D_var*
 //#UC END# *493D51B00058_493D2F7B031D_var*
 begin
 //#UC START# *493D51B00058_493D2F7B031D_impl*
  Result := SetData.UserCRListInfo[ulFirst].Has;
 //#UC END# *493D51B00058_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeDSUserCRList1
+end;//_sdsDocInfoFS_.NeedMakeDSUserCRList1
 
-function _sdsDocInfo_.NeedMakeDSUserCRList2: Boolean;
+function _sdsDocInfoFS_.NeedMakeDSUserCRList2: Boolean;
 //#UC START# *493D51BE03DC_493D2F7B031D_var*
 //#UC END# *493D51BE03DC_493D2F7B031D_var*
 begin
 //#UC START# *493D51BE03DC_493D2F7B031D_impl*
  Result := SetData.UserCRListInfo[ulSecond].Has;
 //#UC END# *493D51BE03DC_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeDSUserCRList2
+end;//_sdsDocInfoFS_.NeedMakeDSUserCRList2
 
-function _sdsDocInfo_.NeedMakeDSCorrespondents: Boolean;
+function _sdsDocInfoFS_.NeedMakeDSCorrespondents: Boolean;
 //#UC START# *493D51D0039B_493D2F7B031D_var*
 //#UC END# *493D51D0039B_493D2F7B031D_var*
 begin
 //#UC START# *493D51D0039B_493D2F7B031D_impl*
  Result := pm_GetHasCorrespondents;
 //#UC END# *493D51D0039B_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeDSCorrespondents
+end;//_sdsDocInfoFS_.NeedMakeDSCorrespondents
 
-function _sdsDocInfo_.NeedMakeDSRespondents: Boolean;
+function _sdsDocInfoFS_.NeedMakeDSRespondents: Boolean;
 //#UC START# *493D51DF022F_493D2F7B031D_var*
 //#UC END# *493D51DF022F_493D2F7B031D_var*
 begin
 //#UC START# *493D51DF022F_493D2F7B031D_impl*
  Result := pm_GetHasRespondents;
 //#UC END# *493D51DF022F_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeDSRespondents
+end;//_sdsDocInfoFS_.NeedMakeDSRespondents
 
-function _sdsDocInfo_.StateIfNeedShowFullCRList: TvcmNeedMakeDS;
+function _sdsDocInfoFS_.StateIfNeedShowFullCRList: TvcmNeedMakeDS;
 //#UC START# *493D521E0135_493D2F7B031D_var*
 //#UC END# *493D521E0135_493D2F7B031D_var*
 begin
 //#UC START# *493D521E0135_493D2F7B031D_impl*
  Result := vcm_nmYes;
 //#UC END# *493D521E0135_493D2F7B031D_impl*
-end;//_sdsDocInfo_.StateIfNeedShowFullCRList
+end;//_sdsDocInfoFS_.StateIfNeedShowFullCRList
 
-function _sdsDocInfo_.ChangeCorrType(const aValue: INodeBase): Boolean;
+function _sdsDocInfoFS_.ChangeCorrType(const aValue: INodeBase): Boolean;
 //#UC START# *493D524802C9_493D2F7B031D_var*
 //#UC END# *493D524802C9_493D2F7B031D_var*
 begin
@@ -234,9 +234,9 @@ begin
  else//if not Assigned(SetData.CorrType)
   Result := SetData.CorrList = nil;
 //#UC END# *493D524802C9_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ChangeCorrType
+end;//_sdsDocInfoFS_.ChangeCorrType
 
-function _sdsDocInfo_.ChangeRespType(const aValue: INodeBase): Boolean;
+function _sdsDocInfoFS_.ChangeRespType(const aValue: INodeBase): Boolean;
 //#UC START# *493D525B007D_493D2F7B031D_var*
 //#UC END# *493D525B007D_493D2F7B031D_var*
 begin
@@ -253,9 +253,9 @@ begin
  else//if not Assigned(SetData.RespType)
   Result := SetData.RespList = nil;
 //#UC END# *493D525B007D_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ChangeRespType
+end;//_sdsDocInfoFS_.ChangeRespType
 
-function _sdsDocInfo_.IsOrdinalCRSelected(aCRType: TlstCRType;
+function _sdsDocInfoFS_.IsOrdinalCRSelected(aCRType: TlstCRType;
   out aId: TnsUserCRListId): Boolean;
 //#UC START# *493D5BB40051_493D2F7B031D_var*
 var
@@ -274,9 +274,9 @@ begin
   end;//if Result then
  end;//for I := Low(TnsUserCRListId) to
 //#UC END# *493D5BB40051_493D2F7B031D_impl*
-end;//_sdsDocInfo_.IsOrdinalCRSelected
+end;//_sdsDocInfoFS_.IsOrdinalCRSelected
 
-procedure _sdsDocInfo_.ResetCachedObject(aWithoutCRTypes: Boolean);
+procedure _sdsDocInfoFS_.ResetCachedObject(aWithoutCRTypes: Boolean);
 //#UC START# *493D5E9700AE_493D2F7B031D_var*
 //#UC END# *493D5E9700AE_493D2F7B031D_var*
 begin
@@ -297,9 +297,9 @@ begin
   FlashData := nil;
  end;//with SetData do
 //#UC END# *493D5E9700AE_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ResetCachedObject
+end;//_sdsDocInfoFS_.ResetCachedObject
 
-function _sdsDocInfo_.TruthHasSimilarDocuments: Boolean;
+function _sdsDocInfoFS_.TruthHasSimilarDocuments: Boolean;
 //#UC START# *493D5FA703E6_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -314,9 +314,9 @@ begin
   SetData.HasSimilarDocuments := l_Temp;
  end;
 //#UC END# *493D5FA703E6_493D2F7B031D_impl*
-end;//_sdsDocInfo_.TruthHasSimilarDocuments
+end;//_sdsDocInfoFS_.TruthHasSimilarDocuments
 
-function _sdsDocInfo_.TruthHasRelatedDoc: Boolean;
+function _sdsDocInfoFS_.TruthHasRelatedDoc: Boolean;
 //#UC START# *493D5FC202B1_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -330,9 +330,9 @@ begin
   SetData.HasRelatedDoc := l_Temp;
  end;//if pm_GetHasDocument..
 //#UC END# *493D5FC202B1_493D2F7B031D_impl*
-end;//_sdsDocInfo_.TruthHasRelatedDoc
+end;//_sdsDocInfoFS_.TruthHasRelatedDoc
 
-function _sdsDocInfo_.TruthHasAnnotation: Boolean;
+function _sdsDocInfoFS_.TruthHasAnnotation: Boolean;
 //#UC START# *493D5FD70278_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -346,9 +346,9 @@ begin
   SetData.HasAnnotation := l_Temp;
  end;
 //#UC END# *493D5FD70278_493D2F7B031D_impl*
-end;//_sdsDocInfo_.TruthHasAnnotation
+end;//_sdsDocInfoFS_.TruthHasAnnotation
 
-function _sdsDocInfo_.TruthHasChronology: Boolean;
+function _sdsDocInfoFS_.TruthHasChronology: Boolean;
 //#UC START# *53BFE45F039B_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -362,9 +362,9 @@ begin
   SetData.HasChronology := l_Temp;
  end;
 //#UC END# *53BFE45F039B_493D2F7B031D_impl*
-end;//_sdsDocInfo_.TruthHasChronology
+end;//_sdsDocInfoFS_.TruthHasChronology
 
-function _sdsDocInfo_.GetTypedCR(aId: TnsUserCRListId): IdeDocumentListCR;
+function _sdsDocInfoFS_.GetTypedCR(aId: TnsUserCRListId): IdeDocumentListCR;
 //#UC START# *493D60320164_493D2F7B031D_var*
 var
  l_List    : IDynList;
@@ -390,9 +390,9 @@ begin
  with SetData.UserCRListInfo[aId] do
   Result := TdeDocumentListCR.Make(l_List, Node.Value, ListType);
 //#UC END# *493D60320164_493D2F7B031D_impl*
-end;//_sdsDocInfo_.GetTypedCR
+end;//_sdsDocInfoFS_.GetTypedCR
 
-procedure _sdsDocInfo_.ConfigurationChanged;
+procedure _sdsDocInfoFS_.ConfigurationChanged;
 //#UC START# *493D606D0189_493D2F7B031D_var*
 //#UC END# *493D606D0189_493D2F7B031D_var*
 begin
@@ -400,18 +400,18 @@ begin
  FillState;
  Refresh;
 //#UC END# *493D606D0189_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ConfigurationChanged
+end;//_sdsDocInfoFS_.ConfigurationChanged
 
-function _sdsDocInfo_.NeedMakeDocumentWithFlash: Boolean;
+function _sdsDocInfoFS_.NeedMakeDocumentWithFlash: Boolean;
 //#UC START# *493D62FF02AF_493D2F7B031D_var*
 //#UC END# *493D62FF02AF_493D2F7B031D_var*
 begin
 //#UC START# *493D62FF02AF_493D2F7B031D_impl*
  Result := pm_GetHasDocument and (pm_GetDocInfo.Doc.GetDocType = DT_FLASH);
 //#UC END# *493D62FF02AF_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeDocumentWithFlash
+end;//_sdsDocInfoFS_.NeedMakeDocumentWithFlash
 
-function _sdsDocInfo_.DoChangeCRType(const aNode: INodeBase;
+function _sdsDocInfoFS_.DoChangeCRType(const aNode: INodeBase;
   aType: TlstCRType;
   IsCRToPart: Boolean): Boolean;
 //#UC START# *493D6B5B02DE_493D2F7B031D_var*
@@ -429,45 +429,45 @@ begin
  else
   Assert(not IsCRToPart, caRespCorrestUnsupported);
 //#UC END# *493D6B5B02DE_493D2F7B031D_impl*
-end;//_sdsDocInfo_.DoChangeCRType
+end;//_sdsDocInfoFS_.DoChangeCRType
 
-function _sdsDocInfo_.NeedMakeRelatedDoc: Boolean;
+function _sdsDocInfoFS_.NeedMakeRelatedDoc: Boolean;
 //#UC START# *493D6E7E0282_493D2F7B031D_var*
 //#UC END# *493D6E7E0282_493D2F7B031D_var*
 begin
 //#UC START# *493D6E7E0282_493D2F7B031D_impl*
  Result := pm_GetHasRelatedDoc;
 //#UC END# *493D6E7E0282_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeRelatedDoc
+end;//_sdsDocInfoFS_.NeedMakeRelatedDoc
 
-function _sdsDocInfo_.NeedMakeAnnotation: Boolean;
+function _sdsDocInfoFS_.NeedMakeAnnotation: Boolean;
 //#UC START# *493D6EAB0019_493D2F7B031D_var*
 //#UC END# *493D6EAB0019_493D2F7B031D_var*
 begin
 //#UC START# *493D6EAB0019_493D2F7B031D_impl*
  Result := pm_GetHasAnnotation;
 //#UC END# *493D6EAB0019_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeAnnotation
+end;//_sdsDocInfoFS_.NeedMakeAnnotation
 
-function _sdsDocInfo_.NeedMakeChronology: Boolean;
+function _sdsDocInfoFS_.NeedMakeChronology: Boolean;
 //#UC START# *53BFE4C1035E_493D2F7B031D_var*
 //#UC END# *53BFE4C1035E_493D2F7B031D_var*
 begin
 //#UC START# *53BFE4C1035E_493D2F7B031D_impl*
  Result := pm_GetHasChronology;
 //#UC END# *53BFE4C1035E_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeChronology
+end;//_sdsDocInfoFS_.NeedMakeChronology
 
-function _sdsDocInfo_.NeedMakeSimilarDocuments: Boolean;
+function _sdsDocInfoFS_.NeedMakeSimilarDocuments: Boolean;
 //#UC START# *493D6EC40228_493D2F7B031D_var*
 //#UC END# *493D6EC40228_493D2F7B031D_var*
 begin
 //#UC START# *493D6EC40228_493D2F7B031D_impl*
  Result := pm_GetHasSimilarDocuments;
 //#UC END# *493D6EC40228_493D2F7B031D_impl*
-end;//_sdsDocInfo_.NeedMakeSimilarDocuments
+end;//_sdsDocInfoFS_.NeedMakeSimilarDocuments
 
-function _sdsDocInfo_.GetOrMakeRespList: IDynList;
+function _sdsDocInfoFS_.GetOrMakeRespList: IDynList;
 //#UC START# *4946533D0039_493D2F7B031D_var*
 var
  l_Temp: IDynList;
@@ -486,9 +486,9 @@ begin
   end;
  Result := SetData.RespList;
 //#UC END# *4946533D0039_493D2F7B031D_impl*
-end;//_sdsDocInfo_.GetOrMakeRespList
+end;//_sdsDocInfoFS_.GetOrMakeRespList
 
-function _sdsDocInfo_.GetOrMakeCorrList: IDynList;
+function _sdsDocInfoFS_.GetOrMakeCorrList: IDynList;
 //#UC START# *4946539A0021_493D2F7B031D_var*
 var
  l_Temp: IDynList;
@@ -507,9 +507,9 @@ begin
   end;
  Result := SetData.CorrList;
 //#UC END# *4946539A0021_493D2F7B031D_impl*
-end;//_sdsDocInfo_.GetOrMakeCorrList
+end;//_sdsDocInfoFS_.GetOrMakeCorrList
 
-function _sdsDocInfo_.pm_GetHasTranslation: Boolean;
+function _sdsDocInfoFS_.pm_GetHasTranslation: Boolean;
 //#UC START# *01DBA41F4474_493D2F7B031Dget_var*
 var
  l_Temp: Tl3Bool;
@@ -523,27 +523,27 @@ begin
   SetData.HasTranslation := l_Temp;
  end;
 //#UC END# *01DBA41F4474_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasTranslation
+end;//_sdsDocInfoFS_.pm_GetHasTranslation
 
-function _sdsDocInfo_.pm_GetHasSimilarDocuments: Boolean;
+function _sdsDocInfoFS_.pm_GetHasSimilarDocuments: Boolean;
 //#UC START# *10E3D328A415_493D2F7B031Dget_var*
 //#UC END# *10E3D328A415_493D2F7B031Dget_var*
 begin
 //#UC START# *10E3D328A415_493D2F7B031Dget_impl*
  Result := TruthHasSimilarDocuments;
 //#UC END# *10E3D328A415_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasSimilarDocuments
+end;//_sdsDocInfoFS_.pm_GetHasSimilarDocuments
 
-function _sdsDocInfo_.pm_GetHasRelatedDoc: Boolean;
+function _sdsDocInfoFS_.pm_GetHasRelatedDoc: Boolean;
 //#UC START# *3690DB82E835_493D2F7B031Dget_var*
 //#UC END# *3690DB82E835_493D2F7B031Dget_var*
 begin
 //#UC START# *3690DB82E835_493D2F7B031Dget_impl*
  Result := TruthHasRelatedDoc;
 //#UC END# *3690DB82E835_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasRelatedDoc
+end;//_sdsDocInfoFS_.pm_GetHasRelatedDoc
 
-procedure _sdsDocInfo_.OpenCorrespondents;
+procedure _sdsDocInfoFS_.OpenCorrespondents;
 //#UC START# *4937C4D90220_493D2F7B031D_var*
 //#UC END# *4937C4D90220_493D2F7B031D_var*
 begin
@@ -554,9 +554,9 @@ begin
   Refresh;
  end;//if SetData.refCorrespondents.IsEmpty then
 //#UC END# *4937C4D90220_493D2F7B031D_impl*
-end;//_sdsDocInfo_.OpenCorrespondents
+end;//_sdsDocInfoFS_.OpenCorrespondents
 
-procedure _sdsDocInfo_.OpenRespondents;
+procedure _sdsDocInfoFS_.OpenRespondents;
 //#UC START# *4937C4E701F3_493D2F7B031D_var*
 //#UC END# *4937C4E701F3_493D2F7B031D_var*
 begin
@@ -567,9 +567,9 @@ begin
   Refresh;
  end;//if SetData.refRespondents.IsEmpty then
 //#UC END# *4937C4E701F3_493D2F7B031D_impl*
-end;//_sdsDocInfo_.OpenRespondents
+end;//_sdsDocInfoFS_.OpenRespondents
 
-function _sdsDocInfo_.ChangeCRType(const aNode: INodeBase;
+function _sdsDocInfoFS_.ChangeCRType(const aNode: INodeBase;
   aType: TlstCRType;
   IsCRToPart: Boolean = false): Boolean;
 //#UC START# *4937C4F5038B_493D2F7B031D_var*
@@ -578,9 +578,9 @@ begin
 //#UC START# *4937C4F5038B_493D2F7B031D_impl*
  Result := DoChangeCRType(aNode, aType, IsCRToPart);
 //#UC END# *4937C4F5038B_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ChangeCRType
+end;//_sdsDocInfoFS_.ChangeCRType
 
-procedure _sdsDocInfo_.AddToControl;
+procedure _sdsDocInfoFS_.AddToControl;
 //#UC START# *4937C5250138_493D2F7B031D_var*
 //#UC END# *4937C5250138_493D2F7B031D_var*
 begin
@@ -591,9 +591,9 @@ begin
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C5250138_493D2F7B031D_impl*
-end;//_sdsDocInfo_.AddToControl
+end;//_sdsDocInfoFS_.AddToControl
 
-procedure _sdsDocInfo_.DelFromControl;
+procedure _sdsDocInfoFS_.DelFromControl;
 //#UC START# *4937C55101B2_493D2F7B031D_var*
 //#UC END# *4937C55101B2_493D2F7B031D_var*
 begin
@@ -604,9 +604,9 @@ begin
   SetData.IsUnderControl := l3_bUnknown;
  end;
 //#UC END# *4937C55101B2_493D2F7B031D_impl*
-end;//_sdsDocInfo_.DelFromControl
+end;//_sdsDocInfoFS_.DelFromControl
 
-procedure _sdsDocInfo_.ResetCacheAfterUpdate;
+procedure _sdsDocInfoFS_.ResetCacheAfterUpdate;
 //#UC START# *4937C56002B6_493D2F7B031D_var*
 //#UC END# *4937C56002B6_493D2F7B031D_var*
 begin
@@ -614,9 +614,9 @@ begin
  SetData.ResetBooleans;
  ResetCachedObject(True);
 //#UC END# *4937C56002B6_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ResetCacheAfterUpdate
+end;//_sdsDocInfoFS_.ResetCacheAfterUpdate
 
-function _sdsDocInfo_.IsTypedCRSelected(aSheetNumber: TnsUserCRListId): Boolean;
+function _sdsDocInfoFS_.IsTypedCRSelected(aSheetNumber: TnsUserCRListId): Boolean;
 //#UC START# *4937C58D008D_493D2F7B031D_var*
 //#UC END# *4937C58D008D_493D2F7B031D_var*
 begin
@@ -624,9 +624,9 @@ begin
  with SetData.UserCRListInfo[aSheetNumber] do
   Result := (ListType <> crtNone) and bsIsCRNodeAreNotAllDocuments(Node);
 //#UC END# *4937C58D008D_493D2F7B031D_impl*
-end;//_sdsDocInfo_.IsTypedCRSelected
+end;//_sdsDocInfoFS_.IsTypedCRSelected
 
-function _sdsDocInfo_.HasTypedCRinBigBase(aSheetNumber: TnsUserCRListId): Boolean;
+function _sdsDocInfoFS_.HasTypedCRinBigBase(aSheetNumber: TnsUserCRListId): Boolean;
 //#UC START# *4937C5A5024F_493D2F7B031D_var*
 //#UC END# *4937C5A5024F_493D2F7B031D_var*
 begin
@@ -641,9 +641,9 @@ begin
      Result := pm_GetDocInfo.Doc.HasCorrespondents(Node.Value);
    end;//case SetData.UserCRSheetTypes[aSheetNumber] of
 //#UC END# *4937C5A5024F_493D2F7B031D_impl*
-end;//_sdsDocInfo_.HasTypedCRinBigBase
+end;//_sdsDocInfoFS_.HasTypedCRinBigBase
 
-function _sdsDocInfo_.pm_GetIsUnderControl: Boolean;
+function _sdsDocInfoFS_.pm_GetIsUnderControl: Boolean;
 //#UC START# *4937C61C0270_493D2F7B031Dget_var*
 var
  l_Temp: Tl3Bool;
@@ -658,18 +658,18 @@ begin
   SetData.IsUnderControl := l_Temp;
  end;
 //#UC END# *4937C61C0270_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetIsUnderControl
+end;//_sdsDocInfoFS_.pm_GetIsUnderControl
 
-function _sdsDocInfo_.pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
+function _sdsDocInfoFS_.pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
 //#UC START# *4937D0FF0303_493D2F7B031Dget_var*
 //#UC END# *4937D0FF0303_493D2F7B031Dget_var*
 begin
 //#UC START# *4937D0FF0303_493D2F7B031Dget_impl*
  Result := SetData.UserCRListInfo[aId];
 //#UC END# *4937D0FF0303_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetUserCRListInfo
+end;//_sdsDocInfoFS_.pm_GetUserCRListInfo
 
-function _sdsDocInfo_.pm_GetFlashData: IExternalObject;
+function _sdsDocInfoFS_.pm_GetFlashData: IExternalObject;
 //#UC START# *4939534D01FB_493D2F7B031Dget_var*
 //#UC END# *4939534D01FB_493D2F7B031Dget_var*
 begin
@@ -692,9 +692,9 @@ begin
  else
   Result := SetData.FlashData;
 //#UC END# *4939534D01FB_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetFlashData
+end;//_sdsDocInfoFS_.pm_GetFlashData
 
-function _sdsDocInfo_.pm_GetDsRelatedDoc: IdsDocument;
+function _sdsDocInfoFS_.pm_GetDsRelatedDoc: IdsDocument;
 //#UC START# *5009A673037A_493D2F7B031Dget_var*
 //#UC END# *5009A673037A_493D2F7B031Dget_var*
 begin
@@ -712,7 +712,7 @@ begin
  end;//with pm_GetdsRelatedDocRef
 end;
 
-function _sdsDocInfo_.DoGet_dsRelatedDoc: IdsDocument;
+function _sdsDocInfoFS_.DoGet_dsRelatedDoc: IdsDocument;
 //#UC START# *5009A673037A_493D2F7B031Darea_var*
 var
  l_Container : IbsDocumentContainer;
@@ -729,14 +729,14 @@ begin
  else
   Result := nil;
 //#UC END# *5009A673037A_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsRelatedDoc
+end;//_sdsDocInfoFS_.DoGet_dsRelatedDoc
 
-function _sdsDocInfo_.pm_GetdsRelatedDocRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsRelatedDocRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsRelatedDocRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsRespondents: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsRespondents: IdsDocumentList;
 //#UC START# *5009A699023D_493D2F7B031Dget_var*
 
  function CheckList: Boolean;
@@ -766,7 +766,7 @@ begin
  end;//with pm_GetdsRespondentsRef
 end;
 
-function _sdsDocInfo_.DoGet_dsRespondents: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsRespondents: IdsDocumentList;
 //#UC START# *5009A699023D_493D2F7B031Darea_var*
 //#UC END# *5009A699023D_493D2F7B031Darea_var*
 begin
@@ -774,14 +774,14 @@ begin
  Result := TdsDocumentListCR.Make(Self, TdeDocumentListCR.Make(GetOrMakeRespList,
   SetData.RespType.Value, crtRespondents));
 //#UC END# *5009A699023D_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsRespondents
+end;//_sdsDocInfoFS_.DoGet_dsRespondents
 
-function _sdsDocInfo_.pm_GetdsRespondentsRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsRespondentsRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsRespondentsRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsCorrespondents: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsCorrespondents: IdsDocumentList;
 //#UC START# *5009A6BE01DD_493D2F7B031Dget_var*
 
  function CheckList: Boolean;
@@ -811,7 +811,7 @@ begin
  end;//with pm_GetdsCorrespondentsRef
 end;
 
-function _sdsDocInfo_.DoGet_dsCorrespondents: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsCorrespondents: IdsDocumentList;
 //#UC START# *5009A6BE01DD_493D2F7B031Darea_var*
 //#UC END# *5009A6BE01DD_493D2F7B031Darea_var*
 begin
@@ -819,14 +819,14 @@ begin
  Result := TdsDocumentListCR.Make(Self, TdeDocumentListCR.Make(GetOrMakeCorrList,
   SetData.CorrType.Value, crtCorrespondents));
 //#UC END# *5009A6BE01DD_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsCorrespondents
+end;//_sdsDocInfoFS_.DoGet_dsCorrespondents
 
-function _sdsDocInfo_.pm_GetdsCorrespondentsRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsCorrespondentsRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsCorrespondentsRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsUserCR1: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsUserCR1: IdsDocumentList;
 //#UC START# *5009A6EF0016_493D2F7B031Dget_var*
 //#UC END# *5009A6EF0016_493D2F7B031Dget_var*
 begin
@@ -843,21 +843,21 @@ begin
  end;//with pm_GetdsUserCR1Ref
 end;
 
-function _sdsDocInfo_.DoGet_dsUserCR1: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsUserCR1: IdsDocumentList;
 //#UC START# *5009A6EF0016_493D2F7B031Darea_var*
 //#UC END# *5009A6EF0016_493D2F7B031Darea_var*
 begin
 //#UC START# *5009A6EF0016_493D2F7B031Darea_impl*
  Result := TdsDocumentListCR.Make(Self, GetTypedCR(ulFirst)); 
 //#UC END# *5009A6EF0016_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsUserCR1
+end;//_sdsDocInfoFS_.DoGet_dsUserCR1
 
-function _sdsDocInfo_.pm_GetdsUserCR1Ref: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsUserCR1Ref: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsUserCR1Ref;
 end;
 
-function _sdsDocInfo_.pm_GetDsUserCR2: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsUserCR2: IdsDocumentList;
 //#UC START# *5009A72B01A5_493D2F7B031Dget_var*
 //#UC END# *5009A72B01A5_493D2F7B031Dget_var*
 begin
@@ -874,21 +874,21 @@ begin
  end;//with pm_GetdsUserCR2Ref
 end;
 
-function _sdsDocInfo_.DoGet_dsUserCR2: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsUserCR2: IdsDocumentList;
 //#UC START# *5009A72B01A5_493D2F7B031Darea_var*
 //#UC END# *5009A72B01A5_493D2F7B031Darea_var*
 begin
 //#UC START# *5009A72B01A5_493D2F7B031Darea_impl*
  Result := TdsDocumentListCR.Make(Self, GetTypedCR(ulSecond));
 //#UC END# *5009A72B01A5_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsUserCR2
+end;//_sdsDocInfoFS_.DoGet_dsUserCR2
 
-function _sdsDocInfo_.pm_GetdsUserCR2Ref: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsUserCR2Ref: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsUserCR2Ref;
 end;
 
-function _sdsDocInfo_.pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
+function _sdsDocInfoFS_.pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
 //#UC START# *5009ADAC0080_493D2F7B031Dget_var*
 //#UC END# *5009ADAC0080_493D2F7B031Dget_var*
 begin
@@ -905,21 +905,21 @@ begin
  end;//with pm_GetdsDocumentWithFlashRef
 end;
 
-function _sdsDocInfo_.DoGet_dsDocumentWithFlash: IdsDocumentWithFlash;
+function _sdsDocInfoFS_.DoGet_dsDocumentWithFlash: IdsDocumentWithFlash;
 //#UC START# *5009ADAC0080_493D2F7B031Darea_var*
 //#UC END# *5009ADAC0080_493D2F7B031Darea_var*
 begin
 //#UC START# *5009ADAC0080_493D2F7B031Darea_impl*
  Result := TdsDocumentWithFlash.Make(Self, pm_GetDocInfo.Clone);
 //#UC END# *5009ADAC0080_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsDocumentWithFlash
+end;//_sdsDocInfoFS_.DoGet_dsDocumentWithFlash
 
-function _sdsDocInfo_.pm_GetdsDocumentWithFlashRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsDocumentWithFlashRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsDocumentWithFlashRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsAnnotation: IdsDocument;
+function _sdsDocInfoFS_.pm_GetDsAnnotation: IdsDocument;
 //#UC START# *500CEDF00141_493D2F7B031Dget_var*
 //#UC END# *500CEDF00141_493D2F7B031Dget_var*
 begin
@@ -936,7 +936,7 @@ begin
  end;//with pm_GetdsAnnotationRef
 end;
 
-function _sdsDocInfo_.DoGet_dsAnnotation: IdsDocument;
+function _sdsDocInfoFS_.DoGet_dsAnnotation: IdsDocument;
 //#UC START# *500CEDF00141_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -953,14 +953,14 @@ begin
  else
   Result := nil;
 //#UC END# *500CEDF00141_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsAnnotation
+end;//_sdsDocInfoFS_.DoGet_dsAnnotation
 
-function _sdsDocInfo_.pm_GetdsAnnotationRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsAnnotationRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsAnnotationRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsTranslation: IdsDocument;
+function _sdsDocInfoFS_.pm_GetDsTranslation: IdsDocument;
 //#UC START# *500CEE0F0071_493D2F7B031Dget_var*
 //#UC END# *500CEE0F0071_493D2F7B031Dget_var*
 begin
@@ -978,7 +978,7 @@ begin
  end;//with pm_GetdsTranslationRef
 end;
 
-function _sdsDocInfo_.DoGet_dsTranslation: IdsDocument;
+function _sdsDocInfoFS_.DoGet_dsTranslation: IdsDocument;
 //#UC START# *500CEE0F0071_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -995,14 +995,14 @@ begin
  else
   Result := nil; 
 //#UC END# *500CEE0F0071_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsTranslation
+end;//_sdsDocInfoFS_.DoGet_dsTranslation
 
-function _sdsDocInfo_.pm_GetdsTranslationRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsTranslationRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsTranslationRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsSimilarDocuments: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsSimilarDocuments: IdsDocumentList;
 //#UC START# *500CEE5200DF_493D2F7B031Dget_var*
 //#UC END# *500CEE5200DF_493D2F7B031Dget_var*
 begin
@@ -1020,7 +1020,7 @@ begin
  end;//with pm_GetdsSimilarDocumentsRef
 end;
 
-function _sdsDocInfo_.DoGet_dsSimilarDocuments: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsSimilarDocuments: IdsDocumentList;
 //#UC START# *500CEE5200DF_493D2F7B031Darea_var*
 
   function lp_SimilarDocsList: IDynList;
@@ -1045,14 +1045,14 @@ begin
 //#UC START# *500CEE5200DF_493D2F7B031Darea_impl*
  Result := TdsDocumentList.Make(Self, TdeDocumentList.Make(lp_SimilarDocsList));
 //#UC END# *500CEE5200DF_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsSimilarDocuments
+end;//_sdsDocInfoFS_.DoGet_dsSimilarDocuments
 
-function _sdsDocInfo_.pm_GetdsSimilarDocumentsRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsSimilarDocumentsRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsSimilarDocumentsRef;
 end;
 
-function _sdsDocInfo_.pm_GetDsChronology: IdsDocument;
+function _sdsDocInfoFS_.pm_GetDsChronology: IdsDocument;
 //#UC START# *53BFD3A70050_493D2F7B031Dget_var*
 //#UC END# *53BFD3A70050_493D2F7B031Dget_var*
 begin
@@ -1068,7 +1068,7 @@ begin
  end;//with pm_GetdsChronologyRef
 end;
 
-function _sdsDocInfo_.DoGet_dsChronology: IdsDocument;
+function _sdsDocInfoFS_.DoGet_dsChronology: IdsDocument;
 //#UC START# *53BFD3A70050_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -1086,14 +1086,14 @@ begin
  else
   Result := nil;
 //#UC END# *53BFD3A70050_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsChronology
+end;//_sdsDocInfoFS_.DoGet_dsChronology
 
-function _sdsDocInfo_.pm_GetdsChronologyRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsChronologyRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsChronologyRef;
 end;
 
-function _sdsDocInfo_.HasSimilarToFragment(anId: Integer): Boolean;
+function _sdsDocInfoFS_.HasSimilarToFragment(anId: Integer): Boolean;
 //#UC START# *558928CF0335_493D2F7B031D_var*
 //#UC END# *558928CF0335_493D2F7B031D_var*
 begin
@@ -1101,9 +1101,9 @@ begin
  Assert(False);
  Result := False; // заглушка
 //#UC END# *558928CF0335_493D2F7B031D_impl*
-end;//_sdsDocInfo_.HasSimilarToFragment
+end;//_sdsDocInfoFS_.HasSimilarToFragment
 
-function _sdsDocInfo_.pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
+function _sdsDocInfoFS_.pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
 //#UC START# *5594F2C102D7_493D2F7B031Dget_var*
 //#UC END# *5594F2C102D7_493D2F7B031Dget_var*
 begin
@@ -1119,7 +1119,7 @@ begin
  end;//with pm_GetdsSimilarDocumentsToFragmentRef
 end;
 
-function _sdsDocInfo_.DoGet_dsSimilarDocumentsToFragment: IdsDocumentList;
+function _sdsDocInfoFS_.DoGet_dsSimilarDocumentsToFragment: IdsDocumentList;
 //#UC START# *5594F2C102D7_493D2F7B031Darea_var*
 //#UC END# *5594F2C102D7_493D2F7B031Darea_var*
 begin
@@ -1127,32 +1127,32 @@ begin
  Assert(False);
  Result := nil;
 //#UC END# *5594F2C102D7_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsSimilarDocumentsToFragment
+end;//_sdsDocInfoFS_.DoGet_dsSimilarDocumentsToFragment
 
-function _sdsDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
+function _sdsDocInfoFS_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsSimilarDocumentsToFragmentRef;
 end;
 
-function _sdsDocInfo_.pm_GetHasChronology: Boolean;
+function _sdsDocInfoFS_.pm_GetHasChronology: Boolean;
 //#UC START# *5BAF4D39E661_493D2F7B031Dget_var*
 //#UC END# *5BAF4D39E661_493D2F7B031Dget_var*
 begin
 //#UC START# *5BAF4D39E661_493D2F7B031Dget_impl*
  Result := TruthHasChronology; 
 //#UC END# *5BAF4D39E661_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasChronology
+end;//_sdsDocInfoFS_.pm_GetHasChronology
 
-function _sdsDocInfo_.pm_GetHasAnnotation: Boolean;
+function _sdsDocInfoFS_.pm_GetHasAnnotation: Boolean;
 //#UC START# *8A0096569944_493D2F7B031Dget_var*
 //#UC END# *8A0096569944_493D2F7B031Dget_var*
 begin
 //#UC START# *8A0096569944_493D2F7B031Dget_impl*
  Result := TruthHasAnnotation;
 //#UC END# *8A0096569944_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasAnnotation
+end;//_sdsDocInfoFS_.pm_GetHasAnnotation
 
-function _sdsDocInfo_.pm_GetHasCorrespondents: Boolean;
+function _sdsDocInfoFS_.pm_GetHasCorrespondents: Boolean;
 //#UC START# *A0814C441725_493D2F7B031Dget_var*
 var
  l_Temp: Tl3Bool;
@@ -1167,9 +1167,9 @@ begin
   SetData.HasCorrespondents := l_Temp;
  end;
 //#UC END# *A0814C441725_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasCorrespondents
+end;//_sdsDocInfoFS_.pm_GetHasCorrespondents
 
-function _sdsDocInfo_.pm_GetHasRespondents: Boolean;
+function _sdsDocInfoFS_.pm_GetHasRespondents: Boolean;
 //#UC START# *E562F23618B1_493D2F7B031Dget_var*
 var
  l_Temp: Tl3Bool;
@@ -1184,9 +1184,9 @@ begin
   SetData.HasRespondents := l_Temp;
  end;
 //#UC END# *E562F23618B1_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasRespondents
+end;//_sdsDocInfoFS_.pm_GetHasRespondents
 
-function _sdsDocInfo_.pm_GetHasSimilarDocumentsToFragment: Boolean;
+function _sdsDocInfoFS_.pm_GetHasSimilarDocumentsToFragment: Boolean;
 //#UC START# *FB58A26F97AF_493D2F7B031Dget_var*
 //#UC END# *FB58A26F97AF_493D2F7B031Dget_var*
 begin
@@ -1194,9 +1194,9 @@ begin
  Assert(False);
  Result := False;
 //#UC END# *FB58A26F97AF_493D2F7B031Dget_impl*
-end;//_sdsDocInfo_.pm_GetHasSimilarDocumentsToFragment
+end;//_sdsDocInfoFS_.pm_GetHasSimilarDocumentsToFragment
 
-procedure _sdsDocInfo_.Cleanup;
+procedure _sdsDocInfoFS_.Cleanup;
 //#UC START# *479731C50290_493D2F7B031D_var*
 //#UC END# *479731C50290_493D2F7B031D_var*
 begin
@@ -1205,9 +1205,9 @@ begin
  SetData.ResetBooleans;
  inherited;
 //#UC END# *479731C50290_493D2F7B031D_impl*
-end;//_sdsDocInfo_.Cleanup
+end;//_sdsDocInfoFS_.Cleanup
 
-procedure _sdsDocInfo_.InitFields;
+procedure _sdsDocInfoFS_.InitFields;
 //#UC START# *47A042E100E2_493D2F7B031D_var*
 //#UC END# *47A042E100E2_493D2F7B031D_var*
 begin
@@ -1217,9 +1217,9 @@ begin
  SetData.CorrType := TbsCRTypeFrozen.Make;
  SetData.RespType := TbsCRTypeFrozen.Make;
 //#UC END# *47A042E100E2_493D2F7B031D_impl*
-end;//_sdsDocInfo_.InitFields
+end;//_sdsDocInfoFS_.InitFields
 
-procedure _sdsDocInfo_.FinishDataUpdate;
+procedure _sdsDocInfoFS_.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_493D2F7B031D_var*
 //#UC END# *47EA4E9002C6_493D2F7B031D_var*
 begin
@@ -1243,9 +1243,9 @@ begin
   //   Морозов. М.А.
   ////////////////////////////////////////////////////////////////////////////// 
 //#UC END# *47EA4E9002C6_493D2F7B031D_impl*
-end;//_sdsDocInfo_.FinishDataUpdate
+end;//_sdsDocInfoFS_.FinishDataUpdate
 
-procedure _sdsDocInfo_.SettingsReplaceFinish;
+procedure _sdsDocInfoFS_.SettingsReplaceFinish;
 //#UC START# *47EA8B9601FE_493D2F7B031D_var*
 //#UC END# *47EA8B9601FE_493D2F7B031D_var*
 begin
@@ -1253,9 +1253,9 @@ begin
  inherited;
  ConfigurationChanged;
 //#UC END# *47EA8B9601FE_493D2F7B031D_impl*
-end;//_sdsDocInfo_.SettingsReplaceFinish
+end;//_sdsDocInfoFS_.SettingsReplaceFinish
 
-procedure _sdsDocInfo_.ClearAllDS;
+procedure _sdsDocInfoFS_.ClearAllDS;
 //#UC START# *4925B7F00156_493D2F7B031D_var*
 //#UC END# *4925B7F00156_493D2F7B031D_var*
 begin
@@ -1275,9 +1275,9 @@ begin
   pm_GetdsUserCR2Ref.Referred := nil;
  end;
 //#UC END# *4925B7F00156_493D2F7B031D_impl*
-end;//_sdsDocInfo_.ClearAllDS
+end;//_sdsDocInfoFS_.ClearAllDS
 
-function _sdsDocInfo_.DoChangeDocument(const aDoc: IdeDocInfo): Boolean;
+function _sdsDocInfoFS_.DoChangeDocument(const aDoc: IdeDocInfo): Boolean;
 //#UC START# *4925B9370022_493D2F7B031D_var*
 //#UC END# *4925B9370022_493D2F7B031D_var*
 begin
@@ -1295,10 +1295,10 @@ begin
   Result := False;
  FillState;
 //#UC END# *4925B9370022_493D2F7B031D_impl*
-end;//_sdsDocInfo_.DoChangeDocument
+end;//_sdsDocInfoFS_.DoChangeDocument
 
 {$If not defined(NoVCM)}
-procedure _sdsDocInfo_.ClearAreas;
+procedure _sdsDocInfoFS_.ClearAreas;
  {-}
 begin
  pm_GetdsRelatedDocRef.Referred := nil;
@@ -1312,19 +1312,19 @@ begin
  pm_GetdsSimilarDocumentsRef.Referred := nil;
  pm_GetdsChronologyRef.Referred := nil;
  inherited;
-end;//_sdsDocInfo_.ClearAreas
+end;//_sdsDocInfoFS_.ClearAreas
 {$IfEnd} //not NoVCM
 
-procedure _sdsDocInfo_.FillState;
+procedure _sdsDocInfoFS_.FillState;
 //#UC START# *493D51ED0329_493D2F7B031D_var*
 //#UC END# *493D51ED0329_493D2F7B031D_var*
 begin
 //#UC START# *493D51ED0329_493D2F7B031D_impl*
  inherited;
 //#UC END# *493D51ED0329_493D2F7B031D_impl*
-end;//_sdsDocInfo_.FillState
+end;//_sdsDocInfoFS_.FillState
 
-procedure _sdsDocInfo_.UserSettingsChanged;
+procedure _sdsDocInfoFS_.UserSettingsChanged;
 //#UC START# *4958BE910345_493D2F7B031D_var*
 //#UC END# *4958BE910345_493D2F7B031D_var*
 begin
@@ -1332,11 +1332,11 @@ begin
  inherited;
  ConfigurationChanged;
 //#UC END# *4958BE910345_493D2F7B031D_impl*
-end;//_sdsDocInfo_.UserSettingsChanged
+end;//_sdsDocInfoFS_.UserSettingsChanged
 
 // Методы преобразования к реализуемым интерфейсам
 
-function _sdsDocInfo_.As_IbsFlash: IbsFlash;
+function _sdsDocInfoFS_.As_IbsFlash: IbsFlash;
 begin
  Result := Self;
 end;

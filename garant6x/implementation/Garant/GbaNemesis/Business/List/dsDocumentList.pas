@@ -69,6 +69,7 @@ uses
   l3NotifyPtrList,
   WorkWithDocumentInterfaces,
   vcmControllers {a},
+  nsTypesNew,
   PreviewInterfaces,
   l3IID
   ;

@@ -14,8 +14,8 @@ uses
   l3InterfacedComponent, {XPMan,} ActnMenus, ToolWin, ActnMan,
   ActnCtrls, XPStyleActnCtrls, vtStatusBar, IdBaseComponent,
   IdAntiFreezeBase, IdAntiFreeze, jclSvcCtrl, CoolTrayIcon,
-  daTypes,
-  dt_UserTypes, mxOneInstance, CsProcessTask, CsTaskTypes, csCommandsTypes;
+  daTypes, daInterfaces,
+  mxOneInstance, CsProcessTask, CsTaskTypes, csCommandsTypes;
 
 type
   TalcuSpyForm = class(TForm)
@@ -251,7 +251,7 @@ type
     procedure UpdateTaskList;
     procedure UpdateUserLIst;
     function UserItemIndex: Integer;
-    procedure UserListUpdated(theUser: TArchiUser; aActive: Boolean);
+    procedure UserListUpdated(theUser: IdaArchiUser; aActive: Boolean);
   protected
     procedure CheckResult(State: Boolean; const SuccessMsg, FaultMsg: string);
   end;
@@ -305,7 +305,7 @@ begin
   { TODO 1 -oДудко -cРефакторинг : Восстановить или выбросить }
   (*
   if Res =  mrYes then
-   f_AutoServer.LogoffUsers(True, TArchiUser(ActiveUserList.Items.Objects[UserItemIndex]))
+   f_AutoServer.LogoffUsers(True, IdaArchiUser(Pointer(ActiveUserList.Items.Objects[UserItemIndex])))
   else
   if Res =  mrYesToAll then
    f_AutoServer.LogoffUsers(True);
@@ -416,9 +416,9 @@ var
   l_ToAll: Boolean;
   l_Lock: Boolean;
   l_LockDateTime, l_StartLock: TDateTime;
-  l_User: TArchiUser;
+  l_User: IdaArchiUser;
 begin
- l_User:= TArchiUser(ActiveUserList.Items.Objects[UserItemIndex]);
+ l_User:= IdaArchiUser(Pointer(ActiveUserList.Items.Objects[UserItemIndex]));
  if GetUserMessage(l_User.UserName, S, l_ToAll, l_Lock, l_LockDateTime, l_StartLock) then
  begin
   if l_ToAll then
@@ -818,6 +818,7 @@ begin
    cs_AsyncRun    : aItem.SubItemImages[colStatus] := 9;//21;
    cs_tsDeleted   : aItem.SubItemImages[colStatus] := 16;
    cs_tsFrozen    : aItem.SubItemImages[colStatus] := 19;
+   cs_tsAborting,
    cs_tsError,
    cs_tsAsyncError: aItem.SubItemImages[colStatus] := 18;
    cs_tsReadyToDelivery : aItem.SubItemImages[colStatus] := 21;
@@ -948,7 +949,7 @@ procedure TalcuSpyForm.Task2Item(aTask: TddProcessTask; aItem: TListItem);
 var
  l_UserName: ShortString;
  l_ActFlag: Byte;
- l_User: TArchiUser;
+ l_User: IdaArchiUser;
 begin
   // aitem.Caption:= IntToStr(Succ(aTask.Index));
   case aTask.TaskType of
@@ -956,6 +957,7 @@ begin
    cs_ttAnnoExport, cs_ttAExportDoc, cs_ttAExportAnno, cs_ttAnoncedExport,
    cs_ttExport: aItem.ImageIndex:= 12;//aitem.Caption:= rseksport1;
    cs_ttAutoClass: aItem.ImageIndex:= 13;//aitem.Caption:= rsklassifikaciya;
+   cs_ttContainer: aItem.ImageIndex:= 21;
   else
    aItem.ImageIndex := -1;
   end;
@@ -1221,7 +1223,7 @@ begin
   Result := ActiveUserList.ItemIndex;
 end;
 
-procedure TalcuSpyForm.UserListUpdated(theUser: TArchiUser; aActive: Boolean);
+procedure TalcuSpyForm.UserListUpdated(theUser: IdaArchiUser; aActive: Boolean);
 var
   l_NowString: string;
 begin

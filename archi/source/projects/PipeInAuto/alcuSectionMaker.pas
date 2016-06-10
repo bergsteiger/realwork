@@ -1,8 +1,14 @@
 unit alcuSectionMaker;
 { Расставялет разрывы разделов и масштабы }
-{ $Id: alcuSectionMaker.pas,v 1.6 2015/11/26 08:45:26 lukyanets Exp $ }
+{ $Id: alcuSectionMaker.pas,v 1.8 2016/03/31 12:53:26 lukyanets Exp $ }
 
 // $Log: alcuSectionMaker.pas,v $
+// Revision 1.8  2016/03/31 12:53:26  lukyanets
+// Расчитываем даты версии/компиляции с учетом нескольких однотипных заданий
+//
+// Revision 1.7  2016/03/29 13:10:38  lukyanets
+// Cleanup
+//
 // Revision 1.6  2015/11/26 08:45:26  lukyanets
 // КОнстанты переехали
 //
@@ -23,7 +29,7 @@ unit alcuSectionMaker;
 //
 
 interface
-
+(*
 uses l3base, ddProgressObj, l3longintlist;
 
 type
@@ -34,9 +40,9 @@ type
  public
   function Execute(aProgressor: TddProgressObject): Boolean;
  end;
-
+*)
 implementation
-
+(*
 uses
  ddAppConfig, ddScheduler, ddCalendarEvents, SysUtils, dtIntf, Dt_Sab, DT_Types, Dt_Query, l3Date,
  ddSectionRepairUtils, l3LongintListPrim, L3FileUtils, Dt_Serv, daSchemeConsts,
@@ -45,7 +51,6 @@ uses
 function TalcuSectionMaker.BuildListAndMakeSections(aProgressor: TddProgressObject): Boolean;
 var
  l_Start, l_Finish: TDateTime;
- l_Task: TddSchedulerTask;
  l_All: ISab;
  l_Q, l_New: TdtQuery;
  l_List: Tl3LongintList;
@@ -60,9 +65,8 @@ begin
   end
   else
   begin // с последней компиляции
-   l_Task:= TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetTaskByTaskType(ctCompilation);
-   if l_Task <> nil then
-    l_Start:= l_Task.PrevFullDateTime[Date];
+   if not TddScheduler(ddAppConfiguration.AsObject['Scheduler']).GetPrevFullDateTime(ctCompilation, Date, l_Start) then
+    Assert(False);
   end;
   l_Finish:= Date;
  end; // with ddAppConfiguration
@@ -114,5 +118,5 @@ begin
   alcuMail.SendEmail(ddAppConfiguration.AsString['smNotify'], l_Message, 'Расстановка разделов. Отчет');
  end;
 end;
-
+*)
 end.

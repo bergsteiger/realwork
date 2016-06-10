@@ -48,134 +48,30 @@ uses
   ,
   SearchInterfaces,
   PresentationInterfaces,
-  ConfigInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscContextFilter
-  {$IfEnd} //Nemesis
-  ,
-  vtPanel,
+  ConfigInterfaces,
   PrimRememberPassword_Form,
   RememberPassword_Form,
   PrimProgressIndicator_Form,
   ProgressIndicator_Form,
   PrimEULA_Form,
   EULA_Form,
-  vtFocusLabel,
   TurnOffTimeMachine_Form,
   About_Form,
-  CompInfo_Form,
   Registration_Form,
-  TasksPanel_Form,
-  Navigator_Form,
   AdapterFacade,
-  eeMemoWithEditOperations,
-  vtDblClickDateEdit,
-  vtGroupBox
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(Nemesis)}
-  ,
-  nscComboBox
-  {$IfEnd} //Nemesis
-  ,
+  vtGroupBox,
   vtLabel,
   PrimTasksPanel_Form,
-  l3StringIDEx,
   Common_FormDefinitions_Controls,
   PrimNavigatorOptions_Form,
-  PrimTurnOffTimeMachineOptions_Form
-  {$If defined(Nemesis)}
-  ,
-  nscTasksPanelView
-  {$IfEnd} //Nemesis
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwScriptingInterfaces
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  tfwControlString
-  {$IfEnd} //not NoScripts
-  ,
+  PrimTurnOffTimeMachineOptions_Form,
   PrimCompInfo_Form,
   vtButton,
-  vtCheckBox,
-  vtRadioButton,
-  ElPopBtn,
   PrimRegistration_Form,
-  nscTreeViewWithAdapterDragDrop,
-  l3PrinterInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  tfwPropertyLike
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  RememberPasswordKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  ProgressIndicatorKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  EULAKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  AboutKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  CompInfoKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  RegistrationFormKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TasksPanelKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  NavigatorKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  
-  {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-  ,
-  TurnOffTimeMachineKeywordsPack
-  {$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-  ,
+  l3PrinterInterfaces,
+  CompInfo_Form,
+  TasksPanel_Form,
+  Navigator_Form,
   vcmModule {a},
   vcmBase {a}
   ;
@@ -264,13 +160,6 @@ implementation
 
 {$If not defined(Admin) AND not defined(Monitorings)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID,
   afwFacade,
   nsPageSetup
   {$If not defined(NoVCM)}
@@ -298,8 +187,7 @@ uses
   Forms
   {$IfEnd} //not NoVCL
   ,
-  SecurityUnit,
-  vcmEntityForm {a}
+  SecurityUnit
   {$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
   ,
   vcmTabbedContainerFormDispatcher
@@ -307,6 +195,7 @@ uses
   ,
   nsNewCachableNode,
   nsNodes,
+  SysUtils,
   nsExternalObjectPrim,
   bsUtils,
   l3Base,
@@ -316,16 +205,10 @@ uses
   PrimTasksPanel_tpMain_UserType,
   NavigatorUtils,
   GblAdapter
-  {$If not defined(NoScripts)}
+  {$If not defined(NoVCM)}
   ,
-  tfwScriptingTypes
-  {$IfEnd} //not NoScripts
-  ,
-  TypInfo
-  {$If not defined(NoScripts)}
-  ,
-  tfwTypeRegistrator
-  {$IfEnd} //not NoScripts
+  vcmEntityForm
+  {$IfEnd} //not NoVCM
   
   {$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
   ,

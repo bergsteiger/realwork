@@ -1,8 +1,11 @@
 unit alcuAutoClassifier;
 { Выполняет автоклассификацию документов на основе механизма от Бежана }
-{ $Id: alcuAutoClassifier.pas,v 1.27 2015/12/21 07:46:06 lukyanets Exp $ }
+{ $Id: alcuAutoClassifier.pas,v 1.28 2016/05/27 06:45:01 lukyanets Exp $ }
 
 // $Log: alcuAutoClassifier.pas,v $
+// Revision 1.28  2016/05/27 06:45:01  lukyanets
+// Не собиралось
+//
 // Revision 1.27  2015/12/21 07:46:06  lukyanets
 // Несовпадение параметров
 //
@@ -403,7 +406,7 @@ begin
   TransferToPhoto(lnkDocIDFld, MakePhoto(LinkServer(CurrentFamily)[atPrefixes]));
   RecordsByKey;
   ValuesOfKey(lnkDocIDFld);
-  l_List:= dtMakeSortedIDListBySab(l_PrefixSab);
+  l_List:= dtMakeSortedLongListBySab(l_PrefixSab);
   try
    aDocList.Assign(l_List);
   finally
@@ -456,7 +459,7 @@ procedure TalcuAutoClassifier.CheckDocList(var aDocList, aMissedDocs: Tl3Longint
 var
  l_FoundDocs: Tl3LongintList;
 begin
- l_FoundDocs := dtMakeSortedIDListBySab(f_Docs);
+ l_FoundDocs := dtMakeSortedLongListBySab(f_Docs);
  try
   l_FoundDocs.DeleteList(aDocList); // Пропущенные документы
   aMissedDocs.Assign(l_FoundDocs);
