@@ -67,7 +67,8 @@ procedure TevdTextCodePageChanger.DoWritePara(aLeaf: Tl3Variant);
 //#UC END# *49E4883E0176_5720F31301A0_var*
 begin
 //#UC START# *49E4883E0176_5720F31301A0_impl*
- if (aLeaf.PCharLenA[k2_tiText].SCodePage = CP_RussianDOS) then
+ if (aLeaf.PCharLenA[k2_tiText].SCodePage = CP_RussianDOS)
+    OR (aLeaf.PCharLenA[k2_tiText].SCodePage = CP_OEM) then
   aLeaf.StrA[k2_tiText] := l3PCharLen2String(aLeaf.PCharLenA[k2_tiText], CP_ANSI);
  inherited;
 //#UC END# *49E4883E0176_5720F31301A0_impl*

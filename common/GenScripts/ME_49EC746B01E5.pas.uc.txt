@@ -131,7 +131,7 @@
 //#UC START# *49806ED503D5_49EC746B01E5_impl*
  //if (aStateType = vcm_stPosition) then
  begin
-  theState := TnsInternetAgentState.Make(f_URL, f_Browser.ScrollPos).As_IvcmBase;
+  theState := TnsInternetAgentState.Make(f_URL).As_IvcmBase;
   Result := true;
   //inherited DoSaveState(theState, aStateType);
   Exit;
@@ -171,15 +171,11 @@
     end;//try..except
    if f_InInit then
     if (l_State <> nil) then
-    begin
-     f_Browser.ScrollPos := l_State.ScrollPos;
      Navigate(l_State.URL);
-    end;
    Result := true;
    //inherited DoLoadState(aState, aStateType);
-   // kost: кажись, ниже две строчки не нужны.
-   //if (l_State <> nil) then
-   // l_State.SetParams(l_URL);
+   if (l_State <> nil) then
+    l_State.SetParams(l_URL);
    Exit;
   end;//f_Browser <> nil
  end;//aStateType = vcm_stPosition
@@ -220,7 +216,6 @@ var
 //#UC END# *49EDAB3802C8_49EDAA740295_var*
 //#UC START# *49EDDC9F007A_49EDAA740295_impl*
  f_URL := anURL;
- f_ScrollPos := aScrollPos;
 //#UC END# *49EDDC9F007A_49EDAA740295_impl*
 //#UC START# *49EDDC9F007A_49EDAA740295_var*
 //#UC END# *49EDDC9F007A_49EDAA740295_var*
@@ -351,7 +346,7 @@ var
 //#UC START# *4BB366A901D7_49EC746B01E5exec_var*
 //#UC END# *4BB366A901D7_49EC746B01E5exec_var*
 //#UC START# *5175422C03AF_49EC746B01E5_impl*
- if (not nsIsGarantURL(URL)) and (f_NavigateErrorCode in [c_HTTP_OK, 0]) then
+ if not nsIsGarantURL(URL) then
  begin
   Cancel := true;
   case MessageDlg(str_mtNotGarantDomain) of
@@ -367,14 +362,7 @@ var
  if nsParseLocalDocumentURL(URL, l_DocID, l_SubID) then
  begin
   Cancel := true;
-  if not nsOpenLink(l_DocID, l_SubID, dptSub, True, False, False) then
-   nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
-  Exit;
- end;
- if nsIsFileFromMobileGarant(URL) then
- begin
-  Cancel := true;
-  nsDoShellExecute(l3CStr(URL));
+  nsOpenDocumentByNumber(l_DocID, l_SubID, dptSub);
   Exit;
  end;
 
@@ -444,6 +432,8 @@ var
  end;
 //#UC END# *517544400331_49EC746B01E5_impl*
 //#UC START# *517544400331_49EC746B01E5_var*
+const
+ c_PageNotFoundError: HResult = 404;
 //#UC END# *517544400331_49EC746B01E5_var*
 //#UC START# *517544E2036E_49EC746B01E5_impl*
  if (StatusCode <> c_HTTP_OK) then
@@ -453,6 +443,8 @@ var
  end;//StatusCode <> c_HTTP_OK
 //#UC END# *517544E2036E_49EC746B01E5_impl*
 //#UC START# *517544E2036E_49EC746B01E5_var*
+const
+ c_HTTP_OK: HResult = 200;
 //#UC END# *517544E2036E_49EC746B01E5_var*
 //#UC START# *5411790D0297_49EC746B01E5_impl*
  f_Browser := TnsWebBrowser.Create(Self);

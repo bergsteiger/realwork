@@ -40,7 +40,7 @@ procedure TEVDtoHTMLwoCSS.TuningHTMLGenerator(aHTMLReader: TddHTMLGenerator);
 //#UC END# *56D9300D018D_573591C90195_var*
 begin
 //#UC START# *56D9300D018D_573591C90195_impl*
- !!! Needs to be implemented !!!
+ aHTMLReader.HTMLOptions := aHTMLReader.HTMLOptions + [dd_hwoWriteGarantCSSLink];
 //#UC END# *56D9300D018D_573591C90195_impl*
 end;//TEVDtoHTMLwoCSS.TuningHTMLGenerator
 

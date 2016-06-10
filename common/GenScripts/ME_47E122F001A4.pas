@@ -400,9 +400,11 @@ begin
   Size := 11;
   {$EndIf Nemesis}*)
  {$IfNDef DesignTimeLibrary}
+ {$IfNDef NoVCL}
  if (Screen.PixelsPerInch > 96) then
   Size := 9
  else
+ {$EndIf  NoVCL}
  {$EndIf  DesignTimeLibrary}
   Size := 10;
  CharSet := RUSSIAN_CHARSET;

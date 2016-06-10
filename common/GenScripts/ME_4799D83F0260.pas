@@ -182,10 +182,33 @@ end;//Tl3Printer.Get_PrinterIndex
 
 procedure Tl3Printer.Set_PrinterIndex(aValue: Integer);
 //#UC START# *46A4692C01C1_4799D40F0004set_var*
+var
+ l_Index : Integer;
+ l_Copies : Integer;
+ l_Title : Il3CString;
+ l_FileName : AnsiString;
+ l_Collate : Boolean;
 //#UC END# *46A4692C01C1_4799D40F0004set_var*
 begin
 //#UC START# *46A4692C01C1_4799D40F0004set_impl*
- PrinterIndex := aValue;
+ l_Index := Get_PrinterIndex;
+ if (l_Index <> aValue) then
+ begin
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=611828637
+  l_Copies := Self.Copies;
+  l_Title := Self.Get_Title;
+  l_FileName := Self.Get_FileName;
+  l_Collate := Self.Get_Collate;
+  PrinterIndex := aValue;
+  with THackPrinterDevice(Printers.Objects[PrinterIndex{aValue}]) do
+   SetPrinter(PChar(Device), PChar(Driver), PChar(Port), 0);
+  Self.Copies := l_Copies;
+  Il3Printer(Self).Title := l_Title;
+  Il3Printer(Self).FileName := l_FileName;
+  Il3Printer(Self).Collate := l_Collate;
+ end//l_Index <> aValue
+ else
+  PrinterIndex := aValue;
 //#UC END# *46A4692C01C1_4799D40F0004set_impl*
 end;//Tl3Printer.Set_PrinterIndex
 
@@ -200,10 +223,20 @@ end;//Tl3Printer.Get_Title
 
 procedure Tl3Printer.Set_Title(const aValue: Il3CString);
 //#UC START# *46A4696D021E_4799D40F0004set_var*
+const
+ cMaxValueLen = 255;
+var
+ l_Value: Il3CString;
+ l_Len: Integer;
 //#UC END# *46A4696D021E_4799D40F0004set_var*
 begin
 //#UC START# *46A4696D021E_4799D40F0004set_impl*
- Title := l3Str(aValue);
+ l_Value := aValue;
+ l_Len := l3Len(l_Value);
+ if (l_Len > cMaxValueLen) then
+  l3Delete(l_Value, cMaxValueLen, l_Len - cMaxValueLen);
+ Title := l3Str(l_Value);
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=623935085
 //#UC END# *46A4696D021E_4799D40F0004set_impl*
 end;//Tl3Printer.Set_Title
 
@@ -501,27 +534,46 @@ function Tl3Printer.Clone: Il3Printer;
  {* Клонирует принтер }
 //#UC START# *49BAA14602EC_4799D40F0004_var*
 
-(* function CopyData(Handle: THandle): THandle;
+ function CopyData(aDevice: PChar; Handle: THandle): THandle;
  var
-   Src, Dest: PChar;
+   Src, Dest: PDeviceMode;
    Size: Integer;
+   l_Same : Boolean;
  begin
-   if Handle <> 0 then
+   if (Handle <> 0) then
    begin
      Size := GlobalSize(Handle);
      Result := GlobalAlloc(GHND, Size);
-     if Result <> 0 then
-       try
-         Src := GlobalLock(Handle);
-         Dest := GlobalLock(Result);
-         if (Src <> nil) and (Dest <> nil) then l3Move(Src^, Dest^, Size);
-       finally
-         GlobalUnlock(Handle);
-         GlobalUnlock(Result);
-       end
-   end
-   else Result := 0;
- end;*)
+     if (Result <> 0) then
+     begin
+      try
+        Src := GlobalLock(Handle);
+        Dest := GlobalLock(Result);
+        if (Src <> nil) and (Dest <> nil) then
+        begin
+         l3Move(Src^, Dest^, Size);
+         l_Same := true;
+         // http://mdp.garant.ru/pages/viewpage.action?pageId=611828637
+         // - т.к. там почему-то лежит обрезанное имя
+         //l_Same := StrComp(aDevice, Dest^.dmDeviceName) = 0;
+         //l3Move(aDevice^, Dest^.dmDeviceName, StrLen(aDevice) + 1);
+        end;//Src <> nil
+      finally
+        GlobalUnlock(Handle);
+        GlobalUnlock(Result);
+      end;//try..finally
+      if not l_Same then
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=249069717
+      // - http://mdp.garant.ru/pages/viewpage.action?pageId=611828637
+      begin
+       GlobalFree(Result);
+       Result := 0;
+      end;//not l_Same
+     end;//Result <> 0
+   end//Handle <> 0
+   else
+    Result := 0;
+ end;
 
 var
  l_PrinterIndex : Integer;
@@ -543,8 +595,8 @@ begin
 
   // Копируем настройки принтера:
   Self.GetPrinter(l_Device, l_Driver, l_Port, l_hDeviceMode);
-  //Result.SetPrinter(l_Device, l_Driver, l_Port, CopyData(l_hDeviceMode));
-  Result.SetPrinter(l_Device, l_Driver, l_Port, 0);
+  Result.SetPrinter(l_Device, l_Driver, l_Port, CopyData(l_Device, l_hDeviceMode));
+  //Result.SetPrinter(l_Device, l_Driver, l_Port, 0);
   // - http://mdp.garant.ru/pages/viewpage.action?pageId=249069717
 //#UC END# *49BAA14602EC_4799D40F0004_impl*
 end;//Tl3Printer.Clone

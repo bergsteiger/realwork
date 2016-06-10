@@ -13,6 +13,12 @@ uses
  l3IntfUses
  , l3CanvasPrim
  //#UC START# *478E3C97021Eintf_uses*
+ ,
+  Windows,
+  Graphics,
+  l3Interfaces,
+  l3Defaults,
+  l3InternalInterfaces
  //#UC END# *478E3C97021Eintf_uses*
 ;
 

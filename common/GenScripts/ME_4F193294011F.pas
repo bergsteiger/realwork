@@ -72,16 +72,27 @@ var
  procedure lp_CompareWithEtalon;
 
   function DoFile(const aFileName: string): Boolean;
+  var
+   l_S : AnsiString;
   begin//DoFile
    Result := true;
    if FileExists(aFileName) then
+   begin
+    if (ExtractFileExt(aFileName) = '.idx') then
+    begin
+     l_S := ExtractFileName(aFileName) + EtalonSuffix + ExtractFileExt(aFileName);
+     CheckOutputWithInput(FileFromCurrent(l_S), aFileName, #0,
+                          false, false, '', true);
+    end;//ExtractFileExt(aFileName) = '.idx'
+   end;//FileExists(aFileName)
+(*   if FileExists(aFileName) then
    begin
     if (ExtractFileExt(aFileName) = '.idx') and (Pos('.cnt', aFileName) = 0) then
     begin
      f_IndexFile := aFileName;
      Result := False;
     end;
-   end; // if FileExists(aFileName) then
+   end; // if FileExists(aFileName) then*)
   end;//DoFile
 
  var
@@ -93,7 +104,7 @@ var
   finally
    l3FreeLocalStub(l_FPStub);
   end;//try..finally
-  CheckWithEtalon(f_IndexFile, #0);
+  //CheckWithEtalon(f_IndexFile, #0);
  end;
  
  procedure lp_DeleteVersion;
@@ -123,20 +134,24 @@ var
 //#UC END# *4F19335D01E9_4F193294011F_var*
 begin
 //#UC START# *4F19335D01E9_4F193294011F_impl*
- Tm3SplittedFileStream.SetDefaultSizeLimit(2 * 1024 * 1024);
+ Tm3SplittedFileStream.SetDefaultSizeLimit(8 * 1024 * 1024);
+ //Tm3SplittedFileStream.SetDefaultSizeLimit(2 * 1024 * 1024);
  try
   l_DBName := FileForOutput;
   l_DBName := ChangeFileExt(l_DBName, '');
-  lp_DeleteVersion;
+  //lp_DeleteVersion;
   with Tm3StorageIndexAdapter.Instance do
   begin
    BaseName := cFileName;
-   DirName := ExtractFilePath(FileForOutput);
+   DirName := ExtractFilePath(l_DBName);
    DoBuildIndex(nil);
-   lp_CompareWithEtalon;
   end; // with g_Tm3StorageIndexAdapter.Instance do
-  lp_DeleteIndex;
-  lp_DeleteVersion;
+  try
+   lp_CompareWithEtalon;
+  finally
+   lp_DeleteIndex;
+  end;//try..finally 
+  //lp_DeleteVersion;
  finally
   Tm3SplittedFileStream.SetDefaultSizeLimit(0);
  end;//try..finally
@@ -149,7 +164,8 @@ function TStgIndexTest.FileForOutput: AnsiString;
 //#UC END# *4B4F588B0241_4F193294011F_var*
 begin
 //#UC START# *4B4F588B0241_4F193294011F_impl*
- Result := inherited FileForOutput;
+ Result := FileFromCurrent(cFileName + '.sav');
+ //Result := inherited FileForOutput;
  // Result := Copy(Result, 1, Length(Result) - 4);
 //#UC END# *4B4F588B0241_4F193294011F_impl*
 end;//TStgIndexTest.FileForOutput

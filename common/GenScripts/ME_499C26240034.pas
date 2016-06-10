@@ -182,6 +182,7 @@ type
  //#UC START# *499C26240034publ*
   published
    property SettingId;
+   property InterRowIndent;
    property InterRowMultiplier default 1;
    property DisableDragAndDropSupport default false;
  //#UC END# *499C26240034publ*
@@ -638,8 +639,8 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=303858572
  // на всякий случай, т.к. ограничение только для оболочки
  {$If not defined(Admin) AND not defined(Monitorings)}
-  if (afw.Application <> nil) then
-   DisableDragAndDropSupport := afw.Application.IsTrialMode;
+  {if (afw.Application <> nil) then
+   DisableDragAndDropSupport := afw.Application.IsTrialMode;}
  {$IfEnd} //not Admin AND not Monitorings
  {$EndIf Nemesis}
  {$EndIf DesignTimeLibrary}

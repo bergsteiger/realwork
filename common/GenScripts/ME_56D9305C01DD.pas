@@ -53,7 +53,7 @@ procedure TEVDtoHTMLWithExternalHyperlinks.TuningHTMLGenerator(aHTMLReader: TddH
 begin
 //#UC START# *56D9300D018D_56D9305C01DD_impl*
  aHTMLReader.UseExternalLinks := True;
- aHTMLReader.WriteFirstHyperlink := True;
+ aHTMLReader.HTMLOptions := aHTMLReader.HTMLOptions + [dd_hwoWriteFirstLink];
 //#UC END# *56D9300D018D_56D9305C01DD_impl*
 end;//TEVDtoHTMLWithExternalHyperlinks.TuningHTMLGenerator
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)

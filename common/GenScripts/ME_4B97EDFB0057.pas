@@ -451,8 +451,8 @@ begin
 //#UC START# *53FDD0B201C8_53FDAB5501EB_impl*
  inherited;
  Inc(Message.CalcSize_Params.rgrc[0].Top, cFrameWidth);
- Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth + 2);
- Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth + 2);
+ Dec(Message.CalcSize_Params.rgrc[0].Bottom, cFrameWidth);
+ Inc(Message.CalcSize_Params.rgrc[0].Left, cFrameWidth);
  Dec(Message.CalcSize_Params.rgrc[0].Right, cFrameWidth);
 //#UC END# *53FDD0B201C8_53FDAB5501EB_impl*
 end;//TnscSubTree.WMNCCalcSize
@@ -594,9 +594,7 @@ function TnscSubTree.NeedDrawArrowSelection(aItemIndex: Integer): Boolean;
 //#UC END# *5266253D035D_53FDAB5501EB_var*
 begin
 //#UC START# *5266253D035D_53FDAB5501EB_impl*
- //http://mdp.garant.ru/pages/viewpage.action?pageId=361399733
- Result := inherited NeedDrawArrowSelection(aItemIndex) or
-  (f_YandexLikeBehaviour and (aItemIndex = f_MouseTrackItemIndex)); 
+ Result := False;
 //#UC END# *5266253D035D_53FDAB5501EB_impl*
 end;//TnscSubTree.NeedDrawArrowSelection
 
@@ -612,30 +610,33 @@ end;//TnscSubTree.IsShowGripper
 procedure TnscSubTree.NCDraw(aDC: hDC);
 //#UC START# *5298C02D03B3_53FDAB5501EB_var*
 var
- l_D: Tl3Drawer;
- l_Rgn: hRgn;
- l_FW: Integer;
+ l_OldDc: THandle;
 //#UC END# *5298C02D03B3_53FDAB5501EB_var*
 begin
 //#UC START# *5298C02D03B3_53FDAB5501EB_impl*
  inherited;
- l_Rgn := CreateRectRgn(0,0,0,0);
- try
-  GetWindowRgn(Self.Handle, l_Rgn);
-  l_D := Tl3Drawer.Create(aDC);
+ with Il3Canvas(Canvas)do
+ begin
+  l_OldDc := DC;
+  DC := aDC;
   try
-   l_FW := cFrameWidth + 3;
-   l_D.FrameRegion(l_Rgn, l_FW, Self.Color);
-   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, Self.Color);
-   l_FW := cFrameWidth - 1;
-   l_D.FrameRegion(l_Rgn, l_FW, cGarant2011GradientStartColor);
-   l_D.DrawArc(0 + l_FW - 1, Height - cRad - l_FW{ + 1}, cRad, cRad, 90, 90, l_FW + 1, cGarant2011GradientStartColor);
+   DrawEnabled := True;
+   try
+    Canvas.Pen.Width := 3;
+    Canvas.Pen.Color := cGarant2011GradientStartColor;
+    Canvas.Pen.Style := psSolid;
+    MoveTo(l3SPoint(1, 1));
+    LineTo(l3SPoint(1, Height - 2));
+    LineTo(l3SPoint(Width - 2, Height - 2));
+    LineTo(l3SPoint(Width - 2, 1));
+    LineTo(l3SPoint(1, 1));
+   finally
+    DrawEnabled := False;
+   end;
   finally
-   FreeAndNil(l_D);
-  end;//try..finally
- finally
-  DeleteObject(l_Rgn);
- end;//try..finally
+   DC := l_OldDC;
+  end;
+ end;
  with Self.ClientRect do
   DrawCloseButton(aDC, Rect(Left + cFrameWidth + 3,
                             Bottom + cFrameWidth - cButtonHeight + 2,
@@ -1330,7 +1331,7 @@ begin
   Font := Self.Font;
   ActionElementMode := l3_amSingleClick;
   OnGetItemImage := GetItemImageHandler;
-  isShowLines := True;
+  //isShowLines := True;
   Tree.OnCurrentChanged := TreeCurrentChanged;
   ViewOptions := PromptViewOptions;
   MultiStrokeItem := True;
