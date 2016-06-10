@@ -104,10 +104,38 @@ function TkwPopControlVScrollerVisible.VScrollerVisible(const aCtx: TtfwContext;
  aControl: TWinControl): Boolean;
  {* Реализация слова скрипта pop:Control:VScrollerVisible }
 //#UC START# *54F878D80349_54F878D80349_47E124E90272_Word_var*
+var
+ l_PageMax: Integer;
+ l_RangeMax: Integer;
+ l_Err: Integer;
+ l_PageInfo: TScrollInfo;
 //#UC END# *54F878D80349_54F878D80349_47E124E90272_Word_var*
 begin
 //#UC START# *54F878D80349_54F878D80349_47E124E90272_Word_impl*
- !!! Needs to be implemented !!!
+ if (aControl Is TScrollingWinControl) then
+  Result := TScrollingWinControl(aControl).VertScrollBar.IsScrollBarVisible
+ else
+ begin
+  with l_PageInfo do
+  begin
+   cbSize := SizeOf(l_PageInfo);
+   fMask := SIF_ALL;
+  end;//with l_ScrollInfo
+  if GetScrollInfo(aControl.Handle, SB_VERT, l_PageInfo) then
+  begin
+   l_PageMax := l_PageInfo.nPage;
+   l_RangeMax := l_PageInfo.nMax;
+   Result := l_RangeMax > l_PageMax;
+  end
+  else
+  begin
+   l_Err := GetLastError;
+   if l_Err = 1447 then  // 1447: Окно не имеет полос прокрутки.
+    Result := False
+   else
+    RunnerAssert(False, 'Ошибка при вызове GetScrollInfo. Код ошибки: ' + IntToStr(l_Err), aCtx);
+  end;
+ end;//aControl Is TScrollingWinControl
 //#UC END# *54F878D80349_54F878D80349_47E124E90272_Word_impl*
 end;//TkwPopControlVScrollerVisible.VScrollerVisible
 
@@ -156,10 +184,38 @@ function TkwPopControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
  aControl: TWinControl): Boolean;
  {* Реализация слова скрипта pop:Control:HScrollerVisible }
 //#UC START# *54F878EC0363_54F878EC0363_47E124E90272_Word_var*
+var
+ l_PageMax: Integer;
+ l_RangeMax: Integer;
+ l_Err: Integer;
+ l_PageInfo: TScrollInfo;
 //#UC END# *54F878EC0363_54F878EC0363_47E124E90272_Word_var*
 begin
 //#UC START# *54F878EC0363_54F878EC0363_47E124E90272_Word_impl*
- !!! Needs to be implemented !!!
+ if (aControl Is TScrollingWinControl) then
+  Result := TScrollingWinControl(aControl).HorzScrollBar.IsScrollBarVisible
+ else
+ begin
+  with l_PageInfo do
+  begin
+   cbSize := SizeOf(l_PageInfo);
+   fMask := SIF_ALL;
+  end;//with l_ScrollInfo
+  if GetScrollInfo(aControl.Handle, SB_HORZ, l_PageInfo) then
+  begin
+   l_PageMax := l_PageInfo.nPage;
+   l_RangeMax := l_PageInfo.nMax;
+   Result := l_RangeMax > l_PageMax;
+  end
+  else
+  begin
+   l_Err := GetLastError;
+   if l_Err = 1447 then  // 1447: Окно не имеет полос прокрутки.
+    Result := False
+   else
+    RunnerAssert(False, 'Ошибка при вызове GetScrollInfo. Код ошибки: ' + IntToStr(l_Err), aCtx);
+  end;
+ end;//aControl Is TScrollingWinControl
 //#UC END# *54F878EC0363_54F878EC0363_47E124E90272_Word_impl*
 end;//TkwPopControlHScrollerVisible.HScrollerVisible
 
@@ -211,7 +267,7 @@ function TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible(const aCtx: 
 //#UC END# *54F878D80349_54F878D80349_495259490229_Word_var*
 begin
 //#UC START# *54F878D80349_54F878D80349_495259490229_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aScrollingWinControl.VertScrollBar.IsScrollBarVisible;
 //#UC END# *54F878D80349_54F878D80349_495259490229_Word_impl*
 end;//TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible
 
@@ -263,7 +319,7 @@ function TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible(const aCtx: 
 //#UC END# *54F878EC0363_54F878EC0363_495259490229_Word_var*
 begin
 //#UC START# *54F878EC0363_54F878EC0363_495259490229_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aScrollingWinControl.HorzScrollBar.IsScrollBarVisible;
 //#UC END# *54F878EC0363_54F878EC0363_495259490229_Word_impl*
 end;//TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible
 

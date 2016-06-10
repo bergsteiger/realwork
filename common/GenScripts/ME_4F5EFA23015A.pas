@@ -3278,7 +3278,7 @@ function TkwIntToHex.IntToHex(const aCtx: TtfwContext;
 //#UC END# *573990470097_573990470097_Word_var*
 begin
 //#UC START# *573990470097_573990470097_Word_impl*
- !!! Needs to be implemented !!!
+ Result := SysUtils.IntToHex(aValue, aDigits);
 //#UC END# *573990470097_573990470097_Word_impl*
 end;//TkwIntToHex.IntToHex
 

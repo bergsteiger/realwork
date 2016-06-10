@@ -205,7 +205,9 @@ function TkwForwardDeclaration.GetRefForCompare: TtfwWord;
 //#UC END# *57500A22001C_4F4BB70D0144_var*
 begin
 //#UC START# *57500A22001C_4F4BB70D0144_impl*
- !!! Needs to be implemented !!!
+ Result := f_RealWord;
+ if (Result <> nil) then
+  Result := Result.GetRefForCompare;
 //#UC END# *57500A22001C_4F4BB70D0144_impl*
 end;//TkwForwardDeclaration.GetRefForCompare
 

@@ -217,7 +217,7 @@ function TkwPopKeyWordName.Name(const aCtx: TtfwContext;
 //#UC END# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_var*
 begin
 //#UC START# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aKeyWord.AsCStr;
 //#UC END# *55895FC003A4_55895FC003A4_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordName.Name
 
@@ -269,7 +269,7 @@ function TkwPopKeyWordDictionary.Dictionary(const aCtx: TtfwContext;
 //#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_var*
 begin
 //#UC START# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aKeyWord.Dictionary As TtfwDictionary;
 //#UC END# *55ED650A0047_55ED650A0047_4DAEF23D00EE_Word_impl*
 end;//TkwPopKeyWordDictionary.Dictionary
 

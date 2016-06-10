@@ -1245,6 +1245,19 @@ function CompareValues(const aV1: TtfwStackValue;
   Result := l3Same(aV1.AsPrintable, aV2.AsPrintable);
  end;//CompareAsPrintable
 
+ function Ref(anObj: TObject): TObject;
+ begin//Ref
+  try
+   if (anObj Is TtfwWord) then
+    Result := TtfwWord(anObj).GetRefForCompare
+   else
+    Result := anObj;
+  except
+   //http://mdp.garant.ru/pages/viewpage.action?pageId=600103362&focusedCommentId=624088919#comment-624088919
+   Result := anObj;
+  end;//try..except
+ end;//Ref
+
 var
  l_C : AnsiChar;
 //#UC END# *4F51EE02033C_4F43A128007E_var*
@@ -1263,7 +1276,7 @@ begin
    tfw_vtStr:
     Result := l3Same(aV1.AsString, aV2.AsString);
    tfw_vtObj:
-    Result := (aV1.AsObject = aV2.AsObject);
+    Result := (Ref(aV1.AsObject) = Ref(aV2.AsObject));
    tfw_vtList:
     Result := (aV1.AsIntf = aV2.AsIntf);
    tfw_vtIntf:
@@ -1308,7 +1321,7 @@ begin
    tfw_vtObj:
     Case aV2.rType of
      tfw_vtNil:
-      Result := (aV1.AsObject = nil);
+      Result := (Ref(aV1.AsObject) = nil);
      else
       CompareAsPrintable;
     end;//Case aV2.rType
@@ -1324,7 +1337,7 @@ begin
      tfw_vtIntf:
       Result := (aV2.AsIntf = nil);
      tfw_vtObj:
-      Result := (aV2.AsObject = nil);
+      Result := (Ref(aV2.AsObject) = nil);
      else
       CompareAsPrintable;
     end;//Case aV2.rType

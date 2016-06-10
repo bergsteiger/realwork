@@ -128,7 +128,7 @@ function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
 //#UC END# *559BCF500182_559BCF500182_559D5D4400D3_Word_var*
 begin
 //#UC START# *559BCF500182_559BCF500182_559D5D4400D3_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aKeywordFinder.ParentFinder;
 //#UC END# *559BCF500182_559BCF500182_559D5D4400D3_Word_impl*
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
 

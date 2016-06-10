@@ -40,9 +40,18 @@ function TtfwRegisterableWordPrim.RegisterInstance(const aName: AnsiString): Boo
 begin
 //#UC START# *53F1E3A4014D_54D229E702B6_impl*
  Assert(aName <> '');
+ {$IfDef LogInit}
+ l3System.Msg2Log('Register: "' + aName + '"');
+ {$EndIf LogInit}
  Result := TtfwAutoregisteredDiction.Instance.AddWord(aName, Self);
  if Result then
   Self.RegisterClass;
+ {$IfDef LogInit}
+ if Result then
+  l3System.Msg2Log('Registered: "' + aName + '"')
+ else
+  l3System.Msg2Log('Not Registered: "' + aName + '"');
+ {$EndIf LogInit}
 //#UC END# *53F1E3A4014D_54D229E702B6_impl*
 end;//TtfwRegisterableWordPrim.RegisterInstance
 
@@ -52,9 +61,18 @@ class function TtfwRegisterableWordPrim.Register(const aName: AnsiString): Boole
 begin
 //#UC START# *4DDFD69F00FE_54D229E702B6_impl*
  Assert(aName <> '');
+ {$IfDef LogInit}
+ l3System.Msg2Log('Register: "' + aName + '"');
+ {$EndIf LogInit}
  Result := TtfwAutoregisteredDiction.Instance.AddWord(aName, Self);
  //if Result then
   Self.RegisterClass;
+ {$IfDef LogInit}
+ if Result then
+  l3System.Msg2Log('Registered: "' + aName + '"')
+ else
+  l3System.Msg2Log('Not Registered: "' + aName + '"');
+ {$EndIf LogInit}
 //#UC END# *4DDFD69F00FE_54D229E702B6_impl*
 end;//TtfwRegisterableWordPrim.Register
 

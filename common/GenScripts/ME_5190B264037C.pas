@@ -181,7 +181,7 @@ function TkwFontColor.Color(const aCtx: TtfwContext;
 //#UC END# *556F27CA0030_556F27CA0030_46A60B17028B_Word_var*
 begin
 //#UC START# *556F27CA0030_556F27CA0030_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.ForeColor;
 //#UC END# *556F27CA0030_556F27CA0030_46A60B17028B_Word_impl*
 end;//TkwFontColor.Color
 
@@ -233,7 +233,7 @@ function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
 //#UC END# *556F27D901F0_556F27D901F0_46A60B17028B_Word_var*
 begin
 //#UC START# *556F27D901F0_556F27D901F0_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.BackColor;
 //#UC END# *556F27D901F0_556F27D901F0_46A60B17028B_Word_impl*
 end;//TkwFontBackColor.BackColor
 
@@ -285,7 +285,7 @@ function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
 //#UC END# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_var*
 begin
 //#UC START# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Bold;
 //#UC END# *556F27FE01C0_556F27FE01C0_46A60B17028B_Word_impl*
 end;//TkwFontIsBold.IsBold
 
@@ -337,7 +337,7 @@ function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
 //#UC END# *556F280F0160_556F280F0160_46A60B17028B_Word_var*
 begin
 //#UC START# *556F280F0160_556F280F0160_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Italic;
 //#UC END# *556F280F0160_556F280F0160_46A60B17028B_Word_impl*
 end;//TkwFontIsItalic.IsItalic
 
@@ -389,7 +389,7 @@ function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
 //#UC END# *556F281A0381_556F281A0381_46A60B17028B_Word_var*
 begin
 //#UC START# *556F281A0381_556F281A0381_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Underline;
 //#UC END# *556F281A0381_556F281A0381_46A60B17028B_Word_impl*
 end;//TkwFontIsUnderline.IsUnderline
 
@@ -441,7 +441,7 @@ function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
 //#UC END# *556F282902E9_556F282902E9_46A60B17028B_Word_var*
 begin
 //#UC START# *556F282902E9_556F282902E9_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Strikeout;
 //#UC END# *556F282902E9_556F282902E9_46A60B17028B_Word_impl*
 end;//TkwFontIsStrikeOut.IsStrikeOut
 
@@ -493,7 +493,7 @@ function TkwFontName.Name(const aCtx: TtfwContext;
 //#UC END# *556F2856019F_556F2856019F_46A60B17028B_Word_var*
 begin
 //#UC START# *556F2856019F_556F2856019F_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Name;
 //#UC END# *556F2856019F_556F2856019F_46A60B17028B_Word_impl*
 end;//TkwFontName.Name
 
@@ -545,7 +545,7 @@ function TkwFontSize.Size(const aCtx: TtfwContext;
 //#UC END# *556F2867022F_556F2867022F_46A60B17028B_Word_var*
 begin
 //#UC START# *556F2867022F_556F2867022F_46A60B17028B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aFont.Size;
 //#UC END# *556F2867022F_556F2867022F_46A60B17028B_Word_impl*
 end;//TkwFontSize.Size
 

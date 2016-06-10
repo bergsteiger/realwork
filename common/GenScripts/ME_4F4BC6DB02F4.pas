@@ -100,7 +100,9 @@ function TkwForwardDeclarationHolder.GetRefForCompare: TtfwWord;
 //#UC END# *57500A22001C_4F4BC6DB02F4_var*
 begin
 //#UC START# *57500A22001C_4F4BC6DB02F4_impl*
- !!! Needs to be implemented !!!
+ Result := f_Holded;
+ if (Result <> nil) then
+  Result := Result.GetRefForCompare;
 //#UC END# *57500A22001C_4F4BC6DB02F4_impl*
 end;//TkwForwardDeclarationHolder.GetRefForCompare
 

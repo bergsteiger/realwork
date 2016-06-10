@@ -463,6 +463,7 @@ begin
  f_CompiledCodeIsActual := false;
  f_FileName := aFiler.FileName;
  if (f_FileName <> '') then
+ begin
   if FileExists(f_FileName) then
   begin
    f_CompiledCodeName := f_FileName + '.co';
@@ -507,6 +508,7 @@ begin
     aFiler.CloseStream;
    end;//try..finally
   end;//FileExists(l_FileName)
+ end;//f_FileName <> '' 
 
  if not f_CompiledCodeIsActual then
  begin

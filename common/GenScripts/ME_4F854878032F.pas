@@ -438,17 +438,14 @@ var
 //#UC END# *551D697C0023_4F854878032F_var*
 begin
 //#UC START# *551D697C0023_4F854878032F_impl*
- l_Bitmap := TBitmap.Create;
- try
   l_Left := aRect.Left;
   l_Top := aRect.Top;
   l_Width := aRect.Right - aRect.Left;
   l_Height := aRect.Bottom - aRect.Top;
   aCaller.RunnerAssert(l_Height > 0, 'Высота скриншота меньше или равна 0.', aCtx);
   aCaller.RunnerAssert(l_Width > 0, 'Ширина скриншота меньше или равна 0.', aCtx);
-  l3MakeScreenShot(l_Bitmap, l_Left, l_Top, l_Width, l_Height, aWnd);
   l_FileName := aCtx.rCaller.ResolveOutputFilePath(aFileName);
-  l_Bitmap.SaveToFile(l_FileName);
+  l3SaveScreenShot2File(l_FileName, l_Left, l_Top, l_Width, l_Height, aWnd);
   if aWithCheck then
   begin
    with Tl3PicturePathService.Instance do
@@ -458,9 +455,6 @@ begin
    end; // with Tl3PicturePathService.Instance do
    aCtx.rCaller.CheckPictureOnly;
   end;//aWithCheck
- finally
-  FreeAndNil(l_Bitmap);
- end;
 //#UC END# *551D697C0023_4F854878032F_impl*
 end;//MakeScreenshot
 

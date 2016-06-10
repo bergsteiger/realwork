@@ -97,7 +97,7 @@ function TkwNodeCaption.Caption(const aCtx: TtfwContext;
 //#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_var*
 begin
 //#UC START# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aNode.Text;
 //#UC END# *54F99E960080_54F99E960080_476BF22B03E1_Word_impl*
 end;//TkwNodeCaption.Caption
 
@@ -149,7 +149,7 @@ function TkwNodeIndex.Index(const aCtx: TtfwContext;
 //#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_var*
 begin
 //#UC START# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aNode.GetNumInParent;
 //#UC END# *54F99EB00271_54F99EB00271_476BF22B03E1_Word_impl*
 end;//TkwNodeIndex.Index
 
@@ -198,10 +198,23 @@ function TkwNodeIndexInTree.IndexInTree(const aCtx: TtfwContext;
  const aNode: Il3Node): Integer;
  {* Реализация слова скрипта Node:IndexInTree }
 //#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
+var
+ l_Index: Integer;
+ l_P: Il3Node;
 //#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_var*
 begin
 //#UC START# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
- !!! Needs to be implemented !!!
+ l_Index := aNode.GetNumInParent;
+ l_P := aNode.ParentNode;
+ try
+  while Assigned(l_P) do
+  begin
+   l_Index := l_Index + l_P.GetNumInParent;
+   l_P := l_P.ParentNode;
+  end;//while Assigned(l_P)
+ finally
+  l_P := nil;
+ end;//try..finally
 //#UC END# *54F99EBA0231_54F99EBA0231_476BF22B03E1_Word_impl*
 end;//TkwNodeIndexInTree.IndexInTree
 

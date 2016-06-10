@@ -359,7 +359,7 @@ function TkwPopCompilerKeywordFinder.KeywordFinder(const aCtx: TtfwContext;
 //#UC END# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_var*
 begin
 //#UC START# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aCompiler.KeywordFinder(aCtx);
 //#UC END# *559BDEF4039F_559BDEF4039F_4DB6E2EE0259_Word_impl*
 end;//TkwPopCompilerKeywordFinder.KeywordFinder
 
@@ -411,7 +411,7 @@ function TkwPopCompilerNewWordDefinitor.NewWordDefinitor(const aCtx: TtfwContext
 //#UC END# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_var*
 begin
 //#UC START# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aCompiler.NewWordDefinitor;
 //#UC END# *55A9055200C5_55A9055200C5_4DB6E2EE0259_Word_impl*
 end;//TkwPopCompilerNewWordDefinitor.NewWordDefinitor
 

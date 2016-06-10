@@ -578,7 +578,7 @@ function TkwPopNewWordDefinitorKeywordFinder.KeywordFinder(const aCtx: TtfwConte
 //#UC END# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_var*
 begin
 //#UC START# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_impl*
- !!! Needs to be implemented !!!
+ Result := aNewWordDefinitor.KeywordFinder(aCtx);
 //#UC END# *559BE01B0219_559BE01B0219_4DC95E96023B_Word_impl*
 end;//TkwPopNewWordDefinitorKeywordFinder.KeywordFinder
 
