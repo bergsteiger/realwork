@@ -338,6 +338,8 @@ type
   , da_aopSum
  );//TdaAggregateOperation
 
+ TdaUserGroupID = TUserGrID;
+
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
 

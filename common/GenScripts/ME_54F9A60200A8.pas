@@ -234,6 +234,7 @@ begin
  Assert(aPath <> '');
  DocStoragePath := aPath;
  DocImagePath := ConcatDirName(aPath, 'images');
+ DocImageCachePath := ConcatDirName(aPath, 'images_cache');
  HomeDirPath := ConcatDirName(aPath, 'homes');
 //#UC END# *55195AE803E0_54F9A60200A8_impl*
 end;//TdaDataProviderParams.ChangeBasePath
@@ -248,6 +249,7 @@ begin
  Password := aParams.Password;
  DocStoragePath := aParams.DocStoragePath;
  DocImagePath := aParams.DocImagePath;
+ DocImageCachePath := aParams.DocImageCachePath;
  HomeDirPath := aParams.HomeDirPath;
  DocBaseVersion := aParams.DocBaseVersion;
  AdminBaseVersion := aParams.AdminBaseVersion;

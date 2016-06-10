@@ -274,6 +274,9 @@ end;//TkwConfigurationWord.DoWithConfigurations
 
 procedure TkwConfigurationsGetConfiguration.DoWithConfigurations(const aCtx: TtfwContext);
 //#UC START# *53B2E1D201CE_53B2DF2B005B_var*
+var
+ l_C: IConfigurations;
+ l_Res: IConfiguration;
 //#UC END# *53B2E1D201CE_53B2DF2B005B_var*
 begin
 //#UC START# *53B2E1D201CE_53B2DF2B005B_impl*
