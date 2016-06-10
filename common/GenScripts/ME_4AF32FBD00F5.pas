@@ -279,7 +279,6 @@ function TnsSaveDialog.pm_GetSelectedFileFormat: TnsFileFormat;
 //#UC END# *4DBB129E010A_4AF32FBD00F5get_var*
 begin
 //#UC START# *4DBB129E010A_4AF32FBD00F5get_impl*
- Result := ns_ffRTF;
  case FilterIndex of
   2: Result := ns_ffTxt;
   3: Result := ns_ffHTML;
@@ -287,6 +286,8 @@ begin
   5: Result := ns_ffXML;
   6: Result := ns_ffEvd;
   7: Result := ns_ffNull;
+ else
+  Result := ns_ffRTF;
  end;//case SaveDialog.FilterIndex of
 //#UC END# *4DBB129E010A_4AF32FBD00F5get_impl*
 end;//TnsSaveDialog.pm_GetSelectedFileFormat

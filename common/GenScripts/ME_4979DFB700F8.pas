@@ -384,7 +384,6 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4979DFB700F8impl_uses*
- , Base_Operations_Editions_Controls
  //#UC END# *4979DFB700F8impl_uses*
 ;
 
@@ -583,7 +582,7 @@ begin
 //#UC START# *4C2AF7F6023A_4979DFB700F8_impl*
  Result := (Supports(aNode, IevDocumentPart, l_Block) or
   (Supports(aNode, IevSub, l_Sub) and
-  (l_Sub.LayerID = Ord(ev_sbtSub)))) and lpIsNodeBlockOrSub(aNode);
+  (l_Sub.LayerID = Ord(ev_sbtSub)))) and lp_IsNodeBlockOrSub(aNode);
 //#UC END# *4C2AF7F6023A_4979DFB700F8_impl*
 end;//TPrimContentsForm.IsNodeBlockOrSub
 
