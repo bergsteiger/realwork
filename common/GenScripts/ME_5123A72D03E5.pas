@@ -3132,6 +3132,9 @@ uses
  , nsUserNodes in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\nsUserNodes.pas'
  , bsEditGroupName in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\bsEditGroupName.pas'
  , dsBasesAccess in 'w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsBasesAccess.pas'
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef in 'w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  , fsAdmin in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\fsAdmin.pas'
  , PrimAdmin_utAdmin_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_utAdmin_UserType.pas'
  , Admin_FormDefinitions_Controls in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Admin_FormDefinitions_Controls.pas'

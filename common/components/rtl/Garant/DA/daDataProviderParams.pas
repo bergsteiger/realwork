@@ -42,6 +42,8 @@ type
    procedure pm_SetDocBaseVersion(aValue: Integer);
    function pm_GetAdminBaseVersion: Integer;
    procedure pm_SetAdminBaseVersion(aValue: Integer);
+   function pm_GetDocImageCachePath: AnsiString;
+   procedure pm_SetDocImageCachePath(const aValue: AnsiString);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -82,6 +84,9 @@ type
    property AdminBaseVersion: Integer
     read pm_GetAdminBaseVersion
     write pm_SetAdminBaseVersion;
+   property DocImageCachePath: AnsiString
+    read pm_GetDocImageCachePath
+    write pm_SetDocImageCachePath;
  end;//TdaDataProviderParams
 
 implementation
@@ -197,6 +202,18 @@ procedure TdaDataProviderParams.pm_SetAdminBaseVersion(aValue: Integer);
 begin
  TaggedData.IntW[k2_attrAdminBaseVersion, nil] := (aValue);
 end;//TdaDataProviderParams.pm_SetAdminBaseVersion
+
+function TdaDataProviderParams.pm_GetDocImageCachePath: AnsiString;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.StrA[k2_attrDocImageCachePath]);
+end;//TdaDataProviderParams.pm_GetDocImageCachePath
+
+procedure TdaDataProviderParams.pm_SetDocImageCachePath(const aValue: AnsiString);
+begin
+ TaggedData.StrW[k2_attrDocImageCachePath, nil] := (aValue);
+end;//TdaDataProviderParams.pm_SetDocImageCachePath
 
 procedure TdaDataProviderParams.CorrectAfterSet;
 //#UC START# *55194F830311_54F9A60200A8_var*

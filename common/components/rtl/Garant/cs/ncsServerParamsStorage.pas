@@ -46,6 +46,8 @@ type
    function OuterConfigEdit: Boolean;
    procedure BuildConfig(aConfig: TddAppConfiguration;
     const aProviderKey: AnsiString); overload;
+   function Get_DocImageCachePath: AnsiString;
+   procedure Set_DocImageCachePath(const aValue: AnsiString);
   public
    class function Make: IdaParamsStorage; reintroduce;
  end;//TncsServerParamsStorage
@@ -347,6 +349,24 @@ begin
 {$IfEnd defined(UsePostgres)}
 //#UC END# *551512370064_5507E70200AF_impl*
 end;//TncsServerParamsStorage.BuildConfig
+
+function TncsServerParamsStorage.Get_DocImageCachePath: AnsiString;
+//#UC START# *5756BD40014A_5507E70200AFget_var*
+//#UC END# *5756BD40014A_5507E70200AFget_var*
+begin
+//#UC START# *5756BD40014A_5507E70200AFget_impl*
+ Result := ddAppConfiguration.AsString['ImageCachePath'];
+//#UC END# *5756BD40014A_5507E70200AFget_impl*
+end;//TncsServerParamsStorage.Get_DocImageCachePath
+
+procedure TncsServerParamsStorage.Set_DocImageCachePath(const aValue: AnsiString);
+//#UC START# *5756BD40014A_5507E70200AFset_var*
+//#UC END# *5756BD40014A_5507E70200AFset_var*
+begin
+//#UC START# *5756BD40014A_5507E70200AFset_impl*
+ // do nothing
+//#UC END# *5756BD40014A_5507E70200AFset_impl*
+end;//TncsServerParamsStorage.Set_DocImageCachePath
 {$IfEnd} // Defined(AppServerSide) AND NOT Defined(Nemesis)
 
 end.

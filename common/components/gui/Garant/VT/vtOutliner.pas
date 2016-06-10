@@ -577,7 +577,7 @@ uses
 ;
 
 const
- cAllOutlinerCommand = [ccTreeExpand, ccTreeAllExpand, ccMoveLeft, ccMoveRight, ccMoveUp, ccMoveDown, ccLeft, ccRight, ccFastFindNext, ccDel, ccTreeCollapse];
+ cAllOutlinerCommand = [ccTreeExpand, ccTreeAllExpand, ccMoveLeft, ccMoveRight, ccMoveUp, ccMoveDown, ccLeft, ccRight, ccFastFindNext, ccDel, ccTreeCollapse, ccMoveLeftInt, ccMoveRightInt];
  cOutlinerHMovingCommand = [ccMoveLeft, ccMoveRight];
  cOutlinerVMovingCommand = [ccMoveUp, ccMoveDown];
  cOutlinerMovingCommand = cOutlinerHMovingCommand + cOutlinerVMovingCommand;

@@ -21,12 +21,14 @@ type
    f_Description: IdaParamDescription;
   protected
    function Get_Alias: AnsiString;
-   function BuildSQLValue: AnsiString;
+   function BuildSQLValue(AddAlias: Boolean = True): AnsiString;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aDescription: IdaParamDescription); reintroduce;
    class function Make(const aDescription: IdaParamDescription): IdaSelectField; reintroduce;
+   procedure IterateTables(anAction: daSelectFieldIterator_IterateTables_Action); virtual;
+   procedure IterateTablesF(anAction: daSelectFieldIterator_IterateTables_Action);
  end;//TpgFunctionSelectField
 {$IfEnd} // Defined(UsePostgres)
 
@@ -35,6 +37,7 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ , l3Base
 ;
 
 constructor TpgFunctionSelectField.Create(const aDescription: IdaParamDescription);
@@ -68,7 +71,7 @@ begin
 //#UC END# *555352070022_567A8BE7002Dget_impl*
 end;//TpgFunctionSelectField.Get_Alias
 
-function TpgFunctionSelectField.BuildSQLValue: AnsiString;
+function TpgFunctionSelectField.BuildSQLValue(AddAlias: Boolean = True): AnsiString;
 //#UC START# *5608E5A4025F_567A8BE7002D_var*
 //#UC END# *5608E5A4025F_567A8BE7002D_var*
 begin
@@ -76,6 +79,26 @@ begin
  Result := f_Description.Name;
 //#UC END# *5608E5A4025F_567A8BE7002D_impl*
 end;//TpgFunctionSelectField.BuildSQLValue
+
+procedure TpgFunctionSelectField.IterateTables(anAction: daSelectFieldIterator_IterateTables_Action);
+//#UC START# *5756AC9B0213_567A8BE7002D_var*
+//#UC END# *5756AC9B0213_567A8BE7002D_var*
+begin
+//#UC START# *5756AC9B0213_567A8BE7002D_impl*
+// Do nothing
+//#UC END# *5756AC9B0213_567A8BE7002D_impl*
+end;//TpgFunctionSelectField.IterateTables
+
+procedure TpgFunctionSelectField.IterateTablesF(anAction: daSelectFieldIterator_IterateTables_Action);
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  IterateTables(anAction);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TpgFunctionSelectField.IterateTablesF
 
 procedure TpgFunctionSelectField.Cleanup;
  {* Функция очистки полей объекта. }

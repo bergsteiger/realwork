@@ -24,7 +24,7 @@ type
    function Get_TableAlias: AnsiString;
    function Get_Field: IdaFieldDescription;
    function Get_Alias: AnsiString;
-   function BuildSQLValue: AnsiString;
+   function BuildSQLValue(AddAlias: Boolean = True): AnsiString;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -34,12 +34,15 @@ type
    class function Make(const aTableAlias: AnsiString;
     const aField: IdaFieldDescription;
     const anAlias: AnsiString = ''): IdaSelectField; reintroduce;
+   procedure IterateTables(anAction: daSelectFieldIterator_IterateTables_Action); virtual;
+   procedure IterateTablesF(anAction: daSelectFieldIterator_IterateTables_Action);
  end;//TdaSelectField
 
 implementation
 
 uses
  l3ImplUses
+ , l3Base
 ;
 
 constructor TdaSelectField.Create(const aTableAlias: AnsiString;
@@ -102,7 +105,7 @@ begin
 //#UC END# *555352070022_5551DCD200EEget_impl*
 end;//TdaSelectField.Get_Alias
 
-function TdaSelectField.BuildSQLValue: AnsiString;
+function TdaSelectField.BuildSQLValue(AddAlias: Boolean = True): AnsiString;
 //#UC START# *5608E5A4025F_5551DCD200EE_var*
 //#UC END# *5608E5A4025F_5551DCD200EE_var*
 begin
@@ -114,6 +117,26 @@ begin
   Result := f_TableAlias + '.' + Result;
 //#UC END# *5608E5A4025F_5551DCD200EE_impl*
 end;//TdaSelectField.BuildSQLValue
+
+procedure TdaSelectField.IterateTables(anAction: daSelectFieldIterator_IterateTables_Action);
+//#UC START# *5756AC9B0213_5551DCD200EE_var*
+//#UC END# *5756AC9B0213_5551DCD200EE_var*
+begin
+//#UC START# *5756AC9B0213_5551DCD200EE_impl*
+ anAction(f_Field.Table);
+//#UC END# *5756AC9B0213_5551DCD200EE_impl*
+end;//TdaSelectField.IterateTables
+
+procedure TdaSelectField.IterateTablesF(anAction: daSelectFieldIterator_IterateTables_Action);
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  IterateTables(anAction);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//TdaSelectField.IterateTablesF
 
 procedure TdaSelectField.Cleanup;
  {* Функция очистки полей объекта. }

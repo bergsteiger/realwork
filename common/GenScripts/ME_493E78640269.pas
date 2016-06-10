@@ -48,6 +48,9 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
+ //#UC START# *493E78640269intf_uses*
+ , fstListInterfaces
+ //#UC END# *493E78640269intf_uses*
 ;
 
 const
@@ -58,16 +61,20 @@ const
 '%s' }
 
 type
+ //#UC START# *493E78640269ci*
+_FormSetType_ = IfstList;
+ //#UC END# *493E78640269ci*
  _InitDataType_ = IdeDocumentList;
  _SetDataType_ = IdList;
  _SetType_ = IsdsList;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
- _nsListWarningGenerator_Parent_ = _sdsDocInfo_;
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfoFS.imp.pas}
+ _nsListWarningGenerator_Parent_ = _sdsDocInfoFS_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
+ //#UC START# *493E78640269cit*
+ //#UC END# *493E78640269cit*
  TsdsList = class(_nsListWarningGenerator_, IsdsList, IucpFilters, IucpNodeForPositioningHolder, IbsDataProducer, InsWarningGenerator, IucpBaseSearchSupportQuery, IsdsListPrim, IsdsListNameHolder)
   {* Список }
   private
-   f_DisableAutoOpenAnnotation: Boolean;
    f_dsBaloonWarning: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsBaloonWarning }
    f_dsListAnalize: IvcmViewAreaControllerRef;
@@ -84,7 +91,9 @@ type
   protected
    procedure OpenFilters;
     {* открыть форму фильтры }
-   procedure ChangeSynchroForm(aSynchroForm: TList_SynchroView_Areas);
+   procedure ChangeSynchroForm(aSynchroForm: TList_SynchroView_Areas;
+    aDoSaveToHistory: Boolean = True;
+    aNeedRefresh: Boolean = True);
     {* Переключает форму синхронного просмотра }
    function As_IucpFilters: IucpFilters;
     {* Метод приведения нашего интерфейса к IucpFilters }
@@ -126,12 +135,19 @@ type
    function pm_GetIsSimilarDocumentsActive: Boolean;
    procedure ReplaceList(const aList: IDynList);
    function pm_GetDsBaloonWarning: IdsWarning;
+   function DoGet_DsBaloonWarning: IdsWarning;
    function pm_GetDsListAnalize: IdsListAnalize;
+   function DoGet_DsListAnalize: IdsListAnalize;
    function pm_GetDsTextBaloonWarning: IdsWarning;
+   function DoGet_DsTextBaloonWarning: IdsWarning;
    function pm_GetDsList: IdsDocumentList;
+   function DoGet_DsList: IdsDocumentList;
    function pm_GetDsSynchroView: IdsSynchroView;
+   function DoGet_DsSynchroView: IdsSynchroView;
    function pm_GetDsListInfo: IdsListInfo;
+   function DoGet_DsListInfo: IdsListInfo;
    function pm_GetDsFilters: IdsFilters;
+   function DoGet_DsFilters: IdsFilters;
    function pm_GetShortListName: Il3CString;
    function pm_GetListName: Il3CString;
    procedure OpenAttributes;
@@ -154,6 +170,10 @@ type
    procedure OpenAnnotation;
     {* Открывает ViewArea "аннотация к документу" }
    function pm_GetIsAnnotationActive: Boolean;
+   function pm_GetDsListRef: IvcmViewAreaControllerRef;
+   function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+   function pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
+   function pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -164,10 +184,6 @@ type
     {* - необходимость создания БОФ атрибутов. }
    procedure ClearAllDS; override;
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    function NeedMakeDocument: Boolean; override;
     {* Определяет - нужно ли создавать область ввода для документа }
    function NeedMakeDSUserCRList1: Boolean; override;
@@ -192,6 +208,12 @@ type
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
+ //#UC START# *493E78640269publ*
+ //#UC END# *493E78640269publ*
  end;//TsdsList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -232,7 +254,6 @@ uses
  , dsSynchroViewWarning
  , dsSynchroViewDocument
  , nsTabbedInterfaceTypes
- , l3MessageID
  , dsDocumentListCR
  , dsDocumentList
  , dsDocumentWithFlash
@@ -256,17 +277,22 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
  , nsDocumentWarningGenerator
  , BaloonWarningUserTypes_remListModified_UserType
  , UnderControlInterfaces
  , nsListWarningGenerator
  , WarningUserTypes_Warning_UserType
+ //#UC START# *493E78640269impl_uses*
+ //#UC END# *493E78640269impl_uses*
 ;
 
 type _Instance_R_ = TsdsList;
 
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfoFS.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
 
@@ -337,12 +363,14 @@ begin
 //#UC END# *493E7EAC0171_493E78640269_impl*
 end;//TsdsList.OpenFilters
 
-procedure TsdsList.ChangeSynchroForm(aSynchroForm: TList_SynchroView_Areas);
+procedure TsdsList.ChangeSynchroForm(aSynchroForm: TList_SynchroView_Areas;
+ aDoSaveToHistory: Boolean = True;
+ aNeedRefresh: Boolean = True);
  {* Переключает форму синхронного просмотра }
-//#UC START# *D35F2F1E4DE1_493E78640269_var*
-//#UC END# *D35F2F1E4DE1_493E78640269_var*
+//#UC START# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_var*
+//#UC END# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_var*
 begin
-//#UC START# *D35F2F1E4DE1_493E78640269_impl*
+//#UC START# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_impl*
  if (aSynchroForm <> UCFormSet.CurrentSynchroForm) OR
   (aDoSaveToHistory and (SetData.List_SynchroView_Form <> aSynchroForm)) then
  begin
@@ -362,7 +390,7 @@ begin
   if aNeedRefresh then
    Refresh;
  end;//aSynchroForm <> SetData.List_SynchroView_Form
-//#UC END# *D35F2F1E4DE1_493E78640269_impl*
+//#UC END# *493E78640269_9FD1376BB752_ChangeSynchroForm_493E78640269_impl*
 end;//TsdsList.ChangeSynchroForm
 
 function TsdsList.As_IucpFilters: IucpFilters;
@@ -630,64 +658,193 @@ function TsdsList.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DB984CF00E5_493E78640269get_var*
 //#UC END# *4DB984CF00E5_493E78640269get_var*
 begin
-//#UC START# *4DB984CF00E5_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DB984CF00E5_493E78640269get_impl*
+ if (f_dsBaloonWarning = nil) then
+ begin
+  f_dsBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DB984CF00E5_493E78640269get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DB984CF00E5_493E78640269get_init*
+ end;//f_dsBaloonWarning = nil
+ if f_dsBaloonWarning.IsEmpty
+  //#UC START# *4DB984CF00E5_493E78640269get_need*
+  // - условие создания ViewArea
+  //#UC END# *4DB984CF00E5_493E78640269get_need*
+  then
+   f_dsBaloonWarning.Referred := DoGet_dsBaloonWarning;
+ Result := IdsWarning(f_dsBaloonWarning.Referred);
 end;//TsdsList.pm_GetDsBaloonWarning
+
+function TsdsList.DoGet_DsBaloonWarning: IdsWarning;
+//#UC START# *4DB984CF00E5_493E78640269area_var*
+//#UC END# *4DB984CF00E5_493E78640269area_var*
+begin
+//#UC START# *4DB984CF00E5_493E78640269area_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DB984CF00E5_493E78640269area_impl*
+end;//TsdsList.DoGet_DsBaloonWarning
 
 function TsdsList.pm_GetDsListAnalize: IdsListAnalize;
 //#UC START# *4E36899100B5_493E78640269get_var*
 //#UC END# *4E36899100B5_493E78640269get_var*
 begin
-//#UC START# *4E36899100B5_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4E36899100B5_493E78640269get_impl*
+ if (f_dsListAnalize = nil) then
+ begin
+  f_dsListAnalize := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4E36899100B5_493E78640269get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4E36899100B5_493E78640269get_init*
+ end;//f_dsListAnalize = nil
+ if f_dsListAnalize.IsEmpty
+  //#UC START# *4E36899100B5_493E78640269get_need*
+  AND
+  (pm_GetDsList <> nil) and
+  not pm_GetDsList.IsListEmpty
+  and pm_GetDsList.CanAnalize
+  // - условие создания ViewArea
+  //#UC END# *4E36899100B5_493E78640269get_need*
+  then
+   f_dsListAnalize.Referred := DoGet_dsListAnalize;
+ Result := IdsListAnalize(f_dsListAnalize.Referred);
 end;//TsdsList.pm_GetDsListAnalize
+
+function TsdsList.DoGet_DsListAnalize: IdsListAnalize;
+//#UC START# *4E36899100B5_493E78640269area_var*
+//#UC END# *4E36899100B5_493E78640269area_var*
+begin
+//#UC START# *4E36899100B5_493E78640269area_impl*
+ Result := TdsListAnalize.Make(Self);
+//#UC END# *4E36899100B5_493E78640269area_impl*
+end;//TsdsList.DoGet_DsListAnalize
 
 function TsdsList.pm_GetDsTextBaloonWarning: IdsWarning;
 //#UC START# *4EFC594701E9_493E78640269get_var*
 //#UC END# *4EFC594701E9_493E78640269get_var*
 begin
-//#UC START# *4EFC594701E9_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EFC594701E9_493E78640269get_impl*
+ if (f_dsTextBaloonWarning = nil) then
+ begin
+  f_dsTextBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4EFC594701E9_493E78640269get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4EFC594701E9_493E78640269get_init*
+ end;//f_dsTextBaloonWarning = nil
+ if f_dsTextBaloonWarning.IsEmpty
+  //#UC START# *4EFC594701E9_493E78640269get_need*
+  // - условие создания ViewArea
+  //#UC END# *4EFC594701E9_493E78640269get_need*
+  then
+   f_dsTextBaloonWarning.Referred := DoGet_dsTextBaloonWarning;
+ Result := IdsWarning(f_dsTextBaloonWarning.Referred);
 end;//TsdsList.pm_GetDsTextBaloonWarning
+
+function TsdsList.DoGet_DsTextBaloonWarning: IdsWarning;
+//#UC START# *4EFC594701E9_493E78640269area_var*
+//#UC END# *4EFC594701E9_493E78640269area_var*
+begin
+//#UC START# *4EFC594701E9_493E78640269area_impl*
+ Result := TdsSynchroViewWarning.Make(Self);
+//#UC END# *4EFC594701E9_493E78640269area_impl*
+end;//TsdsList.DoGet_DsTextBaloonWarning
 
 function TsdsList.pm_GetDsList: IdsDocumentList;
 //#UC START# *500CFA670146_493E78640269get_var*
 //#UC END# *500CFA670146_493E78640269get_var*
 begin
-//#UC START# *500CFA670146_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CFA670146_493E78640269get_impl*
+ with pm_GetdsListRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CFA670146_493E78640269get_need*
+   // - условие создания ViewArea
+  //#UC END# *500CFA670146_493E78640269get_need*
+   then
+    Referred := DoGet_dsList;
+  Result := IdsDocumentList(Referred);
+ end;// with pm_GetdsListRef
 end;//TsdsList.pm_GetDsList
+
+function TsdsList.DoGet_DsList: IdsDocumentList;
+//#UC START# *500CFA670146_493E78640269area_var*
+//#UC END# *500CFA670146_493E78640269area_var*
+begin
+//#UC START# *500CFA670146_493E78640269area_impl*
+ Result := TdsMainList.Make(Self, InitialUseCaseData);
+//#UC END# *500CFA670146_493E78640269area_impl*
+end;//TsdsList.DoGet_DsList
 
 function TsdsList.pm_GetDsSynchroView: IdsSynchroView;
 //#UC START# *500CFA9800C8_493E78640269get_var*
 //#UC END# *500CFA9800C8_493E78640269get_var*
 begin
-//#UC START# *500CFA9800C8_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CFA9800C8_493E78640269get_impl*
+ with pm_GetdsSynchroViewRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CFA9800C8_493E78640269get_need*
+   // - условие создания ViewArea
+  //#UC END# *500CFA9800C8_493E78640269get_need*
+   then
+    Referred := DoGet_dsSynchroView;
+  Result := IdsSynchroView(Referred);
+ end;// with pm_GetdsSynchroViewRef
 end;//TsdsList.pm_GetDsSynchroView
+
+function TsdsList.DoGet_DsSynchroView: IdsSynchroView;
+//#UC START# *500CFA9800C8_493E78640269area_var*
+//#UC END# *500CFA9800C8_493E78640269area_var*
+begin
+//#UC START# *500CFA9800C8_493E78640269area_impl*
+ Result := TdsSynchroView.Make(Self);
+//#UC END# *500CFA9800C8_493E78640269area_impl*
+end;//TsdsList.DoGet_DsSynchroView
 
 function TsdsList.pm_GetDsListInfo: IdsListInfo;
 //#UC START# *500CFABF0356_493E78640269get_var*
 //#UC END# *500CFABF0356_493E78640269get_var*
 begin
-//#UC START# *500CFABF0356_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CFABF0356_493E78640269get_impl*
+ with pm_GetdsListInfoRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CFABF0356_493E78640269get_need*
+   // - условие создания ViewArea
+  //#UC END# *500CFABF0356_493E78640269get_need*
+   then
+    Referred := DoGet_dsListInfo;
+  Result := IdsListInfo(Referred);
+ end;// with pm_GetdsListInfoRef
 end;//TsdsList.pm_GetDsListInfo
+
+function TsdsList.DoGet_DsListInfo: IdsListInfo;
+//#UC START# *500CFABF0356_493E78640269area_var*
+//#UC END# *500CFABF0356_493E78640269area_var*
+begin
+//#UC START# *500CFABF0356_493E78640269area_impl*
+ Result := TdsListInfo.Make(Self, bsListCreationHistory(SetData.List));
+//#UC END# *500CFABF0356_493E78640269area_impl*
+end;//TsdsList.DoGet_DsListInfo
 
 function TsdsList.pm_GetDsFilters: IdsFilters;
 //#UC START# *500CFAE50070_493E78640269get_var*
 //#UC END# *500CFAE50070_493E78640269get_var*
 begin
-//#UC START# *500CFAE50070_493E78640269get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CFAE50070_493E78640269get_impl*
+ with pm_GetdsFiltersRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CFAE50070_493E78640269get_need*
+     AND (UCFormSet.FiltersNeedMakeDS in [vcm_nmYes, vcm_nmForce])
+   // - условие создания ViewArea
+  //#UC END# *500CFAE50070_493E78640269get_need*
+   then
+    Referred := DoGet_dsFilters;
+  Result := IdsFilters(Referred);
+ end;// with pm_GetdsFiltersRef
 end;//TsdsList.pm_GetDsFilters
+
+function TsdsList.DoGet_DsFilters: IdsFilters;
+//#UC START# *500CFAE50070_493E78640269area_var*
+//#UC END# *500CFAE50070_493E78640269area_var*
+begin
+//#UC START# *500CFAE50070_493E78640269area_impl*
+ Result := TdsFilters.Make(Self);
+//#UC END# *500CFAE50070_493E78640269area_impl*
+end;//TsdsList.DoGet_DsFilters
 
 function TsdsList.pm_GetShortListName: Il3CString;
 //#UC START# *501806DE0323_493E78640269get_var*
@@ -838,6 +995,26 @@ begin
  Result := UCFormSet.CurrentSynchroForm = sva_List_SynchroView_Annotation;
 //#UC END# *FB06C8ED7916_493E78640269get_impl*
 end;//TsdsList.pm_GetIsAnnotationActive
+
+function TsdsList.pm_GetDsListRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsListRef;
+end;//TsdsList.pm_GetDsListRef
+
+function TsdsList.pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsSynchroViewRef;
+end;//TsdsList.pm_GetDsSynchroViewRef
+
+function TsdsList.pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsListInfoRef;
+end;//TsdsList.pm_GetDsListInfoRef
+
+function TsdsList.pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsFiltersRef;
+end;//TsdsList.pm_GetDsFiltersRef
 
 {$If NOT Defined(NoVCM)}
 procedure TsdsList.DataExchange;
@@ -1030,18 +1207,6 @@ begin
 //#UC END# *4925B9370022_493E78640269_impl*
 end;//TsdsList.DoChangeDocument
 
-{$If NOT Defined(NoVCM)}
-procedure TsdsList.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_493E78640269_var*
-//#UC END# *4938F7E702B7_493E78640269_var*
-begin
-//#UC START# *4938F7E702B7_493E78640269_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_493E78640269_impl*
-end;//TsdsList.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
 function TsdsList.NeedMakeDocument: Boolean;
  {* Определяет - нужно ли создавать область ввода для документа }
 //#UC START# *493D1BE601B1_493E78640269_var*
@@ -1219,6 +1384,24 @@ begin
  f_dsTextBaloonWarning := nil;
  inherited;
 end;//TsdsList.ClearFields
+
+{$If NOT Defined(NoVCM)}
+procedure TsdsList.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsBaloonWarning <> nil) then f_dsBaloonWarning.Referred := nil;
+ if (f_dsListAnalize <> nil) then f_dsListAnalize.Referred := nil;
+ if (f_dsTextBaloonWarning <> nil) then f_dsTextBaloonWarning.Referred := nil;
+ pm_GetdsListRef.Referred := nil;
+ pm_GetdsSynchroViewRef.Referred := nil;
+ pm_GetdsListInfoRef.Referred := nil;
+ pm_GetdsFiltersRef.Referred := nil;
+ inherited;
+end;//TsdsList.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+//#UC START# *493E78640269impl*
+//#UC END# *493E78640269impl*
 
 initialization
  str_MissingAnalisisTree.Init;

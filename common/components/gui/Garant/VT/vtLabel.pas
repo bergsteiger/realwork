@@ -21,7 +21,6 @@ uses
  , Messages
  , Classes
  , Types
- , evTypes
  {$If NOT Defined(NoVCL)}
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
@@ -76,7 +75,7 @@ type
    function CheckStamp(const aGUID: TGUID): Boolean;
    {$IfEnd} // Defined(DesignTimeLibrary)
    function CaptionStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Caption сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Caption сохран€етс€ }
    function pm_GetCCaption: IafwCString;
    procedure pm_SetCCaption(const aValue: IafwCString);
    procedure Cleanup; override;
@@ -134,9 +133,9 @@ type
  )
   {* ћетка, котора€ следит за таблицей стилей }
   private
-   f_StyleId: TevStyleId;
+   f_StyleId: Tl3StyleId;
   protected
-   procedure pm_SetStyleId(const aValue: TevStyleId);
+   procedure pm_SetStyleId(aValue: Tl3StyleId);
    {$If NOT Defined(DesignTimeLibrary)}
    procedure StyleTableChanged;
     {* таблица стилей изменилась. }
@@ -146,7 +145,7 @@ type
   public
    constructor Create(AOwner: TComponent); override;
   public
-   property StyleId: TevStyleId
+   property StyleId: Tl3StyleId
     read f_StyleId
     write pm_SetStyleId;
  //#UC START# *5703BF610068publ*
@@ -483,14 +482,14 @@ end;//TvtCustomLabel.CheckStamp
 {$IfEnd} // Defined(DesignTimeLibrary)
 
 function TvtCustomLabel.CaptionStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Caption сохран€етс€" }
-//#UC START# *6B1BE297C357_4F29240F0204_var*
-//#UC END# *6B1BE297C357_4F29240F0204_var*
+ {* ‘ункци€ определ€юща€, что свойство Caption сохран€етс€ }
+//#UC START# *4F2A554F01F4Stored_4F29240F0204_var*
+//#UC END# *4F2A554F01F4Stored_4F29240F0204_var*
 begin
-//#UC START# *6B1BE297C357_4F29240F0204_impl*
+//#UC START# *4F2A554F01F4Stored_4F29240F0204_impl*
  Result := not l3IsNil(CCaption) AND
            ((ActionLink = nil) or not THackLink(ActionLink).IsCaptionLinked);
-//#UC END# *6B1BE297C357_4F29240F0204_impl*
+//#UC END# *4F2A554F01F4Stored_4F29240F0204_impl*
 end;//TvtCustomLabel.CaptionStored
 
 function TvtCustomLabel.pm_GetCCaption: IafwCString;
@@ -766,7 +765,7 @@ end;//TvtCustomLabel.ClearFields
 //#UC START# *4F29240F0204impl*
 //#UC END# *4F29240F0204impl*
 
-procedure TvtStyledLabel.pm_SetStyleId(const aValue: TevStyleId);
+procedure TvtStyledLabel.pm_SetStyleId(aValue: Tl3StyleId);
 //#UC START# *5703BFB901D4_5703BF610068set_var*
 //#UC END# *5703BFB901D4_5703BF610068set_var*
 begin

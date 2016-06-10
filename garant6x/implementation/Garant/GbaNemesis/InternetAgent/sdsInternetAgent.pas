@@ -1,96 +1,72 @@
 unit sdsInternetAgent;
+ {* Реализация прецедента Интернет-агента }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "InternetAgent"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/InternetAgent/sdsInternetAgent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::InternetAgent::InternetAgent::InternetAgent::TsdsInternetAgent
-//
-// Реализация прецедента Интернет-агента
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\sdsInternetAgent.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsInternetAgent" MUID: (49ECA984005F)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  InternetAgentInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , InternetAgentInterfaces
+ , l3Interfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _InitDataType_ = Il3CString;
  _SetType_ = IsdsInternetAgent;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
- TsdsInternetAgent = {ucc} class(_vcmFormSetDataSourceWithoutData_, IsdsInternetAgent)
+ TsdsInternetAgent = class(_vcmFormSetDataSourceWithoutData_, IsdsInternetAgent)
   {* Реализация прецедента Интернет-агента }
- private
- // private fields
-   f_MainViewArea : IvcmViewAreaControllerRef;
-    {* Поле для области вывода MainViewArea}
- protected
- // realized methods
+  private
+   f_MainViewArea: IvcmViewAreaControllerRef;
+    {* Поле для области вывода MainViewArea }
+  protected
    function pm_GetMainViewArea: IdsInternetAgent;
    function DoGet_MainViewArea: IdsInternetAgent;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsInternetAgent
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsInternetAgent
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  SysUtils,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , dsInternetAgent
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsInternetAgent;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
-
-// start class TsdsInternetAgent
 
 function TsdsInternetAgent.pm_GetMainViewArea: IdsInternetAgent;
 //#UC START# *4A37A70E01DE_49ECA984005Fget_var*
@@ -110,7 +86,7 @@ begin
   then
    f_MainViewArea.Referred := DoGet_MainViewArea;
  Result := IdsInternetAgent(f_MainViewArea.Referred);
-end;
+end;//TsdsInternetAgent.pm_GetMainViewArea
 
 function TsdsInternetAgent.DoGet_MainViewArea: IdsInternetAgent;
 //#UC START# *4A37A70E01DE_49ECA984005Farea_var*
@@ -121,15 +97,19 @@ begin
 //#UC END# *4A37A70E01DE_49ECA984005Farea_impl*
 end;//TsdsInternetAgent.DoGet_MainViewArea
 
-{$If not defined(NoVCM)}
+procedure TsdsInternetAgent.ClearFields;
+begin
+ f_MainViewArea := nil;
+ inherited;
+end;//TsdsInternetAgent.ClearFields
+
 procedure TsdsInternetAgent.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  if (f_MainViewArea <> nil) then f_MainViewArea.Referred := nil;
  inherited;
 end;//TsdsInternetAgent.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

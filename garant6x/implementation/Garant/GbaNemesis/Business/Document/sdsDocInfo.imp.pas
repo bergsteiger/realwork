@@ -1,186 +1,169 @@
 {$IfNDef sdsDocInfo_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Business"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Business/Document/sdsDocInfo.imp.pas"
-// Начат: 2005/08/24 13:53:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Core::Common::Business::DocumentAndList::sdsDocInfo
-//
-// Общий объект сборки для списка и документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsDocInfo" MUID: (493D2F7B031D)
+// Имя типа: "_sdsDocInfo_"
 
 {$Define sdsDocInfo_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
- {$Include ..\Document\sdsBaseDocumentWithAttributes.imp.pas}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _sdsBaseDocumentWithAttributes_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  _nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
- _sdsDocInfo_ = {abstract ucc} class(_nsUserSettingsListener_, IsdsDocInfo, IbsFlash {from IsdsDocInfo})
+ _sdsDocInfo_ = {abstract} class(_nsUserSettingsListener_, IsdsDocInfo, IbsFlash)
   {* Общий объект сборки для списка и документа }
- private
- // private methods
+  private
    procedure ConfigurationChanged;
-     {* изменилась активная конфигурация }
- protected
- // realized methods
-   function pm_GetHasTranslation: Boolean;
-   function pm_GetHasSimilarDocuments: Boolean;
-   function pm_GetHasRelatedDoc: Boolean;
-   procedure OpenCorrespondents;
-     {* корреспонденты }
-   procedure OpenRespondents;
-     {* респонденты }
-   function ChangeCRType(const aNode: INodeBase;
-    aType: TlstCRType;
-    IsCRToPart: Boolean = false): Boolean;
-     {* вызывается при изменении типа корреспондентов/респондентов }
-   procedure AddToControl;
-     {* поставить документ на контроль }
-   procedure DelFromControl;
-     {* снять с контроля }
-   procedure ResetCacheAfterUpdate;
-     {* сброс закэшированных параметров после обновления базы документов }
-   function IsTypedCRSelected(aSheetNumber: TnsUserCRListId): Boolean;
-     {* проверка того, что пользователь настроил соответствующую вкладку СКР }
-   function HasTypedCRinBigBase(aSheetNumber: TnsUserCRListId): Boolean;
-     {* проверка наличмия типизированных СКР в полной базе }
-   function pm_GetIsUnderControl: Boolean;
-   function pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
-   function pm_GetFlashData: IExternalObject;
-   function pm_GetDsRelatedDoc: IdsDocument;
-   function DoGet_dsRelatedDoc: IdsDocument;
-   function pm_GetdsRelatedDocRef: IvcmViewAreaControllerRef;
-   function pm_GetDsRespondents: IdsDocumentList;
-   function DoGet_dsRespondents: IdsDocumentList;
-   function pm_GetdsRespondentsRef: IvcmViewAreaControllerRef;
-   function pm_GetDsCorrespondents: IdsDocumentList;
-   function DoGet_dsCorrespondents: IdsDocumentList;
-   function pm_GetdsCorrespondentsRef: IvcmViewAreaControllerRef;
-   function pm_GetDsUserCR1: IdsDocumentList;
-   function DoGet_dsUserCR1: IdsDocumentList;
-   function pm_GetdsUserCR1Ref: IvcmViewAreaControllerRef;
-   function pm_GetDsUserCR2: IdsDocumentList;
-   function DoGet_dsUserCR2: IdsDocumentList;
-   function pm_GetdsUserCR2Ref: IvcmViewAreaControllerRef;
-   function pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
-   function DoGet_dsDocumentWithFlash: IdsDocumentWithFlash;
-   function pm_GetdsDocumentWithFlashRef: IvcmViewAreaControllerRef;
-   function pm_GetDsAnnotation: IdsDocument;
-   function DoGet_dsAnnotation: IdsDocument;
-   function pm_GetdsAnnotationRef: IvcmViewAreaControllerRef;
-   function pm_GetDsTranslation: IdsDocument;
-   function DoGet_dsTranslation: IdsDocument;
-   function pm_GetdsTranslationRef: IvcmViewAreaControllerRef;
-   function pm_GetDsSimilarDocuments: IdsDocumentList;
-   function DoGet_dsSimilarDocuments: IdsDocumentList;
-   function pm_GetdsSimilarDocumentsRef: IvcmViewAreaControllerRef;
-   function pm_GetDsChronology: IdsDocument;
-   function DoGet_dsChronology: IdsDocument;
-   function pm_GetdsChronologyRef: IvcmViewAreaControllerRef;
-   function HasSimilarToFragment(anId: Integer): Boolean;
-   function pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
-   function DoGet_dsSimilarDocumentsToFragment: IdsDocumentList;
-   function pm_GetdsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
-   function pm_GetHasChronology: Boolean;
-   function pm_GetHasAnnotation: Boolean;
-   function pm_GetHasCorrespondents: Boolean;
-   function pm_GetHasRespondents: Boolean;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
-   procedure FinishDataUpdate; override;
-   procedure SettingsReplaceFinish; override;
-   procedure ClearAllDS; override;
-   function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
-   procedure FillState; override;
-   procedure UserSettingsChanged; override;
-     {* Изменились настройки пользователя }
- protected
- // protected methods
+    {* изменилась активная конфигурация }
+  protected
    function NeedMakeDSUserCRList1: Boolean; virtual;
    function NeedMakeDSUserCRList2: Boolean; virtual;
    function NeedMakeDSCorrespondents: Boolean; virtual;
    function NeedMakeDSRespondents: Boolean; virtual;
    function StateIfNeedShowFullCRList: TvcmNeedMakeDS;
-     {* определяет состояние, которое присваивается бизнес объекту полного
+    {* определяет состояние, которое присваивается бизнес объекту полного
            списка, если принимается решение показывать вместо пользовательского
            списка полный СКР }
    function ChangeCorrType(const aValue: INodeBase): Boolean;
    function ChangeRespType(const aValue: INodeBase): Boolean;
    function IsOrdinalCRSelected(aCRType: TlstCRType;
     out aId: TnsUserCRListId): Boolean;
-     {* проверка того, что в настройках пользователя выбраны нетипизированные
+    {* проверка того, что в настройках пользователя выбраны нетипизированные
            СКР. aId - возвращает вкладку для которой определен не
            типизированный СКР, это нужно при изменении настроек }
    procedure ResetCachedObject(aWithoutCRTypes: Boolean);
    function TruthHasSimilarDocuments: Boolean;
-     {* определяет наличие похожих у документа }
+    {* определяет наличие похожих у документа }
    function TruthHasRelatedDoc: Boolean;
-     {* определяет наличие справки у документа }
+    {* определяет наличие справки у документа }
    function TruthHasAnnotation: Boolean;
-     {* определяет наличие аннотации у документа }
+    {* определяет наличие аннотации у документа }
    function TruthHasChronology: Boolean;
    function GetTypedCR(aId: TnsUserCRListId): IdeDocumentListCR;
    function NeedMakeDocumentWithFlash: Boolean; virtual;
    function DoChangeCRType(const aNode: INodeBase;
     aType: TlstCRType;
     IsCRToPart: Boolean): Boolean; virtual;
-     {* вызывается при изменении типа корреспондентов/респондентов }
+    {* вызывается при изменении типа корреспондентов/респондентов }
    function NeedMakeRelatedDoc: Boolean; virtual;
    function NeedMakeAnnotation: Boolean; virtual;
    function NeedMakeChronology: Boolean; virtual;
    function NeedMakeSimilarDocuments: Boolean; virtual;
    function GetOrMakeRespList: IDynList;
-     {* О необходимости метода читаем тут - [$130744335] }
+    {* О необходимости метода читаем тут - [$130744335] }
    function GetOrMakeCorrList: IDynList;
-     {* О необходимости метода читаем тут - [$130744335] }
- protected
- // Методы преобразования к реализуемым интерфейсам
+    {* О необходимости метода читаем тут - [$130744335] }
    function As_IbsFlash: IbsFlash;
+    {* Метод приведения нашего интерфейса к IbsFlash }
+   function pm_GetHasTranslation: Boolean;
+   function pm_GetHasSimilarDocuments: Boolean;
+   function pm_GetHasRelatedDoc: Boolean;
+   procedure OpenCorrespondents;
+    {* корреспонденты }
+   procedure OpenRespondents;
+    {* респонденты }
+   function ChangeCRType(const aNode: INodeBase;
+    aType: TlstCRType;
+    IsCRToPart: Boolean = False): Boolean;
+    {* вызывается при изменении типа корреспондентов/респондентов }
+   procedure AddToControl;
+    {* поставить документ на контроль }
+   procedure DelFromControl;
+    {* снять с контроля }
+   procedure ResetCacheAfterUpdate;
+    {* сброс закэшированных параметров после обновления базы документов }
+   function IsTypedCRSelected(aSheetNumber: TnsUserCRListId): Boolean;
+    {* проверка того, что пользователь настроил соответствующую вкладку СКР }
+   function HasTypedCRinBigBase(aSheetNumber: TnsUserCRListId): Boolean;
+    {* проверка наличмия типизированных СКР в полной базе }
+   function pm_GetIsUnderControl: Boolean;
+   function pm_GetUserCRListInfo(aId: TnsUserCRListId): IbsUserCRListInfo;
+   function pm_GetFlashData: IExternalObject;
+   function pm_GetDsRelatedDoc: IdsDocument;
+   function DoGet_DsRelatedDoc: IdsDocument;
+   function pm_GetDsRespondents: IdsDocumentList;
+   function DoGet_DsRespondents: IdsDocumentList;
+   function pm_GetDsCorrespondents: IdsDocumentList;
+   function DoGet_DsCorrespondents: IdsDocumentList;
+   function pm_GetDsUserCR1: IdsDocumentList;
+   function DoGet_DsUserCR1: IdsDocumentList;
+   function pm_GetDsUserCR2: IdsDocumentList;
+   function DoGet_DsUserCR2: IdsDocumentList;
+   function pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
+   function DoGet_DsDocumentWithFlash: IdsDocumentWithFlash;
+   function pm_GetDsAnnotation: IdsDocument;
+   function DoGet_DsAnnotation: IdsDocument;
+   function pm_GetDsTranslation: IdsDocument;
+   function DoGet_DsTranslation: IdsDocument;
+   function pm_GetDsSimilarDocuments: IdsDocumentList;
+   function DoGet_DsSimilarDocuments: IdsDocumentList;
+   function pm_GetDsChronology: IdsDocument;
+   function DoGet_DsChronology: IdsDocument;
+   function HasSimilarToFragment(anId: Integer): Boolean;
+   function pm_GetDsSimilarDocumentsToFragment: IdsDocumentList;
+   function DoGet_DsSimilarDocumentsToFragment: IdsDocumentList;
+   function pm_GetHasChronology: Boolean;
+   function pm_GetHasAnnotation: Boolean;
+   function pm_GetHasCorrespondents: Boolean;
+   function pm_GetHasRespondents: Boolean;
+   function pm_GetDsRelatedDocRef: IvcmViewAreaControllerRef;
+   function pm_GetDsRespondentsRef: IvcmViewAreaControllerRef;
+   function pm_GetDsCorrespondentsRef: IvcmViewAreaControllerRef;
+   function pm_GetDsUserCR1Ref: IvcmViewAreaControllerRef;
+   function pm_GetDsUserCR2Ref: IvcmViewAreaControllerRef;
+   function pm_GetDsDocumentWithFlashRef: IvcmViewAreaControllerRef;
+   function pm_GetDsAnnotationRef: IvcmViewAreaControllerRef;
+   function pm_GetDsTranslationRef: IvcmViewAreaControllerRef;
+   function pm_GetDsSimilarDocumentsRef: IvcmViewAreaControllerRef;
+   function pm_GetDsChronologyRef: IvcmViewAreaControllerRef;
+   function pm_GetDsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+   procedure FinishDataUpdate; override;
+   procedure SettingsReplaceFinish; override;
+   procedure ClearAllDS; override;
+   function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
+   procedure FillState; override;
+   procedure UserSettingsChanged; override;
+    {* Изменились настройки пользователя }
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_sdsDocInfo_
-{$Else}
 
- {$Include ..\Document\sdsBaseDocumentWithAttributes.imp.pas}
- _afwApplicationDataUpdate_Parent_ = _sdsBaseDocumentWithAttributes_;
- {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
- _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
- {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
- _nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
- _sdsDocInfo_ = _nsUserSettingsListener_;
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$IfEnd} //not Admin AND not Monitorings
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
+_afwApplicationDataUpdate_Parent_ = _sdsBaseDocumentWithAttributes_;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+_afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
+_nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
+_sdsDocInfo_ = _nsUserSettingsListener_;
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$Else sdsDocInfo_imp}
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$IfNDef sdsDocInfo_imp_impl}
 
+{$Define sdsDocInfo_imp_impl}
 
-{$Include ..\Document\sdsBaseDocumentWithAttributes.imp.pas}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
-
-// start class _sdsDocInfo_
 
 function _sdsDocInfo_.NeedMakeDSUserCRList1: Boolean;
 //#UC START# *493D51B00058_493D2F7B031D_var*
@@ -219,6 +202,9 @@ begin
 end;//_sdsDocInfo_.NeedMakeDSRespondents
 
 function _sdsDocInfo_.StateIfNeedShowFullCRList: TvcmNeedMakeDS;
+ {* определяет состояние, которое присваивается бизнес объекту полного
+           списка, если принимается решение показывать вместо пользовательского
+           списка полный СКР }
 //#UC START# *493D521E0135_493D2F7B031D_var*
 //#UC END# *493D521E0135_493D2F7B031D_var*
 begin
@@ -266,7 +252,10 @@ begin
 end;//_sdsDocInfo_.ChangeRespType
 
 function _sdsDocInfo_.IsOrdinalCRSelected(aCRType: TlstCRType;
-  out aId: TnsUserCRListId): Boolean;
+ out aId: TnsUserCRListId): Boolean;
+ {* проверка того, что в настройках пользователя выбраны нетипизированные
+           СКР. aId - возвращает вкладку для которой определен не
+           типизированный СКР, это нужно при изменении настроек }
 //#UC START# *493D5BB40051_493D2F7B031D_var*
 var
  I: TnsUserCRListId;
@@ -310,6 +299,7 @@ begin
 end;//_sdsDocInfo_.ResetCachedObject
 
 function _sdsDocInfo_.TruthHasSimilarDocuments: Boolean;
+ {* определяет наличие похожих у документа }
 //#UC START# *493D5FA703E6_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -327,6 +317,7 @@ begin
 end;//_sdsDocInfo_.TruthHasSimilarDocuments
 
 function _sdsDocInfo_.TruthHasRelatedDoc: Boolean;
+ {* определяет наличие справки у документа }
 //#UC START# *493D5FC202B1_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -343,6 +334,7 @@ begin
 end;//_sdsDocInfo_.TruthHasRelatedDoc
 
 function _sdsDocInfo_.TruthHasAnnotation: Boolean;
+ {* определяет наличие аннотации у документа }
 //#UC START# *493D5FD70278_493D2F7B031D_var*
 var
  l_Temp: Tl3Bool;
@@ -403,6 +395,7 @@ begin
 end;//_sdsDocInfo_.GetTypedCR
 
 procedure _sdsDocInfo_.ConfigurationChanged;
+ {* изменилась активная конфигурация }
 //#UC START# *493D606D0189_493D2F7B031D_var*
 //#UC END# *493D606D0189_493D2F7B031D_var*
 begin
@@ -422,8 +415,9 @@ begin
 end;//_sdsDocInfo_.NeedMakeDocumentWithFlash
 
 function _sdsDocInfo_.DoChangeCRType(const aNode: INodeBase;
-  aType: TlstCRType;
-  IsCRToPart: Boolean): Boolean;
+ aType: TlstCRType;
+ IsCRToPart: Boolean): Boolean;
+ {* вызывается при изменении типа корреспондентов/респондентов }
 //#UC START# *493D6B5B02DE_493D2F7B031D_var*
 //#UC END# *493D6B5B02DE_493D2F7B031D_var*
 begin
@@ -478,6 +472,7 @@ begin
 end;//_sdsDocInfo_.NeedMakeSimilarDocuments
 
 function _sdsDocInfo_.GetOrMakeRespList: IDynList;
+ {* О необходимости метода читаем тут - [$130744335] }
 //#UC START# *4946533D0039_493D2F7B031D_var*
 var
  l_Temp: IDynList;
@@ -499,6 +494,7 @@ begin
 end;//_sdsDocInfo_.GetOrMakeRespList
 
 function _sdsDocInfo_.GetOrMakeCorrList: IDynList;
+ {* О необходимости метода читаем тут - [$130744335] }
 //#UC START# *4946539A0021_493D2F7B031D_var*
 var
  l_Temp: IDynList;
@@ -518,6 +514,12 @@ begin
  Result := SetData.CorrList;
 //#UC END# *4946539A0021_493D2F7B031D_impl*
 end;//_sdsDocInfo_.GetOrMakeCorrList
+
+function _sdsDocInfo_.As_IbsFlash: IbsFlash;
+ {* Метод приведения нашего интерфейса к IbsFlash }
+begin
+ Result := Self;
+end;//_sdsDocInfo_.As_IbsFlash
 
 function _sdsDocInfo_.pm_GetHasTranslation: Boolean;
 //#UC START# *01DBA41F4474_493D2F7B031Dget_var*
@@ -554,6 +556,7 @@ begin
 end;//_sdsDocInfo_.pm_GetHasRelatedDoc
 
 procedure _sdsDocInfo_.OpenCorrespondents;
+ {* корреспонденты }
 //#UC START# *4937C4D90220_493D2F7B031D_var*
 //#UC END# *4937C4D90220_493D2F7B031D_var*
 begin
@@ -567,6 +570,7 @@ begin
 end;//_sdsDocInfo_.OpenCorrespondents
 
 procedure _sdsDocInfo_.OpenRespondents;
+ {* респонденты }
 //#UC START# *4937C4E701F3_493D2F7B031D_var*
 //#UC END# *4937C4E701F3_493D2F7B031D_var*
 begin
@@ -580,8 +584,9 @@ begin
 end;//_sdsDocInfo_.OpenRespondents
 
 function _sdsDocInfo_.ChangeCRType(const aNode: INodeBase;
-  aType: TlstCRType;
-  IsCRToPart: Boolean = false): Boolean;
+ aType: TlstCRType;
+ IsCRToPart: Boolean = False): Boolean;
+ {* вызывается при изменении типа корреспондентов/респондентов }
 //#UC START# *4937C4F5038B_493D2F7B031D_var*
 //#UC END# *4937C4F5038B_493D2F7B031D_var*
 begin
@@ -591,6 +596,7 @@ begin
 end;//_sdsDocInfo_.ChangeCRType
 
 procedure _sdsDocInfo_.AddToControl;
+ {* поставить документ на контроль }
 //#UC START# *4937C5250138_493D2F7B031D_var*
 //#UC END# *4937C5250138_493D2F7B031D_var*
 begin
@@ -604,6 +610,7 @@ begin
 end;//_sdsDocInfo_.AddToControl
 
 procedure _sdsDocInfo_.DelFromControl;
+ {* снять с контроля }
 //#UC START# *4937C55101B2_493D2F7B031D_var*
 //#UC END# *4937C55101B2_493D2F7B031D_var*
 begin
@@ -617,6 +624,7 @@ begin
 end;//_sdsDocInfo_.DelFromControl
 
 procedure _sdsDocInfo_.ResetCacheAfterUpdate;
+ {* сброс закэшированных параметров после обновления базы документов }
 //#UC START# *4937C56002B6_493D2F7B031D_var*
 //#UC END# *4937C56002B6_493D2F7B031D_var*
 begin
@@ -627,6 +635,7 @@ begin
 end;//_sdsDocInfo_.ResetCacheAfterUpdate
 
 function _sdsDocInfo_.IsTypedCRSelected(aSheetNumber: TnsUserCRListId): Boolean;
+ {* проверка того, что пользователь настроил соответствующую вкладку СКР }
 //#UC START# *4937C58D008D_493D2F7B031D_var*
 //#UC END# *4937C58D008D_493D2F7B031D_var*
 begin
@@ -637,6 +646,7 @@ begin
 end;//_sdsDocInfo_.IsTypedCRSelected
 
 function _sdsDocInfo_.HasTypedCRinBigBase(aSheetNumber: TnsUserCRListId): Boolean;
+ {* проверка наличмия типизированных СКР в полной базе }
 //#UC START# *4937C5A5024F_493D2F7B031D_var*
 //#UC END# *4937C5A5024F_493D2F7B031D_var*
 begin
@@ -711,7 +721,7 @@ begin
  with pm_GetdsRelatedDocRef do
  begin
   if IsEmpty
-   //#UC START# *5009A673037A_493D2F7B031Dget_need*
+  //#UC START# *5009A673037A_493D2F7B031Dget_need*
      and (NeedMake <> vcm_nmNo)
      and NeedMakeRelatedDoc
    // - условие создания ViewArea
@@ -719,10 +729,10 @@ begin
    then
     Referred := DoGet_dsRelatedDoc;
   Result := IdsDocument(Referred);
- end;//with pm_GetdsRelatedDocRef
-end;
+ end;// with pm_GetdsRelatedDocRef
+end;//_sdsDocInfo_.pm_GetDsRelatedDoc
 
-function _sdsDocInfo_.DoGet_dsRelatedDoc: IdsDocument;
+function _sdsDocInfo_.DoGet_DsRelatedDoc: IdsDocument;
 //#UC START# *5009A673037A_493D2F7B031Darea_var*
 var
  l_Container : IbsDocumentContainer;
@@ -739,12 +749,7 @@ begin
  else
   Result := nil;
 //#UC END# *5009A673037A_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsRelatedDoc
-
-function _sdsDocInfo_.pm_GetdsRelatedDocRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsRelatedDocRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsRelatedDoc
 
 function _sdsDocInfo_.pm_GetDsRespondents: IdsDocumentList;
 //#UC START# *5009A699023D_493D2F7B031Dget_var*
@@ -764,7 +769,7 @@ begin
  with pm_GetdsRespondentsRef do
  begin
   if IsEmpty
-   //#UC START# *5009A699023D_493D2F7B031Dget_need*
+  //#UC START# *5009A699023D_493D2F7B031Dget_need*
      AND (NeedMake <> vcm_nmNo)
      AND NeedMakeDSRespondents
      AND CheckList   
@@ -773,10 +778,10 @@ begin
    then
     Referred := DoGet_dsRespondents;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsRespondentsRef
-end;
+ end;// with pm_GetdsRespondentsRef
+end;//_sdsDocInfo_.pm_GetDsRespondents
 
-function _sdsDocInfo_.DoGet_dsRespondents: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsRespondents: IdsDocumentList;
 //#UC START# *5009A699023D_493D2F7B031Darea_var*
 //#UC END# *5009A699023D_493D2F7B031Darea_var*
 begin
@@ -784,12 +789,7 @@ begin
  Result := TdsDocumentListCR.Make(Self, TdeDocumentListCR.Make(GetOrMakeRespList,
   SetData.RespType.Value, crtRespondents));
 //#UC END# *5009A699023D_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsRespondents
-
-function _sdsDocInfo_.pm_GetdsRespondentsRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsRespondentsRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsRespondents
 
 function _sdsDocInfo_.pm_GetDsCorrespondents: IdsDocumentList;
 //#UC START# *5009A6BE01DD_493D2F7B031Dget_var*
@@ -809,7 +809,7 @@ begin
  with pm_GetdsCorrespondentsRef do
  begin
   if IsEmpty
-   //#UC START# *5009A6BE01DD_493D2F7B031Dget_need*
+  //#UC START# *5009A6BE01DD_493D2F7B031Dget_need*
      AND (NeedMake <> vcm_nmNo)
      AND NeedMakeDSCorrespondents
      AND CheckList   
@@ -818,10 +818,10 @@ begin
    then
     Referred := DoGet_dsCorrespondents;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsCorrespondentsRef
-end;
+ end;// with pm_GetdsCorrespondentsRef
+end;//_sdsDocInfo_.pm_GetDsCorrespondents
 
-function _sdsDocInfo_.DoGet_dsCorrespondents: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsCorrespondents: IdsDocumentList;
 //#UC START# *5009A6BE01DD_493D2F7B031Darea_var*
 //#UC END# *5009A6BE01DD_493D2F7B031Darea_var*
 begin
@@ -829,12 +829,7 @@ begin
  Result := TdsDocumentListCR.Make(Self, TdeDocumentListCR.Make(GetOrMakeCorrList,
   SetData.CorrType.Value, crtCorrespondents));
 //#UC END# *5009A6BE01DD_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsCorrespondents
-
-function _sdsDocInfo_.pm_GetdsCorrespondentsRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsCorrespondentsRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsCorrespondents
 
 function _sdsDocInfo_.pm_GetDsUserCR1: IdsDocumentList;
 //#UC START# *5009A6EF0016_493D2F7B031Dget_var*
@@ -843,29 +838,24 @@ begin
  with pm_GetdsUserCR1Ref do
  begin
   if IsEmpty
-   //#UC START# *5009A6EF0016_493D2F7B031Dget_need*
+  //#UC START# *5009A6EF0016_493D2F7B031Dget_need*
      AND NeedMakeDSUserCRList1   
    // - условие создания ViewArea
   //#UC END# *5009A6EF0016_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsUserCR1;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsUserCR1Ref
-end;
+ end;// with pm_GetdsUserCR1Ref
+end;//_sdsDocInfo_.pm_GetDsUserCR1
 
-function _sdsDocInfo_.DoGet_dsUserCR1: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsUserCR1: IdsDocumentList;
 //#UC START# *5009A6EF0016_493D2F7B031Darea_var*
 //#UC END# *5009A6EF0016_493D2F7B031Darea_var*
 begin
 //#UC START# *5009A6EF0016_493D2F7B031Darea_impl*
  Result := TdsDocumentListCR.Make(Self, GetTypedCR(ulFirst)); 
 //#UC END# *5009A6EF0016_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsUserCR1
-
-function _sdsDocInfo_.pm_GetdsUserCR1Ref: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsUserCR1Ref;
-end;
+end;//_sdsDocInfo_.DoGet_DsUserCR1
 
 function _sdsDocInfo_.pm_GetDsUserCR2: IdsDocumentList;
 //#UC START# *5009A72B01A5_493D2F7B031Dget_var*
@@ -874,29 +864,24 @@ begin
  with pm_GetdsUserCR2Ref do
  begin
   if IsEmpty
-   //#UC START# *5009A72B01A5_493D2F7B031Dget_need*
+  //#UC START# *5009A72B01A5_493D2F7B031Dget_need*
      AND NeedMakeDSUserCRList2   
    // - условие создания ViewArea
   //#UC END# *5009A72B01A5_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsUserCR2;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsUserCR2Ref
-end;
+ end;// with pm_GetdsUserCR2Ref
+end;//_sdsDocInfo_.pm_GetDsUserCR2
 
-function _sdsDocInfo_.DoGet_dsUserCR2: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsUserCR2: IdsDocumentList;
 //#UC START# *5009A72B01A5_493D2F7B031Darea_var*
 //#UC END# *5009A72B01A5_493D2F7B031Darea_var*
 begin
 //#UC START# *5009A72B01A5_493D2F7B031Darea_impl*
  Result := TdsDocumentListCR.Make(Self, GetTypedCR(ulSecond));
 //#UC END# *5009A72B01A5_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsUserCR2
-
-function _sdsDocInfo_.pm_GetdsUserCR2Ref: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsUserCR2Ref;
-end;
+end;//_sdsDocInfo_.DoGet_DsUserCR2
 
 function _sdsDocInfo_.pm_GetDsDocumentWithFlash: IdsDocumentWithFlash;
 //#UC START# *5009ADAC0080_493D2F7B031Dget_var*
@@ -905,29 +890,24 @@ begin
  with pm_GetdsDocumentWithFlashRef do
  begin
   if IsEmpty
-   //#UC START# *5009ADAC0080_493D2F7B031Dget_need*
+  //#UC START# *5009ADAC0080_493D2F7B031Dget_need*
      AND NeedMakeDocumentWithFlash   
    // - условие создания ViewArea
   //#UC END# *5009ADAC0080_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsDocumentWithFlash;
   Result := IdsDocumentWithFlash(Referred);
- end;//with pm_GetdsDocumentWithFlashRef
-end;
+ end;// with pm_GetdsDocumentWithFlashRef
+end;//_sdsDocInfo_.pm_GetDsDocumentWithFlash
 
-function _sdsDocInfo_.DoGet_dsDocumentWithFlash: IdsDocumentWithFlash;
+function _sdsDocInfo_.DoGet_DsDocumentWithFlash: IdsDocumentWithFlash;
 //#UC START# *5009ADAC0080_493D2F7B031Darea_var*
 //#UC END# *5009ADAC0080_493D2F7B031Darea_var*
 begin
 //#UC START# *5009ADAC0080_493D2F7B031Darea_impl*
  Result := TdsDocumentWithFlash.Make(Self, pm_GetDocInfo.Clone);
 //#UC END# *5009ADAC0080_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsDocumentWithFlash
-
-function _sdsDocInfo_.pm_GetdsDocumentWithFlashRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsDocumentWithFlashRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsDocumentWithFlash
 
 function _sdsDocInfo_.pm_GetDsAnnotation: IdsDocument;
 //#UC START# *500CEDF00141_493D2F7B031Dget_var*
@@ -936,17 +916,17 @@ begin
  with pm_GetdsAnnotationRef do
  begin
   if IsEmpty
-   //#UC START# *500CEDF00141_493D2F7B031Dget_need*
+  //#UC START# *500CEDF00141_493D2F7B031Dget_need*
      AND NeedMakeAnnotation   
    // - условие создания ViewArea
   //#UC END# *500CEDF00141_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsAnnotation;
   Result := IdsDocument(Referred);
- end;//with pm_GetdsAnnotationRef
-end;
+ end;// with pm_GetdsAnnotationRef
+end;//_sdsDocInfo_.pm_GetDsAnnotation
 
-function _sdsDocInfo_.DoGet_dsAnnotation: IdsDocument;
+function _sdsDocInfo_.DoGet_DsAnnotation: IdsDocument;
 //#UC START# *500CEDF00141_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -963,12 +943,7 @@ begin
  else
   Result := nil;
 //#UC END# *500CEDF00141_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsAnnotation
-
-function _sdsDocInfo_.pm_GetdsAnnotationRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsAnnotationRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsAnnotation
 
 function _sdsDocInfo_.pm_GetDsTranslation: IdsDocument;
 //#UC START# *500CEE0F0071_493D2F7B031Dget_var*
@@ -977,7 +952,7 @@ begin
  with pm_GetdsTranslationRef do
  begin
   if IsEmpty
-   //#UC START# *500CEE0F0071_493D2F7B031Dget_need*
+  //#UC START# *500CEE0F0071_493D2F7B031Dget_need*
      AND pm_GetHasTranslation
      AND afw.Settings.LoadBoolean(pi_Document_Sheets_Translation, dv_Document_Sheets_Translation)
    // - условие создания ViewArea
@@ -985,10 +960,10 @@ begin
    then
     Referred := DoGet_dsTranslation;
   Result := IdsDocument(Referred);
- end;//with pm_GetdsTranslationRef
-end;
+ end;// with pm_GetdsTranslationRef
+end;//_sdsDocInfo_.pm_GetDsTranslation
 
-function _sdsDocInfo_.DoGet_dsTranslation: IdsDocument;
+function _sdsDocInfo_.DoGet_DsTranslation: IdsDocument;
 //#UC START# *500CEE0F0071_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -1005,12 +980,7 @@ begin
  else
   Result := nil; 
 //#UC END# *500CEE0F0071_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsTranslation
-
-function _sdsDocInfo_.pm_GetdsTranslationRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsTranslationRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsTranslation
 
 function _sdsDocInfo_.pm_GetDsSimilarDocuments: IdsDocumentList;
 //#UC START# *500CEE5200DF_493D2F7B031Dget_var*
@@ -1019,7 +989,7 @@ begin
  with pm_GetdsSimilarDocumentsRef do
  begin
   if IsEmpty
-   //#UC START# *500CEE5200DF_493D2F7B031Dget_need*
+  //#UC START# *500CEE5200DF_493D2F7B031Dget_need*
      and (NeedMake <> vcm_nmNo)
      and NeedMakeSimilarDocuments
    // - условие создания ViewArea
@@ -1027,10 +997,10 @@ begin
    then
     Referred := DoGet_dsSimilarDocuments;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsSimilarDocumentsRef
-end;
+ end;// with pm_GetdsSimilarDocumentsRef
+end;//_sdsDocInfo_.pm_GetDsSimilarDocuments
 
-function _sdsDocInfo_.DoGet_dsSimilarDocuments: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsSimilarDocuments: IdsDocumentList;
 //#UC START# *500CEE5200DF_493D2F7B031Darea_var*
   function lp_SimilarDocsList: IDynList;
   var
@@ -1053,12 +1023,7 @@ begin
 //#UC START# *500CEE5200DF_493D2F7B031Darea_impl*
  Result := TdsDocumentList.Make(Self, TdeDocumentList.Make(lp_SimilarDocsList));
 //#UC END# *500CEE5200DF_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsSimilarDocuments
-
-function _sdsDocInfo_.pm_GetdsSimilarDocumentsRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsSimilarDocumentsRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsSimilarDocuments
 
 function _sdsDocInfo_.pm_GetDsChronology: IdsDocument;
 //#UC START# *53BFD3A70050_493D2F7B031Dget_var*
@@ -1067,16 +1032,16 @@ begin
  with pm_GetdsChronologyRef do
  begin
   if IsEmpty
-   //#UC START# *53BFD3A70050_493D2F7B031Dget_need*
+  //#UC START# *53BFD3A70050_493D2F7B031Dget_need*
    and NeedMakeChronology
   //#UC END# *53BFD3A70050_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsChronology;
   Result := IdsDocument(Referred);
- end;//with pm_GetdsChronologyRef
-end;
+ end;// with pm_GetdsChronologyRef
+end;//_sdsDocInfo_.pm_GetDsChronology
 
-function _sdsDocInfo_.DoGet_dsChronology: IdsDocument;
+function _sdsDocInfo_.DoGet_DsChronology: IdsDocument;
 //#UC START# *53BFD3A70050_493D2F7B031Darea_var*
 var
  l_Container: IbsDocumentContainer;
@@ -1094,12 +1059,7 @@ begin
  else
   Result := nil;
 //#UC END# *53BFD3A70050_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsChronology
-
-function _sdsDocInfo_.pm_GetdsChronologyRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsChronologyRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsChronology
 
 function _sdsDocInfo_.HasSimilarToFragment(anId: Integer): Boolean;
 //#UC START# *558928CF0335_493D2F7B031D_var*
@@ -1124,16 +1084,16 @@ begin
  with pm_GetdsSimilarDocumentsToFragmentRef do
  begin
   if IsEmpty
-   //#UC START# *5594F2C102D7_493D2F7B031Dget_need*
+  //#UC START# *5594F2C102D7_493D2F7B031Dget_need*
     and (SetData.SimilarDocumentsBlockId > 0)
   //#UC END# *5594F2C102D7_493D2F7B031Dget_need*
    then
     Referred := DoGet_dsSimilarDocumentsToFragment;
   Result := IdsDocumentList(Referred);
- end;//with pm_GetdsSimilarDocumentsToFragmentRef
-end;
+ end;// with pm_GetdsSimilarDocumentsToFragmentRef
+end;//_sdsDocInfo_.pm_GetDsSimilarDocumentsToFragment
 
-function _sdsDocInfo_.DoGet_dsSimilarDocumentsToFragment: IdsDocumentList;
+function _sdsDocInfo_.DoGet_DsSimilarDocumentsToFragment: IdsDocumentList;
 //#UC START# *5594F2C102D7_493D2F7B031Darea_var*
   function lp_SimilarDocsList: IDynList;
   var
@@ -1156,12 +1116,7 @@ begin
  Result := TdsDocumentList.Make(Self, TdeDocumentList.Make(lp_SimilarDocsList));
  SetData.SimilarDocumentsBlockId := 0;
 //#UC END# *5594F2C102D7_493D2F7B031Darea_impl*
-end;//_sdsDocInfo_.DoGet_dsSimilarDocumentsToFragment
-
-function _sdsDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
-begin
- Result := SetData.dsSimilarDocumentsToFragmentRef;
-end;
+end;//_sdsDocInfo_.DoGet_DsSimilarDocumentsToFragment
 
 function _sdsDocInfo_.pm_GetHasChronology: Boolean;
 //#UC START# *5BAF4D39E661_493D2F7B031Dget_var*
@@ -1215,7 +1170,63 @@ begin
 //#UC END# *E562F23618B1_493D2F7B031Dget_impl*
 end;//_sdsDocInfo_.pm_GetHasRespondents
 
+function _sdsDocInfo_.pm_GetDsRelatedDocRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsRelatedDocRef;
+end;//_sdsDocInfo_.pm_GetDsRelatedDocRef
+
+function _sdsDocInfo_.pm_GetDsRespondentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsRespondentsRef;
+end;//_sdsDocInfo_.pm_GetDsRespondentsRef
+
+function _sdsDocInfo_.pm_GetDsCorrespondentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsCorrespondentsRef;
+end;//_sdsDocInfo_.pm_GetDsCorrespondentsRef
+
+function _sdsDocInfo_.pm_GetDsUserCR1Ref: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsUserCR1Ref;
+end;//_sdsDocInfo_.pm_GetDsUserCR1Ref
+
+function _sdsDocInfo_.pm_GetDsUserCR2Ref: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsUserCR2Ref;
+end;//_sdsDocInfo_.pm_GetDsUserCR2Ref
+
+function _sdsDocInfo_.pm_GetDsDocumentWithFlashRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsDocumentWithFlashRef;
+end;//_sdsDocInfo_.pm_GetDsDocumentWithFlashRef
+
+function _sdsDocInfo_.pm_GetDsAnnotationRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsAnnotationRef;
+end;//_sdsDocInfo_.pm_GetDsAnnotationRef
+
+function _sdsDocInfo_.pm_GetDsTranslationRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsTranslationRef;
+end;//_sdsDocInfo_.pm_GetDsTranslationRef
+
+function _sdsDocInfo_.pm_GetDsSimilarDocumentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsSimilarDocumentsRef;
+end;//_sdsDocInfo_.pm_GetDsSimilarDocumentsRef
+
+function _sdsDocInfo_.pm_GetDsChronologyRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsChronologyRef;
+end;//_sdsDocInfo_.pm_GetDsChronologyRef
+
+function _sdsDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsSimilarDocumentsToFragmentRef;
+end;//_sdsDocInfo_.pm_GetDsSimilarDocumentsToFragmentRef
+
 procedure _sdsDocInfo_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493D2F7B031D_var*
 //#UC END# *479731C50290_493D2F7B031D_var*
 begin
@@ -1315,25 +1326,6 @@ begin
  FillState;
 //#UC END# *4925B9370022_493D2F7B031D_impl*
 end;//_sdsDocInfo_.DoChangeDocument
-
-{$If not defined(NoVCM)}
-procedure _sdsDocInfo_.ClearAreas;
- {-}
-begin
- pm_GetdsRelatedDocRef.Referred := nil;
- pm_GetdsRespondentsRef.Referred := nil;
- pm_GetdsCorrespondentsRef.Referred := nil;
- pm_GetdsUserCR1Ref.Referred := nil;
- pm_GetdsUserCR2Ref.Referred := nil;
- pm_GetdsDocumentWithFlashRef.Referred := nil;
- pm_GetdsAnnotationRef.Referred := nil;
- pm_GetdsTranslationRef.Referred := nil;
- pm_GetdsSimilarDocumentsRef.Referred := nil;
- pm_GetdsChronologyRef.Referred := nil;
- pm_GetdsSimilarDocumentsToFragmentRef.Referred := nil;
- inherited;
-end;//_sdsDocInfo_.ClearAreas
-{$IfEnd} //not NoVCM
 
 procedure _sdsDocInfo_.FillState;
 //#UC START# *493D51ED0329_493D2F7B031D_var*
@@ -1437,6 +1429,7 @@ begin
 end;//_sdsDocInfo_.FillState
 
 procedure _sdsDocInfo_.UserSettingsChanged;
+ {* Изменились настройки пользователя }
 //#UC START# *4958BE910345_493D2F7B031D_var*
 //#UC END# *4958BE910345_493D2F7B031D_var*
 begin
@@ -1446,13 +1439,27 @@ begin
 //#UC END# *4958BE910345_493D2F7B031D_impl*
 end;//_sdsDocInfo_.UserSettingsChanged
 
-// Методы преобразования к реализуемым интерфейсам
-
-function _sdsDocInfo_.As_IbsFlash: IbsFlash;
+{$If NOT Defined(NoVCM)}
+procedure _sdsDocInfo_.ClearAreas;
+ {* Очищает ссылки на области ввода }
 begin
- Result := Self;
-end;
+ pm_GetdsRelatedDocRef.Referred := nil;
+ pm_GetdsRespondentsRef.Referred := nil;
+ pm_GetdsCorrespondentsRef.Referred := nil;
+ pm_GetdsUserCR1Ref.Referred := nil;
+ pm_GetdsUserCR2Ref.Referred := nil;
+ pm_GetdsDocumentWithFlashRef.Referred := nil;
+ pm_GetdsAnnotationRef.Referred := nil;
+ pm_GetdsTranslationRef.Referred := nil;
+ pm_GetdsSimilarDocumentsRef.Referred := nil;
+ pm_GetdsChronologyRef.Referred := nil;
+ pm_GetdsSimilarDocumentsToFragmentRef.Referred := nil;
+ inherited;
+end;//_sdsDocInfo_.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf sdsDocInfo_imp_impl}
 
 {$EndIf sdsDocInfo_imp}
+

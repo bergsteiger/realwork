@@ -1,68 +1,56 @@
 {$IfNDef sdsBaseDrugDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Drug"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Drug/sdsBaseDrugDocument.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::Inpharm::Drug::sdsDrugDocument::sdsBaseDrugDocument
-//
-// БОС описание препарата.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsBaseDrugDocument" MUID: (47F075CD00DC)
+// Имя типа: "_sdsBaseDrugDocument_"
 
 {$Define sdsBaseDrugDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
- _sdsBaseDrugDocument_ = {abstract ucc} class(_sdsBaseDocumentWithAttributes_, IsdsBaseDrugDocument)
+ _sdsBaseDrugDocument_ = {abstract} class(_sdsBaseDocumentWithAttributes_, IsdsBaseDrugDocument)
   {* БОС описание препарата. }
- protected
- // realized methods
+  protected
+   procedure DoOpenDrugInternationalNameSynonims; virtual;
+    {* - открыть синонимы по международному названию. }
+   function NeedMakeDsDrugInternationalNameSynonims: Boolean; virtual;
+    {* - нужно ли создавать БОФ синонимов по международному названию. }
    function pm_GetHasDrugInternationalNameSynonims: Boolean;
    function pm_GetDsDrugInternationalNameSynonims: IdsDrugList;
-   function DoGet_dsDrugInternationalNameSynonims: IdsDrugList;
-   function pm_GetdsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   function DoGet_DsDrugInternationalNameSynonims: IdsDrugList;
+   function pm_GetDsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearAllDS; override;
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
    function GetHasAttributes: Boolean; override;
-     {* Реализация HasAttributes }
-   {$If not defined(NoVCM)}
+    {* Реализация HasAttributes }
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   procedure DoOpenDrugInternationalNameSynonims; virtual;
-     {* - открыть синонимы по международному названию. }
-   function NeedMakeDsDrugInternationalNameSynonims: Boolean; virtual;
-     {* - нужно ли создавать БОФ синонимов по международному названию. }
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_sdsBaseDrugDocument_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
- _sdsBaseDrugDocument_ = _sdsBaseDocumentWithAttributes_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else sdsBaseDrugDocument_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
+_sdsBaseDrugDocument_ = _sdsBaseDocumentWithAttributes_;
 
-// start class _sdsBaseDrugDocument_
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else sdsBaseDrugDocument_imp}
+
+{$IfNDef sdsBaseDrugDocument_imp_impl}
+
+{$Define sdsBaseDrugDocument_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 procedure _sdsBaseDrugDocument_.DoOpenDrugInternationalNameSynonims;
+ {* - открыть синонимы по международному названию. }
 //#UC START# *47FDDD500143_47F075CD00DC_var*
 //#UC END# *47FDDD500143_47F075CD00DC_var*
 begin
@@ -77,6 +65,7 @@ begin
 end;//_sdsBaseDrugDocument_.DoOpenDrugInternationalNameSynonims
 
 function _sdsBaseDrugDocument_.NeedMakeDsDrugInternationalNameSynonims: Boolean;
+ {* - нужно ли создавать БОФ синонимов по международному названию. }
 //#UC START# *47FE048E0224_47F075CD00DC_var*
 //#UC END# *47FE048E0224_47F075CD00DC_var*
 begin
@@ -109,7 +98,7 @@ begin
  with pm_GetdsDrugInternationalNameSynonimsRef do
  begin
   if IsEmpty
-   //#UC START# *500D3CBB01DF_47F075CD00DCget_need*
+  //#UC START# *500D3CBB01DF_47F075CD00DCget_need*
      AND (NeedMake <> vcm_nmNo)
      AND NeedMakeDsDrugInternationalNameSynonims   
    // - условие создания ViewArea
@@ -117,10 +106,10 @@ begin
    then
     Referred := DoGet_dsDrugInternationalNameSynonims;
   Result := IdsDrugList(Referred);
- end;//with pm_GetdsDrugInternationalNameSynonimsRef
-end;
+ end;// with pm_GetdsDrugInternationalNameSynonimsRef
+end;//_sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonims
 
-function _sdsBaseDrugDocument_.DoGet_dsDrugInternationalNameSynonims: IdsDrugList;
+function _sdsBaseDrugDocument_.DoGet_DsDrugInternationalNameSynonims: IdsDrugList;
 //#UC START# *500D3CBB01DF_47F075CD00DCarea_var*
 
   function lp_SimilarDocsList: IDynList;
@@ -145,15 +134,16 @@ begin
 //#UC START# *500D3CBB01DF_47F075CD00DCarea_impl*
  Result := TdsDrugList.Make(Self, TdeList.Make(lp_SimilarDocsList));
 //#UC END# *500D3CBB01DF_47F075CD00DCarea_impl*
-end;//_sdsBaseDrugDocument_.DoGet_dsDrugInternationalNameSynonims
+end;//_sdsBaseDrugDocument_.DoGet_DsDrugInternationalNameSynonims
 
-function _sdsBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
+function _sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsDrugInternationalNameSynonimsRef;
-end;
+end;//_sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _sdsBaseDrugDocument_.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_47F075CD00DC_var*
 var
  l_DocInfo: IdeDocInfo;
@@ -169,7 +159,7 @@ begin
  end;//if Supports(InitialUseCaseData,
 //#UC END# *47F37DF001FE_47F075CD00DC_impl*
 end;//_sdsBaseDrugDocument_.DataExchange
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _sdsBaseDrugDocument_.ClearAllDS;
 //#UC START# *4925B7F00156_47F075CD00DC_var*
@@ -203,6 +193,7 @@ begin
 end;//_sdsBaseDrugDocument_.DoChangeDocument
 
 function _sdsBaseDrugDocument_.GetHasAttributes: Boolean;
+ {* Реализация HasAttributes }
 //#UC START# *49352CEF0222_47F075CD00DC_var*
 //#UC END# *49352CEF0222_47F075CD00DC_var*
 begin
@@ -214,15 +205,17 @@ begin
 //#UC END# *49352CEF0222_47F075CD00DC_impl*
 end;//_sdsBaseDrugDocument_.GetHasAttributes
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _sdsBaseDrugDocument_.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  pm_GetdsDrugInternationalNameSynonimsRef.Referred := nil;
  inherited;
 end;//_sdsBaseDrugDocument_.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf sdsBaseDrugDocument_imp_impl}
 
 {$EndIf sdsBaseDrugDocument_imp}
+

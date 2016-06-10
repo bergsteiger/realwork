@@ -15,10 +15,10 @@ uses
  , AdminInterfaces
  , l3Interfaces
  , DynamicTreeUnit
+ , SecurityUnit
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , SecurityUnit
  , l3TreeInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -88,9 +88,13 @@ type
    function pm_GetConsultingPaymentForNewbies: Boolean;
    procedure pm_SetConsultingPaymentForNewbies(aValue: Boolean);
    function pm_GetDsUserList: IdsUserList;
+   function DoGet_DsUserList: IdsUserList;
    function pm_GetDsAdmin: IdsAdmin;
+   function DoGet_DsAdmin: IdsAdmin;
    function pm_GetDsUserProperty: IdsUserProperty;
+   function DoGet_DsUserProperty: IdsUserProperty;
    function pm_GetDsGroupsList: IdsGroupsList;
+   function DoGet_DsGroupsList: IdsGroupsList;
    function ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean; overload;
     {* Изменить доступ для групп }
    procedure DeleteGroup(const aNode: Il3SimpleNode);
@@ -113,11 +117,11 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
   private
    property BaseAccessRootTag: Il3CString
     read pm_GetBaseAccessRootTag;
@@ -169,6 +173,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , deSearch
  , dsBasesAccess
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -591,37 +598,117 @@ function TsdsAdmin.pm_GetDsUserList: IdsUserList;
 //#UC START# *4933A3DE0399_493126130280get_var*
 //#UC END# *4933A3DE0399_493126130280get_var*
 begin
-//#UC START# *4933A3DE0399_493126130280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4933A3DE0399_493126130280get_impl*
+ if (f_dsUserList = nil) then
+ begin
+  f_dsUserList := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4933A3DE0399_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4933A3DE0399_493126130280get_init*
+ end;//f_dsUserList = nil
+ if f_dsUserList.IsEmpty
+  //#UC START# *4933A3DE0399_493126130280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4933A3DE0399_493126130280get_need*
+  then
+   f_dsUserList.Referred := DoGet_dsUserList;
+ Result := IdsUserList(f_dsUserList.Referred);
 end;//TsdsAdmin.pm_GetDsUserList
+
+function TsdsAdmin.DoGet_DsUserList: IdsUserList;
+//#UC START# *4933A3DE0399_493126130280area_var*
+//#UC END# *4933A3DE0399_493126130280area_var*
+begin
+//#UC START# *4933A3DE0399_493126130280area_impl*
+ Result := TdsUserList.Make(Self, InitialUseCaseData.Users);
+//#UC END# *4933A3DE0399_493126130280area_impl*
+end;//TsdsAdmin.DoGet_DsUserList
 
 function TsdsAdmin.pm_GetDsAdmin: IdsAdmin;
 //#UC START# *4933A42A000B_493126130280get_var*
 //#UC END# *4933A42A000B_493126130280get_var*
 begin
-//#UC START# *4933A42A000B_493126130280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4933A42A000B_493126130280get_impl*
+ if (f_dsAdmin = nil) then
+ begin
+  f_dsAdmin := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4933A42A000B_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4933A42A000B_493126130280get_init*
+ end;//f_dsAdmin = nil
+ if f_dsAdmin.IsEmpty
+  //#UC START# *4933A42A000B_493126130280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4933A42A000B_493126130280get_need*
+  then
+   f_dsAdmin.Referred := DoGet_dsAdmin;
+ Result := IdsAdmin(f_dsAdmin.Referred);
 end;//TsdsAdmin.pm_GetDsAdmin
+
+function TsdsAdmin.DoGet_DsAdmin: IdsAdmin;
+//#UC START# *4933A42A000B_493126130280area_var*
+//#UC END# *4933A42A000B_493126130280area_var*
+begin
+//#UC START# *4933A42A000B_493126130280area_impl*
+ Result := TdsAdmin.Make(Self);
+//#UC END# *4933A42A000B_493126130280area_impl*
+end;//TsdsAdmin.DoGet_DsAdmin
 
 function TsdsAdmin.pm_GetDsUserProperty: IdsUserProperty;
 //#UC START# *4933A4B2026A_493126130280get_var*
 //#UC END# *4933A4B2026A_493126130280get_var*
 begin
-//#UC START# *4933A4B2026A_493126130280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4933A4B2026A_493126130280get_impl*
+ if (f_dsUserProperty = nil) then
+ begin
+  f_dsUserProperty := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4933A4B2026A_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4933A4B2026A_493126130280get_init*
+ end;//f_dsUserProperty = nil
+ if f_dsUserProperty.IsEmpty
+  //#UC START# *4933A4B2026A_493126130280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4933A4B2026A_493126130280get_need*
+  then
+   f_dsUserProperty.Referred := DoGet_dsUserProperty;
+ Result := IdsUserProperty(f_dsUserProperty.Referred);
 end;//TsdsAdmin.pm_GetDsUserProperty
+
+function TsdsAdmin.DoGet_DsUserProperty: IdsUserProperty;
+//#UC START# *4933A4B2026A_493126130280area_var*
+//#UC END# *4933A4B2026A_493126130280area_var*
+begin
+//#UC START# *4933A4B2026A_493126130280area_impl*
+ Result := TdsUserProperty.Make(Self, f_Profile);
+//#UC END# *4933A4B2026A_493126130280area_impl*
+end;//TsdsAdmin.DoGet_DsUserProperty
 
 function TsdsAdmin.pm_GetDsGroupsList: IdsGroupsList;
 //#UC START# *49EC52D1019D_493126130280get_var*
 //#UC END# *49EC52D1019D_493126130280get_var*
 begin
-//#UC START# *49EC52D1019D_493126130280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49EC52D1019D_493126130280get_impl*
+ if (f_dsGroupsList = nil) then
+ begin
+  f_dsGroupsList := TvcmViewAreaControllerRef.Make;
+  //#UC START# *49EC52D1019D_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *49EC52D1019D_493126130280get_init*
+ end;//f_dsGroupsList = nil
+ if f_dsGroupsList.IsEmpty
+  //#UC START# *49EC52D1019D_493126130280get_need*
+  // - условие создания ViewArea
+  //#UC END# *49EC52D1019D_493126130280get_need*
+  then
+   f_dsGroupsList.Referred := DoGet_dsGroupsList;
+ Result := IdsGroupsList(f_dsGroupsList.Referred);
 end;//TsdsAdmin.pm_GetDsGroupsList
+
+function TsdsAdmin.DoGet_DsGroupsList: IdsGroupsList;
+//#UC START# *49EC52D1019D_493126130280area_var*
+//#UC END# *49EC52D1019D_493126130280area_var*
+begin
+//#UC START# *49EC52D1019D_493126130280area_impl*
+ Result := TdsGroupsList.Make(Self, InitialUseCaseData.Groups);
+//#UC END# *49EC52D1019D_493126130280area_impl*
+end;//TsdsAdmin.DoGet_DsGroupsList
 
 function TsdsAdmin.ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean;
  {* Изменить доступ для групп }
@@ -831,16 +918,6 @@ begin
 //#UC END# *47A042E100E2_493126130280_impl*
 end;//TsdsAdmin.InitFields
 
-procedure TsdsAdmin.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_493126130280_var*
-//#UC END# *4938F7E702B7_493126130280_var*
-begin
-//#UC START# *4938F7E702B7_493126130280_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_493126130280_impl*
-end;//TsdsAdmin.ClearAreas
-
 procedure TsdsAdmin.ClearFields;
 begin
  f_dsUserList := nil;
@@ -849,6 +926,16 @@ begin
  f_dsGroupsList := nil;
  inherited;
 end;//TsdsAdmin.ClearFields
+
+procedure TsdsAdmin.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsUserList <> nil) then f_dsUserList.Referred := nil;
+ if (f_dsAdmin <> nil) then f_dsAdmin.Referred := nil;
+ if (f_dsUserProperty <> nil) then f_dsUserProperty.Referred := nil;
+ if (f_dsGroupsList <> nil) then f_dsGroupsList.Referred := nil;
+ inherited;
+end;//TsdsAdmin.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // Defined(Admin)

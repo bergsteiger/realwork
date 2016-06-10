@@ -1,6 +1,6 @@
-unit NOT_COMPLETED_nsTextWithCommentsRes;
+unit nsTextWithCommentsRes;
 
-// ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_COMPLETED_nsTextWithCommentsRes.pas"
+// ћодуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTextWithCommentsRes.pas"
 // —тереотип: "UtilityPack"
 // Ёлемент модели: "nsTextWithCommentsRes" MUID: (4D5A701702B4)
 
@@ -146,22 +146,26 @@ end;//TVersionCommentsLinkBegaviourMapImplFree
 
 class procedure ShowVersionCommentsMapHelper.FillStrings(const aStrings: IafwStrings);
  {* «аполнение списка строк значени€ми }
-//#UC START# *8F841ADC29B1_1F19B60638CF_var*
-//#UC END# *8F841ADC29B1_1F19B60638CF_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *8F841ADC29B1_1F19B60638CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8F841ADC29B1_1F19B60638CF_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(ShowVersionCommentsMap[l_Index].AsCStr);
 end;//ShowVersionCommentsMapHelper.FillStrings
 
 class function ShowVersionCommentsMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
  {* ѕреобразование строкового значени€ к пор€дковому }
-//#UC START# *5E0573B53350_1F19B60638CF_var*
-//#UC END# *5E0573B53350_1F19B60638CF_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *5E0573B53350_1F19B60638CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5E0573B53350_1F19B60638CF_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, ShowVersionCommentsMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "ShowVersionCommentsMap"', [l3Str(aDisplayName)]);
 end;//ShowVersionCommentsMapHelper.DisplayNameToValue
 
 class function TShowVersionCommentsMapImplPrim.Make: Il3IntegerValueMap;
@@ -178,50 +182,33 @@ begin
 end;//TShowVersionCommentsMapImplPrim.Make
 
 function TShowVersionCommentsMapImplPrim.pm_GetMapID: Tl3ValueMapID;
-//#UC START# *46A5EFE602DE_E2B3C0235006get_var*
-//#UC END# *46A5EFE602DE_E2B3C0235006get_var*
 begin
-//#UC START# *46A5EFE602DE_E2B3C0235006get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5EFE602DE_E2B3C0235006get_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Assert(false);
 end;//TShowVersionCommentsMapImplPrim.pm_GetMapID
 
 procedure TShowVersionCommentsMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
  {* заполн€ет список значени€ми "UI-строка" }
-//#UC START# *46A5F0130365_E2B3C0235006_var*
-//#UC END# *46A5F0130365_E2B3C0235006_var*
 begin
-//#UC START# *46A5F0130365_E2B3C0235006_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F0130365_E2B3C0235006_impl*
+ ShowVersionCommentsMapHelper.FillStrings(aList);
 end;//TShowVersionCommentsMapImplPrim.GetDisplayNames
 
 function TShowVersionCommentsMapImplPrim.MapSize: Integer;
  {* количество элементов в мапе. }
-//#UC START# *46A5F03800A2_E2B3C0235006_var*
-//#UC END# *46A5F03800A2_E2B3C0235006_var*
 begin
-//#UC START# *46A5F03800A2_E2B3C0235006_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F03800A2_E2B3C0235006_impl*
+ Result := Ord(High(Boolean)) - Ord(Low(Boolean));
 end;//TShowVersionCommentsMapImplPrim.MapSize
 
 function TShowVersionCommentsMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-//#UC START# *46A5FCF900E0_E2B3C0235006_var*
-//#UC END# *46A5FCF900E0_E2B3C0235006_var*
 begin
-//#UC START# *46A5FCF900E0_E2B3C0235006_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FCF900E0_E2B3C0235006_impl*
+ Result := Ord(ShowVersionCommentsMapHelper.DisplayNameToValue(aDisplayName));
 end;//TShowVersionCommentsMapImplPrim.DisplayNameToValue
 
 function TShowVersionCommentsMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
-//#UC START# *46A5FD1B000D_E2B3C0235006_var*
-//#UC END# *46A5FD1B000D_E2B3C0235006_var*
 begin
-//#UC START# *46A5FD1B000D_E2B3C0235006_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FD1B000D_E2B3C0235006_impl*
+ Assert(aValue >= Ord(Low(Boolean)));
+ Assert(aValue <= Ord(High(Boolean)));
+ Result := ShowVersionCommentsMap[Boolean(aValue)].AsCStr;
 end;//TShowVersionCommentsMapImplPrim.ValueToDisplayName
 
 class function TShowVersionCommentsMapImpl.Make: Il3IntegerValueMap;
@@ -243,22 +230,26 @@ end;//TShowVersionCommentsMapImpl.Exists
 
 class procedure VersionCommentsLinkBegaviourMapHelper.FillStrings(const aStrings: IafwStrings);
  {* «аполнение списка строк значени€ми }
-//#UC START# *474F5AA5D378_E8F3B033F09E_var*
-//#UC END# *474F5AA5D378_E8F3B033F09E_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *474F5AA5D378_E8F3B033F09E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *474F5AA5D378_E8F3B033F09E_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(VersionCommentsLinkBegaviourMap[l_Index].AsCStr);
 end;//VersionCommentsLinkBegaviourMapHelper.FillStrings
 
 class function VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
  {* ѕреобразование строкового значени€ к пор€дковому }
-//#UC START# *BA5ADD58E319_E8F3B033F09E_var*
-//#UC END# *BA5ADD58E319_E8F3B033F09E_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *BA5ADD58E319_E8F3B033F09E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BA5ADD58E319_E8F3B033F09E_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, VersionCommentsLinkBegaviourMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "VersionCommentsLinkBegaviourMap"', [l3Str(aDisplayName)]);
 end;//VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue
 
 class function TVersionCommentsLinkBegaviourMapImplPrim.Make: Il3IntegerValueMap;
@@ -275,50 +266,33 @@ begin
 end;//TVersionCommentsLinkBegaviourMapImplPrim.Make
 
 function TVersionCommentsLinkBegaviourMapImplPrim.pm_GetMapID: Tl3ValueMapID;
-//#UC START# *46A5EFE602DE_EEAC7EDDFD54get_var*
-//#UC END# *46A5EFE602DE_EEAC7EDDFD54get_var*
 begin
-//#UC START# *46A5EFE602DE_EEAC7EDDFD54get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5EFE602DE_EEAC7EDDFD54get_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Assert(false);
 end;//TVersionCommentsLinkBegaviourMapImplPrim.pm_GetMapID
 
 procedure TVersionCommentsLinkBegaviourMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
  {* заполн€ет список значени€ми "UI-строка" }
-//#UC START# *46A5F0130365_EEAC7EDDFD54_var*
-//#UC END# *46A5F0130365_EEAC7EDDFD54_var*
 begin
-//#UC START# *46A5F0130365_EEAC7EDDFD54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F0130365_EEAC7EDDFD54_impl*
+ VersionCommentsLinkBegaviourMapHelper.FillStrings(aList);
 end;//TVersionCommentsLinkBegaviourMapImplPrim.GetDisplayNames
 
 function TVersionCommentsLinkBegaviourMapImplPrim.MapSize: Integer;
  {* количество элементов в мапе. }
-//#UC START# *46A5F03800A2_EEAC7EDDFD54_var*
-//#UC END# *46A5F03800A2_EEAC7EDDFD54_var*
 begin
-//#UC START# *46A5F03800A2_EEAC7EDDFD54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F03800A2_EEAC7EDDFD54_impl*
+ Result := Ord(High(Boolean)) - Ord(Low(Boolean));
 end;//TVersionCommentsLinkBegaviourMapImplPrim.MapSize
 
 function TVersionCommentsLinkBegaviourMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-//#UC START# *46A5FCF900E0_EEAC7EDDFD54_var*
-//#UC END# *46A5FCF900E0_EEAC7EDDFD54_var*
 begin
-//#UC START# *46A5FCF900E0_EEAC7EDDFD54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FCF900E0_EEAC7EDDFD54_impl*
+ Result := Ord(VersionCommentsLinkBegaviourMapHelper.DisplayNameToValue(aDisplayName));
 end;//TVersionCommentsLinkBegaviourMapImplPrim.DisplayNameToValue
 
 function TVersionCommentsLinkBegaviourMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
-//#UC START# *46A5FD1B000D_EEAC7EDDFD54_var*
-//#UC END# *46A5FD1B000D_EEAC7EDDFD54_var*
 begin
-//#UC START# *46A5FD1B000D_EEAC7EDDFD54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FD1B000D_EEAC7EDDFD54_impl*
+ Assert(aValue >= Ord(Low(Boolean)));
+ Assert(aValue <= Ord(High(Boolean)));
+ Result := VersionCommentsLinkBegaviourMap[Boolean(aValue)].AsCStr;
 end;//TVersionCommentsLinkBegaviourMapImplPrim.ValueToDisplayName
 
 class function TVersionCommentsLinkBegaviourMapImpl.Make: Il3IntegerValueMap;

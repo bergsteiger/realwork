@@ -95,7 +95,7 @@ type
     anIndex: Integer;
     var aImages: TCustomImageList): Integer; virtual;
    function TreeImagesStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство TreeImages сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство TreeImages сохран€етс€ }
    function GetActiveSub: TWinControl; override;
    function GetTreeHandle: THandle; override;
    procedure Cleanup; override;
@@ -689,16 +689,16 @@ begin
 end;//TDropDownTreePrim.CMArtfulBehaviour
 
 function TDropDownTreePrim.TreeImagesStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство TreeImages сохран€етс€" }
-//#UC START# *83A53CAA19B9_4831599C0300_var*
-//#UC END# *83A53CAA19B9_4831599C0300_var*
+ {* ‘ункци€ определ€юща€, что свойство TreeImages сохран€етс€ }
+//#UC START# *53EE01CD00F4Stored_4831599C0300_var*
+//#UC END# *53EE01CD00F4Stored_4831599C0300_var*
 begin
-//#UC START# *83A53CAA19B9_4831599C0300_impl*
+//#UC START# *53EE01CD00F4Stored_4831599C0300_impl*
  if ComboStyle <> ct_cbEdit then
   Result := Tree.ImagesStored
  else
   Result := False;
-//#UC END# *83A53CAA19B9_4831599C0300_impl*
+//#UC END# *53EE01CD00F4Stored_4831599C0300_impl*
 end;//TDropDownTreePrim.TreeImagesStored
 
 function TDropDownTreePrim.GetActiveSub: TWinControl;

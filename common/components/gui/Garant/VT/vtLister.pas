@@ -676,13 +676,13 @@ event to notify when the top index changes }
     anItemPart: TvtListerItemPart);
     {* устанавлиет шрифт по умолчанию и вызывает _DoOnGetItemFont. }
    function FooterFontStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство FooterFont сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство FooterFont сохран€етс€ }
    function FooterActiveFontStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство FooterActiveFont сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство FooterActiveFont сохран€етс€ }
    function HeaderStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Header сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Header сохран€етс€ }
    function ImagesStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Images сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Images сохран€етс€ }
    {$If NOT Defined(DesignTimeLibrary)}
    procedure StyleTableChanged;
     {* таблица стилей изменилась. }
@@ -6852,43 +6852,43 @@ begin
 end;//TvtCustomListerPrim.InvalidateNCArea
 
 function TvtCustomListerPrim.FooterFontStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство FooterFont сохран€етс€" }
-//#UC START# *8A8A15D95C04_4CFFE36B00FA_var*
-//#UC END# *8A8A15D95C04_4CFFE36B00FA_var*
+ {* ‘ункци€ определ€юща€, что свойство FooterFont сохран€етс€ }
+//#UC START# *514C71DE02ADStored_4CFFE36B00FA_var*
+//#UC END# *514C71DE02ADStored_4CFFE36B00FA_var*
 begin
-//#UC START# *8A8A15D95C04_4CFFE36B00FA_impl*
+//#UC START# *514C71DE02ADStored_4CFFE36B00FA_impl*
  Result := not UseStyleTable;
-//#UC END# *8A8A15D95C04_4CFFE36B00FA_impl*
+//#UC END# *514C71DE02ADStored_4CFFE36B00FA_impl*
 end;//TvtCustomListerPrim.FooterFontStored
 
 function TvtCustomListerPrim.FooterActiveFontStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство FooterActiveFont сохран€етс€" }
-//#UC START# *8B2B603F5F28_4CFFE36B00FA_var*
-//#UC END# *8B2B603F5F28_4CFFE36B00FA_var*
+ {* ‘ункци€ определ€юща€, что свойство FooterActiveFont сохран€етс€ }
+//#UC START# *514C72070397Stored_4CFFE36B00FA_var*
+//#UC END# *514C72070397Stored_4CFFE36B00FA_var*
 begin
-//#UC START# *8B2B603F5F28_4CFFE36B00FA_impl*
+//#UC START# *514C72070397Stored_4CFFE36B00FA_impl*
  Result := not UseStyleTable;
-//#UC END# *8B2B603F5F28_4CFFE36B00FA_impl*
+//#UC END# *514C72070397Stored_4CFFE36B00FA_impl*
 end;//TvtCustomListerPrim.FooterActiveFontStored
 
 function TvtCustomListerPrim.HeaderStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Header сохран€етс€" }
-//#UC START# *EF11BF564CE4_4CFFE36B00FA_var*
-//#UC END# *EF11BF564CE4_4CFFE36B00FA_var*
+ {* ‘ункци€ определ€юща€, что свойство Header сохран€етс€ }
+//#UC START# *514C7D21002BStored_4CFFE36B00FA_var*
+//#UC END# *514C7D21002BStored_4CFFE36B00FA_var*
 begin
-//#UC START# *EF11BF564CE4_4CFFE36B00FA_impl*
+//#UC START# *514C7D21002BStored_4CFFE36B00FA_impl*
  Result := (f_Header <> nil) AND (f_Header.Sections.Count > 0);
-//#UC END# *EF11BF564CE4_4CFFE36B00FA_impl*
+//#UC END# *514C7D21002BStored_4CFFE36B00FA_impl*
 end;//TvtCustomListerPrim.HeaderStored
 
 function TvtCustomListerPrim.ImagesStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Images сохран€етс€" }
-//#UC START# *03FA4B130756_4CFFE36B00FA_var*
-//#UC END# *03FA4B130756_4CFFE36B00FA_var*
+ {* ‘ункци€ определ€юща€, что свойство Images сохран€етс€ }
+//#UC START# *514C7F9103BBStored_4CFFE36B00FA_var*
+//#UC END# *514C7F9103BBStored_4CFFE36B00FA_var*
 begin
-//#UC START# *03FA4B130756_4CFFE36B00FA_impl*
+//#UC START# *514C7F9103BBStored_4CFFE36B00FA_impl*
  Result := GetImagesStored;
-//#UC END# *03FA4B130756_4CFFE36B00FA_impl*
+//#UC END# *514C7F9103BBStored_4CFFE36B00FA_impl*
 end;//TvtCustomListerPrim.ImagesStored
 
 {$If NOT Defined(DesignTimeLibrary)}

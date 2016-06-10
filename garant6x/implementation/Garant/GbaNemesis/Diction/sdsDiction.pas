@@ -1,177 +1,141 @@
 unit sdsDiction;
+ {* Бизнес объект сборки "Толковый словарь" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Diction"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Diction/sdsDiction.pas"
-// Начат: 2005/10/06 12:32:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::Diction::Diction::Diction::TsdsDiction
-//
-// Бизнес объект сборки "Толковый словарь"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\sdsDiction.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsDiction" MUID: (4936CB1B0022)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit,
-  bsTypes,
-  DictionInterfaces,
-  DictionInterfacesPrim,
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentAndListInterfaces,
-  bsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3IID,
-  nevTools,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  QueryCardInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , DictionInterfaces
+ , DictionInterfacesPrim
+ , DocumentUnit
+ , bsTypes
+ , DocumentAndListInterfaces
+ , CommonDictionInterfaces
+ , DocumentInterfaces
+ , l3IID
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , QueryCardInterfaces
+ , BaseDocumentWithAttributesInterfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _SetDataType_ = IdDiction;
  _SetType_ = IsdsDiction;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
- TsdsDiction = {ucc} class(_sdsCommonDiction_, IsdsDiction)
+ TsdsDiction = class(_sdsCommonDiction_, IsdsDiction)
   {* Бизнес объект сборки "Толковый словарь" }
- private
- // private methods
+  private
    procedure LoadLanguages(const aDocument: IDocument);
-     {* загружает доступные для документа языки }
+    {* загружает доступные для документа языки }
    procedure ClearTranslators;
    function NewDSDocument(aLanguage: TbsLanguage): IdsDictionDocument;
-     {* создать бизнес объект для документа }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+    {* создать бизнес объект для документа }
+  protected
+   {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
-   {$IfEnd} //not NoVCM
+    {* Данные сборки. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure OpenLiteratureList;
-     {* открыть список литературы для толкового словаря }
+    {* открыть список литературы для толкового словаря }
    function IsShowLiteratureList: Boolean;
    function pm_GetTranslationForms: Integer;
    function pm_GetDefaultLanguage: TbsLanguage;
    function MakeDocInfo(const aSource: IdeDocInfo): IdeCommonDiction; override;
    function MakeContents: IdsCommonDiction; override;
-     {* Создаёт область оглавления }
+    {* Создаёт область оглавления }
    function pm_GetDsTranslate(aLanguageId: Integer): IdsDictionDocument;
    function pm_GetContextMap: InsLangToContextMap;
    function pm_GetDsDiction: IdsDiction;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
    function DoMakeGotoPointData(const aDocument: IDocument;
     aRefType: TDocumentPositionType;
     aPos: Longword): IdeDocInfo; override;
-     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+    {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
            новой сборки вернуться как результат для вызова операции модуля }
    procedure BeforeAssignDocument(const aDoc: IdeDocInfo); override;
    procedure AfterAssignDocument; override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
-    {$If not defined(NoVCM)}
+    {* Реализация запроса интерфейса }
+   {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function GetDataForClone: _InitDataType_; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDiction,
-  dsDictionDocument,
-  deDocInfo,
-  SysUtils,
-  dDiction,
-  l3Base,
-  nsUtils,
-  bsConst,
-  DataAdapter,
-  BaseTypesUnit,
-  deDiction,
-  dsSaveLoad,
-  dsChild,
-  nsTabbedInterfaceTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetRefreshParams
-  {$IfEnd} //not NoVCM
-  ,
-  afwFacade,
-  dCommonDiction,
-  dsAttributes,
-  l3Types,
-  bsUtils,
-  l3Utils,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , dsDiction
+ , dsDictionDocument
+ , deDocInfo
+ , SysUtils
+ , dDiction
+ , l3Base
+ , nsUtils
+ , bsConst
+ , DataAdapter
+ , BaseTypesUnit
+ , deDiction
+ , dsSaveLoad
+ , dsChild
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetRefreshParams
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , dCommonDiction
+ , dsAttributes
+ , l3Types
+ , bsUtils
+ , l3Utils
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type _Instance_R_ = TsdsDiction;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
 
-// start class TsdsDiction
-
 procedure TsdsDiction.LoadLanguages(const aDocument: IDocument);
+ {* загружает доступные для документа языки }
 //#UC START# *4936CD5100A6_4936CB1B0022_var*
 var
  l_List      : ILanguagesList;
@@ -212,6 +176,7 @@ begin
 end;//TsdsDiction.ClearTranslators
 
 function TsdsDiction.NewDSDocument(aLanguage: TbsLanguage): IdsDictionDocument;
+ {* создать бизнес объект для документа }
 //#UC START# *4936CDB00318_4936CB1B0022_var*
 var
  l_DocInfo: IdeDocInfo;
@@ -224,8 +189,9 @@ begin
 //#UC END# *4936CDB00318_4936CB1B0022_impl*
 end;//TsdsDiction.NewDSDocument
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsDiction.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_4936CB1B0022_var*
 //#UC END# *47F3778403D9_4936CB1B0022_var*
 begin
@@ -233,7 +199,7 @@ begin
  Result := TdDiction.Make;
 //#UC END# *47F3778403D9_4936CB1B0022_impl*
 end;//TsdsDiction.MakeData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsDiction.BaseDocumentClass: IdsBaseDocument;
 //#UC START# *4925B1EC0100_4936CB1B0022_var*
@@ -245,6 +211,7 @@ begin
 end;//TsdsDiction.BaseDocumentClass
 
 procedure TsdsDiction.OpenLiteratureList;
+ {* открыть список литературы для толкового словаря }
 //#UC START# *49368311029E_4936CB1B0022_var*
 var
  l_Document: IDocument;
@@ -299,6 +266,7 @@ begin
 end;//TsdsDiction.MakeDocInfo
 
 function TsdsDiction.MakeContents: IdsCommonDiction;
+ {* Создаёт область оглавления }
 //#UC START# *4936BA0D0286_4936CB1B0022_var*
 //#UC END# *4936BA0D0286_4936CB1B0022_var*
 begin
@@ -364,6 +332,7 @@ begin
 end;//TsdsDiction.pm_GetDsDiction
 
 procedure TsdsDiction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4936CB1B0022_var*
 //#UC END# *479731C50290_4936CB1B0022_var*
 begin
@@ -372,8 +341,9 @@ begin
 //#UC END# *479731C50290_4936CB1B0022_impl*
 end;//TsdsDiction.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TsdsDiction.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_4936CB1B0022_var*
 //#UC END# *47F37DF001FE_4936CB1B0022_var*
 begin
@@ -382,7 +352,7 @@ begin
  LoadLanguages(SetData.DocInfo.Doc);
 //#UC END# *47F37DF001FE_4936CB1B0022_impl*
 end;//TsdsDiction.DataExchange
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsDiction.DoChangeDocument(const aDoc: IdeDocInfo): Boolean;
 //#UC START# *4925B9370022_4936CB1B0022_var*
@@ -399,8 +369,10 @@ begin
 end;//TsdsDiction.DoChangeDocument
 
 function TsdsDiction.DoMakeGotoPointData(const aDocument: IDocument;
-  aRefType: TDocumentPositionType;
-  aPos: Longword): IdeDocInfo;
+ aRefType: TDocumentPositionType;
+ aPos: Longword): IdeDocInfo;
+ {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+           новой сборки вернуться как результат для вызова операции модуля }
 //#UC START# *4925BE3E0260_4936CB1B0022_var*
 var
  lDS: IdsDiction;
@@ -447,7 +419,8 @@ begin
 end;//TsdsDiction.AfterAssignDocument
 
 function TsdsDiction.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4936CB1B0022_var*
 //#UC END# *4A60B23E00C3_4936CB1B0022_var*
 begin
@@ -462,7 +435,7 @@ begin
 //#UC END# *4A60B23E00C3_4936CB1B0022_impl*
 end;//TsdsDiction.COMQueryInterface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsDiction.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4936CB1B0022_var*
 //#UC END# *53B3BF9C00EF_4936CB1B0022_var*
@@ -471,8 +444,27 @@ begin
  Result := nsTabIconIndex(titDictionary);
 //#UC END# *53B3BF9C00EF_4936CB1B0022_impl*
 end;//TsdsDiction.DoGetFormSetImageIndex
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$If NOT Defined(NoVCM)}
+function TsdsDiction.GetDataForClone: _InitDataType_;
+//#UC START# *55C1DD070354_4936CB1B0022_var*
+var
+ l_Diction: IdeDiction;
+//#UC END# *55C1DD070354_4936CB1B0022_var*
+begin
+//#UC START# *55C1DD070354_4936CB1B0022_impl*
+ Result := MakeDocInfo(pm_GetDocInfo).Clone;
+ if Supports(Result, IdeDiction, l_Diction) then
+ try
+  l_Diction.DictLanguage := pm_GetDsDiction.Language;
+ finally
+  l_Diction := nil;
+ end;
+// Result.DictLanguage := pm_GetDsDiction.Language; 
+//#UC END# *55C1DD070354_4936CB1B0022_impl*
+end;//TsdsDiction.GetDataForClone
+{$IfEnd} // NOT Defined(NoVCM)
 
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

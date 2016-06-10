@@ -13,6 +13,9 @@ interface
 uses
  l3IntfUses
  , MedicInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
  , DocumentInterfaces
  , DocumentAndListInterfaces
  , BaseDocumentWithAttributesInterfaces
@@ -37,14 +40,18 @@ type
  TsdsMedicFirmList = class(_sdsMedicFirmDocument_, IsdsMedicFirmList)
   {* Бизнес объект прецедента список медицинских фирм-производителей }
   protected
-   procedure ChangeSynchroForm(aSynchroForm: TMedicFirmList_SynchroView_Areas);
+   procedure ChangeSynchroForm(aSynchroForm: TMedicFirmList_SynchroView_Areas;
+    aDoSaveToHistory: Boolean = True;
+    aNeedRefresh: Boolean = True);
     {* Переключает форму синхронного просмотра }
    {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
     {* Данные сборки. }
    {$IfEnd} // NOT Defined(NoVCM)
    function pm_GetDsFirmList: IdsMedicFirmList;
+   function DoGet_DsFirmList: IdsMedicFirmList;
    function pm_GetDsSynchroView: IdsMedicFirmListSynchroView;
+   function DoGet_DsSynchroView: IdsMedicFirmListSynchroView;
    procedure OpenAttributes;
     {* Открывает ViewArea "атрибуты документа" }
    function pm_GetIsAttributesActive: Boolean;
@@ -54,19 +61,21 @@ type
    function pm_GetIsDrugListActive: Boolean;
    procedure OpenDocument;
     {* Открывает ViewArea "Собственно документ" }
+   function pm_GetDsFirmListRef: IvcmViewAreaControllerRef;
+   function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
    procedure DoOpenAttributes; override;
     {* - атрибуты. }
    function NeedMakeDSAttributes: Boolean; override;
     {* - необходимость создания БОФ атрибутов. }
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    function NeedMakeDrugList: Boolean; override;
    function NeedMakeDocument: Boolean; override;
     {* Определяет - нужно ли создавать область ввода для документа }
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsMedicFirmList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -97,25 +106,30 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type _Instance_R_ = TsdsMedicFirmList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}
 
-procedure TsdsMedicFirmList.ChangeSynchroForm(aSynchroForm: TMedicFirmList_SynchroView_Areas);
+procedure TsdsMedicFirmList.ChangeSynchroForm(aSynchroForm: TMedicFirmList_SynchroView_Areas;
+ aDoSaveToHistory: Boolean = True;
+ aNeedRefresh: Boolean = True);
  {* Переключает форму синхронного просмотра }
-//#UC START# *2D720EE59BD5_493A658D0181_var*
-//#UC END# *2D720EE59BD5_493A658D0181_var*
+//#UC START# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_var*
+//#UC END# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_var*
 begin
-//#UC START# *2D720EE59BD5_493A658D0181_impl*
+//#UC START# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_impl*
  if (aSynchroForm <> SetData.MedicFirmList_SynchroView_Form) then
  begin
   ClearAllDS;
   SetData.MedicFirmList_SynchroView_Form := aSynchroForm;
   Refresh;
  end;//aSynchroForm <> SetData.MedicFirmList_SynchroView_Form
-//#UC END# *2D720EE59BD5_493A658D0181_impl*
+//#UC END# *493A658D0181_127F0A440BEB_ChangeSynchroForm_493A658D0181_impl*
 end;//TsdsMedicFirmList.ChangeSynchroForm
 
 {$If NOT Defined(NoVCM)}
@@ -136,19 +150,56 @@ function TsdsMedicFirmList.pm_GetDsFirmList: IdsMedicFirmList;
 //#UC START# *500D3DC401D9_493A658D0181get_var*
 //#UC END# *500D3DC401D9_493A658D0181get_var*
 begin
-//#UC START# *500D3DC401D9_493A658D0181get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3DC401D9_493A658D0181get_impl*
+ with pm_GetdsFirmListRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3DC401D9_493A658D0181get_need*
+     AND (NeedMake <> vcm_nmNo)   
+  // - условие создания ViewArea
+  //#UC END# *500D3DC401D9_493A658D0181get_need*
+   then
+    Referred := DoGet_dsFirmList;
+  Result := IdsMedicFirmList(Referred);
+ end;// with pm_GetdsFirmListRef
 end;//TsdsMedicFirmList.pm_GetDsFirmList
+
+function TsdsMedicFirmList.DoGet_DsFirmList: IdsMedicFirmList;
+//#UC START# *500D3DC401D9_493A658D0181area_var*
+var
+ l_deMedicFirmList: IdeMedicFirmList;
+//#UC END# *500D3DC401D9_493A658D0181area_var*
+begin
+//#UC START# *500D3DC401D9_493A658D0181area_impl*
+ l_deMedicFirmList := nil;
+ Supports(InitialUseCaseData, IdeMedicFirmList, l_deMedicFirmList);
+ Result := TdsMedicFirmList.Make(Self, l_deMedicFirmList);
+//#UC END# *500D3DC401D9_493A658D0181area_impl*
+end;//TsdsMedicFirmList.DoGet_DsFirmList
 
 function TsdsMedicFirmList.pm_GetDsSynchroView: IdsMedicFirmListSynchroView;
 //#UC START# *500D3E05033F_493A658D0181get_var*
 //#UC END# *500D3E05033F_493A658D0181get_var*
 begin
-//#UC START# *500D3E05033F_493A658D0181get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3E05033F_493A658D0181get_impl*
+ with pm_GetdsSynchroViewRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3E05033F_493A658D0181get_need*
+  // - условие создания ViewArea
+  //#UC END# *500D3E05033F_493A658D0181get_need*
+   then
+    Referred := DoGet_dsSynchroView;
+  Result := IdsMedicFirmListSynchroView(Referred);
+ end;// with pm_GetdsSynchroViewRef
 end;//TsdsMedicFirmList.pm_GetDsSynchroView
+
+function TsdsMedicFirmList.DoGet_DsSynchroView: IdsMedicFirmListSynchroView;
+//#UC START# *500D3E05033F_493A658D0181area_var*
+//#UC END# *500D3E05033F_493A658D0181area_var*
+begin
+//#UC START# *500D3E05033F_493A658D0181area_impl*
+ Result := TdsMedicFirmSynchroView.Make(Self);
+//#UC END# *500D3E05033F_493A658D0181area_impl*
+end;//TsdsMedicFirmList.DoGet_DsSynchroView
 
 procedure TsdsMedicFirmList.OpenAttributes;
  {* Открывает ViewArea "атрибуты документа" }
@@ -209,6 +260,16 @@ begin
 //#UC END# *E0B72D4BE61F_493A658D0181_impl*
 end;//TsdsMedicFirmList.OpenDocument
 
+function TsdsMedicFirmList.pm_GetDsFirmListRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsFirmListRef;
+end;//TsdsMedicFirmList.pm_GetDsFirmListRef
+
+function TsdsMedicFirmList.pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsSynchroViewRef;
+end;//TsdsMedicFirmList.pm_GetDsSynchroViewRef
+
 procedure TsdsMedicFirmList.DoOpenAttributes;
  {* - атрибуты. }
 //#UC START# *47FDDACC0101_493A658D0181_var*
@@ -230,18 +291,6 @@ begin
            inherited NeedMakeDSAttributes;
 //#UC END# *47FE03AE0225_493A658D0181_impl*
 end;//TsdsMedicFirmList.NeedMakeDSAttributes
-
-{$If NOT Defined(NoVCM)}
-procedure TsdsMedicFirmList.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_493A658D0181_var*
-//#UC END# *4938F7E702B7_493A658D0181_var*
-begin
-//#UC START# *4938F7E702B7_493A658D0181_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_493A658D0181_impl*
-end;//TsdsMedicFirmList.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsMedicFirmList.NeedMakeDrugList: Boolean;
 //#UC START# *493964C6039A_493A658D0181_var*
@@ -273,6 +322,16 @@ begin
  Result := pm_GetDsFirmList.MakeNewDocInfo;
 //#UC END# *55C1DD070354_493A658D0181_impl*
 end;//TsdsMedicFirmList.GetDataForClone
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+procedure TsdsMedicFirmList.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ pm_GetdsFirmListRef.Referred := nil;
+ pm_GetdsSynchroViewRef.Referred := nil;
+ inherited;
+end;//TsdsMedicFirmList.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

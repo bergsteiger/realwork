@@ -168,6 +168,7 @@ type
   function pm_GetTopItemIndex: Integer;
   function pm_GetCurrentIndex: Integer;
   function pm_GetOptions: TPrimListFormStateOptions;
+  function pm_GetWasFiltered: Boolean;
   property InnerState: IvcmBase
    read pm_GetInnerState;
   property ContextFilterState: IUnknown
@@ -180,6 +181,8 @@ type
    read pm_GetCurrentIndex;
   property Options: TPrimListFormStateOptions
    read pm_GetOptions;
+  property WasFiltered: Boolean
+   read pm_GetWasFiltered;
  end;//IPrimListFormState
 
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
@@ -192,6 +195,7 @@ type
    f_TopItemIndex: Integer;
    f_Options: TPrimListFormStateOptions;
    f_CurrentIndex: Integer;
+   f_WasFiltered: Boolean;
   protected
    function pm_GetInnerState: IvcmBase;
    function pm_GetContextFilterState: IUnknown;
@@ -199,6 +203,7 @@ type
    function pm_GetTopItemIndex: Integer;
    function pm_GetOptions: TPrimListFormStateOptions;
    function pm_GetCurrentIndex: Integer;
+   function pm_GetWasFiltered: Boolean;
    procedure FinishDataUpdate; override;
   public
    constructor Create(const aInnerState: IvcmBase;
@@ -206,13 +211,15 @@ type
     const aTreeStructState: InsTreeStructState;
     aTopItemIndex: Integer;
     aCurrentIndex: Integer;
-    aOptions: TPrimListFormStateOptions); reintroduce;
+    aOptions: TPrimListFormStateOptions;
+    aWasFiltered: Boolean); reintroduce;
    class function Make(const aInnerState: IvcmBase;
     const aContextFilterState: IUnknown;
     const aTreeStructState: InsTreeStructState;
     aTopItemIndex: Integer;
     aCurrentIndex: Integer;
-    aOptions: TPrimListFormStateOptions): IPrimListFormState; reintroduce;
+    aOptions: TPrimListFormStateOptions;
+    aWasFiltered: Boolean): IPrimListFormState; reintroduce;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
@@ -237,6 +244,8 @@ type
   private
    f_AllowCallCurrentChangedOnTest: Boolean;
    f_SearchContext: Il3CString;
+   f_WasFiltered: Boolean;
+    {* Флаг, что список был отфильтрован. Нужен, чтобы не показывать ссылку "Продолжить поиск..." }
    f_ListPanel: TvtPanel;
    f_CanSwithToFullList: Boolean;
    f_tvList: TnscDocumentListTreeView;
@@ -948,7 +957,8 @@ constructor TPrimListFormState.Create(const aInnerState: IvcmBase;
  const aTreeStructState: InsTreeStructState;
  aTopItemIndex: Integer;
  aCurrentIndex: Integer;
- aOptions: TPrimListFormStateOptions);
+ aOptions: TPrimListFormStateOptions;
+ aWasFiltered: Boolean);
 //#UC START# *5677BAD7012E_5677B9280204_var*
 //#UC END# *5677BAD7012E_5677B9280204_var*
 begin
@@ -968,11 +978,12 @@ class function TPrimListFormState.Make(const aInnerState: IvcmBase;
  const aTreeStructState: InsTreeStructState;
  aTopItemIndex: Integer;
  aCurrentIndex: Integer;
- aOptions: TPrimListFormStateOptions): IPrimListFormState;
+ aOptions: TPrimListFormStateOptions;
+ aWasFiltered: Boolean): IPrimListFormState;
 var
  l_Inst : TPrimListFormState;
 begin
- l_Inst := Create(aInnerState, aContextFilterState, aTreeStructState, aTopItemIndex, aCurrentIndex, aOptions);
+ l_Inst := Create(aInnerState, aContextFilterState, aTreeStructState, aTopItemIndex, aCurrentIndex, aOptions, aWasFiltered);
  try
   Result := l_Inst;
  finally
@@ -1033,6 +1044,15 @@ begin
  Result := f_CurrentIndex;
 //#UC END# *56E152870083_5677B9280204get_impl*
 end;//TPrimListFormState.pm_GetCurrentIndex
+
+function TPrimListFormState.pm_GetWasFiltered: Boolean;
+//#UC START# *5750305000AF_5677B9280204get_var*
+//#UC END# *5750305000AF_5677B9280204get_var*
+begin
+//#UC START# *5750305000AF_5677B9280204get_impl*
+ Result := f_WasFiltered;
+//#UC END# *5750305000AF_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetWasFiltered
 
 function TPrimListFormState.QueryInterface(const IID: TGUID;
  out Obj): HResult;

@@ -19,6 +19,9 @@ uses
 ;
 
 const
+ {* Локализуемые строки ShowChangesInfoName }
+ str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
+  {* Показывать историю изменений в документе }
  pi_Document_ShowChangesInfo = 'Работа с документом/Показывать историю изменений в документе';
   {* Идентификатор настройки "Показывать историю изменений в документе" }
  dv_Document_ShowChangesInfo = False;
@@ -29,12 +32,10 @@ const
  str_ShowChangesInfo_Expanded: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo_Expanded'; rValue : 'В развернутом виде');
   {* В развернутом виде }
  {* Карта преобразования локализованных строк ShowChangesInfoValues }
- ShowChangesInfoValuesMap: array [Boolean] of Pl3StringIDEx = (@str_ShowChangesInfo_Collapsed
+ ShowChangesInfoValuesMap: array [Boolean] of Pl3StringIDEx = (
+ @str_ShowChangesInfo_Collapsed
  , @str_ShowChangesInfo_Expanded
  );
- {* Локализуемые строки ShowChangesInfoName }
- str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
-  {* Показывать историю изменений в документе }
 
 type
  ShowChangesInfoValuesMapHelper = {final} class
@@ -93,22 +94,26 @@ end;//TShowChangesInfoValuesMapImplFree
 
 class procedure ShowChangesInfoValuesMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
-//#UC START# *7EF6DC45032F_A1FC37E65315_var*
-//#UC END# *7EF6DC45032F_A1FC37E65315_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *7EF6DC45032F_A1FC37E65315_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7EF6DC45032F_A1FC37E65315_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(ShowChangesInfoValuesMap[l_Index].AsCStr);
 end;//ShowChangesInfoValuesMapHelper.FillStrings
 
 class function ShowChangesInfoValuesMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): Boolean;
  {* Преобразование строкового значения к порядковому }
-//#UC START# *68BC0BDD3BB9_A1FC37E65315_var*
-//#UC END# *68BC0BDD3BB9_A1FC37E65315_var*
+var
+ l_Index: Boolean;
 begin
-//#UC START# *68BC0BDD3BB9_A1FC37E65315_impl*
- !!! Needs to be implemented !!!
-//#UC END# *68BC0BDD3BB9_A1FC37E65315_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, ShowChangesInfoValuesMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "ShowChangesInfoValuesMap"', [l3Str(aDisplayName)]);
 end;//ShowChangesInfoValuesMapHelper.DisplayNameToValue
 
 class function TShowChangesInfoValuesMapImplPrim.Make: Il3IntegerValueMap;
@@ -125,50 +130,33 @@ begin
 end;//TShowChangesInfoValuesMapImplPrim.Make
 
 function TShowChangesInfoValuesMapImplPrim.pm_GetMapID: Tl3ValueMapID;
-//#UC START# *46A5EFE602DE_CC1C6C840383get_var*
-//#UC END# *46A5EFE602DE_CC1C6C840383get_var*
 begin
-//#UC START# *46A5EFE602DE_CC1C6C840383get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5EFE602DE_CC1C6C840383get_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Assert(false);
 end;//TShowChangesInfoValuesMapImplPrim.pm_GetMapID
 
 procedure TShowChangesInfoValuesMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
  {* заполняет список значениями "UI-строка" }
-//#UC START# *46A5F0130365_CC1C6C840383_var*
-//#UC END# *46A5F0130365_CC1C6C840383_var*
 begin
-//#UC START# *46A5F0130365_CC1C6C840383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F0130365_CC1C6C840383_impl*
+ ShowChangesInfoValuesMapHelper.FillStrings(aList);
 end;//TShowChangesInfoValuesMapImplPrim.GetDisplayNames
 
 function TShowChangesInfoValuesMapImplPrim.MapSize: Integer;
  {* количество элементов в мапе. }
-//#UC START# *46A5F03800A2_CC1C6C840383_var*
-//#UC END# *46A5F03800A2_CC1C6C840383_var*
 begin
-//#UC START# *46A5F03800A2_CC1C6C840383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F03800A2_CC1C6C840383_impl*
+ Result := Ord(High(Boolean)) - Ord(Low(Boolean));
 end;//TShowChangesInfoValuesMapImplPrim.MapSize
 
 function TShowChangesInfoValuesMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-//#UC START# *46A5FCF900E0_CC1C6C840383_var*
-//#UC END# *46A5FCF900E0_CC1C6C840383_var*
 begin
-//#UC START# *46A5FCF900E0_CC1C6C840383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FCF900E0_CC1C6C840383_impl*
+ Result := Ord(ShowChangesInfoValuesMapHelper.DisplayNameToValue(aDisplayName));
 end;//TShowChangesInfoValuesMapImplPrim.DisplayNameToValue
 
 function TShowChangesInfoValuesMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
-//#UC START# *46A5FD1B000D_CC1C6C840383_var*
-//#UC END# *46A5FD1B000D_CC1C6C840383_var*
 begin
-//#UC START# *46A5FD1B000D_CC1C6C840383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FD1B000D_CC1C6C840383_impl*
+ Assert(aValue >= Ord(Low(Boolean)));
+ Assert(aValue <= Ord(High(Boolean)));
+ Result := ShowChangesInfoValuesMap[Boolean(aValue)].AsCStr;
 end;//TShowChangesInfoValuesMapImplPrim.ValueToDisplayName
 
 class function TShowChangesInfoValuesMapImpl.Make: Il3IntegerValueMap;
@@ -189,12 +177,12 @@ begin
 end;//TShowChangesInfoValuesMapImpl.Exists
 
 initialization
+ str_ShowChangesInfo.Init;
+ {* Инициализация str_ShowChangesInfo }
  str_ShowChangesInfo_Collapsed.Init;
  {* Инициализация str_ShowChangesInfo_Collapsed }
  str_ShowChangesInfo_Expanded.Init;
  {* Инициализация str_ShowChangesInfo_Expanded }
- str_ShowChangesInfo.Init;
- {* Инициализация str_ShowChangesInfo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

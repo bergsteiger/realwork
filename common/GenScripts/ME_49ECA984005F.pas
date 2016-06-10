@@ -38,11 +38,12 @@ type
     {* Поле для области вывода MainViewArea }
   protected
    function pm_GetMainViewArea: IdsInternetAgent;
+   function DoGet_MainViewArea: IdsInternetAgent;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
  end;//TsdsInternetAgent
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -57,6 +58,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -68,26 +72,43 @@ function TsdsInternetAgent.pm_GetMainViewArea: IdsInternetAgent;
 //#UC START# *4A37A70E01DE_49ECA984005Fget_var*
 //#UC END# *4A37A70E01DE_49ECA984005Fget_var*
 begin
-//#UC START# *4A37A70E01DE_49ECA984005Fget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A37A70E01DE_49ECA984005Fget_impl*
+ if (f_MainViewArea = nil) then
+ begin
+  f_MainViewArea := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4A37A70E01DE_49ECA984005Fget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4A37A70E01DE_49ECA984005Fget_init*
+ end;//f_MainViewArea = nil
+ if f_MainViewArea.IsEmpty
+  //#UC START# *4A37A70E01DE_49ECA984005Fget_need*
+  // - условие создания ViewArea
+  //#UC END# *4A37A70E01DE_49ECA984005Fget_need*
+  then
+   f_MainViewArea.Referred := DoGet_MainViewArea;
+ Result := IdsInternetAgent(f_MainViewArea.Referred);
 end;//TsdsInternetAgent.pm_GetMainViewArea
 
-procedure TsdsInternetAgent.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_49ECA984005F_var*
-//#UC END# *4938F7E702B7_49ECA984005F_var*
+function TsdsInternetAgent.DoGet_MainViewArea: IdsInternetAgent;
+//#UC START# *4A37A70E01DE_49ECA984005Farea_var*
+//#UC END# *4A37A70E01DE_49ECA984005Farea_var*
 begin
-//#UC START# *4938F7E702B7_49ECA984005F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_49ECA984005F_impl*
-end;//TsdsInternetAgent.ClearAreas
+//#UC START# *4A37A70E01DE_49ECA984005Farea_impl*
+ Result := TdsInternetAgent.Make(Self, InitialUseCaseData);
+//#UC END# *4A37A70E01DE_49ECA984005Farea_impl*
+end;//TsdsInternetAgent.DoGet_MainViewArea
 
 procedure TsdsInternetAgent.ClearFields;
 begin
  f_MainViewArea := nil;
  inherited;
 end;//TsdsInternetAgent.ClearFields
+
+procedure TsdsInternetAgent.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_MainViewArea <> nil) then f_MainViewArea.Referred := nil;
+ inherited;
+end;//TsdsInternetAgent.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

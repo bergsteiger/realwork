@@ -41,13 +41,16 @@ type
     {* Поле для области вывода dsFolderElement }
   protected
    function pm_GetDsFolders: IdsFolders;
+   function DoGet_DsFolders: IdsFolders;
    function pm_GetDsFoldersTree: IdsFoldersTree;
+   function DoGet_DsFoldersTree: IdsFoldersTree;
    function pm_GetDsFolderElement: IdsFolderElement;
+   function DoGet_DsFolderElement: IdsFolderElement;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
  end;//TsdsFolders
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -64,6 +67,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -75,38 +81,88 @@ function TsdsFolders.pm_GetDsFolders: IdsFolders;
 //#UC START# *492EAE8B01AC_492EE1A80008get_var*
 //#UC END# *492EAE8B01AC_492EE1A80008get_var*
 begin
-//#UC START# *492EAE8B01AC_492EE1A80008get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EAE8B01AC_492EE1A80008get_impl*
+ if (f_dsFolders = nil) then
+ begin
+  f_dsFolders := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EAE8B01AC_492EE1A80008get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EAE8B01AC_492EE1A80008get_init*
+ end;//f_dsFolders = nil
+ if f_dsFolders.IsEmpty
+  //#UC START# *492EAE8B01AC_492EE1A80008get_need*
+  // - условие создания ViewArea
+  //#UC END# *492EAE8B01AC_492EE1A80008get_need*
+  then
+   f_dsFolders.Referred := DoGet_dsFolders;
+ Result := IdsFolders(f_dsFolders.Referred);
 end;//TsdsFolders.pm_GetDsFolders
+
+function TsdsFolders.DoGet_DsFolders: IdsFolders;
+//#UC START# *492EAE8B01AC_492EE1A80008area_var*
+//#UC END# *492EAE8B01AC_492EE1A80008area_var*
+begin
+//#UC START# *492EAE8B01AC_492EE1A80008area_impl*
+ Result := TdsFolders.Make(Self);
+//#UC END# *492EAE8B01AC_492EE1A80008area_impl*
+end;//TsdsFolders.DoGet_DsFolders
 
 function TsdsFolders.pm_GetDsFoldersTree: IdsFoldersTree;
 //#UC START# *492EB06D013C_492EE1A80008get_var*
 //#UC END# *492EB06D013C_492EE1A80008get_var*
 begin
-//#UC START# *492EB06D013C_492EE1A80008get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EB06D013C_492EE1A80008get_impl*
+ if (f_dsFoldersTree = nil) then
+ begin
+  f_dsFoldersTree := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EB06D013C_492EE1A80008get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EB06D013C_492EE1A80008get_init*
+ end;//f_dsFoldersTree = nil
+ if f_dsFoldersTree.IsEmpty
+  //#UC START# *492EB06D013C_492EE1A80008get_need*
+  // - условие создания ViewArea
+  //#UC END# *492EB06D013C_492EE1A80008get_need*
+  then
+   f_dsFoldersTree.Referred := DoGet_dsFoldersTree;
+ Result := IdsFoldersTree(f_dsFoldersTree.Referred);
 end;//TsdsFolders.pm_GetDsFoldersTree
+
+function TsdsFolders.DoGet_DsFoldersTree: IdsFoldersTree;
+//#UC START# *492EB06D013C_492EE1A80008area_var*
+//#UC END# *492EB06D013C_492EE1A80008area_var*
+begin
+//#UC START# *492EB06D013C_492EE1A80008area_impl*
+ Result := TdsFoldersTree.Make(Self);
+//#UC END# *492EB06D013C_492EE1A80008area_impl*
+end;//TsdsFolders.DoGet_DsFoldersTree
 
 function TsdsFolders.pm_GetDsFolderElement: IdsFolderElement;
 //#UC START# *492EB098008A_492EE1A80008get_var*
 //#UC END# *492EB098008A_492EE1A80008get_var*
 begin
-//#UC START# *492EB098008A_492EE1A80008get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EB098008A_492EE1A80008get_impl*
+ if (f_dsFolderElement = nil) then
+ begin
+  f_dsFolderElement := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EB098008A_492EE1A80008get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EB098008A_492EE1A80008get_init*
+ end;//f_dsFolderElement = nil
+ if f_dsFolderElement.IsEmpty
+  //#UC START# *492EB098008A_492EE1A80008get_need*
+  // - условие создания ViewArea
+  //#UC END# *492EB098008A_492EE1A80008get_need*
+  then
+   f_dsFolderElement.Referred := DoGet_dsFolderElement;
+ Result := IdsFolderElement(f_dsFolderElement.Referred);
 end;//TsdsFolders.pm_GetDsFolderElement
 
-procedure TsdsFolders.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_492EE1A80008_var*
-//#UC END# *4938F7E702B7_492EE1A80008_var*
+function TsdsFolders.DoGet_DsFolderElement: IdsFolderElement;
+//#UC START# *492EB098008A_492EE1A80008area_var*
+//#UC END# *492EB098008A_492EE1A80008area_var*
 begin
-//#UC START# *4938F7E702B7_492EE1A80008_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_492EE1A80008_impl*
-end;//TsdsFolders.ClearAreas
+//#UC START# *492EB098008A_492EE1A80008area_impl*
+ Result := TdsFolderElement.Make(Self);
+//#UC END# *492EB098008A_492EE1A80008area_impl*
+end;//TsdsFolders.DoGet_DsFolderElement
 
 procedure TsdsFolders.ClearFields;
 begin
@@ -115,6 +171,15 @@ begin
  f_dsFolderElement := nil;
  inherited;
 end;//TsdsFolders.ClearFields
+
+procedure TsdsFolders.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsFolders <> nil) then f_dsFolders.Referred := nil;
+ if (f_dsFoldersTree <> nil) then f_dsFoldersTree.Referred := nil;
+ if (f_dsFolderElement <> nil) then f_dsFolderElement.Referred := nil;
+ inherited;
+end;//TsdsFolders.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

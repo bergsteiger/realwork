@@ -45,12 +45,14 @@ type
   protected
    function GetQueryClass: TdsQueryClass; virtual;
    function pm_GetDsQuery: IdsQuery;
+   function DoGet_DsQuery: IdsQuery;
    function pm_GetDsSaveLoad: IdsSaveLoad;
+   function DoGet_DsSaveLoad: IdsSaveLoad;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
  end;//TsdsQuery
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -65,6 +67,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -85,29 +90,59 @@ function TsdsQuery.pm_GetDsQuery: IdsQuery;
 //#UC START# *492F006F00BE_492FECE300EAget_var*
 //#UC END# *492F006F00BE_492FECE300EAget_var*
 begin
-//#UC START# *492F006F00BE_492FECE300EAget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492F006F00BE_492FECE300EAget_impl*
+ if (f_dsQuery = nil) then
+ begin
+  f_dsQuery := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492F006F00BE_492FECE300EAget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492F006F00BE_492FECE300EAget_init*
+ end;//f_dsQuery = nil
+ if f_dsQuery.IsEmpty
+  //#UC START# *492F006F00BE_492FECE300EAget_need*
+  // - условие создания ViewArea
+  //#UC END# *492F006F00BE_492FECE300EAget_need*
+  then
+   f_dsQuery.Referred := DoGet_dsQuery;
+ Result := IdsQuery(f_dsQuery.Referred);
 end;//TsdsQuery.pm_GetDsQuery
+
+function TsdsQuery.DoGet_DsQuery: IdsQuery;
+//#UC START# *492F006F00BE_492FECE300EAarea_var*
+//#UC END# *492F006F00BE_492FECE300EAarea_var*
+begin
+//#UC START# *492F006F00BE_492FECE300EAarea_impl*
+ Result := GetQueryClass.Make(Self, InitialUseCaseData);
+//#UC END# *492F006F00BE_492FECE300EAarea_impl*
+end;//TsdsQuery.DoGet_DsQuery
 
 function TsdsQuery.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *492F00890059_492FECE300EAget_var*
 //#UC END# *492F00890059_492FECE300EAget_var*
 begin
-//#UC START# *492F00890059_492FECE300EAget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492F00890059_492FECE300EAget_impl*
+ if (f_dsSaveLoad = nil) then
+ begin
+  f_dsSaveLoad := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492F00890059_492FECE300EAget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492F00890059_492FECE300EAget_init*
+ end;//f_dsSaveLoad = nil
+ if f_dsSaveLoad.IsEmpty
+  //#UC START# *492F00890059_492FECE300EAget_need*
+  // - условие создания ViewArea
+  //#UC END# *492F00890059_492FECE300EAget_need*
+  then
+   f_dsSaveLoad.Referred := DoGet_dsSaveLoad;
+ Result := IdsSaveLoad(f_dsSaveLoad.Referred);
 end;//TsdsQuery.pm_GetDsSaveLoad
 
-procedure TsdsQuery.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_492FECE300EA_var*
-//#UC END# *4938F7E702B7_492FECE300EA_var*
+function TsdsQuery.DoGet_DsSaveLoad: IdsSaveLoad;
+//#UC START# *492F00890059_492FECE300EAarea_var*
+//#UC END# *492F00890059_492FECE300EAarea_var*
 begin
-//#UC START# *4938F7E702B7_492FECE300EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_492FECE300EA_impl*
-end;//TsdsQuery.ClearAreas
+//#UC START# *492F00890059_492FECE300EAarea_impl*
+ Result := TdsSaveLoad.Make(Self);
+//#UC END# *492F00890059_492FECE300EAarea_impl*
+end;//TsdsQuery.DoGet_DsSaveLoad
 
 procedure TsdsQuery.ClearFields;
 begin
@@ -115,6 +150,14 @@ begin
  f_dsSaveLoad := nil;
  inherited;
 end;//TsdsQuery.ClearFields
+
+procedure TsdsQuery.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsQuery <> nil) then f_dsQuery.Referred := nil;
+ if (f_dsSaveLoad <> nil) then f_dsSaveLoad.Referred := nil;
+ inherited;
+end;//TsdsQuery.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

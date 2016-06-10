@@ -1,107 +1,81 @@
 unit sdsFolders;
+ {* Прецедент "Папки" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Folders"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Folders/sdsFolders.pas"
-// Начат: 2006/05/03 14:59:45
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Основные прецеденты::Folders::Folders::Folders::TsdsFolders
-//
-// Прецедент "Папки"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Folders\sdsFolders.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsFolders" MUID: (492EE1A80008)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  FoldersInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , FoldersInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _SetType_ = IsdsFolders;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
- TsdsFolders = {ucc} class(_vcmTinyUseCaseController_, IsdsFolders)
+ TsdsFolders = class(_vcmTinyUseCaseController_, IsdsFolders)
   {* Прецедент "Папки" }
- private
- // private fields
-   f_dsFolders : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsFolders}
-   f_dsFoldersTree : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsFoldersTree}
-   f_dsFolderElement : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsFolderElement}
- protected
- // realized methods
+  private
+   f_dsFolders: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsFolders }
+   f_dsFoldersTree: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsFoldersTree }
+   f_dsFolderElement: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsFolderElement }
+  protected
    function pm_GetDsFolders: IdsFolders;
-   function DoGet_dsFolders: IdsFolders;
+   function DoGet_DsFolders: IdsFolders;
    function pm_GetDsFoldersTree: IdsFoldersTree;
-   function DoGet_dsFoldersTree: IdsFoldersTree;
+   function DoGet_DsFoldersTree: IdsFoldersTree;
    function pm_GetDsFolderElement: IdsFolderElement;
-   function DoGet_dsFolderElement: IdsFolderElement;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   function DoGet_DsFolderElement: IdsFolderElement;
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsFolders
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsFolders,
-  dsFoldersTree,
-  dsFolderElement
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  SysUtils,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , dsFolders
+ , dsFoldersTree
+ , dsFolderElement
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsFolders;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
-
-// start class TsdsFolders
 
 function TsdsFolders.pm_GetDsFolders: IdsFolders;
 //#UC START# *492EAE8B01AC_492EE1A80008get_var*
@@ -121,16 +95,16 @@ begin
   then
    f_dsFolders.Referred := DoGet_dsFolders;
  Result := IdsFolders(f_dsFolders.Referred);
-end;
+end;//TsdsFolders.pm_GetDsFolders
 
-function TsdsFolders.DoGet_dsFolders: IdsFolders;
+function TsdsFolders.DoGet_DsFolders: IdsFolders;
 //#UC START# *492EAE8B01AC_492EE1A80008area_var*
 //#UC END# *492EAE8B01AC_492EE1A80008area_var*
 begin
 //#UC START# *492EAE8B01AC_492EE1A80008area_impl*
  Result := TdsFolders.Make(Self);
 //#UC END# *492EAE8B01AC_492EE1A80008area_impl*
-end;//TsdsFolders.DoGet_dsFolders
+end;//TsdsFolders.DoGet_DsFolders
 
 function TsdsFolders.pm_GetDsFoldersTree: IdsFoldersTree;
 //#UC START# *492EB06D013C_492EE1A80008get_var*
@@ -150,16 +124,16 @@ begin
   then
    f_dsFoldersTree.Referred := DoGet_dsFoldersTree;
  Result := IdsFoldersTree(f_dsFoldersTree.Referred);
-end;
+end;//TsdsFolders.pm_GetDsFoldersTree
 
-function TsdsFolders.DoGet_dsFoldersTree: IdsFoldersTree;
+function TsdsFolders.DoGet_DsFoldersTree: IdsFoldersTree;
 //#UC START# *492EB06D013C_492EE1A80008area_var*
 //#UC END# *492EB06D013C_492EE1A80008area_var*
 begin
 //#UC START# *492EB06D013C_492EE1A80008area_impl*
  Result := TdsFoldersTree.Make(Self);
 //#UC END# *492EB06D013C_492EE1A80008area_impl*
-end;//TsdsFolders.DoGet_dsFoldersTree
+end;//TsdsFolders.DoGet_DsFoldersTree
 
 function TsdsFolders.pm_GetDsFolderElement: IdsFolderElement;
 //#UC START# *492EB098008A_492EE1A80008get_var*
@@ -179,28 +153,34 @@ begin
   then
    f_dsFolderElement.Referred := DoGet_dsFolderElement;
  Result := IdsFolderElement(f_dsFolderElement.Referred);
-end;
+end;//TsdsFolders.pm_GetDsFolderElement
 
-function TsdsFolders.DoGet_dsFolderElement: IdsFolderElement;
+function TsdsFolders.DoGet_DsFolderElement: IdsFolderElement;
 //#UC START# *492EB098008A_492EE1A80008area_var*
 //#UC END# *492EB098008A_492EE1A80008area_var*
 begin
 //#UC START# *492EB098008A_492EE1A80008area_impl*
  Result := TdsFolderElement.Make(Self);
 //#UC END# *492EB098008A_492EE1A80008area_impl*
-end;//TsdsFolders.DoGet_dsFolderElement
+end;//TsdsFolders.DoGet_DsFolderElement
 
-{$If not defined(NoVCM)}
+procedure TsdsFolders.ClearFields;
+begin
+ f_dsFolders := nil;
+ f_dsFoldersTree := nil;
+ f_dsFolderElement := nil;
+ inherited;
+end;//TsdsFolders.ClearFields
+
 procedure TsdsFolders.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  if (f_dsFolders <> nil) then f_dsFolders.Referred := nil;
  if (f_dsFoldersTree <> nil) then f_dsFoldersTree.Referred := nil;
  if (f_dsFolderElement <> nil) then f_dsFolderElement.Referred := nil;
  inherited;
 end;//TsdsFolders.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

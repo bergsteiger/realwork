@@ -1,77 +1,51 @@
 unit sdsCompareEditions;
+ {* Реализация прецедента "Сравнение редакций документа" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editions"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Editions/sdsCompareEditions.pas"
-// Начат: 30.07.2009 15:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Пользовательские сервисы::CompareEditions::Editions::Editions::TsdsCompareEditions
-//
-// Реализация прецедента "Сравнение редакций документа"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\sdsCompareEditions.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsCompareEditions" MUID: (4A7181A301E3)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DocumentUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  EditionsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  DocumentAndListInterfaces {a},
-  nevTools,
-  eeInterfaces,
-  l3Tree_TLB,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  DocumentInterfaces,
-  l3TreeInterfaces,
-  bsTypesNew
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , EditionsInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentUnit
+ , DocumentInterfaces
+ , bsTypesNew
+ , DocumentAndListInterfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
-  TnsDiffData = DocumentUnit.TDiffData;
+ TnsDiffData = TDiffData;
 
  IsdsCompareEditionsState = interface(IvcmData)
   {* Состояние прецедента TsdsCompareEditions }
-   ['{58401E22-1A19-4B3D-90EE-616BC5328B1A}']
-   function Get_EditionForCompare: TRedactionID;
-   function Get_UseCaseData: InsCompareEditionsInfo;
-   function Get_CompareRootPair: TnsDiffData;
-   property EditionForCompare: TRedactionID
-     read Get_EditionForCompare;
-   property UseCaseData: InsCompareEditionsInfo
-     read Get_UseCaseData;
-   property CompareRootPair: TnsDiffData
-     read Get_CompareRootPair;
+  ['{58401E22-1A19-4B3D-90EE-616BC5328B1A}']
+  function Get_EditionForCompare: TRedactionID;
+  function Get_UseCaseData: InsCompareEditionsInfo;
+  function Get_CompareRootPair: TnsDiffData;
+  property EditionForCompare: TRedactionID
+   read Get_EditionForCompare;
+  property UseCaseData: InsCompareEditionsInfo
+   read Get_UseCaseData;
+  property CompareRootPair: TnsDiffData
+   read Get_CompareRootPair;
  end;//IsdsCompareEditionsState
 
  _InitDataType_ = InsCompareEditionsInfo;
@@ -79,29 +53,34 @@ type
  _SetType_ = IsdsCompareEditions;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  _VScroll_Parent_ = _vcmFormSetDataSource_;
- {$Include ..\Editions\VScroll.imp.pas}
- TsdsCompareEditions = {final ucc} class(_VScroll_, IsdsCompareEditions, InsVScrollController {from IsdsCompareEditions}, InsDocumentTextProviderFactory {from IsdsCompareEditions}, IsdsPrimDocument {from IsdsCompareEditions}, IsdsEditionsHolder {from IsdsCompareEditions})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
+ TsdsCompareEditions = {final} class(_VScroll_, IsdsCompareEditions, InsVScrollController, InsDocumentTextProviderFactory, IsdsPrimDocument, IsdsEditionsHolder)
   {* Реализация прецедента "Сравнение редакций документа" }
- private
- // private fields
-   f_Left : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Left}
-   f_Right : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Right}
-   f_EditionsContainerData : IvcmViewAreaControllerRef;
-    {* Поле для области вывода EditionsContainerData}
-   f_EditionsList : IvcmViewAreaControllerRef;
-    {* Поле для области вывода EditionsList}
- private
- // private methods
+  private
+   f_Left: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Left }
+   f_Right: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Right }
+   f_EditionsContainerData: IvcmViewAreaControllerRef;
+    {* Поле для области вывода EditionsContainerData }
+   f_EditionsList: IvcmViewAreaControllerRef;
+    {* Поле для области вывода EditionsList }
+  private
    procedure NotifyEditionChanged;
-     {* Нотификация о смене редакции }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+    {* Нотификация о смене редакции }
+  protected
+   function As_InsVScrollController: InsVScrollController;
+    {* Метод приведения нашего интерфейса к InsVScrollController }
+   function As_InsDocumentTextProviderFactory: InsDocumentTextProviderFactory;
+    {* Метод приведения нашего интерфейса к InsDocumentTextProviderFactory }
+   function As_IsdsPrimDocument: IsdsPrimDocument;
+    {* Метод приведения нашего интерфейса к IsdsPrimDocument }
+   function As_IsdsEditionsHolder: IsdsEditionsHolder;
+    {* Метод приведения нашего интерфейса к IsdsEditionsHolder }
+   {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
-   {$IfEnd} //not NoVCM
+    {* Данные сборки. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function pm_GetLeft: IdsLeftEdition;
    function DoGet_Left: IdsLeftEdition;
    function pm_GetRight: IdsRightEdition;
@@ -116,64 +95,53 @@ type
    function pm_GetEditionsList: IdsEditions;
    function DoGet_EditionsList: IdsEditions;
    function Get_Position: TbsDocPos;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoVCM
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_InsVScrollController: InsVScrollController;
-   function As_InsDocumentTextProviderFactory: InsDocumentTextProviderFactory;
-   function As_IsdsPrimDocument: IsdsPrimDocument;
-   function As_IsdsEditionsHolder: IsdsEditionsHolder;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsCompareEditions
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsEditionsContainerData,
-  dsRightEdition,
-  dsLeftEdition,
-  nsEditionDiffData,
-  nsEditionsContainerData
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetRefreshParams
-  {$IfEnd} //not NoVCM
-  ,
-  sdsCompareEditionsState,
-  deDocInfo,
-  dsEditions,
-  nsTabbedInterfaceTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  SysUtils,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , dsEditionsContainerData
+ , dsRightEdition
+ , dsLeftEdition
+ , nsEditionDiffData
+ , nsEditionsContainerData
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetRefreshParams
+ {$IfEnd} // NOT Defined(NoVCM)
+ , sdsCompareEditionsState
+ , deDocInfo
+ , dsEditions
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsCompareEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
-{$Include ..\Editions\VScroll.imp.pas}
-
-// start class TsdsCompareEditions
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
 
 procedure TsdsCompareEditions.NotifyEditionChanged;
+ {* Нотификация о смене редакции }
 //#UC START# *4A841D40037E_4A7181A301E3_var*
 var
  l_Index : Integer;
@@ -200,8 +168,32 @@ begin
 //#UC END# *4A841D40037E_4A7181A301E3_impl*
 end;//TsdsCompareEditions.NotifyEditionChanged
 
-{$If not defined(NoVCM)}
+function TsdsCompareEditions.As_InsVScrollController: InsVScrollController;
+ {* Метод приведения нашего интерфейса к InsVScrollController }
+begin
+ Result := Self;
+end;//TsdsCompareEditions.As_InsVScrollController
+
+function TsdsCompareEditions.As_InsDocumentTextProviderFactory: InsDocumentTextProviderFactory;
+ {* Метод приведения нашего интерфейса к InsDocumentTextProviderFactory }
+begin
+ Result := Self;
+end;//TsdsCompareEditions.As_InsDocumentTextProviderFactory
+
+function TsdsCompareEditions.As_IsdsPrimDocument: IsdsPrimDocument;
+ {* Метод приведения нашего интерфейса к IsdsPrimDocument }
+begin
+ Result := Self;
+end;//TsdsCompareEditions.As_IsdsPrimDocument
+
+function TsdsCompareEditions.As_IsdsEditionsHolder: IsdsEditionsHolder;
+ {* Метод приведения нашего интерфейса к IsdsEditionsHolder }
+begin
+ Result := Self;
+end;//TsdsCompareEditions.As_IsdsEditionsHolder
+
 function TsdsCompareEditions.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_4A7181A301E3_var*
 //#UC END# *47F3778403D9_4A7181A301E3_var*
 begin
@@ -209,7 +201,6 @@ begin
  Result := TsdsCompareEditionsState.Make(InitialUseCaseData, InitialUseCaseData.EditionForCompare);
 //#UC END# *47F3778403D9_4A7181A301E3_impl*
 end;//TsdsCompareEditions.MakeData
-{$IfEnd} //not NoVCM
 
 function TsdsCompareEditions.pm_GetLeft: IdsLeftEdition;
 //#UC START# *4A6D579203BC_4A7181A301E3get_var*
@@ -229,7 +220,7 @@ begin
   then
    f_Left.Referred := DoGet_Left;
  Result := IdsLeftEdition(f_Left.Referred);
-end;
+end;//TsdsCompareEditions.pm_GetLeft
 
 function TsdsCompareEditions.DoGet_Left: IdsLeftEdition;
 //#UC START# *4A6D579203BC_4A7181A301E3area_var*
@@ -262,7 +253,7 @@ begin
   then
    f_Right.Referred := DoGet_Right;
  Result := IdsRightEdition(f_Right.Referred);
-end;
+end;//TsdsCompareEditions.pm_GetRight
 
 function TsdsCompareEditions.DoGet_Right: IdsRightEdition;
 //#UC START# *4A6D57C80079_4A7181A301E3area_var*
@@ -295,7 +286,7 @@ begin
   then
    f_EditionsContainerData.Referred := DoGet_EditionsContainerData;
  Result := IdsEditionsContainerData(f_EditionsContainerData.Referred);
-end;
+end;//TsdsCompareEditions.pm_GetEditionsContainerData
 
 function TsdsCompareEditions.DoGet_EditionsContainerData: IdsEditionsContainerData;
 //#UC START# *4A6EC18E02E3_4A7181A301E3area_var*
@@ -385,7 +376,7 @@ begin
   then
    f_EditionsList.Referred := DoGet_EditionsList;
  Result := IdsEditions(f_EditionsList.Referred);
-end;
+end;//TsdsCompareEditions.pm_GetEditionsList
 
 function TsdsCompareEditions.DoGet_EditionsList: IdsEditions;
 //#UC START# *4ED906420134_4A7181A301E3area_var*
@@ -405,19 +396,6 @@ begin
 //#UC END# *5214A46601C7_4A7181A301E3get_impl*
 end;//TsdsCompareEditions.Get_Position
 
-{$If not defined(NoVCM)}
-procedure TsdsCompareEditions.ClearAreas;
- {-}
-begin
- if (f_Left <> nil) then f_Left.Referred := nil;
- if (f_Right <> nil) then f_Right.Referred := nil;
- if (f_EditionsContainerData <> nil) then f_EditionsContainerData.Referred := nil;
- if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
- inherited;
-end;//TsdsCompareEditions.ClearAreas
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 function TsdsCompareEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4A7181A301E3_var*
 //#UC END# *53B3BF9C00EF_4A7181A301E3_var*
@@ -426,30 +404,26 @@ begin
  Result := nsTabIconIndex(titCompareEditions);
 //#UC END# *53B3BF9C00EF_4A7181A301E3_impl*
 end;//TsdsCompareEditions.DoGetFormSetImageIndex
-{$IfEnd} //not NoVCM
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TsdsCompareEditions.As_InsVScrollController: InsVScrollController;
+procedure TsdsCompareEditions.ClearFields;
 begin
- Result := Self;
-end;
+ f_Left := nil;
+ f_Right := nil;
+ f_EditionsContainerData := nil;
+ f_EditionsList := nil;
+ inherited;
+end;//TsdsCompareEditions.ClearFields
 
-function TsdsCompareEditions.As_InsDocumentTextProviderFactory: InsDocumentTextProviderFactory;
+procedure TsdsCompareEditions.ClearAreas;
+ {* Очищает ссылки на области ввода }
 begin
- Result := Self;
-end;
+ if (f_Left <> nil) then f_Left.Referred := nil;
+ if (f_Right <> nil) then f_Right.Referred := nil;
+ if (f_EditionsContainerData <> nil) then f_EditionsContainerData.Referred := nil;
+ if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
+ inherited;
+end;//TsdsCompareEditions.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
-function TsdsCompareEditions.As_IsdsPrimDocument: IsdsPrimDocument;
-begin
- Result := Self;
-end;
-
-function TsdsCompareEditions.As_IsdsEditionsHolder: IsdsEditionsHolder;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

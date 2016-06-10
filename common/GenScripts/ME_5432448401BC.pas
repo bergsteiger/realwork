@@ -330,6 +330,14 @@ type
   , prHighest = 2
  );//TdaPriority
 
+ TdaAggregateOperation = (
+  da_aopCount
+  , da_aopMin
+  , da_aopMax
+  , da_aopAverage
+  , da_aopSum
+ );//TdaAggregateOperation
+
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
 

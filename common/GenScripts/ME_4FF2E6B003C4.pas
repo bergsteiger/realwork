@@ -133,8 +133,11 @@ type
    function MakeDocumentLikeStateHolder: InsDocumentLikeStateHolder;
   protected
    function pm_GetContainer: IdsAACContainer;
+   function DoGet_Container: IdsAACContainer;
    function pm_GetLeft: IdsBaseDocument;
+   function DoGet_Left: IdsBaseDocument;
    function pm_GetRight: IdsBaseDocument;
+   function DoGet_Right: IdsBaseDocument;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    {$If NOT Defined(NoVCM)}
@@ -147,16 +150,16 @@ type
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure ClearAllDS; override;
    {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsAAC
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -234,6 +237,9 @@ uses
  , Windows
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
  , afwSettingsChangePublisher
  , WarningUserTypes_Warning_UserType
@@ -568,28 +574,90 @@ function TsdsAAC.pm_GetContainer: IdsAACContainer;
 //#UC START# *4FF2E70A0103_4FF2E6B003C4get_var*
 //#UC END# *4FF2E70A0103_4FF2E6B003C4get_var*
 begin
-//#UC START# *4FF2E70A0103_4FF2E6B003C4get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FF2E70A0103_4FF2E6B003C4get_impl*
+ if (f_Container = nil) then
+ begin
+  f_Container := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4FF2E70A0103_4FF2E6B003C4get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4FF2E70A0103_4FF2E6B003C4get_init*
+ end;//f_Container = nil
+ if f_Container.IsEmpty
+  //#UC START# *4FF2E70A0103_4FF2E6B003C4get_need*
+  // - условие создания ViewArea
+  //#UC END# *4FF2E70A0103_4FF2E6B003C4get_need*
+  then
+   f_Container.Referred := DoGet_Container;
+ Result := IdsAACContainer(f_Container.Referred);
 end;//TsdsAAC.pm_GetContainer
+
+function TsdsAAC.DoGet_Container: IdsAACContainer;
+//#UC START# *4FF2E70A0103_4FF2E6B003C4area_var*
+//#UC END# *4FF2E70A0103_4FF2E6B003C4area_var*
+begin
+//#UC START# *4FF2E70A0103_4FF2E6B003C4area_impl*
+ Result := TdsAACContainer.Make(Self);
+//#UC END# *4FF2E70A0103_4FF2E6B003C4area_impl*
+end;//TsdsAAC.DoGet_Container
 
 function TsdsAAC.pm_GetLeft: IdsBaseDocument;
 //#UC START# *4FF2E78901DC_4FF2E6B003C4get_var*
 //#UC END# *4FF2E78901DC_4FF2E6B003C4get_var*
 begin
-//#UC START# *4FF2E78901DC_4FF2E6B003C4get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FF2E78901DC_4FF2E6B003C4get_impl*
+ if (f_Left = nil) then
+ begin
+  f_Left := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4FF2E78901DC_4FF2E6B003C4get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4FF2E78901DC_4FF2E6B003C4get_init*
+ end;//f_Left = nil
+ if f_Left.IsEmpty
+  //#UC START# *4FF2E78901DC_4FF2E6B003C4get_need*
+  // - условие создания ViewArea
+  //#UC END# *4FF2E78901DC_4FF2E6B003C4get_need*
+  then
+   f_Left.Referred := DoGet_Left;
+ Result := IdsBaseDocument(f_Left.Referred);
 end;//TsdsAAC.pm_GetLeft
+
+function TsdsAAC.DoGet_Left: IdsBaseDocument;
+//#UC START# *4FF2E78901DC_4FF2E6B003C4area_var*
+//#UC END# *4FF2E78901DC_4FF2E6B003C4area_var*
+begin
+//#UC START# *4FF2E78901DC_4FF2E6B003C4area_impl*
+ Result := TdsAACDocumentLeft.Make(Self, DocumentData, MakeDocumentLikeStateHolder);
+// Result := Self.pm_GetdsDocument;
+//#UC END# *4FF2E78901DC_4FF2E6B003C4area_impl*
+end;//TsdsAAC.DoGet_Left
 
 function TsdsAAC.pm_GetRight: IdsBaseDocument;
 //#UC START# *4FF2E7BE016B_4FF2E6B003C4get_var*
 //#UC END# *4FF2E7BE016B_4FF2E6B003C4get_var*
 begin
-//#UC START# *4FF2E7BE016B_4FF2E6B003C4get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FF2E7BE016B_4FF2E6B003C4get_impl*
+ if (f_Right = nil) then
+ begin
+  f_Right := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4FF2E7BE016B_4FF2E6B003C4get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4FF2E7BE016B_4FF2E6B003C4get_init*
+ end;//f_Right = nil
+ if f_Right.IsEmpty
+  //#UC START# *4FF2E7BE016B_4FF2E6B003C4get_need*
+  // - условие создания ViewArea
+  //#UC END# *4FF2E7BE016B_4FF2E6B003C4get_need*
+  then
+   f_Right.Referred := DoGet_Right;
+ Result := IdsBaseDocument(f_Right.Referred);
 end;//TsdsAAC.pm_GetRight
+
+function TsdsAAC.DoGet_Right: IdsBaseDocument;
+//#UC START# *4FF2E7BE016B_4FF2E6B003C4area_var*
+//#UC END# *4FF2E7BE016B_4FF2E6B003C4area_var*
+begin
+//#UC START# *4FF2E7BE016B_4FF2E6B003C4area_impl*
+ Result := TdsAACDocumentRight.Make(Self, DocumentData, MakeDocumentLikeStateHolder);
+// Result := Self.pm_GetdsDocument;
+//#UC END# *4FF2E7BE016B_4FF2E6B003C4area_impl*
+end;//TsdsAAC.DoGet_Right
 
 procedure TsdsAAC.Cleanup;
  {* Функция очистки полей объекта. }
@@ -661,18 +729,6 @@ begin
 end;//TsdsAAC.ClearAllDS
 
 {$If NOT Defined(NoVCM)}
-procedure TsdsAAC.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4FF2E6B003C4_var*
-//#UC END# *4938F7E702B7_4FF2E6B003C4_var*
-begin
-//#UC START# *4938F7E702B7_4FF2E6B003C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4FF2E6B003C4_impl*
-end;//TsdsAAC.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
 function TsdsAAC.DoGetTabCaption: IvcmCString;
 //#UC START# *54CF10260215_4FF2E6B003C4_var*
 //#UC END# *54CF10260215_4FF2E6B003C4_var*
@@ -704,6 +760,17 @@ begin
  f_Right := nil;
  inherited;
 end;//TsdsAAC.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TsdsAAC.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_Container <> nil) then f_Container.Referred := nil;
+ if (f_Left <> nil) then f_Left.Referred := nil;
+ if (f_Right <> nil) then f_Right.Referred := nil;
+ inherited;
+end;//TsdsAAC.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

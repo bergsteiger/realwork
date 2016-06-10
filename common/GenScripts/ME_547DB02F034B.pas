@@ -121,11 +121,11 @@ type
    procedure BuildColumns;
    function VisibleDef: Boolean; virtual;
    function FontStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Font сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Font сохран€етс€ }
    function VisibleStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Visible сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Visible сохран€етс€ }
    function CursorStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Cursor сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Cursor сохран€етс€ }
    function pm_GetHandle: Tl3Handle; override;
    procedure pm_SetHandle(aValue: Tl3Handle); override;
    procedure Cleanup; override;
@@ -392,7 +392,7 @@ type
    function DeleteSubPrim(aSubType: Tl3Handle;
     aSubHandle: Tl3Handle): Boolean;
    function SubDescriptorsStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство SubDescriptors сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство SubDescriptors сохран€етс€ }
    procedure ClearSubs;
    procedure NotifySubDeleted(const aSub: IevSub);
    procedure NotifyFlagsChange(const aSub: IevSub);
@@ -629,34 +629,34 @@ begin
 end;//TevSubDescriptorPrim.Create
 
 function TevSubDescriptorPrim.FontStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Font сохран€етс€" }
-//#UC START# *B2038F885A9E_547DB3E001A5_var*
-//#UC END# *B2038F885A9E_547DB3E001A5_var*
+ {* ‘ункци€ определ€юща€, что свойство Font сохран€етс€ }
+//#UC START# *547DB5FE0149Stored_547DB3E001A5_var*
+//#UC END# *547DB5FE0149Stored_547DB3E001A5_var*
 begin
-//#UC START# *B2038F885A9E_547DB3E001A5_impl*
+//#UC START# *547DB5FE0149Stored_547DB3E001A5_impl*
  Result := (DrawType <> ev_sdtBitmap);
-//#UC END# *B2038F885A9E_547DB3E001A5_impl*
+//#UC END# *547DB5FE0149Stored_547DB3E001A5_impl*
 end;//TevSubDescriptorPrim.FontStored
 
 function TevSubDescriptorPrim.VisibleStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Visible сохран€етс€" }
-//#UC START# *64C973B9A48B_547DB3E001A5_var*
-//#UC END# *64C973B9A48B_547DB3E001A5_var*
+ {* ‘ункци€ определ€юща€, что свойство Visible сохран€етс€ }
+//#UC START# *547DB6950360Stored_547DB3E001A5_var*
+//#UC END# *547DB6950360Stored_547DB3E001A5_var*
 begin
-//#UC START# *64C973B9A48B_547DB3E001A5_impl*
+//#UC START# *547DB6950360Stored_547DB3E001A5_impl*
  Result := (f_Visible <> VisibleDef);
-//#UC END# *64C973B9A48B_547DB3E001A5_impl*
+//#UC END# *547DB6950360Stored_547DB3E001A5_impl*
 end;//TevSubDescriptorPrim.VisibleStored
 
 function TevSubDescriptorPrim.CursorStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Cursor сохран€етс€" }
-//#UC START# *D35547FF8400_547DB3E001A5_var*
-//#UC END# *D35547FF8400_547DB3E001A5_var*
+ {* ‘ункци€ определ€юща€, что свойство Cursor сохран€етс€ }
+//#UC START# *547DB81202D8Stored_547DB3E001A5_var*
+//#UC END# *547DB81202D8Stored_547DB3E001A5_var*
 begin
-//#UC START# *D35547FF8400_547DB3E001A5_impl*
+//#UC START# *547DB81202D8Stored_547DB3E001A5_impl*
  Result := (f_Cursor <> crDefault) and
            ((f_Descriptors = nil) or (f_Descriptors.Cursor <> f_Cursor));
-//#UC END# *D35547FF8400_547DB3E001A5_impl*
+//#UC END# *547DB81202D8Stored_547DB3E001A5_impl*
 end;//TevSubDescriptorPrim.CursorStored
 
 function TevSubDescriptorPrim.pm_GetHandle: Tl3Handle;
@@ -1696,13 +1696,13 @@ begin
 end;//TevCustomSubPanel.WMSetCursor
 
 function TevCustomSubPanel.SubDescriptorsStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство SubDescriptors сохран€етс€" }
-//#UC START# *C5BCC928FE9C_547DC47400EC_var*
-//#UC END# *C5BCC928FE9C_547DC47400EC_var*
+ {* ‘ункци€ определ€юща€, что свойство SubDescriptors сохран€етс€ }
+//#UC START# *54806C0F00C7Stored_547DC47400EC_var*
+//#UC END# *54806C0F00C7Stored_547DC47400EC_var*
 begin
-//#UC START# *C5BCC928FE9C_547DC47400EC_impl*
+//#UC START# *54806C0F00C7Stored_547DC47400EC_impl*
  Result := (f_SubDescriptors <> nil) and (f_SubDescriptors.Owner <> nil);
-//#UC END# *C5BCC928FE9C_547DC47400EC_impl*
+//#UC END# *54806C0F00C7Stored_547DC47400EC_impl*
 end;//TevCustomSubPanel.SubDescriptorsStored
 
 procedure TevCustomSubPanel.ClearSubs;

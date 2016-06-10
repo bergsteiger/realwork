@@ -42,7 +42,6 @@ type
    f_IsListChanged: Boolean;
    f_NeedMark: Boolean;
    f_Consultation: IbsConsultation;
-    {* Поле для свойства Consultation }
    f_dsConsultation: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsConsultation }
    f_dsList: IvcmViewAreaControllerRef;
@@ -58,8 +57,11 @@ type
     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
            новой сборки вернуться как результат для вызова операции модуля }
    function pm_GetDsConsultation: IdsConsultation;
+   function DoGet_DsConsultation: IdsConsultation;
    function pm_GetDsList: IdsDocumentList;
+   function DoGet_DsList: IdsDocumentList;
    function pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
+   function DoGet_DSConsultationMark(aForce: Boolean): IdsConsultationMark;
    procedure GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
     {* дать оценку.
            Возможные исключения:
@@ -90,14 +92,14 @@ type
    {$If NOT Defined(NoVCM)}
    function GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
   protected
    property Consultation: IbsConsultation
     read f_Consultation;
@@ -124,6 +126,9 @@ uses
  , DebugStr
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -155,28 +160,111 @@ function TsdsConsultation.pm_GetDsConsultation: IdsConsultation;
 //#UC START# *492EB71000D6_49228CA903BAget_var*
 //#UC END# *492EB71000D6_49228CA903BAget_var*
 begin
-//#UC START# *492EB71000D6_49228CA903BAget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EB71000D6_49228CA903BAget_impl*
+ if (f_dsConsultation = nil) then
+ begin
+  f_dsConsultation := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EB71000D6_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EB71000D6_49228CA903BAget_init*
+ end;//f_dsConsultation = nil
+ if f_dsConsultation.IsEmpty
+  //#UC START# *492EB71000D6_49228CA903BAget_need*
+  // - условие создания ViewArea
+  //#UC END# *492EB71000D6_49228CA903BAget_need*
+  then
+   f_dsConsultation.Referred := DoGet_dsConsultation;
+ Result := IdsConsultation(f_dsConsultation.Referred);
 end;//TsdsConsultation.pm_GetDsConsultation
+
+function TsdsConsultation.DoGet_DsConsultation: IdsConsultation;
+//#UC START# *492EB71000D6_49228CA903BAarea_var*
+const
+ cAnswer = 65534; 
+//#UC END# *492EB71000D6_49228CA903BAarea_var*
+begin
+//#UC START# *492EB71000D6_49228CA903BAarea_impl*
+ Assert(Assigned(Consultation.Text));
+ Result := TdsConsultation.Make(Self,
+                                TdeDocInfo.Make(Consultation.Text,
+                                                TbsDocPos_S(cAnswer)));
+//#UC END# *492EB71000D6_49228CA903BAarea_impl*
+end;//TsdsConsultation.DoGet_DsConsultation
 
 function TsdsConsultation.pm_GetDsList: IdsDocumentList;
 //#UC START# *492EB77C0125_49228CA903BAget_var*
 //#UC END# *492EB77C0125_49228CA903BAget_var*
 begin
-//#UC START# *492EB77C0125_49228CA903BAget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EB77C0125_49228CA903BAget_impl*
+ if (f_dsList = nil) then
+ begin
+  f_dsList := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EB77C0125_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EB77C0125_49228CA903BAget_init*
+ end;//f_dsList = nil
+ if f_dsList.IsEmpty
+  //#UC START# *492EB77C0125_49228CA903BAget_need*
+  // - условие создания ViewArea
+  //#UC END# *492EB77C0125_49228CA903BAget_need*
+  then
+   f_dsList.Referred := DoGet_dsList;
+ Result := IdsDocumentList(f_dsList.Referred);
 end;//TsdsConsultation.pm_GetDsList
+
+function TsdsConsultation.DoGet_DsList: IdsDocumentList;
+//#UC START# *492EB77C0125_49228CA903BAarea_var*
+var
+ l_List: IDynList;
+//#UC END# *492EB77C0125_49228CA903BAarea_var*
+begin
+//#UC START# *492EB77C0125_49228CA903BAarea_impl*
+ Result := nil;
+ if Assigned(Consultation) and
+  not (Consultation.Status * c_bsConsultationsWithoutList <> []) then
+ begin
+  l_List := nil;
+  try
+   Consultation.Data.GetDocumentList(l_List);
+  except
+   on ENoDocumentList do ;
+   on EOldFormatConsultation do ;
+  end;{try..except}
+  if Assigned(l_List) then
+   Result := TdsConsultationList.Make(Self, TdeDocumentList.Make(l_List));
+ end;//if Assigned(Consultation)...
+//#UC END# *492EB77C0125_49228CA903BAarea_impl*
+end;//TsdsConsultation.DoGet_DsList
 
 function TsdsConsultation.pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
 //#UC START# *492EB793009E_49228CA903BAget_var*
 //#UC END# *492EB793009E_49228CA903BAget_var*
 begin
-//#UC START# *492EB793009E_49228CA903BAget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492EB793009E_49228CA903BAget_impl*
+ if (f_DSConsultationMark = nil) then
+ begin
+  f_DSConsultationMark := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492EB793009E_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492EB793009E_49228CA903BAget_init*
+ end;//f_DSConsultationMark = nil
+ if (f_DSConsultationMark.NeedMake = vcm_nmNo) and aForce then
+  f_DSConsultationMark.NeedMake := vcm_nmYes;
+ if f_DSConsultationMark.IsEmpty
+  //#UC START# *492EB793009E_49228CA903BAget_need*
+    and (f_DSConsultationMark.NeedMake <> vcm_nmNo)
+  // - условие создания ViewArea
+  //#UC END# *492EB793009E_49228CA903BAget_need*
+  then
+   f_DSConsultationMark.Referred := DoGet_DSConsultationMark(aForce);
+ Result := IdsConsultationMark(f_DSConsultationMark.Referred);
 end;//TsdsConsultation.pm_GetDSConsultationMark
+
+function TsdsConsultation.DoGet_DSConsultationMark(aForce: Boolean): IdsConsultationMark;
+//#UC START# *492EB793009E_49228CA903BAarea_var*
+//#UC END# *492EB793009E_49228CA903BAarea_var*
+begin
+//#UC START# *492EB793009E_49228CA903BAarea_impl*
+ Result := TdsConsultationMark.Make(Self);
+//#UC END# *492EB793009E_49228CA903BAarea_impl*
+end;//TsdsConsultation.DoGet_DSConsultationMark
 
 procedure TsdsConsultation.GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
  {* дать оценку.
@@ -378,16 +466,6 @@ begin
 //#UC END# *491B02D80112_49228CA903BA_impl*
 end;//TsdsConsultation.GetIsNeedChangePosition
 
-procedure TsdsConsultation.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_49228CA903BA_var*
-//#UC END# *4938F7E702B7_49228CA903BA_var*
-begin
-//#UC START# *4938F7E702B7_49228CA903BA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_49228CA903BA_impl*
-end;//TsdsConsultation.ClearAreas
-
 function TsdsConsultation.COMQueryInterface(const IID: Tl3GUID;
  out Obj): Tl3HResult;
  {* Реализация запроса интерфейса }
@@ -414,6 +492,15 @@ begin
  f_DSConsultationMark := nil;
  inherited;
 end;//TsdsConsultation.ClearFields
+
+procedure TsdsConsultation.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsConsultation <> nil) then f_dsConsultation.Referred := nil;
+ if (f_dsList <> nil) then f_dsList.Referred := nil;
+ if (f_DSConsultationMark <> nil) then f_DSConsultationMark.Referred := nil;
+ inherited;
+end;//TsdsConsultation.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

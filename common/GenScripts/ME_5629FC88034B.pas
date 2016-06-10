@@ -33,6 +33,7 @@ type
    f_UserLoginQuery: IdaTabledQuery;
    f_PriorityCalculator: IdaPriorityCalculator;
    f_AllArchiUsersQuery: IdaTabledQuery;
+   f_AllGroupsQuery: IdaTabledQuery;
   private
    procedure FillListByResultSet(aList: Tl3StringDataList;
     const aResultSet: IdaResultSet;
@@ -45,6 +46,7 @@ type
    function UserNameQuery: IdaTabledQuery;
    function UserLoginQuery: IdaTabledQuery;
    function AllArchiUsersQuery: IdaTabledQuery;
+   function AllGroupsQuery: IdaTabledQuery;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -85,6 +87,7 @@ type
    constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
    class function Make(const aFactory: IdaTableQueryFactory): IdaUserManager; reintroduce;
    procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
  end;//TpgUserManager
 {$IfEnd} // Defined(UsePostgres)
 
@@ -267,6 +270,23 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *57514203013A_5629FC88034B_impl*
 end;//TpgUserManager.AllArchiUsersQuery
+
+function TpgUserManager.AllGroupsQuery: IdaTabledQuery;
+//#UC START# *575809C5019A_5629FC88034B_var*
+//#UC END# *575809C5019A_5629FC88034B_var*
+begin
+//#UC START# *575809C5019A_5629FC88034B_impl*
+ if f_AllGroupsQuery = nil then
+ begin
+  f_AllGroupsQuery := f_Factory.MakeTabledQuery(f_Factory.MakeSimpleFromClause(TdaScheme.Instance.Table(da_mtGroups)));
+  f_AllGroupsQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['id']));
+  f_AllGroupsQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtGroups)['group_name']));
+  f_AllGroupsQuery.AddOrderBy(f_Factory.MakeSortField(f_AllGroupsQuery.SelectFieldByName('group_name')));
+  f_AllGroupsQuery.Prepare;
+ end;
+ Result := f_AllGroupsQuery;
+//#UC END# *575809C5019A_5629FC88034B_impl*
+end;//TpgUserManager.AllGroupsQuery
 
 function TpgUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -659,6 +679,36 @@ begin
  Result := f_PriorityCalculator;
 //#UC END# *575020410175_5629FC88034Bget_impl*
 end;//TpgUserManager.Get_PriorityCalculator
+
+procedure TpgUserManager.IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
+//#UC START# *5757D9BB0116_5629FC88034B_var*
+var
+ Hack : Pointer absolute anAction;
+ l_ResultSet: IdaResultSet;
+ l_IDField: IdaField;
+ l_NameField: IdaField;
+//#UC END# *5757D9BB0116_5629FC88034B_var*
+begin
+//#UC START# *5757D9BB0116_5629FC88034B_impl*
+ try
+  l_ResultSet := AllGroupsQuery.OpenResultSet;
+  try
+   l_IDField := l_ResultSet.Field['id'];
+   l_NameField := l_ResultSet.Field['group_name'];
+   while not l_ResultSet.EOF do
+   begin
+    if not anAction(l_NameField.AsString, l_IDField.AsInteger) then
+     break;
+    l_ResultSet.Next;
+   end;
+  finally
+   l_ResultSet := nil;
+  end;
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *5757D9BB0116_5629FC88034B_impl*
+end;//TpgUserManager.IterateUserGroupsF
 
 procedure TpgUserManager.Cleanup;
  {* Функция очистки полей объекта. }

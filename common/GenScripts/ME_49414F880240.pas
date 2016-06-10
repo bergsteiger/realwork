@@ -15,6 +15,9 @@ uses
  , MedicInterfaces
  , DocumentInterfaces
  , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
  , BaseDocumentWithAttributesInterfaces
  , DocumentUnit
  , bsTypesNew
@@ -68,6 +71,9 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type _Instance_R_ = TsdsMedicFirmDocument;

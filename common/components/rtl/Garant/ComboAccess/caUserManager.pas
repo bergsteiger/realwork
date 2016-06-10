@@ -23,9 +23,6 @@ type
    f_HTManager: IdaUserManager;
    f_PGManager: IdaUserManager;
    f_PriorityCalculator: IdaPriorityCalculator;
-  private
-   function IsUsersEqual(const aLeft: IdaArchiUser;
-    const aRight: IdaArchiUser): Boolean;
   protected
    function CheckPassword(const aLogin: AnsiString;
     const aPassword: AnsiString;
@@ -68,6 +65,7 @@ type
    class function Make(const aHTManager: IdaUserManager;
     const aPGManager: IdaUserManager): IdaUserManager; reintroduce;
    procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
  end;//TcaUserManager
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
@@ -78,6 +76,7 @@ uses
  l3ImplUses
  , l3ListUtils
  , caPriorityCalculator
+ , caArchiUser
  , l3Base
 ;
 
@@ -105,24 +104,6 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TcaUserManager.Make
-
-function TcaUserManager.IsUsersEqual(const aLeft: IdaArchiUser;
- const aRight: IdaArchiUser): Boolean;
-//#UC START# *57359E8903CF_56C428E4014A_var*
-//#UC END# *57359E8903CF_56C428E4014A_var*
-begin
-//#UC START# *57359E8903CF_56C428E4014A_impl*
- Result := (aLeft = nil) = (aRight = nil);
- if Result and Assigned(aLeft) then
-  Result := (aLeft.ID = aRight.ID) and
-   (aLeft.Active = aRight.Active) and
-   (aLeft.HasAdminRights = aRight.HasAdminRights) and
-   (aLeft.IP = aRight.IP) and
-   (aLeft.LoginName = aRight.LoginName) and
-   (aLeft.Password = aRight.Password) and
-   (aLeft.UserName = aRight.UserName);
-//#UC END# *57359E8903CF_56C428E4014A_impl*
-end;//TcaUserManager.IsUsersEqual
 
 function TcaUserManager.CheckPassword(const aLogin: AnsiString;
  const aPassword: AnsiString;
@@ -360,6 +341,17 @@ begin
  Result := f_PriorityCalculator;
 //#UC END# *575020410175_56C428E4014Aget_impl*
 end;//TcaUserManager.Get_PriorityCalculator
+
+procedure TcaUserManager.IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
+//#UC START# *5757D9BB0116_56C428E4014A_var*
+//#UC END# *5757D9BB0116_56C428E4014A_var*
+begin
+//#UC START# *5757D9BB0116_56C428E4014A_impl*
+ f_HTManager.IterateUserGroupsF(anAction);
+// f_PGManager.IterateUserGroupsF(anAction);
+//!! !!! Непонятно что с PG группами...
+//#UC END# *5757D9BB0116_56C428E4014A_impl*
+end;//TcaUserManager.IterateUserGroupsF
 
 procedure TcaUserManager.Cleanup;
  {* Функция очистки полей объекта. }

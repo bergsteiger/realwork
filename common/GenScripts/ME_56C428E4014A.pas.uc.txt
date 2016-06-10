@@ -1,7 +1,6 @@
 //#UC START# *479731C50290_56C428E4014A_impl*
  f_HTManager := nil;
  f_PGManager := nil;
- f_PriorityCalculator := nil;
  inherited;
 //#UC END# *479731C50290_56C428E4014A_impl*
 //#UC START# *479731C50290_56C428E4014A_var*
@@ -30,14 +29,12 @@ var
 //#UC START# *56EA993D0218_56C428E4014A_var*
 //#UC END# *56EA993D0218_56C428E4014A_var*
 //#UC START# *5715DEF20209_56C428E4014Aget_impl*
- Result := f_HTManager.AllUsers;
- Assert(l3IsIdenticalLists(Result, f_PGManager.AllUsers));
+ !!! Needs to be implemented !!!
 //#UC END# *5715DEF20209_56C428E4014Aget_impl*
 //#UC START# *5715DEF20209_56C428E4014Aget_var*
 //#UC END# *5715DEF20209_56C428E4014Aget_var*
 //#UC START# *5715DF0D03C2_56C428E4014Aget_impl*
- Result := f_HTManager.AllGroups;
- Assert(l3IsIdenticalLists(Result, f_PGManager.AllGroups));
+ !!! Needs to be implemented !!!
 //#UC END# *5715DF0D03C2_56C428E4014Aget_impl*
 //#UC START# *5715DF0D03C2_56C428E4014Aget_var*
 //#UC END# *5715DF0D03C2_56C428E4014Aget_var*
@@ -48,23 +45,12 @@ var
 //#UC START# *5718B5CF0399_56C428E4014A_var*
 //#UC END# *5718B5CF0399_56C428E4014A_var*
 //#UC START# *571DCFB50217_56C428E4014A_impl*
- l_ImportPriority := aImportPriority;
- l_ExportPriority := aExportPriority;
- Result := f_HTManager.GetUserPriorities(aGroupId, aImportPriority, aExportPriority);
- l_Check := f_PGManager.GetUserPriorities(aGroupId, l_ImportPriority, l_ExportPriority);
- Assert(l_Check = Result);
- if Result then
-  Assert((aImportPriority = l_ImportPriority) and (aExportPriority = l_ExportPriority));
+ !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_56C428E4014A_impl*
 //#UC START# *571DCFB50217_56C428E4014A_var*
-var
- l_ImportPriority: TdaPriority;
- l_ExportPriority: TdaPriority;
- l_Check: Boolean;
 //#UC END# *571DCFB50217_56C428E4014A_var*
 //#UC START# *5721F5E60367_56C428E4014A_impl*
- f_HTManager.ReSortUserList;
- f_PGManager.ReSortUserList;
+ !!! Needs to be implemented !!!
 //#UC END# *5721F5E60367_56C428E4014A_impl*
 //#UC START# *5721F5E60367_56C428E4014A_var*
 //#UC END# *5721F5E60367_56C428E4014A_var*
@@ -75,32 +61,27 @@ var
 //#UC START# *5729C59E00D5_56C428E4014Aget_var*
 //#UC END# *5729C59E00D5_56C428E4014Aget_var*
 //#UC START# *5729DD530330_56C428E4014A_impl*
- f_HTManager.IterateArchiUsersF(anAction);
- f_PGManager.IterateArchiUsersF(anAction); // ??? Неоднозначно.
-                                           // Если накапливаем в список - излишне.
-                                           // Если модифицируем пользователей - необходимо
+ f_HTManager.ForEachF(anAction);
 //#UC END# *5729DD530330_56C428E4014A_impl*
 //#UC START# *5729DD530330_56C428E4014A_var*
 //#UC END# *5729DD530330_56C428E4014A_var*
 //#UC START# *57358B940211_56C428E4014A_impl*
- l_HTUser := f_HTManager.UserByID(aID);
- l_PGUser := f_PGManager.UserByID(aID);
- Result := TcaArchiUser.Make(l_HTUser, l_PGUser);
+ Result := f_HTManager.UserByID(aID);
+ l_Check := f_PGManager.UserByID(aID);
+ Assert(IsUsersEqual(Result, l_Check));
 //#UC END# *57358B940211_56C428E4014A_impl*
 //#UC START# *57358B940211_56C428E4014A_var*
 var
- l_HTUser: IdaArchiUser;
- l_PGUser: IdaArchiUser;
+ l_Check: IdaArchiUser;
 //#UC END# *57358B940211_56C428E4014A_var*
 //#UC START# *57358BCB0360_56C428E4014A_impl*
- l_HTUser := f_HTManager.UserByLogin(aLogin);
- l_PGUser := f_PGManager.UserByLogin(aLogin);
- Result := TcaArchiUser.Make(l_HTUser, l_PGUser);
+ Result := f_HTManager.UserByLogin(aLogin);
+ l_Check := f_PGManager.UserByLogin(aLogin);
+ Assert(IsUsersEqual(Result, l_Check));
 //#UC END# *57358BCB0360_56C428E4014A_impl*
 //#UC START# *57358BCB0360_56C428E4014A_var*
 var
- l_HTUser: IdaArchiUser;
- l_PGUser: IdaArchiUser;
+ l_Check: IdaArchiUser;
 //#UC END# *57358BCB0360_56C428E4014A_var*
 //#UC START# *57359E8903CF_56C428E4014A_impl*
  Result := (aLeft = nil) = (aRight = nil);
@@ -140,21 +121,17 @@ var
 //#UC START# *5739732402E4_56C428E4014A_var*
 //#UC END# *5739732402E4_56C428E4014A_var*
 //#UC START# *5739832A00A2_56C428E4014A_impl*
- f_HTManager.RegisterUserStatusChangedSubscriber(aSubscriber);
- f_PGManager.RegisterUserStatusChangedSubscriber(aSubscriber);
+ !!! Needs to be implemented !!!
 //#UC END# *5739832A00A2_56C428E4014A_impl*
 //#UC START# *5739832A00A2_56C428E4014A_var*
 //#UC END# *5739832A00A2_56C428E4014A_var*
 //#UC START# *5739834700B2_56C428E4014A_impl*
- f_HTManager.UnRegisterUserStatusChangedSubscriber(aSubscriber);
- f_PGManager.UnRegisterUserStatusChangedSubscriber(aSubscriber);
+ !!! Needs to be implemented !!!
 //#UC END# *5739834700B2_56C428E4014A_impl*
 //#UC START# *5739834700B2_56C428E4014A_var*
 //#UC END# *5739834700B2_56C428E4014A_var*
 //#UC START# *5739835200CF_56C428E4014A_impl*
- f_HTManager.NotifyUserActiveChanged(anUserID, anActive);
-// f_PGManager.NotifyUserActiveChanged(anUserID, anActive); // ??? Неоднозначно.
-                                           // будет приходить удвоенная нотификация.
+ !!! Needs to be implemented !!!
 //#UC END# *5739835200CF_56C428E4014A_impl*
 //#UC START# *5739835200CF_56C428E4014A_var*
 //#UC END# *5739835200CF_56C428E4014A_var*

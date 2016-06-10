@@ -741,15 +741,15 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    function GetFloatingWindowClass: RnpFloatingWindow; virtual;
    procedure UpdateMainForm(aNewMainForm: TCustomForm);
    function AutoHideOffHintStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство AutoHideOffHint сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство AutoHideOffHint сохран€етс€ }
    function AutoHideOnHintStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство AutoHideOnHint сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство AutoHideOnHint сохран€етс€ }
    function MinimizedOnHintStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство MinimizedOnHint сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство MinimizedOnHint сохран€етс€ }
    function MinimizedOffHintStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство MinimizedOffHint сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство MinimizedOffHint сохран€етс€ }
    function CloseHintStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство CloseHint сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство CloseHint сохран€етс€ }
    function SaveState(out theState: IUnknown;
     aStateType: TvcmStateType): Boolean;
    function LoadState(const theState: IUnknown;
@@ -6325,53 +6325,53 @@ begin
 end;//TvtNavigatorPrim.WMEraseBkgnd
 
 function TvtNavigatorPrim.AutoHideOffHintStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство AutoHideOffHint сохран€етс€" }
-//#UC START# *33C27CC2ACDD_52BAD1C40174_var*
-//#UC END# *33C27CC2ACDD_52BAD1C40174_var*
+ {* ‘ункци€ определ€юща€, что свойство AutoHideOffHint сохран€етс€ }
+//#UC START# *52BC32F601CAStored_52BAD1C40174_var*
+//#UC END# *52BC32F601CAStored_52BAD1C40174_var*
 begin
-//#UC START# *33C27CC2ACDD_52BAD1C40174_impl*
+//#UC START# *52BC32F601CAStored_52BAD1C40174_impl*
  Result := f_AutoHideOffHint <> str_cAutoHideOffHint.AsStr;
-//#UC END# *33C27CC2ACDD_52BAD1C40174_impl*
+//#UC END# *52BC32F601CAStored_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.AutoHideOffHintStored
 
 function TvtNavigatorPrim.AutoHideOnHintStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство AutoHideOnHint сохран€етс€" }
-//#UC START# *61AC8642D7EF_52BAD1C40174_var*
-//#UC END# *61AC8642D7EF_52BAD1C40174_var*
+ {* ‘ункци€ определ€юща€, что свойство AutoHideOnHint сохран€етс€ }
+//#UC START# *52BC334A00D3Stored_52BAD1C40174_var*
+//#UC END# *52BC334A00D3Stored_52BAD1C40174_var*
 begin
-//#UC START# *61AC8642D7EF_52BAD1C40174_impl*
+//#UC START# *52BC334A00D3Stored_52BAD1C40174_impl*
  Result := f_AutoHideOnHint <> str_cAutoHideOnHint.AsStr;
-//#UC END# *61AC8642D7EF_52BAD1C40174_impl*
+//#UC END# *52BC334A00D3Stored_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.AutoHideOnHintStored
 
 function TvtNavigatorPrim.MinimizedOnHintStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство MinimizedOnHint сохран€етс€" }
-//#UC START# *8B031BED9702_52BAD1C40174_var*
-//#UC END# *8B031BED9702_52BAD1C40174_var*
+ {* ‘ункци€ определ€юща€, что свойство MinimizedOnHint сохран€етс€ }
+//#UC START# *52BC33AF0000Stored_52BAD1C40174_var*
+//#UC END# *52BC33AF0000Stored_52BAD1C40174_var*
 begin
-//#UC START# *8B031BED9702_52BAD1C40174_impl*
+//#UC START# *52BC33AF0000Stored_52BAD1C40174_impl*
  Result := f_MinimizedOnHint <> str_cMinimizedOnHint.AsStr;
-//#UC END# *8B031BED9702_52BAD1C40174_impl*
+//#UC END# *52BC33AF0000Stored_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.MinimizedOnHintStored
 
 function TvtNavigatorPrim.MinimizedOffHintStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство MinimizedOffHint сохран€етс€" }
-//#UC START# *B9B2E2BB624D_52BAD1C40174_var*
-//#UC END# *B9B2E2BB624D_52BAD1C40174_var*
+ {* ‘ункци€ определ€юща€, что свойство MinimizedOffHint сохран€етс€ }
+//#UC START# *52BC33C5025EStored_52BAD1C40174_var*
+//#UC END# *52BC33C5025EStored_52BAD1C40174_var*
 begin
-//#UC START# *B9B2E2BB624D_52BAD1C40174_impl*
+//#UC START# *52BC33C5025EStored_52BAD1C40174_impl*
  Result := f_MinimizedOffHint <> str_cMinimizedOffHint.AsStr;
-//#UC END# *B9B2E2BB624D_52BAD1C40174_impl*
+//#UC END# *52BC33C5025EStored_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.MinimizedOffHintStored
 
 function TvtNavigatorPrim.CloseHintStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство CloseHint сохран€етс€" }
-//#UC START# *7A36423C7FB3_52BAD1C40174_var*
-//#UC END# *7A36423C7FB3_52BAD1C40174_var*
+ {* ‘ункци€ определ€юща€, что свойство CloseHint сохран€етс€ }
+//#UC START# *52BC33F802B6Stored_52BAD1C40174_var*
+//#UC END# *52BC33F802B6Stored_52BAD1C40174_var*
 begin
-//#UC START# *7A36423C7FB3_52BAD1C40174_impl*
+//#UC START# *52BC33F802B6Stored_52BAD1C40174_impl*
  Result := f_CloseHint <> str_cCloseHint.AsStr;
-//#UC END# *7A36423C7FB3_52BAD1C40174_impl*
+//#UC END# *52BC33F802B6Stored_52BAD1C40174_impl*
 end;//TvtNavigatorPrim.CloseHintStored
 
 function TvtNavigatorPrim.SaveState(out theState: IUnknown;

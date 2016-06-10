@@ -1,177 +1,153 @@
 unit sdsConsultation;
+ {* Бизнес объект прецедента "Консультация" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/sdsConsultation.pas"
-// Начат: 2006/04/07 08:16:08
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TsdsConsultation
-//
-// Бизнес объект прецедента "Консультация"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsConsultation.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsConsultation" MUID: (49228CA903BA)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  ConsultationDomainInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  DocumentAndListInterfaces {a},
-  l3IID,
-  DocumentUnit,
-  DocumentInterfaces,
-  bsTypesNew
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ConsultationDomainInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ , l3IID
+ , DocumentUnit
+ , bsTypesNew
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _InitDataType_ = IbsConsultation;
  _SetType_ = IsdsConsultation;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
- TsdsConsultation = {ucc} class(_vcmFormSetDataSourceWithoutData_, IsdsConsultation, IsdsGotoPointDataMaker {from IsdsConsultation})
+ TsdsConsultation = class(_vcmFormSetDataSourceWithoutData_, IsdsConsultation, IsdsGotoPointDataMaker)
   {* Бизнес объект прецедента "Консультация" }
- private
- // private fields
-   f_IsListChanged : Boolean;
-   f_NeedMark : Boolean;
-   f_Consultation : IbsConsultation;
-    {* Поле для свойства Consultation}
-   f_dsConsultation : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsConsultation}
-   f_dsList : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsList}
-   f_DSConsultationMark : IvcmViewAreaControllerRef;
-    {* Поле для области вывода DSConsultationMark}
- protected
- // realized methods
+  private
+   f_IsListChanged: Boolean;
+   f_NeedMark: Boolean;
+   f_Consultation: IbsConsultation;
+   f_dsConsultation: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsConsultation }
+   f_dsList: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsList }
+   f_DSConsultationMark: IvcmViewAreaControllerRef;
+    {* Поле для области вывода DSConsultationMark }
+  protected
+   function As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
+    {* Метод приведения нашего интерфейса к IsdsGotoPointDataMaker }
    function MakeGotoPointData(const aDocument: IDocument;
     aRefType: TDocumentPositionType;
     aPos: Longword): IdeDocInfo;
-     {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+    {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
            новой сборки вернуться как результат для вызова операции модуля }
    function pm_GetDsConsultation: IdsConsultation;
-   function DoGet_dsConsultation: IdsConsultation;
+   function DoGet_DsConsultation: IdsConsultation;
    function pm_GetDsList: IdsDocumentList;
-   function DoGet_dsList: IdsDocumentList;
+   function DoGet_DsList: IdsDocumentList;
    function pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
    function DoGet_DSConsultationMark(aForce: Boolean): IdsConsultationMark;
-   procedure GiveMark; // can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted
-     {* дать оценку.
+   procedure GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
+    {* дать оценку.
            Возможные исключения:
            - EbsConsultationAlreadyMark }
    function NeedGiveMark: Boolean;
-   procedure ConfirmPayment(anAccept: Boolean); // can raise EbsPaymentForbidden, EbsConsultationWasDeleted, EbsConsultationAlreadyConfirmed
-     {* Подтвердить оплату консультации. Да/Нет;
+   procedure ConfirmPayment(anAccept: Boolean); { can raise EbsPaymentForbidden, EbsConsultationWasDeleted, EbsConsultationAlreadyConfirmed }
+    {* Подтвердить оплату консультации. Да/Нет;
            Исключения:
              - EbsPaymentForbidden }
    procedure UpdateAnswer;
-     {* перечитать ответ }
+    {* перечитать ответ }
    procedure ListChanged;
-     {* список документов консультации изменен пользователем. Используется
+    {* список документов консультации изменен пользователем. Используется
            при перезагрузке консультации }
    procedure ConsultationWasMarked(const aConsultation: IsdsConsultation);
-     {* консультация была оценена. Для случая когда консультацию оценили в
+    {* консультация была оценена. Для случая когда консультацию оценили в
            дереве, при этом эта же консультация открыта на экране и ее нужно
            перечитать, чтобы ссылка оценить пропала }
    procedure MarkSended;
    function Get_BsConsultation: IbsConsultation;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean; override;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected properties
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
+  protected
    property Consultation: IbsConsultation
-     read f_Consultation;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
+    read f_Consultation;
  end;//TsdsConsultation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsConsultation,
-  deDocInfo,
-  dsConsultationMark,
-  dsConsultationList,
-  deDocumentList,
-  DynamicDocListUnit,
-  bsTypes,
-  ConsultingUnit,
-  bsConsultationManager,
-  l3Base,
-  SysUtils,
-  bsUtils,
-  DebugStr
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , dsConsultation
+ , deDocInfo
+ , dsConsultationMark
+ , dsConsultationList
+ , deDocumentList
+ , DynamicDocListUnit
+ , bsTypes
+ , ConsultingUnit
+ , bsConsultationManager
+ , l3Base
+ , SysUtils
+ , bsUtils
+ , DebugStr
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsConsultation;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
-// start class TsdsConsultation
+function TsdsConsultation.As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
+ {* Метод приведения нашего интерфейса к IsdsGotoPointDataMaker }
+begin
+ Result := Self;
+end;//TsdsConsultation.As_IsdsGotoPointDataMaker
 
 function TsdsConsultation.MakeGotoPointData(const aDocument: IDocument;
-  aRefType: TDocumentPositionType;
-  aPos: Longword): IdeDocInfo;
+ aRefType: TDocumentPositionType;
+ aPos: Longword): IdeDocInfo;
+ {* открыть ссылку. Если ссылка требует пересоздания сборки, то данные для
+           новой сборки вернуться как результат для вызова операции модуля }
 //#UC START# *492597A602F6_49228CA903BA_var*
 //#UC END# *492597A602F6_49228CA903BA_var*
 begin
@@ -198,9 +174,9 @@ begin
   then
    f_dsConsultation.Referred := DoGet_dsConsultation;
  Result := IdsConsultation(f_dsConsultation.Referred);
-end;
+end;//TsdsConsultation.pm_GetDsConsultation
 
-function TsdsConsultation.DoGet_dsConsultation: IdsConsultation;
+function TsdsConsultation.DoGet_DsConsultation: IdsConsultation;
 //#UC START# *492EB71000D6_49228CA903BAarea_var*
 const
  cAnswer = 65534; 
@@ -212,7 +188,7 @@ begin
                                 TdeDocInfo.Make(Consultation.Text,
                                                 TbsDocPos_S(cAnswer)));
 //#UC END# *492EB71000D6_49228CA903BAarea_impl*
-end;//TsdsConsultation.DoGet_dsConsultation
+end;//TsdsConsultation.DoGet_DsConsultation
 
 function TsdsConsultation.pm_GetDsList: IdsDocumentList;
 //#UC START# *492EB77C0125_49228CA903BAget_var*
@@ -232,9 +208,9 @@ begin
   then
    f_dsList.Referred := DoGet_dsList;
  Result := IdsDocumentList(f_dsList.Referred);
-end;
+end;//TsdsConsultation.pm_GetDsList
 
-function TsdsConsultation.DoGet_dsList: IdsDocumentList;
+function TsdsConsultation.DoGet_DsList: IdsDocumentList;
 //#UC START# *492EB77C0125_49228CA903BAarea_var*
 var
  l_List: IDynList;
@@ -256,7 +232,7 @@ begin
    Result := TdsConsultationList.Make(Self, TdeDocumentList.Make(l_List));
  end;//if Assigned(Consultation)...
 //#UC END# *492EB77C0125_49228CA903BAarea_impl*
-end;//TsdsConsultation.DoGet_dsList
+end;//TsdsConsultation.DoGet_DsList
 
 function TsdsConsultation.pm_GetDSConsultationMark(aForce: Boolean): IdsConsultationMark;
 //#UC START# *492EB793009E_49228CA903BAget_var*
@@ -279,7 +255,7 @@ begin
   then
    f_DSConsultationMark.Referred := DoGet_DSConsultationMark(aForce);
  Result := IdsConsultationMark(f_DSConsultationMark.Referred);
-end;
+end;//TsdsConsultation.pm_GetDSConsultationMark
 
 function TsdsConsultation.DoGet_DSConsultationMark(aForce: Boolean): IdsConsultationMark;
 //#UC START# *492EB793009E_49228CA903BAarea_var*
@@ -290,7 +266,10 @@ begin
 //#UC END# *492EB793009E_49228CA903BAarea_impl*
 end;//TsdsConsultation.DoGet_DSConsultationMark
 
-procedure TsdsConsultation.GiveMark; // can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted
+procedure TsdsConsultation.GiveMark; { can raise EbsConsultationAlreadyMark, EbsConsultationWasDeleted }
+ {* дать оценку.
+           Возможные исключения:
+           - EbsConsultationAlreadyMark }
 //#UC START# *492EB7BA035E_49228CA903BA_var*
 //#UC END# *492EB7BA035E_49228CA903BA_var*
 begin
@@ -317,7 +296,10 @@ begin
 //#UC END# *492EB82F0391_49228CA903BA_impl*
 end;//TsdsConsultation.NeedGiveMark
 
-procedure TsdsConsultation.ConfirmPayment(anAccept: Boolean); // can raise EbsPaymentForbidden, EbsConsultationWasDeleted, EbsConsultationAlreadyConfirmed
+procedure TsdsConsultation.ConfirmPayment(anAccept: Boolean); { can raise EbsPaymentForbidden, EbsConsultationWasDeleted, EbsConsultationAlreadyConfirmed }
+ {* Подтвердить оплату консультации. Да/Нет;
+           Исключения:
+             - EbsPaymentForbidden }
 //#UC START# *492EB8620306_49228CA903BA_var*
 //#UC END# *492EB8620306_49228CA903BA_var*
 begin
@@ -342,6 +324,7 @@ begin
 end;//TsdsConsultation.ConfirmPayment
 
 procedure TsdsConsultation.UpdateAnswer;
+ {* перечитать ответ }
 //#UC START# *492EB8820218_49228CA903BA_var*
 //#UC END# *492EB8820218_49228CA903BA_var*
 begin
@@ -355,6 +338,8 @@ begin
 end;//TsdsConsultation.UpdateAnswer
 
 procedure TsdsConsultation.ListChanged;
+ {* список документов консультации изменен пользователем. Используется
+           при перезагрузке консультации }
 //#UC START# *492EB91F0391_49228CA903BA_var*
 //#UC END# *492EB91F0391_49228CA903BA_var*
 begin
@@ -364,6 +349,9 @@ begin
 end;//TsdsConsultation.ListChanged
 
 procedure TsdsConsultation.ConsultationWasMarked(const aConsultation: IsdsConsultation);
+ {* консультация была оценена. Для случая когда консультацию оценили в
+           дереве, при этом эта же консультация открыта на экране и ее нужно
+           перечитать, чтобы ссылка оценить пропала }
 //#UC START# *492EB93700FF_49228CA903BA_var*
 var
  l_Consultation: IbsConsultation;
@@ -402,6 +390,7 @@ begin
 end;//TsdsConsultation.Get_BsConsultation
 
 procedure TsdsConsultation.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_49228CA903BA_var*
 //#UC END# *479731C50290_49228CA903BA_var*
 begin
@@ -421,8 +410,8 @@ begin
 //#UC END# *47A042E100E2_49228CA903BA_impl*
 end;//TsdsConsultation.InitFields
 
-{$If not defined(NoVCM)}
 procedure TsdsConsultation.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_49228CA903BA_var*
 //#UC END# *47F37DF001FE_49228CA903BA_var*
 begin
@@ -448,9 +437,7 @@ begin
   f_NeedMark := Consultation.Status * c_bsNeedMarkForConsultations <> [];
 //#UC END# *47F37DF001FE_49228CA903BA_impl*
 end;//TsdsConsultation.DataExchange
-{$IfEnd} //not NoVCM
 
-{$If not defined(NoVCM)}
 function TsdsConsultation.GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean;
 //#UC START# *491B02D80112_49228CA903BA_var*
 var
@@ -478,21 +465,10 @@ begin
  end;//Result
 //#UC END# *491B02D80112_49228CA903BA_impl*
 end;//TsdsConsultation.GetIsNeedChangePosition
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-procedure TsdsConsultation.ClearAreas;
- {-}
-begin
- if (f_dsConsultation <> nil) then f_dsConsultation.Referred := nil;
- if (f_dsList <> nil) then f_dsList.Referred := nil;
- if (f_DSConsultationMark <> nil) then f_DSConsultationMark.Referred := nil;
- inherited;
-end;//TsdsConsultation.ClearAreas
-{$IfEnd} //not NoVCM
 
 function TsdsConsultation.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_49228CA903BA_var*
 //#UC END# *4A60B23E00C3_49228CA903BA_var*
 begin
@@ -509,30 +485,23 @@ begin
 end;//TsdsConsultation.COMQueryInterface
 
 procedure TsdsConsultation.ClearFields;
- {-}
 begin
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_Consultation := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsConsultation := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_dsList := nil;
- {$IfEnd} //not Admin AND not Monitorings
- {$If not defined(Admin) AND not defined(Monitorings)}
  f_DSConsultationMark := nil;
- {$IfEnd} //not Admin AND not Monitorings
  inherited;
 end;//TsdsConsultation.ClearFields
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TsdsConsultation.As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
+procedure TsdsConsultation.ClearAreas;
+ {* Очищает ссылки на области ввода }
 begin
- Result := Self;
-end;
+ if (f_dsConsultation <> nil) then f_dsConsultation.Referred := nil;
+ if (f_dsList <> nil) then f_dsList.Referred := nil;
+ if (f_DSConsultationMark <> nil) then f_DSConsultationMark.Referred := nil;
+ inherited;
+end;//TsdsConsultation.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

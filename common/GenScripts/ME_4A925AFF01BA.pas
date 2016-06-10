@@ -77,6 +77,9 @@ uses
  , ChromeLikeInterfaces
  {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
  , vtDateEditRes
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

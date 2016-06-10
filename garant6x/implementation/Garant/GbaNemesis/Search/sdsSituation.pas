@@ -1,148 +1,141 @@
 unit sdsSituation;
+ {* бизнес объект сборки дерево атрибутов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Автор: Морозов М.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/sdsSituation.pas"
-// Начат: 2005/08/02 12:26:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Common For Shell And Monitoring::Search::Search::Search::TsdsSituation
-//
-// бизнес объект сборки дерево атрибутов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\sdsSituation.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsSituation" MUID: (493027CE015A)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  SearchInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  QueryCardInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3TreeInterfaces,
-  SimpleListInterfaces {a}
-  ;
-{$IfEnd} //not Admin
+ l3IntfUses
+ , QueryCardInterfaces
+ , SearchInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SimpleListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ , l3TreeInterfaces
+;
 
-{$If not defined(Admin)}
 type
  _InitDataType_ = IdeSearch;
  _SetType_ = IsdsSituation;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  _CurrentChangedListener_Parent_ = _vcmFormSetDataSourceWithoutData_;
- {$Include ..\Search\CurrentChangedListener.imp.pas}
- TsdsSituation = {ucc} class(_CurrentChangedListener_, IsdsSituation, IucpFilters {from IsdsSituation}, IbsCurrentChangedListener {from IsdsSituation}, IbsSelectedAttributes {from IsdsSituation})
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
+ TsdsSituation = class(_CurrentChangedListener_, IsdsSituation, IucpFilters, IbsCurrentChangedListener, IbsSelectedAttributes)
   {* бизнес объект сборки дерево атрибутов }
- private
- // private fields
-   f_dsFilters : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsFilters}
-   f_dsTreeAttributeFirstLevel : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsTreeAttributeFirstLevel}
-   f_dsSaveLoad : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsSaveLoad}
-   f_dsSelectedAttributes : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsSelectedAttributes}
-   f_dsTreeAttributeSelect : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsTreeAttributeSelect}
-   f_dsAttributeSelect : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsAttributeSelect}
- protected
- // realized methods
+  private
+   f_dsFilters: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsFilters }
+   f_dsTreeAttributeFirstLevel: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsTreeAttributeFirstLevel }
+   f_dsSaveLoad: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsSaveLoad }
+   f_dsSelectedAttributes: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsSelectedAttributes }
+   f_dsTreeAttributeSelect: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsTreeAttributeSelect }
+   f_dsAttributeSelect: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsAttributeSelect }
+  protected
+   function As_IucpFilters: IucpFilters;
+    {* Метод приведения нашего интерфейса к IucpFilters }
+   function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
+    {* Метод приведения нашего интерфейса к IbsCurrentChangedListener }
+   function As_IbsSelectedAttributes: IbsSelectedAttributes;
+    {* Метод приведения нашего интерфейса к IbsSelectedAttributes }
    procedure Open;
-     {* открыть форму фильтры }
+    {* открыть форму фильтры }
    function pm_GetSearch: IdeSearch;
    function pm_GetDsFilters: IdsFilters;
-   function DoGet_dsFilters: IdsFilters;
+   function DoGet_DsFilters: IdsFilters;
    function pm_GetDsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
-   function DoGet_dsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+   function DoGet_DsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
    function pm_GetDsSaveLoad: IdsSaveLoad;
-   function DoGet_dsSaveLoad: IdsSaveLoad;
+   function DoGet_DsSaveLoad: IdsSaveLoad;
    function pm_GetDsSelectedAttributes: IdsSelectedAttributes;
-   function DoGet_dsSelectedAttributes: IdsSelectedAttributes;
+   function DoGet_DsSelectedAttributes: IdsSelectedAttributes;
    function pm_GetDsTreeAttributeSelect: IdsTreeAttributeSelect;
-   function DoGet_dsTreeAttributeSelect: IdsTreeAttributeSelect;
+   function DoGet_DsTreeAttributeSelect: IdsTreeAttributeSelect;
    function pm_GetDsAttributeSelect: IdsAttributeSelect;
-   function DoGet_dsAttributeSelect: IdsAttributeSelect;
- public
- // realized methods
-   procedure UpdateSelectedAttributes;
-     {* обновить данные в форме выбранных атрибутов }
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   function DoGet_DsAttributeSelect: IdsAttributeSelect;
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IucpFilters: IucpFilters;
-   function As_IbsCurrentChangedListener: IbsCurrentChangedListener;
-   function As_IbsSelectedAttributes: IbsSelectedAttributes;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
+  public
+   procedure UpdateSelectedAttributes;
+    {* обновить данные в форме выбранных атрибутов }
  end;//TsdsSituation
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
 uses
-  dsTreeAttributeSelect,
-  dsSelectedAttributes,
-  deSelectedAttributes,
-  dsSaveLoad,
-  dsTreeAttributeFirstLevel,
-  dsFilters,
-  afwFacade,
-  nsConst,
-  dsAttributeSelect,
-  deSearch
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  SysUtils,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin
+ l3ImplUses
+ , dsTreeAttributeSelect
+ , dsSelectedAttributes
+ , deSelectedAttributes
+ , dsSaveLoad
+ , dsTreeAttributeFirstLevel
+ , dsFilters
+ , afwFacade
+ , nsConst
+ , dsAttributeSelect
+ , deSearch
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsSituation;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
-{$Include ..\Search\CurrentChangedListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
 
-// start class TsdsSituation
+function TsdsSituation.As_IucpFilters: IucpFilters;
+ {* Метод приведения нашего интерфейса к IucpFilters }
+begin
+ Result := Self;
+end;//TsdsSituation.As_IucpFilters
+
+function TsdsSituation.As_IbsCurrentChangedListener: IbsCurrentChangedListener;
+ {* Метод приведения нашего интерфейса к IbsCurrentChangedListener }
+begin
+ Result := Self;
+end;//TsdsSituation.As_IbsCurrentChangedListener
+
+function TsdsSituation.As_IbsSelectedAttributes: IbsSelectedAttributes;
+ {* Метод приведения нашего интерфейса к IbsSelectedAttributes }
+begin
+ Result := Self;
+end;//TsdsSituation.As_IbsSelectedAttributes
 
 procedure TsdsSituation.Open;
+ {* открыть форму фильтры }
 //#UC START# *47FB2086026D_493027CE015A_var*
 //#UC END# *47FB2086026D_493027CE015A_var*
 begin
@@ -185,16 +178,16 @@ begin
   then
    f_dsFilters.Referred := DoGet_dsFilters;
  Result := IdsFilters(f_dsFilters.Referred);
-end;
+end;//TsdsSituation.pm_GetDsFilters
 
-function TsdsSituation.DoGet_dsFilters: IdsFilters;
+function TsdsSituation.DoGet_DsFilters: IdsFilters;
 //#UC START# *492EF8440252_493027CE015Aarea_var*
 //#UC END# *492EF8440252_493027CE015Aarea_var*
 begin
 //#UC START# *492EF8440252_493027CE015Aarea_impl*
  Result := TdsFilters.Make(Self);
 //#UC END# *492EF8440252_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsFilters
+end;//TsdsSituation.DoGet_DsFilters
 
 function TsdsSituation.pm_GetDsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
 //#UC START# *492EF877026C_493027CE015Aget_var*
@@ -214,16 +207,16 @@ begin
   then
    f_dsTreeAttributeFirstLevel.Referred := DoGet_dsTreeAttributeFirstLevel;
  Result := IdsTreeAttributeFirstLevel(f_dsTreeAttributeFirstLevel.Referred);
-end;
+end;//TsdsSituation.pm_GetDsTreeAttributeFirstLevel
 
-function TsdsSituation.DoGet_dsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
+function TsdsSituation.DoGet_DsTreeAttributeFirstLevel: IdsTreeAttributeFirstLevel;
 //#UC START# *492EF877026C_493027CE015Aarea_var*
 //#UC END# *492EF877026C_493027CE015Aarea_var*
 begin
 //#UC START# *492EF877026C_493027CE015Aarea_impl*
  Result := TdsTreeAttributeFirstLevel.Make(Self, TdeSearch.Clone(InitialUseCaseData));
 //#UC END# *492EF877026C_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsTreeAttributeFirstLevel
+end;//TsdsSituation.DoGet_DsTreeAttributeFirstLevel
 
 function TsdsSituation.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *492EF8AA024F_493027CE015Aget_var*
@@ -243,16 +236,16 @@ begin
   then
    f_dsSaveLoad.Referred := DoGet_dsSaveLoad;
  Result := IdsSaveLoad(f_dsSaveLoad.Referred);
-end;
+end;//TsdsSituation.pm_GetDsSaveLoad
 
-function TsdsSituation.DoGet_dsSaveLoad: IdsSaveLoad;
+function TsdsSituation.DoGet_DsSaveLoad: IdsSaveLoad;
 //#UC START# *492EF8AA024F_493027CE015Aarea_var*
 //#UC END# *492EF8AA024F_493027CE015Aarea_var*
 begin
 //#UC START# *492EF8AA024F_493027CE015Aarea_impl*
  Result := TdsSaveLoad.Make(Self);
 //#UC END# *492EF8AA024F_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsSaveLoad
+end;//TsdsSituation.DoGet_DsSaveLoad
 
 function TsdsSituation.pm_GetDsSelectedAttributes: IdsSelectedAttributes;
 //#UC START# *492EF8E10244_493027CE015Aget_var*
@@ -272,9 +265,9 @@ begin
   then
    f_dsSelectedAttributes.Referred := DoGet_dsSelectedAttributes;
  Result := IdsSelectedAttributes(f_dsSelectedAttributes.Referred);
-end;
+end;//TsdsSituation.pm_GetDsSelectedAttributes
 
-function TsdsSituation.DoGet_dsSelectedAttributes: IdsSelectedAttributes;
+function TsdsSituation.DoGet_DsSelectedAttributes: IdsSelectedAttributes;
 //#UC START# *492EF8E10244_493027CE015Aarea_var*
 //#UC END# *492EF8E10244_493027CE015Aarea_var*
 begin
@@ -282,7 +275,7 @@ begin
  Result := TdsSelectedAttributes.Make(Self,
    TdeSelectedAttributes.Make(pm_GetDSTreeAttributeSelect.RefreshValues, InitialUseCaseData.Tag));
 //#UC END# *492EF8E10244_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsSelectedAttributes
+end;//TsdsSituation.DoGet_DsSelectedAttributes
 
 function TsdsSituation.pm_GetDsTreeAttributeSelect: IdsTreeAttributeSelect;
 //#UC START# *492EF8F20381_493027CE015Aget_var*
@@ -302,16 +295,16 @@ begin
   then
    f_dsTreeAttributeSelect.Referred := DoGet_dsTreeAttributeSelect;
  Result := IdsTreeAttributeSelect(f_dsTreeAttributeSelect.Referred);
-end;
+end;//TsdsSituation.pm_GetDsTreeAttributeSelect
 
-function TsdsSituation.DoGet_dsTreeAttributeSelect: IdsTreeAttributeSelect;
+function TsdsSituation.DoGet_DsTreeAttributeSelect: IdsTreeAttributeSelect;
 //#UC START# *492EF8F20381_493027CE015Aarea_var*
 //#UC END# *492EF8F20381_493027CE015Aarea_var*
 begin
 //#UC START# *492EF8F20381_493027CE015Aarea_impl*
  Result := TdsTreeAttributeSelect.Make(Self, TdeSearch.Clone(InitialUseCaseData));
 //#UC END# *492EF8F20381_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsTreeAttributeSelect
+end;//TsdsSituation.DoGet_DsTreeAttributeSelect
 
 function TsdsSituation.pm_GetDsAttributeSelect: IdsAttributeSelect;
 //#UC START# *493027030386_493027CE015Aget_var*
@@ -331,18 +324,19 @@ begin
   then
    f_dsAttributeSelect.Referred := DoGet_dsAttributeSelect;
  Result := IdsAttributeSelect(f_dsAttributeSelect.Referred);
-end;
+end;//TsdsSituation.pm_GetDsAttributeSelect
 
-function TsdsSituation.DoGet_dsAttributeSelect: IdsAttributeSelect;
+function TsdsSituation.DoGet_DsAttributeSelect: IdsAttributeSelect;
 //#UC START# *493027030386_493027CE015Aarea_var*
 //#UC END# *493027030386_493027CE015Aarea_var*
 begin
 //#UC START# *493027030386_493027CE015Aarea_impl*
  Result := TdsAttributeSelect.Make(Self, TdeSearch.Clone(InitialUseCaseData));
 //#UC END# *493027030386_493027CE015Aarea_impl*
-end;//TsdsSituation.DoGet_dsAttributeSelect
+end;//TsdsSituation.DoGet_DsAttributeSelect
 
 procedure TsdsSituation.UpdateSelectedAttributes;
+ {* обновить данные в форме выбранных атрибутов }
 //#UC START# *4959149300F9_493027CE015A_var*
 //#UC END# *4959149300F9_493027CE015A_var*
 begin
@@ -353,9 +347,19 @@ begin
 //#UC END# *4959149300F9_493027CE015A_impl*
 end;//TsdsSituation.UpdateSelectedAttributes
 
-{$If not defined(NoVCM)}
+procedure TsdsSituation.ClearFields;
+begin
+ f_dsFilters := nil;
+ f_dsTreeAttributeFirstLevel := nil;
+ f_dsSaveLoad := nil;
+ f_dsSelectedAttributes := nil;
+ f_dsTreeAttributeSelect := nil;
+ f_dsAttributeSelect := nil;
+ inherited;
+end;//TsdsSituation.ClearFields
+
 procedure TsdsSituation.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  if (f_dsFilters <> nil) then f_dsFilters.Referred := nil;
  if (f_dsTreeAttributeFirstLevel <> nil) then f_dsTreeAttributeFirstLevel.Referred := nil;
@@ -365,25 +369,7 @@ begin
  if (f_dsAttributeSelect <> nil) then f_dsAttributeSelect.Referred := nil;
  inherited;
 end;//TsdsSituation.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TsdsSituation.As_IucpFilters: IucpFilters;
-begin
- Result := Self;
-end;
-
-function TsdsSituation.As_IbsCurrentChangedListener: IbsCurrentChangedListener;
-begin
- Result := Self;
-end;
-
-function TsdsSituation.As_IbsSelectedAttributes: IbsSelectedAttributes;
-begin
- Result := Self;
-end;
-
-{$IfEnd} //not Admin
-
+{$IfEnd} // NOT Defined(Admin)
 end.

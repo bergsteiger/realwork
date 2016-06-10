@@ -35,11 +35,12 @@ type
     {* Поле для области вывода dsInpharmMainMenuData }
   protected
    function pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
+   function DoGet_DsInpharmMainMenuData: IdsInpharmMainMenu;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
  end;//TsdsInpharmMainMenu
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -54,6 +55,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -65,26 +69,43 @@ function TsdsInpharmMainMenu.pm_GetDsInpharmMainMenuData: IdsInpharmMainMenu;
 //#UC START# *550C0D1A00CC_550AAEE001B7get_var*
 //#UC END# *550C0D1A00CC_550AAEE001B7get_var*
 begin
-//#UC START# *550C0D1A00CC_550AAEE001B7get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *550C0D1A00CC_550AAEE001B7get_impl*
+ if (f_dsInpharmMainMenuData = nil) then
+ begin
+  f_dsInpharmMainMenuData := TvcmViewAreaControllerRef.Make;
+  //#UC START# *550C0D1A00CC_550AAEE001B7get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *550C0D1A00CC_550AAEE001B7get_init*
+ end;//f_dsInpharmMainMenuData = nil
+ if f_dsInpharmMainMenuData.IsEmpty
+  //#UC START# *550C0D1A00CC_550AAEE001B7get_need*
+  // - условие создания ViewArea
+  //#UC END# *550C0D1A00CC_550AAEE001B7get_need*
+  then
+   f_dsInpharmMainMenuData.Referred := DoGet_dsInpharmMainMenuData;
+ Result := IdsInpharmMainMenu(f_dsInpharmMainMenuData.Referred);
 end;//TsdsInpharmMainMenu.pm_GetDsInpharmMainMenuData
 
-procedure TsdsInpharmMainMenu.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_550AAEE001B7_var*
-//#UC END# *4938F7E702B7_550AAEE001B7_var*
+function TsdsInpharmMainMenu.DoGet_DsInpharmMainMenuData: IdsInpharmMainMenu;
+//#UC START# *550C0D1A00CC_550AAEE001B7area_var*
+//#UC END# *550C0D1A00CC_550AAEE001B7area_var*
 begin
-//#UC START# *4938F7E702B7_550AAEE001B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_550AAEE001B7_impl*
-end;//TsdsInpharmMainMenu.ClearAreas
+//#UC START# *550C0D1A00CC_550AAEE001B7area_impl*
+ Result := TdsInpharmMainMenu.Make(Self);
+//#UC END# *550C0D1A00CC_550AAEE001B7area_impl*
+end;//TsdsInpharmMainMenu.DoGet_DsInpharmMainMenuData
 
 procedure TsdsInpharmMainMenu.ClearFields;
 begin
  f_dsInpharmMainMenuData := nil;
  inherited;
 end;//TsdsInpharmMainMenu.ClearFields
+
+procedure TsdsInpharmMainMenu.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsInpharmMainMenuData <> nil) then f_dsInpharmMainMenuData.Referred := nil;
+ inherited;
+end;//TsdsInpharmMainMenu.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

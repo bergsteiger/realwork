@@ -55,7 +55,9 @@ type
    f_dsBaloonWarning: IvcmViewAreaControllerRef;
     {* Поле для области вывода dsBaloonWarning }
   protected
-   procedure ChangeSynchroForm(aSynchroForm: TDrugList_SynchroView_Areas);
+   procedure ChangeSynchroForm(aSynchroForm: TDrugList_SynchroView_Areas;
+    aDoSaveToHistory: Boolean = True;
+    aNeedRefresh: Boolean = True);
     {* Переключает форму синхронного просмотра }
    function As_IucpFilters: IucpFilters;
     {* Метод приведения нашего интерфейса к IucpFilters }
@@ -82,10 +84,15 @@ type
    function BaseDocumentClass: IdsBaseDocument; override;
    function Get_DsListPrim: IdsList;
    function pm_GetDsBaloonWarning: IdsWarning;
+   function DoGet_DsBaloonWarning: IdsWarning;
    function pm_GetDsDrugList: IdsDrugList;
+   function DoGet_DsDrugList: IdsDrugList;
    function pm_GetDsSynchroView: IdsDrugListSynchroView;
+   function DoGet_DsSynchroView: IdsDrugListSynchroView;
    function pm_GetDsFilters: IdsFilters;
+   function DoGet_DsFilters: IdsFilters;
    function pm_GetDsListInfo: IdsListInfo;
+   function DoGet_DsListInfo: IdsListInfo;
    function pm_GetShortListName: Il3CString;
    function pm_GetListName: Il3CString;
    procedure OpenDocument;
@@ -96,6 +103,10 @@ type
    function pm_GetIsDrugInternationalNameSynonimsActive: Boolean;
    procedure OpenAttributes;
     {* Открывает ViewArea "атрибуты документа" }
+   function pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
+   function pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+   function pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
+   function pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -109,16 +120,16 @@ type
    function NeedMakeDsDrugInternationalNameSynonims: Boolean; override;
     {* - нужно ли создавать БОФ синонимов по международному названию. }
    procedure ClearAllDS; override;
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    function NeedMakeDocument: Boolean; override;
     {* Определяет - нужно ли создавать область ввода для документа }
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsDrugList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -155,6 +166,9 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
  , Document_Const
  , DataAdapter
  {$If NOT Defined(NoVCM)}
@@ -173,19 +187,21 @@ type _Instance_R_ = TsdsDrugList;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
 
-procedure TsdsDrugList.ChangeSynchroForm(aSynchroForm: TDrugList_SynchroView_Areas);
+procedure TsdsDrugList.ChangeSynchroForm(aSynchroForm: TDrugList_SynchroView_Areas;
+ aDoSaveToHistory: Boolean = True;
+ aNeedRefresh: Boolean = True);
  {* Переключает форму синхронного просмотра }
-//#UC START# *341E87C755C8_47EA0F2B031C_var*
-//#UC END# *341E87C755C8_47EA0F2B031C_var*
+//#UC START# *47EA0F2B031C_EDFE395C8EE0_ChangeSynchroForm_47EA0F2B031C_var*
+//#UC END# *47EA0F2B031C_EDFE395C8EE0_ChangeSynchroForm_47EA0F2B031C_var*
 begin
-//#UC START# *341E87C755C8_47EA0F2B031C_impl*
+//#UC START# *47EA0F2B031C_EDFE395C8EE0_ChangeSynchroForm_47EA0F2B031C_impl*
  if (aSynchroForm <> SetData.DrugList_SynchroView_Form) then
  begin
   ClearAllDS;
   SetData.DrugList_SynchroView_Form := aSynchroForm;
   Refresh;
  end;//aSynchroForm <> SetData.DrugList_SynchroView_Form
-//#UC END# *341E87C755C8_47EA0F2B031C_impl*
+//#UC END# *47EA0F2B031C_EDFE395C8EE0_ChangeSynchroForm_47EA0F2B031C_impl*
 end;//TsdsDrugList.ChangeSynchroForm
 
 function TsdsDrugList.As_IucpFilters: IucpFilters;
@@ -307,46 +323,134 @@ function TsdsDrugList.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DC185B80232_47EA0F2B031Cget_var*
 //#UC END# *4DC185B80232_47EA0F2B031Cget_var*
 begin
-//#UC START# *4DC185B80232_47EA0F2B031Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DC185B80232_47EA0F2B031Cget_impl*
+ if (f_dsBaloonWarning = nil) then
+ begin
+  f_dsBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DC185B80232_47EA0F2B031Cget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DC185B80232_47EA0F2B031Cget_init*
+ end;//f_dsBaloonWarning = nil
+ if f_dsBaloonWarning.IsEmpty
+  //#UC START# *4DC185B80232_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+  //#UC END# *4DC185B80232_47EA0F2B031Cget_need*
+  then
+   f_dsBaloonWarning.Referred := DoGet_dsBaloonWarning;
+ Result := IdsWarning(f_dsBaloonWarning.Referred);
 end;//TsdsDrugList.pm_GetDsBaloonWarning
+
+function TsdsDrugList.DoGet_DsBaloonWarning: IdsWarning;
+//#UC START# *4DC185B80232_47EA0F2B031Carea_var*
+//#UC END# *4DC185B80232_47EA0F2B031Carea_var*
+begin
+//#UC START# *4DC185B80232_47EA0F2B031Carea_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DC185B80232_47EA0F2B031Carea_impl*
+end;//TsdsDrugList.DoGet_DsBaloonWarning
 
 function TsdsDrugList.pm_GetDsDrugList: IdsDrugList;
 //#UC START# *500D3D75005B_47EA0F2B031Cget_var*
 //#UC END# *500D3D75005B_47EA0F2B031Cget_var*
 begin
-//#UC START# *500D3D75005B_47EA0F2B031Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3D75005B_47EA0F2B031Cget_impl*
+ with pm_GetdsDrugListRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3D75005B_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+  //#UC END# *500D3D75005B_47EA0F2B031Cget_need*
+   then
+    Referred := DoGet_dsDrugList;
+  Result := IdsDrugList(Referred);
+ end;// with pm_GetdsDrugListRef
 end;//TsdsDrugList.pm_GetDsDrugList
+
+function TsdsDrugList.DoGet_DsDrugList: IdsDrugList;
+//#UC START# *500D3D75005B_47EA0F2B031Carea_var*
+//#UC END# *500D3D75005B_47EA0F2B031Carea_var*
+begin
+//#UC START# *500D3D75005B_47EA0F2B031Carea_impl*
+ //Result := TdsMainDrugList.Make(Self, TdeList.Make(SetData.List));
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=245208757&focusedCommentId=248190020#comment-248190020
+ Result := TdsMainDrugList.Make(Self, InitialUseCaseData);
+//#UC END# *500D3D75005B_47EA0F2B031Carea_impl*
+end;//TsdsDrugList.DoGet_DsDrugList
 
 function TsdsDrugList.pm_GetDsSynchroView: IdsDrugListSynchroView;
 //#UC START# *500D3E3500FF_47EA0F2B031Cget_var*
 //#UC END# *500D3E3500FF_47EA0F2B031Cget_var*
 begin
-//#UC START# *500D3E3500FF_47EA0F2B031Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3E3500FF_47EA0F2B031Cget_impl*
+ with pm_GetdsSynchroViewRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3E3500FF_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+  //#UC END# *500D3E3500FF_47EA0F2B031Cget_need*
+   then
+    Referred := DoGet_dsSynchroView;
+  Result := IdsDrugListSynchroView(Referred);
+ end;// with pm_GetdsSynchroViewRef
 end;//TsdsDrugList.pm_GetDsSynchroView
+
+function TsdsDrugList.DoGet_DsSynchroView: IdsDrugListSynchroView;
+//#UC START# *500D3E3500FF_47EA0F2B031Carea_var*
+//#UC END# *500D3E3500FF_47EA0F2B031Carea_var*
+begin
+//#UC START# *500D3E3500FF_47EA0F2B031Carea_impl*
+ Result := TdsDrugListSynchroView.Make(Self);
+//#UC END# *500D3E3500FF_47EA0F2B031Carea_impl*
+end;//TsdsDrugList.DoGet_DsSynchroView
 
 function TsdsDrugList.pm_GetDsFilters: IdsFilters;
 //#UC START# *500D3E780156_47EA0F2B031Cget_var*
 //#UC END# *500D3E780156_47EA0F2B031Cget_var*
 begin
-//#UC START# *500D3E780156_47EA0F2B031Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3E780156_47EA0F2B031Cget_impl*
+ with pm_GetdsFiltersRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3E780156_47EA0F2B031Cget_need*
+     AND ((afw.Settings.LoadBoolean(pi_List_Sheets_Filters, dv_List_Sheets_Filters) and
+          (NeedMake = vcm_nmYes)) or (NeedMake = vcm_nmForce))   
+  // - условие создания ViewArea
+  //#UC END# *500D3E780156_47EA0F2B031Cget_need*
+   then
+    Referred := DoGet_dsFilters;
+  Result := IdsFilters(Referred);
+ end;// with pm_GetdsFiltersRef
 end;//TsdsDrugList.pm_GetDsFilters
+
+function TsdsDrugList.DoGet_DsFilters: IdsFilters;
+//#UC START# *500D3E780156_47EA0F2B031Carea_var*
+//#UC END# *500D3E780156_47EA0F2B031Carea_var*
+begin
+//#UC START# *500D3E780156_47EA0F2B031Carea_impl*
+ Result := TdsFilters.Make(Self);
+//#UC END# *500D3E780156_47EA0F2B031Carea_impl*
+end;//TsdsDrugList.DoGet_DsFilters
 
 function TsdsDrugList.pm_GetDsListInfo: IdsListInfo;
 //#UC START# *500D3EB1023F_47EA0F2B031Cget_var*
 //#UC END# *500D3EB1023F_47EA0F2B031Cget_var*
 begin
-//#UC START# *500D3EB1023F_47EA0F2B031Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3EB1023F_47EA0F2B031Cget_impl*
+ with pm_GetdsListInfoRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3EB1023F_47EA0F2B031Cget_need*
+   // - условие создания ViewArea
+  //#UC END# *500D3EB1023F_47EA0F2B031Cget_need*
+   then
+    Referred := DoGet_dsListInfo;
+  Result := IdsListInfo(Referred);
+ end;// with pm_GetdsListInfoRef
 end;//TsdsDrugList.pm_GetDsListInfo
+
+function TsdsDrugList.DoGet_DsListInfo: IdsListInfo;
+//#UC START# *500D3EB1023F_47EA0F2B031Carea_var*
+//#UC END# *500D3EB1023F_47EA0F2B031Carea_var*
+begin
+//#UC START# *500D3EB1023F_47EA0F2B031Carea_impl*
+ Result := TdsListInfo.Make(Self.As_IsdsListNameHolder, bsListCreationHistory(SetData.List));
+//#UC END# *500D3EB1023F_47EA0F2B031Carea_impl*
+end;//TsdsDrugList.DoGet_DsListInfo
 
 function TsdsDrugList.pm_GetShortListName: Il3CString;
 //#UC START# *501806DE0323_47EA0F2B031Cget_var*
@@ -414,6 +518,26 @@ begin
  inherited OpenAttributes;
 //#UC END# *ECBE8DB2214F_47EA0F2B031C_impl*
 end;//TsdsDrugList.OpenAttributes
+
+function TsdsDrugList.pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsDrugListRef;
+end;//TsdsDrugList.pm_GetDsDrugListRef
+
+function TsdsDrugList.pm_GetDsSynchroViewRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsSynchroViewRef;
+end;//TsdsDrugList.pm_GetDsSynchroViewRef
+
+function TsdsDrugList.pm_GetDsFiltersRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsFiltersRef;
+end;//TsdsDrugList.pm_GetDsFiltersRef
+
+function TsdsDrugList.pm_GetDsListInfoRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsListInfoRef;
+end;//TsdsDrugList.pm_GetDsListInfoRef
 
 {$If NOT Defined(NoVCM)}
 procedure TsdsDrugList.DataExchange;
@@ -489,18 +613,6 @@ begin
 //#UC END# *4925B7F00156_47EA0F2B031C_impl*
 end;//TsdsDrugList.ClearAllDS
 
-{$If NOT Defined(NoVCM)}
-procedure TsdsDrugList.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_47EA0F2B031C_var*
-//#UC END# *4938F7E702B7_47EA0F2B031C_var*
-begin
-//#UC START# *4938F7E702B7_47EA0F2B031C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_47EA0F2B031C_impl*
-end;//TsdsDrugList.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
 function TsdsDrugList.NeedMakeDocument: Boolean;
  {* Определяет - нужно ли создавать область ввода для документа }
 //#UC START# *493D1BE601B1_47EA0F2B031C_var*
@@ -528,6 +640,19 @@ begin
  f_dsBaloonWarning := nil;
  inherited;
 end;//TsdsDrugList.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TsdsDrugList.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsBaloonWarning <> nil) then f_dsBaloonWarning.Referred := nil;
+ pm_GetdsDrugListRef.Referred := nil;
+ pm_GetdsSynchroViewRef.Referred := nil;
+ pm_GetdsFiltersRef.Referred := nil;
+ pm_GetdsListInfoRef.Referred := nil;
+ inherited;
+end;//TsdsDrugList.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

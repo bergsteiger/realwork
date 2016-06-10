@@ -53,6 +53,9 @@ type
     const aRightField: IdaFieldDescription): IdaCondition;
    function MakeSimpleFromClause(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaFromClause;
+   function MakeAggregateField(anOperation: TdaAggregateOperation;
+    const aField: IdaSelectField;
+    const anAlias: AnsiString): IdaSelectField;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -79,6 +82,7 @@ uses
  , daJoin
  , daJoinCondition
  , daFromTable
+ , daAggregateField
 ;
 
 constructor TpgTableQueryFactory.Create(const aDataConverter: IpgDataConverter;
@@ -228,6 +232,17 @@ begin
  Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_55F81B3F024D_impl*
 end;//TpgTableQueryFactory.MakeSimpleFromClause
+
+function TpgTableQueryFactory.MakeAggregateField(anOperation: TdaAggregateOperation;
+ const aField: IdaSelectField;
+ const anAlias: AnsiString): IdaSelectField;
+//#UC START# *5755313E0083_55F81B3F024D_var*
+//#UC END# *5755313E0083_55F81B3F024D_var*
+begin
+//#UC START# *5755313E0083_55F81B3F024D_impl*
+ Result := TdaAggregateField.Make(anOperation, aField, anAlias);
+//#UC END# *5755313E0083_55F81B3F024D_impl*
+end;//TpgTableQueryFactory.MakeAggregateField
 
 procedure TpgTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

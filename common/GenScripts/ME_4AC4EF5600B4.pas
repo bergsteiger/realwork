@@ -268,26 +268,19 @@ end;//TContactListFormState.Get_CurrentFlagFilter
 
 class procedure ContactTypeMapHelper.FillStrings(const aStrings: IafwStrings);
  {* «аполнение списка строк значени€ми }
-//#UC START# *641F3EC9C833_8EEA1E00C0C3_var*
 var
  l_Index: TContactListFilterTypes;
-//#UC END# *641F3EC9C833_8EEA1E00C0C3_var*
 begin
-//#UC START# *641F3EC9C833_8EEA1E00C0C3_impl*
  aStrings.Clear;
  for l_Index := Low(l_Index) to High(l_Index) do
   aStrings.Add(ContactTypeMap[l_Index].AsCStr);
-//#UC END# *641F3EC9C833_8EEA1E00C0C3_impl*
 end;//ContactTypeMapHelper.FillStrings
 
 class function ContactTypeMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): TContactListFilterTypes;
  {* ѕреобразование строкового значени€ к пор€дковому }
-//#UC START# *8E02C0CC146E_8EEA1E00C0C3_var*
 var
  l_Index: TContactListFilterTypes;
-//#UC END# *8E02C0CC146E_8EEA1E00C0C3_var*
 begin
-//#UC START# *8E02C0CC146E_8EEA1E00C0C3_impl*
  for l_Index := Low(l_Index) to High(l_Index) do
   if l3Same(aDisplayName, ContactTypeMap[l_Index].AsCStr) then
   begin
@@ -295,7 +288,6 @@ begin
    Exit;
   end;//l3Same..
  raise Exception.CreateFmt('Display name "%s" not found in map "ContactTypeMap"', [l3Str(aDisplayName)]);
-//#UC END# *8E02C0CC146E_8EEA1E00C0C3_impl*
 end;//ContactTypeMapHelper.DisplayNameToValue
 
 function TPrimContactListForm.AddingContact: Boolean;

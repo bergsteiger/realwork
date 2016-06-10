@@ -804,6 +804,20 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwIntToHex
 
+ TkwSysutilsCreateGUID = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:CreateGUID }
+  private
+   function sysutils_CreateGUID(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта sysutils:CreateGUID }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsCreateGUID
+
  TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
   public
@@ -3313,6 +3327,41 @@ begin
  aCtx.rEngine.PushString(IntToHex(aCtx, l_aValue, l_aDigits));
 end;//TkwIntToHex.DoDoIt
 
+function TkwSysutilsCreateGUID.sysutils_CreateGUID(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта sysutils:CreateGUID }
+//#UC START# *5755450A0019_5755450A0019_Word_var*
+//#UC END# *5755450A0019_5755450A0019_Word_var*
+begin
+//#UC START# *5755450A0019_5755450A0019_Word_impl*
+ Result := l3CreateStringGUID;
+//#UC END# *5755450A0019_5755450A0019_Word_impl*
+end;//TkwSysutilsCreateGUID.sysutils_CreateGUID
+
+class function TkwSysutilsCreateGUID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'sysutils:CreateGUID';
+end;//TkwSysutilsCreateGUID.GetWordNameForRegister
+
+function TkwSysutilsCreateGUID.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwSysutilsCreateGUID.GetResultTypeInfo
+
+function TkwSysutilsCreateGUID.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwSysutilsCreateGUID.GetAllParamsCount
+
+function TkwSysutilsCreateGUID.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([]);
+end;//TkwSysutilsCreateGUID.ParamsTypes
+
+procedure TkwSysutilsCreateGUID.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString(sysutils_CreateGUID(aCtx));
+end;//TkwSysutilsCreateGUID.DoDoIt
+
 class function TSysUtilsPackResNameGetter.ResName: AnsiString;
 begin
  Result := 'SysUtilsPack';
@@ -3425,6 +3474,8 @@ initialization
  {* Регистрация sysutils_GetACP }
  TkwIntToHex.RegisterInEngine;
  {* Регистрация IntToHex }
+ TkwSysutilsCreateGUID.RegisterInEngine;
+ {* Регистрация sysutils_CreateGUID }
  TSysUtilsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));

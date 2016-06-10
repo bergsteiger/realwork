@@ -1,56 +1,37 @@
 unit sdsSendConsultation;
+ {* Бизнес объект прецедента "Запрос на консультацию" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Consultation"
-// Автор: Морозов М.А
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Consultation/sdsSendConsultation.pas"
-// Начат: 2006/04/07 08:15:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Пользовательские сервисы::Consultation::Consultation::Consultation::TsdsSendConsultation
-//
-// Бизнес объект прецедента "Запрос на консультацию"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsSendConsultation.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsSendConsultation" MUID: (492FF1C500B5)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  ConsultationInterfaces,
-  sdsQuery
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , sdsQuery
+ , ConsultationInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _SetType_ = IsdsSendConsultation;
- TsdsSendConsultation = {ucc} class(TsdsQuery, IsdsSendConsultation)
+ TsdsSendConsultation = class(TsdsQuery, IsdsSendConsultation)
   {* Бизнес объект прецедента "Запрос на консультацию" }
- protected
- // overridden protected methods
+  protected
    function GetQueryClass: TdsQueryClass; override;
  end;//TsdsSendConsultation
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsSendConsultation
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TsdsSendConsultation
+ l3ImplUses
+ , dsSendConsultation
+;
 
 function TsdsSendConsultation.GetQueryClass: TdsQueryClass;
 //#UC START# *492FEE0000FD_492FF1C500B5_var*
@@ -60,7 +41,6 @@ begin
  Result := TdsSendConsultation;
 //#UC END# *492FEE0000FD_492FF1C500B5_impl*
 end;//TsdsSendConsultation.GetQueryClass
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

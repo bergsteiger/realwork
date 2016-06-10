@@ -1,126 +1,110 @@
 unit sdsChangesBetweenEditions;
+ {* Прецедент ОИД }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChangesBetweenEditions$Domain"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/ChangesBetweenEditions/sdsChangesBetweenEditions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Пользовательские сервисы::ChangesBetweenEditions::ChangesBetweenEditions$Domain::ChangesBetweenEditionsImplementation::TsdsChangesBetweenEditions
-//
-// Прецедент ОИД
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsChangesBetweenEditions" MUID: (4DDCD7D0002E)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  ChangesBetweenEditionsInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  DocumentAndListInterfaces {a},
-  DocumentUnit,
-  nevTools,
-  DocumentInterfaces,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , ChangesBetweenEditionsInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _InitDataType_ = InsChangesBetweenEditionsInfo;
  _SetDataType_ = IsdsChangesBetweenEditionsData;
  _SetType_ = IsdsChangesBetweenEditions;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
- TsdsChangesBetweenEditions = {final ucc} class(_vcmFormSetDataSource_, IsdsChangesBetweenEditions, IsdsPrimDocument {from IsdsChangesBetweenEditions}, IsdsEditionsHolder {from IsdsChangesBetweenEditions})
+ TsdsChangesBetweenEditions = {final} class(_vcmFormSetDataSource_, IsdsChangesBetweenEditions, IsdsPrimDocument, IsdsEditionsHolder)
   {* Прецедент ОИД }
- private
- // private fields
-   f_Changes : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Changes}
-   f_EditionsList : IvcmViewAreaControllerRef;
-    {* Поле для области вывода EditionsList}
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  private
+   f_Changes: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Changes }
+   f_EditionsList: IvcmViewAreaControllerRef;
+    {* Поле для области вывода EditionsList }
+  protected
+   function As_IsdsPrimDocument: IsdsPrimDocument;
+    {* Метод приведения нашего интерфейса к IsdsPrimDocument }
+   function As_IsdsEditionsHolder: IsdsEditionsHolder;
+    {* Метод приведения нашего интерфейса к IsdsEditionsHolder }
+   {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
-   {$IfEnd} //not NoVCM
+    {* Данные сборки. }
+   {$IfEnd} // NOT Defined(NoVCM)
    function pm_GetChanges: IdsChangesBetweenEditions;
    function DoGet_Changes: IdsChangesBetweenEditions;
    function pm_GetDocInfo: IdeDocInfo;
    function pm_GetEditionsList: IdsEditions;
    function DoGet_EditionsList: IdsEditions;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoVCM
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IsdsPrimDocument: IsdsPrimDocument;
-   function As_IsdsEditionsHolder: IsdsEditionsHolder;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsChangesBetweenEditions
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsChangesBetweenEditions,
-  sdsChangesBetweenEditionsData,
-  deDocInfo,
-  dsEditions,
-  nsTabbedInterfaceTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  SysUtils,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3ImplUses
+ , dsChangesBetweenEditions
+ , sdsChangesBetweenEditionsData
+ , deDocInfo
+ , dsEditions
+ , nsTabbedInterfaceTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsChangesBetweenEditions;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
-// start class TsdsChangesBetweenEditions
+function TsdsChangesBetweenEditions.As_IsdsPrimDocument: IsdsPrimDocument;
+ {* Метод приведения нашего интерфейса к IsdsPrimDocument }
+begin
+ Result := Self;
+end;//TsdsChangesBetweenEditions.As_IsdsPrimDocument
 
-{$If not defined(NoVCM)}
+function TsdsChangesBetweenEditions.As_IsdsEditionsHolder: IsdsEditionsHolder;
+ {* Метод приведения нашего интерфейса к IsdsEditionsHolder }
+begin
+ Result := Self;
+end;//TsdsChangesBetweenEditions.As_IsdsEditionsHolder
+
 function TsdsChangesBetweenEditions.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_4DDCD7D0002E_var*
 //#UC END# *47F3778403D9_4DDCD7D0002E_var*
 begin
@@ -128,7 +112,6 @@ begin
  Result := TsdsChangesBetweenEditionsData.Make(InitialUseCaseData);
 //#UC END# *47F3778403D9_4DDCD7D0002E_impl*
 end;//TsdsChangesBetweenEditions.MakeData
-{$IfEnd} //not NoVCM
 
 function TsdsChangesBetweenEditions.pm_GetChanges: IdsChangesBetweenEditions;
 //#UC START# *4DDCD7520351_4DDCD7D0002Eget_var*
@@ -148,7 +131,7 @@ begin
   then
    f_Changes.Referred := DoGet_Changes;
  Result := IdsChangesBetweenEditions(f_Changes.Referred);
-end;
+end;//TsdsChangesBetweenEditions.pm_GetChanges
 
 function TsdsChangesBetweenEditions.DoGet_Changes: IdsChangesBetweenEditions;
 //#UC START# *4DDCD7520351_4DDCD7D0002Earea_var*
@@ -186,7 +169,7 @@ begin
   then
    f_EditionsList.Referred := DoGet_EditionsList;
  Result := IdsEditions(f_EditionsList.Referred);
-end;
+end;//TsdsChangesBetweenEditions.pm_GetEditionsList
 
 function TsdsChangesBetweenEditions.DoGet_EditionsList: IdsEditions;
 //#UC START# *4ED906420134_4DDCD7D0002Earea_var*
@@ -197,17 +180,6 @@ begin
 //#UC END# *4ED906420134_4DDCD7D0002Earea_impl*
 end;//TsdsChangesBetweenEditions.DoGet_EditionsList
 
-{$If not defined(NoVCM)}
-procedure TsdsChangesBetweenEditions.ClearAreas;
- {-}
-begin
- if (f_Changes <> nil) then f_Changes.Referred := nil;
- if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
- inherited;
-end;//TsdsChangesBetweenEditions.ClearAreas
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
 function TsdsChangesBetweenEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4DDCD7D0002E_var*
 //#UC END# *53B3BF9C00EF_4DDCD7D0002E_var*
@@ -216,20 +188,22 @@ begin
  Result := nsTabIconIndex(titChangesBetweenEditions);
 //#UC END# *53B3BF9C00EF_4DDCD7D0002E_impl*
 end;//TsdsChangesBetweenEditions.DoGetFormSetImageIndex
-{$IfEnd} //not NoVCM
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TsdsChangesBetweenEditions.As_IsdsPrimDocument: IsdsPrimDocument;
+procedure TsdsChangesBetweenEditions.ClearFields;
 begin
- Result := Self;
-end;
+ f_Changes := nil;
+ f_EditionsList := nil;
+ inherited;
+end;//TsdsChangesBetweenEditions.ClearFields
 
-function TsdsChangesBetweenEditions.As_IsdsEditionsHolder: IsdsEditionsHolder;
+procedure TsdsChangesBetweenEditions.ClearAreas;
+ {* Очищает ссылки на области ввода }
 begin
- Result := Self;
-end;
+ if (f_Changes <> nil) then f_Changes.Referred := nil;
+ if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
+ inherited;
+end;//TsdsChangesBetweenEditions.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

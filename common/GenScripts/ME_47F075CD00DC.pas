@@ -18,6 +18,8 @@
     {* - нужно ли создавать БОФ синонимов по международному названию. }
    function pm_GetHasDrugInternationalNameSynonims: Boolean;
    function pm_GetDsDrugInternationalNameSynonims: IdsDrugList;
+   function DoGet_DsDrugInternationalNameSynonims: IdsDrugList;
+   function pm_GetDsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -93,10 +95,51 @@ function _sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonims: IdsDrugLis
 //#UC START# *500D3CBB01DF_47F075CD00DCget_var*
 //#UC END# *500D3CBB01DF_47F075CD00DCget_var*
 begin
-//#UC START# *500D3CBB01DF_47F075CD00DCget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3CBB01DF_47F075CD00DCget_impl*
+ with pm_GetdsDrugInternationalNameSynonimsRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3CBB01DF_47F075CD00DCget_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND NeedMakeDsDrugInternationalNameSynonims   
+   // - условие создания ViewArea
+  //#UC END# *500D3CBB01DF_47F075CD00DCget_need*
+   then
+    Referred := DoGet_dsDrugInternationalNameSynonims;
+  Result := IdsDrugList(Referred);
+ end;// with pm_GetdsDrugInternationalNameSynonimsRef
 end;//_sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonims
+
+function _sdsBaseDrugDocument_.DoGet_DsDrugInternationalNameSynonims: IdsDrugList;
+//#UC START# *500D3CBB01DF_47F075CD00DCarea_var*
+
+  function lp_SimilarDocsList: IDynList;
+  var
+   l_CB: ICatalogBase;
+  begin
+   if pm_GetHasDrugInternationalNameSynonims then
+   begin
+    pm_GetDocInfo.Doc.GetSameDocuments(l_CB);
+    try
+     Supports(l_CB, IDynList, Result);
+    finally
+     l_CB := nil;
+    end;{try..finally}
+   end//pm_GetHasDrugInternationalNameSynonims
+   else
+    Result := nil;
+  end;//lp_SimilarDocsList
+  
+//#UC END# *500D3CBB01DF_47F075CD00DCarea_var*
+begin
+//#UC START# *500D3CBB01DF_47F075CD00DCarea_impl*
+ Result := TdsDrugList.Make(Self, TdeList.Make(lp_SimilarDocsList));
+//#UC END# *500D3CBB01DF_47F075CD00DCarea_impl*
+end;//_sdsBaseDrugDocument_.DoGet_DsDrugInternationalNameSynonims
+
+function _sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsDrugInternationalNameSynonimsRef;
+end;//_sdsBaseDrugDocument_.pm_GetDsDrugInternationalNameSynonimsRef
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsBaseDrugDocument_.DataExchange;
@@ -165,12 +208,9 @@ end;//_sdsBaseDrugDocument_.GetHasAttributes
 {$If NOT Defined(NoVCM)}
 procedure _sdsBaseDrugDocument_.ClearAreas;
  {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_47F075CD00DC_var*
-//#UC END# *4938F7E702B7_47F075CD00DC_var*
 begin
-//#UC START# *4938F7E702B7_47F075CD00DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_47F075CD00DC_impl*
+ pm_GetdsDrugInternationalNameSynonimsRef.Referred := nil;
+ inherited;
 end;//_sdsBaseDrugDocument_.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 

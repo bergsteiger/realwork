@@ -48,6 +48,9 @@ type
     const aRightField: IdaFieldDescription): IdaCondition;
    function MakeSimpleFromClause(const aTable: IdaTableDescription;
     const anAlias: AnsiString = ''): IdaFromClause;
+   function MakeAggregateField(anOperation: TdaAggregateOperation;
+    const aField: IdaSelectField;
+    const anAlias: AnsiString): IdaSelectField;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -73,6 +76,7 @@ uses
  , daJoin
  , daJoinCondition
  , htFromTable
+ , daAggregateField
 ;
 
 constructor ThtTableQueryFactory.Create(const aDataConverter: IhtDataConverter;
@@ -206,6 +210,17 @@ begin
  Result := TdaFromTable.Make(Self, aTable, anAlias);
 //#UC END# *574C32760314_554C7FE80228_impl*
 end;//ThtTableQueryFactory.MakeSimpleFromClause
+
+function ThtTableQueryFactory.MakeAggregateField(anOperation: TdaAggregateOperation;
+ const aField: IdaSelectField;
+ const anAlias: AnsiString): IdaSelectField;
+//#UC START# *5755313E0083_554C7FE80228_var*
+//#UC END# *5755313E0083_554C7FE80228_var*
+begin
+//#UC START# *5755313E0083_554C7FE80228_impl*
+ Result := TdaAggregateField.Make(anOperation, aField, anAlias);
+//#UC END# *5755313E0083_554C7FE80228_impl*
+end;//ThtTableQueryFactory.MakeAggregateField
 
 procedure ThtTableQueryFactory.Cleanup;
  {* Функция очистки полей объекта. }

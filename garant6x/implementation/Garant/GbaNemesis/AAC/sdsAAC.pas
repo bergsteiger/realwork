@@ -1,113 +1,76 @@
 unit sdsAAC;
+ {* Контроллер прецедента "Актуальная аналитика" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AAC$DataSources"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/AAC/sdsAAC.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Пользовательские сервисы::AAC::AAC$DataSources::AACImplementation::TsdsAAC
-//
-// Контроллер прецедента "Актуальная аналитика"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\sdsAAC.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsAAC" MUID: (4FF2E6B003C4)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObject,
-  DocumentInterfaces,
-  WorkWithDocumentInterfaces,
-  nsDocumentLikeStateHolder,
-  DynamicTreeUnit
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  bsTypes,
-  bsTypesNew,
-  DynamicDocListUnit,
-  PrimListInterfaces,
-  DocInfoInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentUnit,
-  DocumentAndListInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3IID,
-  nevTools,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  bsInterfaces,
-  ExternalObjectUnit,
-  evdInterfaces,
-  l3Tree_TLB,
-  PrimPrimListInterfaces,
-  FiltersUnit,
-  nsTypes,
-  PreviewInterfaces,
-  nevBase
-  {$If not defined(NoVCM)}
-  ,
-  vcmUserControls
-  {$IfEnd} //not NoVCM
-  
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  F1TagDataProviderInterface,
-  nsTypesNew,
-  AdapterFacade
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , WorkWithDocumentInterfaces
+ , nsDocumentLikeStateHolder
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsTypesNew
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , bsTypes
+ , nsTypes
+ , DocumentUnit
+ , nevBase
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DocInfoInterfaces
+ , PrimListInterfaces
+ , DynamicDocListUnit
+ , ExternalObjectUnit
+ , BaseDocumentWithAttributesInterfaces
+ , l3IID
+ , l3ProtoObjectWithCOMQI
+ , l3Interfaces
+ , l3NotifyPtrList
+ , afwInterfaces
+ , bsInterfaces
+ , nevTools
+ , PrimPrimListInterfaces
+ , AdapterFacade
+ , l3ProtoObject
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  IdeAAC = interface(IdeDocInfo)
-   ['{E8001007-EC93-4F80-8D22-72743A5029AB}']
-   function pm_GetLikeStateHolder: InsDocumentLikeStateHolder;
-   function pm_GetDeDocInfo: IdeDocInfo;
-   property LikeStateHolder: InsDocumentLikeStateHolder
-     read pm_GetLikeStateHolder;
-   property DeDocInfo: IdeDocInfo
-     read pm_GetDeDocInfo;
+  ['{E8001007-EC93-4F80-8D22-72743A5029AB}']
+  function pm_GetLikeStateHolder: InsDocumentLikeStateHolder;
+  function pm_GetDeDocInfo: IdeDocInfo;
+  property LikeStateHolder: InsDocumentLikeStateHolder
+   read pm_GetLikeStateHolder;
+  property DeDocInfo: IdeDocInfo
+   read pm_GetDeDocInfo;
  end;//IdeAAC
 
  TdeAAC = class(Tl3ProtoObject, IdeAAC)
- private
- // private fields
-   f_deDocInfo : IdeDocInfo;
-   f_LikeStateHolder : InsDocumentLikeStateHolder;
- protected
- // realized methods
+  private
+   f_deDocInfo: IdeDocInfo;
+   f_LikeStateHolder: InsDocumentLikeStateHolder;
+  protected
    function IsSame(const aDocInfo: IdeDocInfo;
-   aView: Boolean = True;
-   aPosition: Boolean = True): Boolean;
-     {* сравнить документы.
+    aView: Boolean = True;
+    aPosition: Boolean = True): Boolean;
+    {* сравнить документы.
            - aView: возвращает равенство документов с учетом их состояния (в
                     отличии от is_same_entity, который возвращает равенство без
                     учета состояния). Состоянием документа является суперпозиция
@@ -115,12 +78,12 @@ type
            - aPosition: сравнивать с учетом позиций. }
    procedure SetPosition(const aPos: TbsDocPos);
    function ChangeRedaction(aChangeType: TnsChangeRedactionType;
-   aRedaction: TRedactionID = 0): Boolean; overload; 
-   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload; 
-   function ChangeRedaction(const aDocument: IDocument): Boolean; overload; 
+    aRedaction: TRedactionID = 0): Boolean; overload;
+   function ChangeRedaction(const aDate: AdapterDate): Boolean; overload;
+   function ChangeRedaction(const aDocument: IDocument): Boolean; overload;
    procedure InitListNode(const aRoot: INodeBase;
-   const aListNode: INodeBase);
-     {* документ открывается из списка }
+    const aListNode: INodeBase);
+    {* документ открывается из списка }
    procedure CorrectLanguage(aLanguage: TbsLanguage);
    function Clone: IdeDocInfo;
    function pm_GetDoc: IDocument;
@@ -142,188 +105,148 @@ type
    procedure pm_SetSearchInfo(const aValue: IdeSearchInfo);
    function pm_GetFilePosition: Il3CString;
    procedure ClearListNode;
-     {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
+    {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
    function pm_GetLikeStateHolder: InsDocumentLikeStateHolder;
    function pm_GetDeDocInfo: IdeDocInfo;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aDeDocInfo: IdeDocInfo;
-     const aLikeStateHolder: InsDocumentLikeStateHolder); reintroduce;
+    const aLikeStateHolder: InsDocumentLikeStateHolder); reintroduce;
    class function Make(const aDeDocInfo: IdeDocInfo;
-     const aLikeStateHolder: InsDocumentLikeStateHolder): IdeAAC; reintroduce;
-     {* Сигнатура фабрики TdeAAC.Make }
+    const aLikeStateHolder: InsDocumentLikeStateHolder): IdeAAC; reintroduce;
  end;//TdeAAC
 
  _SetType_ = IsdsAAC;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
- TsdsAAC = {ucc} class(_sdsDocument_, IsdsAAC)
+ TsdsAAC = class(_sdsDocument_, IsdsAAC)
   {* Контроллер прецедента "Актуальная аналитика" }
- private
- // private fields
-   f_DocumentLikeStateHolder : InsDocumentLikeStateHolder;
-   f_Container : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Container}
-   f_Left : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Left}
-   f_Right : IvcmViewAreaControllerRef;
-    {* Поле для области вывода Right}
- private
- // private methods
+  private
+   f_DocumentLikeStateHolder: InsDocumentLikeStateHolder;
+   f_Container: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Container }
+   f_Left: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Left }
+   f_Right: IvcmViewAreaControllerRef;
+    {* Поле для области вывода Right }
+  private
    function MakeDocumentLikeStateHolder: InsDocumentLikeStateHolder;
- protected
- // realized methods
+  protected
    function pm_GetContainer: IdsAACContainer;
    function DoGet_Container: IdsAACContainer;
    function pm_GetLeft: IdsBaseDocument;
    function DoGet_Left: IdsBaseDocument;
    function pm_GetRight: IdsBaseDocument;
    function DoGet_Right: IdsBaseDocument;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCM)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean; override;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure ClearAllDS; override;
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function DoGetTabCaption: IvcmCString; override;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsAAC
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsDocument,
-  dsAACContainer,
-  dsAACDocumentLeft,
-  dsAACDocumentRight,
-  dDocument,
-  SysUtils,
-  dsDocumentListCRToPart,
-  deDocumentListCR,
-  dsWarning,
-  dsContents,
-  dsEditions
-  {$If not defined(NoVCM)}
-  ,
-  vcmForm
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmGUI
-  {$IfEnd} //not NoVCM
-  ,
-  IOUnit
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  BaseTypesUnit,
-  DataAdapter,
-  k2Tags
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetRefreshParams
-  {$IfEnd} //not NoVCM
-  ,
-  bsUtils,
-  l3String,
-  l3Core,
-  nsDocumentTools,
-  afwFacade,
-  Graphics
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base,
-  nsConst,
-  Document_Const,
-  TextPara_Const,
-  WarningUserTypes_Warning_UserType,
-  UnderControlInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmMessagesSupport
-  {$IfEnd} //not NoVCM
-  ,
-  ControlStatusUtils,
-  nsDocumentWarningGenerator,
-  dsTranslationWarning,
-  dsCRWarning,
-  nsTabbedInterfaceTypes,
-  dsDocumentListCR,
-  dsDocumentList,
-  dsAnnotation,
-  dsDocumentWithFlash,
-  bsFrozenNode,
-  deDocInfo,
-  bsDataContainer,
-  deDocumentList,
-  bsUserCRListInfo,
-  l3Types,
-  DebugStr,
-  l3Utils,
-  nsUtils,
-  dsTranslation,
-  dsRelatedDoc,
-  dsChronology,
-  dsAttributes,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  afwSettingsChangePublisher,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-type _Instance_R_ = TsdsAAC;
-
-{$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
-
-// start class TsdsAAC
-
-function TsdsAAC.MakeDocumentLikeStateHolder: InsDocumentLikeStateHolder;
-//#UC START# *51ED56B903D6_4FF2E6B003C4_var*
-//#UC END# *51ED56B903D6_4FF2E6B003C4_var*
-begin
-//#UC START# *51ED56B903D6_4FF2E6B003C4_impl*
- if not Assigned(f_DocumentLikeStateHolder) then
-  f_DocumentLikeStateHolder := TnsDocumentLikeStateHolder.Make;
- Result := f_DocumentLikeStateHolder;
-//#UC END# *51ED56B903D6_4FF2E6B003C4_impl*
-end;//TsdsAAC.MakeDocumentLikeStateHolder
-// start class TdeAAC
+ l3ImplUses
+ , dsDocument
+ , dsAACContainer
+ , dsAACDocumentLeft
+ , dsAACDocumentRight
+ , dDocument
+ , SysUtils
+ , dsDocumentListCRToPart
+ , deDocumentListCR
+ , dsWarning
+ , dsContents
+ , dsEditions
+ {$If NOT Defined(NoVCM)}
+ , vcmForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmGUI
+ {$IfEnd} // NOT Defined(NoVCM)
+ , IOUnit
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseTypesUnit
+ , DataAdapter
+ , k2Tags
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetRefreshParams
+ {$IfEnd} // NOT Defined(NoVCM)
+ , bsUtils
+ , l3String
+ , l3Core
+ , nsDocumentTools
+ , afwFacade
+ , Graphics
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ , nsConst
+ , Document_Const
+ , TextPara_Const
+ , UnderControlInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , ControlStatusUtils
+ , nsDocumentWarningGenerator
+ , dsTranslationWarning
+ , dsCRWarning
+ , nsTabbedInterfaceTypes
+ , dsDocumentListCR
+ , dsDocumentList
+ , dsAnnotation
+ , dsDocumentWithFlash
+ , bsFrozenNode
+ , deDocInfo
+ , bsDataContainer
+ , deDocumentList
+ , bsUserCRListInfo
+ , l3Types
+ , DebugStr
+ , l3Utils
+ , nsUtils
+ , dsTranslation
+ , dsRelatedDoc
+ , dsChronology
+ , dsAttributes
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwSettingsChangePublisher
+ , WarningUserTypes_Warning_UserType
+;
 
 constructor TdeAAC.Create(const aDeDocInfo: IdeDocInfo;
-  const aLikeStateHolder: InsDocumentLikeStateHolder);
+ const aLikeStateHolder: InsDocumentLikeStateHolder);
 //#UC START# *56A0857B0382_56A08533037E_var*
 //#UC END# *56A0857B0382_56A08533037E_var*
 begin
@@ -335,7 +258,7 @@ begin
 end;//TdeAAC.Create
 
 class function TdeAAC.Make(const aDeDocInfo: IdeDocInfo;
-  const aLikeStateHolder: InsDocumentLikeStateHolder): IdeAAC;
+ const aLikeStateHolder: InsDocumentLikeStateHolder): IdeAAC;
 var
  l_Inst : TdeAAC;
 begin
@@ -345,11 +268,17 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TdeAAC.Make
 
 function TdeAAC.IsSame(const aDocInfo: IdeDocInfo;
-  aView: Boolean = True;
-  aPosition: Boolean = True): Boolean;
+ aView: Boolean = True;
+ aPosition: Boolean = True): Boolean;
+ {* сравнить документы.
+           - aView: возвращает равенство документов с учетом их состояния (в
+                    отличии от is_same_entity, который возвращает равенство без
+                    учета состояния). Состоянием документа является суперпозиция
+                    номера редакции, языка и списка извлечений.
+           - aPosition: сравнивать с учетом позиций. }
 //#UC START# *4B1D118000EA_56A08533037E_var*
 //#UC END# *4B1D118000EA_56A08533037E_var*
 begin
@@ -368,7 +297,7 @@ begin
 end;//TdeAAC.SetPosition
 
 function TdeAAC.ChangeRedaction(aChangeType: TnsChangeRedactionType;
-  aRedaction: TRedactionID = 0): Boolean;
+ aRedaction: TRedactionID = 0): Boolean;
 //#UC START# *4B1D11CF0265_56A08533037E_var*
 //#UC END# *4B1D11CF0265_56A08533037E_var*
 begin
@@ -396,7 +325,8 @@ begin
 end;//TdeAAC.ChangeRedaction
 
 procedure TdeAAC.InitListNode(const aRoot: INodeBase;
-  const aListNode: INodeBase);
+ const aListNode: INodeBase);
+ {* документ открывается из списка }
 //#UC START# *4B1D11FE0117_56A08533037E_var*
 //#UC END# *4B1D11FE0117_56A08533037E_var*
 begin
@@ -586,6 +516,7 @@ begin
 end;//TdeAAC.pm_GetFilePosition
 
 procedure TdeAAC.ClearListNode;
+ {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
 //#UC START# *4B1FA0B003E1_56A08533037E_var*
 //#UC END# *4B1FA0B003E1_56A08533037E_var*
 begin
@@ -613,6 +544,7 @@ begin
 end;//TdeAAC.pm_GetDeDocInfo
 
 procedure TdeAAC.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_56A08533037E_var*
 //#UC END# *479731C50290_56A08533037E_var*
 begin
@@ -622,6 +554,21 @@ begin
  inherited;
 //#UC END# *479731C50290_56A08533037E_impl*
 end;//TdeAAC.Cleanup
+
+type _Instance_R_ = TsdsAAC;
+
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
+
+function TsdsAAC.MakeDocumentLikeStateHolder: InsDocumentLikeStateHolder;
+//#UC START# *51ED56B903D6_4FF2E6B003C4_var*
+//#UC END# *51ED56B903D6_4FF2E6B003C4_var*
+begin
+//#UC START# *51ED56B903D6_4FF2E6B003C4_impl*
+ if not Assigned(f_DocumentLikeStateHolder) then
+  f_DocumentLikeStateHolder := TnsDocumentLikeStateHolder.Make;
+ Result := f_DocumentLikeStateHolder;
+//#UC END# *51ED56B903D6_4FF2E6B003C4_impl*
+end;//TsdsAAC.MakeDocumentLikeStateHolder
 
 function TsdsAAC.pm_GetContainer: IdsAACContainer;
 //#UC START# *4FF2E70A0103_4FF2E6B003C4get_var*
@@ -641,7 +588,7 @@ begin
   then
    f_Container.Referred := DoGet_Container;
  Result := IdsAACContainer(f_Container.Referred);
-end;
+end;//TsdsAAC.pm_GetContainer
 
 function TsdsAAC.DoGet_Container: IdsAACContainer;
 //#UC START# *4FF2E70A0103_4FF2E6B003C4area_var*
@@ -670,7 +617,7 @@ begin
   then
    f_Left.Referred := DoGet_Left;
  Result := IdsBaseDocument(f_Left.Referred);
-end;
+end;//TsdsAAC.pm_GetLeft
 
 function TsdsAAC.DoGet_Left: IdsBaseDocument;
 //#UC START# *4FF2E78901DC_4FF2E6B003C4area_var*
@@ -700,7 +647,7 @@ begin
   then
    f_Right.Referred := DoGet_Right;
  Result := IdsBaseDocument(f_Right.Referred);
-end;
+end;//TsdsAAC.pm_GetRight
 
 function TsdsAAC.DoGet_Right: IdsBaseDocument;
 //#UC START# *4FF2E7BE016B_4FF2E6B003C4area_var*
@@ -713,6 +660,7 @@ begin
 end;//TsdsAAC.DoGet_Right
 
 procedure TsdsAAC.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FF2E6B003C4_var*
 //#UC END# *479731C50290_4FF2E6B003C4_var*
 begin
@@ -722,8 +670,9 @@ begin
 //#UC END# *479731C50290_4FF2E6B003C4_impl*
 end;//TsdsAAC.Cleanup
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TsdsAAC.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_4FF2E6B003C4_var*
 var
  l_deAAC: IdeAAC;
@@ -739,9 +688,9 @@ begin
  end;
 //#UC END# *47F37DF001FE_4FF2E6B003C4_impl*
 end;//TsdsAAC.DataExchange
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsAAC.GetIsNeedChangePosition(const aDataSource: _SetType_): Boolean;
 //#UC START# *491B02D80112_4FF2E6B003C4_var*
 //#UC END# *491B02D80112_4FF2E6B003C4_var*
@@ -755,7 +704,7 @@ begin
    Result := inherited GetIsNeedChangePosition(aDataSource);
 //#UC END# *491B02D80112_4FF2E6B003C4_impl*
 end;//TsdsAAC.GetIsNeedChangePosition
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 function TsdsAAC.BaseDocumentClass: IdsBaseDocument;
 //#UC START# *4925B1EC0100_4FF2E6B003C4_var*
@@ -779,18 +728,7 @@ begin
 //#UC END# *4925B7F00156_4FF2E6B003C4_impl*
 end;//TsdsAAC.ClearAllDS
 
-{$If not defined(NoVCM)}
-procedure TsdsAAC.ClearAreas;
- {-}
-begin
- if (f_Container <> nil) then f_Container.Referred := nil;
- if (f_Left <> nil) then f_Left.Referred := nil;
- if (f_Right <> nil) then f_Right.Referred := nil;
- inherited;
-end;//TsdsAAC.ClearAreas
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsAAC.DoGetTabCaption: IvcmCString;
 //#UC START# *54CF10260215_4FF2E6B003C4_var*
 //#UC END# *54CF10260215_4FF2E6B003C4_var*
@@ -799,9 +737,9 @@ begin
  Result := nsGetDocumentName(pm_GetDocInfo.Doc);
 //#UC END# *54CF10260215_4FF2E6B003C4_impl*
 end;//TsdsAAC.DoGetTabCaption
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsAAC.GetDataForClone: _InitDataType_;
 //#UC START# *55C1DD070354_4FF2E6B003C4_var*
 var
@@ -813,8 +751,26 @@ begin
  Result := TdeAAC.Make(l_Inner, f_DocumentLikeStateHolder);
 //#UC END# *55C1DD070354_4FF2E6B003C4_impl*
 end;//TsdsAAC.GetDataForClone
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+procedure TsdsAAC.ClearFields;
+begin
+ f_Container := nil;
+ f_Left := nil;
+ f_Right := nil;
+ inherited;
+end;//TsdsAAC.ClearFields
 
+{$If NOT Defined(NoVCM)}
+procedure TsdsAAC.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_Container <> nil) then f_Container.Referred := nil;
+ if (f_Left <> nil) then f_Left.Referred := nil;
+ if (f_Right <> nil) then f_Right.Referred := nil;
+ inherited;
+end;//TsdsAAC.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

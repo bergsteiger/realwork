@@ -111,6 +111,9 @@ uses
  , NavigatorUtils
  , GblAdapter
  {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}

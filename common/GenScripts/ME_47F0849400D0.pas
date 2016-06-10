@@ -21,7 +21,9 @@
    procedure OpenAttributes;
     {* атрибуты }
    function pm_GetDsAttributes: IdsAttributes;
+   function DoGet_DsAttributes: IdsAttributes;
    function pm_GetHasAttributes: Boolean;
+   function pm_GetDsAttributesRef: IvcmViewAreaControllerRef;
    procedure ClearAllDS; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
@@ -99,10 +101,28 @@ function _sdsBaseDocumentWithAttributes_.pm_GetDsAttributes: IdsAttributes;
 //#UC START# *5009A78501A6_47F0849400D0get_var*
 //#UC END# *5009A78501A6_47F0849400D0get_var*
 begin
-//#UC START# *5009A78501A6_47F0849400D0get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5009A78501A6_47F0849400D0get_impl*
+ with pm_GetdsAttributesRef do
+ begin
+  if IsEmpty
+  //#UC START# *5009A78501A6_47F0849400D0get_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND NeedMakeDSAttributes
+   // - условие создания ViewArea
+  //#UC END# *5009A78501A6_47F0849400D0get_need*
+   then
+    Referred := DoGet_dsAttributes;
+  Result := IdsAttributes(Referred);
+ end;// with pm_GetdsAttributesRef
 end;//_sdsBaseDocumentWithAttributes_.pm_GetDsAttributes
+
+function _sdsBaseDocumentWithAttributes_.DoGet_DsAttributes: IdsAttributes;
+//#UC START# *5009A78501A6_47F0849400D0area_var*
+//#UC END# *5009A78501A6_47F0849400D0area_var*
+begin
+//#UC START# *5009A78501A6_47F0849400D0area_impl*
+ Result := TdsAttributes.Make(Self, pm_GetDocInfo.Clone);
+//#UC END# *5009A78501A6_47F0849400D0area_impl*
+end;//_sdsBaseDocumentWithAttributes_.DoGet_DsAttributes
 
 function _sdsBaseDocumentWithAttributes_.pm_GetHasAttributes: Boolean;
 //#UC START# *6DBD21E52E04_47F0849400D0get_var*
@@ -112,6 +132,11 @@ begin
  Result := GetHasAttributes;
 //#UC END# *6DBD21E52E04_47F0849400D0get_impl*
 end;//_sdsBaseDocumentWithAttributes_.pm_GetHasAttributes
+
+function _sdsBaseDocumentWithAttributes_.pm_GetDsAttributesRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsAttributesRef;
+end;//_sdsBaseDocumentWithAttributes_.pm_GetDsAttributesRef
 
 procedure _sdsBaseDocumentWithAttributes_.ClearAllDS;
 //#UC START# *4925B7F00156_47F0849400D0_var*
@@ -126,12 +151,9 @@ end;//_sdsBaseDocumentWithAttributes_.ClearAllDS
 {$If NOT Defined(NoVCM)}
 procedure _sdsBaseDocumentWithAttributes_.ClearAreas;
  {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_47F0849400D0_var*
-//#UC END# *4938F7E702B7_47F0849400D0_var*
 begin
-//#UC START# *4938F7E702B7_47F0849400D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_47F0849400D0_impl*
+ pm_GetdsAttributesRef.Referred := nil;
+ inherited;
 end;//_sdsBaseDocumentWithAttributes_.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 

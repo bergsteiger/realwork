@@ -103,7 +103,7 @@ type
    function IsSimpleTree: Boolean;
    procedure ChangeUnsimpleTree; virtual;
    function AutoWidthStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство AutoWidth сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство AutoWidth сохран€етс€ }
    procedure Cleanup; override;
     {* ‘ункци€ очистки полей объекта. }
    procedure InitFields; override;
@@ -648,13 +648,13 @@ begin
 end;//TEditableBox.CMEnabledChanged
 
 function TEditableBox.AutoWidthStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство AutoWidth сохран€етс€" }
-//#UC START# *AD4856A82443_48315948025E_var*
-//#UC END# *AD4856A82443_48315948025E_var*
+ {* ‘ункци€ определ€юща€, что свойство AutoWidth сохран€етс€ }
+//#UC START# *53F34A490058Stored_48315948025E_var*
+//#UC END# *53F34A490058Stored_48315948025E_var*
 begin
-//#UC START# *AD4856A82443_48315948025E_impl*
+//#UC START# *53F34A490058Stored_48315948025E_impl*
  Result := False;
-//#UC END# *AD4856A82443_48315948025E_impl*
+//#UC END# *53F34A490058Stored_48315948025E_impl*
 end;//TEditableBox.AutoWidthStored
 
 procedure TEditableBox.Cleanup;

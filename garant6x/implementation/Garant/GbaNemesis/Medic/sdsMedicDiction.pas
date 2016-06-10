@@ -1,69 +1,48 @@
 unit sdsMedicDiction;
+ {* Бизнес объект сборки "Совет дня" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/sdsMedicDiction.pas"
-// Начат: 2008/03/06 10:02:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::TsdsMedicDiction
-//
-// Бизнес объект сборки "Совет дня"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicDiction.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsMedicDiction" MUID: (493D11EA0286)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  sdsCommonDiction,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces,
-  DocumentInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , sdsCommonDiction
+ , DocumentAndListInterfaces
+ , CommonDictionInterfaces
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TsdsMedicDiction = {ucc} class(TsdsCommonDiction)
+ TsdsMedicDiction = class(TsdsCommonDiction)
   {* Бизнес объект сборки "Совет дня" }
- protected
- // realized methods
+  protected
    function BaseDocumentClass: IdsBaseDocument; override;
    function MakeDocInfo(const aSource: IdeDocInfo): IdeCommonDiction; override;
    function MakeContents: IdsCommonDiction; override;
-     {* Создаёт область оглавления }
- protected
- // overridden protected methods
-    {$If not defined(NoVCM)}
+    {* Создаёт область оглавления }
+   {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
-    {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsMedicDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsMedicDictionDocument,
-  dsMedicDiction,
-  deMedicDiction,
-  SysUtils,
-  nsTabbedInterfaceTypes
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TsdsMedicDiction
+ l3ImplUses
+ , dsMedicDictionDocument
+ , dsMedicDiction
+ , deMedicDiction
+ , SysUtils
+ , nsTabbedInterfaceTypes
+;
 
 function TsdsMedicDiction.BaseDocumentClass: IdsBaseDocument;
 //#UC START# *4925B1EC0100_493D11EA0286_var*
@@ -85,6 +64,7 @@ begin
 end;//TsdsMedicDiction.MakeDocInfo
 
 function TsdsMedicDiction.MakeContents: IdsCommonDiction;
+ {* Создаёт область оглавления }
 //#UC START# *4936BA0D0286_493D11EA0286_var*
 //#UC END# *4936BA0D0286_493D11EA0286_var*
 begin
@@ -93,7 +73,7 @@ begin
 //#UC END# *4936BA0D0286_493D11EA0286_impl*
 end;//TsdsMedicDiction.MakeContents
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsMedicDiction.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_493D11EA0286_var*
 //#UC END# *53B3BF9C00EF_493D11EA0286_var*
@@ -102,8 +82,7 @@ begin
  Result := nsTabIconIndex(titMedicDictionary);
 //#UC END# *53B3BF9C00EF_493D11EA0286_impl*
 end;//TsdsMedicDiction.DoGetFormSetImageIndex
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

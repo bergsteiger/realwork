@@ -31,7 +31,7 @@ type
    procedure pm_SetSettingId(const aValue: AnsiString); virtual;
    function MakeSettingId(const aSettingId: AnsiString): AnsiString;
    function SettingIdStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство SettingId сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство SettingId сохран€етс€ }
    {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
    procedure LoadSettings; override;
    {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
@@ -137,13 +137,13 @@ begin
 end;//TnscCustomHideField.MakeSettingId
 
 function TnscCustomHideField.SettingIdStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство SettingId сохран€етс€" }
-//#UC START# *704562C84A3F_4E732E0B0308_var*
-//#UC END# *704562C84A3F_4E732E0B0308_var*
+ {* ‘ункци€ определ€юща€, что свойство SettingId сохран€етс€ }
+//#UC START# *51125768008DStored_4E732E0B0308_var*
+//#UC END# *51125768008DStored_4E732E0B0308_var*
 begin
-//#UC START# *704562C84A3F_4E732E0B0308_impl*
+//#UC START# *51125768008DStored_4E732E0B0308_impl*
  Result := f_SettingId <> '';
-//#UC END# *704562C84A3F_4E732E0B0308_impl*
+//#UC END# *51125768008DStored_4E732E0B0308_impl*
 end;//TnscCustomHideField.SettingIdStored
 
 {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}

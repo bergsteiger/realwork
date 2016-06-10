@@ -13,7 +13,6 @@ uses
  , l3Interfaces
  , afwTextControl
  , afwInterfaces
- , evTypes
  , Classes
  , vtHideFieldTypes
  , Graphics
@@ -67,7 +66,7 @@ type
    f_ButtonChangeLink: TChangeLink;
    f_DownPoint: TPoint;
    f_OnNeedProcessCommand: ThfCommandEvent;
-   f_StyleId: TevStyleId;
+   f_StyleId: Tl3StyleId;
     {* default evd_saGUI }
    f_OnValidateStateChanged: ThfValidateStateEvent;
    f_OnStateChanged: TNotifyEvent;
@@ -142,7 +141,7 @@ type
    procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
   protected
-   procedure pm_SetStyleId(const aValue: TevStyleId);
+   procedure pm_SetStyleId(aValue: Tl3StyleId);
    procedure pm_SetShowHeight(aValue: Integer);
    function pm_GetHeaderHeight: Integer;
    procedure pm_SetTopHeaderIndent(aValue: Integer);
@@ -171,7 +170,7 @@ type
    procedure DoStyleTableChanged; virtual;
    procedure HideControl; virtual;
    function OptionsStored: Boolean;
-    {* "‘ункци€ определ€юща€, что свойство Options сохран€етс€" }
+    {* ‘ункци€ определ€юща€, что свойство Options сохран€етс€ }
    {$If NOT Defined(DesignTimeLibrary)}
    procedure StyleTableChanged;
     {* таблица стилей изменилась. }
@@ -215,7 +214,7 @@ type
    property OnNeedProcessCommand: ThfCommandEvent
     read f_OnNeedProcessCommand
     write f_OnNeedProcessCommand;
-   property StyleId: TevStyleId
+   property StyleId: Tl3StyleId
     read f_StyleId
     write pm_SetStyleId;
     {* default evd_saGUI }
@@ -383,7 +382,7 @@ const
  cstidState = 'State';
   {* идентификатор настройки дл€ состо€ни€ }
 
-procedure TvtCustomHideField.pm_SetStyleId(const aValue: TevStyleId);
+procedure TvtCustomHideField.pm_SetStyleId(aValue: Tl3StyleId);
 //#UC START# *5110DC1F02C4_4E732D8B0291set_var*
 //#UC END# *5110DC1F02C4_4E732D8B0291set_var*
 begin
@@ -1056,13 +1055,13 @@ end;//TvtCustomHideField.CNKeyDown
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TvtCustomHideField.OptionsStored: Boolean;
- {* "‘ункци€ определ€юща€, что свойство Options сохран€етс€" }
-//#UC START# *B7BEA46A4838_4E732D8B0291_var*
-//#UC END# *B7BEA46A4838_4E732D8B0291_var*
+ {* ‘ункци€ определ€юща€, что свойство Options сохран€етс€ }
+//#UC START# *5110DE5C018FStored_4E732D8B0291_var*
+//#UC END# *5110DE5C018FStored_4E732D8B0291_var*
 begin
-//#UC START# *B7BEA46A4838_4E732D8B0291_impl*
+//#UC START# *5110DE5C018FStored_4E732D8B0291_impl*
  Result := f_Options <> cDefaultOptions;;
-//#UC END# *B7BEA46A4838_4E732D8B0291_impl*
+//#UC END# *5110DE5C018FStored_4E732D8B0291_impl*
 end;//TvtCustomHideField.OptionsStored
 
 {$If NOT Defined(DesignTimeLibrary)}

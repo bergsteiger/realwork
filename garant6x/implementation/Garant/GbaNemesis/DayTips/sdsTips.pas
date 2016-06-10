@@ -1,63 +1,44 @@
 unit sdsTips;
+ {* Бизнес объект сборки "Совет дня" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DayTips"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/DayTips/sdsTips.pas"
-// Начат: 2008/02/20 13:01:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Интерфейсные элементы::DayTips::DayTips::DayTips::TsdsTips
-//
-// Бизнес объект сборки "Совет дня"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\sdsTips.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsTips" MUID: (493D0AFD02F6)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  sdsCommonDiction,
-  DocumentAndListInterfaces,
-  CommonDictionInterfaces,
-  DocumentInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , sdsCommonDiction
+ , DocumentAndListInterfaces
+ , CommonDictionInterfaces
+ , DocumentInterfaces
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TsdsTips = {ucc} class(TsdsCommonDiction)
+ TsdsTips = class(TsdsCommonDiction)
   {* Бизнес объект сборки "Совет дня" }
- protected
- // realized methods
+  protected
    function BaseDocumentClass: IdsBaseDocument; override;
    function MakeDocInfo(const aSource: IdeDocInfo): IdeCommonDiction; override;
    function MakeContents: IdsCommonDiction; override;
-     {* Создаёт область оглавления }
+    {* Создаёт область оглавления }
  end;//TsdsTips
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsTipsDocument,
-  dsTips,
-  deTips,
-  SysUtils
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TsdsTips
+ l3ImplUses
+ , dsTipsDocument
+ , dsTips
+ , deTips
+ , SysUtils
+;
 
 function TsdsTips.BaseDocumentClass: IdsBaseDocument;
 //#UC START# *4925B1EC0100_493D0AFD02F6_var*
@@ -79,6 +60,7 @@ begin
 end;//TsdsTips.MakeDocInfo
 
 function TsdsTips.MakeContents: IdsCommonDiction;
+ {* Создаёт область оглавления }
 //#UC START# *4936BA0D0286_493D0AFD02F6_var*
 //#UC END# *4936BA0D0286_493D0AFD02F6_var*
 begin
@@ -86,7 +68,6 @@ begin
  Result := TdsTips.Make(Self, MakeDocInfo(pm_GetDocInfo).Clone);
 //#UC END# *4936BA0D0286_493D0AFD02F6_impl*
 end;//TsdsTips.MakeContents
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

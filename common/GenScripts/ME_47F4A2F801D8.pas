@@ -15,6 +15,9 @@ uses
  , MedicInterfaces
  , DocumentInterfaces
  , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
  , WorkWithDocumentInterfaces
  , BaseDocumentWithAttributesInterfaces
  , DocumentUnit
@@ -55,17 +58,19 @@ type
     {* Открыть список синонимов по международному названию. }
    function BaseDocumentClass: IdsBaseDocument; override;
    function pm_GetDsContents: IdsBaseContents;
+   function DoGet_DsContents: IdsBaseContents;
+   function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
    procedure FinishDataUpdate; override;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearAllDS; override;
+   procedure FillState; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure FillState; override;
  end;//TsdsDrugDocument
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -93,6 +98,9 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -147,10 +155,35 @@ function TsdsDrugDocument.pm_GetDsContents: IdsBaseContents;
 //#UC START# *500CEEBD01CB_47F4A2F801D8get_var*
 //#UC END# *500CEEBD01CB_47F4A2F801D8get_var*
 begin
-//#UC START# *500CEEBD01CB_47F4A2F801D8get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CEEBD01CB_47F4A2F801D8get_impl*
+ with pm_GetdsContentsRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CEEBD01CB_47F4A2F801D8get_need*
+     AND (NeedMake <> vcm_nmNo)
+   // - условие создания ViewArea
+  //#UC END# *500CEEBD01CB_47F4A2F801D8get_need*
+   then
+    Referred := DoGet_dsContents;
+  Result := IdsBaseContents(Referred);
+ end;// with pm_GetdsContentsRef
 end;//TsdsDrugDocument.pm_GetDsContents
+
+function TsdsDrugDocument.DoGet_DsContents: IdsBaseContents;
+//#UC START# *500CEEBD01CB_47F4A2F801D8area_var*
+//#UC END# *500CEEBD01CB_47F4A2F801D8area_var*
+begin
+//#UC START# *500CEEBD01CB_47F4A2F801D8area_impl*
+ if Assigned(SetData.ContentsTree) then
+  Result := TdsBaseContents.Make(Self, SetData.ContentsTree)
+ else
+  Result := nil;
+//#UC END# *500CEEBD01CB_47F4A2F801D8area_impl*
+end;//TsdsDrugDocument.DoGet_DsContents
+
+function TsdsDrugDocument.pm_GetDsContentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsContentsRef;
+end;//TsdsDrugDocument.pm_GetDsContentsRef
 
 procedure TsdsDrugDocument.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_47F4A2F801D8_var*
@@ -186,18 +219,6 @@ begin
 //#UC END# *4925B7F00156_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.ClearAllDS
 
-{$If NOT Defined(NoVCM)}
-procedure TsdsDrugDocument.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_47F4A2F801D8_var*
-//#UC END# *4938F7E702B7_47F4A2F801D8_var*
-begin
-//#UC START# *4938F7E702B7_47F4A2F801D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_47F4A2F801D8_impl*
-end;//TsdsDrugDocument.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
 procedure TsdsDrugDocument.FillState;
 //#UC START# *493D51ED0329_47F4A2F801D8_var*
 //#UC END# *493D51ED0329_47F4A2F801D8_var*
@@ -208,6 +229,15 @@ begin
   SetData.dsDrugInternationalNameSynonimsRef.NeedMake := vcm_nmYes;
 //#UC END# *493D51ED0329_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.FillState
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TsdsDrugDocument.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ pm_GetdsContentsRef.Referred := nil;
+ inherited;
+end;//TsdsDrugDocument.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

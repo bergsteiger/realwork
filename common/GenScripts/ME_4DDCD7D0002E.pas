@@ -51,16 +51,18 @@ type
     {* Данные сборки. }
    {$IfEnd} // NOT Defined(NoVCM)
    function pm_GetChanges: IdsChangesBetweenEditions;
+   function DoGet_Changes: IdsChangesBetweenEditions;
    function pm_GetDocInfo: IdeDocInfo;
    function pm_GetEditionsList: IdsEditions;
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
+   function DoGet_EditionsList: IdsEditions;
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsChangesBetweenEditions
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -79,6 +81,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -112,10 +117,30 @@ function TsdsChangesBetweenEditions.pm_GetChanges: IdsChangesBetweenEditions;
 //#UC START# *4DDCD7520351_4DDCD7D0002Eget_var*
 //#UC END# *4DDCD7520351_4DDCD7D0002Eget_var*
 begin
-//#UC START# *4DDCD7520351_4DDCD7D0002Eget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDCD7520351_4DDCD7D0002Eget_impl*
+ if (f_Changes = nil) then
+ begin
+  f_Changes := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DDCD7520351_4DDCD7D0002Eget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DDCD7520351_4DDCD7D0002Eget_init*
+ end;//f_Changes = nil
+ if f_Changes.IsEmpty
+  //#UC START# *4DDCD7520351_4DDCD7D0002Eget_need*
+  // - условие создания ViewArea
+  //#UC END# *4DDCD7520351_4DDCD7D0002Eget_need*
+  then
+   f_Changes.Referred := DoGet_Changes;
+ Result := IdsChangesBetweenEditions(f_Changes.Referred);
 end;//TsdsChangesBetweenEditions.pm_GetChanges
+
+function TsdsChangesBetweenEditions.DoGet_Changes: IdsChangesBetweenEditions;
+//#UC START# *4DDCD7520351_4DDCD7D0002Earea_var*
+//#UC END# *4DDCD7520351_4DDCD7D0002Earea_var*
+begin
+//#UC START# *4DDCD7520351_4DDCD7D0002Earea_impl*
+ Result := TdsChangesBetweenEditions.Make(Self, InitialUseCaseData);
+//#UC END# *4DDCD7520351_4DDCD7D0002Earea_impl*
+end;//TsdsChangesBetweenEditions.DoGet_Changes
 
 function TsdsChangesBetweenEditions.pm_GetDocInfo: IdeDocInfo;
 //#UC START# *4DF9D63B0360_4DDCD7D0002Eget_var*
@@ -130,20 +155,30 @@ function TsdsChangesBetweenEditions.pm_GetEditionsList: IdsEditions;
 //#UC START# *4ED906420134_4DDCD7D0002Eget_var*
 //#UC END# *4ED906420134_4DDCD7D0002Eget_var*
 begin
-//#UC START# *4ED906420134_4DDCD7D0002Eget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ED906420134_4DDCD7D0002Eget_impl*
+ if (f_EditionsList = nil) then
+ begin
+  f_EditionsList := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4ED906420134_4DDCD7D0002Eget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4ED906420134_4DDCD7D0002Eget_init*
+ end;//f_EditionsList = nil
+ if f_EditionsList.IsEmpty
+  //#UC START# *4ED906420134_4DDCD7D0002Eget_need*
+  // - условие создания ViewArea
+  //#UC END# *4ED906420134_4DDCD7D0002Eget_need*
+  then
+   f_EditionsList.Referred := DoGet_EditionsList;
+ Result := IdsEditions(f_EditionsList.Referred);
 end;//TsdsChangesBetweenEditions.pm_GetEditionsList
 
-procedure TsdsChangesBetweenEditions.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4DDCD7D0002E_var*
-//#UC END# *4938F7E702B7_4DDCD7D0002E_var*
+function TsdsChangesBetweenEditions.DoGet_EditionsList: IdsEditions;
+//#UC START# *4ED906420134_4DDCD7D0002Earea_var*
+//#UC END# *4ED906420134_4DDCD7D0002Earea_var*
 begin
-//#UC START# *4938F7E702B7_4DDCD7D0002E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4DDCD7D0002E_impl*
-end;//TsdsChangesBetweenEditions.ClearAreas
+//#UC START# *4ED906420134_4DDCD7D0002Earea_impl*
+ Result := TdsEditions.Make(Self);
+//#UC END# *4ED906420134_4DDCD7D0002Earea_impl*
+end;//TsdsChangesBetweenEditions.DoGet_EditionsList
 
 function TsdsChangesBetweenEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4DDCD7D0002E_var*
@@ -160,6 +195,14 @@ begin
  f_EditionsList := nil;
  inherited;
 end;//TsdsChangesBetweenEditions.ClearFields
+
+procedure TsdsChangesBetweenEditions.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_Changes <> nil) then f_Changes.Referred := nil;
+ if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
+ inherited;
+end;//TsdsChangesBetweenEditions.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

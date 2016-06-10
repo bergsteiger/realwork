@@ -20,6 +20,7 @@ type
  TpgPriorityCalculator = class(Tl3ProtoObject, IdaPriorityCalculator)
   private
    f_PriorityQuery: IdaTabledQuery;
+   f_Factory: IdaTableQueryFactory;
   private
    function PriorityQuery: IdaTabledQuery;
   protected
@@ -29,8 +30,8 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   constructor Create; reintroduce;
-   class function Make: IdaPriorityCalculator; reintroduce;
+   constructor Create(const aFactory: IdaTableQueryFactory); reintroduce;
+   class function Make(const aFactory: IdaTableQueryFactory): IdaPriorityCalculator; reintroduce;
  end;//TpgPriorityCalculator
 {$IfEnd} // Defined(UsePostgres)
 
@@ -39,9 +40,10 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
+ , daScheme
 ;
 
-constructor TpgPriorityCalculator.Create;
+constructor TpgPriorityCalculator.Create(const aFactory: IdaTableQueryFactory);
 //#UC START# *575137CF01E2_5751377C006E_var*
 //#UC END# *575137CF01E2_5751377C006E_var*
 begin
@@ -50,11 +52,11 @@ begin
 //#UC END# *575137CF01E2_5751377C006E_impl*
 end;//TpgPriorityCalculator.Create
 
-class function TpgPriorityCalculator.Make: IdaPriorityCalculator;
+class function TpgPriorityCalculator.Make(const aFactory: IdaTableQueryFactory): IdaPriorityCalculator;
 var
  l_Inst : TpgPriorityCalculator;
 begin
- l_Inst := Create;
+ l_Inst := Create(aFactory);
  try
   Result := l_Inst;
  finally

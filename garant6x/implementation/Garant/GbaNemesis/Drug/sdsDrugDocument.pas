@@ -1,160 +1,128 @@
 unit sdsDrugDocument;
+ {* Базовый для списка препаратов и описания препаратов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Drug"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Drug/sdsDrugDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::Inpharm::Drug::sdsDrugDocument::TsdsDrugDocument
-//
-// Базовый для списка препаратов и описания препаратов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsDrugDocument.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsDrugDocument" MUID: (47F4A2F801D8)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  MedicInterfaces,
-  DocumentInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentUnit,
-  DocumentAndListInterfaces,
-  bsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3IID,
-  nevTools,
-  bsTypes,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  vcmControllers {a},
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  DynamicDocListUnit,
-  PrimPrimListInterfaces,
-  FiltersUnit,
-  nsTypes,
-  DynamicTreeUnit,
-  PreviewInterfaces,
-  WorkWithDocumentInterfaces {a}
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  ,
-  F1TagDataProviderInterface,
-  nsTypesNew
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , MedicInterfaces
+ , DocumentInterfaces
+ , DocumentAndListInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , WorkWithDocumentInterfaces
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , l3IID
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ , afwInterfaces
+ , nevTools
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _SetDataType_ = IdDrugDocument;
  _InitDataType_ = IdeDocInfo;
  _SetType_ = IsdsDrugDocument;
- {$Include ..\Drug\sdsBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _sdsBaseDrugDocument_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _nsOpenContents_Parent_ = _afwApplicationDataUpdate_;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
- TsdsDrugDocument = {ucc} class(_nsOpenContents_, IsdsDrugDocument, IucpDocumentWithContents {from IsdsDrugDocument})
+ TsdsDrugDocument = class(_nsOpenContents_, IsdsDrugDocument, IucpDocumentWithContents)
   {* Базовый для списка препаратов и описания препаратов. }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   function As_IucpDocumentWithContents: IucpDocumentWithContents;
+    {* Метод приведения нашего интерфейса к IucpDocumentWithContents }
+   {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
-   {$IfEnd} //not NoVCM
+    {* Данные сборки. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure OpenDrugInternationalNameSynonims;
-     {* Открыть список синонимов по международному названию. }
+    {* Открыть список синонимов по международному названию. }
    function BaseDocumentClass: IdsBaseDocument; override;
    function pm_GetDsContents: IdsBaseContents;
-   function DoGet_dsContents: IdsBaseContents;
-   function pm_GetdsContentsRef: IvcmViewAreaControllerRef;
- protected
- // overridden protected methods
+   function DoGet_DsContents: IdsBaseContents;
+   function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
    procedure FinishDataUpdate; override;
-   {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearAllDS; override;
-   {$If not defined(NoVCM)}
-   procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
    procedure FillState; override;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_IucpDocumentWithContents: IucpDocumentWithContents;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsDrugDocument
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsBaseContents,
-  dsDrugDocument,
-  dDrugDocument,
-  SysUtils,
-  l3Types,
-  dsDrugList,
-  l3Utils,
-  bsUtils,
-  deList,
-  afwFacade,
-  dsAttributes,
-  deDocInfo,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3Base
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , dsBaseContents
+ , dsDrugDocument
+ , dDrugDocument
+ , SysUtils
+ , l3Types
+ , DynamicDocListUnit
+ , DynamicTreeUnit
+ , dsDrugList
+ , l3Utils
+ , bsUtils
+ , deList
+ , afwFacade
+ , dsAttributes
+ , deDocInfo
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type _Instance_R_ = TsdsDrugDocument;
 
-{$Include ..\Drug\sdsBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
 
-// start class TsdsDrugDocument
+function TsdsDrugDocument.As_IucpDocumentWithContents: IucpDocumentWithContents;
+ {* Метод приведения нашего интерфейса к IucpDocumentWithContents }
+begin
+ Result := Self;
+end;//TsdsDrugDocument.As_IucpDocumentWithContents
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsDrugDocument.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_47F4A2F801D8_var*
 //#UC END# *47F3778403D9_47F4A2F801D8_var*
 begin
@@ -162,9 +130,10 @@ begin
  Result := TdDrugDocument.Make;
 //#UC END# *47F3778403D9_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.MakeData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsDrugDocument.OpenDrugInternationalNameSynonims;
+ {* Открыть список синонимов по международному названию. }
 //#UC START# *47FDF09F0290_47F4A2F801D8_var*
 //#UC END# *47FDF09F0290_47F4A2F801D8_var*
 begin
@@ -189,17 +158,17 @@ begin
  with pm_GetdsContentsRef do
  begin
   if IsEmpty
-   //#UC START# *500CEEBD01CB_47F4A2F801D8get_need*
+  //#UC START# *500CEEBD01CB_47F4A2F801D8get_need*
      AND (NeedMake <> vcm_nmNo)
    // - условие создания ViewArea
   //#UC END# *500CEEBD01CB_47F4A2F801D8get_need*
    then
     Referred := DoGet_dsContents;
   Result := IdsBaseContents(Referred);
- end;//with pm_GetdsContentsRef
-end;
+ end;// with pm_GetdsContentsRef
+end;//TsdsDrugDocument.pm_GetDsContents
 
-function TsdsDrugDocument.DoGet_dsContents: IdsBaseContents;
+function TsdsDrugDocument.DoGet_DsContents: IdsBaseContents;
 //#UC START# *500CEEBD01CB_47F4A2F801D8area_var*
 //#UC END# *500CEEBD01CB_47F4A2F801D8area_var*
 begin
@@ -209,12 +178,12 @@ begin
  else
   Result := nil;
 //#UC END# *500CEEBD01CB_47F4A2F801D8area_impl*
-end;//TsdsDrugDocument.DoGet_dsContents
+end;//TsdsDrugDocument.DoGet_DsContents
 
-function TsdsDrugDocument.pm_GetdsContentsRef: IvcmViewAreaControllerRef;
+function TsdsDrugDocument.pm_GetDsContentsRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsContentsRef;
-end;
+end;//TsdsDrugDocument.pm_GetDsContentsRef
 
 procedure TsdsDrugDocument.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_47F4A2F801D8_var*
@@ -229,8 +198,9 @@ begin
 //#UC END# *47EA4E9002C6_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.FinishDataUpdate
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure TsdsDrugDocument.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_47F4A2F801D8_var*
 //#UC END# *47F37DF001FE_47F4A2F801D8_var*
 begin
@@ -238,7 +208,7 @@ begin
  ChangeDocument(InitialUseCaseData);
 //#UC END# *47F37DF001FE_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.DataExchange
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TsdsDrugDocument.ClearAllDS;
 //#UC START# *4925B7F00156_47F4A2F801D8_var*
@@ -248,15 +218,6 @@ begin
  inherited;
 //#UC END# *4925B7F00156_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.ClearAllDS
-
-{$If not defined(NoVCM)}
-procedure TsdsDrugDocument.ClearAreas;
- {-}
-begin
- pm_GetdsContentsRef.Referred := nil;
- inherited;
-end;//TsdsDrugDocument.ClearAreas
-{$IfEnd} //not NoVCM
 
 procedure TsdsDrugDocument.FillState;
 //#UC START# *493D51ED0329_47F4A2F801D8_var*
@@ -269,13 +230,14 @@ begin
 //#UC END# *493D51ED0329_47F4A2F801D8_impl*
 end;//TsdsDrugDocument.FillState
 
-// Методы преобразования к реализуемым интерфейсам
-
-function TsdsDrugDocument.As_IucpDocumentWithContents: IucpDocumentWithContents;
+{$If NOT Defined(NoVCM)}
+procedure TsdsDrugDocument.ClearAreas;
+ {* Очищает ссылки на области ввода }
 begin
- Result := Self;
-end;
+ pm_GetdsContentsRef.Referred := nil;
+ inherited;
+end;//TsdsDrugDocument.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

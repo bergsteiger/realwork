@@ -49,18 +49,19 @@ type
    {$IfEnd} // NOT Defined(NoVCM)
    function BaseDocumentClass: IdsBaseDocument; override;
    function pm_GetMakeNewsLineFakeDS: IdsNewsLine;
+   function DoGet_MakeNewsLineFakeDS: IdsNewsLine;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsAutoreferat
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -80,6 +81,9 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type _Instance_R_ = TsdsAutoreferat;
@@ -111,10 +115,30 @@ function TsdsAutoreferat.pm_GetMakeNewsLineFakeDS: IdsNewsLine;
 //#UC START# *492F060800A2_492FDB1603A9get_var*
 //#UC END# *492F060800A2_492FDB1603A9get_var*
 begin
-//#UC START# *492F060800A2_492FDB1603A9get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *492F060800A2_492FDB1603A9get_impl*
+ if (f_MakeNewsLineFakeDS = nil) then
+ begin
+  f_MakeNewsLineFakeDS := TvcmViewAreaControllerRef.Make;
+  //#UC START# *492F060800A2_492FDB1603A9get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *492F060800A2_492FDB1603A9get_init*
+ end;//f_MakeNewsLineFakeDS = nil
+ if f_MakeNewsLineFakeDS.IsEmpty
+  //#UC START# *492F060800A2_492FDB1603A9get_need*
+  // - условие создания ViewArea
+  //#UC END# *492F060800A2_492FDB1603A9get_need*
+  then
+   f_MakeNewsLineFakeDS.Referred := DoGet_MakeNewsLineFakeDS;
+ Result := IdsNewsLine(f_MakeNewsLineFakeDS.Referred);
 end;//TsdsAutoreferat.pm_GetMakeNewsLineFakeDS
+
+function TsdsAutoreferat.DoGet_MakeNewsLineFakeDS: IdsNewsLine;
+//#UC START# *492F060800A2_492FDB1603A9area_var*
+//#UC END# *492F060800A2_492FDB1603A9area_var*
+begin
+//#UC START# *492F060800A2_492FDB1603A9area_impl*
+ Result := TdsNewsLine.Make(Self);
+//#UC END# *492F060800A2_492FDB1603A9area_impl*
+end;//TsdsAutoreferat.DoGet_MakeNewsLineFakeDS
 
 {$If NOT Defined(NoVCM)}
 procedure TsdsAutoreferat.DataExchange;
@@ -126,18 +150,6 @@ begin
  SetData.DocInfo := InitialUseCaseData;
 //#UC END# *47F37DF001FE_492FDB1603A9_impl*
 end;//TsdsAutoreferat.DataExchange
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure TsdsAutoreferat.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_492FDB1603A9_var*
-//#UC END# *4938F7E702B7_492FDB1603A9_var*
-begin
-//#UC START# *4938F7E702B7_492FDB1603A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_492FDB1603A9_impl*
-end;//TsdsAutoreferat.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
@@ -156,6 +168,15 @@ begin
  f_MakeNewsLineFakeDS := nil;
  inherited;
 end;//TsdsAutoreferat.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure TsdsAutoreferat.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_MakeNewsLineFakeDS <> nil) then f_MakeNewsLineFakeDS.Referred := nil;
+ inherited;
+end;//TsdsAutoreferat.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

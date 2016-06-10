@@ -82,23 +82,27 @@ type
     {* Данные сборки. }
    {$IfEnd} // NOT Defined(NoVCM)
    function pm_GetLeft: IdsLeftEdition;
+   function DoGet_Left: IdsLeftEdition;
    function pm_GetRight: IdsRightEdition;
+   function DoGet_Right: IdsRightEdition;
    function pm_GetEditionsContainerData: IdsEditionsContainerData;
+   function DoGet_EditionsContainerData: IdsEditionsContainerData;
    function Get_ChangedParas: IDiffIterator;
    function Get_EditionForCompare: TRedactionID;
    procedure Set_EditionForCompare(aValue: TRedactionID);
    function pm_GetDocInfo: IdeDocInfo;
    function Get_Node(aIsLeft: Boolean): TDocumentRoot;
    function pm_GetEditionsList: IdsEditions;
+   function DoGet_EditionsList: IdsEditions;
    function Get_Position: TbsDocPos;
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsCompareEditions
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -124,6 +128,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -199,28 +206,100 @@ function TsdsCompareEditions.pm_GetLeft: IdsLeftEdition;
 //#UC START# *4A6D579203BC_4A7181A301E3get_var*
 //#UC END# *4A6D579203BC_4A7181A301E3get_var*
 begin
-//#UC START# *4A6D579203BC_4A7181A301E3get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A6D579203BC_4A7181A301E3get_impl*
+ if (f_Left = nil) then
+ begin
+  f_Left := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4A6D579203BC_4A7181A301E3get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4A6D579203BC_4A7181A301E3get_init*
+ end;//f_Left = nil
+ if f_Left.IsEmpty
+  //#UC START# *4A6D579203BC_4A7181A301E3get_need*
+  // - условие создания ViewArea
+  //#UC END# *4A6D579203BC_4A7181A301E3get_need*
+  then
+   f_Left.Referred := DoGet_Left;
+ Result := IdsLeftEdition(f_Left.Referred);
 end;//TsdsCompareEditions.pm_GetLeft
+
+function TsdsCompareEditions.DoGet_Left: IdsLeftEdition;
+//#UC START# *4A6D579203BC_4A7181A301E3area_var*
+//#UC END# *4A6D579203BC_4A7181A301E3area_var*
+begin
+//#UC START# *4A6D579203BC_4A7181A301E3area_impl*
+ SetData.CompareRootPair;
+ Result := TdsLeftEdition.Make(Self,
+                               TnsEditionDiffData.Make(InitialUseCaseData.Document,
+                                                       InitialUseCaseData.RedactionCurrentPara,
+                                                       InitialUseCaseData.DocumentForReturn));
+//#UC END# *4A6D579203BC_4A7181A301E3area_impl*
+end;//TsdsCompareEditions.DoGet_Left
 
 function TsdsCompareEditions.pm_GetRight: IdsRightEdition;
 //#UC START# *4A6D57C80079_4A7181A301E3get_var*
 //#UC END# *4A6D57C80079_4A7181A301E3get_var*
 begin
-//#UC START# *4A6D57C80079_4A7181A301E3get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A6D57C80079_4A7181A301E3get_impl*
+ if (f_Right = nil) then
+ begin
+  f_Right := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4A6D57C80079_4A7181A301E3get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4A6D57C80079_4A7181A301E3get_init*
+ end;//f_Right = nil
+ if f_Right.IsEmpty
+  //#UC START# *4A6D57C80079_4A7181A301E3get_need*
+  // - условие создания ViewArea
+  //#UC END# *4A6D57C80079_4A7181A301E3get_need*
+  then
+   f_Right.Referred := DoGet_Right;
+ Result := IdsRightEdition(f_Right.Referred);
 end;//TsdsCompareEditions.pm_GetRight
+
+function TsdsCompareEditions.DoGet_Right: IdsRightEdition;
+//#UC START# *4A6D57C80079_4A7181A301E3area_var*
+//#UC END# *4A6D57C80079_4A7181A301E3area_var*
+begin
+//#UC START# *4A6D57C80079_4A7181A301E3area_impl*
+ SetData.CompareRootPair;
+ Result := TdsRightEdition.Make(Self,
+                                TnsEditionDiffData.Make(InitialUseCaseData.Document,
+                                                        InitialUseCaseData.RedactionCurrentPara,
+                                                        InitialUseCaseData.DocumentForReturn));
+//#UC END# *4A6D57C80079_4A7181A301E3area_impl*
+end;//TsdsCompareEditions.DoGet_Right
 
 function TsdsCompareEditions.pm_GetEditionsContainerData: IdsEditionsContainerData;
 //#UC START# *4A6EC18E02E3_4A7181A301E3get_var*
 //#UC END# *4A6EC18E02E3_4A7181A301E3get_var*
 begin
-//#UC START# *4A6EC18E02E3_4A7181A301E3get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A6EC18E02E3_4A7181A301E3get_impl*
+ if (f_EditionsContainerData = nil) then
+ begin
+  f_EditionsContainerData := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4A6EC18E02E3_4A7181A301E3get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4A6EC18E02E3_4A7181A301E3get_init*
+ end;//f_EditionsContainerData = nil
+ if f_EditionsContainerData.IsEmpty
+  //#UC START# *4A6EC18E02E3_4A7181A301E3get_need*
+  // - условие создания ViewArea
+  //#UC END# *4A6EC18E02E3_4A7181A301E3get_need*
+  then
+   f_EditionsContainerData.Referred := DoGet_EditionsContainerData;
+ Result := IdsEditionsContainerData(f_EditionsContainerData.Referred);
 end;//TsdsCompareEditions.pm_GetEditionsContainerData
+
+function TsdsCompareEditions.DoGet_EditionsContainerData: IdsEditionsContainerData;
+//#UC START# *4A6EC18E02E3_4A7181A301E3area_var*
+//#UC END# *4A6EC18E02E3_4A7181A301E3area_var*
+begin
+//#UC START# *4A6EC18E02E3_4A7181A301E3area_impl*
+ SetData.CompareRootPair;
+ Result :=
+  TdsEditionsContainerData.Make(Self,
+   TnsEditionsContainerData.Make(InitialUseCaseData.Document,
+                                 InitialUseCaseData.DocumentForReturn));
+//#UC END# *4A6EC18E02E3_4A7181A301E3area_impl*
+end;//TsdsCompareEditions.DoGet_EditionsContainerData
 
 function TsdsCompareEditions.Get_ChangedParas: IDiffIterator;
 //#UC START# *4B4F2EAD0183_4A7181A301E3get_var*
@@ -283,10 +362,30 @@ function TsdsCompareEditions.pm_GetEditionsList: IdsEditions;
 //#UC START# *4ED906420134_4A7181A301E3get_var*
 //#UC END# *4ED906420134_4A7181A301E3get_var*
 begin
-//#UC START# *4ED906420134_4A7181A301E3get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ED906420134_4A7181A301E3get_impl*
+ if (f_EditionsList = nil) then
+ begin
+  f_EditionsList := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4ED906420134_4A7181A301E3get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4ED906420134_4A7181A301E3get_init*
+ end;//f_EditionsList = nil
+ if f_EditionsList.IsEmpty
+  //#UC START# *4ED906420134_4A7181A301E3get_need*
+  // - условие создания ViewArea
+  //#UC END# *4ED906420134_4A7181A301E3get_need*
+  then
+   f_EditionsList.Referred := DoGet_EditionsList;
+ Result := IdsEditions(f_EditionsList.Referred);
 end;//TsdsCompareEditions.pm_GetEditionsList
+
+function TsdsCompareEditions.DoGet_EditionsList: IdsEditions;
+//#UC START# *4ED906420134_4A7181A301E3area_var*
+//#UC END# *4ED906420134_4A7181A301E3area_var*
+begin
+//#UC START# *4ED906420134_4A7181A301E3area_impl*
+ Result := TdsEditions.Make(Self);
+//#UC END# *4ED906420134_4A7181A301E3area_impl*
+end;//TsdsCompareEditions.DoGet_EditionsList
 
 function TsdsCompareEditions.Get_Position: TbsDocPos;
 //#UC START# *5214A46601C7_4A7181A301E3get_var*
@@ -296,16 +395,6 @@ begin
  Result := InitialUseCaseData.Position;
 //#UC END# *5214A46601C7_4A7181A301E3get_impl*
 end;//TsdsCompareEditions.Get_Position
-
-procedure TsdsCompareEditions.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4A7181A301E3_var*
-//#UC END# *4938F7E702B7_4A7181A301E3_var*
-begin
-//#UC START# *4938F7E702B7_4A7181A301E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4A7181A301E3_impl*
-end;//TsdsCompareEditions.ClearAreas
 
 function TsdsCompareEditions.DoGetFormSetImageIndex: Integer;
 //#UC START# *53B3BF9C00EF_4A7181A301E3_var*
@@ -324,6 +413,16 @@ begin
  f_EditionsList := nil;
  inherited;
 end;//TsdsCompareEditions.ClearFields
+
+procedure TsdsCompareEditions.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_Left <> nil) then f_Left.Referred := nil;
+ if (f_Right <> nil) then f_Right.Referred := nil;
+ if (f_EditionsContainerData <> nil) then f_EditionsContainerData.Referred := nil;
+ if (f_EditionsList <> nil) then f_EditionsList.Referred := nil;
+ inherited;
+end;//TsdsCompareEditions.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

@@ -34,43 +34,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
- , tfwString
- {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-{$If NOT Defined(NoScripts)}
-type
- Tkw_Form_PostingsList_ID = {final} class(TtfwString)
-  {* Слово словаря для идентификатора формы PostingsList
-----
-*Пример использования*:
-[code]
-'aControl' форма::PostingsList TryFocus ASSERT
-[code] }
-  protected
-   function GetString: AnsiString; override;
-   class function GetWordNameForRegister: AnsiString; override;
- end;//Tkw_Form_PostingsList_ID
-{$IfEnd} // NOT Defined(NoScripts)
-
-{$If NOT Defined(NoScripts)}
-function Tkw_Form_PostingsList_ID.GetString: AnsiString;
-begin
- Result := 'enPostingsList';
-end;//Tkw_Form_PostingsList_ID.GetString
-
-class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
-begin
- Result := 'форма::PostingsList';
-end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
-
-initialization
-{$If NOT Defined(NoScripts)}
- Tkw_Form_PostingsList_ID.RegisterInEngine;
- {* Регистрация Tkw_Form_PostingsList_ID }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 end.

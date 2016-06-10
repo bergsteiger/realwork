@@ -86,6 +86,7 @@ type
    procedure AdjustSizeForPanels; override;
    {$IfEnd} // NOT Defined(NoTB97)
   public
+   procedure InitPanels;
    constructor Create(AOwner: TComponent); override;
  end;//TnscStatusBar
 {$IfEnd} // Defined(Nemesis)
@@ -499,6 +500,18 @@ begin
   end;
 //#UC END# *504F30D900F7_4E15A08E030D_impl*
 end;//TnscStatusBar.AllVisiblePanelsText
+
+procedure TnscStatusBar.InitPanels;
+//#UC START# *575516E4010D_4E15A08E030D_var*
+var
+ l_SI: TafwStatusInfo;
+//#UC END# *575516E4010D_4E15A08E030D_var*
+begin
+//#UC START# *575516E4010D_4E15A08E030D_impl*
+ l3FillChar(l_SI, SizeOf(l_SI), 0);
+ DoUpdateStrings(l_SI, False, False);
+//#UC END# *575516E4010D_4E15A08E030D_impl*
+end;//TnscStatusBar.InitPanels
 
 procedure TnscStatusBar.WMGetText(var Msg: TWMGetText);
 //#UC START# *504F1A870252_4E15A08E030D_var*

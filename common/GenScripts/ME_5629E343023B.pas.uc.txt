@@ -1,5 +1,4 @@
 //#UC START# *479731C50290_5629E343023B_impl*
- f_PriorityCalculator := nil;
  FreeAndNil(f_UserStatusChangedSubscriberList);
  inherited;
 //#UC END# *479731C50290_5629E343023B_impl*
@@ -24,7 +23,6 @@ var
 //#UC END# *5628D14D0151_5629E343023B_var*
 //#UC START# *5629F0F901C8_5629E343023B_impl*
  inherited Create;
- f_UserStatusChangedSubscriberList := TdaUserStatusChangedSubscriberList.Make;
 //#UC END# *5629F0F901C8_5629E343023B_impl*
 //#UC START# *5629F0F901C8_5629E343023B_var*
 //#UC END# *5629F0F901C8_5629E343023B_var*
@@ -76,22 +74,22 @@ var
 //#UC START# *5715E78F013E_5629E343023B_var*
 //#UC END# *5715E78F013E_5629E343023B_var*
 //#UC START# *5718B5CF0399_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserName(anUserID);
+ Result := dt_User.UserManager.GetUserName(anUserID);
 //#UC END# *5718B5CF0399_5629E343023B_impl*
 //#UC START# *5718B5CF0399_5629E343023B_var*
 //#UC END# *5718B5CF0399_5629E343023B_var*
 //#UC START# *571DCFB50217_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserPriorities(aGroupId, aImportPriority, aExportPriority);
+ !!! Needs to be implemented !!!
 //#UC END# *571DCFB50217_5629E343023B_impl*
 //#UC START# *571DCFB50217_5629E343023B_var*
 //#UC END# *571DCFB50217_5629E343023B_var*
 //#UC START# *5721F5E60367_5629E343023B_impl*
- dt_User.UserManager.xxxReSortUserList;
+ !!! Needs to be implemented !!!
 //#UC END# *5721F5E60367_5629E343023B_impl*
 //#UC START# *5721F5E60367_5629E343023B_var*
 //#UC END# *5721F5E60367_5629E343023B_var*
 //#UC START# *5729C59E00D5_5629E343023Bget_impl*
- Result := dt_User.UserManager.xxxGetArchiUsersCount(Get_PriorityCalculator);
+ Result := dt_User.UserManager.xxxGetArchiUsersCount;
 //#UC END# *5729C59E00D5_5629E343023Bget_impl*
 //#UC START# *5729C59E00D5_5629E343023Bget_var*
 //#UC END# *5729C59E00D5_5629E343023Bget_var*
@@ -107,27 +105,27 @@ var
  Hack : Pointer absolute anAction;
 //#UC END# *5729DD530330_5629E343023B_var*
 //#UC START# *57358B940211_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByID(Get_PriorityCalculator, aID);
+ Result := dt_User.UserManager.xxxUserByID(aID);
 //#UC END# *57358B940211_5629E343023B_impl*
 //#UC START# *57358B940211_5629E343023B_var*
 //#UC END# *57358B940211_5629E343023B_var*
 //#UC START# *57358BCB0360_5629E343023B_impl*
- Result := dt_User.UserManager.xxxUserByLogin(Get_PriorityCalculator, aLogin);
+ Result := dt_User.UserManager.xxxUserByLogin(aLogin);
 //#UC END# *57358BCB0360_5629E343023B_impl*
 //#UC START# *57358BCB0360_5629E343023B_var*
 //#UC END# *57358BCB0360_5629E343023B_var*
 //#UC START# *5735AE4D0017_5629E343023B_impl*
- dt_User.UserManager.xxxUpdateUserInfo(Get_PriorityCalculator, aUserID, aIsGroup);
+ dt_User.UserManager.xxxUpdateUserInfo(aUserID, aIsGroup);
 //#UC END# *5735AE4D0017_5629E343023B_impl*
 //#UC START# *5735AE4D0017_5629E343023B_var*
 //#UC END# *5735AE4D0017_5629E343023B_var*
 //#UC START# *5735AE7F0071_5629E343023B_impl*
- dt_User.UserManager.xxxmakeFullUsersList(Get_PriorityCalculator);
+ dt_User.UserManager.xxxmakeFullUsersList;
 //#UC END# *5735AE7F0071_5629E343023B_impl*
 //#UC START# *5735AE7F0071_5629E343023B_var*
 //#UC END# *5735AE7F0071_5629E343023B_var*
 //#UC START# *5735AECA0121_5629E343023B_impl*
- Result := dt_User.UserManager.xxxGetUserDisplayName(Get_PriorityCalculator, anID);
+ Result := dt_User.UserManager.xxxGetUserDisplayName(anID);
 //#UC END# *5735AECA0121_5629E343023B_impl*
 //#UC START# *5735AECA0121_5629E343023B_var*
 //#UC END# *5735AECA0121_5629E343023B_var*
@@ -163,7 +161,7 @@ var
 
 //#UC END# *5739835200CF_5629E343023B_var*
 //#UC START# *573AC17202BF_5629E343023B_impl*
- Result := dt_User.UserManager.xxxCSCheckPassword(Get_PriorityCalculator, aLogin, aPassword, RequireAdminRights, theUserID);
+ Result := dt_User.UserManager.xxxCSCheckPassword(aLogin, aPassword, RequireAdminRights, theUserID);
 //#UC END# *573AC17202BF_5629E343023B_impl*
 //#UC START# *573AC17202BF_5629E343023B_var*
 //#UC END# *573AC17202BF_5629E343023B_var*

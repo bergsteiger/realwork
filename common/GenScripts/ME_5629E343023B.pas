@@ -62,6 +62,7 @@ type
    constructor Create; reintroduce;
    class function Make: IdaUserManager; reintroduce;
    procedure IterateArchiUsersF(anAction: ArchiUsersIterator_IterateArchiUsersF_Action);
+   procedure IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
  end;//ThtUserManager
 
 implementation
@@ -76,6 +77,7 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , htPriorityCalculator
+ , l3Types
  , l3Base
 ;
 
@@ -337,6 +339,36 @@ begin
  Result := f_PriorityCalculator;
 //#UC END# *575020410175_5629E343023Bget_impl*
 end;//ThtUserManager.Get_PriorityCalculator
+
+procedure ThtUserManager.IterateUserGroupsF(anAction: ArchiUsersIterator_IterateUserGroupsF_Action);
+//#UC START# *5757D9BB0116_5629E343023B_var*
+var
+ Hack : Pointer absolute anAction;
+ lAction : Tl3IteratorAction;
+
+ function lp_UserGroupIter(aData: Pointer; aIndex: Long): Bool;
+ var
+  l_Name: String;
+ begin
+  l_Name := PAnsiChar(aData);
+  Result := anAction(l_Name, aIndex);
+ end;
+
+//#UC END# *5757D9BB0116_5629E343023B_var*
+begin
+//#UC START# *5757D9BB0116_5629E343023B_impl*
+ try
+  lAction := l3L2IA(@lp_UserGroupIter);
+  try
+   dt_User.UserManager.xxxIterateUserGroups(lAction);
+  finally
+   l3FreeFA(Tl3FreeAction(lAction));
+  end;
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+//#UC END# *5757D9BB0116_5629E343023B_impl*
+end;//ThtUserManager.IterateUserGroupsF
 
 procedure ThtUserManager.Cleanup;
  {* Функция очистки полей объекта. }

@@ -45,11 +45,12 @@ type
    function As_InsWarningGenerator: InsWarningGenerator;
     {* Метод приведения нашего интерфейса к InsWarningGenerator }
    function pm_GetDsBaloonWarning: IdsWarning;
+   function DoGet_DsBaloonWarning: IdsWarning;
+   procedure ClearFields; override;
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   procedure ClearFields; override;
   public
    function Generate(const aWarning: IdsWarning;
     const aGen: InevTagGenerator;
@@ -76,7 +77,6 @@ uses
  , l3Chars
  , evdTypes
  , k2Tags
- , l3MessageID
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -100,6 +100,9 @@ uses
  , BaloonWarningUserTypes_TrialModeWarning_UserType
  , BaloonWarningUserTypes_OldBaseWarning_UserType
  , BaloonWarningUserTypes_ControlledChangingWarning_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 {$If NOT Defined(NoVCM)}
@@ -212,20 +215,30 @@ function TsdsMainWindow.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DC010300124_4DC011350154get_var*
 //#UC END# *4DC010300124_4DC011350154get_var*
 begin
-//#UC START# *4DC010300124_4DC011350154get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DC010300124_4DC011350154get_impl*
+ if (f_dsBaloonWarning = nil) then
+ begin
+  f_dsBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DC010300124_4DC011350154get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DC010300124_4DC011350154get_init*
+ end;//f_dsBaloonWarning = nil
+ if f_dsBaloonWarning.IsEmpty
+  //#UC START# *4DC010300124_4DC011350154get_need*
+  // - условие создания ViewArea
+  //#UC END# *4DC010300124_4DC011350154get_need*
+  then
+   f_dsBaloonWarning.Referred := DoGet_dsBaloonWarning;
+ Result := IdsWarning(f_dsBaloonWarning.Referred);
 end;//TsdsMainWindow.pm_GetDsBaloonWarning
 
-procedure TsdsMainWindow.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4DC011350154_var*
-//#UC END# *4938F7E702B7_4DC011350154_var*
+function TsdsMainWindow.DoGet_DsBaloonWarning: IdsWarning;
+//#UC START# *4DC010300124_4DC011350154area_var*
+//#UC END# *4DC010300124_4DC011350154area_var*
 begin
-//#UC START# *4938F7E702B7_4DC011350154_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4DC011350154_impl*
-end;//TsdsMainWindow.ClearAreas
+//#UC START# *4DC010300124_4DC011350154area_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DC010300124_4DC011350154area_impl*
+end;//TsdsMainWindow.DoGet_DsBaloonWarning
 
 procedure TsdsMainWindow.ClearFields;
 begin
@@ -233,6 +246,13 @@ begin
  f_dsBaloonWarning := nil;
  inherited;
 end;//TsdsMainWindow.ClearFields
+
+procedure TsdsMainWindow.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsBaloonWarning <> nil) then f_dsBaloonWarning.Referred := nil;
+ inherited;
+end;//TsdsMainWindow.ClearAreas
 
 initialization
  str_mwUnreadConsultations.Init;

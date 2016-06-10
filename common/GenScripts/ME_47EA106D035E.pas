@@ -38,18 +38,20 @@
            новой сборки вернуться как результат для вызова операции модуля }
    function pm_GetDocInfo: IdeDocInfo;
    function pm_GetDsDocument: IdsBaseDocument;
+   function DoGet_DsDocument: IdsBaseDocument;
    function pm_GetHasDocument: Boolean;
+   function pm_GetDsDocumentRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
    {$IfEnd} // NOT Defined(NoVCM)
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//_sdsBaseDocument_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -180,10 +182,27 @@ function _sdsBaseDocument_.pm_GetDsDocument: IdsBaseDocument;
 //#UC START# *50002EC80001_47EA106D035Eget_var*
 //#UC END# *50002EC80001_47EA106D035Eget_var*
 begin
-//#UC START# *50002EC80001_47EA106D035Eget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *50002EC80001_47EA106D035Eget_impl*
+ with pm_GetdsDocumentRef do
+ begin
+  if IsEmpty
+  //#UC START# *50002EC80001_47EA106D035Eget_need*
+   AND NeedMakeDocument
+   // - условие создания ViewArea
+  //#UC END# *50002EC80001_47EA106D035Eget_need*
+   then
+    Referred := DoGet_dsDocument;
+  Result := IdsBaseDocument(Referred);
+ end;// with pm_GetdsDocumentRef
 end;//_sdsBaseDocument_.pm_GetDsDocument
+
+function _sdsBaseDocument_.DoGet_DsDocument: IdsBaseDocument;
+//#UC START# *50002EC80001_47EA106D035Earea_var*
+//#UC END# *50002EC80001_47EA106D035Earea_var*
+begin
+//#UC START# *50002EC80001_47EA106D035Earea_impl*
+ Result := BaseDocumentClass;
+//#UC END# *50002EC80001_47EA106D035Earea_impl*
+end;//_sdsBaseDocument_.DoGet_DsDocument
 
 function _sdsBaseDocument_.pm_GetHasDocument: Boolean;
 //#UC START# *5111C2BAF24F_47EA106D035Eget_var*
@@ -194,6 +213,11 @@ begin
   Result := Assigned(DocInfo) and Assigned(DocInfo.Doc);
 //#UC END# *5111C2BAF24F_47EA106D035Eget_impl*
 end;//_sdsBaseDocument_.pm_GetHasDocument
+
+function _sdsBaseDocument_.pm_GetDsDocumentRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsDocumentRef;
+end;//_sdsBaseDocument_.pm_GetDsDocumentRef
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsBaseDocument_.DataExchange;
@@ -209,18 +233,6 @@ begin
  SetData.DocInfo := l_DocInfo;
 //#UC END# *47F37DF001FE_47EA106D035E_impl*
 end;//_sdsBaseDocument_.DataExchange
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure _sdsBaseDocument_.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_47EA106D035E_var*
-//#UC END# *4938F7E702B7_47EA106D035E_var*
-begin
-//#UC START# *4938F7E702B7_47EA106D035E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_47EA106D035E_impl*
-end;//_sdsBaseDocument_.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 
 function _sdsBaseDocument_.COMQueryInterface(const IID: Tl3GUID;
@@ -239,8 +251,17 @@ begin
   end;//if IID.EQ(IDocument) and pm_GetHasDocument then
 //#UC END# *4A60B23E00C3_47EA106D035E_impl*
 end;//_sdsBaseDocument_.COMQueryInterface
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _sdsBaseDocument_.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ pm_GetdsDocumentRef.Referred := nil;
+ inherited;
+end;//_sdsBaseDocument_.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf sdsBaseDocument_imp_impl}
 
 {$EndIf sdsBaseDocument_imp}

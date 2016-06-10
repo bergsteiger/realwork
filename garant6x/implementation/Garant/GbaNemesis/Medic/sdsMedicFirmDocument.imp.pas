@@ -1,67 +1,52 @@
 {$IfNDef sdsMedicFirmDocument_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Medic"
-// Автор: Лукьянец Р.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Medic/sdsMedicFirmDocument.imp.pas"
-// Начат: 2008/03/26 13:08:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Встроенные продукты::Inpharm::Medic::Medic::sdsMedicFirmDocument
-//
-// документ-фирма
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "sdsMedicFirmDocument" MUID: (4939633A025D)
+// Имя типа: "_sdsMedicFirmDocument_"
 
 {$Define sdsMedicFirmDocument_imp}
-{$If not defined(Admin) AND not defined(Monitorings)}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeDocInfo;
  {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
- _sdsMedicFirmDocument_ = {abstract ucc} class(_sdsBaseDocumentWithAttributes_, IsdsMedicFirmDocumentPrim)
+ _sdsMedicFirmDocument_ = {abstract} class(_sdsBaseDocumentWithAttributes_, IsdsMedicFirmDocumentPrim)
   {* документ-фирма }
- protected
- // realized methods
+  protected
+   function NeedMakeDrugList: Boolean; virtual;
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure OpenDrugList;
    function pm_GetDsDrugList: IdsDrugList;
-   function DoGet_dsDrugList: IdsDrugList;
-   function pm_GetdsDrugListRef: IvcmViewAreaControllerRef;
- protected
- // overridden protected methods
-   {$If not defined(NoVCM)}
+   function DoGet_DsDrugList: IdsDrugList;
+   function pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
+   {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
-     {* - вызывается после получения данных инициализации. }
-   {$IfEnd} //not NoVCM
+    {* - вызывается после получения данных инициализации. }
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearAllDS; override;
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
    function GetHasAttributes: Boolean; override;
-     {* Реализация HasAttributes }
-   {$If not defined(NoVCM)}
+    {* Реализация HasAttributes }
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
- protected
- // protected methods
-   function NeedMakeDrugList: Boolean; virtual;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_sdsMedicFirmDocument_
-{$Else}
 
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
- _sdsMedicFirmDocument_ = _sdsBaseDocumentWithAttributes_;
-
-{$IfEnd} //not Admin AND not Monitorings
-
-{$Else sdsMedicFirmDocument_imp}
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
+{$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
+_sdsMedicFirmDocument_ = _sdsBaseDocumentWithAttributes_;
 
-// start class _sdsMedicFirmDocument_
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$Else sdsMedicFirmDocument_imp}
+
+{$IfNDef sdsMedicFirmDocument_imp_impl}
+
+{$Define sdsMedicFirmDocument_imp_impl}
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 function _sdsMedicFirmDocument_.NeedMakeDrugList: Boolean;
 //#UC START# *493964C6039A_4939633A025D_var*
@@ -102,7 +87,7 @@ begin
  with pm_GetdsDrugListRef do
  begin
   if IsEmpty
-   //#UC START# *500D3D150007_4939633A025Dget_need*
+  //#UC START# *500D3D150007_4939633A025Dget_need*
      AND (NeedMake <> vcm_nmNo)
      AND NeedMakeDrugList   
    // - условие создания ViewArea
@@ -110,10 +95,10 @@ begin
    then
     Referred := DoGet_dsDrugList;
   Result := IdsDrugList(Referred);
- end;//with pm_GetdsDrugListRef
-end;
+ end;// with pm_GetdsDrugListRef
+end;//_sdsMedicFirmDocument_.pm_GetDsDrugList
 
-function _sdsMedicFirmDocument_.DoGet_dsDrugList: IdsDrugList;
+function _sdsMedicFirmDocument_.DoGet_DsDrugList: IdsDrugList;
 //#UC START# *500D3D150007_4939633A025Darea_var*
 
  function lp_DrugList: IDynList;
@@ -141,15 +126,16 @@ begin
 //#UC START# *500D3D150007_4939633A025Darea_impl*
  Result := TdsDrugList.Make(Self, TdeList.Make(lp_DrugList));
 //#UC END# *500D3D150007_4939633A025Darea_impl*
-end;//_sdsMedicFirmDocument_.DoGet_dsDrugList
+end;//_sdsMedicFirmDocument_.DoGet_DsDrugList
 
-function _sdsMedicFirmDocument_.pm_GetdsDrugListRef: IvcmViewAreaControllerRef;
+function _sdsMedicFirmDocument_.pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
 begin
  Result := SetData.dsDrugListRef;
-end;
+end;//_sdsMedicFirmDocument_.pm_GetDsDrugListRef
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _sdsMedicFirmDocument_.DataExchange;
+ {* - вызывается после получения данных инициализации. }
 //#UC START# *47F37DF001FE_4939633A025D_var*
 //#UC END# *47F37DF001FE_4939633A025D_var*
 begin
@@ -157,7 +143,7 @@ begin
  ChangeDocument(InitialUseCaseData);
 //#UC END# *47F37DF001FE_4939633A025D_impl*
 end;//_sdsMedicFirmDocument_.DataExchange
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 procedure _sdsMedicFirmDocument_.ClearAllDS;
 //#UC START# *4925B7F00156_4939633A025D_var*
@@ -189,6 +175,7 @@ begin
 end;//_sdsMedicFirmDocument_.DoChangeDocument
 
 function _sdsMedicFirmDocument_.GetHasAttributes: Boolean;
+ {* Реализация HasAttributes }
 //#UC START# *49352CEF0222_4939633A025D_var*
 //#UC END# *49352CEF0222_4939633A025D_var*
 begin
@@ -200,15 +187,17 @@ begin
 //#UC END# *49352CEF0222_4939633A025D_impl*
 end;//_sdsMedicFirmDocument_.GetHasAttributes
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 procedure _sdsMedicFirmDocument_.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  pm_GetdsDrugListRef.Referred := nil;
  inherited;
 end;//_sdsMedicFirmDocument_.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+{$EndIf sdsMedicFirmDocument_imp_impl}
 
 {$EndIf sdsMedicFirmDocument_imp}
+

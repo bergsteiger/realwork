@@ -1,126 +1,89 @@
 unit sdsCommonDiction;
+ {* Обобщённый словарь }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "CommonDiction"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/CommonDiction/sdsCommonDiction.pas"
-// Начат: 11.12.2008 22:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Core::Common::CommonDiction::CommonDiction::TsdsCommonDiction
-//
-// Обобщённый словарь
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsCommonDiction" MUID: (4941654603E7)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  CommonDictionInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  ,
-  DocumentInterfaces,
-  BaseDocumentWithAttributesInterfaces,
-  DocumentUnit,
-  DocumentAndListInterfaces,
-  bsTypesNew
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3Interfaces,
-  l3NotifyPtrList,
-  l3IID,
-  nevTools,
-  bsTypes,
-  afwInterfaces,
-  FoldersDomainInterfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  DynamicTreeUnit,
-  QueryCardInterfaces
-  {$If defined(Nemesis)}
-  ,
-  nscNewInterfaces
-  {$IfEnd} //Nemesis
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , CommonDictionInterfaces
+ , DocumentInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , DynamicTreeUnit
+ , l3IID
+ , QueryCardInterfaces
+ , BaseDocumentWithAttributesInterfaces
+ , DocumentAndListInterfaces
+ , DocumentUnit
+ , bsTypesNew
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  _SetDataType_ = IdCommonDiction;
  _SetType_ = IsdsCommonDiction;
- {$Include ..\CommonDiction\sdsCommonDiction.imp.pas}
- TsdsCommonDiction = {ucc} class(_sdsCommonDiction_)
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
+ TsdsCommonDiction = class(_sdsCommonDiction_)
   {* Обобщённый словарь }
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function MakeData: _SetDataType_; override;
-     {* Данные сборки. }
-   {$IfEnd} //not NoVCM
+    {* Данные сборки. }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsCommonDiction
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  dsSaveLoad,
-  SysUtils
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetRefreshParams
-  {$IfEnd} //not NoVCM
-  ,
-  afwFacade,
-  l3Base,
-  dCommonDiction,
-  dsChild,
-  dsAttributes,
-  l3Types,
-  bsUtils,
-  l3Utils,
-  deDocInfo,
-  Windows
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
+ l3ImplUses
+ , dsSaveLoad
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetRefreshParams
+ {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , l3Base
+ , dCommonDiction
+ , dsChild
+ , dsAttributes
+ , l3Types
+ , bsUtils
+ , l3Utils
+ , deDocInfo
+ , Windows
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
 type _Instance_R_ = TsdsCommonDiction;
 
-{$Include ..\CommonDiction\sdsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
 
-// start class TsdsCommonDiction
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TsdsCommonDiction.MakeData: _SetDataType_;
+ {* Данные сборки. }
 //#UC START# *47F3778403D9_4941654603E7_var*
 //#UC END# *47F3778403D9_4941654603E7_var*
 begin
@@ -128,8 +91,7 @@ begin
  Result := TdCommonDiction.Make;
 //#UC END# *47F3778403D9_4941654603E7_impl*
 end;//TsdsCommonDiction.MakeData
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //not Admin AND not Monitorings
-
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 end.

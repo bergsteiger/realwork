@@ -3366,6 +3366,9 @@ uses
  , BaloonWarningUserTypes_TrialModeWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_TrialModeWarning_UserType.pas'
  , BaloonWarningUserTypes_OldBaseWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_OldBaseWarning_UserType.pas'
  , BaloonWarningUserTypes_ControlledChangingWarning_UserType in 'w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes_ControlledChangingWarning_UserType.pas'
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef in 'w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscStatusBarOperationDefsList in 'w:\common\components\gui\Garant\Nemesis\nscStatusBarOperationDefsList.pas'
  {$IfEnd} // Defined(Nemesis)
@@ -4308,9 +4311,6 @@ uses
  , nsDocumentPrintEvent in 'w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentPrintEvent.pas'
  , dsNewsLine in 'w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas'
  , dBaseDocument in 'w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.pas'
- {$If NOT Defined(NoVCM)}
- , vcmFormDataSourceRef in 'w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas'
- {$IfEnd} // NOT Defined(NoVCM)
  , PrimNewsLine_Form in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimNewsLine_Form.pas'
  , PrimeInterfaces in 'w:\garant6x\implementation\Garant\GbaNemesis\Common\PrimeInterfaces.pas'
  , nscTreeViewForNewsLine in 'w:\garant6x\implementation\Garant\GbaNemesis\View\Tree\nscTreeViewForNewsLine.pas'

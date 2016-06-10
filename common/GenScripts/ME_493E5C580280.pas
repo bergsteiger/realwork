@@ -77,15 +77,29 @@
    procedure UnLockWarning;
    function Get_CanRunBaseSearch: Boolean;
    function pm_GetDsBaloonWarning: IdsWarning;
+   function DoGet_DsBaloonWarning: IdsWarning;
    function pm_GetDsTimeMachineWarning: IdsWarning;
+   function DoGet_DsTimeMachineWarning: IdsWarning;
    function pm_GetDsTranslationWarning: IdsWarning;
+   function DoGet_DsTranslationWarning: IdsWarning;
    function pm_GetDsCRBaloonWarning: IdsWarning;
+   function DoGet_DsCRBaloonWarning: IdsWarning;
    function pm_GetDsWarning: IdsWarning;
+   function DoGet_DsWarning: IdsWarning;
    function pm_GetDsIncomingLinksToPart: IdsDocumentList;
+   function DoGet_DsIncomingLinksToPart: IdsDocumentList;
    function pm_GetDsEditions: IdsEditions;
+   function DoGet_DsEditions: IdsEditions;
    function pm_GetDsContents: IdsBaseContents;
+   function DoGet_DsContents: IdsBaseContents;
    function pm_GetDsOutgoingLinksFromPart: IdsDocumentList;
+   function DoGet_DsOutgoingLinksFromPart: IdsDocumentList;
    procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
+   function pm_GetDsWarningRef: IvcmViewAreaControllerRef;
+   function pm_GetDsIncomingLinksToPartRef: IvcmViewAreaControllerRef;
+   function pm_GetDsEditionsRef: IvcmViewAreaControllerRef;
+   function pm_GetDsOutgoingLinksFromPartRef: IvcmViewAreaControllerRef;
+   function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
@@ -102,10 +116,6 @@
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearAllDS; override;
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    procedure FillState; override;
    function DoChangeCRType(const aNode: INodeBase;
     aType: TlstCRType;
@@ -121,6 +131,10 @@
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function Generate(const aWarning: IdsWarning;
     const aGen: InevTagGenerator;
@@ -724,82 +738,259 @@ function _sdsDocument_.pm_GetDsBaloonWarning: IdsWarning;
 //#UC START# *4DA87F3D006B_493E5C580280get_var*
 //#UC END# *4DA87F3D006B_493E5C580280get_var*
 begin
-//#UC START# *4DA87F3D006B_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DA87F3D006B_493E5C580280get_impl*
+ if (f_dsBaloonWarning = nil) then
+ begin
+  f_dsBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DA87F3D006B_493E5C580280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DA87F3D006B_493E5C580280get_init*
+ end;//f_dsBaloonWarning = nil
+ if f_dsBaloonWarning.IsEmpty
+  //#UC START# *4DA87F3D006B_493E5C580280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4DA87F3D006B_493E5C580280get_need*
+  then
+   f_dsBaloonWarning.Referred := DoGet_dsBaloonWarning;
+ Result := IdsWarning(f_dsBaloonWarning.Referred);
 end;//_sdsDocument_.pm_GetDsBaloonWarning
+
+function _sdsDocument_.DoGet_DsBaloonWarning: IdsWarning;
+//#UC START# *4DA87F3D006B_493E5C580280area_var*
+//#UC END# *4DA87F3D006B_493E5C580280area_var*
+begin
+//#UC START# *4DA87F3D006B_493E5C580280area_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DA87F3D006B_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsBaloonWarning
 
 function _sdsDocument_.pm_GetDsTimeMachineWarning: IdsWarning;
 //#UC START# *4DABF91B0274_493E5C580280get_var*
 //#UC END# *4DABF91B0274_493E5C580280get_var*
 begin
-//#UC START# *4DABF91B0274_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DABF91B0274_493E5C580280get_impl*
+ if (f_dsTimeMachineWarning = nil) then
+ begin
+  f_dsTimeMachineWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4DABF91B0274_493E5C580280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4DABF91B0274_493E5C580280get_init*
+ end;//f_dsTimeMachineWarning = nil
+ if f_dsTimeMachineWarning.IsEmpty
+  //#UC START# *4DABF91B0274_493E5C580280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4DABF91B0274_493E5C580280get_need*
+  then
+   f_dsTimeMachineWarning.Referred := DoGet_dsTimeMachineWarning;
+ Result := IdsWarning(f_dsTimeMachineWarning.Referred);
 end;//_sdsDocument_.pm_GetDsTimeMachineWarning
+
+function _sdsDocument_.DoGet_DsTimeMachineWarning: IdsWarning;
+//#UC START# *4DABF91B0274_493E5C580280area_var*
+//#UC END# *4DABF91B0274_493E5C580280area_var*
+begin
+//#UC START# *4DABF91B0274_493E5C580280area_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DABF91B0274_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsTimeMachineWarning
 
 function _sdsDocument_.pm_GetDsTranslationWarning: IdsWarning;
 //#UC START# *4EDCF32E02FF_493E5C580280get_var*
 //#UC END# *4EDCF32E02FF_493E5C580280get_var*
 begin
-//#UC START# *4EDCF32E02FF_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EDCF32E02FF_493E5C580280get_impl*
+ if (f_dsTranslationWarning = nil) then
+ begin
+  f_dsTranslationWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4EDCF32E02FF_493E5C580280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4EDCF32E02FF_493E5C580280get_init*
+ end;//f_dsTranslationWarning = nil
+ if f_dsTranslationWarning.IsEmpty
+  //#UC START# *4EDCF32E02FF_493E5C580280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4EDCF32E02FF_493E5C580280get_need*
+  then
+   f_dsTranslationWarning.Referred := DoGet_dsTranslationWarning;
+ Result := IdsWarning(f_dsTranslationWarning.Referred);
 end;//_sdsDocument_.pm_GetDsTranslationWarning
+
+function _sdsDocument_.DoGet_DsTranslationWarning: IdsWarning;
+//#UC START# *4EDCF32E02FF_493E5C580280area_var*
+//#UC END# *4EDCF32E02FF_493E5C580280area_var*
+begin
+//#UC START# *4EDCF32E02FF_493E5C580280area_impl*
+ Result := TdsTranslationWarning.Make(Self);
+//#UC END# *4EDCF32E02FF_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsTranslationWarning
 
 function _sdsDocument_.pm_GetDsCRBaloonWarning: IdsWarning;
 //#UC START# *4EF486CE0310_493E5C580280get_var*
 //#UC END# *4EF486CE0310_493E5C580280get_var*
 begin
-//#UC START# *4EF486CE0310_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EF486CE0310_493E5C580280get_impl*
+ if (f_dsCRBaloonWarning = nil) then
+ begin
+  f_dsCRBaloonWarning := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4EF486CE0310_493E5C580280get_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4EF486CE0310_493E5C580280get_init*
+ end;//f_dsCRBaloonWarning = nil
+ if f_dsCRBaloonWarning.IsEmpty
+  //#UC START# *4EF486CE0310_493E5C580280get_need*
+  // - условие создания ViewArea
+  //#UC END# *4EF486CE0310_493E5C580280get_need*
+  then
+   f_dsCRBaloonWarning.Referred := DoGet_dsCRBaloonWarning;
+ Result := IdsWarning(f_dsCRBaloonWarning.Referred);
 end;//_sdsDocument_.pm_GetDsCRBaloonWarning
+
+function _sdsDocument_.DoGet_DsCRBaloonWarning: IdsWarning;
+//#UC START# *4EF486CE0310_493E5C580280area_var*
+//#UC END# *4EF486CE0310_493E5C580280area_var*
+begin
+//#UC START# *4EF486CE0310_493E5C580280area_impl*
+ Result := TdsCRWarning.Make(Self);
+//#UC END# *4EF486CE0310_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsCRBaloonWarning
 
 function _sdsDocument_.pm_GetDsWarning: IdsWarning;
 //#UC START# *500CED6C023C_493E5C580280get_var*
 //#UC END# *500CED6C023C_493E5C580280get_var*
 begin
-//#UC START# *500CED6C023C_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CED6C023C_493E5C580280get_impl*
+ with pm_GetdsWarningRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CED6C023C_493E5C580280get_need*
+     AND NeedDSWarning   
+   // - условие создания ViewArea
+  //#UC END# *500CED6C023C_493E5C580280get_need*
+   then
+    Referred := DoGet_dsWarning;
+  Result := IdsWarning(Referred);
+ end;// with pm_GetdsWarningRef
 end;//_sdsDocument_.pm_GetDsWarning
+
+function _sdsDocument_.DoGet_DsWarning: IdsWarning;
+//#UC START# *500CED6C023C_493E5C580280area_var*
+//#UC END# *500CED6C023C_493E5C580280area_var*
+begin
+//#UC START# *500CED6C023C_493E5C580280area_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *500CED6C023C_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsWarning
 
 function _sdsDocument_.pm_GetDsIncomingLinksToPart: IdsDocumentList;
 //#UC START# *500CED9B0156_493E5C580280get_var*
 //#UC END# *500CED9B0156_493E5C580280get_var*
 begin
-//#UC START# *500CED9B0156_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CED9B0156_493E5C580280get_impl*
+ with pm_GetdsIncomingLinksToPartRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CED9B0156_493E5C580280get_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND Assigned(SetData.IncomingLinksToPartList)
+   // - условие создания ViewArea
+  //#UC END# *500CED9B0156_493E5C580280get_need*
+   then
+    Referred := DoGet_dsIncomingLinksToPart;
+  Result := IdsDocumentList(Referred);
+ end;// with pm_GetdsIncomingLinksToPartRef
 end;//_sdsDocument_.pm_GetDsIncomingLinksToPart
+
+function _sdsDocument_.DoGet_DsIncomingLinksToPart: IdsDocumentList;
+//#UC START# *500CED9B0156_493E5C580280area_var*
+//#UC END# *500CED9B0156_493E5C580280area_var*
+begin
+//#UC START# *500CED9B0156_493E5C580280area_impl*
+ Result := TdsDocumentListCRToPart.Make(Self,
+                             TdeDocumentListCR.Make(SetData.IncomingLinksToPartList,
+                                            SetData.IncomingLinksToPartFilter,
+                                            crtCorrespondents));
+//#UC END# *500CED9B0156_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsIncomingLinksToPart
 
 function _sdsDocument_.pm_GetDsEditions: IdsEditions;
 //#UC START# *500CEDBC03A5_493E5C580280get_var*
 //#UC END# *500CEDBC03A5_493E5C580280get_var*
 begin
-//#UC START# *500CEDBC03A5_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CEDBC03A5_493E5C580280get_impl*
+ with pm_GetdsEditionsRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CEDBC03A5_493E5C580280get_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND HasAnyRedaction   
+   // - условие создания ViewArea
+  //#UC END# *500CEDBC03A5_493E5C580280get_need*
+   then
+    Referred := DoGet_dsEditions;
+  Result := IdsEditions(Referred);
+ end;// with pm_GetdsEditionsRef
 end;//_sdsDocument_.pm_GetDsEditions
+
+function _sdsDocument_.DoGet_DsEditions: IdsEditions;
+//#UC START# *500CEDBC03A5_493E5C580280area_var*
+//#UC END# *500CEDBC03A5_493E5C580280area_var*
+begin
+//#UC START# *500CEDBC03A5_493E5C580280area_impl*
+ Result := TdsEditions.Make(Self);
+//#UC END# *500CEDBC03A5_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsEditions
 
 function _sdsDocument_.pm_GetDsContents: IdsBaseContents;
 //#UC START# *500CEEBD01CB_493E5C580280get_var*
 //#UC END# *500CEEBD01CB_493E5C580280get_var*
 begin
-//#UC START# *500CEEBD01CB_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500CEEBD01CB_493E5C580280get_impl*
+ with pm_GetdsContentsRef do
+ begin
+  if IsEmpty
+  //#UC START# *500CEEBD01CB_493E5C580280get_need*
+     //AND (NeedMake <> vcm_nmNo)   
+   // - условие создания ViewArea
+  //#UC END# *500CEEBD01CB_493E5C580280get_need*
+   then
+    Referred := DoGet_dsContents;
+  Result := IdsBaseContents(Referred);
+ end;// with pm_GetdsContentsRef
 end;//_sdsDocument_.pm_GetDsContents
+
+function _sdsDocument_.DoGet_DsContents: IdsBaseContents;
+//#UC START# *500CEEBD01CB_493E5C580280area_var*
+//#UC END# *500CEEBD01CB_493E5C580280area_var*
+begin
+//#UC START# *500CEEBD01CB_493E5C580280area_impl*
+ if Assigned(SetData.ContentsTree) AND not SetData.ContentsTree.Empty then
+  Result := TdsContents.Make(Self, SetData.ContentsTree)
+ else
+  Result := nil;
+//#UC END# *500CEEBD01CB_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsContents
 
 function _sdsDocument_.pm_GetDsOutgoingLinksFromPart: IdsDocumentList;
 //#UC START# *5236A4FB0320_493E5C580280get_var*
 //#UC END# *5236A4FB0320_493E5C580280get_var*
 begin
-//#UC START# *5236A4FB0320_493E5C580280get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5236A4FB0320_493E5C580280get_impl*
+ with pm_GetdsOutgoingLinksFromPartRef do
+ begin
+  if IsEmpty
+  //#UC START# *5236A4FB0320_493E5C580280get_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND Assigned(SetData.OutgoingLinksFromPartList)
+  // - условие создания ViewArea
+  //#UC END# *5236A4FB0320_493E5C580280get_need*
+   then
+    Referred := DoGet_dsOutgoingLinksFromPart;
+  Result := IdsDocumentList(Referred);
+ end;// with pm_GetdsOutgoingLinksFromPartRef
 end;//_sdsDocument_.pm_GetDsOutgoingLinksFromPart
+
+function _sdsDocument_.DoGet_DsOutgoingLinksFromPart: IdsDocumentList;
+//#UC START# *5236A4FB0320_493E5C580280area_var*
+//#UC END# *5236A4FB0320_493E5C580280area_var*
+begin
+//#UC START# *5236A4FB0320_493E5C580280area_impl*
+ Result := TdsDocumentListCRToPart.Make(Self,
+                             TdeDocumentListCR.Make(SetData.OutgoingLinksFromPartList,
+                                            SetData.OutgoingLinksFromPartFilter,
+                                            crtRespondents));
+//#UC END# *5236A4FB0320_493E5C580280area_impl*
+end;//_sdsDocument_.DoGet_DsOutgoingLinksFromPart
 
 procedure _sdsDocument_.OpenSimilarDocumentsToFragment(aBlockId: Integer);
 //#UC START# *559510480014_493E5C580280_var*
@@ -813,13 +1004,39 @@ begin
 //#UC END# *559510480014_493E5C580280_impl*
 end;//_sdsDocument_.OpenSimilarDocumentsToFragment
 
+function _sdsDocument_.pm_GetDsWarningRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsWarningRef;
+end;//_sdsDocument_.pm_GetDsWarningRef
+
+function _sdsDocument_.pm_GetDsIncomingLinksToPartRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsIncomingLinksToPartRef;
+end;//_sdsDocument_.pm_GetDsIncomingLinksToPartRef
+
+function _sdsDocument_.pm_GetDsEditionsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsEditionsRef;
+end;//_sdsDocument_.pm_GetDsEditionsRef
+
+function _sdsDocument_.pm_GetDsOutgoingLinksFromPartRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsOutgoingLinksFromPartRef;
+end;//_sdsDocument_.pm_GetDsOutgoingLinksFromPartRef
+
+function _sdsDocument_.pm_GetDsContentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsContentsRef;
+end;//_sdsDocument_.pm_GetDsContentsRef
+
 procedure _sdsDocument_.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493E5C580280_var*
 //#UC END# *479731C50290_493E5C580280_var*
 begin
 //#UC START# *479731C50290_493E5C580280_impl*
- !!! Needs to be implemented !!!
+ f_ChangeWorker := nil;
+ inherited;
 //#UC END# *479731C50290_493E5C580280_impl*
 end;//_sdsDocument_.Cleanup
 
@@ -926,18 +1143,6 @@ begin
 //#UC END# *4925B9370022_493E5C580280_impl*
 end;//_sdsDocument_.DoChangeDocument
 
-{$If NOT Defined(NoVCM)}
-procedure _sdsDocument_.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_493E5C580280_var*
-//#UC END# *4938F7E702B7_493E5C580280_var*
-begin
-//#UC START# *4938F7E702B7_493E5C580280_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_493E5C580280_impl*
-end;//_sdsDocument_.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
 procedure _sdsDocument_.FillState;
 //#UC START# *493D51ED0329_493E5C580280_var*
 
@@ -1041,7 +1246,9 @@ function _sdsDocument_.DoMakeClone: IvcmFormSetDataSource;
 //#UC END# *555B0E0B0084_493E5C580280_var*
 begin
 //#UC START# *555B0E0B0084_493E5C580280_impl*
- !!! Needs to be implemented !!!
+ Result := inherited DoMakeClone;
+ if (f_ChangeWorker <> nil) then
+   (Result as IsdsDocument).ChangeRedaction(f_ChangeWorker, f_ChangeRedactionPos);
 //#UC END# *555B0E0B0084_493E5C580280_impl*
 end;//_sdsDocument_.DoMakeClone
 {$IfEnd} // NOT Defined(NoVCM)
@@ -1052,7 +1259,7 @@ function _sdsDocument_.GetDataForClone: _InitDataType_;
 //#UC END# *55C1DD070354_493E5C580280_var*
 begin
 //#UC START# *55C1DD070354_493E5C580280_impl*
- !!! Needs to be implemented !!!
+ Result := InitialUseCaseData.Clone;
 //#UC END# *55C1DD070354_493E5C580280_impl*
 end;//_sdsDocument_.GetDataForClone
 {$IfEnd} // NOT Defined(NoVCM)
@@ -1065,8 +1272,25 @@ begin
  f_dsCRBaloonWarning := nil;
  inherited;
 end;//_sdsDocument_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _sdsDocument_.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsBaloonWarning <> nil) then f_dsBaloonWarning.Referred := nil;
+ if (f_dsTimeMachineWarning <> nil) then f_dsTimeMachineWarning.Referred := nil;
+ if (f_dsTranslationWarning <> nil) then f_dsTranslationWarning.Referred := nil;
+ if (f_dsCRBaloonWarning <> nil) then f_dsCRBaloonWarning.Referred := nil;
+ pm_GetdsWarningRef.Referred := nil;
+ pm_GetdsIncomingLinksToPartRef.Referred := nil;
+ pm_GetdsEditionsRef.Referred := nil;
+ pm_GetdsContentsRef.Referred := nil;
+ pm_GetdsOutgoingLinksFromPartRef.Referred := nil;
+ inherited;
+end;//_sdsDocument_.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf sdsDocument_imp_impl}
 
 {$EndIf sdsDocument_imp}

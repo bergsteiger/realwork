@@ -367,6 +367,8 @@ const
  {* Идентификаторы настроек }
  pi_InternetAgent_Scale = gi_Internal + '/Новости онлайн/Масштаб';
   {* Идентификатор натройки "Масштаб" }
+ c_HTTP_OK: HResult = 200;
+ c_PageNotFoundError: HResult = 404;
 
 constructor TnsInternetAgentState.Create(const anURL: WideString;
  aScrollPos: Integer);

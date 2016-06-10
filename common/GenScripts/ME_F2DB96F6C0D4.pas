@@ -1,7 +1,7 @@
-unit NOT_COMPLETED_DocumentPrintAndExportFontSizeSettingRes;
+unit DocumentPrintAndExportFontSizeSettingRes;
  {* Ресурсы для настройки "Использовать для экспорта и печати следующий размер шрифта" }
 
-// Модуль: "w:\common\components\SandBox\VCM\View\Document\NOT_COMPLETED_DocumentPrintAndExportFontSizeSettingRes.pas"
+// Модуль: "w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
 // Элемент модели: "DocumentPrintAndExportFontSizeSettingRes" MUID: (F2DB96F6C0D4)
 
@@ -126,22 +126,26 @@ end;//TPrintAndExportFontSizeValuesMapImplFree
 
 class procedure PrintAndExportFontSizeValuesMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
-//#UC START# *4C25465FA194_7EA9EF3DF3F2_var*
-//#UC END# *4C25465FA194_7EA9EF3DF3F2_var*
+var
+ l_Index: PrintAndExportFontSizeEnum;
 begin
-//#UC START# *4C25465FA194_7EA9EF3DF3F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C25465FA194_7EA9EF3DF3F2_impl*
+ aStrings.Clear;
+ for l_Index := Low(l_Index) to High(l_Index) do
+  aStrings.Add(PrintAndExportFontSizeValuesMap[l_Index].AsCStr);
 end;//PrintAndExportFontSizeValuesMapHelper.FillStrings
 
 class function PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): PrintAndExportFontSizeEnum;
  {* Преобразование строкового значения к порядковому }
-//#UC START# *495A60C6598A_7EA9EF3DF3F2_var*
-//#UC END# *495A60C6598A_7EA9EF3DF3F2_var*
+var
+ l_Index: PrintAndExportFontSizeEnum;
 begin
-//#UC START# *495A60C6598A_7EA9EF3DF3F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495A60C6598A_7EA9EF3DF3F2_impl*
+ for l_Index := Low(l_Index) to High(l_Index) do
+  if l3Same(aDisplayName, PrintAndExportFontSizeValuesMap[l_Index].AsCStr) then
+  begin
+   Result := l_Index;
+   Exit;
+  end;//l3Same..
+ raise Exception.CreateFmt('Display name "%s" not found in map "PrintAndExportFontSizeValuesMap"', [l3Str(aDisplayName)]);
 end;//PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue
 
 class function TPrintAndExportFontSizeValuesMapImplPrim.Make: Il3IntegerValueMap;
@@ -158,50 +162,33 @@ begin
 end;//TPrintAndExportFontSizeValuesMapImplPrim.Make
 
 function TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID: Tl3ValueMapID;
-//#UC START# *46A5EFE602DE_2F2F16F4BFC4get_var*
-//#UC END# *46A5EFE602DE_2F2F16F4BFC4get_var*
 begin
-//#UC START# *46A5EFE602DE_2F2F16F4BFC4get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5EFE602DE_2F2F16F4BFC4get_impl*
+ l3FillChar(Result, SizeOf(Result));
+ Assert(false);
 end;//TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID
 
 procedure TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
  {* заполняет список значениями "UI-строка" }
-//#UC START# *46A5F0130365_2F2F16F4BFC4_var*
-//#UC END# *46A5F0130365_2F2F16F4BFC4_var*
 begin
-//#UC START# *46A5F0130365_2F2F16F4BFC4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F0130365_2F2F16F4BFC4_impl*
+ PrintAndExportFontSizeValuesMapHelper.FillStrings(aList);
 end;//TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames
 
 function TPrintAndExportFontSizeValuesMapImplPrim.MapSize: Integer;
  {* количество элементов в мапе. }
-//#UC START# *46A5F03800A2_2F2F16F4BFC4_var*
-//#UC END# *46A5F03800A2_2F2F16F4BFC4_var*
 begin
-//#UC START# *46A5F03800A2_2F2F16F4BFC4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5F03800A2_2F2F16F4BFC4_impl*
+ Result := Ord(High(PrintAndExportFontSizeEnum)) - Ord(Low(PrintAndExportFontSizeEnum));
 end;//TPrintAndExportFontSizeValuesMapImplPrim.MapSize
 
 function TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-//#UC START# *46A5FCF900E0_2F2F16F4BFC4_var*
-//#UC END# *46A5FCF900E0_2F2F16F4BFC4_var*
 begin
-//#UC START# *46A5FCF900E0_2F2F16F4BFC4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FCF900E0_2F2F16F4BFC4_impl*
+ Result := Ord(PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue(aDisplayName));
 end;//TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue
 
 function TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
-//#UC START# *46A5FD1B000D_2F2F16F4BFC4_var*
-//#UC END# *46A5FD1B000D_2F2F16F4BFC4_var*
 begin
-//#UC START# *46A5FD1B000D_2F2F16F4BFC4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *46A5FD1B000D_2F2F16F4BFC4_impl*
+ Assert(aValue >= Ord(Low(PrintAndExportFontSizeEnum)));
+ Assert(aValue <= Ord(High(PrintAndExportFontSizeEnum)));
+ Result := PrintAndExportFontSizeValuesMap[PrintAndExportFontSizeEnum(aValue)].AsCStr;
 end;//TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName
 
 class function TPrintAndExportFontSizeValuesMapImpl.Make: Il3IntegerValueMap;

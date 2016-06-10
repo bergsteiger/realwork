@@ -17,6 +17,8 @@
    function BaseDocumentClass: IdsBaseDocument; override;
    procedure OpenDrugList;
    function pm_GetDsDrugList: IdsDrugList;
+   function DoGet_DsDrugList: IdsDrugList;
+   function pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -82,10 +84,54 @@ function _sdsMedicFirmDocument_.pm_GetDsDrugList: IdsDrugList;
 //#UC START# *500D3D150007_4939633A025Dget_var*
 //#UC END# *500D3D150007_4939633A025Dget_var*
 begin
-//#UC START# *500D3D150007_4939633A025Dget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D3D150007_4939633A025Dget_impl*
+ with pm_GetdsDrugListRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D3D150007_4939633A025Dget_need*
+     AND (NeedMake <> vcm_nmNo)
+     AND NeedMakeDrugList   
+   // - условие создания ViewArea
+  //#UC END# *500D3D150007_4939633A025Dget_need*
+   then
+    Referred := DoGet_dsDrugList;
+  Result := IdsDrugList(Referred);
+ end;// with pm_GetdsDrugListRef
 end;//_sdsMedicFirmDocument_.pm_GetDsDrugList
+
+function _sdsMedicFirmDocument_.DoGet_DsDrugList: IdsDrugList;
+//#UC START# *500D3D150007_4939633A025Darea_var*
+
+ function lp_DrugList: IDynList;
+ var
+  l_DrugList: ICatalogBase;
+ begin
+  if (pm_GetDocInfo <> nil) and Assigned(pm_GetDocInfo.Doc) then
+   try
+    pm_GetDocInfo.Doc.GetDrugList(l_DrugList);
+   except
+    on ECanNotFindData do
+     l_DrugList := nil;
+   end//try..except
+  else
+   l_DrugList := nil;
+  try
+   Supports(l_DrugList, IDynList, Result);
+  finally
+   l_DrugList := nil;
+  end;{try..finally}
+ end;//lp_SimilarDocsList
+
+//#UC END# *500D3D150007_4939633A025Darea_var*
+begin
+//#UC START# *500D3D150007_4939633A025Darea_impl*
+ Result := TdsDrugList.Make(Self, TdeList.Make(lp_DrugList));
+//#UC END# *500D3D150007_4939633A025Darea_impl*
+end;//_sdsMedicFirmDocument_.DoGet_DsDrugList
+
+function _sdsMedicFirmDocument_.pm_GetDsDrugListRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsDrugListRef;
+end;//_sdsMedicFirmDocument_.pm_GetDsDrugListRef
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsMedicFirmDocument_.DataExchange;
@@ -144,12 +190,9 @@ end;//_sdsMedicFirmDocument_.GetHasAttributes
 {$If NOT Defined(NoVCM)}
 procedure _sdsMedicFirmDocument_.ClearAreas;
  {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4939633A025D_var*
-//#UC END# *4938F7E702B7_4939633A025D_var*
 begin
-//#UC START# *4938F7E702B7_4939633A025D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4939633A025D_impl*
+ pm_GetdsDrugListRef.Referred := nil;
+ inherited;
 end;//_sdsMedicFirmDocument_.ClearAreas
 {$IfEnd} // NOT Defined(NoVCM)
 

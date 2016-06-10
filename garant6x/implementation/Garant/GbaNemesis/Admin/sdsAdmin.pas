@@ -1,237 +1,187 @@
 unit sdsAdmin;
+ {* бизнес объект сборки администратор пользователей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Admin"
-// Автор: Тучнин Д.А.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Admin/sdsAdmin.pas"
-// Начат: 15.08.2005 20.00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UseCaseControllerImp::Class>> F1 Администратор::Admin::Admin::Admin::TsdsAdmin
-//
-// бизнес объект сборки администратор пользователей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas"
+// Стереотип: "UseCaseControllerImp"
+// Элемент модели: "TsdsAdmin" MUID: (493126130280)
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  DynamicTreeUnit,
-  SecurityUnit,
-  l3Interfaces,
-  l3TreeInterfaces,
-  AdminInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmControllers
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3ProtoObjectWithCOMQI,
-  l3NotifyPtrList
-  ;
-{$IfEnd} //Admin
+ l3IntfUses
+ , AdminInterfaces
+ , l3Interfaces
+ , DynamicTreeUnit
+ , SecurityUnit
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3NotifyPtrList
+;
 
-{$If defined(Admin)}
 type
  _InitDataType_ = IdeAdmin;
  _SetType_ = IsdsAdmin;
  {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
- TsdsAdmin = {ucc} class(_vcmFormSetDataSourceWithoutData_, IsdsAdmin)
+ TsdsAdmin = class(_vcmFormSetDataSourceWithoutData_, IsdsAdmin)
   {* бизнес объект сборки администратор пользователей }
- private
- // private fields
-   f_CurrentGroupID : Integer;
-    {* Текущая группа}
-   f_Profile : IdeProfile;
-   f_dsUserList : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsUserList}
-   f_dsAdmin : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsAdmin}
-   f_dsUserProperty : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsUserProperty}
-   f_dsGroupsList : IvcmViewAreaControllerRef;
-    {* Поле для области вывода dsGroupsList}
- private
- // private methods
+  private
+   f_CurrentGroupID: Integer;
+    {* Текущая группа }
+   f_Profile: IdeProfile;
+   f_dsUserList: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsUserList }
+   f_dsAdmin: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsAdmin }
+   f_dsUserProperty: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsUserProperty }
+   f_dsGroupsList: IvcmViewAreaControllerRef;
+    {* Поле для области вывода dsGroupsList }
+  private
    function ChangeBaseAccess: Boolean;
    function GetUID(const aNode: Il3SimpleNode): Integer;
    procedure PrepareBasesTree(const aList: INodeIdList);
    function FindNode(anID: TNodeId): INodeBase;
    function EncodeUIDList(const aList: IadminUserNodeList): IUidList;
-     {* В поданном списке лежат ноды, возвращается список их UID }
+    {* В поданном списке лежат ноды, возвращается список их UID }
    function DecodeUIDList(const aUserTree: Il3SimpleTree;
     const aList: IUidList): IadminUserNodeList;
-     {* В поданном списке лежат UID, возвращается список соответствующих нод }
+    {* В поданном списке лежат UID, возвращается список соответствующих нод }
    function EditGroupName(const aNode: Il3SimpleNode;
     out aName: Il3CString): Boolean;
-     {* Отредактировать имя группы }
- protected
- // property methods
+    {* Отредактировать имя группы }
+  protected
    function pm_GetInternalUserList: IdsUserList;
    function pm_GetInternalUserProperty: IdsUserProperty;
    function pm_GetBaseAccessRootTag: Il3CString;
    function pm_GetBaseAccessRoot: INodeBase;
- protected
- // realized methods
    procedure ChangeUser(const aProfile: IdeProfile);
    procedure DeleteUser(const aNode: Il3SimpleNode;
     out aFailed: Boolean);
    procedure DeleteUsers(const aUserTree: Il3SimpleTree;
     const anList: IadminUserNodeList;
     out aFailed: IadminUserNodeList);
-     {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
+    {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
    procedure SetConsultingPaymentForAll(IsAllowed: Boolean);
    procedure SetConsultingPayment(const anList: IadminUserNodeList;
     IsAllowed: Boolean);
-     {* Изменить возможность консалтинга для выделенных на дереве пользователей }
-   procedure LogoutUser(const aNode: Il3SimpleNode); // can raise ETryLogoutCurrentUser
-   procedure LogoutUsers(const anList: IadminUserNodeList); // can raise ETryLogoutCurrentUser
-     {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
+    {* Изменить возможность консалтинга для выделенных на дереве пользователей }
+   procedure LogoutUser(const aNode: Il3SimpleNode); { can raise ETryLogoutCurrentUser }
+   procedure LogoutUsers(const anList: IadminUserNodeList); { can raise ETryLogoutCurrentUser }
+    {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
    procedure SetIsPrivileged(const aNode: Il3SimpleNode;
     IsPrivileged: Boolean);
    procedure SetPrivelegedRights(const anList: IadminUserNodeList;
     IsPrivileged: Boolean);
-     {* Изменить привилегированность для выделенных на дереве пользователей }
+    {* Изменить привилегированность для выделенных на дереве пользователей }
    function pm_GetConsultingPaymentForNewbies: Boolean;
    procedure pm_SetConsultingPaymentForNewbies(aValue: Boolean);
    function pm_GetDsUserList: IdsUserList;
-   function DoGet_dsUserList: IdsUserList;
+   function DoGet_DsUserList: IdsUserList;
    function pm_GetDsAdmin: IdsAdmin;
-   function DoGet_dsAdmin: IdsAdmin;
+   function DoGet_DsAdmin: IdsAdmin;
    function pm_GetDsUserProperty: IdsUserProperty;
-   function DoGet_dsUserProperty: IdsUserProperty;
+   function DoGet_DsUserProperty: IdsUserProperty;
    function pm_GetDsGroupsList: IdsGroupsList;
-   function DoGet_dsGroupsList: IdsGroupsList;
-   function ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean; overload; 
-     {* Изменить доступ для групп }
+   function DoGet_DsGroupsList: IdsGroupsList;
+   function ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean; overload;
+    {* Изменить доступ для групп }
    procedure DeleteGroup(const aNode: Il3SimpleNode);
-     {* Удалить группу }
+    {* Удалить группу }
    procedure CreateNewGroup;
-     {* Создать группу }
-   function ChangeBaseAccessForGroup(anUID: Integer): Boolean; overload; 
+    {* Создать группу }
+   function ChangeBaseAccessForGroup(anUID: Integer): Boolean; overload;
    procedure ChangeGroup(const aNode: Il3SimpleNode);
-     {* Поменялась группа }
+    {* Поменялась группа }
    function Get_CurrentGroupUID: Integer;
    procedure RenameGroup(const aNode: Il3SimpleNode);
-     {* переименовать группу }
+    {* переименовать группу }
    procedure CreateUserFinished(Successfull: Boolean);
-     {* Нотификация об убиении пользователя }
+    {* Нотификация об убиении пользователя }
    procedure CheckUnsavedUserProperty;
-     {* Если свойства не сохранены - спросить об этом }
+    {* Если свойства не сохранены - спросить об этом }
    procedure RequestUpdateCurrent;
    procedure SetDontDeleteIdle(const aNode: Il3SimpleNode;
     aValue: Boolean);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
-   {$If not defined(NoVCM)}
+   procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
    procedure ClearAreas; override;
-     {* Очищает ссылки на области ввода }
-   {$IfEnd} //not NoVCM
- private
- // private properties
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
+  private
    property BaseAccessRootTag: Il3CString
-     read pm_GetBaseAccessRootTag;
+    read pm_GetBaseAccessRootTag;
    property BaseAccessRoot: INodeBase
-     read pm_GetBaseAccessRoot;
- public
- // public properties
+    read pm_GetBaseAccessRoot;
+  public
    property InternalUserList: IdsUserList
-     read pm_GetInternalUserList;
-     {* Ссылка на собственный ds }
+    read pm_GetInternalUserList;
+    {* Ссылка на собственный ds }
    property InternalUserProperty: IdsUserProperty
-     read pm_GetInternalUserProperty;
+    read pm_GetInternalUserProperty;
  end;//TsdsAdmin
-{$IfEnd} //Admin
+{$IfEnd} // Defined(Admin)
 
 implementation
 
-{$If defined(Admin)}
+{$If Defined(Admin)}
 uses
-  deSearch,
-  dsBasesAccess,
-  dsUserList,
-  dsUserProperty,
-  dsAdmin,
-  SysUtils,
-  DataAdapter,
-  nsAttributeTreeCacheNew,
-  nsConst,
-  nsTypes
-  {$If not defined(NoVCM)}
-  ,
-  vcmFormSetRefreshParams
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmBase
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  StdRes
-  {$IfEnd} //not NoVCM
-  ,
-  nsLogicOperationToFlags,
-  l3Nodes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  SearchDomainInterfaces,
-  dsGroupsList,
-  bsEditGroupName,
-  l3Base,
-  adminUserNodeList
-  {$If not defined(NoVCM)}
-  ,
-  vcmLocalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  vcmFormDataSourceRef {a}
-  ;
-{$IfEnd} //Admin
+ l3ImplUses
+ , dsUserList
+ , dsUserProperty
+ , dsAdmin
+ , SysUtils
+ , DataAdapter
+ , nsAttributeTreeCacheNew
+ , nsConst
+ , nsTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmFormSetRefreshParams
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogicOperationToFlags
+ , l3Nodes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SearchDomainInterfaces
+ , dsGroupsList
+ , bsEditGroupName
+ , l3Base
+ , adminUserNodeList
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , deSearch
+ , dsBasesAccess
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If defined(Admin)}
-
+{$If NOT Defined(NoVCM)}
 type _Instance_R_ = TsdsAdmin;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
-
-// start class TsdsAdmin
-
-function TsdsAdmin.ChangeBaseAccess: Boolean;
-//#UC START# *4AAF58000352_493126130280_var*
-//#UC END# *4AAF58000352_493126130280_var*
-begin
-//#UC START# *4AAF58000352_493126130280_impl*
- Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
-                                       TdsBasesAccess.Make(nil,
-                                                           TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
-//#UC END# *4AAF58000352_493126130280_impl*
-end;//TsdsAdmin.ChangeBaseAccess
 
 function TsdsAdmin.pm_GetInternalUserList: IdsUserList;
 //#UC START# *49F0282D02AA_493126130280get_var*
@@ -268,6 +218,17 @@ begin
  Result := TnsAttributeTreeCacheNew.Instance.AttributeRoot[BaseAccessRootTag];
 //#UC END# *4931297703B0_493126130280get_impl*
 end;//TsdsAdmin.pm_GetBaseAccessRoot
+
+function TsdsAdmin.ChangeBaseAccess: Boolean;
+//#UC START# *4AAF58000352_493126130280_var*
+//#UC END# *4AAF58000352_493126130280_var*
+begin
+//#UC START# *4AAF58000352_493126130280_impl*
+ Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
+                                       TdsBasesAccess.Make(nil,
+                                                           TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
+//#UC END# *4AAF58000352_493126130280_impl*
+end;//TsdsAdmin.ChangeBaseAccess
 
 function TsdsAdmin.GetUID(const aNode: Il3SimpleNode): Integer;
 //#UC START# *4931291701BD_493126130280_var*
@@ -327,6 +288,7 @@ begin
 end;//TsdsAdmin.FindNode
 
 function TsdsAdmin.EncodeUIDList(const aList: IadminUserNodeList): IUidList;
+ {* В поданном списке лежат ноды, возвращается список их UID }
 //#UC START# *49339DC90212_493126130280_var*
 var
  l_IDX: Integer;
@@ -341,7 +303,8 @@ begin
 end;//TsdsAdmin.EncodeUIDList
 
 function TsdsAdmin.DecodeUIDList(const aUserTree: Il3SimpleTree;
-  const aList: IUidList): IadminUserNodeList;
+ const aList: IUidList): IadminUserNodeList;
+ {* В поданном списке лежат UID, возвращается список соответствующих нод }
 //#UC START# *49339DFE00BD_493126130280_var*
 var
  l_ResultList: TadminUserNodeList;
@@ -390,7 +353,8 @@ begin
 end;//TsdsAdmin.DecodeUIDList
 
 function TsdsAdmin.EditGroupName(const aNode: Il3SimpleNode;
-  out aName: Il3CString): Boolean;
+ out aName: Il3CString): Boolean;
+ {* Отредактировать имя группы }
 //#UC START# *49EEEB1D0215_493126130280_var*
 var
  l_Data : IbsEditGroupName;
@@ -421,7 +385,7 @@ begin
 end;//TsdsAdmin.ChangeUser
 
 procedure TsdsAdmin.DeleteUser(const aNode: Il3SimpleNode;
-  out aFailed: Boolean);
+ out aFailed: Boolean);
 //#UC START# *4931222C03DE_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -449,8 +413,9 @@ begin
 end;//TsdsAdmin.DeleteUser
 
 procedure TsdsAdmin.DeleteUsers(const aUserTree: Il3SimpleTree;
-  const anList: IadminUserNodeList;
-  out aFailed: IadminUserNodeList);
+ const anList: IadminUserNodeList;
+ out aFailed: IadminUserNodeList);
+ {* Удалить выделенных на дереве пользователей, вернуть список нод которые не удалось удалить }
 //#UC START# *493122380020_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -485,7 +450,8 @@ begin
 end;//TsdsAdmin.SetConsultingPaymentForAll
 
 procedure TsdsAdmin.SetConsultingPayment(const anList: IadminUserNodeList;
-  IsAllowed: Boolean);
+ IsAllowed: Boolean);
+ {* Изменить возможность консалтинга для выделенных на дереве пользователей }
 //#UC START# *4931226101A3_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -501,7 +467,7 @@ begin
 //#UC END# *4931226101A3_493126130280_impl*
 end;//TsdsAdmin.SetConsultingPayment
 
-procedure TsdsAdmin.LogoutUser(const aNode: Il3SimpleNode); // can raise ETryLogoutCurrentUser
+procedure TsdsAdmin.LogoutUser(const aNode: Il3SimpleNode); { can raise ETryLogoutCurrentUser }
 //#UC START# *493122770111_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -526,7 +492,8 @@ begin
 //#UC END# *493122770111_493126130280_impl*
 end;//TsdsAdmin.LogoutUser
 
-procedure TsdsAdmin.LogoutUsers(const anList: IadminUserNodeList); // can raise ETryLogoutCurrentUser
+procedure TsdsAdmin.LogoutUsers(const anList: IadminUserNodeList); { can raise ETryLogoutCurrentUser }
+ {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
 //#UC START# *4931229500C5_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -561,7 +528,7 @@ begin
 end;//TsdsAdmin.LogoutUsers
 
 procedure TsdsAdmin.SetIsPrivileged(const aNode: Il3SimpleNode;
-  IsPrivileged: Boolean);
+ IsPrivileged: Boolean);
 //#UC START# *493122D301EB_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -578,7 +545,8 @@ begin
 end;//TsdsAdmin.SetIsPrivileged
 
 procedure TsdsAdmin.SetPrivelegedRights(const anList: IadminUserNodeList;
-  IsPrivileged: Boolean);
+ IsPrivileged: Boolean);
+ {* Изменить привилегированность для выделенных на дереве пользователей }
 //#UC START# *493122E402DC_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -644,16 +612,16 @@ begin
   then
    f_dsUserList.Referred := DoGet_dsUserList;
  Result := IdsUserList(f_dsUserList.Referred);
-end;
+end;//TsdsAdmin.pm_GetDsUserList
 
-function TsdsAdmin.DoGet_dsUserList: IdsUserList;
+function TsdsAdmin.DoGet_DsUserList: IdsUserList;
 //#UC START# *4933A3DE0399_493126130280area_var*
 //#UC END# *4933A3DE0399_493126130280area_var*
 begin
 //#UC START# *4933A3DE0399_493126130280area_impl*
  Result := TdsUserList.Make(Self, InitialUseCaseData.Users);
 //#UC END# *4933A3DE0399_493126130280area_impl*
-end;//TsdsAdmin.DoGet_dsUserList
+end;//TsdsAdmin.DoGet_DsUserList
 
 function TsdsAdmin.pm_GetDsAdmin: IdsAdmin;
 //#UC START# *4933A42A000B_493126130280get_var*
@@ -673,16 +641,16 @@ begin
   then
    f_dsAdmin.Referred := DoGet_dsAdmin;
  Result := IdsAdmin(f_dsAdmin.Referred);
-end;
+end;//TsdsAdmin.pm_GetDsAdmin
 
-function TsdsAdmin.DoGet_dsAdmin: IdsAdmin;
+function TsdsAdmin.DoGet_DsAdmin: IdsAdmin;
 //#UC START# *4933A42A000B_493126130280area_var*
 //#UC END# *4933A42A000B_493126130280area_var*
 begin
 //#UC START# *4933A42A000B_493126130280area_impl*
  Result := TdsAdmin.Make(Self);
 //#UC END# *4933A42A000B_493126130280area_impl*
-end;//TsdsAdmin.DoGet_dsAdmin
+end;//TsdsAdmin.DoGet_DsAdmin
 
 function TsdsAdmin.pm_GetDsUserProperty: IdsUserProperty;
 //#UC START# *4933A4B2026A_493126130280get_var*
@@ -702,16 +670,16 @@ begin
   then
    f_dsUserProperty.Referred := DoGet_dsUserProperty;
  Result := IdsUserProperty(f_dsUserProperty.Referred);
-end;
+end;//TsdsAdmin.pm_GetDsUserProperty
 
-function TsdsAdmin.DoGet_dsUserProperty: IdsUserProperty;
+function TsdsAdmin.DoGet_DsUserProperty: IdsUserProperty;
 //#UC START# *4933A4B2026A_493126130280area_var*
 //#UC END# *4933A4B2026A_493126130280area_var*
 begin
 //#UC START# *4933A4B2026A_493126130280area_impl*
  Result := TdsUserProperty.Make(Self, f_Profile);
 //#UC END# *4933A4B2026A_493126130280area_impl*
-end;//TsdsAdmin.DoGet_dsUserProperty
+end;//TsdsAdmin.DoGet_DsUserProperty
 
 function TsdsAdmin.pm_GetDsGroupsList: IdsGroupsList;
 //#UC START# *49EC52D1019D_493126130280get_var*
@@ -731,18 +699,19 @@ begin
   then
    f_dsGroupsList.Referred := DoGet_dsGroupsList;
  Result := IdsGroupsList(f_dsGroupsList.Referred);
-end;
+end;//TsdsAdmin.pm_GetDsGroupsList
 
-function TsdsAdmin.DoGet_dsGroupsList: IdsGroupsList;
+function TsdsAdmin.DoGet_DsGroupsList: IdsGroupsList;
 //#UC START# *49EC52D1019D_493126130280area_var*
 //#UC END# *49EC52D1019D_493126130280area_var*
 begin
 //#UC START# *49EC52D1019D_493126130280area_impl*
  Result := TdsGroupsList.Make(Self, InitialUseCaseData.Groups);
 //#UC END# *49EC52D1019D_493126130280area_impl*
-end;//TsdsAdmin.DoGet_dsGroupsList
+end;//TsdsAdmin.DoGet_DsGroupsList
 
 function TsdsAdmin.ChangeBaseAccessForGroup(const aNode: Il3SimpleNode): Boolean;
+ {* Изменить доступ для групп }
 //#UC START# *49EC53DA01C9_493126130280_var*
 var
  l_UID: LongInt;
@@ -758,6 +727,7 @@ begin
 end;//TsdsAdmin.ChangeBaseAccessForGroup
 
 procedure TsdsAdmin.DeleteGroup(const aNode: Il3SimpleNode);
+ {* Удалить группу }
 //#UC START# *49EC53FE0039_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -779,6 +749,7 @@ begin
 end;//TsdsAdmin.DeleteGroup
 
 procedure TsdsAdmin.CreateNewGroup;
+ {* Создать группу }
 //#UC START# *49EC5423006B_493126130280_var*
 var
  l_Name: Il3CString;
@@ -830,6 +801,7 @@ begin
 end;//TsdsAdmin.ChangeBaseAccessForGroup
 
 procedure TsdsAdmin.ChangeGroup(const aNode: Il3SimpleNode);
+ {* Поменялась группа }
 //#UC START# *49EEDC8F02C1_493126130280_var*
 //#UC END# *49EEDC8F02C1_493126130280_var*
 begin
@@ -852,6 +824,7 @@ begin
 end;//TsdsAdmin.Get_CurrentGroupUID
 
 procedure TsdsAdmin.RenameGroup(const aNode: Il3SimpleNode);
+ {* переименовать группу }
 //#UC START# *49EEEBD40313_493126130280_var*
 var
  l_Name: Il3CString;
@@ -879,6 +852,7 @@ begin
 end;//TsdsAdmin.RenameGroup
 
 procedure TsdsAdmin.CreateUserFinished(Successfull: Boolean);
+ {* Нотификация об убиении пользователя }
 //#UC START# *49F021CE03E6_493126130280_var*
 //#UC END# *49F021CE03E6_493126130280_var*
 begin
@@ -888,6 +862,7 @@ begin
 end;//TsdsAdmin.CreateUserFinished
 
 procedure TsdsAdmin.CheckUnsavedUserProperty;
+ {* Если свойства не сохранены - спросить об этом }
 //#UC START# *49F6DB7B0165_493126130280_var*
 //#UC END# *49F6DB7B0165_493126130280_var*
 begin
@@ -906,7 +881,7 @@ begin
 end;//TsdsAdmin.RequestUpdateCurrent
 
 procedure TsdsAdmin.SetDontDeleteIdle(const aNode: Il3SimpleNode;
-  aValue: Boolean);
+ aValue: Boolean);
 //#UC START# *4F3BE8370292_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -923,6 +898,7 @@ begin
 end;//TsdsAdmin.SetDontDeleteIdle
 
 procedure TsdsAdmin.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_493126130280_var*
 //#UC END# *479731C50290_493126130280_var*
 begin
@@ -942,9 +918,17 @@ begin
 //#UC END# *47A042E100E2_493126130280_impl*
 end;//TsdsAdmin.InitFields
 
-{$If not defined(NoVCM)}
+procedure TsdsAdmin.ClearFields;
+begin
+ f_dsUserList := nil;
+ f_dsAdmin := nil;
+ f_dsUserProperty := nil;
+ f_dsGroupsList := nil;
+ inherited;
+end;//TsdsAdmin.ClearFields
+
 procedure TsdsAdmin.ClearAreas;
- {-}
+ {* Очищает ссылки на области ввода }
 begin
  if (f_dsUserList <> nil) then f_dsUserList.Referred := nil;
  if (f_dsAdmin <> nil) then f_dsAdmin.Referred := nil;
@@ -952,8 +936,7 @@ begin
  if (f_dsGroupsList <> nil) then f_dsGroupsList.Referred := nil;
  inherited;
 end;//TsdsAdmin.ClearAreas
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Admin
-
+{$IfEnd} // Defined(Admin)
 end.

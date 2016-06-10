@@ -27,8 +27,12 @@
    procedure Set_CurrentNode(const aValue: INodeBase);
    function Get_DeCommonDiction: IdeCommonDiction;
    function pm_GetDsSaveLoad: IdsSaveLoad;
+   function DoGet_DsSaveLoad: IdsSaveLoad;
    function pm_GetDsChild: IdsChild;
+   function DoGet_DsChild: IdsChild;
    function pm_GetDsContents: IdsCommonDiction;
+   function DoGet_DsContents: IdsCommonDiction;
+   function pm_GetDsContentsRef: IvcmViewAreaControllerRef;
    {$If NOT Defined(NoVCM)}
    procedure DataExchange; override;
     {* - вызывается после получения данных инициализации. }
@@ -36,10 +40,6 @@
    function DoChangeDocument(const aDoc: IdeDocInfo): Boolean; override;
    function GetHasAttributes: Boolean; override;
     {* Реализация HasAttributes }
-   {$If NOT Defined(NoVCM)}
-   procedure ClearAreas; override;
-    {* Очищает ссылки на области ввода }
-   {$IfEnd} // NOT Defined(NoVCM)
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
@@ -47,6 +47,10 @@
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure ClearFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure ClearAreas; override;
+    {* Очищает ссылки на области ввода }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_sdsCommonDiction_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -113,28 +117,89 @@ function _sdsCommonDiction_.pm_GetDsSaveLoad: IdsSaveLoad;
 //#UC START# *4D78AFC702D5_4936B666032Aget_var*
 //#UC END# *4D78AFC702D5_4936B666032Aget_var*
 begin
-//#UC START# *4D78AFC702D5_4936B666032Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D78AFC702D5_4936B666032Aget_impl*
+ if (f_dsSaveLoad = nil) then
+ begin
+  f_dsSaveLoad := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4D78AFC702D5_4936B666032Aget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4D78AFC702D5_4936B666032Aget_init*
+ end;//f_dsSaveLoad = nil
+ if f_dsSaveLoad.IsEmpty
+  //#UC START# *4D78AFC702D5_4936B666032Aget_need*
+  // - условие создания ViewArea
+  //#UC END# *4D78AFC702D5_4936B666032Aget_need*
+  then
+   f_dsSaveLoad.Referred := DoGet_dsSaveLoad;
+ Result := IdsSaveLoad(f_dsSaveLoad.Referred);
 end;//_sdsCommonDiction_.pm_GetDsSaveLoad
+
+function _sdsCommonDiction_.DoGet_DsSaveLoad: IdsSaveLoad;
+//#UC START# *4D78AFC702D5_4936B666032Aarea_var*
+//#UC END# *4D78AFC702D5_4936B666032Aarea_var*
+begin
+//#UC START# *4D78AFC702D5_4936B666032Aarea_impl*
+ Result := TdsSaveLoad.Make(Self);
+//#UC END# *4D78AFC702D5_4936B666032Aarea_impl*
+end;//_sdsCommonDiction_.DoGet_DsSaveLoad
 
 function _sdsCommonDiction_.pm_GetDsChild: IdsChild;
 //#UC START# *4D7A7A9D016D_4936B666032Aget_var*
 //#UC END# *4D7A7A9D016D_4936B666032Aget_var*
 begin
-//#UC START# *4D7A7A9D016D_4936B666032Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D7A7A9D016D_4936B666032Aget_impl*
+ if (f_dsChild = nil) then
+ begin
+  f_dsChild := TvcmViewAreaControllerRef.Make;
+  //#UC START# *4D7A7A9D016D_4936B666032Aget_init*
+  // - код инициализации ссылки на ViewArea
+  //#UC END# *4D7A7A9D016D_4936B666032Aget_init*
+ end;//f_dsChild = nil
+ if f_dsChild.IsEmpty
+  //#UC START# *4D7A7A9D016D_4936B666032Aget_need*
+  // - условие создания ViewArea
+  //#UC END# *4D7A7A9D016D_4936B666032Aget_need*
+  then
+   f_dsChild.Referred := DoGet_dsChild;
+ Result := IdsChild(f_dsChild.Referred);
 end;//_sdsCommonDiction_.pm_GetDsChild
+
+function _sdsCommonDiction_.DoGet_DsChild: IdsChild;
+//#UC START# *4D7A7A9D016D_4936B666032Aarea_var*
+//#UC END# *4D7A7A9D016D_4936B666032Aarea_var*
+begin
+//#UC START# *4D7A7A9D016D_4936B666032Aarea_impl*
+ Result := TdsChild.Make(Self);
+//#UC END# *4D7A7A9D016D_4936B666032Aarea_impl*
+end;//_sdsCommonDiction_.DoGet_DsChild
 
 function _sdsCommonDiction_.pm_GetDsContents: IdsCommonDiction;
 //#UC START# *500D34960277_4936B666032Aget_var*
 //#UC END# *500D34960277_4936B666032Aget_var*
 begin
-//#UC START# *500D34960277_4936B666032Aget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *500D34960277_4936B666032Aget_impl*
+ with pm_GetdsContentsRef do
+ begin
+  if IsEmpty
+  //#UC START# *500D34960277_4936B666032Aget_need*
+   // - условие создания ViewArea
+  //#UC END# *500D34960277_4936B666032Aget_need*
+   then
+    Referred := DoGet_dsContents;
+  Result := IdsCommonDiction(Referred);
+ end;// with pm_GetdsContentsRef
 end;//_sdsCommonDiction_.pm_GetDsContents
+
+function _sdsCommonDiction_.DoGet_DsContents: IdsCommonDiction;
+//#UC START# *500D34960277_4936B666032Aarea_var*
+//#UC END# *500D34960277_4936B666032Aarea_var*
+begin
+//#UC START# *500D34960277_4936B666032Aarea_impl*
+ Result := MakeContents;
+//#UC END# *500D34960277_4936B666032Aarea_impl*
+end;//_sdsCommonDiction_.DoGet_DsContents
+
+function _sdsCommonDiction_.pm_GetDsContentsRef: IvcmViewAreaControllerRef;
+begin
+ Result := SetData.dsContentsRef;
+end;//_sdsCommonDiction_.pm_GetDsContentsRef
 
 {$If NOT Defined(NoVCM)}
 procedure _sdsCommonDiction_.DataExchange;
@@ -194,18 +259,6 @@ begin
 //#UC END# *49352CEF0222_4936B666032A_impl*
 end;//_sdsCommonDiction_.GetHasAttributes
 
-{$If NOT Defined(NoVCM)}
-procedure _sdsCommonDiction_.ClearAreas;
- {* Очищает ссылки на области ввода }
-//#UC START# *4938F7E702B7_4936B666032A_var*
-//#UC END# *4938F7E702B7_4936B666032A_var*
-begin
-//#UC START# *4938F7E702B7_4936B666032A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4938F7E702B7_4936B666032A_impl*
-end;//_sdsCommonDiction_.ClearAreas
-{$IfEnd} // NOT Defined(NoVCM)
-
 function _sdsCommonDiction_.COMQueryInterface(const IID: Tl3GUID;
  out Obj): Tl3HResult;
  {* Реализация запроса интерфейса }
@@ -251,8 +304,19 @@ begin
  f_dsChild := nil;
  inherited;
 end;//_sdsCommonDiction_.ClearFields
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
+{$If NOT Defined(NoVCM)}
+procedure _sdsCommonDiction_.ClearAreas;
+ {* Очищает ссылки на области ввода }
+begin
+ if (f_dsSaveLoad <> nil) then f_dsSaveLoad.Referred := nil;
+ if (f_dsChild <> nil) then f_dsChild.Referred := nil;
+ pm_GetdsContentsRef.Referred := nil;
+ inherited;
+end;//_sdsCommonDiction_.ClearAreas
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 {$EndIf sdsCommonDiction_imp_impl}
 
 {$EndIf sdsCommonDiction_imp}

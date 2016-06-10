@@ -69,6 +69,8 @@ type
    {$If Defined(UsePostgres)}
    procedure Set_DataServerPort(aValue: Integer);
    {$IfEnd} // Defined(UsePostgres)
+   function Get_DocImageCachePath: AnsiString;
+   procedure Set_DocImageCachePath(const aValue: AnsiString);
   public
    class function Make: IdaParamsStorage; reintroduce;
  end;//TncsClientParamsStorage
@@ -451,5 +453,33 @@ begin
 end;//TncsClientParamsStorage.Set_DataServerPort
 {$IfEnd} // Defined(UsePostgres)
 
+function TncsClientParamsStorage.Get_DocImageCachePath: AnsiString;
+//#UC START# *5756BD40014A_5507E6CB0165get_var*
+var
+ l_Path: AnsiString;
+//#UC END# *5756BD40014A_5507E6CB0165get_var*
+begin
+//#UC START# *5756BD40014A_5507E6CB0165get_impl*
+ Result := '';
+ ServerConfig.Section:= BaseSection;
+ if ServerConfig.ReadParamString('ImageCachePath', l_Path) then
+ begin
+  if not l3CheckPath(l_Path, True, False) then
+   l_Path:= '';
+  Result := NormalizedPath(l_Path);
+ end;
+//#UC END# *5756BD40014A_5507E6CB0165get_impl*
+end;//TncsClientParamsStorage.Get_DocImageCachePath
+
+procedure TncsClientParamsStorage.Set_DocImageCachePath(const aValue: AnsiString);
+//#UC START# *5756BD40014A_5507E6CB0165set_var*
+//#UC END# *5756BD40014A_5507E6CB0165set_var*
+begin
+//#UC START# *5756BD40014A_5507E6CB0165set_impl*
+ ServerConfig.Section:= BaseSection;
+ ServerConfig.WriteParamStr('ImageCachePath', aValue);
+//#UC END# *5756BD40014A_5507E6CB0165set_impl*
+end;//TncsClientParamsStorage.Set_DocImageCachePath
 {$IfEnd} // NOT Defined(Nemesis)
+
 end.

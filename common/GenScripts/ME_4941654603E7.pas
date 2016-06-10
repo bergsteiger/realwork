@@ -72,6 +72,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type _Instance_R_ = TsdsCommonDiction;

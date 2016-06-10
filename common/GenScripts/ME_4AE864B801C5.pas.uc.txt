@@ -477,11 +477,7 @@ const
  function lp_GetListOpenFrom: TbsListOpenFrom;
  begin
   case aQuery.GetType of
-   QT_BASE_SEARCH:
-    if Assigned(aList) then
-     Result := lofBaseSearchEx
-    else
-     Result := lofBaseSearch;
+   QT_BASE_SEARCH: Result := lofBaseSearch;
    QT_ATTRIBUTE: Result := lofAttributeSearch;
   else
    Result := lofNone;
