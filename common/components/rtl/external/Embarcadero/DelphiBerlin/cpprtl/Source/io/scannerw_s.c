@@ -1,0 +1,18 @@
+/*-----------------------------------------------------------------------*
+ * filename - scannerw_s.c
+ *
+ *-----------------------------------------------------------------------*/
+
+/*
+ *      C/C++ Run Time Library - Version 24.0
+ *
+ *      Copyright (c) 2009, 2016 by Embarcadero Technologies, Inc.
+ *      All Rights Reserved.
+ *
+ */
+
+/* $Revision: 23293 $        */
+
+#define _SECURE
+#define _UNICODE
+#include "scanner_s.c"

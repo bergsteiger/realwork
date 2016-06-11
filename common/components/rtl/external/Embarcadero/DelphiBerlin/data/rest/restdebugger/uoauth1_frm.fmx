@@ -1,0 +1,270 @@
+object frm_OAuth1: Tfrm_OAuth1
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'OAuth1 - Assistant'
+  ClientHeight = 588
+  ClientWidth = 623
+  Position = poMainFormCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [dkDesktop, dkiPhone, dkiPad]
+  OnCreate = FormCreate
+  DesignerMobile = False
+  DesignerWidth = 0
+  DesignerHeight = 0
+  DesignerDeviceName = ''
+  DesignerOrientation = 0
+  object btn_Cancel: TButton
+    Anchors = [akRight, akBottom]
+    Height = 22.000000000000000000
+    Position.X = 528.000000000000000000
+    Position.Y = 551.000000000000000000
+    TabOrder = 6
+    Text = 'Cancel'
+    Width = 80.000000000000000000
+    OnClick = btn_CancelClick
+  end
+  object btn_Apply: TButton
+    Anchors = [akRight, akBottom]
+    Height = 22.000000000000000000
+    Position.X = 440.000000000000000000
+    Position.Y = 551.000000000000000000
+    TabOrder = 5
+    Text = 'Apply'
+    Width = 80.000000000000000000
+    OnClick = btn_ApplyClick
+  end
+  object gb_Endpoints: TGroupBox
+    Height = 232.000000000000000000
+    Position.X = 16.000000000000000000
+    Position.Y = 24.000000000000000000
+    Text = 'Endpoints'
+    Width = 290.000000000000000000
+    TabOrder = 0
+    object edt_OAuth1AuthEndpoint: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 48.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label20: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Auth-Endpoint:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1AccessTokenEndpoint: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 1
+      Position.X = 20.000000000000000000
+      Position.Y = 96.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label21: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Access-Token-Endpoint:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1RequestTokentEndpoint: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 2
+      Position.X = 20.000000000000000000
+      Position.Y = 144.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label22: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Request-Token-Endpoint:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1RedirectEndpoint: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 3
+      Position.X = 20.000000000000000000
+      Position.Y = 192.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label1: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Redirection-Endpoint:'
+        Width = 240.000000000000000000
+      end
+    end
+  end
+  object gb_ClientData: TGroupBox
+    Height = 137.000000000000000000
+    Position.X = 320.000000000000000000
+    Position.Y = 24.000000000000000000
+    Text = 'Client-Data'
+    Width = 290.000000000000000000
+    TabOrder = 1
+    object edt_OAuth1ClientID: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 48.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label18: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Client-ID:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1ClientSecret: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 1
+      Position.X = 20.000000000000000000
+      Position.Y = 96.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label19: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Client-Secret:'
+        Width = 240.000000000000000000
+      end
+    end
+  end
+  object gb_MiscSettings: TGroupBox
+    Height = 88.000000000000000000
+    Position.X = 320.000000000000000000
+    Position.Y = 168.000000000000000000
+    Text = 'Misc'
+    Width = 290.000000000000000000
+    TabOrder = 7
+    object cmb_SigningClass: TComboEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 0
+      ItemHeight = 19.000000000000000000
+      ItemIndex = -1
+      Position.X = 24.000000000000000000
+      Position.Y = 48.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label2: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Signature-Method:'
+        Width = 240.000000000000000000
+      end
+    end
+  end
+  object gb_CodeTokens: TGroupBox
+    Height = 185.000000000000000000
+    Position.X = 16.000000000000000000
+    Position.Y = 264.000000000000000000
+    Text = 'Code && Tokens'
+    Width = 593.000000000000000000
+    TabOrder = 2
+    object edt_OAuth1AuthCode: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 0
+      Position.X = 20.000000000000000000
+      Position.Y = 48.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label17: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Auth-Code:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1AccessToken: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 1
+      Position.X = 20.000000000000000000
+      Position.Y = 96.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label23: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Access-Token:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1RequestToken: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 3
+      Position.X = 20.000000000000000000
+      Position.Y = 144.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label24: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Request-Token:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1AccessTokenSecret: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 2
+      Position.X = 328.000000000000000000
+      Position.Y = 96.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label3: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Access-Token-Secret:'
+        Width = 240.000000000000000000
+      end
+    end
+    object edt_OAuth1RequestTokenSecret: TEdit
+      Touch.InteractiveGestures = [igLongTap, igDoubleTap]
+      TabOrder = 4
+      Position.X = 328.000000000000000000
+      Position.Y = 144.000000000000000000
+      Width = 250.000000000000000000
+      Height = 22.000000000000000000
+      KillFocusByReturn = False
+      object Label4: TLabel
+        Height = 17.000000000000000000
+        Position.Y = -16.000000000000000000
+        Text = 'Request-Token-Secret:'
+        Width = 240.000000000000000000
+      end
+    end
+  end
+  object btn_Step1: TButton
+    Height = 22.000000000000000000
+    Position.X = 104.000000000000000000
+    Position.Y = 464.000000000000000000
+    TabOrder = 3
+    Text = 'Step #1: Get Request-Token'
+    Width = 200.000000000000000000
+    OnClick = btn_Step1Click
+  end
+  object Button1: TButton
+    Height = 22.000000000000000000
+    Position.X = 312.000000000000000000
+    Position.Y = 464.000000000000000000
+    TabOrder = 4
+    Text = 'Step #2: Get Access-Token'
+    Width = 200.000000000000000000
+    OnClick = Button1Click
+  end
+end

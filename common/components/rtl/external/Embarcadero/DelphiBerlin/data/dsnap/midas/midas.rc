@@ -1,0 +1,97 @@
+#include <windows.h>
+#include <winver.h>
+
+#include "alctypes.h"
+
+LANGUAGE LANG_ENGLISH,SUBLANG_ENGLISH_US
+
+#if !defined(STRINGS_ONLY)
+1 VERSIONINFO LOADONCALL MOVEABLE DISCARDABLE IMPURE
+FILEVERSION 24, 0, 22858, 6822
+PRODUCTVERSION 24, 0, 0, 0
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_DLL
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "Embarcadero Technologies, Inc.\000\000"
+   VALUE "FileDescription", "Embarcadero MIDAS Component Package\000\000"
+   VALUE "FileVersion", "24.0.22858.6822\000"
+   VALUE "InternalName", "MIDAS240\000\000"
+   VALUE "LegalCopyright", "Copyright \251 1997-2016 Embarcadero Technologies, Inc.\000\000"
+   VALUE "OriginalFilename", "MIDAS.DLL\000\000"
+   VALUE "ProductName", "Midas support DLL \000\000"
+   VALUE "ProductVersion", "24.0\000\000"
+   VALUE "InternalRevision", "86822000"
+  }
+
+ }
+
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 1033, 1252
+ }
+
+}
+
+1 TYPELIB "midas.tlb"
+
+#if defined(USE_SIG)
+BORLAND_SIG RCDATA midas.sig
+#endif
+#endif
+
+STRINGTABLE  // Keyword Symbol Messages.
+BEGIN
+   DBIERR_NONE               "Successful completion."
+   DBIERR_NA                 "Operation not applicable."
+   DBIERR_NOMEMORY           "Insufficient memory for this operation."
+   DBIERR_BOF                "At beginning of table."
+   DBIERR_EOF                "At end of table."
+   DBIERR_INVALIDPARAM       "Invalid parameter."
+   DBIERR_OBJNOTFOUND        "Could not find object."
+   DBIERR_KEYVIOL            "Key violation."
+   DBIERR_NOTSUPPORTED       "Capability not supported."
+   DBIERR_RECNOTFOUND        "Could not find record."
+   DBIERR_TABLEREADONLY      "Data is read only."
+   DBIERR_NOSUCHINDEX        "Index does not exist."
+   DBIERR_OUTOFRANGE         "Number is out of range."
+   DBIERR_NOCURRREC          "No current record."
+   DBIERR_KEYORRECDELETED    "Record/Key deleted."
+   DBIERR_INDEXNAMEREQUIRED  "Index name required."
+   DBIERR_TYPEMISM           "Type mismatch in expression."
+   DBIERR_INVALIDFLDTYPE     "Invalid field type."
+   DBIERR_ACTIVEINDEX        "Index is being used to order table."
+   DBIERR_INVALIDINDEXNAME   "Invalid index/tag name."
+   DBIERR_INDEXREADONLY      "Index is read only."
+   DBIERR_DELTAISEMPTY       "Delta is empty."
+   DBIERR_NOTHINGTOUNDO      "Nothing to undo."
+   DBIERR_NAMENOTUNIQUE      "Name not unique in this context."
+   DBIERR_INVALIDBLOBHANDLE  "Invalid BLOB handle in record buffer."
+   DBIERR_CONSTRAINTFAILED   "Record or field constraint failed."
+   DBIERR_FIELDISBLANK       "Field is blank."
+   DBIERR_NOTINDEXED         "Data is not indexed."
+   DBIERR_NOMETADATA         "Datapacket contains no meta data."
+   DBIERR_CANNOTAPPEND       "Trying to append data to a non-partial dataset."
+   DBIERR_DATAPACKETMISMATCH "Mismatch in datapacket."
+   DBIERR_READONLYFLD        "Trying to modify read-only field."
+   DBIERR_REQDERR            "Field value required."
+   DBIERR_NEWERVERSIONREQ    "Newer version required."
+   DBIERR_DETAILRECORDSEXIST "Cannot delete master record with details."
+   DBIERR_BLOBNOTFETCHED     "Blob has not been fetched."
+   DBIERR_DETAILSNOTFETCHED  "Details has not been fetched."
+   DBIERR_NOMASTERRECORD     "No corresponding master record found."
+   DBIERR_LINKFIELDSNOTUNIQUE "Linkfields to detail must be unique."
+   DBIERR_FLYAWAY_WRONGORDER  "Special case: wrong order of updates for fly-away!"
+   DBIERR_NOCASCADEDUPDATES  "Cascaded updates not enabled."
+   DBIERR_NOSUCHAGGREGATE    "Aggregate was not found."
+   DBIERR_XMLINVALIDTYPE     "Fieldtype not supported for XML."
+   DBIERR_XMLNODELAYEDFETCHING     "Delayed fetching not supported for XML."
+   DBIERR_INVALIDFIELDNAME     "Field name can't be null, datapacket may be corrupted"
+END
+
+
+

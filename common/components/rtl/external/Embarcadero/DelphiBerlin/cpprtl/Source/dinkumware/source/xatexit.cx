@@ -1,0 +1,53 @@
+// xatexit -- C library wrapup stack for use with C++
+
+#pragma warning(disable: 4074)
+#pragma init_seg(compiler)
+
+extern "C" {
+void abort();
+
+void _Locksyslock(unsigned int);
+void _Unlocksyslock(unsigned int);
+
+		// FINALIZATION CODE
+#define NATS	10	/* fclose, xgetloc, locks, facet free, etc. */
+
+		/* static data */
+static void (*atfuns[NATS])(void) = {0};
+static int atcount = {NATS};
+
+void _Atexit(void (*pf)(void))
+	{	// add to wrapup list
+	if (atcount == 0)
+		abort();	/* stack full, give up */
+	else
+		atfuns[--atcount] = pf;
+	}
+}	/* extern "C" */
+
+struct _Init_atexit
+	{	// controller for atexit processing
+	_Init_atexit()
+		{	// force lock _Atexit registration first
+		_Locksyslock(0);
+		_Unlocksyslock(0);
+		}
+
+	~_Init_atexit()
+		{	// process wrapup functions
+		while (atcount < NATS)
+			(*atfuns[atcount++])();
+		}
+	};
+
+static _Init_atexit init_atexit;
+
+char _PJP_CPP_Copyright[] =
+	"Copyright (c) 1992-2003 by P.J. Plauger,"
+	" licensed by Dinkumware, Ltd."
+	" ALL RIGHTS RESERVED.";
+
+/*
+ * Copyright (c) 1992-2006 by P.J. Plauger.  ALL RIGHTS RESERVED.
+ * Consult your license regarding permissions and restrictions.
+V5.01:1422 */

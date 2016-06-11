@@ -1,0 +1,235 @@
+object MainForm: TMainForm
+  Left = 1020
+  Top = 300
+  Caption = 'FireUI App Preview'
+  ClientHeight = 574
+  ClientWidth = 683
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  Left = 1020
+  Top = 300
+  DesignerMasterStyle = 0
+  object ButtonPane: TPanel
+    Align = MostBottom
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Position.X = 4.000000000000000000
+    Position.Y = 536.000000000000000000
+    Size.Width = 675.000000000000000000
+    Size.Height = 38.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    OnResize = ButtonPaneResize
+    object btnConnect: TButton
+      Align = Right
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 4.000000000000000000
+      Margins.Right = 4.000000000000000000
+      Margins.Bottom = 4.000000000000000000
+      Position.X = 471.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Connect'
+      OnClick = btnConnectClick
+    end
+    object btnAdvancedOptions: TButton
+      Align = Left
+      Margins.Left = 4.000000000000000000
+      Margins.Top = 4.000000000000000000
+      Margins.Right = 4.000000000000000000
+      Margins.Bottom = 4.000000000000000000
+      Position.X = 4.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Advanced...'
+      OnClick = btnAdvancedOptionsClick
+    end
+  end
+  object lvAvailableIDEs: TListView
+    ItemAppearanceClassName = 'TListItemRightDetailAppearance'
+    ItemEditAppearanceClassName = 'TListItemRightDetailDeleteAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    Align = Client
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Size.Width = 675.000000000000000000
+    Size.Height = 470.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 11
+    ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+    OnDblClick = lvAvailableIDEsDblClick
+    object DiscoveringPane: TPanel
+      Align = Client
+      Margins.Left = 20.000000000000000000
+      Margins.Top = 20.000000000000000000
+      Margins.Right = 20.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 635.000000000000000000
+      Size.Height = 430.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object lblDiscovering: TLabel
+        Align = Client
+        Size.Width = 635.000000000000000000
+        Size.Height = 430.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = '... Discovering ...'
+      end
+      object anDiscoveringPaneOpacity: TFloatAnimation
+        Duration = 0.800000011920929000
+        PropertyName = 'Opacity'
+        StartValue = 0.000000000000000000
+        StopValue = 0.800000011920929000
+      end
+    end
+  end
+  object AppTitlePane: TLayout
+    Align = Top
+    Padding.Left = 4.000000000000000000
+    Padding.Top = 4.000000000000000000
+    Padding.Right = 4.000000000000000000
+    Padding.Bottom = 4.000000000000000000
+    Size.Width = 683.000000000000000000
+    Size.Height = 58.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 14
+    object imIcon: TImage
+      MultiResBitmap = <
+        item
+          Width = 50
+          Height = 50
+          PNG = {
+            89504E470D0A1A0A0000000D49484452000000320000003208060000001E3F88
+            B1000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+            01AB494441546843ED96B14A03411086FF9C392C9214163682D85888DC892F60
+            97D297D0D2C2CE134C2528685EC052445B2DB412F415B4F0402CF20012AC8CC1
+            1071DDDD5BCF13632E2E7B978DCC07C7EC4EC22EFFCD3F93802008822008A0A0
+            E277EA2153ABEC08BCDE776BE2A838F2FC1B21E9D6326981ACCEE590B56C837A
+            C436C85AB661DE5A43FA5740D6B28D6CAD6572E2A59C4BD6FA13E26DD6EFAEE4
+            7A2F3C93FBFDF058EEEBE145F479E28D6B605E8828FBE713C3AEF94D2BD8BD99
+            84D3A9AADC7D14311385E7F728EA914F4502BF8A4EF715AE7B0A8C5764CE193B
+            97F1057332A2F214453DF21122ECE4B2069F2D4B72CF70808DF990DB6B0725B8
+            2A7729A326E9534B97A4B592E70911EDE63ACA13D368151F2221DC56DDD2146A
+            0B8FEA5B3F499E31B4A9C57002C66A28383E36BD352982156FE36AA07CD457C4
+            00E4539124C24E6D04B1883734B0E5CDCA753F522AD2FB32D388112BA69368EC
+            B80A1C21A283456C7B2D95F91D2BAC052CF3C7FF1221462D3B94951844C400E4
+            2584237F279AB25F446307FE6A943783796BA558401B4BAC953924C436B2ED91
+            ACA01E21088220086214003E0010459396F7292DDC0000000049454E44AE4260
+            82}
+        end>
+      Align = Left
+      Position.X = 4.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object AppDataPane: TLayout
+      Align = Client
+      Size.Width = 575.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lblAppName: TLabel
+        Align = Top
+        AutoSize = True
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 4.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Position.X = 4.000000000000000000
+        Size.Width = 567.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.WordWrap = False
+        Text = 'FireUI App Preview'
+      end
+      object lblCompanyName: TLabel
+        Align = Top
+        AutoSize = True
+        Margins.Left = 4.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Position.X = 4.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 567.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.WordWrap = False
+        Text = 'Embarcadero Technologies'
+      end
+    end
+    object btnRefresh: TButton
+      Align = Right
+      Position.X = 629.000000000000000000
+      Position.Y = 4.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'refreshtoolbutton'
+      TabOrder = 2
+      OnClick = btnRefreshClick
+    end
+  end
+  object tetProfile: TTetheringAppProfile
+    Manager = tetManager
+    Text = 'FireUI Live Preview Client Profile'
+    Group = 'FireUILivePreview'
+    Enabled = False
+    OnDisconnect = tetProfileDisconnect
+    Actions = <>
+    Resources = <
+      item
+        Name = 'FormStream'
+        IsPublic = True
+        Kind = Mirror
+        ResType = Stream
+        OnResourceReceived = TetheringAppProfileResources0ResourceReceived
+      end
+      item
+        Name = 'Version'
+        IsPublic = True
+      end
+      item
+        Name = 'DeviceName'
+        IsPublic = True
+      end
+      item
+        Name = 'DeviceDescription'
+        IsPublic = True
+      end
+      item
+        Name = 'DevicePlatform'
+        IsPublic = True
+      end>
+    Left = 168
+    Top = 472
+  end
+  object tetManager: TTetheringManager
+    OnAuthErrorFromRemote = tetManagerAuthErrorFromRemote
+    OnEndManagersDiscovery = tetManagerEndManagersDiscovery
+    OnEndProfilesDiscovery = tetManagerEndProfilesDiscovery
+    OnPairedToRemote = tetManagerPairedToRemote
+    OnNewManager = tetManagerNewManager
+    OnRemoteManagerShutdown = tetManagerRemoteManagerShutdown
+    Text = 'FireUI Live Preview Client Manager'
+    Enabled = False
+    AllowedAdapters = 'Network'
+    OnError = tetManagerError
+    OnCommError = tetManagerCommError
+    Left = 168
+    Top = 432
+  end
+end

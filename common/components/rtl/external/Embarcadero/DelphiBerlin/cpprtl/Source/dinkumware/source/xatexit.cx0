@@ -1,0 +1,13 @@
+/* xatexit0 -- C library wrapup stack for use with native C */
+
+int atexit(void (*)(void));
+
+void _Atexit(void (*pf)(void))
+	{	// add to wrapup list
+	atexit(pf);
+	}
+
+/*
+ * Copyright (c) 1992-2006 by P.J. Plauger.  ALL RIGHTS RESERVED.
+ * Consult your license regarding permissions and restrictions.
+V5.01:1422 */

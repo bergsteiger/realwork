@@ -1,0 +1,674 @@
+object BrushDesigner: TBrushDesigner
+  Left = 7
+  Top = 30
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Brush Designer'
+  ClientHeight = 427
+  ClientWidth = 346
+  Position = ScreenCenter
+  FormFactor.Width = 2233
+  FormFactor.Height = 1301
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnClose = FormClose
+  Left = 7
+  Top = 30
+  DesignerMasterStyle = 0
+  object brushList: TListBox
+    Align = Top
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
+    Position.X = 4.000000000000000000
+    Position.Y = 4.000000000000000000
+    Size.Width = 338.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    DisableFocusEffect = True
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    OnChange = brushListChange
+  end
+  object Layout6: TLayout
+    Align = Top
+    Padding.Left = 5.000000000000000000
+    Padding.Top = 5.000000000000000000
+    Padding.Right = 5.000000000000000000
+    Padding.Bottom = 5.000000000000000000
+    Margins.Left = 4.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
+    Position.X = 4.000000000000000000
+    Position.Y = 389.000000000000000000
+    Size.Width = 338.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnCancel: TButton
+      Align = Right
+      ModalResult = 2
+      Position.X = 257.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Cancel'
+      Visible = False
+    end
+    object btnOK: TButton
+      Align = Right
+      ModalResult = 1
+      Margins.Right = 8.000000000000000000
+      Position.X = 190.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 64.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'OK'
+      Visible = False
+    end
+    object makeResLayout: TLayout
+      Align = Left
+      Position.X = 5.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 115.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object btnMakeRes: TButton
+        Align = Client
+        Size.Width = 115.000000000000000000
+        Size.Height = 23.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Make a Resource'
+        OnClick = btnMakeResClick
+      end
+    end
+  end
+  object BrushTabControl: TTabControl
+    Align = Top
+    Margins.Left = 4.000000000000000000
+    Margins.Top = 3.000000000000000000
+    Margins.Right = 4.000000000000000000
+    Margins.Bottom = 4.000000000000000000
+    Position.X = 4.000000000000000000
+    Position.Y = 111.000000000000000000
+    Size.Width = 338.000000000000000000
+    Size.Height = 274.000000000000000000
+    Size.PlatformDefault = False
+    TabHeight = 20.000000000000000000
+    TabIndex = 3
+    TabOrder = 2
+    TabPosition = Top
+    OnChange = BrushTabControlChange
+    object tabNone: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 49.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'None'
+    end
+    object tabSolid: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 46.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Solid'
+      object solidQuad: TColorQuad
+        Alpha = 1.000000000000000000
+        Align = Client
+        ColorBox = solidColorRect
+        Hue = 0.500000000000000000
+        Margins.Left = 6.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Size.Width = 209.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnChange = solidQuadChange
+      end
+      object Layout2: TLayout
+        Align = Bottom
+        Margins.Left = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Margins.Bottom = 6.000000000000000000
+        Position.X = 6.000000000000000000
+        Position.Y = 204.000000000000000000
+        Size.Width = 326.000000000000000000
+        Size.Height = 44.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+      end
+      object Layout1: TLayout
+        Align = Bottom
+        Padding.Left = 2.000000000000000000
+        Padding.Top = 2.000000000000000000
+        Padding.Right = 2.000000000000000000
+        Padding.Bottom = 2.000000000000000000
+        Margins.Left = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Position.X = 6.000000000000000000
+        Position.Y = 180.000000000000000000
+        Size.Width = 326.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object solidColorRect: TColorBox
+          Align = Left
+          Color = claBlack
+          Position.X = 2.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 136.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+        end
+      end
+      object solidCont: TRectangle
+        Align = Right
+        Fill.Kind = None
+        Padding.Left = 4.000000000000000000
+        Padding.Top = 4.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Position.X = 238.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 94.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object ext1: TLabel
+          Position.X = 7.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'R'
+        end
+        object textSolidR: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 1
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textSolidRChange
+        end
+        object textSolidG: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 2
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 25.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textSolidRChange
+        end
+        object textSolidB: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 3
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textSolidRChange
+        end
+        object textSolidA: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 4
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 77.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textSolidRChange
+        end
+        object Text1: TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 25.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'G'
+        end
+        object Text2: TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'B'
+        end
+        object Text3: TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 77.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'A'
+        end
+        object textSolidHex: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 8
+          Position.X = 7.000000000000000000
+          Position.Y = 112.000000000000000000
+          Size.Width = 89.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textSolidHexChange
+        end
+      end
+      object solidPicker: TColorPicker
+        Align = Right
+        ColorQuad = solidQuad
+        Hue = 0.500000000000000000
+        Margins.Left = 1.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Position.X = 216.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 22.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+      end
+    end
+    object tabGradient: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 66.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Gradient'
+      object gradCont: TRectangle
+        Align = Right
+        Fill.Kind = None
+        Padding.Left = 4.000000000000000000
+        Padding.Top = 4.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Position.X = 238.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 94.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        object TLabel
+          Position.X = 7.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'R'
+        end
+        object textGradR: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 0
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textGradRChange
+        end
+        object textGradG: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 1
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 25.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textGradRChange
+        end
+        object textGradB: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 2
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textGradRChange
+        end
+        object textGradA: TNumberBox
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 3
+          Cursor = crIBeam
+          Max = 255.000015258789100000
+          KeyboardType = Default
+          Position.X = 26.000000000000000000
+          Position.Y = 77.000000000000000000
+          Size.Width = 70.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textGradAChange
+        end
+        object TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 25.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'G'
+        end
+        object TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'B'
+        end
+        object gradAlabel: TLabel
+          Position.X = 7.000000000000000000
+          Position.Y = 77.000000000000000000
+          Size.Width = 19.000000000000000000
+          Size.Height = 19.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'A'
+        end
+        object textGradHex: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 4
+          Position.X = 7.000000000000000000
+          Position.Y = 112.000000000000000000
+          Size.Width = 89.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          OnChange = textGradHexChange
+        end
+      end
+      object gradQuad: TColorQuad
+        Alpha = 1.000000000000000000
+        Align = Client
+        ColorBox = gradColorRect
+        Margins.Left = 6.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Size.Width = 209.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        OnChange = gradQuadChange
+      end
+      object gradPicker: TColorPicker
+        Align = Right
+        ColorQuad = gradQuad
+        Margins.Left = 1.000000000000000000
+        Margins.Top = 6.000000000000000000
+        Position.X = 216.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 22.000000000000000000
+        Size.Height = 174.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+      end
+      object TLayout
+        Align = Bottom
+        Padding.Top = 6.000000000000000000
+        Margins.Left = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Position.X = 6.000000000000000000
+        Position.Y = 204.000000000000000000
+        Size.Width = 326.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object gradEditor: TGradientEdit
+          Align = Top
+          ColorPicker = gradPicker
+          Margins.Left = -8.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Right = -8.000000000000000000
+          Margins.Bottom = -4.000000000000000000
+          Position.X = -8.000000000000000000
+          Position.Y = 16.000000000000000000
+          Size.Width = 342.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          OnChange = gradEditorChange
+        end
+      end
+      object Layout3: TLayout
+        Align = Bottom
+        Padding.Left = 2.000000000000000000
+        Padding.Top = 2.000000000000000000
+        Padding.Right = 2.000000000000000000
+        Padding.Bottom = 2.000000000000000000
+        Margins.Left = 6.000000000000000000
+        Margins.Right = 6.000000000000000000
+        Position.X = 6.000000000000000000
+        Position.Y = 180.000000000000000000
+        Size.Width = 326.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 17
+        object gradColorRect: TColorBox
+          Align = Left
+          Color = claBlack
+          Position.X = 2.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 136.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+        end
+        object gradKind: TPopupBox
+          Align = Left
+          Items.Strings = (
+            'Linear'
+            'Radial')
+          ItemIndex = 0
+          Margins.Left = 4.000000000000000000
+          Position.X = 142.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 89.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnChange = gradKindChange
+        end
+        object gradAngle: TArcDial
+          Align = VertCenter
+          Position.X = 231.000000000000000000
+          Position.Y = -7.000000000000000000
+          Size.Width = 93.000000000000000000
+          Size.Height = 38.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Value = -90.000000000000000000
+          Frequency = 5.000000000000000000
+          OnChange = gradAngleChange
+          object gradAngleLabel: TLabel
+            Align = Center
+            Size.Width = 32.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 8.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Label'
+          end
+        end
+      end
+    end
+    object tabBitmap: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 57.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Bitmap'
+      object Rectangle1: TRectangle
+        Align = Client
+        Fill.Kind = None
+        Margins.Left = 4.000000000000000000
+        Margins.Top = 2.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 195.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 4.000000000000000000
+        YRadius = 4.000000000000000000
+        object bitmapImage: TImage
+          MultiResBitmap = <
+            item
+              Width = 1
+              Height = 1
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000010000000108060000001F15C4
+                89000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                000D49444154185763606060600000000500018A33E3000000000049454E44AE
+                426082}
+            end>
+          Align = Client
+          Margins.Left = 4.000000000000000000
+          Margins.Top = 4.000000000000000000
+          Margins.Right = 4.000000000000000000
+          Margins.Bottom = 4.000000000000000000
+          Size.Width = 322.000000000000000000
+          Size.Height = 187.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object Layout5: TLayout
+        Align = Top
+        Margins.Left = 8.000000000000000000
+        Margins.Top = 8.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Position.X = 8.000000000000000000
+        Position.Y = 8.000000000000000000
+        Size.Width = 322.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object btnSelectBitmap: TButton
+          Position.Y = 1.000000000000000000
+          Size.Width = 76.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Select...'
+          OnClick = btnSelectBitmapClick
+        end
+        object Label1: TLabel
+          Margins.Left = 7.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Position.X = 82.000000000000000000
+          Position.Y = -1.000000000000000000
+          Size.Width = 56.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'TileMode'
+        end
+        object tileModeList: TPopupBox
+          Items.Strings = (
+            'wmTile'
+            'wmTileOriginal'
+            'wmTileStretch')
+          ItemIndex = 0
+          Position.X = 137.000000000000000000
+          Position.Y = 1.000000000000000000
+          Size.Width = 128.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          OnChange = tileModeListChange
+        end
+      end
+      object LabelBitmapKind: TLabel
+        Align = Bottom
+        AutoSize = True
+        StyledSettings = [Family, Size, FontColor]
+        Margins.Left = 4.000000000000000000
+        Margins.Right = 4.000000000000000000
+        Margins.Bottom = 4.000000000000000000
+        Position.X = 4.000000000000000000
+        Position.Y = 234.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Style = [fsBold]
+        TextSettings.VertAlign = Trailing
+        TextSettings.Trimming = None
+        Text = 'LabelBitmapKind'
+      end
+    end
+    object tabRes: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 68.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Resource'
+      object resList: TListBox
+        Align = Client
+        Margins.Left = 8.000000000000000000
+        Margins.Top = 8.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Margins.Bottom = 8.000000000000000000
+        Size.Width = 322.000000000000000000
+        Size.Height = 238.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        DisableFocusEffect = True
+        DefaultItemStyles.ItemStyle = ''
+        DefaultItemStyles.GroupHeaderStyle = ''
+        DefaultItemStyles.GroupFooterStyle = ''
+        OnChange = resListChange
+      end
+    end
+  end
+end

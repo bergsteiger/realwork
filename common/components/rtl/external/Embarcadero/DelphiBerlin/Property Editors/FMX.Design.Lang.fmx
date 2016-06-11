@@ -1,0 +1,407 @@
+object LangDesigner: TLangDesigner
+  Left = 505
+  Top = 155
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'Language Designer'
+  ClientHeight = 679
+  ClientWidth = 590
+  StyleBook = StyleBook1
+  FormFactor.Width = 2199
+  FormFactor.Height = 1276
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  Left = 505
+  Top = 155
+  DesignerMasterStyle = 0
+  object ToolBar1: TToolBar
+    Align = MostTop
+    Padding.Left = 4.000000000000000000
+    Padding.Top = 4.000000000000000000
+    Padding.Right = 4.000000000000000000
+    Padding.Bottom = 4.000000000000000000
+    Size.Width = 590.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object layoutAdd: TLayout
+      Align = Client
+      Size.Width = 582.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      object btnAddLang: TButton
+        Align = Left
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 290.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Add'
+        OnClick = btnAddLangClick
+      end
+      object inputLang: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Left
+        TabOrder = 1
+        Position.X = 180.000000000000000000
+        Size.Width = 100.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object HudLabel1: TLabel
+        Align = Left
+        AutoTranslate = False
+        Size.Width = 180.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        TextSettings.WordWrap = False
+        Text = 'Two letter language code:'
+      end
+      object btnCancalAdd: TButton
+        Align = Left
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 400.000000000000000000
+        Size.Width = 29.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        Text = 'x'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.Style = [fsBold]
+        Visible = False
+        OnClick = btnCancalAddClick
+      end
+      object btnLoadTxt: TButton
+        Align = Left
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 380.000000000000000000
+        Size.Width = 117.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'From txt-file...'
+        OnClick = btnLoadTxtClick
+      end
+    end
+    object layoutAddText: TLayout
+      Align = Client
+      Size.Width = 581.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      Visible = False
+      object btnAddText: TButton
+        Align = Right
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 462.000000000000000000
+        Size.Width = 80.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Add'
+        OnClick = btnAddTextClick
+      end
+      object inputAddText: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 1
+        Size.Width = 332.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object TLabel
+        Align = Left
+        AutoTranslate = False
+        Size.Width = 120.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        TextSettings.WordWrap = False
+        Text = 'New original text:'
+      end
+      object btnCancelAddText: TButton
+        Align = Right
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 552.000000000000000000
+        Size.Width = 29.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        Text = 'x'
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.Font.Style = [fsBold]
+        OnClick = btnCancelAddTextClick
+      end
+    end
+    object layoutSelect: TLayout
+      Align = Client
+      Size.Width = 582.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      object langList: TPopupBox
+        Align = Left
+        AutoTranslate = False
+        Margins.Left = 10.000000000000000000
+        Position.X = 140.000000000000000000
+        Size.Width = 99.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnChange = langListChange
+      end
+      object HudLabel2: TLabel
+        Align = Left
+        AutoTranslate = False
+        Size.Width = 130.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Trailing
+        Text = 'Select Language:'
+      end
+      object btnAddNewLang: TButton
+        Align = Left
+        AutoTranslate = False
+        Margins.Left = 20.000000000000000000
+        Position.X = 259.000000000000000000
+        Size.Width = 123.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Add Language...'
+        OnClick = btnAddNewLangClick
+      end
+    end
+  end
+  object OriginalList: TListBox
+    Align = Client
+    Size.Width = 540.000000000000000000
+    Size.Height = 616.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    AlternatingRowBackground = True
+    DisableFocusEffect = True
+    ItemHeight = 26.000000000000000000
+    DefaultItemStyles.ItemStyle = ''
+    DefaultItemStyles.GroupHeaderStyle = ''
+    DefaultItemStyles.GroupFooterStyle = ''
+    OnChange = OriginalListChange
+    Viewport.Width = 536.000000000000000000
+    Viewport.Height = 588.000000000000000000
+    object ListBoxHeader1: TListBoxHeader
+      Margins.Left = 1.000000000000000000
+      Margins.Top = 1.000000000000000000
+      Margins.Right = 1.000000000000000000
+      Margins.Bottom = 1.000000000000000000
+      Position.X = 1.000000000000000000
+      Position.Y = 1.000000000000000000
+      Size.Width = 534.000000000000000000
+      Size.Height = 24.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object Header1: THeader
+        Sides = [Top, Left, Bottom, Right]
+        Align = Client
+        Size.Width = 534.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnResizeItem = Header1ResizeItem
+        object TextHeaderItem: THeaderItem
+          Size.Width = 297.000000000000000000
+          Size.Height = 24.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Source'
+          TextSettings.HorzAlign = Leading
+        end
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = 'txt'
+    Filter = 'Text files|*.txt'
+    Left = 376
+    Top = 264
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = 'txt'
+    Filter = 'Text Files|*.txt'
+    Left = 448
+    Top = 264
+  end
+  object OpenDialog2: TOpenDialog
+    DefaultExt = 'lng'
+    Filter = 'Lang file|*.lng'
+    Left = 376
+    Top = 352
+  end
+  object SaveDialog2: TSaveDialog
+    DefaultExt = 'lng'
+    Filter = 'Lang file|*.lng'
+    Left = 448
+    Top = 352
+  end
+  object StatusBar1: TStatusBar
+    Align = MostBottom
+    Padding.Left = 3.000000000000000000
+    Padding.Top = 3.000000000000000000
+    Padding.Right = 3.000000000000000000
+    Padding.Bottom = 3.000000000000000000
+    Position.Y = 648.000000000000000000
+    ShowSizeGrip = False
+    Size.Width = 590.000000000000000000
+    Size.Height = 31.000000000000000000
+    Size.PlatformDefault = False
+    object btnCollect: TButton
+      Align = Left
+      AutoTranslate = False
+      Margins.Left = 10.000000000000000000
+      Position.X = 13.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 146.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Scan for strings'
+      OnClick = btnCollectClick
+    end
+    object btnCreateTemplate: TButton
+      Align = Left
+      AutoTranslate = False
+      Margins.Left = 10.000000000000000000
+      Position.X = 169.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 156.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Create txt-file template...'
+      OnClick = btnCreateTemplateClick
+    end
+    object btnLoadLng: TButton
+      Align = Left
+      AutoTranslate = False
+      Margins.Left = 10.000000000000000000
+      Position.X = 335.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 96.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Load file...'
+      OnClick = btnLoadLngClick
+    end
+    object btnSaveLng: TButton
+      Align = Left
+      AutoTranslate = False
+      Margins.Left = 10.000000000000000000
+      Position.X = 441.000000000000000000
+      Position.Y = 3.000000000000000000
+      Size.Width = 97.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Save file...'
+      OnClick = btnSaveLngClick
+    end
+  end
+  object Layout1: TLayout
+    Align = MostRight
+    Position.X = 540.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 50.000000000000000000
+    Size.Height = 616.000000000000000000
+    Size.PlatformDefault = False
+    object btnAddItem: TButton
+      AutoTranslate = False
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 13.000000000000000000
+      Position.Y = 16.000000000000000000
+      Size.Width = 29.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = '+'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      OnClick = btnAddItemClick
+    end
+    object btnRemoveItem: TButton
+      AutoTranslate = False
+      StyledSettings = [Family, Style, FontColor]
+      Position.X = 13.000000000000000000
+      Position.Y = 56.000000000000000000
+      Size.Width = 29.000000000000000000
+      Size.Height = 33.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = '-'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      OnClick = btnRemoveItemClick
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+        ResourcesBin = {
+          464D585F5354594C4520322E350106086C616E676974656D036F02060B6C616E
+          6774657874626F78039403005450463007544C61796F757400095374796C654E
+          616D6506086C616E676974656D0A506F736974696F6E2E580500000000000080
+          EB07400A506F736974696F6E2E5905000000000000808908400A53697A652E57
+          6964746805000000000000808408400B53697A652E4865696768740500000000
+          0000008804401453697A652E506C6174666F726D44656661756C740800055454
+          65787400095374796C654E616D6506047465787405416C69676E07044C656674
+          0748697454657374080C4D617267696E732E4C6566740500000000000000A001
+          400A506F736974696F6E2E580500000000000000A001400A53697A652E576964
+          74680500000000000000AE06400B53697A652E48656967687405000000000000
+          008804401453697A652E506C6174666F726D44656661756C7408045465787406
+          0454657874155465787453657474696E67732E5472696D6D696E670709436861
+          726163746572165465787453657474696E67732E486F727A416C69676E07074C
+          656164696E67000005544564697400095374796C654E616D6506097472616E73
+          6C61746519546F7563682E496E74657261637469766547657374757265730B07
+          4C6F6E6754617009446F75626C655461700005416C69676E0706436C69656E74
+          085461624F7264657202010B4D617267696E732E546F70050000000000000080
+          00400D4D617267696E732E526967687405000000000000008000400E4D617267
+          696E732E426F74746F6D05000000000000008000400A53697A652E5769647468
+          0500000000000080AE07400B53697A652E4865696768740500000000000000F0
+          03401453697A652E506C6174666F726D44656661756C74080000005450463007
+          544C61796F757400095374796C654E616D65060B6C616E6774657874626F780A
+          506F736974696F6E2E580500000000000080AC08400A506F736974696F6E2E59
+          05000000000000C08A08400A53697A652E57696474680500000000000000B605
+          400B53697A652E4865696768740500000000000000C003401453697A652E506C
+          6174666F726D44656661756C7408000A5452656374616E676C6500095374796C
+          654E616D65060A6261636B67726F756E6405416C69676E0708436F6E74656E74
+          730A46696C6C2E436F6C6F720709783844464646464646064C6F636B65640907
+          48697454657374080A53697A652E57696474680500000000000000B605400B53
+          697A652E4865696768740500000000000000C003401453697A652E506C617466
+          6F726D44656661756C74080B5374726F6B652E4B696E6407044E6F6E65075852
+          61646975730500000000000000C0014007595261646975730500000000000000
+          C00140000F54436F6C6F72416E696D6174696F6E00084475726174696F6E0500
+          00000000CDCCCCFC3F0C50726F70657274794E616D65060A46696C6C2E436F6C
+          6F720A537461727456616C756507097838444646464646460953746F7056616C
+          756507097841334646464646460754726967676572060E4973466F6375736564
+          3D7472756500000F54436F6C6F72416E696D6174696F6E00084475726174696F
+          6E050000000000CDCCCCFC3F0C50726F70657274794E616D65060A46696C6C2E
+          436F6C6F720A537461727456616C756507097841334646464646460953746F70
+          56616C756507097838444646464646460754726967676572060F4973466F6375
+          7365643D66616C73650000000854436F6E74656E7400095374796C654E616D65
+          0607636F6E74656E7405416C69676E0708436F6E74656E7473064C6F636B6564
+          090748697454657374080C4D617267696E732E4C6566740500000000000000C0
+          01400B4D617267696E732E546F7005000000000000008000400D4D617267696E
+          732E52696768740500000000000000C001400E4D617267696E732E426F74746F
+          6D05000000000000008000400A53697A652E576964746805000000000000009E
+          05400B53697A652E4865696768740500000000000000A003401453697A652E50
+          6C6174666F726D44656661756C740800000C5442727573684F626A6563740009
+          5374796C654E616D65060A666F726567726F756E640B42727573682E436F6C6F
+          720709784646303230323032000000}
+      end>
+    Left = 208
+    Top = 312
+  end
+end

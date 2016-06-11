@@ -1,0 +1,28 @@
+/* fscanf function */
+#include "xstdio.h"
+_STD_BEGIN
+
+static int scin(void *str, int ch, int getfl)
+	{	/* get or put a character */
+	return (getfl ? fgetc((FILE *)str)
+		: ungetc(ch, (FILE *)str));
+	}
+
+int (fscanf)(FILE *_Restrict str, const char *_Restrict fmt, ...)
+	{	/* read formatted from stream */
+	int ans;
+	va_list ap;
+
+	va_start(ap, fmt);
+	_Lockfileatomic(stdin);
+	ans = _Scanf(&scin, str, fmt, ap, 0);
+	_Unlockfileatomic(stdin);
+	va_end(ap);
+	return (ans);
+	}
+_STD_END
+
+/*
+ * Copyright (c) 1992-2006 by P.J. Plauger.  ALL RIGHTS RESERVED.
+ * Consult your license regarding permissions and restrictions.
+V5.01:1422 */

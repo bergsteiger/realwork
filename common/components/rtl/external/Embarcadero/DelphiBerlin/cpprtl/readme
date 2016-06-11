@@ -1,0 +1,111 @@
+          WELCOME TO EMBARCADERO C++BUILDER RUNTIME LIBRARY SOURCE
+          --------------------------------------------------------
+
+  This README contains information on support for the Embarcadero
+  C++Builder Runtime Library source code.
+
+  BUILDING THE RTL
+  ----------------
+
+  IMPORTANT: In order to build the libraries, the RTL tools directory must be
+  present on your path.  These tools are located in the tools subdirectory of
+  the directory where the source was copied.  For example, if the RTL source
+  tree is in
+
+      C:\Program Files\Embarcadero\RAD Studio\18.0\Source\cpprtl
+  then
+      C:\Program Files\Embarcadero\RAD Studio\18.0\Source\cpprtl\tools
+
+  must be added to your path.  A simple way to do this from the command-line
+  is to change to the cpprtl directory and type
+
+      set PATH=%CD%\tools;%PATH%
+
+  If the RTL source is located the default installation location you may have
+  to start the command-line executable with "Run as administrator" depending
+  on your operating system.
+
+  If the RTL was not copied into the C++Builder installation area in the
+  SOURCE subdirectory, you will need to set the RTLROOT environment variable
+  to point to the location of the RTL source files. For example, if the
+  compiler was installed in
+
+      C:\Program Files\Embarcadero\RAD Studio\18.0
+
+  and the RTL tree was copied to
+
+      D:\RTLSOURCE
+
+  then you must set the RTLROOT environment variable as follows:
+
+      SET RTLROOT=D:\RTLSOURCE
+
+  or simply change to the directory and run:
+
+      SET RTLROOT=%CD%
+
+  You will additionally need to run RSVARS.BAT which should be on your path
+  and is located in the bin subdirectory of RAD Studio.
+
+  To build the RTL, change to the directory into which the source was copied
+  and run the BUILD.BAT file.  For example:
+
+      c:\> cd C:\Program Files\Embarcadero\RAD Studio\18.0\Source\cpprtl
+
+      C:\Program Files\Embarcadero\RAD Studio\18.0\Source\cpprtl> BUILD
+
+  Once the RTL has been built, the new .OBJ, .LIB, .DLL, & .TDS files will be
+  located in the SOURCE\CPPRTL\LIB directory.  You should copy all the *.OBJ &
+  *.LIB files to your main "RAD Studio\18.0\Lib" directory.  In order to use
+  your new DLLs you can either replace the ones in the Windows\System32
+  subdirectory or copy them into the directory your program will be running
+  from.
+
+
+  DEBUGGING INFORMATION
+  ---------------------
+
+  To build the RTL with debug info enabled, set the environment variable
+  DEBUG=1, then proceed with the build as normal.
+
+  Keep in mind that the build process really preforms a "make" re-compiling
+  only the OBJs that are out of date.  If you've built copies of the RTL
+  previously, then in order to get a complete re-build of the RTL you should
+  delete all files and subdirs in RTL\OBJ\WIN32 and RTL\LIB and then re-copy
+  those dirs and subdirs from the CD-ROM.
+
+  Alternatively, you can set the environment variable
+  RTL_FORCE_FULL_REBUILD=1 then proceed with the build as normal.
+
+
+  RUNTIME LIBRARY SUPPORT
+  -----------------------
+
+  The Embarcadero C++Builder Runtime Library source code is provided for your
+  use and modification.
+
+  IMPORTANT: Embarcadero will only provide technical support for the RTL as it
+  was shipped.  This means that if you use the source code to re-build the
+  RTL, even if you have not modified the source, then no technical support
+  is availible from Embarcadero.  Essentially, the RTL sources are provided "as
+  is" and you are on your own.
+
+  If you find what you think is a genuine problem in the source code,
+  we want to hear about it. Technical Support is available from
+  http://support.embarcadero.com
+
+
+  Windows 64
+  ----------
+
+  Initial support for building the Windows 64 RTL requires two
+  additional open source tools to be installed.
+
+  Python 2.x (http://www.python.org)
+
+  NASM (http://www.nasm.us)
+
+  Make sure python.exe is in the PATH and copy NASM.EXE to the tools
+  subdirectory.
+
+  Passing win64 to the build batchfile will build Windows 64 libraries.

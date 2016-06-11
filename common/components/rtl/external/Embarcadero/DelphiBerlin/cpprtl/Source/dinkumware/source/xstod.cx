@@ -1,0 +1,36 @@
+/* xstod.c -- interface functions for floating-point strto* */
+#include <errno.h>
+#include <stdlib.h>
+
+double _Stodx(const char *s, char **endptr,
+	long pten, int *perr)
+	{	/* convert string to double */
+	int err = errno;
+	double x = strtod(s, endptr);
+
+	*perr = errno;
+	errno = err;
+
+	for (; 0 < pten; --pten)
+		x *= 10.0;
+	for (; pten < 0; ++pten)
+		x /= 10.0;
+	return (x);
+	}
+
+float _Stofx(const char *s, char **endptr,
+	long pten, int *perr)
+	{	/* convert string to float */
+	return ((float)_Stodx(s, endptr, pten, perr));
+	}
+
+long double _Stoldx(const char *s, char **endptr,
+	long pten, int *perr)
+	{	/* convert string to long double */
+	return ((long double)_Stodx(s, endptr, pten, perr));
+	}
+
+/*
+ * Copyright (c) 1992-2006 by P.J. Plauger.  ALL RIGHTS RESERVED.
+ * Consult your license regarding permissions and restrictions.
+V5.01:1422 */

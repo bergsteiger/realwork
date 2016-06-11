@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9F8DCA43-4639-4C39-B410-9DD7CEBCEFD7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="BuildOSXRTL.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="BuildWinRTL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="BuildOSXRTL">
+        <MSBuild Projects="BuildOSXRTL.dproj"/>
+    </Target>
+    <Target Name="BuildOSXRTL:Clean">
+        <MSBuild Projects="BuildOSXRTL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BuildOSXRTL:Make">
+        <MSBuild Projects="BuildOSXRTL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="BuildWinRTL">
+        <MSBuild Projects="BuildWinRTL.dproj"/>
+    </Target>
+    <Target Name="BuildWinRTL:Clean">
+        <MSBuild Projects="BuildWinRTL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="BuildWinRTL:Make">
+        <MSBuild Projects="BuildWinRTL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="BuildOSXRTL;BuildWinRTL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="BuildOSXRTL:Clean;BuildWinRTL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="BuildOSXRTL:Make;BuildWinRTL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

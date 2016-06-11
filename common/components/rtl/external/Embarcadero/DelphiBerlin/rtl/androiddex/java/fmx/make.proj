@@ -1,0 +1,45 @@
+
+<Project DefaultTargets="default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <JarName>fmx</JarName>
+        <ConditionalSrcFile>$(MSBuildProjectDirectory)\src\com\embarcadero\firemonkey\FMXNativeActivity.java</ConditionalSrcFile>
+        <SourceRootDir>androiddex\fmx</SourceRootDir>
+    </PropertyGroup>
+  
+    <ItemGroup>
+        <JavaFiles
+            Include="$(ProjectPath)\src\**\*.java"
+            Exclude="$(ProjectPath)\src\**\android\example\**\*.java;"
+        />
+    </ItemGroup>
+    
+    <Import Project="..\..\java.targets"/>
+    
+    <Target Name="DisableDebugFlag">
+        <Exec Command="$(TP)\tools\perl -p -i.Backup -e &quot;s/^(.*CLASSES_DEX_DEBUGGER_SUPPORT.*)true;(.*\/\/ TAG\:REPLACE.*)$/$1false;$2/g&quot; $(ConditionalSrcFile)"/>
+    </Target>
+    
+    <Target Name="RevertDebugFlag">
+        <Copy 
+            SourceFiles     ="$(ConditionalSrcFile).Backup"
+            DestinationFiles="$(ConditionalSrcFile)"
+        />
+        <Delete 
+            Files="$(ConditionalSrcFile).Backup"
+        />
+    </Target>
+    
+    <!-- Build the files for release preventing to leave FMXNativeActivity.java modified if fails  -->
+    <Target Name="buildfilesreleasebegin"  Condition="'$(Configuration)' == 'Release' " >
+      <CallTarget Targets="DisableDebugFlag"/>
+    </Target>
+    
+    <Target Name="buildfilesreleaseend"  Condition="'$(Configuration)' == 'Release' " >
+      <CallTarget Targets="RevertDebugFlag"/>
+      <OnError ExecuteTargets="RevertDebugFlag"/>
+    </Target>
+
+    <Target Name="default" DependsOnTargets="buildfilesreleasebegin;buildjar;buildfilesreleaseend"/>
+    <Target Name="clean" DependsOnTargets="cleanfiles"/>
+</Project>

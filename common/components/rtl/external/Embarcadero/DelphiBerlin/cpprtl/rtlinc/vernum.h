@@ -1,0 +1,1 @@
+#define VERSION_STRING "18.0.0.0\0"

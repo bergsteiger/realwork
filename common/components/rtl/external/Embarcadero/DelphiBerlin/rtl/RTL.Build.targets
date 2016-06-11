@@ -1,0 +1,223 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <!--
+      Script which enables building of the low level RTL units from the IDE.
+    -->
+    <PropertyGroup>
+        <_PreCompileTargets>
+            CompileFiles
+        </_PreCompileTargets>
+        <PlatformUnitSearchPath Condition=" ('$(Platform)'=='Win32') or ('$(Platform)'=='Win64') ">win</PlatformUnitSearchPath>
+        <PlatformUnitSearchPath Condition=" ('$(Platform)'=='OSX32') or ('$(Platform)'=='iOSSimulator') or ('$(Platform)'=='iOSDevice') ">posix;osx</PlatformUnitSearchPath>
+        <PlatformUnitSearchPath Condition=" '$(Platform)'=='WinNX32' ">win\nx</PlatformUnitSearchPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+
+        <FilesToCompile Include="sys\system.pas" Condition="('$(Platform)'!='iOSSimulator')">
+            <AdditionalSwitches>-y</AdditionalSwitches>
+            <RTL_UnitSearchPath>sys</RTL_UnitSearchPath>
+            <RTL_ObjPath>$(BDSLIB)\$(Platform)\release;$(BDSLIB)\$(Platform)\$(Config)</RTL_ObjPath>
+        </FilesToCompile>
+
+        <FilesToCompile
+            Include="
+              sys\System.SysUtils.pas;
+              sys\System.Variants.pas;
+              ">
+            <AdditionalSwitches>-V-</AdditionalSwitches>
+            <RTL_UnitSearchPath>sys;common;$(PlatformUnitSearchPath);$(DCC_DcuOutput)</RTL_UnitSearchPath>
+        </FilesToCompile>
+
+        <FilesToClean
+            Include="
+              sys\System.pas;
+              sys\Sysinit.pas;
+              ">
+        </FilesToClean>
+
+    </ItemGroup>
+
+    <!--
+      The $(ForceRebuild) on the Outputs below disables normal dependency checking.
+      Note that unsaved changes in the virtual file system will be picked up during a build, not make.
+      Otherwise, we will only rebuild these files after explicitly saving them.
+    -->
+    <Target
+        Name="CompileFiles"
+        Inputs="%(FilesToCompile.Identity)"
+        Outputs="$(DCC_DcuOutput)\%(FilesToCompile.Filename).dcu$(ForceRebuild)">
+
+        <Message Text="Compiling: %(FilesToCompile.Identity)"/>
+
+        <DCC DelphiCompile="%(FilesToCompile.Identity)"
+          PlatformTarget="$(DCC_PlatformTarget)"
+          ExeOutput=""
+          DcuOutput="$(DCC_DcuOutput)"
+          DcpOutput="$(DCC_DcpOutput)"
+          HppOutput="$(DCC_HppOutput)"
+          ObjOutput="$(DCC_ObjOutput)"
+          FileReference="@(_InputFiles)"
+          ProjectFileName="$(MSBuildProjectFullPath)"
+
+          ToolExe="$(DCC_ToolExe)"
+          ForceExecute="$(DCC_ForceExecute)"
+          KibitzTask="$(_KibitzTask)"
+          CompileForBCB="false"
+          SyntaxCheck="$(SyntaxCheck)"
+          UnitSearchPath="%(FilesToCompile.RTL_UnitSearchPath);$(DCC_UnitSearchPath)"
+          ObjPath="%(FilesToCompile.RTL_ObjPath);$(DCC_DcuOutput)"
+          ResourcePath=""
+          IncludePath=""
+
+          UnitAlias="$(DCC_UnitAlias)"
+          ConsoleTarget="$(DCC_ConsoleTarget)"
+          Define="$(DCC_Define)"
+          FindError="$(DCC_FindError)"
+          Hints="$(DCC_Hints)"
+          CBuilderOutput="None"
+          BaseAddress="$(DCC_BaseAddress)"
+          UsePackage="$(_UsePackage)"
+          MakeModifiedUnits="true"
+          BuildAllUnits="false"
+          NameSpace="$(NameSpace)"
+          OldDosFileNames="$(DCC_OldDosFileNames)"
+          Quiet="true"
+          DebugInfoInExe="false"
+          DebugInfoInTds="false"
+          RemoteDebug="false"
+          OutputNeverBuildDcps="$(DCC_OutputNeverBuildDcps)"
+          NoConfig="true"
+          OutputDRCFile="false"
+          OutputDependencies="$(DCC_OutputDependencies)"
+          OutputXMLDocumentation="$(DCC_OutputXMLDocumentation)"
+          DefaultNamespace="$(DCC_DefaultNamespace)"
+          Warnings="$(DCC_Warnings)"
+
+          MinimumEnumSize="$(DCC_MinimumEnumSize)"
+          FullBooleanEvaluations="$(DCC_FullBooleanEvaluations)"
+          AssertionsAtRuntime="$(DCC_AssertionsAtRuntime)"
+          DebugInformation="$(DCC_DebugInformation)"
+          ImportedDataReferences="$(DCC_ImportedDataReferences)"
+          LongStrings="$(DCC_LongStrings)"
+          IOChecking="$(DCC_IOChecking)"
+          LocalDebugSymbols="$(DCC_LocalDebugSymbols)"
+          RunTimeTypeInfo="$(DCC_RunTimeTypeInfo)"
+          Optimize="$(DCC_Optimize)"
+          OpenStringParams="$(DCC_OpenStringParams)"
+          IntegerOverflowCheck="$(DCC_IntegerOverflowCheck)"
+          RangeChecking="$(DCC_RangeChecking)"
+          TypedAtParameter="$(DCC_TypedAtParameter)"
+          PentiumSafeDivide="$(DCC_PentiumSafeDivide)"
+          StrictVarStrings="$(DCC_StrictVarStrings)"
+          GenerateStackFrames="true"
+          ExtendedSyntax="$(DCC_ExtendedSyntax)"
+          SymbolReferenceInfo="$(DCC_SymbolReferenceInfo)"
+          Inlining="$(DCC_Inlining)"
+          StringChecks="$(DCC_StringChecks)"
+          PEFlags="$(DCC_PEFlags)"
+          PEOptFlags="$(DCC_PEOptFlags)"
+          PEOSVersion="$(DCC_PEOSVersion)"
+          PESubSysVersion="$(DCC_PESubSysVersion)"
+          PEUserVersion="$(DCC_PEUserVersion)"
+
+          StackSize="$(DCC_StackSize)"
+          MinStackSize="$(DCC_MinStackSize)"
+          MaxStackSize="$(DCC_MaxStackSize)"
+
+          DelaySign="$(DCC_DelaySign)"
+          KeyFile="$(DCC_KeyFile)"
+          KeyContainer="$(DCC_KetContainer)"
+          CodePage="$(DCC_CodePage)"
+
+          SYMBOL_DEPRECATED="$(DCC_SYMBOL_DEPRECATED)"
+          SYMBOL_LIBRARY="$(DCC_SYMBOL_LIBRARY)"
+          SYMBOL_PLATFORM="$(DCC_SYMBOL_PLATFORM)"
+          SYMBOL_EXPERIMENTAL="$(DCC_SYMBOL_EXPERIMENTAL)"
+          UNIT_LIBRARY="$(DCC_UNIT_LIBRARY)"
+          UNIT_PLATFORM="$(DCC_UNIT_PLATFORM)"
+          UNIT_DEPRECATED="$(DCC_UNIT_DEPRECATED)"
+          UNIT_EXPERIMENTAL="$(DCC_UNIT_EXPERIMENTAL)"
+          HRESULT_COMPAT="$(DCC_HRESULT_COMPAT)"
+          HIDING_MEMBER="$(DCC_HIDING_MEMBER)"
+          HIDDEN_VIRTUAL="$(DCC_HIDDEN_VIRTUAL)"
+          GARBAGE="$(DCC_GARBAGE)"
+          BOUNDS_ERROR="$(DCC_BOUNDS_ERROR)"
+          ZERO_NIL_COMPAT="$(DCC_ZERO_NIL_COMPAT)"
+          STRING_CONST_TRUNCED="$(DCC_STRING_CONST_TRUNCED)"
+          FOR_LOOP_VAR_VARPAR="$(DCC_FOR_LOOP_VAR_VARPAR)"
+          TYPED_CONST_VARPAR="$(DCC_TYPED_CONST_VARPAR)"
+          ASG_TO_TYPED_CONST="$(DCC_ASG_TO_TYPED_CONST)"
+          CASE_LABEL_RANGE="$(DCC_CASE_LABEL_RANGE)"
+          FOR_VARIABLE="$(DCC_FOR_VARIABLE)"
+          CONSTRUCTING_ABSTRACT="$(DCC_CONSTRUCTING_ABSTRACT)"
+          COMPARISON_FALSE="$(DCC_COMPARISON_FALSE)"
+          COMPARISON_TRUE="$(DCC_COMPARISON_TRUE)"
+          COMPARING_SIGNED_UNSIGNED="$(DCC_COMPARING_SIGNED_UNSIGNED)"
+          COMBINING_SIGNED_UNSIGNED="$(DCC_COMBINING_SIGNED_UNSIGNED)"
+          UNSUPPORTED_CONSTRUCT="$(DCC_UNSUPPORTED_CONSTRUCT)"
+          FILE_OPEN="$(DCC_FILE_OPEN)"
+          FILE_OPEN_UNITSRC="$(DCC_FILE_OPEN_UNITSRC)"
+          BAD_GLOBAL_SYMBOL="$(DCC_BAD_GLOBAL_SYMBOL)"
+          DUPLICATE_CTOR_DTOR="$(DCC_DUPLICATE_CTOR_DTOR)"
+          INVALID_DIRECTIVE="$(DCC_INVALID_DIRECTIVE)"
+          PACKAGE_NO_LINK="$(DCC_PACKAGE_NO_LINK)"
+          PACKAGED_THREADVAR="$(DCC_PACKAGED_THREADVAR)"
+          IMPLICIT_IMPORT="$(DCC_IMPLICIT_IMPORT)"
+          HPPEMIT_IGNORED="$(DCC_HPPEMIT_IGNORED)"
+          NO_RETVAL="$(DCC_NO_RETVAL)"
+          USE_BEFORE_DEF="$(DCC_USE_BEFORE_DEF)"
+          FOR_LOOP_VAR_UNDEF="$(DCC_FOR_LOOP_VAR_UNDEF)"
+          UNIT_NAME_MISMATCH="$(DCC_UNIT_NAME_MISMATCH)"
+          NO_CFG_FILE_FOUND="$(DCC_NO_CFG_FILE_FOUND)"
+          IMPLICIT_VARIANTS="$(DCC_IMPLICIT_VARIANTS)"
+          UNICODE_TO_LOCALE="$(DCC_UNICODE_TO_LOCALE)"
+          LOCALE_TO_UNICODE="$(DCC_LOCALE_TO_UNICODE)"
+          IMAGEBASE_MULTIPLE="$(DCC_IMAGEBASE_MULTIPLE)"
+          SUSPICIOUS_TYPECAST="$(DCC_SUSPICIOUS_TYPECAST)"
+          PRIVATE_PROPACCESSOR="$(DCC_PRIVATE_PROPACCESSOR)"
+          UNSAFE_TYPE="$(DCC_UNSAFE_TYPE)"
+          UNSAFE_CODE="$(DCC_UNSAFE_CODE)"
+          UNSAFE_CAST="$(DCC_UNSAFE_CAST)"
+          OPTION_TRUNCATED="$(DCC_OPTION_TRUNCATED)"
+          WIDECHAR_REDUCED="$(DCC_WIDECHAR_REDUCED)"
+          DUPLICATES_IGNORED="$(DCC_DUPLICATES_IGNORED)"
+          UNIT_INIT_SEQ="$(DCC_UNIT_INIT_SEQ)"
+          LOCAL_PINVOKE="$(DCC_LOCAL_PINVOKE)"
+          MESSAGE_DIRECTIVE="$(DCC_MESSAGE_DIRECTIVE)"
+          IMPLICIT_STRING_CAST="$(DCC_IMPLICIT_STRING_CAST)"
+          IMPLICIT_STRING_CAST_LOSS="$(DCC_IMPLICIT_STRING_CAST_LOSS)"
+          EXPLICIT_STRING_CAST="$(DCC_EXPLICIT_STRING_CAST)"
+          EXPLICIT_STRING_CAST_LOSS="$(DCC_EXPLICIT_STRING_CAST_LOSS)"
+          CVT_WCHAR_TO_ACHAR="$(DCC_CVT_WCHAR_TO_ACHAR)"
+          CVT_NARROWING_STRING_LOST="$(DCC_CVT_NARROWING_STRING_LOST)"
+          CVT_WIDENING_STRING_LOST="$(DCC_WIDENING_STRING_LOST)"
+          CVT_ACHAR_TO_WCHAR="$(DCC_CVT_ACHAR_TO_WCHAR)"
+          TYPEINFO_IMPLICITLY_ADDED="$(DCC_TYPEINFO_IMPLICITLY_ADDED)"
+          XML_WHITESPACE_NOT_ALLOWED="$(DCC_XML_WHITESPACE_NOT_ALLOWED)"
+          XML_UNKNOWN_ENTITY="$(DCC_XML_UNKNOWN_ENTITY)"
+          XML_INVALID_NAME_START="$(DCC_XML_INVALID_NAME_START)"
+          XML_INVALID_NAME="$(DCC_XML_INVALID_NAME)"
+          XML_EXPECTED_CHARACTER="$(DCC_XML_EXPECTED_CHARACTER)"
+          XML_CREF_NO_RESOLVE="$(DCC_XML_CREF_NO_RESOLVE)"
+          XML_NO_PARM="$(DCC_XML_NO_PARM)"
+          XML_NO_MATCHING_PARM="$(DCC_XML_NO_MATCHING_PARM)"
+
+          AdditionalSwitches="%(FilesToCompile.AdditionalSwitches)"
+          NoLink="true"
+        />
+
+    </Target>
+
+    <!--
+        Special handling for cleaning of System.dcu and SysInit.dcu which are not in the project.
+    -->
+    <Target Name="CleanExtras">
+        <ItemGroup>
+            <_DeleteFiles Include="$(DCC_DcuOutput)\%(FilesToClean.Filename).dcu"/>
+        </ItemGroup>
+
+        <Delete Files="@(_DeleteFiles)"/>
+    </Target>
+
+</Project>

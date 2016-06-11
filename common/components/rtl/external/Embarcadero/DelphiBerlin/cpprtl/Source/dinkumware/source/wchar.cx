@@ -1,0 +1,169 @@
+/* wchar.c -- wchar.h supplement */
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+#include <yvals.h>
+_C_STD_BEGIN
+_C_LIB_DECL
+
+#ifndef _Mbstinit
+ #define _Mbstinit(x)	mbstate_t x = {0}
+#endif /* _Mbstinit */
+
+ #if defined(__BORLANDC__)	/* compiler test */
+ #pragma warn -par
+
+typedef int mbstate_t;
+ #endif /* defined(__BORLANDC__) */
+
+ #if defined(__APPLE__)	/* compiler test */
+size_t wcslen(const wchar_t *s)
+	{	/* find length of wide string */
+	const wchar_t *sc;
+	for (sc = s; *sc != 0; ++sc)
+		;
+	return (sc - s);
+	}
+
+const wchar_t *wmemchr(const wchar_t *s, wchar_t c, size_t n)
+	{	/* look for wide char in array */
+	for (; 0 < n; ++s, --n)
+		if (*s == c)
+			return ((wchar_t *)s);
+	return (0);
+	}
+
+wchar_t *wmemcpy(wchar_t *s1, const wchar_t *s2, size_t n)
+	{	/* copy a wide array */
+	wchar_t *su1 = s1;
+	for (; 0 < n; ++su1, ++s2, --n)
+		*su1 = *s2;
+	return (s1);
+	}
+
+wchar_t *wmemset(wchar_t *s, wchar_t c, size_t n)
+	{	/* copy a wide char throughout array */
+	wchar_t *su = s;
+	for (; 0 < n; ++su, --n)
+		*su = c;
+	return (s);
+	}
+ #endif /* defined(__APPLE__) */
+
+_CRTIMP2 int wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n)
+	{	/* compare two wide arrays */
+	for (; 0 < n; ++s1, ++s2, --n)
+		if (*s1 != *s2)
+			return (*s1 < *s2 ? -1 : +1);
+	return (0);
+	}
+
+#if !defined(__CODEGEARC__)
+_CRTIMP2 wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2, size_t n)
+	{	/* copy a wide array that might overlap destination */
+	wchar_t *su1 = s1;
+	if (s2 < su1 && su1 < s2 + n)
+		for (su1 += n, s2 += n; 0 < n; --n)
+			*--su1 = *--s2;
+	else
+		for (; 0 < n; --n)
+			*su1++ = *s2++;
+	return (s1);
+	}
+#endif
+
+/* NOTE: THESE FUNCTIONS ASSUME THAT NO STATE INFORMATION NEED
+		BE STORED IN AN mbstate_t OBJECT */
+
+_CRTIMP2 size_t mbrtowc(wchar_t *pwc, const char *s, size_t n,
+	mbstate_t *pst)
+#if defined(__CODEGEARC__)
+;
+#else
+	{	/*	translate multibyte to wchar_t, restartably */
+	int i = mbtowc(pwc, s, n);
+	return (0 <= i ? i : n < (size_t)MB_CUR_MAX ? -2 : -1);
+	}
+#endif
+
+_CRTIMP2 size_t mbrtowc_cp(wchar_t *pwc, const char *s, size_t n,
+	mbstate_t *pst, const unsigned int codepage)
+#if defined(__CODEGEARC__)
+;
+#else
+	{	/*	translate multibyte to wchar_t, restartably */
+	int i = mbtowc_cp(pwc, s, n, codepage);
+	return (0 <= i ? i : n < (size_t)MB_CUR_MAX ? -2 : -1);
+	}
+#endif
+
+_CRTIMP2 wint_t btowc(int c)
+	{	/* translate single byte to wide char */
+	if (c == EOF)
+		return (WEOF);
+	else
+		{	/* convert as one-byte string */
+		char ch = c;
+		_Mbstinit(mbst);
+		wchar_t wc;
+		int ans = mbrtowc(&wc, &ch, 1, &mbst);
+		return (ans < 0 ? WEOF : wc);
+		}
+	}
+
+_CRTIMP2 int wctob(wint_t wc)
+	{	/* translate wint_t to one-byte multibyte */
+	if (wc == WEOF)
+		return (EOF);
+	else
+		{	/* check for one-byte translation */
+		char buf[MB_LEN_MAX];
+		return (wctomb(buf, wc) == 1 ? buf[0] : EOF);
+		}
+	}
+
+_CRTIMP2 size_t wcrtomb(char *s, wchar_t wchar, mbstate_t *pst)
+	{	/* translate wchar_t to multibyte, restartably */
+	return (s == 0 ? 1 : wctomb(s, wchar));
+	}
+
+_CRTIMP2 size_t wcrtomb_cp(char *s, wchar_t wchar, mbstate_t *pst, const unsigned int codepage)
+	{	/* translate wchar_t to multibyte, restartably */
+	return (s == 0 ? 1 : wctomb_cp(s, wchar, codepage));
+	}
+
+ #if defined(__APPLE__)
+/* NOTE: THESE FUNCTIONS READ AND WRITE SINGLE BYTES
+		FOR wchar_t VALUES */
+wint_t fgetwc(FILE *file)
+	{	/* get a wide char from file */
+	return (fgetc(file));
+	}
+
+wint_t fputwc(wchar_t wc, FILE *file)
+	{	/* put a wide char to file */
+	unsigned char c = wc;
+	return (fputc(c == wc ? c : '?', file));
+	}
+
+wint_t ungetwc(wint_t wc, FILE *file)
+	{	/* put back a wide char to file */
+	if (wc == WEOF)
+		return (WEOF);
+	else
+		{	/* put back a single char */
+		unsigned char c = wc;
+		return (ungetc(c == wc ? c : '?', file) == EOF
+			? WEOF : wc);
+		}
+	}
+ #endif /* defined(__APPLE__) */
+
+_END_C_LIB_DECL
+_C_STD_END
+
+/*
+ * Copyright (c) 1992-2006 by P.J. Plauger.  ALL RIGHTS RESERVED.
+ * Consult your license regarding permissions and restrictions.
+V5.01:1422 */
