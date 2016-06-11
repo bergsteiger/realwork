@@ -970,6 +970,7 @@ begin
  f_TopItemIndex := aTopItemIndex;
  f_CurrentIndex := aCurrentIndex;
  f_Options := aOptions;
+ f_WasFiltered := aWasFiltered;
 //#UC END# *5677BAD7012E_5677B9280204_impl*
 end;//TPrimListFormState.Create
 
@@ -1328,7 +1329,7 @@ begin
     SaveDialog.FileName := l3Str(nsPrepareFileName(l_Output.rName));
     SaveDialog.OnCanClose := SaveDialogCanClose;
     try
-     if SaveDialog.Execute then
+     if TnsSaveDialogExecutor.Instance.Call(SaveDialog) then
      begin
       if (SaveDialog.SaveListTarget = ns_sdlkTitles) and
          (SaveDialog.SelectedFileFormat = ns_ffXML) and
@@ -1921,7 +1922,7 @@ begin
  if (UserType = lftNone) and
     (aOpenKind in [vcm_okInNewWindow, vcm_okInNewTab]) and
     (dsDocumentList <> nil) and
-    (dsDocumentList.OpenFrom in [lofBaseSearch, lofAttributeSearch]) then
+    (dsDocumentList.OpenFrom in [lofBaseSearch, lofBaseSearchEx, lofAttributeSearch]) then
   aContainer.InitFromPrevContainer(NativeMainForm, False);
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=566792807,
  // http://mdp.garant.ru/pages/viewpage.action?pageId=567573990
@@ -1966,7 +1967,10 @@ begin
 //#UC START# *56F412F403C7_497DDB2B001B_impl*
  l_BS := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
 
- ExSearchPanel.Visible := Assigned(l_BS)
+ if Assigned(dsList) and dsList.IsFiltered then
+  f_WasFiltered := True;
+ ExSearchPanel.Visible := not f_WasFiltered
+                      and Assigned(l_BS)
                       and Assigned(l_BS.SearchWindow)
                       and l_BS.SearchWindow.Visible
                       and Assigned(dsDocumentList)
@@ -2365,6 +2369,7 @@ begin
   f_SearchWindowVisible := aNewVisible;
   tvList.Invalidate;
   //tvList.Perform(msg_vtUpdateScroll, 0, 0);
+  //CheckExSearchPanelVisibility;
  end;//f_SearchWindowVisible <> aNewVisible
 //#UC END# *496B517202C5_497DDB2B001B_impl*
 end;//TPrimListForm.VisibleChanged
@@ -4339,12 +4344,20 @@ procedure TPrimListForm.NotifyDataSourceChanged(const anOld: IvcmViewAreaControl
  const aNew: IvcmViewAreaController);
  {* Изменился источник данных. Для перекрытия в потомках }
 //#UC START# *497469C90140_497DDB2B001B_var*
+var
+ l_BS: InsBaseSearcher;
 //#UC END# *497469C90140_497DDB2B001B_var*
 begin
 //#UC START# *497469C90140_497DDB2B001B_impl*
  inherited;
  f_AllowCallCurrentChangedOnTest := True;
-
+ if Assigned(aNew) then
+ begin
+  l_BS := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+  if Assigned(l_BS) and Assigned(l_BS.WindowData) then
+   f_SearchContext := l_BS.WindowData.Context;
+  CheckExSearchPanelVisibility;
+ end;
  tvList.SelfDrawNodes := Assigned(dsDocumentList) and dsDocumentList.IsSnippet;
  if tvList.HandleAllocated then
   PostMessage(tvList.Handle, msg_vtInvalidateNCArea, 0, 0);
@@ -4376,12 +4389,12 @@ begin
   if Supports(cfList, IvcmState, l_cfStateMaker) then
    if l_cfStateMaker.SaveState(l_cfState, vcm_stContent) then
     theState := TPrimListFormState.Make(l_InnerState, l_cfState, l_TreeStructState, tvList.TopIndex, tvList.Current,
-                                        [lfoContextFilterState, lfoTopItemIndex, lfoCurrentIndex, lfoTreeStructState, lfoInner]);
+                                        [lfoContextFilterState, lfoTopItemIndex, lfoCurrentIndex, lfoTreeStructState, lfoInner], f_WasFiltered);
   if (theState = nil) then
-   theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner]);
- end;
- if (theState = nil) then
-  theState := l_InnerState;
+   theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner], f_WasFiltered);
+ end
+ else
+  theState := TPrimListFormState.Make(l_InnerState, nil, nil, 0, 0, [lfoInner], f_WasFiltered);
 //#UC END# *49806ED503D5_497DDB2B001B_impl*
 end;//TPrimListForm.DoSaveState
 
@@ -4449,6 +4462,7 @@ begin
      l_TreeStructStateConsumer.AssignState(l_State.TreeStructState);
    if (lfoTopItemIndex in l_State.Options) then
     tvList.TopIndex := l_State.TopItemIndex;
+   f_WasFiltered := l_State.WasFiltered
   end;
   Result := inherited DoLoadState(l_InnerState, aStateType);
  end; 
@@ -4532,6 +4546,24 @@ begin
   OpenChipColor := $ADADAD; //414849886 
   OpenChipBorderColor := $ADADAD;
  end;
+ with ExSearchPanel do
+ begin
+  Align := alTop;
+  Color := clWhite;
+  BorderStyle := bsNone;
+  BevelOuter := bvNone;
+ end;
+ with ExSearchLabel do
+ begin
+  AutoWidth := True;
+  Anchors := [akTop, akRight];
+  Cursor := crHandPoint;
+  Top := 0;
+  Left := ExSearchPanel.ClientWidth - 15 - Width;
+  OnClick := ExSearchLabelClick;
+  ExSearchPanel.Height := Height + 5;
+ end;
+ StyleTableChanged;
 //#UC END# *4A8E8F2E0195_497DDB2B001B_impl*
 end;//TPrimListForm.InitControls
 

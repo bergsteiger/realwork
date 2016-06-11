@@ -102,7 +102,7 @@ procedure TkwLoggingStartListening.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_55B75DC003BF_Word_var*
 begin
 //#UC START# *4DAEEDE10285_55B75DC003BF_Word_impl*
- !!! Needs to be implemented !!!
+ TnsLoggingTestService.Instance.StartListening;
 //#UC END# *4DAEEDE10285_55B75DC003BF_Word_impl*
 end;//TkwLoggingStartListening.DoDoIt
 
@@ -131,7 +131,7 @@ procedure TkwLoggingFinishListening.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_55B75DD7013D_Word_var*
 begin
 //#UC START# *4DAEEDE10285_55B75DD7013D_Word_impl*
- !!! Needs to be implemented !!!
+ TnsLoggingTestService.Instance.StopListening;
 //#UC END# *4DAEEDE10285_55B75DD7013D_Word_impl*
 end;//TkwLoggingFinishListening.DoDoIt
 
@@ -195,7 +195,8 @@ procedure TkwLoggingWriteCachedEvents.DoDoIt(const aCtx: TtfwContext);
 //#UC END# *4DAEEDE10285_56D4147C0385_Word_var*
 begin
 //#UC START# *4DAEEDE10285_56D4147C0385_Word_impl*
- !!! Needs to be implemented !!!
+ if TnsCachedEventsProcessor.Exists then
+  TnsCachedEventsProcessor.Make.ForceWriteCache;
 //#UC END# *4DAEEDE10285_56D4147C0385_Word_impl*
 end;//TkwLoggingWriteCachedEvents.DoDoIt
 

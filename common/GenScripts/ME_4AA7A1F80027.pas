@@ -78,11 +78,31 @@ end;//TnsOpenMainMenuEvent.Log
 procedure TMainMenuModule.OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
 //#UC START# *4ABB94DE033F_4AA7A1F80027_var*
  l_Params: IvcmMakeParams;
+ l_MainMenuKind: TnsMainMenuKind;
+ l_FormId: TvcmFormID;
+ l_FormClass: RvcmEntityForm;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_var*
 begin
 //#UC START# *4ABB94DE033F_4AA7A1F80027_impl*
- if CheckContainer(aContainer).NativeMainForm.HasForm(fm_en_MainMenuNew.rFormID,
-  vcm_ztParent) then
+ l_MainMenuKind := TnsMainMenuKind(afw.Settings.LoadInteger(pi_MainMenuKind, dv_MainMenuKind));
+ case l_MainMenuKind of
+  mmk_ProfNews:
+   begin
+    l_FormId := fm_en_MainMenuWithProfNews.rFormID;
+    l_FormClass := Ten_MainMenuWithProfNews;
+   end;
+  mmk_Default:
+   begin
+    l_FormId := fm_en_MainMenuNew.rFormID;
+    l_FormClass := Ten_MainMenuNew;
+   end;
+ else
+  Assert(False);
+  l_FormId := fm_en_MainMenuNew.rFormID;
+  l_FormClass := TvcmEntityForm;
+ end;
+
+ if CheckContainer(aContainer).NativeMainForm.HasForm(l_FormId, vcm_ztParent) then
   Exit;
 {$If not (defined(Monitorings) or defined(Admin))}
  {$IfDef vcmUseProfilers}
@@ -92,7 +112,7 @@ begin
 
  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
 
- Ten_MainMenuNew.Make(l_Params);
+ l_FormClass.Make(l_Params);
 {$IfEnd not (defined(Monitorings) or defined(Admin))}
  TnsOpenMainMenuEvent.Log;
 //#UC END# *4ABB94DE033F_4AA7A1F80027_impl*

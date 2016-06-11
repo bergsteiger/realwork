@@ -98,7 +98,7 @@ begin
    on E: EdsMaxLengthExceed do
    begin
     Ask(err_MaxStringLength, [E.MaxLength]);
-    lpSelectComboBox(cbPhone);
+    lp_SelectComboBox(cbPhone);
     Exit;
    end;//on EdsMaxLengthExceed do
   end;//try..except
@@ -108,7 +108,7 @@ begin
    on E: EdsMaxLengthExceed do
    begin
     Ask(err_MaxStringLength, [E.MaxLength]);
-    lpSelectComboBox(cbEmail);
+    lp_SelectComboBox(cbEmail);
     Exit;
    end;//on EdsMaxLengthExceed do
   end;//try..except

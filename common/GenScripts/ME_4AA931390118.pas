@@ -120,7 +120,7 @@ begin
 //#UC START# *4AAF73E6039E_4AA931390118_impl*
  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(nil)));
  // - http://mdp.garant.ru/pages/viewpage.action?pageId=606808801
- Result := TPreviewForm.Make(aPreview, l_Params);
+ Result := TefPreviewForm.Make(aPreview, l_Params);
 //#UC END# *4AAF73E6039E_4AA931390118_impl*
 end;//TCommonSearchModule.MakePreview
 

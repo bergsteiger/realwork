@@ -141,6 +141,7 @@ var
  l_List      : ILanguagesList;
  l_Index     : Integer;
  l_Languages : TbsLanguages;
+ l_deDiction: IdeDiction;
 //#UC END# *4936CD5100A6_4936CB1B0022_var*
 begin
 //#UC START# *4936CD5100A6_4936CB1B0022_impl*
@@ -160,6 +161,12 @@ begin
   end;{try..finally}
  end;//if Assigned(aDocument) then
  SetData.Languages := l_Languages;
+ if Supports(InitialUseCaseData, IdeDiction, l_deDiction) then
+ try
+  SetData.CurrentLanguage := l_deDiction.DictLanguage;
+ finally
+  l_deDiction := nil;
+ end;
 //#UC END# *4936CD5100A6_4936CB1B0022_impl*
 end;//TsdsDiction.LoadLanguages
 

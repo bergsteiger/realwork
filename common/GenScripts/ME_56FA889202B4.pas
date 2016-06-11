@@ -560,7 +560,7 @@ begin
 
  lblProfNews.Top := c_lblTop;
  lblProfNews.Left := c_LeftIndent;
- lblProfNews.Width := pnWidth;
+ lblProfNews.Width := lnLeft - 2 * c_LeftIndent;
  tvProfNews.SetBounds(c_LeftIndent, lblProfNews.Top + lblProfNews.Height + c_TopIndent, pnWidth, tvProfNews.CalcFullHeight);
  pnlNews.ClientHeight := Max(tvProfNews.Top + tvProfNews.Height, tvLawNews.Top + tvLawNews.Height) + c_BottomIndent;
  pnlNews.Visible := True;

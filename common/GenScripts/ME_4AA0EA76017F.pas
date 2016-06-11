@@ -68,7 +68,7 @@ procedure TLiteSearchModule.MakeTreeAttributeSelect(const aParams: IvcmMakeParam
 begin
 //#UC START# *4AAF48F502E7_4AA0EA76017F_impl*
  Assert(aRecursive);
- Result := TTreeAttributeSelectForm.MakeSingleChild(aParams.Container,
+ Result := TefTreeAttributeSelect.MakeSingleChild(aParams.Container,
                                              aParams,
                                              aZoneType,
                                              aUserType);
@@ -126,7 +126,7 @@ begin
   l_Params := vcmMakeParams(l_Params.Aggregate,
                         l_Container.AsContainer,
                         l_Params.Owner);
-  l_Form := TTreeAttributeSelectForm.Make(l_Params);
+  l_Form := TefTreeAttributeSelect.Make(l_Params);
   l_FilterType := anAdditionalFilter;
   {$IfDef Admin}
   Assert(l_FilterType = ns_ftNone);

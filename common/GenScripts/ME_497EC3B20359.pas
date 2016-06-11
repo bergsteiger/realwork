@@ -375,7 +375,7 @@ begin
      l_Brief then
    SelectedTree.ExpandNode(SelectedTree.CTree.CRootNode.InsertChild(l_LogicNode), True);
  finally
-  vcmFree(l_NodePath);
+  FreeAndNil(l_NodePath);
  end;
 //#UC END# *4AF40E300070_497EC3B20359_impl*
 end;//TPrimSelectedAttributesForm.AddNodes

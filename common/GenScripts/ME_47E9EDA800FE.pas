@@ -819,6 +819,7 @@ begin
   end;//try..except
   ClearCurrent;
   pm_SetSimpleTree(nil);
+  f_IsChanged := True;
   Result := true;
  end//ImpList <> nil
  else
