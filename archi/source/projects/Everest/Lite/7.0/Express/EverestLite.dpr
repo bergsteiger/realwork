@@ -114,13 +114,10 @@ begin
  {$IfDef nsTest}
  g_CVSPath := 'w:\archi\source\projects\Everest\Lite\7.0\Express';
  {$EndIf nsTest}
- //#UC START# *512AF4A800AACVSPath*
- //#UC END# *512AF4A800AACVSPath*
- //#UC START# *512AF4A800AAmanualcode*
  Application.Title := 'щбепеяр (lite)';
  if (vtStdResources = nil) then
   Application.CreateForm(TvtStdResources, vtStdResources);
-  Application.CreateForm(TdmStandardRes, dmStandardRes);
-  Application.CreateForm(TMainForm, MainForm);
-  Application.Run;
+ Application.CreateForm(TdmStandardRes, dmStandardRes);
+ Application.CreateForm(TMainForm, MainForm);
+ Application.Run;
 end.
