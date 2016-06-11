@@ -179,7 +179,10 @@ begin
  if (f_Alien <> nil) then
   Result := f_Alien.GetBaseSearcher(aEntityForm)
  else
+ begin
+  Result := nil;
   Assert(False);
+ end;
 //#UC END# *4923CA8F0CFB_563875050317_impl*
 end;//TnsBaseSearchService.GetBaseSearcher
 

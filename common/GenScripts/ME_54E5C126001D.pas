@@ -4052,7 +4052,8 @@ begin
  if aValue then
   Inc(f_Modified)
  else
-  Dec(f_Modified);  
+ if (f_Modified > 0) then
+  Dec(f_Modified);
  CallModifiedChanged;
 //#UC END# *523306640146_4683A4A90094_impl*
 end;//TqaMgrSearch.ModifiedChanged
