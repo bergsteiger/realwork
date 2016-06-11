@@ -1808,10 +1808,11 @@ function l3Stream2IStream(aStream: TStream): IStream;
 begin
  if (aStream = nil) then
   Result := nil
- else if l3BQueryInterface(aStream, IStream, Result) then
+ else
+ if l3BQueryInterface(aStream, IStream, Result) then
   Exit
  else
-  Result := TStreamAdapter.Create(aStream);
+  Result := TStreamAdapter.Create(aStream) {$IfDef DelphiX} As IStream{$EndIf};
 end;
 
 function l3CopyStream(anInStream, anOutStream: TStream): Large;

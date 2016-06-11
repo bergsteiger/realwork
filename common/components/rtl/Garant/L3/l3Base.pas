@@ -4458,8 +4458,10 @@ var
 var
  l_I : Cardinal;
 begin
-(* System.FillChar(aDest^, aLen, 0);*)
+ {$IfDef DelphiX}
+ System.FillChar(aDest^, aLen, 0);
 //(* на время починки заменили на системную
+ {$Else}
  if (aLen <= High(FillProcs)) then
   FillProcs[aLen](aDest)
  else
@@ -4497,6 +4499,7 @@ begin
   for l_Index := 0 to Pred(aLen) do
    Assert(PAnsiChar(aDest)[l_Index] = #0);
  {$EndIf l3TraceFill}
+ {$EndIf}
 end;
 
 {$IfDef _Range_}
@@ -6000,6 +6003,7 @@ begin
  theLast := GetTickCount;
 end;
 
+{$IfNDef DelphiX}
 procedure GetProcedureAddress(var P: Pointer; const ModuleName, ProcName: string);
 var
   ModuleHandle: HMODULE;
@@ -6029,6 +6033,7 @@ begin
         JMP     [_GetProcessHandleCount]
   end;
 end;
+{$EndIf DelphiX}
 
 procedure Tl3System.MemUsage2Log(Strict: Boolean = False; ReportClasses: Boolean = True;
  ReportResources: Boolean = False; const aMessage: String = ''; aMsgLevel: Byte = l3_msgAll);
